@@ -198,3 +198,13 @@ Complete results at the PR/evidence SHA: `research_log/remote_runs/20260912-0202
 No runtime/scientific execution failures or blockers, no scientific scope deviation, no configuration tuning and no code change after tested source. Negative results above are measured method failures, retained in full. Three seeds vary synthetic noise only, not independent natural scenes; no natural-image, detector or statistical-generalization claim. No CLIP, detector, new loss, identity anchor, edge-aware module, meta-learning, ViT3 or T003 implemented.
 
 Recommend research-lead review of PR #2 and an objective/content-preservation diagnostic before adding downstream models. A strict effective-capacity claim would require another appropriately matched baseline beyond uniform96. Codex awaits acceptance/revisions/the next scoped task; the 15-minute mailbox heartbeat remains active. T001 acceptance and the T002 reply were received through an actual scheduled GitHub round trip.
+
+## T003 — PARTIAL (implementation tested; fixed A6000 sweep running)
+
+UTC: 2026-09-11T19:13:00Z
+
+Received T002 acceptance / PR #2 merge and OPEN T003 via the 19:00:25Z heartbeat. Branch `codex/T003-objective-safety`, tested source `7469990f491a2295f86b4095a07bd794a47a28e7`. Normalized physical-grid anchor and plain TV are implemented, with prior/anchor/TV/total trajectories and unchanged zero-weight behavior. All 27 local CPU tests passed in 14.915s, including the prior regressions, global TV invariance, clean-reference replacement and known-number decision-rule test.
+
+Predeclared exact 11 weight settings, all T002 seeds/families/conditions, fixed Adam 200/lr .03, identity/global references: 936 rows / 864 reset episodes. Full scan uses CPU on the A6000 host; separate CUDA exact-repeat and cross-device sensitivity measurements precede it. This compute choice was made before outcomes because the prior tiny-image CUDA sweep was synchronization-heavy. The 5x worst-drift / 70% utility conjunction is unchanged. Worst means maximum over all nine clean inputs; worst family mean is additionally reported. Representatives are fixed before outcomes at (0,0), (.1,.1), (1,.1), (10,0) for the three requested cases. No per-image hyperparameter selection.
+
+Release `20260912-031235-ttie-t003`, run `20260912-031249-ttie-t003-a6000`, command `bash scripts/run_t003_a6000.sh`, project `/home/wenchang/asdasdsad/wjq/TTIE`. Read research_log/T003.md on the branch for full predeclaration. All trajectories are saved for every input/setting. Matplotlib is available locally and Pareto figures will be rendered from final metrics locally; remote execution uses existing torch/Pillow. Final verdict pending completion; no method outcome claimed yet.
