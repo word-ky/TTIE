@@ -97,16 +97,24 @@ def main():
     first = next(r for r in manifest['images'] if r['split']=='calibration')
     image = load_image(args.images/first['filename']).to(args.device).requires_grad_()
     score = scorer(image)
-    gradient, = torch.autograd.grad(score[:,0].mean(), image)
+    # PyTorch 2.4 has no deterministic CUDA antialiased-bicubic backward.
+    # Permit that operation for this calibration-only gradient check, measure
+    # repeat sensitivity, then restore strict mode for all held-out scoring.
+    torch.use_deterministic_algorithms(False)
+    gradient, = torch.autograd.grad(score[:,0].mean(), image, retain_graph=True)
+    repeat_gradient, = torch.autograd.grad(score[:,0].mean(), image)
+    torch.use_deterministic_algorithms(True)
     gradient_check = dict(frozen=all(not p.requires_grad for p in scorer.parameters()),
                           model_grads_absent=all(p.grad is None for p in scorer.parameters()),
                           input_gradient_finite=bool(torch.isfinite(gradient).all()),
                           input_gradient_norm=gradient.norm().item(),
+                          repeat_gradient_max_difference=(gradient-repeat_gradient).abs().max().item(),
+                          gradient_check_strict_determinism=False,
                           repeat_score_max_difference=(score.detach().cpu()-image_scores(scorer,image)).abs().max().item())
     assert gradient_check['frozen'] and gradient_check['model_grads_absent']
     assert gradient_check['input_gradient_finite'] and gradient_check['input_gradient_norm'] > 0
     (args.output/'real_clip_gradient_check.json').write_text(json.dumps(gradient_check, indent=2))
-    del gradient, score, image
+    del gradient, repeat_gradient, score, image
     for entry in manifest['images']:
         if entry['split'] != 'evaluation':
             continue
