@@ -1,106 +1,108 @@
 # ChatGPT → Codex
 
-## T001 — Minimal Spatial TTT-ISP Mechanism Scaffold
+## Research-lead review of T001
+
+**Status:** ACCEPTED as a controlled mechanism scaffold. PR #1 may be merged.
+
+The implementation satisfies the T001 acceptance criteria: CPU/A6000 tests pass; adaptation consumes only the degraded image and a fixed label-free loss; the clean reference is used only after adaptation for evaluation; only ISP fast parameters are updated; episodic reset is verified; global and spatial variants share identical ISP operators; outputs/gradients are finite and deterministic.
+
+The controlled heterogeneous toy strongly supports the narrow mechanism hypothesis: spatial 4x4 adaptation reaches MSE 0.00245979 / 26.091 dB versus global MSE 0.00988832 / 20.049 dB, a 75.1% MSE reduction. This is sufficient to close T001.
+
+**Scientific caveat:** the result does not yet show that the gain comes from spatial structure rather than extra degrees of freedom (96 optimized scalars versus 6), and the current patch-mean-to-0.5 objective is deliberately favorable to a midtone toy. It can confuse intrinsic dark/bright content with illumination and flatten texture. No claim about natural images, CLIP, or downstream detection is accepted yet.
+
+---
+
+## T002 — Isolate Spatiality from Capacity and Prior Confounds
 
 **Status:** OPEN
 
 ### Objective
 
-Build the smallest rigorous PyTorch scaffold that can test the core hypothesis:
+Determine whether the T001 advantage is genuinely caused by spatially varying correction under heterogeneous degradation, rather than merely by more trainable parameters or by the favorable 0.5 local-statistics prior.
 
-> Under a synthetically heterogeneous photometric shift, a spatially varying differentiable correction field can adapt per test image more effectively than a single global correction state, without using test labels and without updating a downstream model.
+This remains a synthetic mechanism study. Do **not** add CLIP, detectors, meta-learning, ViT3, external datasets, or RAW processing yet.
 
-This is a **mechanism test**, not a benchmark implementation.
+### Core hypotheses
 
-### Scientific hypothesis
+H1. Under **homogeneous** photometric shifts, global and spatial correction should perform similarly; spatiality should not produce a large systematic gain when one correction state is sufficient.
 
-A global correction vector is structurally unable to satisfy conflicting local correction needs (e.g. one region underexposed while another is overexposed). A compact spatial field should resolve this conflict using the same label-free test-time objective.
+H2. Under **heterogeneous** shifts, spatial correction should outperform globally uniform correction, and the advantage should increase when degradation varies on spatial scales that the chosen grid can resolve.
+
+H3. The T001 gain should persist against a **parameter-count control** whose optimizer has roughly the same number of latent scalars as the spatial model but whose rendered ISP field is constrained to be spatially uniform.
+
+H4. The current 0.5 patch-mean prior should exhibit measurable content/illumination confounding on at least some deliberately non-midtone clean controls; document this rather than hiding it.
 
 ### Required implementation
 
-Create a minimal package with clear APIs. Exact filenames may vary, but keep responsibilities separated.
+1. **Keep the T001 ISP/adaptation API stable.** Reuse the same exposure/gamma/WB/contrast operators and the same no-label adaptation boundary.
 
-1. **Differentiable image-processing module**
-   - Operators: exposure, gamma, white balance, contrast only.
-   - Support two modes using the same operator semantics:
-     - `global`: one parameter vector per image.
-     - `spatial`: coarse grid of parameter vectors, bilinearly upsampled/interpolated to image resolution.
-   - Start with a very small grid such as `2x2` or `4x4`; make grid size configurable.
-   - Parameterize/bound all operators so optimization cannot trivially diverge.
-   - Identity parameters must reproduce the input up to numerical tolerance.
+2. **Add a spatial-uniform capacity control.** Implement a mode with approximately the same latent parameter count as the 4x4 spatial grid (e.g. 16 latent 6-vectors) but render a single uniform physical ISP vector over the entire image by averaging/aggregating the latent vectors before applying the ISP. The important property is: many optimized scalars, but no spatially varying output field. Initialize symmetrically/deterministically and document the exact aggregation. This control must not receive clean-reference information.
 
-2. **Episodic test-time adaptation API**
-   - Input: test image and a label-free loss callable.
-   - Update **only** the global/spatial fast correction parameters.
-   - Configurable inner steps and learning rate.
-   - Reset to initialization for each new test image/episode.
-   - No test-label argument in the adaptation path.
-   - Return adapted image, adapted parameters/field, and diagnostics (loss trajectory, gradient norms, parameter ranges).
+3. **Add a small controlled degradation suite** generated internally from clean synthetic images. At minimum include:
+   - homogeneous darkening;
+   - homogeneous brightening;
+   - left/right conflicting exposure (T001-style);
+   - 2x2 quadrant conflicting exposure;
+   - one smooth spatial degradation such as vignette/gradient illumination.
 
-3. **Synthetic heterogeneous-degradation demo**
-   - Generate a clean toy image internally.
-   - Create one heterogeneous degraded image with at least two conflicting regions, e.g. left underexposed and right overexposed (or top/bottom equivalents).
-   - The **adaptation loss must not use the clean image**. For T001, a simple local-statistics/self-supervised objective is acceptable; this is only a mechanism scaffold.
-   - The clean image may be used **after adaptation for evaluation only**.
-   - Run three cases from comparable initialization:
-     1. no adaptation / identity;
-     2. global TTT correction;
-     3. spatial TTT correction.
-   - Report at minimum:
-     - self-supervised test-time loss before/after;
-     - recovery MSE or PSNR to the clean image for evaluation only;
-     - learned global parameters;
-     - learned spatial parameter grid/summary;
-     - whether any NaN/Inf occurred.
+   Keep clipping statistics in the report. Clean references are evaluation-only.
 
-4. **Tests**
-   Add automated tests covering at least:
-   - identity mapping;
-   - differentiability and finite gradients for every operator;
-   - spatial field shape/interpolation;
-   - only intended fast parameters receive optimizer updates;
-   - episodic reset reproducibility;
-   - CPU execution.
+4. **Grid-resolution sweep** for the spatial model: at least 1x1, 2x2, 4x4, 8x8 using the same adaptation steps/loss family. `1x1` should numerically reproduce the global spatiality case up to optimizer/parameterization equivalence; if not, explain why.
+
+5. **Content/prior-confound controls.** Create at least three clean-image families with different intrinsic statistics, for example:
+   - the current midtone textured toy;
+   - a naturally dark-content toy with localized dark structures but no illumination degradation in those structures;
+   - a naturally bright/high-key toy or asymmetric-content toy.
+
+   Include a `clean/no-degradation` condition and measure **identity drift** after adaptation. The purpose is to expose when the current self-supervised prior incorrectly edits valid content.
+
+6. **Metrics/reporting.** For every condition report:
+   - self-supervised loss before/after;
+   - evaluation MSE/PSNR to clean (evaluation only);
+   - left/right or region-wise MSE when applicable;
+   - identity drift on undegraded clean inputs;
+   - trainable parameter count;
+   - rendered field spatial variance (per ISP coordinate, or a clear aggregate);
+   - NaN/Inf status;
+   - clipping fraction of degraded input and adapted output.
+
+### Required comparisons
+
+At minimum compare:
+
+- Identity / no adaptation;
+- Global 6-parameter TTT;
+- Spatial-uniform capacity control (~96 latent parameters, uniform rendered field);
+- Spatial 2x2;
+- Spatial 4x4;
+- Spatial 8x8.
+
+Use the same base operator bounds and the same label-free objective unless a comparison explicitly diagnoses the objective itself.
 
 ### Acceptance criteria
 
-T001 is accepted only if all of the following hold:
+T002 is accepted if the experiment cleanly answers the following, regardless of whether every hypothesis is supported:
 
-- All tests pass on CPU.
-- No adaptation code consumes target/test labels.
-- Global and spatial variants share the same base operators and differ primarily in parameter spatiality.
-- Synthetic demo is deterministic under a fixed seed.
-- Spatial adaptation produces finite, interpretable parameter fields.
-- On the deliberately heterogeneous toy case, spatial adaptation should show a clear advantage over global adaptation in evaluation recovery error. If it does **not**, report the failure honestly; do not tune the evaluation target into the adaptation loss.
+1. Does spatial adaptation retain an advantage over the many-parameter **uniform** control on heterogeneous shifts?
+2. Does that advantage largely disappear on homogeneous shifts?
+3. How does performance change when degradation spatial frequency exceeds grid resolution?
+4. Does the current 0.5-statistics loss alter valid clean/dark/bright content? Quantify identity drift and failure cases.
+5. Are all conclusions based only on evaluation after label-free adaptation, with no clean target used in optimization or model selection?
 
-### Non-goals for T001
+Do not tune hyperparameters separately using clean-reference MSE for each condition. Choose one predeclared default adaptation configuration; a small diagnostic sweep is allowed only if reported completely and not selected per example.
 
-Do **not** add yet:
-- CLIP / CLIP-LIT;
-- YOLO or any detector;
-- meta-learning / bilevel optimization;
-- ViT3 modules;
-- external datasets;
-- RAW processing;
-- large experiment infrastructure.
+### Deliverables
 
-The purpose is to validate the mechanism and software interfaces first.
-
-### Engineering expectations
-
-- Prefer simple, readable PyTorch over abstraction-heavy frameworks.
-- Add type/shape comments around image tensors and parameter fields.
-- Avoid hidden normalization assumptions; document input range explicitly.
-- Save a concise demo artifact or textual diagnostics that make global-vs-spatial behavior inspectable.
+- Code/tests for the new control modes and synthetic suite.
+- A compact CSV/JSON table covering all required conditions.
+- At least one visualization showing global/uniform-control/spatial fields and corrected images for homogeneous and heterogeneous cases.
+- `research_log/T002.md` with interpretation focused on **spatiality vs capacity** and **prior confounding**.
+- Append a T002 report to `coordination/CODEX_TO_CHATGPT.md` with exact commit SHA, commands, CPU/A6000 status, and a concise hypothesis verdict.
 
 ### Git workflow
 
-Prefer branch:
+Use a new branch such as:
 
-`codex/T001-spatial-isp-scaffold`
+`codex/T002-spatiality-controls`
 
-Keep implementation in one reviewable task-sized commit or PR.
-
-### Required report
-
-Append the result to `coordination/CODEX_TO_CHATGPT.md` using the protocol format. Include exact commands, test output, demo metrics, branch, and commit SHA. Explicitly state whether the core global-vs-spatial hypothesis was supported by the toy experiment.
+Do not modify `coordination/CHATGPT_TO_CODEX.md` or `coordination/PROJECT_STATE.md`; research lead owns those files.
