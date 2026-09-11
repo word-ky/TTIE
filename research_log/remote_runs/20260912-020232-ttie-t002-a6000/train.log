@@ -1,0 +1,116 @@
+[autodl] run_id=20260912-020232-ttie-t002-a6000
+[autodl] started_at=2026-09-12T02:02:36+08:00
+3.12.12 | packaged by conda-forge | (main, Jan 26 2026, 23:51:32) [GCC 14.3.0]
+torch 2.4.0+cu121 CUDA 12.1 Pillow 12.3.0
+NVIDIA RTX A6000
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+test_clean_families_and_determinism (test_suite.SuiteTests.test_clean_families_and_determinism) ... ok
+test_degradation_masks_and_t001_equivalence (test_suite.SuiteTests.test_degradation_masks_and_t001_equivalence) ... ok
+test_evaluation_only_reference_and_exports (test_suite.SuiteTests.test_evaluation_only_reference_and_exports) ... ok
+test_identity_drift_clean_condition (test_suite.SuiteTests.test_identity_drift_clean_condition) ... ok
+test_count_aggregation_and_uniform_field (test_uniform.UniformTests.test_count_aggregation_and_uniform_field) ... ok
+test_spatial_one_matches_global_exactly (test_uniform.UniformTests.test_spatial_one_matches_global_exactly) ... ok
+test_symmetric_control_stays_near_global_and_resets (test_uniform.UniformTests.test_symmetric_control_stays_near_global_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.152s
+
+OK
+T001 frozen numeric regression passed (MSE absolute tolerance 1e-9).
+All seven variants: CPU/CUDA parity atol=1e-5 rtol=1e-4; CUDA repeat exact.
+finished seed=7 family=midtone condition=clean rows=7
+finished seed=7 family=midtone condition=homogeneous_dark rows=14
+finished seed=7 family=midtone condition=homogeneous_bright rows=21
+finished seed=7 family=midtone condition=left_right rows=28
+finished seed=7 family=midtone condition=quadrants rows=35
+finished seed=7 family=midtone condition=smooth_gradient rows=42
+finished seed=7 family=midtone condition=stripes_4 rows=49
+finished seed=7 family=midtone condition=stripes_12 rows=56
+finished seed=7 family=dark_structures condition=clean rows=63
+finished seed=7 family=dark_structures condition=homogeneous_dark rows=70
+finished seed=7 family=dark_structures condition=homogeneous_bright rows=77
+finished seed=7 family=dark_structures condition=left_right rows=84
+finished seed=7 family=dark_structures condition=quadrants rows=91
+finished seed=7 family=dark_structures condition=smooth_gradient rows=98
+finished seed=7 family=dark_structures condition=stripes_4 rows=105
+finished seed=7 family=dark_structures condition=stripes_12 rows=112
+finished seed=7 family=high_key condition=clean rows=119
+finished seed=7 family=high_key condition=homogeneous_dark rows=126
+finished seed=7 family=high_key condition=homogeneous_bright rows=133
+finished seed=7 family=high_key condition=left_right rows=140
+finished seed=7 family=high_key condition=quadrants rows=147
+finished seed=7 family=high_key condition=smooth_gradient rows=154
+finished seed=7 family=high_key condition=stripes_4 rows=161
+finished seed=7 family=high_key condition=stripes_12 rows=168
+finished seed=11 family=midtone condition=clean rows=175
+finished seed=11 family=midtone condition=homogeneous_dark rows=182
+finished seed=11 family=midtone condition=homogeneous_bright rows=189
+finished seed=11 family=midtone condition=left_right rows=196
+finished seed=11 family=midtone condition=quadrants rows=203
+finished seed=11 family=midtone condition=smooth_gradient rows=210
+finished seed=11 family=midtone condition=stripes_4 rows=217
+finished seed=11 family=midtone condition=stripes_12 rows=224
+finished seed=11 family=dark_structures condition=clean rows=231
+finished seed=11 family=dark_structures condition=homogeneous_dark rows=238
+finished seed=11 family=dark_structures condition=homogeneous_bright rows=245
+finished seed=11 family=dark_structures condition=left_right rows=252
+finished seed=11 family=dark_structures condition=quadrants rows=259
+finished seed=11 family=dark_structures condition=smooth_gradient rows=266
+finished seed=11 family=dark_structures condition=stripes_4 rows=273
+finished seed=11 family=dark_structures condition=stripes_12 rows=280
+finished seed=11 family=high_key condition=clean rows=287
+finished seed=11 family=high_key condition=homogeneous_dark rows=294
+finished seed=11 family=high_key condition=homogeneous_bright rows=301
+finished seed=11 family=high_key condition=left_right rows=308
+finished seed=11 family=high_key condition=quadrants rows=315
+finished seed=11 family=high_key condition=smooth_gradient rows=322
+finished seed=11 family=high_key condition=stripes_4 rows=329
+finished seed=11 family=high_key condition=stripes_12 rows=336
+finished seed=23 family=midtone condition=clean rows=343
+finished seed=23 family=midtone condition=homogeneous_dark rows=350
+finished seed=23 family=midtone condition=homogeneous_bright rows=357
+finished seed=23 family=midtone condition=left_right rows=364
+finished seed=23 family=midtone condition=quadrants rows=371
+finished seed=23 family=midtone condition=smooth_gradient rows=378
+finished seed=23 family=midtone condition=stripes_4 rows=385
+finished seed=23 family=midtone condition=stripes_12 rows=392
+finished seed=23 family=dark_structures condition=clean rows=399
+finished seed=23 family=dark_structures condition=homogeneous_dark rows=406
+finished seed=23 family=dark_structures condition=homogeneous_bright rows=413
+finished seed=23 family=dark_structures condition=left_right rows=420
+finished seed=23 family=dark_structures condition=quadrants rows=427
+finished seed=23 family=dark_structures condition=smooth_gradient rows=434
+finished seed=23 family=dark_structures condition=stripes_4 rows=441
+finished seed=23 family=dark_structures condition=stripes_12 rows=448
+finished seed=23 family=high_key condition=clean rows=455
+finished seed=23 family=high_key condition=homogeneous_dark rows=462
+finished seed=23 family=high_key condition=homogeneous_bright rows=469
+finished seed=23 family=high_key condition=left_right rows=476
+finished seed=23 family=high_key condition=quadrants rows=483
+finished seed=23 family=high_key condition=smooth_gradient rows=490
+finished seed=23 family=high_key condition=stripes_4 rows=497
+finished seed=23 family=high_key condition=stripes_12 rows=504
+{
+  "rows": 504,
+  "all_finite": true,
+  "max_uniform_vs_global_mse_abs_difference": 9.845825843513012e-06,
+  "max_spatial1_vs_global_mse_abs_difference": 0.0,
+  "max_uniform_field_variance": 0.0,
+  "loss_increase_rows": 0
+}
+[autodl] finished_at=2026-09-12T02:23:14+08:00
+[autodl] exit_code=0
