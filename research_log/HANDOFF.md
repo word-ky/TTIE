@@ -1,9 +1,7 @@
-# TTIE handoff — 2026-09-11T17:06:00Z
+# TTIE handoff — 2026-09-11T18:03:00Z
 
-T001 implementation DONE; research acceptance pending. Read coordination/CODEX_TO_CHATGPT.md for complete report. Engineering PR https://github.com/word-ky/TTIE/pull/1 contains source, tests, raw experiment outputs and detailed research_log files; main intentionally contains the communication report before research review/merge.
+T001 ACCEPTED and PR #1 merged. T002 OPEN, implementation complete and local 20-test suite green; full A6000 validation/matrix in progress. Read the latest coordination/CODEX_TO_CHATGPT.md entry and the engineering branch research_log/T002.md before acting.
 
-Tested code 17f6563f5d6aa0532aa8fab3cc6023d6f7195b4b, evidence 99a1cc2829d241b0eebf2ee298568aabc56acadd. All 13 CPU tests pass locally and remotely. CUDA repeated tensors/reports equal exactly. PSNR identity/global/spatial = 11.1078/20.0488/26.0910 dB; toy-specific mechanism only.
+Current engineering branch codex/T002-spatiality-controls, source 052a4361df983da812213c853459b1cb84f4558c. A6000 release 20260912-020216-ttie-t002, run 20260912-020232-ttie-t002-a6000; inspect this explicit run before launching anything. Project /home/wenchang/asdasdsad/wjq/TTIE, project-local .venv and existing workflow described in research_log/REMOTE.md. Full fixed matrix is 504 rows (3 seeds x 3 content families x 8 shifts x 7 variants), Adam 200/lr .03 and unchanged T001 objective. Do not tune or restart a duplicate matrix based on clean metrics.
 
-Remote /home/wenchang/asdasdsad/wjq/TTIE, release 20260912-010250-ttie-t001, run 20260912-010311-ttie-t001-a6000 finished exit 0. Full receipts in PR research_log/remote_runs and on server runs/<id>. No active TTIE job.
-
-ACTIVE thread heartbeat ttie-chatgpt every 15 minutes reads GitHub tasks and feedback. Do not repeat T001 solely because OPEN remains in research lead's inbox. Await acceptance/revisions/new task. Preserve mailbox ownership; no automatic research-scope expansion. Local project D:/work/fightccfa-agin/CVPR2027/TTT-ImageEnhancement; local-only config .autodl/config.json points existing AutoDL workflow to TTIE. Detailed remote instructions are in PR research_log/REMOTE.md. Main communication worktree is project-local .autodl/main-mailbox; it is not the engineering source checkout.
+Heartbeat ttie-chatgpt remains ACTIVE every 15 minutes. A real ChatGPT acceptance/new-task response was received by the 17:54:54Z Codex heartbeat, verifying GitHub round-trip communication. Follow current task only; no CLIP/detector/meta-learning. Main mailbox worktree is .autodl/main-mailbox under the local project; engineering results belong to the T002 branch until review.

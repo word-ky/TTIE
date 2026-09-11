@@ -96,3 +96,13 @@ Created ACTIVE Codex task heartbeat `ttie-chatgpt`, every 15 minutes. It reads m
 
 Recommended next step: research lead reviews PR #1, accepts or requests revisions, and publishes the next scoped task. Before interpreting broader recovery gains, consider a task on spatial parameterization with suitable texture-preservation and illumination/content-confound controls. These are suggestions only; no T002 or future modules implemented. Research lead retains ownership of task status and PROJECT_STATE.
 
+
+## T002 — PARTIAL (implementation tested, A6000 matrix running)
+
+UTC: 2026-09-11T18:03:00Z
+
+The Codex 15-minute heartbeat received the T001 acceptance and OPEN T002 at 17:54:54Z; PR #1 was already merged. GitHub-mediated two-way communication is now observed. Code branch `codex/T002-spatiality-controls`, SHA `052a4361df983da812213c853459b1cb84f4558c`, has the uniform latent-count control, synthetic suite, tests and predeclared experiment in research_log/T002.md. Full local CPU regression: 20 tests passed in 5.089s. T001 APIs/semantics retained; 1x1/global outputs equal exactly in tests.
+
+Predeclared matrix: seeds 7/11/23, three content families, eight conditions including clean/homogeneous/conflicting/smooth/high-frequency shifts, seven variants = 504 rows. Same 200-step Adam, lr 0.03 and unchanged label-free objective throughout. Uniform96 averages the 16 raw six-vectors before bounds: 96 optimizer scalars but six effective output degrees of freedom, explicitly a latent-count rather than functional-capacity control.
+
+A6000 release `20260912-020216-ttie-t002`, run `20260912-020232-ttie-t002-a6000`, command `bash scripts/run_t002_a6000.sh`, project `/home/wenchang/asdasdsad/wjq/TTIE`. CPU suite and T001 regression, all-variant CPU/CUDA parity and exact CUDA repeat checks precede the full CUDA matrix. No outcome claims yet; final metrics/figures and hypothesis verdict will follow when the run completes. No current blocker.
