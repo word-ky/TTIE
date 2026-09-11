@@ -19,14 +19,20 @@ def physical_parameters(raw: Tensor) -> Tensor:
 class ISP(nn.Module):
     def __init__(self, mode: str = "global", grid_size: tuple[int, int] = (4, 4)):
         super().__init__()
-        if mode not in ("global", "spatial"):
-            raise ValueError("mode must be global or spatial")
+        if mode not in ("global", "spatial", "uniform_control"):
+            raise ValueError("mode must be global, spatial or uniform_control")
+        self.mode = mode
         size = (1, 1) if mode == "global" else grid_size
         self.raw = nn.Parameter(torch.zeros(1, 6, *size))
 
+    def physical_grid(self) -> Tensor:
+        """Uniform control averages raw latent vectors before applying bounds."""
+        raw = self.raw.mean(dim=(-2, -1), keepdim=True) if self.mode == "uniform_control" else self.raw
+        return physical_parameters(raw)
+
     def parameter_field(self, size: tuple[int, int]) -> Tensor:
         """Bilinearly interpolate bounded physical grid values to [1,6,H,W]."""
-        return F.interpolate(physical_parameters(self.raw), size=size, mode="bilinear", align_corners=False)
+        return F.interpolate(self.physical_grid(), size=size, mode="bilinear", align_corners=False)
 
     def forward(self, image: Tensor) -> Tensor:
         field = self.parameter_field(image.shape[-2:])

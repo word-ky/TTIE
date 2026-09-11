@@ -53,3 +53,18 @@ The demo saves `metrics.json` (full diagnostics and parameter grids), `tensors.p
 This is one deliberately controlled mechanism experiment. The statistical prior suits this synthetic image and can flatten real texture, remove genuine color, or brighten genuinely dark objects. Gamma/exposure/WB/contrast can compensate for each other, so individual learned operator values do not uniquely identify the degradation. Bilinear fields cannot exactly reproduce the abrupt exposure boundary. No natural-image, detector, benchmark, or general research-hypothesis validation is claimed.
 
 Remote setup, run IDs and recovery instructions are recorded in `research_log/REMOTE.md`; test receipts and experiment artifacts remain under `research_log/`.
+
+## T002 controls
+
+```bash
+python -m ttie.suite --device cpu --output research_log/artifacts/T002_cpu
+python -m ttie.summarize research_log/artifacts/T002_cpu
+```
+
+The full fixed suite uses seeds 7/11/23, three intrinsic content families, eight illumination conditions and seven variants, for 504 rows. Configuration is predeclared in `research_log/T002.md`: the same 200-step Adam, lr 0.03, bounds and label-free patch prior apply everywhere. `--device cuda:0` runs on GPU; `--seeds`, `--steps` and `--lr` are explicit diagnostic overrides, not condition-dependent selectors.
+
+`ISP("uniform_control", (4,4))` and `adapt(..., mode="uniform_control")` optimize 16 raw six-vectors initialized identically at zero. Their arithmetic mean is taken before the bounded physical mapping and then rendered uniformly over the image. Returned `raw_parameters` has 96 coordinates; `parameter_grid` is the single rendered physical vector. The global/spatial APIs and defaults are unchanged. The uniform control has 96 optimization scalars but only six effective output degrees of freedom; symmetric latents remain equal. Adam epsilon permits small numerical differences from the six-scalar global baseline. This comparison isolates raw parameter count, not arbitrary model expressivity.
+
+The suite writes compact `metrics.csv` / `metrics.json`, config.json, seed-7 representative tensors and full adaptation diagnostics, fixed-scale output/EV-field panels, and seed-mean summary.json/summary.md. Every row includes self-supervised losses, clean-reference recovery, region errors, clipping, input-output drift, physical field variances and parameter count. `identity_drift_mse` is populated only for the undegraded clean condition; exact-zero MSE has infinite PSNR represented as JSON null / CSV blank. Evaluation is performed after every variant has completed adaptation for that input. Input-only `adapt_variants` receives no clean reference, masks, family identifier or degradation parameters.
+
+Three seeds vary toy noise only. High-frequency stripes can exceed both the field grid's resolution and the fixed 8x8 loss's spatial resolution. Interpret those effects together; the suite does not separate them causally and does not claim real-image generalization.

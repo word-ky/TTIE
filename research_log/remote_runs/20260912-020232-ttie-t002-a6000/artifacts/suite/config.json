@@ -1,0 +1,67 @@
+{
+  "seeds": [
+    7,
+    11,
+    23
+  ],
+  "steps": 200,
+  "lr": 0.03,
+  "device": "cuda:0",
+  "families": [
+    "midtone",
+    "dark_structures",
+    "high_key"
+  ],
+  "conditions": [
+    "clean",
+    "homogeneous_dark",
+    "homogeneous_bright",
+    "left_right",
+    "quadrants",
+    "smooth_gradient",
+    "stripes_4",
+    "stripes_12"
+  ],
+  "variants": [
+    [
+      "identity",
+      null,
+      1
+    ],
+    [
+      "global",
+      "global",
+      1
+    ],
+    [
+      "uniform96",
+      "uniform_control",
+      4
+    ],
+    [
+      "spatial1",
+      "spatial",
+      1
+    ],
+    [
+      "spatial2",
+      "spatial",
+      2
+    ],
+    [
+      "spatial4",
+      "spatial",
+      4
+    ],
+    [
+      "spatial8",
+      "spatial",
+      8
+    ]
+  ],
+  "loss": "unchanged T001 mean((avg_pool2d(output,8)-0.5)^2)",
+  "python": "3.12.12",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "gpu": "NVIDIA RTX A6000"
+}
