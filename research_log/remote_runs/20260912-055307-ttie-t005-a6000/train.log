@@ -1,0 +1,231 @@
+[autodl] run_id=20260912-055307-ttie-t005-a6000
+[autodl] started_at=2026-09-12T05:54:10+08:00
+3.12.12 | packaged by conda-forge | (main, Jan 26 2026, 23:51:32) [GCC 14.3.0]
+torch 2.4.0
+torchvision 0.19.0
+open_clip_torch 2.26.1
+timm 1.0.29
+Pillow 12.3.0
+CUDA 12.1 NVIDIA RTX A6000
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_auc_ties_and_literal_conjunction (test_clip_signal.ClipSignalTests.test_auc_ties_and_literal_conjunction) ... ok
+test_calibration_ignores_heldout_values_and_dirty_calibration (test_clip_signal.ClipSignalTests.test_calibration_ignores_heldout_values_and_dirty_calibration) ... ok
+test_detached_winner_threshold_and_zero_loss (test_clip_signal.ClipSignalTests.test_detached_winner_threshold_and_zero_loss) ... ok
+test_frozen_encoder_has_pixel_gradient (test_clip_signal.ClipSignalTests.test_frozen_encoder_has_pixel_gradient) ... ok
+test_scores_do_not_consume_evaluation_reference_or_labels (test_clip_signal.ClipSignalTests.test_scores_do_not_consume_evaluation_reference_or_labels) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+test_five_views_and_differentiable_geometry (test_natural.NaturalTests.test_five_views_and_differentiable_geometry) ... ok
+test_gain_conventions_match_previous_suite (test_natural.NaturalTests.test_gain_conventions_match_previous_suite) ... ok
+test_global_unaffected_by_tv_and_components_reconstruct_total (test_regularization.RegularizationTests.test_global_unaffected_by_tv_and_components_reconstruct_total) ... ok
+test_identity_normalization_anchor_and_bounds (test_regularization.RegularizationTests.test_identity_normalization_anchor_and_bounds) ... ok
+test_tv_constant_varying_and_analytic_value (test_regularization.RegularizationTests.test_tv_constant_varying_and_analytic_value) ... ok
+test_zero_weight_t001_fixed_numeric_regression (test_regularization.RegularizationTests.test_zero_weight_t001_fixed_numeric_regression) ... ok
+test_exact_probe_sign_magnitude_and_response (test_relative_clip.RelativeTests.test_exact_probe_sign_magnitude_and_response) ... ok
+test_fresh_manifest_and_calibration_excludes_other_rows (test_relative_clip.RelativeTests.test_fresh_manifest_and_calibration_excludes_other_rows) ... ok
+test_literal_gate_uses_correct_type_tpr_and_precision (test_relative_clip.RelativeTests.test_literal_gate_uses_correct_type_tpr_and_precision) ... ok
+test_metadata_does_not_change_responses_gates_targets (test_relative_clip.RelativeTests.test_metadata_does_not_change_responses_gates_targets) ... ok
+test_all_fixed_settings_and_component_trajectories (test_safety_sweep.SafetySweepTests.test_all_fixed_settings_and_component_trajectories) ... ok
+test_clean_reference_replacement_never_changes_any_trajectory (test_safety_sweep.SafetySweepTests.test_clean_reference_replacement_never_changes_any_trajectory) ... ok
+test_predeclared_decision_rule_known_values (test_safety_sweep.SafetySweepTests.test_predeclared_decision_rule_known_values) ... ok
+test_clean_families_and_determinism (test_suite.SuiteTests.test_clean_families_and_determinism) ... ok
+test_degradation_masks_and_t001_equivalence (test_suite.SuiteTests.test_degradation_masks_and_t001_equivalence) ... ok
+test_evaluation_only_reference_and_exports (test_suite.SuiteTests.test_evaluation_only_reference_and_exports) ... ok
+test_identity_drift_clean_condition (test_suite.SuiteTests.test_identity_drift_clean_condition) ... ok
+test_count_aggregation_and_uniform_field (test_uniform.UniformTests.test_count_aggregation_and_uniform_field) ... ok
+test_spatial_one_matches_global_exactly (test_uniform.UniformTests.test_spatial_one_matches_global_exactly) ... ok
+test_symmetric_control_stays_near_global_and_resets (test_uniform.UniformTests.test_symmetric_control_stays_near_global_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 5.063s
+
+OK
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+Relative calibration frozen: {'tau': [0.011369550973176951, 0.005873285233974456], 'scale': [0.01, 0.01], 'image_ids': [60090, 61268, 63047, 63154, 65074, 65288, 70229, 71451, 73702, 75393], 'view_count': 50, 'percentile': 95, 'std_correction': 0, 'scale_floor': 0.01}
+Scored fresh held-out image 78404
+Scored fresh held-out image 78959
+Scored fresh held-out image 79565
+Scored fresh held-out image 82812
+Scored fresh held-out image 83172
+Scored fresh held-out image 86755
+Scored fresh held-out image 88218
+Scored fresh held-out image 89556
+Scored fresh held-out image 99054
+Scored fresh held-out image 101420
+Scored fresh held-out image 102331
+Scored fresh held-out image 102356
+Scored fresh held-out image 102805
+Scored fresh held-out image 105335
+Scored fresh held-out image 115946
+Scored fresh held-out image 116479
+Scored fresh held-out image 124798
+Scored fresh held-out image 125778
+Scored fresh held-out image 130386
+Scored fresh held-out image 132329
+{
+  "heldout_rows": 600,
+  "relative": {
+    "all": {
+      "clean_view_count": 100,
+      "clean_false_activation": 0.07,
+      "dark": {
+        "view_count": 100,
+        "tpr_any_activation": 0.1,
+        "tpr_correct_type": 0.1,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.5806,
+        "paired_increase": 0.56
+      },
+      "bright": {
+        "view_count": 100,
+        "tpr_any_activation": 0.11,
+        "tpr_correct_type": 0.05,
+        "correct_type_among_active": 0.45454545454545453,
+        "roc_auc": 0.2945,
+        "paired_increase": 0.29
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.7142857142857143
+    },
+    "full": {
+      "clean_view_count": 20,
+      "clean_false_activation": 0.05,
+      "dark": {
+        "view_count": 20,
+        "tpr_any_activation": 0.0,
+        "tpr_correct_type": 0.0,
+        "correct_type_among_active": null,
+        "roc_auc": 0.52,
+        "paired_increase": 0.4
+      },
+      "bright": {
+        "view_count": 20,
+        "tpr_any_activation": 0.1,
+        "tpr_correct_type": 0.1,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.4,
+        "paired_increase": 0.45
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 1.0
+    },
+    "quadrants": {
+      "clean_view_count": 80,
+      "clean_false_activation": 0.075,
+      "dark": {
+        "view_count": 80,
+        "tpr_any_activation": 0.125,
+        "tpr_correct_type": 0.125,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.59734375,
+        "paired_increase": 0.6
+      },
+      "bright": {
+        "view_count": 80,
+        "tpr_any_activation": 0.1125,
+        "tpr_correct_type": 0.0375,
+        "correct_type_among_active": 0.3333333333333333,
+        "roc_auc": 0.270625,
+        "paired_increase": 0.25
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.6842105263157895
+    }
+  },
+  "absolute": {
+    "all": {
+      "clean_view_count": 100,
+      "clean_false_activation": 0.08,
+      "dark": {
+        "view_count": 100,
+        "tpr_any_activation": 0.29,
+        "tpr_correct_type": 0.28,
+        "correct_type_among_active": 0.9655172413793104,
+        "roc_auc": 0.8339,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 100,
+        "tpr_any_activation": 0.09,
+        "tpr_correct_type": 0.07,
+        "correct_type_among_active": 0.7777777777777778,
+        "roc_auc": 0.604,
+        "paired_increase": 0.85
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.9210526315789473
+    },
+    "full": {
+      "clean_view_count": 20,
+      "clean_false_activation": 0.0,
+      "dark": {
+        "view_count": 20,
+        "tpr_any_activation": 0.2,
+        "tpr_correct_type": 0.15,
+        "correct_type_among_active": 0.75,
+        "roc_auc": 0.8375,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 20,
+        "tpr_any_activation": 0.15,
+        "tpr_correct_type": 0.15,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.6325,
+        "paired_increase": 0.9
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.8571428571428571
+    },
+    "quadrants": {
+      "clean_view_count": 80,
+      "clean_false_activation": 0.1,
+      "dark": {
+        "view_count": 80,
+        "tpr_any_activation": 0.3125,
+        "tpr_correct_type": 0.3125,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.83171875,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 80,
+        "tpr_any_activation": 0.075,
+        "tpr_correct_type": 0.05,
+        "correct_type_among_active": 0.6666666666666666,
+        "roc_auc": 0.6003125,
+        "paired_increase": 0.8375
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.9354838709677419
+    }
+  },
+  "criteria": {
+    "clean_fpr": true,
+    "dark_auc": false,
+    "bright_auc": false,
+    "dark_correct_tpr": false,
+    "bright_correct_tpr": false,
+    "active_type_precision": false
+  },
+  "stage_a_pass": false,
+  "failed_criteria": [
+    "dark_auc",
+    "bright_auc",
+    "dark_correct_tpr",
+    "bright_correct_tpr",
+    "active_type_precision"
+  ]
+}
+Stage B authorized by gate: False
+[autodl] finished_at=2026-09-12T05:54:29+08:00
+[autodl] exit_code=0
