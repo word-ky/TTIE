@@ -283,3 +283,67 @@ Received T003 acceptance/PR #3 merge and OPEN T004 through the 20:39:27Z heartbe
 Fixed preferred model ViT-B-32/laion2b_s34b_b79k, exact nine prompts/five crops, clean calibration95th percentile and population std floor .01, unchanged Stage-A gate. Data manifest committed before scoring: metadata-sorted first18 eligible COCO files from an existing200-image val2017 cache (not the first18 of all5000); first6 calibration, next12 evaluation. Original shorter side>=320; IDs, dimensions, URLs and SHA256 in research_log/T004_manifest.json. No annotations or other project results read. Selection pool provenance is limited and will be disclosed; no substitute dataset or score-based selection. Files copied into TTIE/shared/t004/images. RGB source preprocessing shorter side320, CLIP views shorter side224/center224, bicubic antialias with official mean/std.
 
 Installed open_clip_torch2.26.1 and torchvision0.19.0 in TTIE venv, preserving torch2.4.0+cu121. Concrete setup failure: A6000 direct Hugging Face access returns Errno101; Windows can access the exact same official605219813-byte checkpoint. Download locally then checksum/transfer to TTIE shared storage; model unchanged. research_log/T004.md records all predeclarations, commands and tests. No PR before final Stage-A verdict; Stage B will run only if the literal fixed gate passes, otherwise stop and report. No T005.
+
+## T004 — DONE (Stage-A gate failed; Stage B not authorized/run)
+
+UTC: 2026-09-11T20:59:00Z
+
+PR: https://github.com/word-ky/TTIE/pull/4
+Branch: codex/T004-clip-signal.
+Pre-score protocol/manifest commit:28c696407724bdc17631b6503a8eba4df81830b1.
+Checkpoint identity committed before scoring:1dcda3b31c782de76e339ff52f7a0702bd78b729.
+Successful tested source:ddcafb06c530f486c49ca3b779e9640d454172ee.
+Complete evidence:832e1cdd420cf501552c3089f49e96dc8f294662.
+
+**The literal Stage-A gate fails because bright-vs-clean ROC-AUC is0.598611<0.75. T004 stops here.** No evaluation adaptation, EV/Gamma mask implementation, reconstruction result, Stage-B panel, prompt/model/threshold tuning or T005 was run. This is a completed negative signal audit, not a blocked experiment.
+
+### Scope, provenance and implementation
+
+Used prescribed frozen OpenCLIP ViT-B-32/laion2b_s34b_b79k and all nine exact text prompts, normalized individual embeddings then average/renormalize each concept. Weights eval/frozen; all adaptation-relevant scoring APIs take only pixels and fixed calibration. New files ttie/natural.py, clip_signal.py and clip_audit.py provide natural-image geometry, fixed views, scores/calibration/gating and offline audit. Existing T001–T003 ISP/adapt implementations unchanged. Tests added in test_natural.py/test_clip_signal.py; remote entry scripts/run_t004_a6000.sh; dependencies requirements-clip.txt. A reusable exact inactive-zero semantic-loss primitive is tested, but no real Stage-B episode exists.
+
+Before any CLIP score, metadata-only18-image manifest committed at research_log/T004_manifest.json. COCO2017-val source was the existing200-JPEG image-only cache /home/liujianhua/wjq/TAISP/shared/coco200/val2017. Sorted available IDs, original minimum side>=320; first6 calibration, next12 held out. This is not the first18 of all5000 images; the initial200-image pool's selection provenance is incompletely known. No annotations or other project scores/results read. Source URLs/IDs/dimensions/SHA256 and excluded short image recorded; selected files copied into TTIE/shared/t004/images, no image data committed. Pilot sampling limitation is explicit.
+
+RGB float32 whole-image shorter-side320, aspect preserved, bicubic antialias/clamp. Six exact task exposure conditions reuse previous gain conventions. Five fixed full/quadrant views use differentiable shorter-side224/center224 with official normalization. Odd-size torchvision tensor geometry matches exactly. Metadata is attached only after scoring; masks/labels do not enter the scorer. All mixed-condition scores and per-view clipping are retained without assigning a single true type to mixed full-image views.
+
+Official checkpoint605219813bytes, SHA2561bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad. Identity in research_log/T004_model_identity.json. Remote Python3.12.12, torch2.4.0+cu121 unchanged; torchvision0.19.0/open_clip_torch2.26.1 installed only in TTIE venv. Frozen clean calibration constants (dark,bright): tau=(.026910689473152147,.029729080200195306), scale=(.032711278852056797,.02081351470293608), linear95th percentile/population std floor.01 on30views from six calibration IDs only. Persisted before held-out scoring; no constants refitted on evaluation.
+
+### Commands, tests and actual A6000 evidence
+
+Local: python -m unittest discover -s tests -v. Baseline27 passed in11.419s; natural2tests passed in1.623s; signal5tests passed in1.589s; full initial34 passed in12.949s; final34 passed in10.096s. Covers all27 old regressions plus gradient ownership, differentiable views/legacy gains, calibration exclusion of held-out and degraded calibration rows, detached winner/strict threshold, inactive zero objective, pixel-only score independence and tied-AUC/literal gate. Mock encoder tests are unit evidence only.
+
+Remote: bash scripts/run_t004_a6000.sh; runs full34tests (passed in5.282s), then python -m ttie.clip_audit --manifest research_log/T004_manifest.json --images /home/wenchang/asdasdsad/wjq/TTIE/shared/t004/images --model-identity /home/wenchang/asdasdsad/wjq/TTIE/shared/t004/model_identity.json --output <artifacts>/audit --device cuda:0. Release20260912-045534-ttie-t004, run20260912-045537-ttie-t004-a6000, exit0 at20:55:57Z. Full Stage A actually ran on RTX A6000 CUDA in float32. All390unique rows finite:30calibration +360held-out (12images x6conditions x5views). Held-out scoring executed once.
+
+Actual pretrained CLIP gradient check on one calibration image: every model parameter frozen/no accumulated gradients, finite nonzero input-pixel gradient norm .07762914150953293. Repeated CUDA gradient max difference3.4924596548080444e-10; gradient/no-grad forward-score difference7.450580596923828e-08. Do not claim exact bitwise repeats. All Stage-B-only adaptation/reference-replacement/identity/reset/mask tests remain unimplemented/unrun because the gate did not authorize that phase; no result for them is implied by34passing tests.
+
+### Fixed Stage-A results
+
+**Gate failed: bright-vs-clean AUC < 0.75. Stage B was not run.**
+
+| Views | Clean FPR | Dark AUC | Bright AUC | Dark paired increase | Bright paired increase |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| all | 13.333% | 0.836389 | 0.598611 | 100.000% | 90.000% |
+| full | 8.333% | 0.881944 | 0.604167 | 100.000% | 100.000% |
+| quadrants | 14.583% | 0.825955 | 0.600694 | 100.000% | 87.500% |
+
+| Views / condition | Any-activation TPR | Correct-type TPR | Correct type among active |
+| --- | ---: | ---: | ---: |
+| all / dark | 40.000% | 36.667% | 91.667% |
+| all / bright | 18.333% | 16.667% | 90.909% |
+| full / dark | 50.000% | 41.667% | 83.333% |
+| full / bright | 25.000% | 25.000% | 100.000% |
+| quadrants / dark | 37.500% | 35.417% | 94.444% |
+| quadrants / bright | 16.667% | 14.583% | 87.500% |
+
+Aggregate correct type among active homogeneous-degraded views: 32/35 = 91.429%. Clean false activations:8/60. The five gate criteria are evaluated on all views; subgroup breakdowns do not replace the aggregate gate.
+
+Paired brightness scores can increase while cross-image discrimination remains weak: bright paired increase is54/60 but AUC is0.598611. This is descriptive evidence of overlapping clean/degraded score distributions, not a causal isolation of content bias. Low thresholded recall is also retained, even though it is not part of the gate.
+
+Only12 held-out source images; crops and synthetic variants are correlated. The18-image metadata-selected subset comes from an existing200-image COCO cache of incompletely documented selection provenance. No claim of representative COCO performance, restoration quality, or spatial-vs-global TTT benefit follows from this audit. All390 scores, clipping values, frozen constants and failed-run receipt remain available.
+
+### Failures, deviations and next action
+
+Two concrete setup/runtime failures preserved. (1) A6000 direct Hugging Face access failed with Errno101/LocalEntryNotFoundError; Windows downloaded the same official weights and server SHA256 matched after transfer. No substitute model. (2) Original run20260912-045406-ttie-t004-a6000 on source1dcda3b exited1 before any held-out score because PyTorch2.4 lacks deterministic upsample_bicubic2d_aa_backward_out_cuda. Minimal source repair disables strict deterministic enforcement only for the two calibration backward checks, measures repeat sensitivity, then restores strict mode for all held-out forwards. Model/crops/prompts/calibration/gate unchanged. Failed receipt retained and frozen calibration is exactly equal between failed/successful runs. No numerical optimizer changes or hidden evaluation reruns.
+
+Read research_log/T004.md for complete predeclarations, selected-pool limitation and interpretation. Successful raw receipt: research_log/remote_runs/20260912-045537-ttie-t004-a6000/; artifacts/audit includes scores.csv/json, config with all prompts/model/manifest, calibration, real_clip_gradient_check.json, summary.json/md and audit_receipt.json. Failed run adjacent20260912-045406-ttie-t004-a6000 retained. Model and image assets remain TTIE/shared/t004, not Git. Recovery logs mirrored under remote project root research_log. No active TTIE job remains.
+
+Recommend research-lead review/acceptance of this negative Stage-A diagnostic and a separately scoped source-trained prompt investigation if desired. The fixed zero-shot bright-exposure signal did not meet the required threshold; no assertion that all frozen VLM signals fail, no restoration or spatial-vs-global semantic benefit established. No additional prompts, percentile/model changes or Stage B/T005 started. Heartbeat stays active15min and awaits actionable feedback/new scoped task; do not rerun T004 just because OPEN persists.
