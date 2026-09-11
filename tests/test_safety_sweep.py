@@ -40,13 +40,13 @@ class SafetySweepTests(unittest.TestCase):
 
     def test_predeclared_decision_rule_known_values(self):
         rows = []
-        for name in ["global"] + [setting[0] for setting in SETTINGS]:
+        for name, a, s in [("global", 0., 0.)] + list(SETTINGS):
             for family in ("midtone", "dark_structures", "high_key"):
-                rows.append(dict(seed=7, family=family, condition="clean", model=name, mse=.1,
+                rows.append(dict(seed=7, family=family, condition="clean", model=name, mse=.1, lambda_a=a, lambda_s=s,
                                  identity_drift_mse=.01 if name in ("a1_s0", "a10_s0") else .1))
             for condition in UTILITY_CONDITIONS:
                 mse = .3 if name == "global" else .14 if name == "a1_s0" else .2 if name == "a10_s0" else .1
-                rows.append(dict(seed=7, family="midtone", condition=condition, model=name, mse=mse))
+                rows.append(dict(seed=7, family="midtone", condition=condition, model=name, mse=mse, lambda_a=a, lambda_s=s))
         summary = diagnostic_points(rows)
         self.assertEqual(summary["qualifying_settings"], ["a1_s0"])
         self.assertAlmostEqual(summary["baseline_heterogeneous_improvement"], .2)

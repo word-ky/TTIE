@@ -5,14 +5,14 @@ import json
 from pathlib import Path
 from statistics import mean
 
-from .safety_sweep import SETTINGS
-from .suite import FAMILIES
-
-
 UTILITY_CONDITIONS = ("left_right", "quadrants", "smooth_gradient")
 
 
 def diagnostic_points(rows):
+    # Read sweep metadata from completed rows, avoiding a PyTorch import in the
+    # matplotlib-only report process (separate OpenMP runtimes on Windows).
+    settings = {r["model"]: (r["lambda_a"], r["lambda_s"]) for r in rows if r["model"] not in ("identity", "global")}
+    families = tuple(dict.fromkeys(r["family"] for r in rows if r["condition"] == "clean"))
     index = {(r["seed"], r["family"], r["condition"], r["model"]): r for r in rows}
     global_utility = [r for r in rows if r["model"] == "global" and r["family"] == "midtone" and r["condition"] in UTILITY_CONDITIONS]
     def improvement(name):
@@ -20,9 +20,9 @@ def diagnostic_points(rows):
     baseline_improvement = improvement("a0_s0")
     baseline_worst = max(r["identity_drift_mse"] for r in rows if r["model"] == "a0_s0" and r["condition"] == "clean")
     points = []
-    for name, a, s in SETTINGS:
+    for name, (a, s) in settings.items():
         clean = [r for r in rows if r["model"] == name and r["condition"] == "clean"]
-        family_means = {family: mean(r["identity_drift_mse"] for r in clean if r["family"] == family) for family in FAMILIES}
+        family_means = {family: mean(r["identity_drift_mse"] for r in clean if r["family"] == family) for family in families}
         worst = max(r["identity_drift_mse"] for r in clean)
         gain = improvement(name)
         point = {"model": name, "lambda_a": a, "lambda_s": s,
@@ -79,7 +79,7 @@ def plot_pareto(output: Path):
         axis.axhline(0, color="#bbbbbb", lw=.8)
         if key == "clean_worst_drift":
             axis.axvline(summary["safety_max_drift"], color="#555555", ls=":", lw=1, label="5x drift reduction")
-            axis.legend(fontsize=8, loc="lower left")
+            axis.legend(fontsize=8, loc="upper left")
         axis.set_title(title)
         axis.set_xlabel("MSE to unchanged input (log scale; lower is better)", fontsize=9)
         axis.set_ylabel("Heterogeneous utility retained (%)")
