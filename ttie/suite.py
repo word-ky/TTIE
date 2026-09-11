@@ -70,13 +70,13 @@ def clipping_fraction(image: Tensor) -> float:
 
 
 def evaluate_case(clean: Tensor, degraded: Tensor, adapted: dict, *, family: str,
-                  condition: str, seed: int) -> tuple[list[dict], dict]:
+                  condition: str, seed: int, variants: tuple = VARIANTS) -> tuple[list[dict], dict]:
     """Evaluate completed adaptation; this function cannot update any parameters."""
     clean, degraded = clean.cpu(), degraded.cpu()
     rows = []
     pack = {"clean": clean, "identity": degraded}
     initial_loss = local_statistics_loss(degraded).item()
-    for name, mode, _ in VARIANTS:
+    for name, mode, _ in variants:
         result = adapted.get(name)
         output = degraded if result is None else result.image.cpu()
         field = ISP().parameter_field(clean.shape[-2:]).detach() if result is None else result.parameter_field.cpu()
@@ -125,15 +125,16 @@ def save_rows(rows: list[dict], output: Path):
     (output / "metrics.json").write_text(json.dumps(rows, separators=(",", ":"), allow_nan=False) + "\n", encoding="utf-8")
 
 
-def save_panel(packs: list[tuple[str, dict]], destination: Path):
+def save_panel(packs: list[tuple[str, dict]], destination: Path, *,
+               columns: tuple = ("clean", "identity", "global", "uniform96", "spatial4", "spatial8"),
+               title: str = "T002: output RGB [0,1]; lower row = exposure EV (blue -2, white 0, red +2)"):
     """Corrected images and exposure fields use fixed, shared display scales."""
-    columns = ("clean", "identity", "global", "uniform96", "spatial4", "spatial8")
     cell_w, cell_h, label_w = 192, 128, 185
     row_h, title_h = 276, 64
     canvas = Image.new("RGB", (label_w + cell_w * len(columns), title_h + row_h * len(packs)), "white")
     draw = ImageDraw.Draw(canvas)
     font = ImageFont.load_default(size=15)
-    draw.text((8, 8), "T002: output RGB [0,1]; lower row = exposure EV (blue -2, white 0, red +2)", fill="black", font=font)
+    draw.text((8, 8), title, fill="black", font=font)
     for index, name in enumerate(columns):
         draw.text((label_w + index * cell_w + 6, 38), name, fill="black", font=font)
     for row_index, (label, pack) in enumerate(packs):

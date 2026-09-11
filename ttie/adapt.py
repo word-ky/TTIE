@@ -8,6 +8,7 @@ from torch import Tensor
 from torch.nn import functional as F
 
 from .isp import ISP
+from .regularization import correction_penalties
 
 
 def local_statistics_loss(image: Tensor) -> Tensor:
@@ -30,7 +31,7 @@ class AdaptationResult:
 
 def adapt(image: Tensor, loss_fn: Callable[[Tensor], Tensor], *, mode: str = "global",
           grid_size: tuple[int, int] = (4, 4), steps: int = 200,
-          lr: float = 0.03) -> AdaptationResult:
+          lr: float = 0.03, lambda_a: float = 0.0, lambda_s: float = 0.0) -> AdaptationResult:
     """Reset ISP and Adam to identity/empty state for each [1,3,H,W] episode.
 
     Only image and a label-free callable enter this path. autograd.grad requests
@@ -40,15 +41,21 @@ def adapt(image: Tensor, loss_fn: Callable[[Tensor], Tensor], *, mode: str = "gl
     model = ISP(mode, grid_size).to(device=source.device, dtype=source.dtype)
     optimizer = torch.optim.Adam([model.raw], lr=lr)
     losses, gradients, ranges = [], [], []
+    components = {"prior": [], "anchor": [], "smooth": []}
     finite = True
     for step in range(steps + 1):
         output = model(source)
-        loss = loss_fn(output)
         grid = model.physical_grid()
+        prior = loss_fn(output)
+        anchor, smooth = correction_penalties(grid)
+        loss = prior + lambda_a * anchor + lambda_s * smooth
+        for name, component in (("prior", prior), ("anchor", anchor), ("smooth", smooth)):
+            components[name].append(component.detach().item())
         losses.append(loss.detach().item())
         ranges.append({"min": grid.detach().amin(dim=(0, 2, 3)).tolist(),
                        "max": grid.detach().amax(dim=(0, 2, 3)).tolist()})
-        finite &= bool(torch.isfinite(output).all() & torch.isfinite(loss) & torch.isfinite(grid).all())
+        finite &= bool(torch.isfinite(output).all() & torch.isfinite(loss) & torch.isfinite(grid).all()
+                       & torch.isfinite(anchor) & torch.isfinite(smooth))
         if step == steps:
             break
         optimizer.zero_grad(set_to_none=True)
@@ -62,5 +69,7 @@ def adapt(image: Tensor, loss_fn: Callable[[Tensor], Tensor], *, mode: str = "gl
                             {"loss_trajectory": losses, "gradient_norms": gradients,
                              "parameter_ranges": ranges, "all_finite": finite,
                              "steps": steps, "lr": lr, "optimizer": "Adam",
+                             "lambda_a": lambda_a, "lambda_s": lambda_s,
+                             "component_trajectories": components,
                              "reset": "fresh identity ISP and fresh optimizer per call",
                              "parameter_count": model.raw.numel()})

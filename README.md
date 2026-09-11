@@ -68,3 +68,16 @@ The full fixed suite uses seeds 7/11/23, three intrinsic content families, eight
 The suite writes compact `metrics.csv` / `metrics.json`, config.json, seed-7 representative tensors and full adaptation diagnostics, fixed-scale output/EV-field panels, and seed-mean summary.json/summary.md. Every row includes self-supervised losses, clean-reference recovery, region errors, clipping, input-output drift, physical field variances and parameter count. `identity_drift_mse` is populated only for the undegraded clean condition; exact-zero MSE has infinite PSNR represented as JSON null / CSV blank. Evaluation is performed after every variant has completed adaptation for that input. Input-only `adapt_variants` receives no clean reference, masks, family identifier or degradation parameters.
 
 Three seeds vary toy noise only. High-frequency stripes can exceed both the field grid's resolution and the fixed 8x8 loss's spatial resolution. Interpret those effects together; the suite does not separate them causally and does not claim real-image generalization.
+
+## T003 identity-anchor / TV diagnostic
+
+```bash
+python -m ttie.safety_sweep --device cpu --output research_log/artifacts/T003_cpu
+python -m ttie.safety_summary research_log/artifacts/T003_cpu --plot
+```
+
+`adapt` accepts optional `lambda_a` and `lambda_s`, both zero by default. The coarse physical grid is normalized as EV/2 and log2 of gamma/WB/contrast. The anchor is mean squared normalized correction; TV sums mean absolute horizontal and vertical coarse-grid differences (zero for absent axes). Global mode's rendered grid is 1x1, so TV has no effect. The loss is the original callable plus weighted anchor and TV; no clean pixels enter any term. Diagnostics include separate prior/anchor/TV trajectories and the existing total/gradient trajectories. Old zero-weight behavior is covered by numerical regression.
+
+The fixed T003 sweep retains the exact T002 inputs and includes all 11 research-lead-specified weight settings on spatial4, plus unregularized global and identity: 936 rows / 864 reset adaptation episodes. The complete matrix runs on CPU on the A6000 host; separate CUDA repeat/device-sensitivity tests are reported explicitly. Matplotlib is used only for local plotting from completed metrics. No per-example configuration is selected.
+
+Every run's component, total and gradient trajectories are saved under `trajectories/`; metrics.csv/metrics.json preserve all input-level measurements. `summary.json`/`summary.md` implement the predeclared conjunction: worst drift across nine clean inputs must fall at least 5x, and the ratio of mean heterogeneous improvements over global must be at least .70. Mean drift and worst family-mean drift are also reported. Negative utility retention is retained. `--plot` produces labeled Pareto PNG/SVG figures. The image/EV panel always shows the predeclared (0,0), (.1,.1), (1,.1), (10,0) settings on the same three fixed cases, irrespective of outcomes. Full rationale and outcomes are in `research_log/T003.md`.
