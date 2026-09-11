@@ -208,3 +208,68 @@ Received T002 acceptance / PR #2 merge and OPEN T003 via the 19:00:25Z heartbeat
 Predeclared exact 11 weight settings, all T002 seeds/families/conditions, fixed Adam 200/lr .03, identity/global references: 936 rows / 864 reset episodes. Full scan uses CPU on the A6000 host; separate CUDA exact-repeat and cross-device sensitivity measurements precede it. This compute choice was made before outcomes because the prior tiny-image CUDA sweep was synchronization-heavy. The 5x worst-drift / 70% utility conjunction is unchanged. Worst means maximum over all nine clean inputs; worst family mean is additionally reported. Representatives are fixed before outcomes at (0,0), (.1,.1), (1,.1), (10,0) for the three requested cases. No per-image hyperparameter selection.
 
 Release `20260912-031235-ttie-t003`, run `20260912-031249-ttie-t003-a6000`, command `bash scripts/run_t003_a6000.sh`, project `/home/wenchang/asdasdsad/wjq/TTIE`. Read research_log/T003.md on the branch for full predeclaration. All trajectories are saved for every input/setting. Matplotlib is available locally and Pareto figures will be rendered from final metrics locally; remote execution uses existing torch/Pillow. Final verdict pending completion; no method outcome claimed yet.
+
+## T003 — DONE (negative fixed diagnostic; final acceptance pending)
+
+UTC: 2026-09-11T19:34:00Z
+
+PR: https://github.com/word-ky/TTIE/pull/3
+Experiment source: 7469990f491a2295f86b4095a07bd794a47a28e7.
+Reporting-only repair: 1e7d38b8a7d631341d45a4d4fcf516698aa9b685.
+Complete evidence: 1d416f839753df3bee6515d462e78347f3c62aec.
+
+Received interim research-lead review a6ced5015c3ff777a0c66a96c40ee9618dda54af. Its implementation acceptance, precise device scope and freeze instructions are respected: no experiment configuration/code, aggregation formulas, representatives, weights or optimizer changed after outcomes. No additional sweep or module implemented. The original run finished successfully before this report and PR.
+
+### Implementation and validation
+
+Added normalized physical-grid anchor and plain TV, decomposed prior/anchor/TV/total trajectories, fixed 11-setting sweep, exact decision summary and all-point figures. Existing ISP, label-free 0.5 prior and zero-weight behavior preserved; clean target remains evaluation-only. Full matrix: 72 identical T002 inputs x 13 variants = 936 unique finite rows, 864 reset episodes, 72 complete trace files. Each adapted trace has 201 component/total samples and 200 gradient samples. All seeds/families/conditions, Adam lr .03 and 200 steps match the task.
+
+Commands: python -m unittest discover -s tests -v; bash scripts/run_t003_a6000.sh; python -m ttie.safety_sweep --device cpu --output <artifacts>/sweep; python -m ttie.safety_summary <artifacts>/sweep; local figure generation adds --plot to the summary command.
+
+Local baseline 20 tests passed; initial implementation 27 passed in 14.915s; remote 27 passed in 4.998s; final reporting-fix 27 passed in 8.095s. Tests include identity/finite normalization, analytic penalties, global zero TV, complete trajectory clean-reference replacement, frozen T001 numeric regression and known-number decision arithmetic. git diff --check passed.
+
+Release 20260912-031235-ttie-t003, run 20260912-031249-ttie-t003-a6000, completed 2026-09-11T19:23:26Z with exit 0. This is an **A6000-host CPU sweep plus focused CUDA validation**. Remote Python 3.12.12 / torch 2.4.0+cu121 / CUDA 12.1; local Python 3.12.7 / torch 2.13.0+cpu. All 13 CUDA repeated outputs/rows/diagnostics match exactly. CPU/CUDA TV sensitivity reaches max MSE difference .0001512579619884491 and max output difference .011940419673919678. These are reported differences, not exact parity. The complete matrix consistently uses CPU, predeclared before outcomes and accepted in interim review.
+
+### Complete fixed decision table
+
+936 rows; all finite: True.
+
+One setting must reduce worst clean drift by at least 5x AND retain at least 70% of baseline improvement. These are diagnostic thresholds, not a per-image selection policy.
+
+Baseline worst drift: 0.0628858656; safety ceiling: 0.0125771731; baseline mean MSE improvement: 0.00600123236.
+
+| Setting (anchor, TV) | Mean clean drift | Worst clean drift | Worst family mean | Drift reduction | Utility retained | Meets both |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| (0, 0) | 0.0279259 | 0.0628859 | 0.0628824 | 1.000x | 100.000% | False |
+| (0.01, 0) | 0.0267567 | 0.0622966 | 0.0622932 | 1.009x | 104.931% | False |
+| (0.1, 0) | 0.0233593 | 0.0599426 | 0.0599393 | 1.049x | 78.810% | False |
+| (1, 0) | 0.0153735 | 0.0430007 | 0.0429983 | 1.462x | -54.356% | False |
+| (10, 0) | 0.0030384 | 0.0089490 | 0.0089483 | 7.027x | -516.828% | False |
+| (0, 0.01) | 0.0273664 | 0.0628816 | 0.0628802 | 1.000x | 92.302% | False |
+| (0, 0.1) | 0.0257677 | 0.0628020 | 0.0627932 | 1.001x | 72.599% | False |
+| (0, 1) | 0.0226825 | 0.0629759 | 0.0629259 | 0.999x | -192.740% | False |
+| (0.1, 0.1) | 0.0221615 | 0.0600628 | 0.0600088 | 1.047x | 53.862% | False |
+| (1, 0.1) | 0.0150028 | 0.0429802 | 0.0429731 | 1.463x | -106.000% | False |
+| (1, 1) | 0.0149865 | 0.0432249 | 0.0431449 | 1.455x | -403.836% | False |
+
+Qualifying fixed settings: NONE
+
+Safety uses the worst individual input among the nine clean cases; the alternative worst family-mean is displayed without changing the decision rule. Utility is a ratio of mean improvements, not a mean of per-image ratios. Negative utility is retained, not clipped.
+
+All input-level errors, region errors, clipping and grid diagnostics remain in metrics.csv/metrics.json. All prior/anchor/TV/total and gradient trajectories are in trajectories/. Seeds vary synthetic noise only. Passing does not establish natural-image identity safety; failing rules out only this finite diagnostic weight sweep and optimization budget.
+
+### Interpretation, observed failures and limits
+
+**No setting qualifies. Simple identity anchoring/plain smoothness does not rescue the absolute 0.5 prior under this diagnostic.** Strong anchor (10,0) meets safety at 7.027x lower worst drift but loses utility (-516.828% retention means worse than global aggregate, not negative MSE). Settings retaining >=70% utility improve worst drift no more than 1.049x. No near miss is reclassified or per-case weight selected.
+
+TV optimization is a material limitation: 38/864 episodes finish with total loss > initialization + 1e-8, all TV settings. Counts: (0,.01):3; (0,.1):3; (0,1):6; (.1,.1):3; (1,.1):5; (1,1):18. Mean final-20 total-loss standard deviation reaches .000683922 for (0,1) and .000678854 for (1,1). No anchor-only episode has an increase; strong anchor (10,0) has stable final loss (mean std 1.06256e-08) yet fails utility. Do not claim all settings converged or all possible regularizers must fail. The result covers these 11 weights and this optimization budget, with three noise seeds on synthetic content.
+
+Maximum loss-component reconstruction error is 1.024454832e-08. Unregularized global/spatial4 MSE differences from T002 CUDA are <=9.685754776e-08 / 4.470348358e-08. Maximum adapted output clipping is .001030815998 of RGB samples (about .1031%); all input clipping/error/region/field diagnostics are retained.
+
+The sole runtime failure was local figure rendering: Windows OMP Error #15 from needless Torch imports in safety_summary. Reporting-only fix 1e7d38b derives metadata from completed rows and imports matplotlib lazily; no runtime-bypass flag. Recomputed JSON equals original remote summary_remote.json exactly. Experimental source files remain unchanged from 7469990. Pareto PNG/SVG and the fixed three-case panel now render and have been visually inspected. No failed experiment or hidden rerun.
+
+### Artifacts and next action
+
+All raw receipts: research_log/remote_runs/20260912-031249-ttie-t003-a6000/ at evidence SHA/PR. Includes meta/run/log, environment/tests/device checks; artifacts/sweep contains config, all 936 metrics.csv/json rows, 72 trajectory JSONs, three representative tensor packs, original/final summaries, audit_summary.json, content_utility_panel.png and pareto.png/svg. research_log/T003.md contains full provenance, interpretation and manifest; local final test receipt is research_log/T003_tests_cpu_final.txt. Remote run remains under /home/wenchang/asdasdsad/wjq/TTIE/runs/<run-id>; recovery notes mirrored to the remote project root research_log.
+
+No TTIE job remains active. Recommend research-lead acceptance/review of PR #3 and specification of the semantic/degradation-aware next task as stated in the interim instructions. No extra regularization weights, edge-aware term, teacher, CLIP, detector, new dataset or T004 implemented. The 15-minute heartbeat remains active and will await actionable feedback; completed T003 will not be rerun solely because the inbox still says OPEN.
