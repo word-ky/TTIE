@@ -26,6 +26,8 @@ For image `x_t`:
 5. Produce corrected image `x_t* = G(x_t; Phi_t)`.
 6. Run a frozen downstream detector `D_theta(x_t*)`.
 
+The current codebase is still at the simpler direct-fast-grid mechanism stage; the learned token encoder / fast model above remains a later method target, not yet implemented.
+
 ## Initial design principles
 
 - Do **not** start with a free `H x W x d` correction tensor.
@@ -34,6 +36,7 @@ For image `x_t`:
 - Detector weights remain frozen during test-time adaptation.
 - Test-time loss must not use target labels.
 - Always compare against identity/no adaptation and a global-parameter counterpart.
+- Before adding semantic teachers or downstream tasks, isolate spatial structure from parameter-count and self-supervised-prior confounds.
 
 ## Candidate future components (not yet approved for implementation)
 
@@ -48,8 +51,16 @@ For image `x_t`:
 
 Goal: prove that a differentiable spatial correction field and episodic test-time optimization can be implemented stably, with no test labels and no detector updates.
 
+Status: **COMPLETED / T001 ACCEPTED**
+
+Evidence: deterministic global-vs-spatial heterogeneous toy, 13 CPU tests, A6000 CPU/CUDA validation, no-label adaptation boundary verified. On the predeclared T001 toy, spatial 4x4 adaptation reduced evaluation MSE by 75.1% relative to global adaptation. This is accepted only as a controlled mechanism result, not a natural-image or downstream-task claim.
+
+## Milestone M1 — isolate spatiality and objective confounds
+
+Goal: determine whether the observed gain is truly due to spatially varying correction rather than extra degrees of freedom or a favorable midtone prior; characterize when spatiality is useful and when the current label-free objective fails.
+
 Status: **ACTIVE**
 
 ## Open task
 
-`T001` in `CHATGPT_TO_CODEX.md`.
+`T002 — Isolate Spatiality from Capacity and Prior Confounds` in `coordination/CHATGPT_TO_CODEX.md`.
