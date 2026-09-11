@@ -1,0 +1,79 @@
+{
+  "heldout_rows": 360,
+  "groups": {
+    "all": {
+      "clean_view_count": 60,
+      "clean_false_activation": 0.13333333333333333,
+      "dark": {
+        "view_count": 60,
+        "tpr_any_activation": 0.4,
+        "tpr_correct_type": 0.36666666666666664,
+        "correct_type_among_active": 0.9166666666666666,
+        "roc_auc": 0.8363888888888888,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 60,
+        "tpr_any_activation": 0.18333333333333332,
+        "tpr_correct_type": 0.16666666666666666,
+        "correct_type_among_active": 0.9090909090909091,
+        "roc_auc": 0.5986111111111111,
+        "paired_increase": 0.9
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.9142857142857143
+    },
+    "full": {
+      "clean_view_count": 12,
+      "clean_false_activation": 0.08333333333333333,
+      "dark": {
+        "view_count": 12,
+        "tpr_any_activation": 0.5,
+        "tpr_correct_type": 0.4166666666666667,
+        "correct_type_among_active": 0.8333333333333334,
+        "roc_auc": 0.8819444444444444,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 12,
+        "tpr_any_activation": 0.25,
+        "tpr_correct_type": 0.25,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.6041666666666666,
+        "paired_increase": 1.0
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.8888888888888888
+    },
+    "quadrants": {
+      "clean_view_count": 48,
+      "clean_false_activation": 0.14583333333333334,
+      "dark": {
+        "view_count": 48,
+        "tpr_any_activation": 0.375,
+        "tpr_correct_type": 0.3541666666666667,
+        "correct_type_among_active": 0.9444444444444444,
+        "roc_auc": 0.8259548611111112,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 48,
+        "tpr_any_activation": 0.16666666666666666,
+        "tpr_correct_type": 0.14583333333333334,
+        "correct_type_among_active": 0.875,
+        "roc_auc": 0.6006944444444444,
+        "paired_increase": 0.875
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.9230769230769231
+    }
+  },
+  "criteria": {
+    "clean_fpr": true,
+    "dark_auc": true,
+    "bright_auc": false,
+    "dark_paired": true,
+    "bright_paired": true
+  },
+  "stage_a_pass": false,
+  "failed_criteria": [
+    "bright_auc"
+  ]
+}
