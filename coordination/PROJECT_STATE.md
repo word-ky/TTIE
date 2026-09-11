@@ -32,17 +32,19 @@ The current codebase still uses direct episodic optimization of a coarse ISP gri
 - `uniform96` rules out a trivial raw-latent-count explanation, but it is not an equal effective-function-capacity baseline; no claim against arbitrary equally expressive global nonlinear correction is accepted.
 - The absolute patch-mean-to-0.5 self-supervised objective is **not identity-safe**. It edits valid intrinsic-dark and high-key content substantially while its own loss decreases; more spatial freedom can amplify this failure.
 - **T003:** simple normalized identity anchoring and plain spatial TV do not rescue that absolute prior under the fixed synthetic diagnostic. No one predeclared setting achieves both >=5x reduction of worst clean-content drift and >=70% retention of heterogeneous utility. Strong anchoring can make the field safer only by destroying useful correction. This is a negative result about the tested objective/regularizers/budget, not a universal impossibility result.
-- **T004:** a fixed zero-shot frozen-CLIP exposure gate is also insufficient in its **absolute cross-image** form. On the fixed natural-image pilot, dark-vs-clean AUC is 0.836389 but bright-vs-clean AUC is only 0.598611, so the predeclared Stage-A gate fails and semantic adaptation is correctly not run. However, paired corresponding-score changes are 100% for dark and 90% for bright. This combination suggests that CLIP contains useful exposure sensitivity but absolute degradation scores are strongly content-offset/confounded across images. T004 does **not** establish that all VLM exposure signals fail.
+- **T004:** a fixed zero-shot frozen-CLIP exposure gate is insufficient in its **absolute cross-image** form. Dark-vs-clean AUC is 0.836389 but bright-vs-clean AUC is 0.598611. Paired corresponding-score changes remain 100% dark / 90% bright, indicating exposure sensitivity but strong content offsets.
+- **T005:** the prescribed same-image ±0.25 EV counterfactual correction-response does **not** cancel the content problem into a useful severity signal. On a fresh held-out split, relative dark/bright AUC is 0.5806 / 0.2945, correct-type TPR 10% / 5%, and active-type precision 71.43%, despite clean FPR of 7%. On those exact same images, the unchanged absolute zero-shot score is materially stronger (AUC 0.8339 / 0.6040). Thus a local finite-difference response under one fixed probe is not automatically a reliable degradation variable. No semantic ISP adaptation has yet been authorized.
 
 ## Non-negotiable design principles
 
 - Test-time adaptation must never consume test labels, clean targets, degradation masks, gain maps or evaluation metrics.
-- Clean references may be used only after adaptation for controlled evaluation, except that disjoint source/calibration data may be used to freeze development constants before held-out evaluation.
+- Clean references may be used only after adaptation for controlled evaluation, except that disjoint source/calibration data may be used to train/freeze development constants before held-out evaluation.
 - Keep identity/no-adaptation and a global counterpart in every major spatial claim.
 - Do not infer task utility from lower self-supervised loss alone.
 - Spatial capacity should remain compact/coarse rather than a free full-resolution correction tensor.
 - Separate **objective quality** from **spatial parameterization**: first establish a trustworthy degradation signal, then add larger fast models/meta-learning.
 - After a held-out result motivates a new hypothesis, use a fresh deterministic held-out split for the next decisive audit; do not silently recycle inspected examples as a pristine test set.
+- Source-trained degradation signals are allowed only with strict source/calibration/evaluation separation; source synthetic labels must never become test-time metadata inputs.
 
 ## Milestone M0 — mechanism scaffold
 
@@ -60,9 +62,9 @@ Evidence: fixed 504-row matrix, homogeneous/heterogeneous/grid-frequency/content
 
 Status: **COMPLETED / T003 ACCEPTED — NEGATIVE DIAGNOSTIC**
 
-Evidence: fixed 936-row / 864-episode A6000-host CPU sweep with focused CUDA validation, 27 tests, exact 11-setting anchor/TV sweep and predeclared 5x-drift/70%-utility conjunction. No setting qualifies. PR #3 merged as `862e3401cf28e9d08582996dad2eb974ad5f9617`.
+Evidence: fixed 936-row / 864-episode A6000-host CPU sweep with focused CUDA validation, exact 11-setting anchor/TV sweep and predeclared 5x-drift/70%-utility conjunction. No setting qualifies. PR #3 merged as `862e3401cf28e9d08582996dad2eb974ad5f9617`.
 
-Conclusion: do not spend the next milestone tuning the same absolute 0.5 prior. Move to degradation-aware semantic evidence.
+Conclusion: do not spend the next milestone tuning the same absolute 0.5 prior. Move to degradation-aware evidence.
 
 ## Milestone M3 — degradation-aware semantic test-time objective
 
@@ -74,23 +76,32 @@ Status: **COMPLETED / ACCEPTED — NEGATIVE STAGE-A DIAGNOSTIC**
 
 PR #4 squash-merged as `8c9680c56ced11d4433908091a4e4575ca04ab1f`.
 
-The fixed absolute CLIP gate fails because bright-vs-clean AUC is 0.598611 < 0.75. Stage B was not authorized/run. The valuable remaining signal is the strong same-content paired direction (100% dark, 90% bright), which motivates cancelling content offsets rather than immediately discarding frozen CLIP.
+Conclusion: fixed zero-shot absolute scores retain useful dark sensitivity but do not provide a reliable two-sided exposure gate, especially for bright/overexposed content.
 
 ### T005 — counterfactual relative frozen-CLIP signal
 
+Status: **COMPLETED / ACCEPTED — NEGATIVE STAGE-A DIAGNOSTIC**
+
+PR #5 squash-merged as `0d2146257135c2b0c3568cbf579d6c78d2354114`.
+
+Conclusion: the fixed within-image ±0.25 EV correction-response hypothesis is rejected on its fresh predeclared audit. Relative responses underperform the absolute zero-shot score on the same split and do not justify semantic TTT. Do not post-hoc tune this probe on T005 examples.
+
+### T006 — source-trained CLIP exposure prototypes
+
 Status: **OPEN**
 
-Goal: test on a fresh deterministic natural-image split whether small same-image exposure probes produce content-cancelled relative degradation responses that pass a fixed signal-quality gate. Only if that gate passes may global-vs-spatial EV+Gamma TTT run. The adaptation target is bounded by the semantic improvement demonstrated by a modest counterfactual probe, and probe-only baselines must separate the value of gradient-based TTT from simple discrete correction.
+Goal: use disjoint source images with paired synthetic clean/dark/bright exposure to train only three normalized semantic prototypes initialized from existing CLIP text prototypes, while freezing the CLIP image encoder. Then freeze the learned signal and audit it on a fresh held-out split before any ISP adaptation.
 
-If T005 fails at Stage A, the next justified branch is source-trained / CLIP-LIT-style learned degradation prompts or another learned degradation signal, not post-hoc tuning of the frozen prompts/probe magnitude on the failed held-out set.
+The decisive addition is a **mixed spatial localization audit** on left/right and quadrant exposure: a signal that works only for whole-image homogeneous degradation is not sufficient for Spatially Varying TTT-ISP. If T006 passes its predeclared identity, homogeneous discrimination and mixed-region localization gates, the next task may finally run a learned-signal global-vs-spatial EV+Gamma TTT pilot. If it fails, the next branch should test true CLIP-LIT/CoOp prompt-token learning or a non-CLIP degradation encoder rather than tuning T006 on the held-out set.
 
 ## Open task
 
-`T005 — Counterfactual Relative CLIP Exposure Signal + Gated Spatial TTT Pilot` in `coordination/CHATGPT_TO_CODEX.md`.
+`T006 — Source-Trained CLIP Exposure Prototypes + Fresh Spatial Signal Audit` in `coordination/CHATGPT_TO_CODEX.md`.
 
 ## Candidate later components (not approved unless an OPEN task says otherwise)
 
-- CLIP-LIT-style learned positive/negative degradation prompts on disjoint source data.
+- True CLIP-LIT/CoOp-style learned prompt tokens on disjoint source data if minimal learned prototypes are insufficient.
+- Learned-signal global vs spatial EV+Gamma TTT, with direct/discrete correction baselines.
 - Frozen detector / object-feature consistency for task-semantic preservation.
 - Edge-aware spatial regularization after the semantic objective is validated.
 - Stronger effective-function-capacity global baseline.
