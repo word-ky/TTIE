@@ -1,0 +1,43 @@
+[autodl] run_id=20260912-010311-ttie-t001-a6000
+[autodl] started_at=2026-09-12T01:03:15+08:00
+3.12.12 | packaged by conda-forge | (main, Jan 26 2026, 23:51:32) [GCC 14.3.0]
+torch 2.4.0+cu121 CUDA 12.1 Pillow 12.3.0
+NVIDIA RTX A6000
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 3.060s
+
+OK
+identity: loss=0.07551640->0.07551640, MSE=0.07748476, PSNR=11.1078 dB, finite=True
+global: loss=0.07551639->0.00623847, MSE=0.00988832, PSNR=20.0488 dB, finite=True
+spatial: loss=0.07551639->0.00078186, MSE=0.00245979, PSNR=26.0910 dB, finite=True
+Spatial MSE reduction vs global: 75.12%
+identity: loss=0.07551638->0.07551638, MSE=0.07748476, PSNR=11.1078 dB, finite=True
+global: loss=0.07551638->0.00623847, MSE=0.00988832, PSNR=20.0488 dB, finite=True
+spatial: loss=0.07551638->0.00078186, MSE=0.00245979, PSNR=26.0910 dB, finite=True
+Spatial MSE reduction vs global: 75.12%
+identity: loss=0.07551638->0.07551638, MSE=0.07748476, PSNR=11.1078 dB, finite=True
+global: loss=0.07551638->0.00623847, MSE=0.00988832, PSNR=20.0488 dB, finite=True
+spatial: loss=0.07551638->0.00078186, MSE=0.00245979, PSNR=26.0910 dB, finite=True
+Spatial MSE reduction vs global: 75.12%
+identity CPU MSE 0.07748476415872574 CUDA MSE 0.07748476415872574
+global CPU MSE 0.00988832302391529 CUDA MSE 0.00988832302391529
+spatial CPU MSE 0.0024597933515906334 CUDA MSE 0.002459792885929346
+CUDA repeated reports and tensors match exactly; all finite.
+[autodl] finished_at=2026-09-12T01:03:45+08:00
+[autodl] exit_code=0
