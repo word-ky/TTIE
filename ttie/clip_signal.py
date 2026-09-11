@@ -40,8 +40,11 @@ class FrozenCLIP(nn.Module):
         cfg = open_clip.get_pretrained_cfg('ViT-B-32', 'laion2b_s34b_b79k')
         return cls(model, torch.stack(prototypes), mean=cfg['mean'], std=cfg['std'])
 
+    def image_embeddings(self, image):
+        return F.normalize(self.model.encode_image(clip_pixels(image, **self.preprocess)), dim=-1)
+
     def forward(self, image):
-        embedding = F.normalize(self.model.encode_image(clip_pixels(image, **self.preprocess)), dim=-1)
+        embedding = self.image_embeddings(image)
         similarities = embedding @ self.text_prototypes.T
         return similarities[:, 1:] - similarities[:, :1]
 

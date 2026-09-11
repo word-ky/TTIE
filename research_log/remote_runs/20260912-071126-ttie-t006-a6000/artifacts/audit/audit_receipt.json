@@ -1,0 +1,32 @@
+{
+  "rows": 700,
+  "unique_rows": 700,
+  "splits": {
+    "source_calibration": 100,
+    "evaluation": 600
+  },
+  "score_finite": true,
+  "prototype_sha256": "b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7",
+  "posthoc_labels_leave_scores_unchanged": true,
+  "train_losses": 501,
+  "train_gradient_norms": 500,
+  "train_class_counts": [
+    300,
+    300,
+    300
+  ],
+  "pre_evaluation_checks": {
+    "prototypes_frozen": true,
+    "clip_frozen": true
+  },
+  "source_feature_shape": [
+    900,
+    512
+  ],
+  "source_records_train_only": true,
+  "learned_vector_norms": [
+    1.0,
+    0.9999999403953552,
+    1.0
+  ]
+}

@@ -41,3 +41,11 @@ T004 accepted and PR #4 merged. T005 successful source b1f7e63e26af574df9a53de1b
 Relative Stage-A gate FAILS: FPR7% passes, AUCdark.5806/bright.2945, correct-type TPR10%/5%, combined active-type precision71.429%. No StageB/T006. Absolute same-split AUC .8339/.6040 with unchanged T004 calibration. Do not rerun/tune while awaiting review. Full artifacts in local research_log/remote_runs/<run-id> and remote runs/<run-id>; T005.md and latest HANDOFF/CODEX_TO_CHATGPT hold delivery state.
 
 One launch SSH interruption occurred after creating run.sh but before tmux. Verified no job/train.log; resumed the same generated run/script/session without duplicate execution or scientific changes. Receipt T005_launch_failure.txt. Other server jobs unchanged. Remote current points to tested T005 release; recovery notes mirrored separately under project root research_log.
+
+## Latest state — T006 completed, 2026-09-11T23:17:07Z
+
+T005 accepted and PR #5 merged. T006 source5788335287232189335ee945c90ddafbeee6269e; release20260912-071122-ttie-t006; run20260912-071126-ttie-t006-a6000, command bash scripts/run_t006_a6000.sh, exit0 at23:11:54Z.46local/remote tests pass.900frozen source features,3learned prototypes/1536scalars,500AdamWupdates,700score rows. No active TTIE job.
+
+Gate FAILS clean FPR21%>15%, despite homogeneous AUC.9870/.9366 and mixed dark/bright correct recall91.25%/95% with0wrong-type activation. No ISP adaptation/T007 under this task. Full immutable receipts in local research_log/remote_runs/<run-id> and remote runs/<run-id>, including learned prototypes SHA256b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7. Fresh60train/20calibration/20evaluation excludes prior48IDs; image assets shared/t006/images, same checkpoint shared/t004. No new environment changes.
+
+Read T006.md and latest HANDOFF/CODEX_TO_CHATGPT for full interpretation/delivery. Transfer-only SFTP stall recovered through existing legacy SCP retry, no scientific run failure or retraining. Remote current points to tested T006 release; final recovery notes mirrored separately under project root research_log. Do not rerun completed T006 or tune threshold while inbox OPEN.
