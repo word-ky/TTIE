@@ -4,231 +4,169 @@ Research-lead inbox. Codex should execute only the current OPEN task. Prior deta
 
 ---
 
-## T003 final research-lead review
+## T004 final research-lead review
 
-**Status: ACCEPTED. PR #3 merged as `862e3401cf28e9d08582996dad2eb974ad5f9617`.**
+**Status: ACCEPTED. PR #4 squash-merged as `8c9680c56ced11d4433908091a4e4575ca04ab1f`.**
 
-T003 is accepted as a controlled negative diagnostic. I reviewed the fixed experiment report, PR implementation, `ttie/adapt.py`, `ttie/regularization.py`, `ttie/safety_sweep.py`, `ttie/safety_summary.py`, and the reported evidence. The adaptation boundary remains label-free: the current image and fixed losses enter adaptation; clean references remain evaluation-only. The experiment configuration stayed frozen after the interim review.
+T004 is accepted as a controlled negative Stage-A signal audit. I reviewed the fixed protocol, `ttie/natural.py`, `ttie/clip_signal.py`, `ttie/clip_audit.py`, focused tests, PR/evidence, and the reported A6000 run. The prescribed ViT-B-32/laion2b_s34b_b79k model and nine prompts were frozen before held-out scoring; calibration used only the declared clean calibration views; held-out adaptation never ran because the literal gate failed. No test label, clean target, condition ID, gain map or degradation mask entered the CLIP scoring path.
 
-The predeclared decision rule is unambiguous: no tested fixed `(lambda_a, lambda_s)` satisfies both >=5x reduction in worst clean-input drift and >=70% heterogeneous utility retention. Strong anchor `(10,0)` reaches 7.027x drift reduction but destroys utility (`-516.828%` retention), while settings retaining >=70% utility improve worst drift by at most 1.049x. Plain TV also shows optimization/device sensitivity and does not rescue the objective.
+The failed criterion is clear: aggregate bright-vs-clean ROC-AUC is **0.598611 < 0.75**. Clean false activation is 13.333%, dark AUC is 0.836389, and paired corresponding-score increases are 100% for dark and 90% for bright. Thus the fixed zero-shot CLIP signal is not reliable enough as an **absolute cross-image bright-degradation gate**. Do not generalize this to “CLIP cannot sense exposure.” The 90% bright paired-direction statistic, despite poor cross-image AUC, is important evidence that content-dependent score offsets may dominate absolute calibration.
 
-**Scientific conclusion:** the absolute patch-mean-to-0.5 objective has a content/degradation confound that simple trust-region anchoring and plain spatial smoothness do not resolve under this declared synthetic diagnostic and optimization budget. Do not generalize this to “regularization never works.” The correct next move is to replace the absolute midtone prior with degradation-aware semantic evidence, not to add more anchor/TV weights.
+The 12-image held-out pilot and incompletely documented provenance of the pre-existing 200-image COCO cache remain explicit limitations. They are sufficient for rejecting this predeclared zero-shot gate, not for population-level claims.
+
+Scientific consequence: before learning CLIP-LIT-style prompts, test whether **within-image counterfactual differences** can cancel content offsets and expose a safer degradation signal. Learned prompts remain a later branch if this fails.
 
 ---
 
-# T004 — Frozen CLIP Local Degradation Signal Audit + Gated Spatial TTT Pilot
+# T005 — Counterfactual Relative CLIP Exposure Signal + Gated Spatial TTT Pilot
 
 **Status: OPEN**
 
 ## Scientific question
 
-Before learning CLIP-LIT prompts, adding a detector, meta-learning, ViT3-style fast weights, or a larger ISP, test one narrow hypothesis:
+T004 found a specific pattern: the bright score usually moves in the correct direction under paired exposure change, yet its absolute value poorly separates bright images from clean images across different content. Test the narrow hypothesis:
 
-> Can a frozen vision-language prior distinguish *nuisance exposure degradation* from legitimate dark/high-key scene content well enough to provide an identity-safer local test-time objective?
+> Can a same-image, small counterfactual exposure probe convert frozen CLIP's exposure sensitivity into a content-cancelled test-time degradation signal that is safer than absolute CLIP thresholds?
 
-This task is deliberately a **signal audit first, adaptation pilot second**. Do not force a positive result. If the frozen CLIP signal does not pass the predeclared audit, stop after Stage A and report the negative result; do not edit prompts or thresholds after seeing evaluation outcomes.
+Do **not** learn prompts in T005. Do not add a detector, meta-learning, ViT3, teacher/pseudo-labels, or a larger ISP. This task isolates relative-vs-absolute semantic evidence.
 
 ## Hard no-leakage constraints
 
-- Test-time adaptation may consume only the current degraded/input image, fixed crop geometry, frozen CLIP parameters/text prototypes, calibration constants frozen before evaluation, and ISP state.
-- **No clean target, detection label, degradation condition ID, degradation mask, gain map, image family/content label, or evaluation metric may enter adaptation.**
-- Clean source images used to synthesize evaluation degradations are evaluation-only once the evaluation split begins.
-- Synthetic condition/mask metadata may be used only by offline evaluation code after adaptation.
-- Keep detector, task labels, learned prompts, CLIP-LIT prompt optimization, ViT3, meta-learning, teacher/pseudo-labels, and external restoration networks out of T004.
-- Preserve episodic reset: fresh ISP state and optimizer for every test image/variant.
+At held-out test time, adaptation/gating may consume only the current input pixels, the frozen CLIP model/text prototypes, fixed probe magnitude, calibration constants frozen before held-out scoring, and ISP state.
 
-## Natural-image pilot data and split
+**Never expose to adaptation:** clean reference, condition name/ID, synthetic gain field/mask, detection label, image-family/content label, or evaluation metric. Synthetic metadata and clean references are offline evaluation only. Preserve episodic reset for every image/variant.
 
-Use a small deterministic **natural-image** set; do not reuse the abstract T002/T003 content as the main CLIP audit because CLIP semantics on toy patterns are not the scientific question.
+## Fresh natural-image split
 
-Preferred source: COCO 2017 validation images, images only; annotations must not be loaded or used. Select a deterministic manifest of **18 images** before computing any CLIP score, using only image IDs/file metadata and minimum size >= 320 px on the shorter side. Suggested deterministic rule: ascending COCO image ID after the size filter.
+Do not reuse the 12 T004 held-out images as the decisive T005 evaluation set, because the new hypothesis was chosen after inspecting T004 outcomes.
 
-- first 6 selected images: **calibration split**;
-- next 12 selected images: **held-out evaluation split**.
+From the same available COCO-val image-only pool, exclude all T004 manifest IDs, sort remaining eligible files by image ID, require original shorter side >=320, and select the next **30** before computing any T005 CLIP score:
 
-Commit only the manifest, source URL/instructions, IDs, file hashes and preprocessing metadata; do not commit the image dataset itself. If COCO acquisition is concretely unavailable, document the blocker before substitution; any substitute natural-image source/split must be fixed before CLIP scores are inspected.
+- first 10: calibration;
+- next 20: fresh held-out evaluation.
 
-## Frozen CLIP configuration
+Commit the metadata-only manifest, IDs, hashes, dimensions, source/pool limitation and selection rule before scores. Do not use annotations. If fewer than 30 eligible unused images exist, use all available with an approximately 1:2 calibration/evaluation split fixed before scoring and document the deviation. The pre-existing pool-provenance limitation remains; do not call this representative COCO sampling.
 
-Use one frozen model for the entire task. Preferred default if available in the environment:
+Reuse the exact frozen OpenCLIP model, text prototypes, preprocessing, five views and six exposure conditions from T004. Do not change prompts/model/crop geometry in this task.
 
-- `open_clip_torch`
-- model `ViT-B-32`
-- pretrained `laion2b_s34b_b79k`
+## Counterfactual probe definition
 
-Freeze all model/text parameters and set eval mode. Gradients during Stage B must flow **through the image encoder to the ISP output/input**, never into CLIP weights.
+Use a single fixed exposure probe magnitude
 
-Use the following fixed text ensembles exactly; average normalized text embeddings within each concept and renormalize:
+`delta_EV = 0.25`.
 
-**NORMAL**
-- `a well-exposed natural photograph`
-- `a normally exposed clear photo`
-- `a photo with natural brightness and contrast`
+For each original current input view `v`, construct two same-content counterfactuals using exposure-only sRGB multiplication and clamp:
 
-**DARK / UNDEREXPOSED**
-- `a dark underexposed photograph`
-- `a low-light photo with poor visibility`
-- `an underexposed dark image`
+- `v_plus = clamp(v * 2**(+delta_EV), 0, 1)`;
+- `v_minus = clamp(v * 2**(-delta_EV), 0, 1)`.
 
-**BRIGHT / OVEREXPOSED**
-- `an overexposed washed-out photograph`
-- `a photo with blown highlights`
-- `an excessively bright overexposed image`
+Using the existing scores
 
-Do not change or add prompts after Stage A evaluation has been inspected.
+- `d_dark = sim(image, t_dark) - sim(image, t_normal)`;
+- `d_bright = sim(image, t_bright) - sim(image, t_normal)`,
 
-For a normalized image embedding `e`, define
+define **correction-response** signals
 
-- `d_dark = sim(e, t_dark) - sim(e, t_normal)`
-- `d_bright = sim(e, t_bright) - sim(e, t_normal)`.
+- `r_dark(v) = d_dark(v) - d_dark(v_plus)`  (how much a small brightening reduces dark evidence);
+- `r_bright(v) = d_bright(v) - d_bright(v_minus)` (how much a small darkening reduces bright evidence).
 
-Higher `d_*` means stronger evidence for that degradation relative to normal exposure.
+Higher `r_*` means the corresponding corrective perturbation is semantically helpful for that degradation. Compute all terms from the same original view; no reference image is involved.
 
-## Fixed spatial views
+For every view, choose the winning type from `argmax(r_dark, r_bright)`. Activation is based on a per-type threshold calibrated only from the 10 **clean calibration images**: `tau_r_type = 95th percentile` of the corresponding clean response. Also freeze `scale_r_type=max(std_clean,0.01)` for possible Stage B. Require winning response > its threshold; ties deterministically choose dark as before.
 
-For every image, both audit and adaptation use exactly five differentiable views:
+## Stage A — mandatory fresh relative-signal audit
 
-1. full image;
-2. top-left quadrant;
-3. top-right quadrant;
-4. bottom-left quadrant;
-5. bottom-right quadrant.
+Before any held-out adaptation, score the fresh 20-image evaluation split once. Preserve raw absolute T004-style scores **and** relative probe responses so the absolute baseline and new relative signal can be compared on the same images.
 
-Resize each view using the frozen CLIP preprocessing geometry while preserving a differentiable path to pixels. Do not use degradation masks to choose crops.
+Report all five views and at least:
 
-## Synthetic exposure conditions for held-out evaluation
-
-From each held-out clean natural image, generate the following fixed sRGB-space conditions using the existing project conventions where possible:
-
-- `clean`;
-- `homogeneous_dark`: multiply by 0.45, clamp to [0,1];
-- `homogeneous_bright`: multiply by 1.55, clamp to [0,1];
-- `left_right`: left x0.45, right x1.55;
-- `quadrants`: deterministic alternating dark/bright quadrants;
-- `smooth_gradient`: fixed smooth multiplicative field spanning the same approximate range.
-
-Record clipping fractions. The condition and gain field are never visible to adaptation.
-
-## Stage A — signal audit (mandatory, before any evaluation adaptation)
-
-### Calibration constants
-
-Using **only the 6 clean calibration images** and their five fixed views, compute clean-score thresholds:
-
-- `tau_dark = 95th percentile of d_dark on calibration clean views`;
-- `tau_bright = 95th percentile of d_bright on calibration clean views`.
-
-Freeze these constants. No clean-target reconstruction metric is needed to set them.
-
-For an input view `v`, define a detached degradation decision from the original current input only:
-
-- `score_type = argmax(d_dark(v), d_bright(v))`;
-- active iff the winning score is greater than its frozen `tau_type`.
-
-No condition metadata may enter this decision.
-
-### Required audit metrics on the 12 held-out images
-
-Report all view-level scores and at least:
-
-- false-positive activation rate on `clean` views;
-- TPR for `homogeneous_dark` and `homogeneous_bright` at the frozen thresholds;
-- correct degradation-type rate among active degraded views;
-- ROC-AUC of `d_dark` for dark-vs-clean and `d_bright` for bright-vs-clean;
-- paired sign statistic: fraction of clean→degraded view pairs whose corresponding `d_*` increases;
-- full-image versus quadrant-view breakdown.
+- clean false-positive activation rate for the relative gate;
+- dark-vs-clean ROC-AUC using `r_dark`;
+- bright-vs-clean ROC-AUC using `r_bright`;
+- any-activation TPR and correct-type TPR for homogeneous dark/bright;
+- correct type among active homogeneous degraded views;
+- paired clean→degraded increase fraction for the corresponding `r_*`;
+- full-view and quadrant-only breakdown;
+- the same absolute-score AUCs on this fresh split for reference, without retuning T004 thresholds/prompts.
 
 ### Predeclared Stage-A gate
 
-Proceed to Stage B only if all are true on the held-out evaluation set:
+Proceed to Stage B only if **all** are true on the fresh held-out set:
 
-1. clean-view false-positive activation <= **15%**;
-2. dark-vs-clean ROC-AUC >= **0.75**;
-3. bright-vs-clean ROC-AUC >= **0.75**;
-4. paired corresponding-score increase occurs in >= **75%** of dark pairs and >= **75%** of bright pairs.
+1. clean relative-gate FPR <= **15%**;
+2. `r_dark` dark-vs-clean ROC-AUC >= **0.75**;
+3. `r_bright` bright-vs-clean ROC-AUC >= **0.75**;
+4. correct-type TPR >= **30%** for homogeneous dark and >= **30%** for homogeneous bright;
+5. correct type among all active homogeneous degraded views >= **80%**.
 
-If this gate fails, **stop T004**. Do not tune prompts/percentile/model/crops on evaluation data. Report which criterion failed and preserve all raw scores. The next research decision will be whether to learn CLIP-LIT-style prompts on source data.
+If the gate fails, stop T005 after Stage A. Do not tune `delta_EV`, percentile, prompts, crops, model or split after seeing held-out results. Report the negative result. The next branch may then investigate source-trained/CLIP-LIT-style learned prompts.
 
-## Stage B — gated semantic TTT pilot (only if Stage A passes)
+## Stage B — only if Stage A passes
 
-### Restrict the ISP action space
+### ISP action space
 
-For this first semantic pilot, optimize only **Exposure EV and Gamma**. Keep WB-R/G/B and Contrast at identity. This isolates the exposure objective and reduces CLIP-hacking/parameter non-identifiability. Implement this as an explicit trainable-coordinate mask with tests; do not silently rely on zero gradients.
+Optimize only Exposure EV and Gamma, exactly as planned for T004; WB/Contrast remain identity via an explicit trainable-coordinate mask with tests. Compare global 1x1 and spatial 4x4. Keep existing physical bounds. No free pixel field.
 
-Compare both:
+Use fixed Adam, 40 steps, lr 0.01 for all held-out adaptive variants. A purely numerical calibration-split dry run may reveal NaN/zero-gradient implementation failure; if so, preserve it and allow at most one replacement optimizer configuration **before any held-out adaptation**.
 
-- global 1x1 EV+Gamma state;
-- spatial 4x4 EV+Gamma field with existing bilinear rendering.
+### Fixed relative semantic target
 
-Keep existing physical bounds. No full-resolution/free pixel field.
+The gate/type is computed once from the **original current input** and detached. For an active dark view, define its frozen target score from the original brightening probe: `target = d_dark(v_plus_original)`. For an active bright view: `target = d_bright(v_minus_original)`.
 
-### Gated semantic objective
+During ISP optimization, recompute the selected `d_type` on the current output view and minimize
 
-The gate/type for each of the five views is computed once from the **original current input** and detached. For an active view with selected type `k in {dark, bright}`, recompute `d_k` on the current ISP output crop and minimize a thresholded semantic penalty such as
+`L_view = softplus((d_type(output_view) - target) / scale_r_type)`.
 
-`L_view = softplus((d_k(output_view) - tau_k) / s_k)`
+Inactive views contribute exact zero. If all views are inactive, return an output-connected exact zero and leave the episode at identity. Do not recompute type/gate/target as the ISP changes. Do not add the old 0.5 prior or tune anchor/TV in T005.
 
-where `s_k` is a fixed positive calibration scale computed **only from the clean calibration scores** (use `max(std_clean_k, 0.01)` and freeze it). Inactive views contribute zero semantic loss.
+This objective deliberately asks the optimizer only to match the semantic improvement demonstrated by one modest same-image counterfactual probe, rather than to chase an unconstrained global CLIP optimum.
 
-Use the mean over active views. If there are no active views, return an exact zero loss connected to the ISP output so the episode remains identity and finite.
+### Required baselines
 
-Do **not** add the old 0.5 prior. Do not sweep anchor/TV weights inside T004. The bounded coarse field plus thresholded semantic objective is the object of this pilot. If numerical instability appears, preserve the failed run and report it rather than outcome-tuning the objective.
-
-Use one predeclared optimizer configuration for all held-out Stage-B cases. Default: Adam, 40 steps, lr `0.01`. If a purely numerical dry-run on the 6-image calibration split proves this unusable (zero gradients/NaN), you may choose one replacement configuration before any held-out adaptation, document why, freeze it, and then run held-out evaluation exactly once.
-
-### Baselines
-
-On the held-out natural-image conditions, report at minimum:
+On the fresh held-out conditions, report:
 
 - identity/no adaptation;
-- old absolute-0.5 prior, global EV+Gamma only;
-- old absolute-0.5 prior, spatial4 EV+Gamma only;
-- new CLIP-gated semantic TTT, global EV+Gamma;
-- new CLIP-gated semantic TTT, spatial4 EV+Gamma.
+- discrete **global probe-only** baseline: choose no-op / +0.25EV / -0.25EV using only the full-view relative gate, no gradient optimization;
+- discrete **spatial probe-only** baseline: use the four quadrant relative gates to form a coarse EV-only field in {-0.25,0,+0.25} and bilinearly render it;
+- relative-CLIP TTT global EV+Gamma;
+- relative-CLIP TTT spatial4 EV+Gamma;
+- old absolute-0.5 global/spatial EV+Gamma only as historical reference if already easy to reuse, but do not let these baselines influence settings.
 
-All adaptive variants must use the same episodic semantics and no test labels/clean target.
+The probe-only baselines are mandatory if Stage B runs: we need to know whether gradient-based TTT adds value beyond simply applying the diagnostic perturbation that created the signal.
 
-### Stage-B measurements
+### Measurements
 
-For every image/condition/variant record:
+Record evaluation MSE/PSNR to clean only after adaptation, clean identity drift, input-output drift, clipping, EV/Gamma ranges/variance, active view/type, probe responses/targets, semantic loss trajectory, gradient norms, finite status, runtime and peak CUDA memory where practical.
 
-- evaluation MSE/PSNR to clean after adaptation only;
-- clean identity drift;
-- input-output drift;
-- clipping fraction;
-- EV/Gamma field min/max/variance;
-- active-view count/type decided from the original input;
-- semantic loss trajectory, gradient norms, finite status;
-- runtime and peak CUDA memory where practical.
+Aggregate homogeneous and heterogeneous conditions separately. For heterogeneous `{left_right, quadrants, smooth_gradient}`, explicitly report spatial-vs-global relative-TTT MSE difference and spatial-TTT-vs-spatial-probe-only difference. For clean, report mean/median/max drift and number of exact identity episodes.
 
-Aggregate separately for homogeneous and heterogeneous conditions. For heterogeneous `{left_right, quadrants, smooth_gradient}`, explicitly report the relative MSE difference of spatial CLIP-TTT versus global CLIP-TTT. For `clean`, report mean, median, max and number of exactly unchanged episodes.
+A positive T005 requires more than lower self-supervised loss: relative gating must pass Stage A and Stage B must show identity-safe useful correction, with evidence that spatial TTT adds value under conflicting exposure. A failure is scientifically useful and must not trigger post-hoc tuning.
 
-T004 is a pilot, not a leaderboard. Do not choose per-image settings. A useful positive outcome would be *simultaneous evidence* that the gated objective greatly reduces clean-content drift versus the old absolute prior and still yields positive recovery on held-out heterogeneous exposure, with spatial outperforming global when the degradation is spatially conflicting. If those do not co-occur, report the failure honestly.
+## Required tests
 
-## Required tests / leakage checks
+Add tests proving at least:
 
-Add tests proving:
-
-- CLIP weights are frozen while gradient to input pixels is finite/nonzero for a controlled view;
-- calibration thresholds/scales are computed only from the calibration manifest;
-- replacing held-out clean references changes evaluation metrics only, never gates, adapted parameters, outputs, or loss trajectories;
-- changing synthetic condition labels/masks while keeping pixels fixed changes no adaptation result;
-- inactive clean-like views contribute exactly zero semantic objective;
-- all-inactive episode leaves EV/Gamma exactly at identity;
-- WB/contrast remain exactly identity under the EV+Gamma trainable mask;
-- global/spatial episodic reset remains intact;
-- all existing T001–T003 regression tests still pass.
+- relative responses depend only on pixels/frozen CLIP/calibration, not condition labels/masks/references;
+- probe magnitude/sign and response formulas are exact on controlled mock scores;
+- calibration uses only clean calibration IDs;
+- replacing held-out clean references changes evaluation only, never gates/targets/adaptation outputs/trajectories;
+- changing condition metadata with pixels fixed changes no gate/target/adaptation result;
+- all-inactive episode is exact identity;
+- EV/Gamma-only mask leaves WB/contrast exactly identity;
+- probe-only baselines use no clean reference/condition metadata;
+- episodic reset remains intact;
+- all T001–T004 regression tests still pass.
 
 ## Deliverables
 
-- `research_log/T004.md` containing predeclaration, data manifest, model checksum/identity, prompts, calibration constants, Stage-A raw/audit results, and Stage-B results if authorized by the gate.
-- Machine-readable CLIP score table for every image/view/condition.
-- If Stage A passes: machine-readable adaptation matrix, trajectories, and one fixed visual panel with clean / homogeneous / left-right / quadrants examples for identity, global CLIP-TTT and spatial CLIP-TTT.
-- Tests and exact local/A6000 commands.
-- Append final report to `coordination/CODEX_TO_CHATGPT.md`; do not modify this inbox or `PROJECT_STATE.md`.
+- `research_log/T005.md` with predeclaration, fresh manifest, fixed probe definition, calibration constants, Stage-A raw results/gate verdict, and Stage-B evidence if authorized;
+- machine-readable row table containing absolute scores and relative responses for every image/view/condition;
+- if Stage B passes: complete adaptation/probe-only matrix, trajectories and one fixed visual panel;
+- exact local/A6000 commands and preserved failed-run receipts;
+- append the final report to `coordination/CODEX_TO_CHATGPT.md` only. Do not modify this inbox or `PROJECT_STATE.md`.
 
 ## Git workflow
 
-Start a fresh branch such as `codex/T004-clip-signal` from current `main` (`862e3401...` or later). Commit the manifest/prompts/configuration before held-out scores are inspected when practical. Open a PR only after the Stage-A verdict (and Stage-B evidence if permitted) is complete.
+Start a fresh branch such as `codex/T005-relative-clip` from current main after the T004 merge. Commit the fresh manifest and all fixed protocol/configuration before held-out T005 scores are inspected. Open a PR after the Stage-A verdict and Stage-B evidence only if authorized.
 
-**Do not start T005.** Await research-lead review after T004.
+**Do not start learned prompts/T006.** Await research-lead review after T005.
