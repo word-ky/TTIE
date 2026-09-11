@@ -93,3 +93,14 @@ python -m ttie.clip_audit --manifest research_log/T004_manifest.json \
 `requirements-clip.txt` pins OpenCLIP and torchvision for the existing remote torch2.4 environment. The manifest fixes18 COCO images from an available200-image cache, split6calibration/12held-out using file metadata alone. Images/checkpoints remain outside Git. See `research_log/T004.md` for selection/provenance and `T004_model_identity.json` for the official checkpoint identity and hash.
 
 Frozen ViT-B-32/laion2b_s34b_b79k uses the nine task-specified prompts and five fixed differentiable views. Only clean calibration IDs set the95th-percentile thresholds and standard-deviation scales. Held-out scoring covers six exposure conditions, writes every view score/activation to CSV/JSON, and reports aggregate/full/quadrant AUC, paired score changes, false activation and detection/type rates. A real pretrained gradient/freeze check uses a calibration image before held-out scoring. The literal Stage-A conjunction controls whether a later adaptation pilot is authorized; a failed gate stops the task without prompt/threshold/model tuning. The audit entry point never launches adaptation automatically.
+
+## T005 relative CLIP audit
+
+```bash
+python -m ttie.relative_audit --manifest research_log/T005_manifest.json \
+  --images /path/to/t005/images --model-identity /path/to/model_identity.json \
+  --absolute-calibration /path/to/completed/T004/calibration.json \
+  --output research_log/artifacts/T005 --device cuda:0
+```
+
+The fresh 30-image metadata-only manifest excludes every T004 image, with10clean calibration/20held-out sources. Model, prompts, views and conditions remain fixed. A single±0.25EV pixel probe defines dark response as d_dark(original)-d_dark(brightened), and bright response as d_bright(original)-d_bright(darkened). Only fresh clean calibration responses determine relative thresholds/scales. The audit preserves all original/probe scores, responses, fixed targets, clipping and activations, and compares relative versus absolute signals on the same held-out images using unchanged T004 absolute thresholds. The all-view gate requires clean FPR<=15%, both AUC>=.75, both correct-type TPR>=30%, and combined active-type precision>=80%. Failure stops before adaptation; no magnitude/prompt/threshold tuning. Full protocol and evidence are in research_log/T005.md.

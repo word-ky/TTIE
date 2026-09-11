@@ -1,0 +1,149 @@
+{
+  "heldout_rows": 600,
+  "relative": {
+    "all": {
+      "clean_view_count": 100,
+      "clean_false_activation": 0.07,
+      "dark": {
+        "view_count": 100,
+        "tpr_any_activation": 0.1,
+        "tpr_correct_type": 0.1,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.5806,
+        "paired_increase": 0.56
+      },
+      "bright": {
+        "view_count": 100,
+        "tpr_any_activation": 0.11,
+        "tpr_correct_type": 0.05,
+        "correct_type_among_active": 0.45454545454545453,
+        "roc_auc": 0.2945,
+        "paired_increase": 0.29
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.7142857142857143
+    },
+    "full": {
+      "clean_view_count": 20,
+      "clean_false_activation": 0.05,
+      "dark": {
+        "view_count": 20,
+        "tpr_any_activation": 0.0,
+        "tpr_correct_type": 0.0,
+        "correct_type_among_active": null,
+        "roc_auc": 0.52,
+        "paired_increase": 0.4
+      },
+      "bright": {
+        "view_count": 20,
+        "tpr_any_activation": 0.1,
+        "tpr_correct_type": 0.1,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.4,
+        "paired_increase": 0.45
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 1.0
+    },
+    "quadrants": {
+      "clean_view_count": 80,
+      "clean_false_activation": 0.075,
+      "dark": {
+        "view_count": 80,
+        "tpr_any_activation": 0.125,
+        "tpr_correct_type": 0.125,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.59734375,
+        "paired_increase": 0.6
+      },
+      "bright": {
+        "view_count": 80,
+        "tpr_any_activation": 0.1125,
+        "tpr_correct_type": 0.0375,
+        "correct_type_among_active": 0.3333333333333333,
+        "roc_auc": 0.270625,
+        "paired_increase": 0.25
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.6842105263157895
+    }
+  },
+  "absolute": {
+    "all": {
+      "clean_view_count": 100,
+      "clean_false_activation": 0.08,
+      "dark": {
+        "view_count": 100,
+        "tpr_any_activation": 0.29,
+        "tpr_correct_type": 0.28,
+        "correct_type_among_active": 0.9655172413793104,
+        "roc_auc": 0.8339,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 100,
+        "tpr_any_activation": 0.09,
+        "tpr_correct_type": 0.07,
+        "correct_type_among_active": 0.7777777777777778,
+        "roc_auc": 0.604,
+        "paired_increase": 0.85
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.9210526315789473
+    },
+    "full": {
+      "clean_view_count": 20,
+      "clean_false_activation": 0.0,
+      "dark": {
+        "view_count": 20,
+        "tpr_any_activation": 0.2,
+        "tpr_correct_type": 0.15,
+        "correct_type_among_active": 0.75,
+        "roc_auc": 0.8375,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 20,
+        "tpr_any_activation": 0.15,
+        "tpr_correct_type": 0.15,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.6325,
+        "paired_increase": 0.9
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.8571428571428571
+    },
+    "quadrants": {
+      "clean_view_count": 80,
+      "clean_false_activation": 0.1,
+      "dark": {
+        "view_count": 80,
+        "tpr_any_activation": 0.3125,
+        "tpr_correct_type": 0.3125,
+        "correct_type_among_active": 1.0,
+        "roc_auc": 0.83171875,
+        "paired_increase": 1.0
+      },
+      "bright": {
+        "view_count": 80,
+        "tpr_any_activation": 0.075,
+        "tpr_correct_type": 0.05,
+        "correct_type_among_active": 0.6666666666666666,
+        "roc_auc": 0.6003125,
+        "paired_increase": 0.8375
+      },
+      "correct_type_among_all_active_homogeneous_degraded": 0.9354838709677419
+    }
+  },
+  "criteria": {
+    "clean_fpr": true,
+    "dark_auc": false,
+    "bright_auc": false,
+    "dark_correct_tpr": false,
+    "bright_correct_tpr": false,
+    "active_type_precision": false
+  },
+  "stage_a_pass": false,
+  "failed_criteria": [
+    "dark_auc",
+    "bright_auc",
+    "dark_correct_tpr",
+    "bright_correct_tpr",
+    "active_type_precision"
+  ]
+}

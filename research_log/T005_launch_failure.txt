@@ -1,0 +1,3 @@
+2026-09-11T21:53:07Z: autodl-run.ps1 generated run20260912-055307-ttie-t005-a6000, then SSH connection closed and PowerShell raised Cannot call a method on a null-valued expression before tmux start.
+Status inspection confirmed current release20260912-055303-ttie-t005; run directory contained only meta.json/run.sh/empty artifacts, no train.log, and no matching TTIE tmux or Python job. Other unrelated project jobs were left untouched.
+Recovery: used existing Invoke-AutodlSsh/Quote-Sh helpers to start the already-generated exact run.sh in its intended tmux session and log path, same run ID. No code/config/probe/split change; no T005 score had run and no duplicate experiment.
