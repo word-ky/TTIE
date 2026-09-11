@@ -81,3 +81,15 @@ python -m ttie.safety_summary research_log/artifacts/T003_cpu --plot
 The fixed T003 sweep retains the exact T002 inputs and includes all 11 research-lead-specified weight settings on spatial4, plus unregularized global and identity: 936 rows / 864 reset adaptation episodes. The complete matrix runs on CPU on the A6000 host; separate CUDA repeat/device-sensitivity tests are reported explicitly. Matplotlib is used only for local plotting from completed metrics. No per-example configuration is selected.
 
 Every run's component, total and gradient trajectories are saved under `trajectories/`; metrics.csv/metrics.json preserve all input-level measurements. `summary.json`/`summary.md` implement the predeclared conjunction: worst drift across nine clean inputs must fall at least 5x, and the ratio of mean heterogeneous improvements over global must be at least .70. Mean drift and worst family-mean drift are also reported. Negative utility retention is retained. `--plot` produces labeled Pareto PNG/SVG figures. The image/EV panel always shows the predeclared (0,0), (.1,.1), (1,.1), (10,0) settings on the same three fixed cases, irrespective of outcomes. Full rationale and outcomes are in `research_log/T003.md`.
+
+## T004 frozen CLIP signal audit
+
+```bash
+python -m ttie.clip_audit --manifest research_log/T004_manifest.json \
+  --images /path/to/selected/images --model-identity /path/to/model_identity.json \
+  --output research_log/artifacts/T004 --device cuda:0
+```
+
+`requirements-clip.txt` pins OpenCLIP and torchvision for the existing remote torch2.4 environment. The manifest fixes18 COCO images from an available200-image cache, split6calibration/12held-out using file metadata alone. Images/checkpoints remain outside Git. See `research_log/T004.md` for selection/provenance and `T004_model_identity.json` for the official checkpoint identity and hash.
+
+Frozen ViT-B-32/laion2b_s34b_b79k uses the nine task-specified prompts and five fixed differentiable views. Only clean calibration IDs set the95th-percentile thresholds and standard-deviation scales. Held-out scoring covers six exposure conditions, writes every view score/activation to CSV/JSON, and reports aggregate/full/quadrant AUC, paired score changes, false activation and detection/type rates. A real pretrained gradient/freeze check uses a calibration image before held-out scoring. The literal Stage-A conjunction controls whether a later adaptation pilot is authorized; a failed gate stops the task without prompt/threshold/model tuning. The audit entry point never launches adaptation automatically.
