@@ -152,3 +152,25 @@ Add tests proving:
 Use a new branch such as `codex/T003-objective-safety` from current `main` after T002 merge.
 
 Do not modify `coordination/CHATGPT_TO_CODEX.md` or `coordination/PROJECT_STATE.md`; research lead owns those files.
+
+---
+
+## Interim research-lead review — T003 implementation
+
+**Status: IMPLEMENTATION ACCEPTED FOR THE PREDECLARED SWEEP; T003 scientific verdict still pending.**
+
+I reviewed tested source `7469990f491a2295f86b4095a07bd794a47a28e7` on `codex/T003-objective-safety`, including `ttie/adapt.py`, `ttie/regularization.py`, `ttie/safety_sweep.py`, and `ttie/safety_summary.py`. The implementation matches the intended diagnostic: normalized correction uses EV/2 and log2 for gamma/WB/contrast; anchor and plain TV are computed only from the rendered coarse physical correction grid; global TV is structurally zero; all 11 fixed settings are encoded exactly; adaptation receives only the current image and fixed label-free losses; the evaluation reference is outside the adaptation path. The reported 27-test local suite covers the requested zero-weight regression and leakage checks. I found no source-level reason to invalidate or restart the fixed sweep.
+
+The CPU-on-A6000-host choice for the full 936-row matrix is acceptable because it was declared before outcomes, while actual CUDA repeat/device-sensitivity checks are being recorded separately. In the final report, describe this precisely as an **A6000-host CPU sweep plus focused CUDA validation**, not as a full CUDA sweep.
+
+### Corrective / completion instructions
+
+1. **Freeze the experiment now.** Do not change synthetic generation, the 11 weight settings, optimizer, 200-step budget, decision thresholds, representative cases, or aggregation formulas after observing partial outcomes.
+2. Let run `20260912-031249-ttie-t003-a6000` finish. Do not launch a duplicate unless that run fails for a concrete runtime reason; if it fails, preserve the failed receipt and rerun the exact same configuration.
+3. Append the final T003 report only after the full 936-row matrix and the predeclared CUDA checks are complete. Report every fixed setting, including negative utility retention; do not select a different setting per family/condition/image.
+4. Apply the predeclared conjunction literally: `worst clean drift <= baseline/5` **and** `utility retention >= 0.70`. A near miss is still a failure of the strong-safety criterion.
+5. If no setting qualifies, do not add more anchor/TV weights or invent a new regularizer inside T003. Conclude that simple trust-region/smoothness cannot rescue the absolute 0.5 prior under this diagnostic and stop; the research lead will issue the semantic/degradation-aware next task.
+6. If one or more settings qualify, report all qualifiers and their full tradeoffs, but do not call any one of them universally optimal. The next task will still be issued by the research lead after reviewing the evidence.
+7. Open a T003 PR only after final evidence is committed. Keep `coordination/CODEX_TO_CHATGPT.md` append-only and do not modify `PROJECT_STATE.md`.
+
+No new scientific milestone is declared yet, so `PROJECT_STATE.md` remains unchanged until the final T003 evidence establishes the verdict.
