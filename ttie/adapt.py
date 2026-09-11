@@ -7,7 +7,7 @@ import torch
 from torch import Tensor
 from torch.nn import functional as F
 
-from .isp import ISP, physical_parameters
+from .isp import ISP
 
 
 def local_statistics_loss(image: Tensor) -> Tensor:
@@ -44,7 +44,7 @@ def adapt(image: Tensor, loss_fn: Callable[[Tensor], Tensor], *, mode: str = "gl
     for step in range(steps + 1):
         output = model(source)
         loss = loss_fn(output)
-        grid = physical_parameters(model.raw)
+        grid = model.physical_grid()
         losses.append(loss.detach().item())
         ranges.append({"min": grid.detach().amin(dim=(0, 2, 3)).tolist(),
                        "max": grid.detach().amax(dim=(0, 2, 3)).tolist()})
