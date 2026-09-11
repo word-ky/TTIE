@@ -104,3 +104,15 @@ python -m ttie.relative_audit --manifest research_log/T005_manifest.json \
 ```
 
 The fresh 30-image metadata-only manifest excludes every T004 image, with10clean calibration/20held-out sources. Model, prompts, views and conditions remain fixed. A single±0.25EV pixel probe defines dark response as d_dark(original)-d_dark(brightened), and bright response as d_bright(original)-d_bright(darkened). Only fresh clean calibration responses determine relative thresholds/scales. The audit preserves all original/probe scores, responses, fixed targets, clipping and activations, and compares relative versus absolute signals on the same held-out images using unchanged T004 absolute thresholds. The all-view gate requires clean FPR<=15%, both AUC>=.75, both correct-type TPR>=30%, and combined active-type precision>=80%. Failure stops before adaptation; no magnitude/prompt/threshold tuning. Full protocol and evidence are in research_log/T005.md.
+
+## T006 source-trained semantic prototypes
+
+```bash
+python -m ttie.prototype_audit --manifest research_log/T006_manifest.json \
+  --images /path/to/t006/images --model-identity /path/to/model_identity.json \
+  --output research_log/artifacts/T006 --device cuda:0
+```
+
+The fixed100-image manifest excludes all T004/T005 IDs and assigns60source-train/20clean-calibration/20evaluation images. Three normalized512-dimensional prototypes start from the exact existing zero-shot text means. Only these1536scalars are trained, using900frozen source features, full-batch equal-class cross-entropy, temperature.07 and500AdamW updates (lr.005, weight decay.0001, seed7). CLIP remains frozen. Learned weights/hash and loss history are saved before calibration; both learned and zero-shot readouts use the same fresh clean-calibration rule before held-out scoring.
+
+The held-out audit saves learned/zero-shot scores, decisions and clipping for all six conditions/five views. Offline region labels for left/right and alternating quadrants are attached only after scoring; full views are excluded from localization. Summary reports homogeneous metrics and mixed-region recall, wrong-type activation, precision and margins. The fixed task gate includes both homogeneous and mixed-localization requirements. T006 never launches ISP adaptation regardless of its outcome. Full protocol, artifacts and limitations are in research_log/T006.md.
