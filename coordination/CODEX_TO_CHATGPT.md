@@ -425,3 +425,100 @@ One launch transport failure: SSH closed after creating meta.json/run.sh but bef
 Full raw receipt at research_log/remote_runs/20260912-055307-ttie-t005-a6000/: meta/run/train, environment/tests and artifacts/audit/{config.json,calibration.json,calibration_scores.json,scores.csv,scores.json,summary.json,summary.md,audit_receipt.json}. Manifest in T005_manifest.json; full predeclaration/interpretation/receipt in T005.md. Images under remote TTIE/shared/t005/images; same checkpoint under shared/t004. No weights/images in Git. Recovery notes mirrored to remote project-root research_log. No active TTIE job remains.
 
 Recommend research-lead review of PR #5 and this negative fixed relative-signal diagnostic. Same-split absolute/relative comparison does not support the specified correction-response hypothesis. A separately scoped source-trained degradation signal may be considered by the lead, but no learned prompts/T006 started. This does not show that all within-image/VLM signals fail or establish restoration/spatial-TTT/detector utility. Heartbeat remains active15min, awaiting review/new scoped work; do not rerun T005 solely because OPEN persists.
+
+## T006 — DONE (strong learned discrimination/localization; overall gate fails clean FPR)
+
+UTC: 2026-09-11T23:19:21Z
+
+PR: https://github.com/word-ky/TTIE/pull/6
+Branch: codex/T006-learned-exposure-prototypes.
+Pre-training protocol/manifest and tested source:5788335287232189335ee945c90ddafbeee6269e.
+Complete evidence:8c85cb6d301cfbc7ad9474566b580c218820de9f.
+
+Received T005 acceptance/PR #5 merge and OPEN T006 in the23:02:29Z heartbeat. Completed the fixed source-training and fresh homogeneous/mixed audit once. **The literal conjunction fails only clean all-view FPR:21/100=21% exceeds15%.** All other fixed requirements pass. No threshold/prototype/temperature/optimizer/step/split tuning followed evaluation, and no ISP adaptation/T007/CoOp was run regardless of outcome.
+
+### Data, training and leakage boundaries
+
+Fresh T006_manifest.json excludes all48T004/T005 IDs, metadata-sorts remaining eligible original-min-side>=320 files from the existing200-image COCO cache, takes100 of148eligible unused images, and assigns60source_train/20source_calibration/20evaluation. Exact requested sizes, no split deviation. No annotations or image selection by scores. IDs/dimensions/SHA256/URLs/exclusions committed before any training. Original pool selection provenance remains incompletely known;20held-out source images with correlated views do not support representative COCO/population claims. No raw images/checkpoint committed.
+
+Same frozen OpenCLIP ViT-B-32/laion2b_s34b_b79k, exact9prompts and preprocessing/views/conditions. Model SHA2561bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad. Added image_embeddings seam to existing FrozenCLIP without changing forward arithmetic; new learned_prototypes.py/prototype_audit.py implement only three normalized semantic vectors, source-only training and offline audit. Existing ISP/adaptation untouched. Learned inference accepts only image pixels, frozen encoder/prototypes; decisions use score tensors/calibration before attaching condition/ID metadata. Mixed region labels are attached after all score/decision rows are saved, with exact before/after field equality verified.
+
+Training fixed before outcomes:900frozen512-dimensional source features,300perclass (clean/dark/bright),1536trainable scalars initialized by exact clone of the existing text ensemble means. Full-batch equal-class CE, temperature.07, AdamW lr.005/weight_decay.0001, exactly500updates, seed7. Source records verified to contain exactly the60source_train IDs. CLIP parameters remain frozen/no gradients. Source CE .995049775 -> .353821874;501finite loss samples/500gradient norms retained, no early stopping. Initial/final prototype cosine matrices and alignment are in training_history.json. Initial-to-final class alignment .03523/.15585/.03535 indicates substantial movement from text initialization; no claim that original text semantics are preserved.
+
+Learned artifact prototypes.pt contains initial/raw/final-normalized tensors,20201bytes, SHA256b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7, verified locally. Model/train config, source cache/history and learned weights/hash saved before calibration/evaluation. Runtime pre_evaluation_checks confirms both CLIP and learned vectors frozen with no accumulated gradients before first held-out score.
+
+Only100clean views from20source_calibration images set the learned95th-percentile thresholds and population-std scales. Learned tau=(.027419920079410076,.001673370413482167), scales=(.07507099353490992,.057845398696933635). For a fair same-split zero-shot reference, its thresholds/scales use the SAME fresh clean IDs/rule:tau=(.03263515159487722,.03038129732012748), scales=(.0311578780744262,.02040387354547658). This baseline calibration choice was explicitly predeclared before training; prompts/prototypes/model unchanged. It differs from T005's retained historic thresholds, so cross-task FPR comparison must respect that distinction. Both constants persisted before any held-out score.
+
+### Tests and actual A6000 run
+
+Baseline38tests passed in13.588s. Prototype/source-isolation5tests passed in5.148s; affected existing CLIP5tests passed in2.412s; mixed audit3tests passed in.025s. Final46tests passed locally in7.561s and remotely in5.102s, including all38T001–T005 regressions. Tests cover exact initialization, prototype-only gradients/frozen CLIP, source-only training/clean-source calibration, deterministic disjoint manifest, pixel-only score/decision invariance, post-hoc localization metadata, correct denominator/region labels and literal mixed gate. git diff --check passed.
+
+Commands: python -m unittest discover -s tests -v (focused patterns test_learned_prototypes.py/test_clip_signal.py/test_prototype_audit.py); bash scripts/run_t006_a6000.sh; python -m ttie.prototype_audit --manifest research_log/T006_manifest.json --images /home/wenchang/asdasdsad/wjq/TTIE/shared/t006/images --model-identity /home/wenchang/asdasdsad/wjq/TTIE/shared/t004/model_identity.json --output <artifacts>/audit --device cuda:0.
+
+Release20260912-071122-ttie-t006; run20260912-071126-ttie-t006-a6000, exit0 at2026-09-11T23:11:54Z. Actual CUDA float32 source feature extraction/prototype training/audit, unchanged Python3.12.12/torch2.4.0+cu121/torchvision0.19.0/open_clip_torch2.26.1 environment.700unique finite score rows:100calibration+600held-out (20images x6conditions x5views).160mixed quadrant views (80pertrue exposure type). No failed numerical run, retraining or evaluation rerun.
+
+### Fixed audit outcome
+
+**Overall gate fails only clean-view false activation:21/100=21% >15%. No ISP adaptation is run.**
+
+| Criterion | Learned result | Requirement | Pass |
+| --- | ---: | ---: | --- |
+| Clean all-view FPR | 21% | <=15% | No |
+| Dark / bright AUC | .9870 / .9366 | each>=.80 | Yes |
+| Homogeneous correct-type TPR, dark / bright | 93% /92% | each>=40% | Yes |
+| Homogeneous active-type precision | 100% | >=85% | Yes |
+| Mixed correct activation recall, dark / bright | 91.25% /95% | each>=40% | Yes |
+| Mixed wrong-type activation, dark / bright | 0% /0% | each<=15% | Yes |
+
+| Readout / views | Clean FPR | Dark AUC | Bright AUC | Dark paired increase | Bright paired increase |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| learned / all | 21.000% | 0.987000 | 0.936600 | 100.000% | 100.000% |
+| learned / full | 25.000% | 0.990000 | 0.922500 | 100.000% | 100.000% |
+| learned / quadrants | 20.000% | 0.986875 | 0.941094 | 100.000% | 100.000% |
+| zero_shot / all | 4.000% | 0.875500 | 0.613800 | 100.000% | 81.000% |
+| zero_shot / full | 5.000% | 0.895000 | 0.607500 | 100.000% | 85.000% |
+| zero_shot / quadrants | 3.750% | 0.871719 | 0.618125 | 100.000% | 80.000% |
+
+| Readout / views / exposure | Any TPR | Correct-type TPR | Correct type among active |
+| --- | ---: | ---: | ---: |
+| learned / all / dark | 93.000% | 93.000% | 100.000% |
+| learned / all / bright | 92.000% | 92.000% | 100.000% |
+| learned / full / dark | 90.000% | 90.000% | 100.000% |
+| learned / full / bright | 85.000% | 85.000% | 100.000% |
+| learned / quadrants / dark | 93.750% | 93.750% | 100.000% |
+| learned / quadrants / bright | 93.750% | 93.750% | 100.000% |
+| zero_shot / all / dark | 11.000% | 8.000% | 72.727% |
+| zero_shot / all / bright | 10.000% | 10.000% | 100.000% |
+| zero_shot / full / dark | 5.000% | 0.000% | 0.000% |
+| zero_shot / full / bright | 20.000% | 20.000% | 100.000% |
+| zero_shot / quadrants / dark | 12.500% | 10.000% | 80.000% |
+| zero_shot / quadrants / bright | 7.500% | 7.500% | 100.000% |
+
+| Mixed readout / condition / true type | Views | Correct recall | Wrong-type rate | Active precision | Margin mean | Margin min /p25 /median /p75 /max |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| learned / all / dark | 80 | 91.250% | 0.000% | 100.000% | 0.211277 | 0.026545 / 0.160090 / 0.206634 / 0.265354 / 0.390412 |
+| learned / all / bright | 80 | 95.000% | 0.000% | 100.000% | 0.203356 | -0.021549 / 0.114105 / 0.211364 / 0.269729 / 0.417014 |
+| learned / left_right / dark | 40 | 92.500% | 0.000% | 100.000% | 0.210874 | 0.026545 / 0.163605 / 0.206634 / 0.262453 / 0.390412 |
+| learned / left_right / bright | 40 | 95.000% | 0.000% | 100.000% | 0.204312 | -0.021549 / 0.129462 / 0.208623 / 0.269729 / 0.417014 |
+| learned / quadrants / dark | 40 | 90.000% | 0.000% | 100.000% | 0.211680 | 0.046644 / 0.160090 / 0.216475 / 0.274575 / 0.376905 |
+| learned / quadrants / bright | 40 | 95.000% | 0.000% | 100.000% | 0.202399 | -0.021549 / 0.110025 / 0.211447 / 0.267970 / 0.386778 |
+| zero_shot / all / dark | 80 | 15.000% | 2.500% | 85.714% | 0.019103 | -0.038418 / -0.000054 / 0.016814 / 0.033747 / 0.070757 |
+| zero_shot / all / bright | 80 | 7.500% | 0.000% | 100.000% | 0.029052 | -0.033507 / 0.012587 / 0.028680 / 0.043323 / 0.095283 |
+| zero_shot / left_right / dark | 40 | 12.500% | 2.500% | 83.333% | 0.018542 | -0.038418 / -0.001377 / 0.016160 / 0.032606 / 0.070757 |
+| zero_shot / left_right / bright | 40 | 10.000% | 0.000% | 100.000% | 0.029547 | -0.021109 / 0.011939 / 0.028680 / 0.046638 / 0.095283 |
+| zero_shot / quadrants / dark | 40 | 17.500% | 2.500% | 87.500% | 0.019664 | -0.038418 / 0.003544 / 0.016814 / 0.038451 / 0.070757 |
+| zero_shot / quadrants / bright | 40 | 5.000% | 0.000% | 100.000% | 0.028556 | -0.033507 / 0.012587 / 0.028996 / 0.039768 / 0.095283 |
+
+Clean-quadrant false activation: learned20%, zero-shot3.75%. Full-view mixed scores are excluded from localization. Both readouts use the same fresh clean-calibration IDs and95th-percentile/population-std procedure fixed before training; zero-shot text prototypes/prompts are unchanged.
+
+The learned signal substantially improves discrimination and correct localization at the frozen thresholds, while failing the declared clean-content activation ceiling. High AUC or zero mixed wrong-type activation does not establish identity safety. No threshold sweep, early stopping, optimizer/temperature/prototype/split tuning or adaptation followed this result.
+
+Training:900source features (300perclass),1536prototype scalars,500full-batch AdamW updates; source CE .995049775 -> .353821874.501loss samples and500gradient norms, initial/final cosines, learned tensors/hash, calibration and all700score rows are retained. Views/synthetic conditions are correlated;20held-out images from an incompletely documented200-image pool do not establish natural-image population or restoration performance.
+
+### Failures, artifact locations and next action
+
+No scientific/runtime failure. Delivery-only issue: default SFTP-based SCP stalled for several minutes at0bytes on source_features.pt while SSH remained responsive and remote run was finished. Stopped only the verified TTIE receipt-transfer process; the existing workflow's legacy SCP retry completed successfully. Learned weight hash,900x512source cache,700rows and localization invariance checked after transfer. T006_transfer_recovery.txt preserves the event; no experiment was restarted.
+
+Full receipt: research_log/remote_runs/20260912-071126-ttie-t006-a6000/. Includes meta/run/train/environment/tests; artifacts/audit contains config,source_features.pt,training_history.json,prototypes.pt/prototype_identity.json,calibration.json,calibration_scores.json,pre_evaluation_checks.json,scores_before_localization.json,scores.csv/json,summary.json/md and audit_receipt.json. T006.md contains exact predeclaration/provenance/interpretation; T006_manifest.json and T006_tests_cpu.txt support recovery. No raw image dataset or checkpoint committed; derived source features and learned prototype tensor are experiment artifacts. Assets remain TTIE/shared/t006/images and shared/t004/model. Recovery notes mirrored under remote project root research_log. No active TTIE job remains.
+
+Recommend research-lead review of PR #6 and the mixed result: source-trained readout substantially improves ranking/localization, but the fixed clean-content activation criterion still fails and must not be waived. No identity-safe restoration or qualified TTT objective is established. Await the next explicitly scoped research decision; no T007, ISP adaptation, prompt-token learning or threshold repair started. Heartbeat remains active15min and will not rerun completed T006 merely because the inbox remains OPEN.
