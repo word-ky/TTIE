@@ -1,0 +1,130 @@
+[autodl] run_id=20260912-031249-ttie-t003-a6000
+[autodl] started_at=2026-09-12T03:12:53+08:00
+3.12.12 | packaged by conda-forge | (main, Jan 26 2026, 23:51:32) [GCC 14.3.0]
+torch 2.4.0+cu121 CUDA 12.1 Pillow 12.3.0
+NVIDIA RTX A6000
+Full T003 matrix device: CPU; separate CUDA validation follows.
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+test_global_unaffected_by_tv_and_components_reconstruct_total (test_regularization.RegularizationTests.test_global_unaffected_by_tv_and_components_reconstruct_total) ... ok
+test_identity_normalization_anchor_and_bounds (test_regularization.RegularizationTests.test_identity_normalization_anchor_and_bounds) ... ok
+test_tv_constant_varying_and_analytic_value (test_regularization.RegularizationTests.test_tv_constant_varying_and_analytic_value) ... ok
+test_zero_weight_t001_fixed_numeric_regression (test_regularization.RegularizationTests.test_zero_weight_t001_fixed_numeric_regression) ... ok
+test_all_fixed_settings_and_component_trajectories (test_safety_sweep.SafetySweepTests.test_all_fixed_settings_and_component_trajectories) ... ok
+test_clean_reference_replacement_never_changes_any_trajectory (test_safety_sweep.SafetySweepTests.test_clean_reference_replacement_never_changes_any_trajectory) ... ok
+test_predeclared_decision_rule_known_values (test_safety_sweep.SafetySweepTests.test_predeclared_decision_rule_known_values) ... ok
+test_clean_families_and_determinism (test_suite.SuiteTests.test_clean_families_and_determinism) ... ok
+test_degradation_masks_and_t001_equivalence (test_suite.SuiteTests.test_degradation_masks_and_t001_equivalence) ... ok
+test_evaluation_only_reference_and_exports (test_suite.SuiteTests.test_evaluation_only_reference_and_exports) ... ok
+test_identity_drift_clean_condition (test_suite.SuiteTests.test_identity_drift_clean_condition) ... ok
+test_count_aggregation_and_uniform_field (test_uniform.UniformTests.test_count_aggregation_and_uniform_field) ... ok
+test_spatial_one_matches_global_exactly (test_uniform.UniformTests.test_spatial_one_matches_global_exactly) ... ok
+test_symmetric_control_stays_near_global_and_resets (test_uniform.UniformTests.test_symmetric_control_stays_near_global_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 4.998s
+
+OK
+All 13 variants: CUDA repeat rows/diagnostics/tensors exact.
+{'model': 'identity', 'cpu_mse': 0.07748476415872574, 'cuda_mse': 0.07748476415872574, 'abs_mse_difference': 0.0, 'max_output_abs_difference': 0.0}
+{'model': 'global', 'cpu_mse': 0.00988832302391529, 'cuda_mse': 0.00988832302391529, 'abs_mse_difference': 0.0, 'max_output_abs_difference': 1.1920928955078125e-07}
+{'model': 'a0_s0', 'cpu_mse': 0.0024597933515906334, 'cuda_mse': 0.002459792885929346, 'abs_mse_difference': 4.656612873077393e-10, 'max_output_abs_difference': 1.7881393432617188e-07}
+{'model': 'a0.01_s0', 'cpu_mse': 0.0021905070170760155, 'cuda_mse': 0.0021905070170760155, 'abs_mse_difference': 0.0, 'max_output_abs_difference': 2.384185791015625e-07}
+{'model': 'a0.1_s0', 'cpu_mse': 0.003827542532235384, 'cuda_mse': 0.0038275420665740967, 'abs_mse_difference': 4.656612873077393e-10, 'max_output_abs_difference': 2.384185791015625e-07}
+{'model': 'a1_s0', 'cpu_mse': 0.013631175272166729, 'cuda_mse': 0.013631178066134453, 'abs_mse_difference': 2.7939677238464355e-09, 'max_output_abs_difference': 2.384185791015625e-07}
+{'model': 'a10_s0', 'cpu_mse': 0.04962613061070442, 'cuda_mse': 0.049626123160123825, 'abs_mse_difference': 7.450580596923828e-09, 'max_output_abs_difference': 3.5762786865234375e-07}
+{'model': 'a0_s0.01', 'cpu_mse': 0.0032144065480679274, 'cuda_mse': 0.003216496901586652, 'abs_mse_difference': 2.0903535187244415e-06, 'max_output_abs_difference': 0.0035607218742370605}
+{'model': 'a0_s0.1', 'cpu_mse': 0.0036831945180892944, 'cuda_mse': 0.003672572784125805, 'abs_mse_difference': 1.0621733963489532e-05, 'max_output_abs_difference': 0.005951285362243652}
+{'model': 'a0_s1', 'cpu_mse': 0.02390671893954277, 'cuda_mse': 0.02405797690153122, 'abs_mse_difference': 0.0001512579619884491, 'max_output_abs_difference': 0.008048653602600098}
+{'model': 'a0.1_s0.1', 'cpu_mse': 0.005618838593363762, 'cuda_mse': 0.005638509057462215, 'abs_mse_difference': 1.9670464098453522e-05, 'max_output_abs_difference': 0.008213937282562256}
+{'model': 'a1_s0.1', 'cpu_mse': 0.016479387879371643, 'cuda_mse': 0.01648067496716976, 'abs_mse_difference': 1.2870877981185913e-06, 'max_output_abs_difference': 0.009450316429138184}
+{'model': 'a1_s1', 'cpu_mse': 0.036646075546741486, 'cuda_mse': 0.03679470717906952, 'abs_mse_difference': 0.00014863163232803345, 'max_output_abs_difference': 0.011940419673919678}
+CPU/CUDA sensitivity measured, not hidden with relaxed tolerances; full matrix is uniformly CPU.
+finished seed7_midtone_clean rows=13
+finished seed7_midtone_homogeneous_dark rows=26
+finished seed7_midtone_homogeneous_bright rows=39
+finished seed7_midtone_left_right rows=52
+finished seed7_midtone_quadrants rows=65
+finished seed7_midtone_smooth_gradient rows=78
+finished seed7_midtone_stripes_4 rows=91
+finished seed7_midtone_stripes_12 rows=104
+finished seed7_dark_structures_clean rows=117
+finished seed7_dark_structures_homogeneous_dark rows=130
+finished seed7_dark_structures_homogeneous_bright rows=143
+finished seed7_dark_structures_left_right rows=156
+finished seed7_dark_structures_quadrants rows=169
+finished seed7_dark_structures_smooth_gradient rows=182
+finished seed7_dark_structures_stripes_4 rows=195
+finished seed7_dark_structures_stripes_12 rows=208
+finished seed7_high_key_clean rows=221
+finished seed7_high_key_homogeneous_dark rows=234
+finished seed7_high_key_homogeneous_bright rows=247
+finished seed7_high_key_left_right rows=260
+finished seed7_high_key_quadrants rows=273
+finished seed7_high_key_smooth_gradient rows=286
+finished seed7_high_key_stripes_4 rows=299
+finished seed7_high_key_stripes_12 rows=312
+finished seed11_midtone_clean rows=325
+finished seed11_midtone_homogeneous_dark rows=338
+finished seed11_midtone_homogeneous_bright rows=351
+finished seed11_midtone_left_right rows=364
+finished seed11_midtone_quadrants rows=377
+finished seed11_midtone_smooth_gradient rows=390
+finished seed11_midtone_stripes_4 rows=403
+finished seed11_midtone_stripes_12 rows=416
+finished seed11_dark_structures_clean rows=429
+finished seed11_dark_structures_homogeneous_dark rows=442
+finished seed11_dark_structures_homogeneous_bright rows=455
+finished seed11_dark_structures_left_right rows=468
+finished seed11_dark_structures_quadrants rows=481
+finished seed11_dark_structures_smooth_gradient rows=494
+finished seed11_dark_structures_stripes_4 rows=507
+finished seed11_dark_structures_stripes_12 rows=520
+finished seed11_high_key_clean rows=533
+finished seed11_high_key_homogeneous_dark rows=546
+finished seed11_high_key_homogeneous_bright rows=559
+finished seed11_high_key_left_right rows=572
+finished seed11_high_key_quadrants rows=585
+finished seed11_high_key_smooth_gradient rows=598
+finished seed11_high_key_stripes_4 rows=611
+finished seed11_high_key_stripes_12 rows=624
+finished seed23_midtone_clean rows=637
+finished seed23_midtone_homogeneous_dark rows=650
+finished seed23_midtone_homogeneous_bright rows=663
+finished seed23_midtone_left_right rows=676
+finished seed23_midtone_quadrants rows=689
+finished seed23_midtone_smooth_gradient rows=702
+finished seed23_midtone_stripes_4 rows=715
+finished seed23_midtone_stripes_12 rows=728
+finished seed23_dark_structures_clean rows=741
+finished seed23_dark_structures_homogeneous_dark rows=754
+finished seed23_dark_structures_homogeneous_bright rows=767
+finished seed23_dark_structures_left_right rows=780
+finished seed23_dark_structures_quadrants rows=793
+finished seed23_dark_structures_smooth_gradient rows=806
+finished seed23_dark_structures_stripes_4 rows=819
+finished seed23_dark_structures_stripes_12 rows=832
+finished seed23_high_key_clean rows=845
+finished seed23_high_key_homogeneous_dark rows=858
+finished seed23_high_key_homogeneous_bright rows=871
+finished seed23_high_key_left_right rows=884
+finished seed23_high_key_quadrants rows=897
+finished seed23_high_key_smooth_gradient rows=910
+finished seed23_high_key_stripes_4 rows=923
+finished seed23_high_key_stripes_12 rows=936
+qualifying_settings: [] rows: 936 all_finite: True
+[autodl] finished_at=2026-09-12T03:23:26+08:00
+[autodl] exit_code=0

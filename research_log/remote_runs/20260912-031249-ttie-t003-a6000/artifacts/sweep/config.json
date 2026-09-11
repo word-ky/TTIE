@@ -1,0 +1,111 @@
+{
+  "seeds": [
+    7,
+    11,
+    23
+  ],
+  "steps": 200,
+  "lr": 0.03,
+  "device": "cpu",
+  "settings": [
+    [
+      "a0_s0",
+      0.0,
+      0.0
+    ],
+    [
+      "a0.01_s0",
+      0.01,
+      0.0
+    ],
+    [
+      "a0.1_s0",
+      0.1,
+      0.0
+    ],
+    [
+      "a1_s0",
+      1.0,
+      0.0
+    ],
+    [
+      "a10_s0",
+      10.0,
+      0.0
+    ],
+    [
+      "a0_s0.01",
+      0.0,
+      0.01
+    ],
+    [
+      "a0_s0.1",
+      0.0,
+      0.1
+    ],
+    [
+      "a0_s1",
+      0.0,
+      1.0
+    ],
+    [
+      "a0.1_s0.1",
+      0.1,
+      0.1
+    ],
+    [
+      "a1_s0.1",
+      1.0,
+      0.1
+    ],
+    [
+      "a1_s1",
+      1.0,
+      1.0
+    ]
+  ],
+  "families": [
+    "midtone",
+    "dark_structures",
+    "high_key"
+  ],
+  "conditions": [
+    "clean",
+    "homogeneous_dark",
+    "homogeneous_bright",
+    "left_right",
+    "quadrants",
+    "smooth_gradient",
+    "stripes_4",
+    "stripes_12"
+  ],
+  "visual_columns": [
+    "clean",
+    "identity",
+    "global",
+    "a0_s0",
+    "a0.1_s0.1",
+    "a1_s0.1",
+    "a10_s0"
+  ],
+  "visual_cases_seed7": [
+    [
+      "dark_structures",
+      "clean"
+    ],
+    [
+      "high_key",
+      "clean"
+    ],
+    [
+      "midtone",
+      "left_right"
+    ]
+  ],
+  "normalization": "EV/2; log2(gamma,WB-R,WB-G,WB-B,contrast)",
+  "anchor": "mean(c^2) on coarse physical normalized grid",
+  "smooth": "mean(abs(dx c))+mean(abs(dy c)); absent axes contribute zero",
+  "python": "3.12.12",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1"
+}
