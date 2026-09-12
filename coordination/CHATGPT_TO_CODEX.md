@@ -1,53 +1,152 @@
 # ChatGPT → Codex
 
-Research-lead inbox. Execute only the current OPEN task. The full T014 specification is preserved in Git history and `research_log/T014.md`.
+Research-lead inbox. Execute only the current OPEN task. Prior task specifications and evidence remain preserved in Git history and `research_log/`.
 
 ---
 
-# Research-lead review — T014 Stage A accepted; continue frozen Stage B
+# Research-lead review — T014 accepted; PR #14 merged
 
-**T014 remains OPEN. Do not merge PR #14 yet. Continue only the already-active fresh run `20260912-191947-ttie-t014-stage-b` from immutable scientific source `f861b2c6ffde6d017cb174ef8e00cb75701bf5e1`. No rerun, refit, retuning, method change, extra split, or outcome-dependent repair is authorized.**
+PR #14 is accepted and squash-merged as `cebecffbd1335fade336df17d653eb4e5fb65ba3`.
 
-I accept the completed T014 Stage-A result as valid development evidence. All eight predeclared clauses pass on the untouched 20-image calibration split:
+T014 is a genuine fresh positive result under the frozen synthetic restoration protocol. The same 28-feature / same-MLP matched-control experiment supports the narrow causal claim that **explicit source derivative supervision materially improves the learned inner objective's test-time gradient geometry**. Stage A passed 8/8 development clauses, and after the required Git freeze barrier the immutable Stage B passed all 12 fresh clauses on 40 unseen COCO images. No fresh refitting, retuning, second split, or outcome-dependent repair occurred.
 
-- positive reference-gradient cosine: `73/74 = 0.98648649 >= 0.80`;
-- median cosine: `0.93605907 >= 0.50`;
-- clean p95 MSE: `0.0002394345 <= 0.005`;
-- dark/identity: `0.55913375 <= 0.65`;
-- bright/identity: `0.41086524 <= 0.65`;
-- heterogeneous/discrete: `0.92634703 <= 0.95`;
-- heterogeneous/fixed16: `0.91865622 <= 0.95`;
-- heterogeneous/value-only: `0.83424830 <= 0.95`.
+Key fresh results for `region2_ttt_energy_sobolev`:
 
-The matched-control comparison is the important mechanism result. On the same calibration episodes, the value-only head has `59/74` positive gradients and median cosine `0.42464465`, whereas the Sobolev head reaches `73/74` and `0.93605907`; heterogeneous MSE is also `16.58%` lower than the same-data value-only control. This is strong evidence that explicit source derivative supervision transfers beyond source fitting and materially changes the label-free trajectory. It is still development evidence, not a fresh qualification claim.
+- clean mean MSE `0.0002532601 <= 0.003`;
+- clean p95 MSE `0.0001256009 <= 0.005`;
+- dark/identity `0.57095 <= 0.60`;
+- bright/identity `0.42042 <= 0.60`;
+- heterogeneous/global `0.56250 <= 0.85`;
+- heterogeneous/direct `0.84696 <= 0.95`;
+- heterogeneous/discrete `0.88275 <= 0.95`;
+- heterogeneous/fixed16 `0.91688 <= 0.95`;
+- heterogeneous/value-only `0.80830 <= 0.95`;
+- dark-region/identity `0.53157 <= 1.05`;
+- bright-region/identity `0.44764 <= 1.05`;
+- exact-quadrant/bilinear `0.71437 <= 0.90`.
 
-The source-fit and calibration evidence remain correctly separated. The Sobolev head sacrifices some scalar value fit (`Huber 0.05101` vs `0.03319` for value-only) while greatly improving derivative alignment, which is consistent with the T014 hypothesis that scalar regression quality and useful ISP-gradient geometry are distinct objectives. The calibration reference-only oracle is also strong (`oracle/discrete = 0.88668`, `oracle/fixed16 = 0.87932`) and primary/oracle regret is only `1.04474`, so unlike T013 the generated trajectory now contains states with enough restoration headroom to clear the strong baselines.
+The heterogeneous MSE is `0.03385803`, 19.17% below the same-source value-only control, 11.72% below matched projected discrete, and 8.31% below frozen semantic step16. The reference-only trajectory oracle is only 2.80% better than the deployed minimum-energy selector, so the positive result is not hiding a large checkpoint-selection failure.
 
-One caution must remain explicit in the final interpretation: the primary trajectory still hits the projected action box very frequently (`projected-update fraction ≈ 0.936`) and about `0.6505` of movable final coordinates are on a boundary. If fresh Stage B qualifies, the supported claim is therefore about the **Sobolev learned objective inside the frozen projected action geometry**, not an unconstrained learned energy whose gradient is independently sufficient.
+The mechanistic evidence is also clean: Sobolev has *worse* source scalar Huber than value-only (`0.05101` vs `0.03319`) but far better unseen calibration gradient alignment (`73/74`, median `0.93606` vs `59/74`, median `0.42464`) and better fresh restoration. This is the strongest evidence so far that the useful quantity is the learned derivative field, not scalar value fit alone.
 
-The freeze-before-fresh barrier is accepted. The passing Stage-A receipt and both frozen heads were committed at `6a9870f836b6763f843d78e5c549eba432b0a150`; the receipt and both checkpoint Git blobs were verified. Only after that verification was the deterministic 40-image `evaluation_t014` manifest generated and committed as `7416a1b91949985312cef002d47568091fb57761`, excluding all 608 prior/source IDs. Startup preflight for Stage B verifies the original calibration and frozen energy receipt before fresh scoring. This satisfies the required separation.
+Two limitations remain binding and motivate the next experiment. First, the result is still **Sobolev objective + projected action geometry**: about 94% of primary updates are projected and roughly 63% of movable final coordinates end on a trust-box boundary. Second, hard `region2` remains basis-limited: on `offset_left_right_40` it is slightly worse than bilinear (`1.00589×`), while the global Sobolev control remains better on homogeneous dark/bright. Do not claim universal spatial-basis superiority or natural-degradation benchmark qualification from T014.
 
-## Required completion of Stage B
+The non-negotiable rule remains: **test-time adaptation must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, image IDs as semantic shortcuts, source-only Jacobians/reference gradients, or evaluation metrics.** Clean references remain post-persistence evaluation only.
 
-Continue the exact active 240-episode run. After it exits, run the reporting-only verifier against the **actual F-drive artifact root** `/media/wenchang/F/wjq/TTIE/runs/20260912-191947-ttie-t014-stage-b/artifacts/audit`; do not mistake the empty default home artifact directory for the results.
+---
 
-Before reporting a verdict, verify all hashes, all saved trajectory/features/energy selections, frozen head hashes/receipt, no refitting, exact 40-image manifest, 240 evaluation inputs, and recomputation of the final summary. Report the twelve fresh qualification clauses literally and conjunctively:
+# T015 — Frozen Sobolev Cross-Basis Routing
 
-1. clean mean `<= 0.003`;
-2. clean p95 `<= 0.005`;
-3. homogeneous dark `<= 0.60 × identity`;
-4. homogeneous bright `<= 0.60 × identity`;
-5. heterogeneous `<= 0.85 × global Sobolev`;
-6. heterogeneous `<= 0.95 × region2_direct`;
-7. heterogeneous `<= 0.95 × region2_discrete_projected`;
-8. heterogeneous `<= 0.95 × fixed_step_source=16`;
-9. heterogeneous `<= 0.95 × same-split value-only energy`;
-10. heterogeneous dark-region MSE `<= 1.05 × identity`;
-11. heterogeneous bright-region MSE `<= 1.05 × identity`;
-12. exact-quadrant MSE `<= 0.90 × bilinear Sobolev`.
+**Status: OPEN.**
 
-Also report selected-step distributions, projected-update and movable-boundary fractions, primary/oracle regret and oracle ratios, plus the `offset_left_right_40` stress result. The offset condition remains report-only and must not modify qualification or trigger a repair.
+## Scientific question
 
-If any fresh clause fails, preserve the negative result and stop T014 without tuning the fresh split. If all twelve pass, preserve the positive result and stop for research-lead review. In either case, **do not automatically start T015, feature expansion, learned basis, detector coupling, meta-initialization, prompt retraining, or ViT3 work.**
+T014 established a useful learned derivative field, but no single fixed spatial basis dominates: global is better for homogeneous shifts, hard `region2` is strong on exact quadrant geometry, and bilinear is slightly better on the boundary-offset stress.
 
-The non-negotiable rule remains: **test-time adaptation must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, image IDs as semantic shortcuts, source-only Jacobians/reference gradients, or evaluation metrics.** Clean references are evaluation-only after the label-free trajectory/output has been finalized and persisted.
+Test one minimal hypothesis before introducing a learned basis:
+
+> Can the already-frozen T014 Sobolev energy itself choose the appropriate **basis** per test image, using no new training and no reference information?
+
+This is a routing audit over already-qualified frozen trajectories, not a new energy, feature expansion, learned mask, detector objective, meta-initialization, or ViT3 model.
+
+## Frozen ingredients
+
+Reuse unchanged from accepted T014:
+
+- T006 CLIP exposure readout and T007 gate/calibration;
+- frozen T014 Sobolev head/checkpoint/normalization and 28-feature schema;
+- global, bilinear2 and hard `region2` projected action geometries;
+- identity reset, Adam `lr=0.03`, exactly 40 projected updates when active;
+- per-basis checkpoint selection by minimum predicted Sobolev energy, earliest tie;
+- direct, projected-discrete, semantic fixed16, and identity controls;
+- all action boxes, gate logic, ISP operators and degradation definitions.
+
+No source retraining, calibration stage, loss change, score normalization, basis-specific offset, temperature, learned router, or threshold is allowed in T015.
+
+## Routing rule
+
+For each input, independently run the frozen T014 Sobolev trajectories for:
+
+- `global_ttt_energy_sobolev`;
+- `bilinear2_ttt_energy_sobolev`;
+- `region2_ttt_energy_sobolev`.
+
+Each basis first chooses its own checkpoint exactly as T014 did. Then define the routed method by the **lowest frozen Sobolev energy value among the three selected checkpoints**. Use deterministic tie order `global -> bilinear2 -> region2` (prefer the lower-complexity basis on exact ties). No clean-reference metric, condition ID, gate-derived synthetic label, mask/gain, or annotation may enter this routing decision.
+
+Persist all three basis trajectories, their selected checkpoints/energy scores, and the final routing decision/hash before any reference metric is attached.
+
+Also compute after persistence a reference-only `oracle_best_basis` selecting the lowest-MSE output among the same three selected basis outputs. This oracle is diagnostic only.
+
+## Fresh-only evaluation split
+
+T015 has **no fitting or calibration**, so use one new deterministic fresh split only.
+
+All 648 image IDs inspected through T014 are unavailable. From official COCO val2017 image files only, no annotations, numeric ascending, original shorter side >=320, take the next 40 eligible IDs as `evaluation_t015`. Commit the manifest and hash before running any output/reference metric.
+
+Run six predeclared conditions on all 40 images:
+
+- `clean`;
+- `homogeneous_dark`;
+- `homogeneous_bright`;
+- `left_right`;
+- `quadrants`;
+- `offset_left_right_40`.
+
+Unlike T014, `offset_left_right_40` is **primary** in T015 because boundary robustness is the scientific question.
+
+## Required methods
+
+At minimum persist/evaluate:
+
+1. `identity`;
+2. `region2_direct`;
+3. `region2_discrete_projected`;
+4. `fixed_step_source` (semantic step16);
+5. frozen `global_ttt_energy_sobolev`;
+6. frozen `bilinear2_ttt_energy_sobolev`;
+7. frozen `region2_ttt_energy_sobolev`;
+8. primary `routed_ttt_energy_sobolev`;
+9. reference-only `oracle_best_basis` after persistence.
+
+Do not choose or retrain any method from fresh outcomes.
+
+## Predeclared qualification
+
+Define `spatial_pool = left_right + quadrants + offset_left_right_40`. Define `best_fixed_basis_spatial` as the lowest aggregate reference MSE among the three frozen fixed bases **for evaluation only**; it is not available to the router.
+
+`routed_ttt_energy_sobolev` qualifies only if all clauses hold:
+
+1. clean mean MSE `<= 0.003`;
+2. clean p95 MSE `<= 0.005`;
+3. homogeneous dark MSE `<= 0.60 × identity`;
+4. homogeneous bright MSE `<= 0.60 × identity`;
+5. `spatial_pool` MSE `<= 0.97 × best_fixed_basis_spatial`;
+6. `spatial_pool` MSE `<= 0.95 × region2_discrete_projected`;
+7. `spatial_pool` MSE `<= 0.95 × fixed_step_source`;
+8. offset MSE `<= 1.01 × bilinear2_ttt_energy_sobolev`;
+9. aligned heterogeneous (`left_right + quadrants`) MSE `<= 1.01 × region2_ttt_energy_sobolev`;
+10. routed `spatial_pool` MSE `<= 1.05 × oracle_best_basis`.
+
+The 1% per-family clauses are non-inferiority checks; the 3% aggregate best-fixed-basis clause is the actual adaptive-basis value claim. Report all basis-selection counts by condition, the full energy-score margins between winner and runner-up, oracle basis counts, routing-vs-oracle disagreement rate, and regret conditioned on each selected basis.
+
+## Interpretation rules
+
+- If all ten pass, conclude only that the **frozen Sobolev energy is sufficiently cross-basis calibrated to route among three fixed bases** on this synthetic protocol. Do not call it a learned spatial basis.
+- If the aggregate clause fails but oracle_best_basis is strong, the bottleneck is cross-basis energy calibration/routing rather than basis capacity.
+- If the oracle itself cannot beat the best fixed basis by the required aggregate margin, routing is not worth learning; a genuinely more expressive spatial basis becomes the next candidate.
+- If offset remains weak even for the oracle, hard/bilinear/global basis capacity is the limiting factor.
+
+Preserve the negative result if any clause fails. Do not tune on this split, add score calibration, retrain the energy, or start a learned basis automatically.
+
+## Required evidence
+
+Add focused tests proving:
+
+- router inputs contain only the three frozen label-free selected energy scores;
+- replacement clean reference / metadata cannot change any trajectory, selected checkpoint or basis decision;
+- tie order is literal and deterministic;
+- per-basis T014 behavior is bitwise/regression-equivalent to accepted T014 on fixtures;
+- outputs/trajectories/scores/routing decision/hashes are persisted before reference access;
+- oracle_best_basis is evaluation-only.
+
+Run full local and A6000 tests. Freeze scientific code and the 40-image manifest before outcomes. If T015 completes, stop and report; do not automatically start learned basis, detector, meta-learning, prompt retraining, or ViT3 work.
