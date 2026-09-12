@@ -4,171 +4,168 @@ Research-lead inbox. Codex should execute only the current OPEN task. Prior deta
 
 ---
 
-## T008 final research-lead review
+## T009 final research-lead review
 
-**Status: ACCEPTED AS A CONTROLLED NEGATIVE DIAGNOSTIC. PR #8 squash-merged as `1568f56ac12fd19a642525a81213087b9e9df756`.**
+**Status: ACCEPTED AS A DEVELOPMENT-ONLY MECHANISM DIAGNOSTIC. PR #9 squash-merged as `669e258af2f197b2be93302890d976e7d79d62f0`.**
 
-I reviewed the fixed protocol, `semantic_ttt.py`, `restoration_pilot.py`, `restoration_metrics.py`, the focused tests, representative decision traces, summary/evidence, and the immutable T006/T007 asset checks. The implementation respects the critical leakage boundary: CLIP/prototypes/calibration/gate are frozen; the original four-quadrant active mask is computed from current pixels before optimization; direct/discrete/TTT actions do not receive clean targets, condition IDs, gain fields, masks, labels, or evaluation metrics; every episode resets the ISP/optimizer; clean-reference MSE is attached only after all seven outputs/decisions are persisted. No test-label leakage was found.
+I reviewed the fixed protocol, `semantic_ttt.py`, `offline_geometry.py`, `geometry_audit.py`, `geometry_summary.py`, `tests/test_geometry.py`, the final summary, and the separation between label-free semantic simulation and clean-reference offline diagnostics. The critical leakage boundary is intact: the simulated TTT path receives current pixels, frozen CLIP/prototypes/calibration/gate and fixed optimizer settings only; clean references enter only after semantic trajectories/actions are finalized inside explicitly offline diagnostic APIs. No test label, clean target, condition metadata, degradation mask/gain field, or evaluation metric is used to choose a TTT update.
 
-The negative result is scientifically informative and should not be tuned away on these 40 images. `spatial2_ttt` strongly improves homogeneous dark/bright MSE relative to identity (**61.26% / 58.70%**) and improves pooled heterogeneous MSE by **16.18%** relative to identity, so the frozen semantic readout is not useless. However, the predeclared conjunction fails four independent requirements:
+The predeclared diagnosis rules fire for **stopping/magnitude** and **renderer coupling**, not for the pooled objective-gradient or gamma-removal hypotheses:
 
-- clean mean drift passes, but clean p95 drift is **0.009289 > 0.005**;
-- pooled heterogeneous spatial TTT is only **4.45%** better than global TTT, far below the required 15%;
-- pooled heterogeneous spatial TTT MSE **0.05022844** is **14.73% worse** than the simple fixed `spatial2_direct` MSE **0.04377792**;
-- bright-region heterogeneous MSE worsens by **13.65%** versus identity, violating the 10% safety limit.
+- spatial EV+gamma pooled active non-clean alignment is positive in **145/153 = 94.77%** of episodes with median cosine **0.7973**, so a blanket claim that the semantic gradient points the wrong way is unsupported;
+- **92.81%** improve reference MSE after the first update, but **69.28%** attain a strictly better MSE at an earlier step than the final semantic stop, so driving the current objective to the clean envelope commonly over-corrects;
+- EV-only retains **94.89%** of semantic reduction but improves pooled MSE by only **0.45%** versus EV+gamma, so the predeclared gamma-failure rule does not fire;
+- for exact quadrant shifts, the same direct node actions under a quadrant-constant renderer reduce MSE by **21.60%** versus bilinear2, and the fixed 100-update reference oracle improves by **87.96%**. Left/right also improves, though less strongly for direct actions. Therefore bilinear coupling is a real confound in the current fixed-quadrant setup.
 
-The most important mechanism observation is that heterogeneous semantic loss drops from roughly **6.07 → 0.66**, yet reference restoration remains worse than the fixed ±0.5 EV direct policy. The representative coordinate-search trace also shows that driving the two-sided clean-envelope objective toward zero can prefer large EV/gamma actions. Therefore **lower frozen-feature loss is not a reliable proxy for better restoration magnitude**. The failure cannot yet be assigned uniquely to the gradient optimizer: the same semantic objective also makes discrete search choose aggressive actions, while the current bilinear 2x2 field can couple nominally local actions across region boundaries. We must separate objective-gradient alignment, action magnitude/stopping, coordinate choice (EV vs gamma), and spatial renderer coupling before any detector/meta/ViT3 work.
+Two cautions remain important. First, heterogeneous **dark-region** gradient alignment has median cosine **-0.2099** while bright-region alignment is strongly positive, so positive whole-image alignment does not prove region-wise alignment. Second, the hard piecewise renderer is geometrically matched to the synthetic quadrant boundaries; T009 does not establish that hard quadrants generalize to arbitrary real degradation boundaries. Treat both as design constraints, not as reasons to discard the diagnosis.
 
-Do not reuse the 40 T008 evaluation images for corrective hyperparameter selection. Preserve them as inspected evaluation data.
+Do not retune T009 or reuse T004–T009 images as fresh evaluation data.
 
 ---
 
-# T009 — Source-Side Semantic/Restoration Geometry Audit
+# T010 — Source-Calibrated Residual-Evidence Target + Region-Aligned Spatial TTT
 
 **Status: OPEN**
 
 ## Scientific question
 
-> Why can the frozen T006/T007 semantic objective decrease strongly while pixel restoration, especially bright-region restoration and spatial-vs-global gain, remains suboptimal? Is the dominant failure (a) semantic-gradient misalignment, (b) over-correction / stopping geometry, (c) the gamma coordinate, or (d) bilinear spatial-field coupling?
+> If we repair exactly the two T009 failure modes—semantic over-correction and bilinear spatial coupling—can gradient-based spatial TTT become identity-safe and outperform both a global TTT state and simple non-gradient local correction on genuinely fresh images?
 
-T009 is a **diagnostic development task, not a new held-out restoration claim**. Its purpose is to identify which mechanism deserves the next fresh evaluation. Do not add a detector, task labels, CLIP/prototype retraining, new prompts, meta-learning, ViT3, WB/contrast, or a larger learned model.
+T010 has a locked **Stage A development calibration** followed by a **Stage B fresh evaluation only if Stage A passes**. Do not add detector supervision, new CLIP/prototype training, prompt tuning, meta-learning, ViT3, WB/contrast, a larger fast network, or new optimization hyperparameters.
 
-## Frozen assets and code path
+## Frozen components
 
-Reuse exactly the accepted T006/T007/T008 components:
+Reuse exactly the accepted T006/T007 assets and T008/T009 conventions:
 
-- frozen OpenCLIP checkpoint and T006 prototype tensor/hash;
+- frozen OpenCLIP checkpoint and frozen T006 prototype tensor/hash;
 - frozen T006 `tau/scale` and T007 `q_joint`;
-- T008 four-quadrant gate/winner rule and two-sided `L_sem`;
-- T008 EV/gamma mapping, identity initialization, and 2x2 bilinear renderer.
+- fixed four-quadrant views, winner and active-gate decision from the original degraded pixels;
+- bounded EV+gamma parameterization, identity initialization, Adam lr `0.03`, max `40` updates;
+- no test-time use of clean target, degradation mask/gain, condition ID, annotation, or evaluation metric.
 
-Do not change these while collecting T009 diagnostics. Any alternative renderer or coordinate restriction below is a labeled diagnostic control, not a replacement silently substituted into the T008 method.
+T009 did **not** trigger the gamma-removal rule, so EV+gamma remains the primary action space. Do not silently switch the main method to EV-only.
 
-## T009 development images
+## Region-aligned renderer
 
-Create a new deterministic **40-image `development_t009`** split from the already downloaded official COCO val2017 image-only directory:
+Promote the T009 `piecewise2` diagnostic into a clearly named candidate renderer such as `region2`: four quadrant-constant EV+gamma cells whose support matches the four fixed semantic views. This is a fixed architectural choice, not a ground-truth degradation mask. The renderer must depend only on image coordinates and must be identical for clean, homogeneous, left/right, and quadrant conditions.
 
-1. sort by numeric image ID ascending;
-2. exclude every ID used in T004–T008 manifests;
-3. require original shorter side >=320;
-4. take the first 40 eligible IDs.
+Keep `bilinear2` as an ablation. Do not claim that `region2` is generally superior for arbitrary real boundaries; T010 includes a boundary-misaligned stress condition for this reason.
 
-Commit the metadata-only manifest before diagnostic outcomes. Do not load COCO annotations. These 40 images become **development data** and must be excluded from any future decisive held-out T010+ evaluation.
+## Residual-evidence semantic target
 
-Use fixed conditions: `clean`, `homogeneous_dark`, `homogeneous_bright`, `left_right`, `quadrants`. `smooth_gradient` is optional report-only and must not drive the diagnosis.
+Do **not** drive every active quadrant all the way to zero clean-envelope evidence. For each active quadrant `q`, freeze at identity:
 
-Because T009 is explicitly source/development-side mechanism analysis, the clean image and synthetic region truth may be used **only in separate offline diagnostic/oracle computations** such as reference MSE gradients and renderer upper bounds. They must never enter `L_sem`, the original gate, or any simulated label-free TTT update. Keep these two paths structurally separate in APIs/tests.
+- winner type `w_q ∈ {dark, bright}` from the existing gate;
+- standardized two-type score `z_q` using the frozen calibration;
+- initial winning energy `e0_q = relu(z_q[w_q])^2`.
 
-## A. Gradient-alignment audit at identity
+For fixed source-calibrated residual fractions `rho_dark` and `rho_bright`, define the per-quadrant objective
 
-For each degraded input with at least one active quadrant, at exact identity compute separately:
+```text
+e_win(q) = relu(z_q[w_q])^2
+e_opp(q) = relu(z_q[1-w_q])^2
+loss_q = relu(e_win(q) - rho_{w_q} * e0_q) + e_opp(q)
+L_rho = mean(loss_q over the originally active quadrants)
+```
 
-- `g_sem = ∇_raw L_sem`;
-- `g_ref = ∇_raw MSE(render(x), clean)`.
+The winner/active mask and `e0_q` are fixed from the original input before adaptation. The opposite-type penalty always remains active, so the relaxed target must not reward crossing from dark into bright or vice versa. `rho=0` must reproduce the original T008 two-sided envelope objective exactly (up to floating tolerance).
 
-Do this for both `global` 1x1 EV+gamma and `spatial2` 2x2 EV+gamma using the same raw parameterization as T008. Never use `g_ref` to update a model.
+At test time the only new information is the two frozen scalar constants `rho_dark/rho_bright`; no reference signal enters the objective.
 
-Report by condition and pooled:
+## Stage A — deterministic source/development calibration on T009 only
 
-- cosine similarity `cos(g_sem, g_ref)`;
-- fraction of episodes with positive cosine;
-- per-coordinate sign agreement and absolute gradient contribution for EV vs gamma;
-- for heterogeneous cases, also report cosine against dark-region and bright-region reference-MSE gradients separately (offline masks only).
+Use **only the already-designated 40 `development_t009` images** for selecting the residual fractions. It is allowed to use their clean references for this source/development selection because they are permanently excluded from later evaluation.
 
-Clean identity has zero reference error and is excluded from cosine statistics; retain it only for safety controls.
+Before running outcomes, commit the literal candidate grid:
 
-## B. Fixed T008 trajectory audit: does MSE improve early and then degrade?
+```text
+rho_dark   ∈ {0.25, 0.50, 0.75, 0.90}
+rho_bright ∈ {0.25, 0.50, 0.75, 0.90}
+```
 
-On the T009 development split, run the **unchanged** T008 gradient TTT trajectory (Adam lr .03, max40, same semantic stopping). During the run, record the already-defined self-supervised trajectory exactly as before. In a strictly offline pass after the trajectory is finalized, attach clean-reference MSE for **every saved step**.
+No grid expansion/refinement after seeing results. For each of the 16 pairs, run `region2` EV+gamma TTT with the frozen optimizer/settings on `clean`, `homogeneous_dark`, `homogeneous_bright`, `left_right`, and `quadrants`. Evaluate clean-reference metrics strictly after each label-free output/trajectory is finalized. Also evaluate the unchanged `rho=0` envelope and fixed `region2_direct` (winner-sign ±0.5 EV, gamma1) baselines.
 
-Report:
+A candidate is **feasible** only if all hold on T009 development data:
 
-- fraction of active episodes whose first update improves reference MSE;
-- fraction whose final update improves reference MSE;
-- fraction where the minimum-MSE step occurs strictly before the semantic stop/final step;
-- mean/median MSE at identity, step1, final, and offline oracle-best step;
-- correlation between semantic-loss decrease and MSE change.
+1. clean mean MSE drift `<= 0.003` and clean p95 drift `<= 0.005`;
+2. homogeneous dark MSE improves by at least **30%** versus identity;
+3. homogeneous bright MSE improves by at least **30%** versus identity;
+4. pooled heterogeneous (`left_right + quadrants`) MSE is at least **5% lower** than `region2_direct`.
 
-The oracle-best step is diagnostic only. It must not be used to stop, select, or regenerate any TTT output.
+Among feasible candidates, choose the one with lowest pooled heterogeneous MSE. If candidates are tied within `1e-6`, choose the more conservative one by larger `(rho_dark + rho_bright)/2`, then larger `rho_bright`, then larger `rho_dark`. This selection rule is fixed before outcomes.
 
-## C. EV-only vs gamma-only vs EV+gamma diagnostic
+If **no candidate is feasible, T010 stops after Stage A**. Report the negative result, do not inspect/run fresh T010 images, do not change the candidate grid, optimizer, gate, action bounds, or renderer, and do not start T011.
 
-Using the same fixed `L_sem`, identity initialization, Adam lr .03 and max40, run three development-only variants:
+If Stage A passes, write and commit an immutable `T010_calibration.json` receipt containing the selected rhos, all 16 aggregate rows, selection-rule verdict, frozen asset hashes, code SHA, and development manifest hash **before any Stage B image is loaded for scoring/adaptation**.
 
-1. `ev_only`: gamma fixed exactly 1;
-2. `gamma_only`: EV fixed exactly 0;
-3. `ev_gamma`: unchanged T008 two-coordinate method.
+## Stage B — fresh held-out restoration pilot, only after the Stage-A receipt is frozen
 
-Do this for global and spatial2. No hyperparameter retuning between variants. Report semantic-loss reduction, reference MSE, clean drift, dark/bright region MSE, and gradient-alignment statistics.
+Create/commit a deterministic metadata-only `evaluation_t010` manifest before outcome inspection:
 
-This is not permission to choose the best variant on T008. It is a source-side diagnosis for deciding what a later fresh split should test.
+1. official COCO val2017 image-only pool, numeric image ID ascending;
+2. exclude every ID used in T004–T009;
+3. require original shorter side `>=320`;
+4. take the first **40** eligible IDs.
 
-## D. Fixed action-surface audit for homogeneous exposure
+Do not load COCO annotations. Do not use these 40 images for any calibration or hyperparameter choice. After the Stage-A calibration receipt is committed, run exactly once on fixed conditions:
 
-For `homogeneous_dark` and `homogeneous_bright`, evaluate a predeclared global EV/gamma grid at each development image:
+- `clean`
+- `homogeneous_dark`
+- `homogeneous_bright`
+- `left_right`
+- `quadrants`
 
-- EV = `{-1.25,-1.0,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1.0,1.25}`;
-- gamma = `{0.8,0.9,1.0,1.1,1.25}`.
+Also add one **report-only boundary-misaligned stress condition** `offset_left_right_40`: left 40% receives the dark exposure shift and right 60% receives the bright shift. This condition cannot affect pass/fail or any parameter choice; it exists only to reveal whether hard quadrant support is brittle when the true boundary is not at 50%.
 
-For every grid point persist both frozen `L_sem` and offline clean-reference MSE. Report:
+### Required Stage-B methods
 
-- semantic argmin vs MSE argmin action and their EV/gamma distance;
-- Spearman rank correlation between `L_sem` and MSE over the grid;
-- how often the semantic argmin has worse MSE than the fixed ±0.5 EV direct action;
-- whether the semantic clean-envelope crossing occurs before, near, or beyond the MSE-optimal magnitude.
+Persist outputs/decisions for all of the following before reference evaluation:
 
-Do not expand/refine this grid after seeing results.
+1. `identity`;
+2. `global_direct` — unchanged fixed ±0.5 EV, gamma1 using the frozen winner/gate;
+3. `region2_direct` — same direct policy with quadrant-constant support;
+4. `region2_discrete_rho` — one fixed coordinate-search pass using the existing T008 EV/gamma candidate sets and the selected `L_rho`;
+5. `global_ttt_rho` — 1x1 EV+gamma, selected `L_rho`;
+6. `bilinear2_ttt_rho` — current bilinear 2x2 EV+gamma, selected `L_rho`;
+7. `region2_ttt_rho` — primary corrected spatial TTT;
+8. `region2_ttt_envelope` — same region2 renderer but original `rho=0` objective, to isolate stopping repair.
 
-## E. Spatial renderer-coupling diagnostic
+Every episode resets to identity with a fresh optimizer. Direct/discrete/TTT methods receive only current pixels plus frozen source constants. Clean reference is attached only after all eight method outputs/decisions for that degraded input are persisted.
 
-For `left_right` and `quadrants`, compare the *same* four node actions under two renderers:
+## Predeclared Stage-B qualification
 
-- `bilinear2`: the current T008 2x2 bilinear field;
-- `piecewise2`: a diagnostic 2x2 quadrant-constant/nearest field with the same 8 EV+gamma scalars.
+The primary `region2_ttt_rho` is **qualified** only if all of the following hold on the five primary conditions (stress condition excluded):
 
-First compare the fixed direct actions (±0.5 EV, gamma1) under both renderers. Then compute a **development-only clean-reference oracle upper bound** for each renderer by optimizing its 8 raw EV/gamma scalars against clean MSE from identity with one frozen recipe: Adam lr .03, 100 updates, no early stopping/model selection. The oracle is never a deployable method and must live in an explicitly named offline diagnostic module that accepts the clean reference; the label-free TTT module must continue to reject it.
+1. **Clean safety:** mean clean drift `<=0.003` and p95 `<=0.005`.
+2. **Homogeneous utility:** dark and bright MSE each improve by at least **40%** versus identity.
+3. **Spatial value:** pooled heterogeneous MSE is at least **15% lower** than `global_ttt_rho`.
+4. **TTT value beyond simple actions:** pooled heterogeneous MSE is at least **5% lower than both** `region2_direct` and `region2_discrete_rho`.
+5. **Regional safety:** pooled heterogeneous dark-region and bright-region MSE are each no worse than `1.05×` their identity counterpart.
+6. **Renderer mechanism support:** on `quadrants`, `region2_ttt_rho` MSE is at least **10% lower** than `bilinear2_ttt_rho`.
 
-Report separately for left/right and checkerboard quadrants whether bilinear interpolation materially limits attainable restoration or causes cross-region bright/dark tradeoffs.
+Report every clause separately. No clause may be dropped after seeing results. Even if qualified, describe the result as a controlled held-out synthetic-exposure restoration result, not downstream-task or real-world generalization evidence.
 
-## Predeclared diagnosis rules
-
-Use these rules to choose the *category* of T010; do not start T010 automatically.
-
-1. **Objective-gradient failure:** if pooled positive cosine fraction for `spatial2` is <60% **or** median cosine <=0, treat the semantic objective itself as the dominant failure. The next task should learn/shape a source-side task-aligned inner objective rather than tune optimizer steps.
-2. **Over-correction/stopping failure:** if >=70% of active episodes improve at step1 but >=30% attain lower MSE at an earlier step than the semantic stop/final step, while gradient alignment is otherwise positive, treat magnitude/stopping as dominant. The next task should test a source-calibrated semantic target/trust region on a fresh split.
-3. **Gamma failure:** if `ev_only` improves pooled development MSE by >=10% relative to `ev_gamma` while preserving at least 90% of its semantic-loss reduction, treat gamma as an unnecessary/harmful coordinate for the next fresh pilot.
-4. **Renderer failure:** if `piecewise2` improves quadrant MSE by >=15% relative to `bilinear2` under **both** fixed-direct and oracle-upper-bound comparisons, treat the spatial basis as a dominant confound before changing the semantic objective.
-
-Multiple rules may fire; report all. If none fires, report that the failure is mixed and provide measurements rather than post-hoc tuning.
+The report-only `offset_left_right_40` condition must include global/bilinear/region2/direct/discrete comparisons and regional MSE. If hard region support loses substantially there, state that limitation explicitly; do not repair it on T010.
 
 ## Required invariants/tests
 
 Add tests proving at least:
 
-- frozen prototype/checkpoint/calibration/gate hashes/constants are unchanged;
-- `reference_gradient` / oracle APIs are isolated from `L_sem` and cannot be passed into `run_method` / simulated TTT;
-- changing clean reference or condition metadata with pixels fixed cannot change the label-free semantic trajectory;
-- the offline reference gradient changes when the reference changes, demonstrating the separation test is meaningful;
-- EV-only fixes gamma exactly1 and gamma-only fixes EV exactly0;
-- action-surface grid is literal and immutable;
-- bilinear2 and piecewise2 are identical for constant 2x2 fields;
-- oracle renderer optimization starts from identity and is clearly marked diagnostic-only;
-- all T001–T008 regression tests remain passing.
+- `rho=0` reproduces the accepted T008 envelope loss and trajectory for the same renderer/input;
+- `rho_dark/rho_bright` are immutable source constants during Stage B;
+- changing clean reference, synthetic condition label, degradation metadata, or evaluation grouping while pixels are fixed cannot change gate, objective, trajectory, chosen direct/discrete action, or output;
+- `region2` uses fixed coordinate quadrants only and receives no degradation mask/boundary;
+- `region2` and `bilinear2` are identical for constant 2x2 fields;
+- Stage-A calibration code may accept clean references, but Stage-B method APIs cannot;
+- the Stage-B runner persists all eight outputs/decisions before reference MSE is computed;
+- T010 manifest excludes all T004–T009 IDs;
+- frozen T006/T007 hashes/constants remain unchanged;
+- all prior regression tests remain passing.
 
-## Deliverables
+## Deliverables / workflow
 
-- `research_log/T009.md` with the frozen diagnostic protocol;
-- deterministic `development_t009` manifest;
-- machine-readable gradient-alignment rows, trajectories with offline MSE attachment, coordinate-ablation rows, action surfaces, renderer diagnostics;
-- concise aggregate JSON/Markdown with the four diagnosis-rule verdicts;
-- a small set of fixed representative plots: semantic-vs-MSE action surface and MSE-vs-step/semantic-loss-vs-step curves using the first manifest ID, never cherry-picked;
-- local + A6000 commands, environment/tests, failed-run receipts if any;
-- append the final report only to `coordination/CODEX_TO_CHATGPT.md`.
+Use a fresh branch such as `codex/T010-calibrated-region-ttt` from current main. Commit protocol, candidate grid, Stage-B manifest algorithm, tests, and pass/fail rules before Stage-A outcomes. If Stage A passes, commit the immutable calibration receipt before Stage B. Preserve local/A6000 commands, environment, run IDs, raw per-example rows, trajectories, method outputs needed for verification, concise aggregate JSON/Markdown, and fixed first-manifest-ID plots.
 
-Do not modify this inbox or `PROJECT_STATE.md`.
+Append reports only to `coordination/CODEX_TO_CHATGPT.md`. Do not modify this inbox or `PROJECT_STATE.md`.
 
-## Git workflow
-
-Start a fresh branch such as `codex/T009-geometry-audit` from current `main` after the T008 merge. Commit manifest/protocol/tests and fixed grids/diagnosis rules **before inspecting T009 diagnostic outcomes**. Run once, preserve receipts, open a PR, and stop.
-
-**Do not start T010, detector experiments, meta-learning, or ViT3 until research-lead review.**
+**Do not start detector experiments, meta-learning, ViT3, or T011 until research-lead review.**
