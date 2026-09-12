@@ -1,0 +1,29 @@
+test_saved_gradients_features_selection_survive_reference_replacement (test_energy_evidence.EnergyEvidenceTests.test_saved_gradients_features_selection_survive_reference_replacement) ... ok
+test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass (test_energy_evidence.EnergyEvidenceTests.test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass) ... ERROR
+test_source_bank_saved_before_targets_and_cosine_known_cases (test_energy_evidence.EnergyEvidenceTests.test_source_bank_saved_before_targets_and_cosine_known_cases) ... ok
+
+======================================================================
+ERROR: test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass (test_energy_evidence.EnergyEvidenceTests.test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\tests\test_energy_evidence.py", line 61, in test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass
+    a=stage_a(rows,aligned);b=stage_b_energy(rows)
+                              ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\ttie\energy_metrics.py", line 51, in stage_b_energy
+    report=stage_b(rows,primary=PRIMARY_METHOD,global_method='global_ttt_energy',bilinear='bilinear2_ttt_energy')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\ttie\residual_metrics.py", line 58, in stage_b
+    global_ratio=ratio(global_method),direct_ratio=ratio('region2_direct'),discrete_ratio=ratio(discrete),
+                                                                                          ^^^^^^^^^^^^^^^
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\ttie\residual_metrics.py", line 53, in <lambda>
+    ratio=lambda baseline:mse('heterogeneous',primary)/mse('heterogeneous',baseline)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\ttie\residual_metrics.py", line 52, in <lambda>
+    mse=lambda c,m:groups[c][m]['mse']['mean']
+                   ~~~~~~~~~^^^
+KeyError: 'region2_discrete_rho'
+
+----------------------------------------------------------------------
+Ran 3 tests in 13.442s
+
+FAILED (errors=1)

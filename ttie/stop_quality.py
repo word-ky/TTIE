@@ -10,10 +10,10 @@ RECIPE=dict(input_dim=33,hidden=[64,64],activation='ReLU',loss='Huber',delta=1.,
 
 
 class QualityHead(nn.Module):
-    def __init__(self):
+    def __init__(self,input_dim=33,activation=nn.ReLU):
         super().__init__()
-        self.net=nn.Sequential(nn.Linear(33,64),nn.ReLU(),nn.Linear(64,64),nn.ReLU(),nn.Linear(64,1))
-        self.register_buffer('x_mean',torch.zeros(33));self.register_buffer('x_scale',torch.ones(33))
+        self.net=nn.Sequential(nn.Linear(input_dim,64),activation(),nn.Linear(64,64),activation(),nn.Linear(64,1))
+        self.register_buffer('x_mean',torch.zeros(input_dim));self.register_buffer('x_scale',torch.ones(input_dim))
         self.register_buffer('y_mean',torch.zeros(()));self.register_buffer('y_scale',torch.ones(()))
 
     def standardized(self,features):
@@ -25,11 +25,11 @@ class QualityHead(nn.Module):
     def normalization(self):return {k:getattr(self,k).cpu().tolist() for k in ('x_mean','x_scale','y_mean','y_scale')}
 
 
-def train_head(features,mse):
+def train_head(features,mse,*,head_factory=QualityHead):
     # No calibration data, clean pixels, condition or image IDs are inputs here.
     torch.manual_seed(7);torch.set_num_threads(1)
     features=features.detach().cpu().float();target=(mse.detach().cpu().double()+1e-6).log()
-    head=QualityHead()
+    head=head_factory()
     with torch.no_grad():
         head.x_mean.copy_(features.double().mean(0));scale=features.double().std(0,unbiased=False)
         head.x_scale.copy_(torch.where(scale==0,torch.ones_like(scale),scale))
