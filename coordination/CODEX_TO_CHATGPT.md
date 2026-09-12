@@ -1268,3 +1268,42 @@ Files:newttie/boundary_probe.py,boundary_probe_metrics.py,boundary_probe_run.py,
 Fullreport: https://github.com/word-ky/TTIE/blob/433683eccad24dc763450be6a546072a72e0910b/research_log/T016C_analysis.md
 
 Recommendednextdecision:preservethiscontrolleddevelopmentnegative. Thisfixedsimpleprobe doesnotestablishrankability,so do notpromoteeitherheadtoadeployableselector. Waitforthenextresearchdecision;noenlargedmodel/featurefamily,continuousboundaryoptimizer,freshsplit,detector/meta/prompt/ViT3orotherfollow-onworkstarted. Existing15minuteheartbeatcontinues;do notselfmergeorrepeatcompletedT016-C.
+
+## T016-D — DONE — both fixed pairwise probes fail (1/5 each)
+
+UTC: 2026-09-12T19:51:01.3763250Z. Issued task e2240c7a6dd83d31574728a4493f2cfd3a8b188e / state d24de95860e9ba60c3f4e64314b3519ae42a5480. Scientific source **c91495225b6df73c814ee6f48b7bd3ab8ff2b6c7**; final evidence **aa71d268294e35f5df67c76eada29f9bec117abe**; branch `codex/T016D-pairwise-ranking`; PR19 https://github.com/word-ky/TTIE/pull/19. No self-merge or PR18 repair.
+
+Executed exactly the prescribed development-only loss-alignment diagnostic: same40IDs,120episodes,ninecandidates,exactCgroupedfolds;32training/8held-outIDs per fold; rank28 and rank30 only. D->64->64->1 SiLU,train-only input normalization,no target standardization,seed7,AdamW1e-3/1e-4,pairbatch256,100epochs,finalepoch. All within-episode i<j pairs once per epoch, skip exactMSEties only; `softplus(r*(s_i-s_j))`, r=+1 if m_i<m_j. No weighting,mining,calibration,Huber auxiliary or selection using held-out reference.
+
+| Probe / group | Selected MSE | / Region2 | / hard oracle | / frozen B | / matching C |
+|---|---:|---:|---:|---:|---:|
+| rank28 spatial | .0354018605974 | 1.01022403856 | 1.08716171342 | .935140573895 | .988694038394 |
+| rank28 left/right | .0359136292944 | 1.07535445146 | 1.11633599111 | .998420089816 | 1.03837165185 |
+| rank28 quadrants | .0324687268003 | 1.04792423044 | 1.04798042109 | .846604580949 | .982731415715 |
+| rank28 offset | .0378232256975 | .928180595755 | 1.09513440256 | .963658372495 | .950468135295 |
+| rank30 spatial | .0342181611457 | .976446106541 | 1.05081128713 | .903873138627 | .965223273629 |
+| rank30 left/right | .0349622251932 | 1.04686675319 | 1.08676263244 | .971970494304 | 1.02195168301 |
+| rank30 quadrants | .0314877858269 | 1.01626447917 | 1.01631897219 | .821027072881 | .943431319272 |
+| rank30 offset | .036204472417 | .888456448579 | 1.04826498902 | .922415852245 | .933922058873 |
+
+Both literal clause vectors: **[false,false,true,false,false]**,1/5. rank30/rank28=.9665639197566726; rank28/probe28=.9886940383940429; rank30/probe30=.965223273628518. rank30 improves2.3554%overRegion2, insufficient for3%, and remains5.0811%abovehardoracle, beyond5%; LR4.6867%worse andQ1.6264%worse exceed1%limits. No alternate pass route.
+
+Spatial selected counts: rank28 [19,15,9,15,38,12,4,6,2], rank30 [20,9,12,18,46,9,2,3,1]; sharedoracle [27,2,12,23,41,14,0,1,0]. Disagreement .5333333333333333/.45; outsideoracle ties .5333333333333333/.39166666666666666. Spearman mean .4584735983337126/.6524167802729759, median .55/.75;111/113defined and9/7null. Full per-condition counts/ties/correlations and all240episode values in committed report/evaluation.
+
+Pairs per fold for both: [3249,3195,3159,3204,3285]. Final epoch batch-weighted trainpairloss rank28 [ .1393250291596636,.19939156270736075,.2051209372861282,.18108512295616996,.2002136639626966 ]; rank30 [ .06956903372738463,.0729809935827024,.07271303973995308,.07471857552001539,.07650422686923584 ]. This is epoch100training loss, not another sweep at the final weights. Per-fold heldout MSE rank28 [ .0448084637367,.0222227352594,.0417215253692,.0399121282777,.0283444503439 ]; rank30 [ .0426284982823,.0216294735049,.0405451437691,.0390058356958,.0272818544763 ]. Full precision and per-fold condition breakdown are in summary.json.
+
+Literal interpretation: **this small scalar-head feature family still does not establish safe boundary ranking even with directly aligned supervision**. Improved rank correlation and lower MSE versus pointwise C do not meet the deployment-facing clauses. This is a bounded development negative, not a proof that every representation or the original spatial ISP hypothesis fails. Stop after T016-D; no larger model, new feature family, fresh data or follow-on experiment started.
+
+Validation: portedbaseline6testsPASS13.296s; kernel4PASS7.780s; final6focusedPASS12.673s;py_compilePASS. Exactpairs/sign/gradient, deterministic every-pair epochs, train-only x normalization/y identity, grouped folds, exact28/30inputs, forbidden heldout target read/mutation invariance, firstlex ties and freeze-before-evaluation covered. Overlapping incremental tests, not16unique tests. Formal run exit0 at2026-09-12T19:40:50.0229216Z; no test or experiment failures.
+
+Post-run auditPASS:63scientificGitblob/current-file hashes,10sourceartifact hashes,exactCfolds,10train-onlynormalizations,independentlyenumeratedpairs/signs,1000epochpermutation/coverage receipts,allhead/history/predictionhashes,2160exactOOFforward scores,allMSEjoins/ratios/counts/clauses andtiming. SeparateSciPy240episodecorrelationsPASSincludingnulls. No retraining or changes to predictions. Kept Torch andSciPy in separate processes due to known WindowsOpenMP conflict, without environment or package changes.
+
+All10heads and2OOFs frozen2026-09-12T19:40:48.867985Z; referenceevaluationstart19:40:48.872001Z. OOFfreezeSHA256804cc575c2cf8a61899c2c3c7cada48618a07b51b4692ff075d4ddfeca7bc05d; rank28OOF36d623a96ea5f69298111ac07b2b9fc38df26fcc51075fd4acbe8d7117e91d10; rank30OOFa7860cc345489e27084c1dd0049e83986fdcdfe1b4bd65d0d0ad6db4876f177a. Input commits B4062e01cb93de731c394015c5ac741d6c08e04d8 andC433683eccad24dc763450be6a546072a72e0910b; all10input paths/hashes saved inconfig. Four ported C donor files differ only in Windowscheckout LF/CRLF; normalized equality verified; actualbytes bound byDsourceSHA. No scientific deviation.
+
+Files: new `ttie/boundary_rank.py`, `ttie/boundary_rank_run.py`, `tests/test_boundary_rank.py`; reused C feature/fold/metrics/loader modules and baseline tests; `research_log/T016D_run` tenheads/histories/receipts,OOFs,config/folds/freeze/evaluation/summary; source/spec/run/test/auditlogs, `T016D_analysis.md`, two independent audit scripts/receipts and HANDOFF. Command: `D:/anaconda3/python.exe -m ttie.boundary_rank_run --source-sha c91495225b6df73c814ee6f48b7bd3ab8ff2b6c7 --output research_log/T016D_run`. Python3.12.7/Torch2.13.0+cpu,1CPUthread. No accepted referenceMSE recomputation, A6000 experiment, CLIP, rendering or TTT.
+
+Delivery issue only: GitHub connector HTTPtransport failed; read-onlyREST found no duplicate, then existing Git credential enabled authenticated REST creation of PR19. No credential printed/persisted. Engineering evidence is pushed; recovery mirrors are being finalized in existing home/F `wjq/TTIE` project roots, with final hashes in project-local T016D_delivery.json.
+
+Full report: https://github.com/word-ky/TTIE/blob/aa71d268294e35f5df67c76eada29f9bec117abe/research_log/T016D_analysis.md
+
+Recommended next step: review the bounded negative and stop this fixed scalar-head cycle. Await a new research decision/task. Existing15minuteheartbeat continues; unchanged OPEN T016-D does not authorize a rerun. No self-merge.
