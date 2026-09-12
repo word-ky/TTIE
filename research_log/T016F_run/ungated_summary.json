@@ -1,0 +1,299 @@
+{
+  "groups": {
+    "spatial_pool": {
+      "selected_mse": 0.03421816114569083,
+      "region2_mse": 0.03504357374816512,
+      "hard_oracle_mse": 0.032563564518932255,
+      "frozen_t016b_mse": 0.037857260807262115,
+      "count": 120,
+      "ratios": {
+        "selected_over_region2": 0.9764461065413595,
+        "selected_over_hard_oracle": 1.0508112871303326,
+        "selected_over_frozen_t016b": 0.9038731386272617
+      },
+      "selected_counts": [
+        20,
+        9,
+        12,
+        18,
+        46,
+        9,
+        2,
+        3,
+        1
+      ],
+      "oracle_counts": [
+        27,
+        2,
+        12,
+        23,
+        41,
+        14,
+        0,
+        1,
+        0
+      ],
+      "disagreement_rate": 0.45,
+      "outside_oracle_tie_set_rate": 0.39166666666666666,
+      "prediction_tied_episodes": 0,
+      "oracle_tied_episodes": 12,
+      "spearman": {
+        "count": 120,
+        "null_count": 7,
+        "mean": 0.6524167802729759,
+        "median": 0.75,
+        "min": -0.4666666666666667,
+        "max": 1.0
+      }
+    },
+    "left_right": {
+      "selected_mse": 0.034962225193157795,
+      "region2_mse": 0.03339701551012695,
+      "hard_oracle_mse": 0.032170985778793695,
+      "frozen_t016b_mse": 0.03597045938950032,
+      "count": 40,
+      "ratios": {
+        "selected_over_region2": 1.046866753185063,
+        "selected_over_hard_oracle": 1.0867626324401913,
+        "selected_over_frozen_t016b": 0.9719704943040893
+      },
+      "selected_counts": [
+        8,
+        0,
+        2,
+        12,
+        9,
+        6,
+        2,
+        0,
+        1
+      ],
+      "oracle_counts": [
+        2,
+        0,
+        0,
+        23,
+        2,
+        13,
+        0,
+        0,
+        0
+      ],
+      "disagreement_rate": 0.675,
+      "outside_oracle_tie_set_rate": 0.625,
+      "prediction_tied_episodes": 0,
+      "oracle_tied_episodes": 5,
+      "spearman": {
+        "count": 40,
+        "null_count": 2,
+        "mean": 0.5048379857303595,
+        "median": 0.5815421188487682,
+        "min": -0.4666666666666667,
+        "max": 0.9833333333333333
+      }
+    },
+    "quadrants": {
+      "selected_mse": 0.031487785826902835,
+      "region2_mse": 0.030983849649783225,
+      "hard_oracle_mse": 0.030982188356574625,
+      "frozen_t016b_mse": 0.038351702236104755,
+      "count": 40,
+      "ratios": {
+        "selected_over_region2": 1.0162644791662658,
+        "selected_over_hard_oracle": 1.0163189721949037,
+        "selected_over_frozen_t016b": 0.8210270728807404
+      },
+      "selected_counts": [
+        0,
+        2,
+        0,
+        0,
+        36,
+        0,
+        0,
+        2,
+        0
+      ],
+      "oracle_counts": [
+        0,
+        0,
+        0,
+        0,
+        39,
+        0,
+        0,
+        1,
+        0
+      ],
+      "disagreement_rate": 0.125,
+      "outside_oracle_tie_set_rate": 0.125,
+      "prediction_tied_episodes": 0,
+      "oracle_tied_episodes": 0,
+      "spearman": {
+        "count": 40,
+        "null_count": 0,
+        "mean": 0.7291666666666666,
+        "median": 0.7583333333333333,
+        "min": 0.23333333333333334,
+        "max": 0.9833333333333333
+      }
+    },
+    "offset_left_right_40": {
+      "selected_mse": 0.03620447241701186,
+      "region2_mse": 0.04074985608458519,
+      "hard_oracle_mse": 0.03453751942142844,
+      "frozen_t016b_mse": 0.03924962079618126,
+      "count": 40,
+      "ratios": {
+        "selected_over_region2": 0.8884564485789006,
+        "selected_over_hard_oracle": 1.0482649890179772,
+        "selected_over_frozen_t016b": 0.9224158522452356
+      },
+      "selected_counts": [
+        12,
+        7,
+        10,
+        6,
+        1,
+        3,
+        0,
+        1,
+        0
+      ],
+      "oracle_counts": [
+        25,
+        2,
+        12,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "disagreement_rate": 0.55,
+      "outside_oracle_tie_set_rate": 0.425,
+      "prediction_tied_episodes": 0,
+      "oracle_tied_episodes": 7,
+      "spearman": {
+        "count": 40,
+        "null_count": 5,
+        "mean": 0.724931029897884,
+        "median": 0.8432740427115678,
+        "min": -0.2,
+        "max": 1.0
+      }
+    }
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "count": 24,
+      "image_ids": [
+        55167,
+        56288,
+        57149,
+        57672,
+        58393,
+        59386,
+        60102,
+        60770
+      ],
+      "selected_mse": 0.042628498282283545,
+      "per_condition": {
+        "left_right": 0.04391328920610249,
+        "quadrants": 0.04322901205159724,
+        "offset_left_right_40": 0.040743193589150906
+      }
+    },
+    {
+      "fold": 1,
+      "count": 24,
+      "image_ids": [
+        55299,
+        56344,
+        57232,
+        58029,
+        58539,
+        59598,
+        60347,
+        60823
+      ],
+      "selected_mse": 0.0216294735049208,
+      "per_condition": {
+        "left_right": 0.01985968730878085,
+        "quadrants": 0.02106516424100846,
+        "offset_left_right_40": 0.023963568964973092
+      }
+    },
+    {
+      "fold": 2,
+      "count": 24,
+      "image_ids": [
+        55528,
+        56350,
+        57238,
+        58111,
+        58636,
+        59635,
+        60363,
+        60835
+      ],
+      "selected_mse": 0.04054514376912266,
+      "per_condition": {
+        "left_right": 0.04147959453985095,
+        "quadrants": 0.034383751335553825,
+        "offset_left_right_40": 0.045772085431963205
+      }
+    },
+    {
+      "fold": 3,
+      "count": 24,
+      "image_ids": [
+        55950,
+        56545,
+        57244,
+        58350,
+        58705,
+        59920,
+        60449,
+        60855
+      ],
+      "selected_mse": 0.0390058356958131,
+      "per_condition": {
+        "left_right": 0.039306428050622344,
+        "quadrants": 0.03418327448889613,
+        "offset_left_right_40": 0.04352780454792082
+      }
+    },
+    {
+      "fold": 4,
+      "count": 24,
+      "image_ids": [
+        56127,
+        57027,
+        57597,
+        58384,
+        59044,
+        60052,
+        60507,
+        60886
+      ],
+      "selected_mse": 0.027281854476314038,
+      "per_condition": {
+        "left_right": 0.030252126860432327,
+        "quadrants": 0.02457772701745853,
+        "offset_left_right_40": 0.02701570955105126
+      }
+    }
+  ],
+  "clauses": {
+    "spatial_improves_region2_3pct": false,
+    "spatial_within_hard_oracle_5pct": false,
+    "offset_improves_region2_5pct": true,
+    "left_right_no_more_than_1pct_worse": false,
+    "quadrants_no_more_than_1pct_worse": false
+  },
+  "passed": 1,
+  "qualified": false
+}

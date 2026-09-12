@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "source_files": 67,
+  "input_artifacts": 14,
+  "heads": 25,
+  "exact_saved_head_scores": 5400,
+  "epoch_permutations_verified": 2500,
+  "all_outer_reference_exclusions_verified": true,
+  "inner_oof_own_image_exclusions_verified": true,
+  "calibration_means_verified": 40,
+  "thresholds": [
+    0.5,
+    0.5,
+    0.5,
+    1.0,
+    0.75
+  ],
+  "q_max_abs_numpy_difference": 2.220446049250313e-16,
+  "metrics_counts_gains_quantiles_clauses_verified": true,
+  "all_fold_freezes_before_evaluation": true,
+  "training_pairs": {
+    "0": {
+      "outer_head": 3249,
+      "inner0": 2421,
+      "inner1": 2385,
+      "inner2": 2430,
+      "inner3": 2511
+    },
+    "1": {
+      "outer_head": 3195,
+      "inner0": 2421,
+      "inner1": 2331,
+      "inner2": 2376,
+      "inner3": 2457
+    },
+    "2": {
+      "outer_head": 3159,
+      "inner0": 2385,
+      "inner1": 2331,
+      "inner2": 2340,
+      "inner3": 2421
+    },
+    "3": {
+      "outer_head": 3204,
+      "inner0": 2430,
+      "inner1": 2376,
+      "inner2": 2340,
+      "inner3": 2466
+    },
+    "4": {
+      "outer_head": 3285,
+      "inner0": 2511,
+      "inner1": 2457,
+      "inner2": 2421,
+      "inner3": 2466
+    }
+  },
+  "no_fitting_in_audit": true
+}
