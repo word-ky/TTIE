@@ -22,17 +22,17 @@ def alignment(image,clean,trajectory):
                 reference_only=True,coordinates='Region2 raw EV/gamma at identity',zero_norm_rule='cosine 0, counts nonpositive')
 
 
-def oracle_diagnostics(groups):
+def oracle_diagnostics(groups,primary=PRIMARY_METHOD,oracle=ORACLE):
     h=groups['heterogeneous'];mse=lambda m:h[m]['mse']['mean']
-    return dict(oracle_regret_ratio=mse(PRIMARY_METHOD)/mse(ORACLE),
-        oracle_over_discrete=mse(ORACLE)/mse('region2_discrete_projected'),
-        oracle_over_fixed16=mse(ORACLE)/mse('fixed_step_source'),
-        oracle_beats_discrete_5pct=mse(ORACLE)<=.95*mse('region2_discrete_projected'),
-        oracle_beats_fixed16_5pct=mse(ORACLE)<=.95*mse('fixed_step_source'))
+    return dict(oracle_regret_ratio=mse(primary)/mse(oracle),
+        oracle_over_discrete=mse(oracle)/mse('region2_discrete_projected'),
+        oracle_over_fixed16=mse(oracle)/mse('fixed_step_source'),
+        oracle_beats_discrete_5pct=mse(oracle)<=.95*mse('region2_discrete_projected'),
+        oracle_beats_fixed16_5pct=mse(oracle)<=.95*mse('fixed_step_source'))
 
 
-def stage_a(rows,alignments):
-    groups=aggregate(rows);p=PRIMARY_METHOD;mse=lambda c,m:groups[c][m]['mse']['mean']
+def stage_a(rows,alignments,*,primary=PRIMARY_METHOD,oracle=ORACLE):
+    groups=aggregate(rows);p=primary;mse=lambda c,m:groups[c][m]['mse']['mean']
     cosines=[a['cosine'] for a in alignments]
     values=dict(positive_cosine_fraction=sum(v>0 for v in cosines)/len(cosines) if cosines else 0.,
         median_cosine=statistics.median(cosines) if cosines else 0.,
@@ -44,15 +44,15 @@ def stage_a(rows,alignments):
         clean_p95=values['clean_p95']<=.005,homogeneous_dark=values['dark_ratio']<=.65,homogeneous_bright=values['bright_ratio']<=.65,
         beyond_discrete=values['discrete_ratio']<=.95,beyond_fixed_step=values['fixed_step_ratio']<=.95)
     return dict(stage='A',groups=groups,values=values,criteria=criteria,passes=all(criteria.values()),
-        failed=[k for k,v in criteria.items() if not v],alignment_count=len(cosines),oracle=oracle_diagnostics(groups))
+        failed=[k for k,v in criteria.items() if not v],alignment_count=len(cosines),oracle=oracle_diagnostics(groups,primary,oracle))
 
 
-def stage_b_energy(rows):
-    report=stage_b(rows,primary=PRIMARY_METHOD,global_method='global_ttt_energy',bilinear='bilinear2_ttt_energy',discrete='region2_discrete_projected')
-    h=report['groups']['heterogeneous'];ratio=h[PRIMARY_METHOD]['mse']['mean']/h['fixed_step_source']['mse']['mean']
+def stage_b_energy(rows,*,primary=PRIMARY_METHOD,oracle=ORACLE,global_method='global_ttt_energy',bilinear='bilinear2_ttt_energy'):
+    report=stage_b(rows,primary=primary,global_method=global_method,bilinear=bilinear,discrete='region2_discrete_projected')
+    h=report['groups']['heterogeneous'];ratio=h[primary]['mse']['mean']/h['fixed_step_source']['mse']['mean']
     report['values']['fixed_step_ratio']=ratio;report['criteria']['beyond_fixed_step']=ratio<=.95
     report['qualified']=all(report['criteria'].values());report['failed']=[k for k,v in report['criteria'].items() if not v]
-    report['oracle']=oracle_diagnostics(report['groups']);return report
+    report['oracle']=oracle_diagnostics(report['groups'],primary,oracle);return report
 
 
 def markdown(report):
