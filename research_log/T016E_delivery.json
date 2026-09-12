@@ -1,0 +1,133 @@
+{
+  "task": "T016-E",
+  "status": "DONE",
+  "delivered_utc": "2026-09-12T20:43:58.185069+00:00",
+  "source_sha": "c98e6d119b89b8ffb755ed5b1e0d064973684675",
+  "evidence_sha": "66b597cef47d483dea2027d9ad925d8961031f98",
+  "main_done_sha": "497d574b03a65b8e5de9f3cc553b9b466a64d237",
+  "branch": "codex/T016E-confidence-abstention",
+  "pr": "https://github.com/word-ky/TTIE/pull/20",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": true,
+  "github_mergeable_state": "clean",
+  "mergeability_observed_head": "66b597cef47d483dea2027d9ad925d8961031f98",
+  "local_merge_tree_passed": true,
+  "recovery": {
+    "task": "T016-E",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T016E_recovery.tar.gz",
+    "bytes": 283075,
+    "sha256": "57d06c81e8b0b21c7da24784d07883d022943a4e7735c3457dfb6fd81aae04c0",
+    "entries": 44,
+    "analysis_sha256": "f51ba1692f4440f77f0c3f731eb5e3aac63f1fd8d1c83d4f8599df98aded8c73",
+    "main_sha": "497d574b03a65b8e5de9f3cc553b9b466a64d237"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "57d06c81e8b0b21c7da24784d07883d022943a4e7735c3457dfb6fd81aae04c0",
+      "analysis_sha256": "f51ba1692f4440f77f0c3f731eb5e3aac63f1fd8d1c83d4f8599df98aded8c73",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "57d06c81e8b0b21c7da24784d07883d022943a4e7735c3457dfb6fd81aae04c0",
+      "analysis_sha256": "f51ba1692f4440f77f0c3f731eb5e3aac63f1fd8d1c83d4f8599df98aded8c73",
+      "verified": true
+    }
+  ],
+  "decision_receipt": {
+    "evaluation_started_utc": "2026-09-12T20:34:43.837677+00:00",
+    "frozen_sha256": "a25b9ee3da0c7d4709758c8924cf1e60faca5b43f129e35d32525f4e187cdb5a",
+    "decisions_sha256": "a5d6c4b864b5dcbdf28d354430d68d7b8f511004040ae6d4a7935bee51890f94",
+    "calibrations_sha256": "4c5e289ecd67efcf92b0c7751f1c58e6c57a69200a58ca70d77d3580b0ca264f"
+  },
+  "literal_clauses_passed": 5,
+  "thresholds": [
+    0.75,
+    0.75,
+    0.75,
+    0.75,
+    0.75
+  ],
+  "spatial": {
+    "selected_mse": 0.03390469379179801,
+    "region2_mse": 0.03504357374816512,
+    "hard_oracle_mse": 0.032563564518932255,
+    "frozen_t016b_mse": 0.037857260807262115,
+    "count": 120,
+    "ratios": {
+      "selected_over_region2": 0.967501032727099,
+      "selected_over_hard_oracle": 1.0411849652419356,
+      "selected_over_frozen_t016b": 0.895592894700245,
+      "selected_over_ungated_rank30": 0.9908391525611744,
+      "selected_over_pointwise_probe30": 0.9563810104744034
+    },
+    "selected_counts": [
+      13,
+      5,
+      7,
+      3,
+      88,
+      2,
+      1,
+      0,
+      1
+    ],
+    "oracle_counts": [
+      27,
+      2,
+      12,
+      23,
+      41,
+      14,
+      0,
+      1,
+      0
+    ],
+    "disagreement_rate": 0.5083333333333333,
+    "outside_oracle_tie_set_rate": 0.43333333333333335,
+    "prediction_tied_episodes": 0,
+    "oracle_tied_episodes": 12,
+    "spearman": {
+      "count": 120,
+      "null_count": 7,
+      "mean": 0.6524167802729759,
+      "median": 0.75,
+      "min": -0.4666666666666667,
+      "max": 1.0
+    },
+    "ungated_rank30_mse": 0.03421816114569083,
+    "pointwise_probe30_mse": 0.035451031984606134,
+    "confidence_diagnostics": {
+      "count": 120,
+      "adaptive": 32,
+      "canonical": 88,
+      "q": {
+        "count": 120,
+        "mean": 0.26783018609886866,
+        "median": 0.2841843780692793,
+        "quantiles": {
+          "0": -1.2891933917858664,
+          "25": -0.2953141379989333,
+          "50": 0.2841843780692793,
+          "75": 0.858051015485551,
+          "100": 2.6785315226655437
+        }
+      },
+      "adapted_gains": {
+        "beneficial": 27,
+        "harmful": 4,
+        "zero": 1
+      }
+    }
+  },
+  "interpretation": "rank30_development_safe_with_training_only_confidence_fallback",
+  "scientific_limitation": "Prescribed reuse of D OOF predictions is not fully nested ranker training. All480calibrationepisode appearances use scorers trained on the currentouterheldout8IDs. Direct threshold fitting excludes heldoutreference rows, but inherited scorer-training dependence prevents independent generalization claims.",
+  "focused_tests_passed": true,
+  "artifact_arithmetic_verification_passed": true,
+  "no_training_or_fresh_experiment": true,
+  "heartbeat": "existing ttie-chatgpt every15minutes; unchanged state quiet",
+  "next_action": "await research review of literal5/5 and inherited dependency; no self-merge, retuning or future task"
+}
