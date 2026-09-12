@@ -1,0 +1,39 @@
+{
+  "convention": {
+    "shape": "rows,28,8",
+    "coordinates": "raw EV TL TR BL BR; raw gamma TL TR BL BR",
+    "renderer": "T011 Region2(original active mask), re-render fixed bank raw states",
+    "forward_mode": "active rows use grad-enabled CLIP for both cached features and Jacobians",
+    "projection": "not differentiated",
+    "constants": "first12 feature rows zero",
+    "method": "exact reverse-mode autograd; eight CLIP evidence VJPs plus physical-grid derivatives",
+    "no_active": "identity, value only; zero J and reference gradient",
+    "legacy_pixels": "retain per-row max absolute difference from inherited T013 bank"
+  },
+  "inherited_pixel_max_abs_differences": [
+    5.960464477539063e-08,
+    1.862645149230957e-08,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

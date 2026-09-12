@@ -1,0 +1,219 @@
+{
+  "gate": {
+    "scores": [
+      [
+        -0.00912177562713623,
+        -0.12275302410125732
+      ],
+      [
+        -0.06772232800722122,
+        -0.1345670074224472
+      ],
+      [
+        -0.04952695593237877,
+        -0.1696576178073883
+      ],
+      [
+        -0.13491052389144897,
+        -0.15670713782310486
+      ]
+    ],
+    "active": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "winner": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "evidence": [
+      -0.48676185016192025,
+      -1.2673636461516622,
+      -1.0249881130986576,
+      -2.162359072753863
+    ]
+  },
+  "trajectory": {
+    "loss_before": -12.099871635437012,
+    "loss_after": -12.099871635437012,
+    "loss_trajectory": [
+      -12.099871635437012
+    ],
+    "gradient_norms": [],
+    "gradient_vectors": [],
+    "parameter_ranges": [
+      {
+        "min": [
+          0.0,
+          1.0
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      }
+    ],
+    "steps": 0,
+    "stop_reason": "no_active",
+    "search": [],
+    "active_count": 0,
+    "projections": [],
+    "all_finite": true,
+    "parameter_count": 2,
+    "final_grid": [
+      [
+        [
+          [
+            0.0
+          ]
+        ],
+        [
+          [
+            1.0
+          ]
+        ]
+      ]
+    ],
+    "final_ranges": {
+      "min": [
+        0.0,
+        1.0
+      ],
+      "max": [
+        0.0,
+        1.0
+      ]
+    },
+    "reset": "identity and fresh optimizer per episode",
+    "objective": "frozen T013 predicted log MSE",
+    "action_box": {
+      "lower": [
+        [
+          [
+            [
+              0.0
+            ]
+          ],
+          [
+            [
+              1.0
+            ]
+          ]
+        ]
+      ],
+      "upper": [
+        [
+          [
+            [
+              0.0
+            ]
+          ],
+          [
+            [
+              1.0
+            ]
+          ]
+        ]
+      ]
+    }
+  },
+  "selection": {
+    "selected_step": 0,
+    "scores": [
+      -12.099871635437012
+    ],
+    "bypass": "no_active"
+  },
+  "methods": {
+    "global_ttt_energy_sobolev": {
+      "loss_before": -12.099871635437012,
+      "loss_after": -12.099871635437012,
+      "loss_trajectory": [
+        -12.099871635437012
+      ],
+      "gradient_norms": [],
+      "gradient_vectors": [],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 0,
+      "stop_reason": "saved_checkpoint",
+      "search": [],
+      "active_count": 0,
+      "projections": [],
+      "all_finite": true,
+      "parameter_count": 2,
+      "final_grid": [
+        [
+          [
+            [
+              0.0
+            ]
+          ],
+          [
+            [
+              1.0
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          0.0,
+          1.0
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "objective": "frozen T013 predicted log MSE",
+      "action_box": {
+        "lower": [
+          [
+            [
+              [
+                0.0
+              ]
+            ],
+            [
+              [
+                1.0
+              ]
+            ]
+          ]
+        ],
+        "upper": [
+          [
+            [
+              [
+                0.0
+              ]
+            ],
+            [
+              [
+                1.0
+              ]
+            ]
+          ]
+        ]
+      },
+      "trajectory_updates": 0,
+      "selected_step": 0
+    }
+  }
+}
