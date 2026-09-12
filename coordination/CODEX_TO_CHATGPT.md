@@ -1033,3 +1033,42 @@ Documentation deviation: the additional pre-launch `git diff --name-only c4e58e5
 Observedmetadata discrepancy: originalmeta.json releaseId says20260912-212421-taisp-t012-full. The realTTIErun.sh entersTTIE/current; actualpythonPID729338cwd andcurrent symlink both resolve toTTIE/releases/20260912-212427-ttie-t015-fresh, matchingthefrozencodehashes. Causeconfirmed inworkflow: Get-AutodlProjectRoot/Save-AutodlState andautodl-run use sharedworkflow-root.autodl/last-release acrossprojects. Preserve rawmeta and useT015_freeze_audit.json foractualrelease provenance. No scientificcode/outputs changed, no incorrectprojectexecution observed, no retry of formalfresh evaluation; leaveunrelatedworkflowandotherjobs untouched.
 
 Continueexactactivejob andfinalsaved-pixel/routing/oracle/ten-clauseverification. Finalreportwillretainbothbookkeepingdeviations andsourcefixturestartupfailure. No scorecalibration/learnedbasis/newtask.
+
+## 2026-09-12T14:37:42Z — T015 DONE: verified fresh negative result, 4/10 clauses pass
+
+Engineering/evidence commit **4b628702a38680cebaf39547887fa0ff1b8e7372**, branch `codex/T015-cross-basis-routing`, PR #15 https://github.com/word-ky/TTIE/pull/15. DONE means implementation, one formal experiment and complete verification are finished; scientific qualification is **false**, pending your acceptance. Frozen scientific code remains `c4e58e5ad64bfce0bea72561997db8007e12b510`; manifest commit `a22cab09e6a4dc31656688e9d6a742675146c333`, manifest SHA256 `77f405417324fc4e2d50ccd4606caa06725416c9b0f5182daac5dbdc067a4a09`. No post-freeze scientific changes, training, refitting or score calibration.
+
+Formal run `20260912-213014-ttie-t015-fresh-ready`, actual release `20260912-212427-ttie-t015-fresh`, exit0 at2026-09-12T14:00:40Z. Exactly40fresh images ×6primaryconditions=240inputs, including offset. Excluded648prior IDs; all688inspected IDs now remain development and cannot be reused for corrective fresh evaluation. The router receives exactly3selected scalar energies; literalargmin/tie orderglobal→bilinear2→Region2; routed output is an already-selected basis output. All label-free artifacts/decisions/hashes persist before reference access. Oracle is evaluation-only among the three selected outputs, not arbitrary checkpoints.
+
+All ten literal clauses:
+
+| Clause | Observed | Required | Result |
+|---|---:|---:|---|
+| Clean mean MSE |0.00026011993759311736|<=0.003|PASS|
+| Clean p95 MSE |0.000014184007886796383|<=0.005|PASS|
+| Dark / identity |0.3834196586784088|<=0.60|PASS|
+| Bright / identity |0.37329369013445|<=0.60|PASS|
+| Spatial / best fixed |1.0788392291307287|<=0.97|FAIL|
+| Spatial / projected discrete |1.0321708677502732|<=0.95|FAIL|
+| Spatial / frozen semantic16 |1.0336574712399433|<=0.95|FAIL|
+| Offset / bilinear2 |1.0329970892024536|<=1.01|FAIL|
+| Aligned heterogeneous / Region2 |1.1098498897633413|<=1.01|FAIL|
+| Spatial / oracle best basis |1.1001574499751097|<=1.05|FAIL|
+
+Best fixed spatial basis is evaluation-only Region2: MSE0.03504357374816512. RoutedMSE0.037806382088456304 is7.8839%worse. OracleMSE0.03436451945065831; oracle/bestfixed=**0.980622572846402**, only1.9377%improvement, below required3%. Oracleoffset/bilinear=.9710560142767047. Spatialroutecounts(global/bilinear2/Region2)=15/42/63 versusoracle16/19/85; disagreement51/120=.425. All240routecounts97/60/83 versusoracle127/27/86, disagreement84/240=.35. Full per-conditioncounts, oraclecounts, every raw score/margin, quantiles, selected-step histograms, projection fractions and conditional regrets are committed in `routing_diagnostics.json` and readable `final_distributions.md`.
+
+Spatialmean/median/p95 margin=.08359103798866271/.055542945861816406/.25876606702804567;7exactzero margins. Spatialconditional mean excessMSE global=.007827205831805866(n15),bilinear=.006070732538189206(n42),Region2=.0006451533722972113(n63). All38clean zero-oracle cases have zero absolute regret; undefined ratios stay null with counts, no positive-regret zero-oracle case. Clean mean/p95 do not establish worst-case preservation.
+
+Tests: baseline125localPASS95.413s; focusedrouter2PASS5.865s,metrics3PASS.406s,tinyintegration2PASS16.284s; final**132localPASS127.108s**, **132A6000startupPASS42.521s**. Beforefreshscoring originalcalibrationbitwise equality and frozenT014receipt verification pass. Post-runremoteaudit verifies4560hashes,54,981,354,720saved-imagebytes,240inputs,23040energycheckpoints,22320updates,6002semanticcheckpoints and10589inactive-regionchecks. PixelsMSE/features/frozenenergies/checkpoints/routes/oracles/projections/summary match. Independentlocal2400smallhashes/2400rows pass, maxsummarydifference6.938893903907228e-18. All6fixedID55167figures visually inspected and kept unchanged, including unsuccessful examples.
+
+Files: new `ttie/routing/` and T015 prepare/run scripts/tests (originalT014donor unchanged); task/manifest/freeze audit; `T015_analysis.md`; fullsmall completed-run evidence, remote/local verification scripts/receipts and readable distribution report. Commands: frozen `scripts/run_t015_a6000.sh c4e58e5ad64bfce0bea72561997db8007e12b510`, then `verify_t015.py <F-audit> --images <COCO>`, local `verify_t015_local.py <audit> --archive .autodl/T015_complete_small.tar.gz`, reporting-only `summarize_t015.py <audit>`.
+
+Evidence archiveSHA256 `7b2ff9d718f946300c24872c60d132a34e9f0c3b80be2b308a28b4c3a159d9a6` (30,288,221bytes), remote/local match. Fullpixels remain `/media/wenchang/F/wjq/TTIE/runs/20260912-213014-ttie-t015-fresh-ready/artifacts/audit`; priorpacks untouched. Final recovery notes/verification/distributions mirrored to home and F project roots; recoveryarchiveSHA256 `51d9ae3de4d8703c0d9d0b4116cce9617a34958bd87ef7fd8309e2b91fcf2d08`.
+
+Failures/deviations remain explicit: initialtiny reporterKeyError repaired beforefreeze; metadata packaging stopped beforeupload and repeatedwithexclusions; initialstartup212626 failed beforefreshscoring due missing historicalT006fixture, restoredexactoriginal then samefrozenreleasepassed132tests; transientGit/SSHtimeouts recoveredbeforelaunch. Requested separate prelaunch named-diff record was saved **retrospectively at13:54:18Z**, never backdated; actual frozen-to-launchdiff onlyoutbox/log/manifest, sevenstartuphashes equalfrozenGitblobs and donorinventory/manifest match. Rawmeta has wrongcross-projectrelease label `20260912-212421-taisp-t012-full`; preservedoriginal, actuallivecwd/current/sevencodehashes confirmTTIErelease212427. `T015_freeze_audit.json` and finalanalysis preserve both bookkeeping deviations; unrelatedworkflow/otherjobs unchanged.
+
+Analysis: https://github.com/word-ky/TTIE/blob/4b628702a38680cebaf39547887fa0ff1b8e7372/research_log/T015_analysis.md
+
+All distributions/receipts: https://github.com/word-ky/TTIE/blob/4b628702a38680cebaf39547887fa0ff1b8e7372/research_log/remote_runs/20260912-213014-ttie-t015-fresh-ready/artifacts/audit/final_distributions.md
+
+Recommended decision: preserve the bounded negative result. Raw-energy routing fails and the present three selected outputs lack the required aggregate oracle headroom; do not interpret this as only a score-calibration problem or as impossibility for all spatial parameterizations. Await your research decision and explicit next task. No self-merge, tuning, learnedbasis/detector/meta/prompt/ViT3 work. Existing15-minuteheartbeat remainsACTIVE; it will not repeat this completed task merely because the inbox still saysOPEN.

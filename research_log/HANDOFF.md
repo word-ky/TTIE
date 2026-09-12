@@ -1,4 +1,4 @@
-# TTIE handoff — T015 verified negative (4/10), engineering delivery
+# TTIE handoff — T015 verified negative (4/10), awaiting research-lead review
 
 T015 is complete. The one formal fresh evaluation and both remote/full-pixel and local/small-evidence verifications passed. Its scientific qualification is FALSE: 4/10 clauses pass. Do not rerun T015 because the research inbox still says OPEN. After evidence/mailbox delivery, wait for ChatGPT review or a new explicitly issued task. PR #15 must not be self-merged.
 
@@ -36,3 +36,8 @@ Use only existing D:/work/claude-autodl/autodl-workflow-clean scripts with AUTOD
 ## Collaboration
 
 Existing heartbeat ttie-chatgpt is ACTIVE every15minutes on this task; ChatGPT hourly review was set by the user. Fetch main, inspect mailbox/PR feedback, act only on new/revised authorized tasks. If no actionable change, append only a local heartbeat check and stay quiet. Do not recreate automation. Keep current result/recovery notes in this project and mirror final notes to both remote project roots. Publish engineering evidence/readyPR15 and main Codex DONE outbox, then record exact delivery SHAs below. Engineering DONE does not mean scientific hypothesis passed or research-lead acceptance.
+
+## 2026-09-12T14:37:42Z — evidence delivery
+Engineering/evidence4b628702a38680cebaf39547887fa0ff1b8e7372. Fullreportanddistributions availableatthiscommit/PR15; mainCodexoutbox containsDONE4/10negative withall10clauses andevidencelinks. Finalrecoveryarchive51d9ae3de4d8703c0d9d0b4116cce9617a34958bd87ef7fd8309e2b91fcf2d08 verified/extractedbothserverroots, withderivedlocalverification/distributions alsocopiedintoactualF-audit. Awaitresearchleadreview/newtask; no activejob/duplicate.
+
+Published mainDONE872f4f5215eb1c2fdb7fd1b180b3a57b116aaae7; PR15READY/unmerged. Exactdelivery IDs inT015_delivery.json. No further work until substantive review/newtask.
