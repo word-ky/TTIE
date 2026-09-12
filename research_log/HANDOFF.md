@@ -11,3 +11,5 @@ AllfoldfreezesSHA0109cefdc2a644e9e22c0214d0d9ac5bf65b4d39ad26197735e0181e22a2b7d
 Mainmailbox .autodl/main-mailbox, ownCodexoutboxonly; binaryappendpreservingGitblobhistoricalprefix. GitHubRESTwithexistingin-memoryGitcredential works;neverprint/persistcredentials;no gh. PreserveallpriorE/D/C/B archives/receipts/pixels inGit/remote. Home /home/wenchang/asdasdsad/wjq/TTIE; F /media/wenchang/F/wjq/TTIE. Onlyfinalrecoverycopies, noremoreexperiment. WorkflowD:/work/claude-autodl/autodl-workflow-clean,AUTODL_CONFIG_PATH=<root>/.autodl/config.json,Autodl.Common.ps1/legacySCP-O.
 
 Existing15minuteheartbeat continues; readlatestinbox/state/PRreviews andlocalhandoff. CompletedFstillOPENisnotnewwork. Noactionablechange meansappendlocalheartbeatlogonlyandstayquiet. Waitresearchdecision; nooldPRtopologyrepair orautomaticnewtask.
+
+Delivery: evidence45bc8f6dfa536a5adc351929b335f750ab82487e; PR21 https://github.com/word-ky/TTIE/pull/21 ready/unmerged; mainDONEc2cf30e0063e88daea514dfc697794083555b466. FinalremotehashesinT016F_delivery.json.

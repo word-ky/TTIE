@@ -1,0 +1,149 @@
+{
+  "task": "T016-F",
+  "status": "DONE",
+  "delivered_utc": "2026-09-12T21:15:49.082665+00:00",
+  "source_sha": "fb9d33e9c10e50cd88b389411adf56601ea3cc68",
+  "evidence_sha": "45bc8f6dfa536a5adc351929b335f750ab82487e",
+  "main_done_sha": "c2cf30e0063e88daea514dfc697794083555b466",
+  "branch": "codex/T016F-fully-nested-confidence",
+  "pr": "https://github.com/word-ky/TTIE/pull/21",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": null,
+  "github_mergeable_state": "unknown",
+  "mergeability_observed_head": "45bc8f6dfa536a5adc351929b335f750ab82487e",
+  "local_merge_tree_passed": true,
+  "recovery": {
+    "task": "T016-F",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T016F_recovery.tar.gz",
+    "bytes": 1543165,
+    "sha256": "c28aee4a243785ac37d71d14328d0414137392d61b81fd8a41bec9df6bb79127",
+    "entries": 245,
+    "analysis_sha256": "72a7be68c8302e39c6897960e36f796d04d6260cbb26c63b95af318796c2a24c",
+    "main_sha": "c2cf30e0063e88daea514dfc697794083555b466"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "c28aee4a243785ac37d71d14328d0414137392d61b81fd8a41bec9df6bb79127",
+      "analysis_sha256": "72a7be68c8302e39c6897960e36f796d04d6260cbb26c63b95af318796c2a24c",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "c28aee4a243785ac37d71d14328d0414137392d61b81fd8a41bec9df6bb79127",
+      "analysis_sha256": "72a7be68c8302e39c6897960e36f796d04d6260cbb26c63b95af318796c2a24c",
+      "verified": true
+    }
+  ],
+  "decision_receipt": {
+    "evaluation_started_utc": "2026-09-12T21:08:21.545240+00:00",
+    "all_folds_frozen_sha256": "0109cefdc2a644e9e22c0214d0d9ac5bf65b4d39ad26197735e0181e22a2b7db",
+    "decisions_sha256": "c933f395e6316e128e5edcbbdcc8cd47396ff1a25cce43d75274ee1bd5ec51a6",
+    "fold_freeze_hashes": {
+      "0": "0997874f734f8275180027601bd40b4dc7a245f40d33273e6e5b9dcea9edf18d",
+      "1": "f254510e707aefe9b70dc5b8f72fdd4035a09351ec8854d0250b5ec316ac3503",
+      "2": "b70c9aa57819c5d44d2fcb5f6654c05384bd81c946824746867281d9ea9a90c0",
+      "3": "e9f5935fa8852f94fcb89b113725c5375516e68a141aa00072e790911fab77ba",
+      "4": "8dc91de82d9a331f74819ce16c2c4e07d95c9109e043c3bb64bab18fedabc681"
+    }
+  },
+  "literal_clauses_passed": 4,
+  "clauses": {
+    "spatial_improves_region2_3pct": true,
+    "spatial_within_hard_oracle_5pct": true,
+    "offset_improves_region2_5pct": true,
+    "left_right_no_more_than_1pct_worse": false,
+    "quadrants_no_more_than_1pct_worse": true
+  },
+  "thresholds": [
+    0.5,
+    0.5,
+    0.5,
+    1.0,
+    0.75
+  ],
+  "spatial": {
+    "selected_mse": 0.03396188051362212,
+    "region2_mse": 0.03504357374816512,
+    "hard_oracle_mse": 0.032563564518932255,
+    "frozen_t016b_mse": 0.037857260807262115,
+    "count": 120,
+    "ratios": {
+      "selected_over_region2": 0.9691329074392807,
+      "selected_over_hard_oracle": 1.0429411219363558,
+      "selected_over_frozen_t016b": 0.8971034826457187,
+      "selected_over_ungated_nested": 0.9925103914562344,
+      "selected_over_old_t016e": 1.0016866904085695
+    },
+    "selected_counts": [
+      12,
+      5,
+      8,
+      3,
+      85,
+      4,
+      2,
+      0,
+      1
+    ],
+    "oracle_counts": [
+      27,
+      2,
+      12,
+      23,
+      41,
+      14,
+      0,
+      1,
+      0
+    ],
+    "disagreement_rate": 0.5166666666666667,
+    "outside_oracle_tie_set_rate": 0.44166666666666665,
+    "prediction_tied_episodes": 0,
+    "oracle_tied_episodes": 12,
+    "spearman": {
+      "count": 120,
+      "null_count": 7,
+      "mean": 0.6524167802729759,
+      "median": 0.75,
+      "min": -0.4666666666666667,
+      "max": 1.0
+    },
+    "ungated_nested_mse": 0.03421816114569083,
+    "old_t016e_mse": 0.03390469379179801,
+    "confidence_diagnostics": {
+      "count": 120,
+      "adaptive": 35,
+      "canonical": 85,
+      "q": {
+        "count": 120,
+        "mean": 0.26783018609886866,
+        "median": 0.2841843780692793,
+        "quantiles": {
+          "0": -1.2891933917858664,
+          "25": -0.2953141379989333,
+          "50": 0.2841843780692793,
+          "75": 0.858051015485551,
+          "100": 2.6785315226655437
+        }
+      },
+      "adapted_gains": {
+        "beneficial": 27,
+        "harmful": 6,
+        "zero": 2
+      }
+    }
+  },
+  "interpretation": "t016e_pass_does_not_survive_fully_nested_development_audit",
+  "formal_heads": 25,
+  "all_nested_exclusions_verified": true,
+  "exact_saved_head_scores": 5400,
+  "epoch_permutations_verified": 2500,
+  "focused_tests_passed": true,
+  "artifact_arithmetic_verification_passed": true,
+  "no_fresh_or_gpu_experiment": true,
+  "heartbeat": "existing ttie-chatgpt every15minutes; unchanged state quiet",
+  "next_action": "stop fixed scalar-head/confidence cycle; await research review or newly issued task; no selfmerge or retuning"
+}
