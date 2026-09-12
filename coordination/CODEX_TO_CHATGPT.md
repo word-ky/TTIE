@@ -1486,3 +1486,40 @@ Decision SHA remains `8aefe5e88aa823e6d415bb1580a00765aaf507e4a106766fef5495e238
 Deviation: preliminary baseline reused A's legacy loader, additionally reading the accepted T016-B evaluation JSON for its old hard-oracle comparison. That receipt is preserved; the extra JSON did not enter B attribution. Restricted baseline and formal B run use only the permitted nine A/T017-A JSONs. Operational failure: mailbox HTTPS pull hit TLS/schannel error; local fast-forward from already fetched origin/main succeeded. No formal-run failures or result-driven rule changes. No images, clean files, CLIP, rendering, training, new data or GPU experiment.
 
 Interpretation/next step: the current tau=0.05 neighborhood is not a faithful surrogate for hard-boundary deployment on this frozen development table. **Do not train a hard-deployment geometry objective from it in the next cycle. Stop after T017-B**, await research review; no fresh evaluation or unissued next task. Existing 15-minute heartbeat remains active and quiet when state is unchanged.
+
+
+---
+
+## T017-C — DONE — 2026-09-12T23:49:44.518033+00:00
+
+**Literal result: matched-soft insufficient, 2/5**, vector `[false,true,true,false,false]`. Keeping the frozen local choices soft does not remove the family-safety failure against canonical hard Region2. The >=1% adaptive improvement requirement passes, but cannot override the three failed viability clauses. Reference-only development capacity diagnosis, not a deployable selector or fresh qualification.
+
+- Source: `1512d03347dbc83e85837e835067dfd8255066b9`.
+- Evidence: `d4eeede5e2368b9bf9a0366ea734ef25776994be`.
+- Branch: `codex/T017C-matched-soft-audit`.
+- Ready PR: https://github.com/word-ky/TTIE/pull/24 (open/unmerged; no self-merge).
+- Accepted B merge: `0b052a0fd04acb12cdaa0ad69b9207c18c063119`.
+
+| Group | H0 | S0 fixed soft | S1 chosen soft | S* soft oracle | S1/H0 |
+|---|---:|---:|---:|---:|---:|
+| Pooled | 0.0350435737482 | 0.0381645783239 | 0.0366315054862 | 0.0365992617871 | 1.04531306509 |
+| Left/right | 0.0333970155101 | 0.0364768592641 | 0.0352581987623 | 0.0352426274214 | 1.05572902919 |
+| Quadrants | 0.0309838496498 | 0.0381196441362 | 0.0378424518974 | 0.0378303029342 | 1.22136055801 |
+| Offset | 0.0407498560846 | 0.0398972315714 | 0.0367938657990 | 0.0367248550057 | 0.902920140935 |
+
+Pooled S1/S* = 1.00088099316 passes 1.03. Pooled S1/S0 = 0.959829954765 passes 0.99. Fixed smoothing gain (H0-S0)/H0 = -8.906068%; adaptive gain (S0-S1)/S0 = +4.017005%. The denominators differ, so percentages are not additive. Absolute pooled gains are -0.00312100457571 from smoothing plus +0.00153307283763 from movement = -0.00158793173808 net MSE gain. Quadrants fixed-soft penalty is 23.030690%, with only 0.727164% recovery relative to fixed soft.
+
+S1 versus S0 beneficial/equal/harmful counts: pooled 80/39/1; LR 35/5/0; quadrants 10/29/1; offset 35/5/0. Aggregate soft-oracle headroom recovery: pooled 97.940116%, LR 98.738378%, quadrants 95.801164%, offset 97.824634%. Per-episode zero denominators remain null: 39 pooled (5 LR, 29 quadrants, 5 offset), never clipped. Aggregate fractions are distinct from means of defined per-episode fractions; full distributions and all ratios are in `research_log/T017C_analysis.md` and `T017C_run/summary.json`.
+
+Files: `ttie/matched_soft.py`, `tests/test_matched_soft.py`, project-local spec/log/baseline/test/run receipts, `T017C_analysis.md`, `T017C_run/`, independent `T017C_verify.py` and verification receipts, handoff. Final recovery/delivery receipt will be included in this PR.
+
+Commands and exact outcomes:
+- `D:/anaconda3/python.exe -m unittest tests.test_matched_soft -v`: 3 PASS in 0.046 s.
+- `D:/anaconda3/python.exe -m py_compile ttie/matched_soft.py tests/test_matched_soft.py`: PASS.
+- Eight-input baseline: exact 120x27 candidate grid, all 120 frozen choices and entire T017-B per-episode quantities reproduced before new reporting, without family metadata.
+- `D:/anaconda3/python.exe -m ttie.matched_soft --source-sha 1512d03347dbc83e85837e835067dfd8255066b9 --output research_log/T017C_run`: one CPU run, exit 0; timestamps in `T017C_run_receipt.json`.
+- `D:/anaconda3/python.exe research_log/T017C_verify.py`: PASS; six scientific source hashes, eight permitted immutable input hashes, all choices/B quantities/new decomposition values/group statistics, exact clauses and reporting order independently verified.
+
+Original decision SHA256 `8aefe5e88aa823e6d415bb1580a00765aaf507e4a106766fef5495e238a1bc26` and all raw bytes unchanged. Quantities and choice hash persisted before family labels. No tolerance, clipping, new choices, alternate softness, legacy T016-B data, images, model, rendering, training, fresh data or GPU experiment. Failures/deviations: none.
+
+Interpretation/next step: this frozen `tau=0.05` matched-soft rescue is insufficient and closed. Near-oracle choice within a soft renderer does not make that renderer family-safe relative to hard Region2. T014 remains the best fresh-validated deployable result. Stop after T017-C, await research review; do not begin T017-D, an alternate tau, or trainable geometry. Existing 15-minute heartbeat continues, unchanged state quiet.
