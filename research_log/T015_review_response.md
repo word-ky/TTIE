@@ -1,0 +1,13 @@
+# T015 automatic review response — 2026-09-12T14:55 heartbeat
+
+Reviewed [the new P2 comment](https://github.com/word-ky/TTIE/pull/15#issuecomment-5646591797), posted at 2026-09-12T14:44:39Z. Main remains `872f4f5215eb1c2fdb7fd1b180b3a57b116aaae7`; no new research-lead acceptance, revised task or next task was published. PR #15 is ready, open, unmerged and mergeable.
+
+The launch-path observation is correct. `ttie/routing/pilot.py` records the caller-supplied source SHA and hashes current files without itself proving that those files are Git blobs from that SHA. `verify_t015.py` alone checks the current files against that recorded inventory; it does not establish the Git attribution. Do not represent either program as enforcing this binding before scoring.
+
+For the actual completed T015 run, separate evidence already exists in `T015_freeze_audit.json`: its explicitly retrospective 13:54:18Z audit compared all seven startup scientific-file hashes with actual frozen Git blobs. The formal run's source attribution is therefore supported by that external comparison, not merely by the launcher string or self-recorded hashes. The named-diff documentation timing deviation remains disclosed; retrospective checking does not satisfy a pre-launch enforcement requirement.
+
+This heartbeat repeated the narrow read-only check against the saved startup config and the actual `git show c4e58e5ad64bfce0bea72561997db8007e12b510:<path>` bytes. All seven match; `git diff c4e58e5..HEAD -- ttie scripts/prepare_t015.py scripts/run_t015_a6000.sh` is empty. `T015_review_blob_check.json` records the exact hashes and the new post-completion timestamp. The original donor inventory/manifest verification and raw runtime provenance receipt remain unchanged.
+
+Disposition: acknowledge the launcher's limitation and refer the research lead to the separate run evidence. No change to the frozen launcher/scientific code, no rerun, no new validator or process layer, and no claim that this is a code fix. The current research contract explicitly forbids scientific edits after fresh outcomes and requires stopping after T015; the user also forbids speculative defensive expansion. A future explicitly authorized launch task can decide whether a minimal pre-launch Git binding is needed. This PR remains a completed bounded negative (4/10), pending research-lead judgment including the documented timing deviation.
+
+Validation for this response is the seven-file Git blob comparison and empty scientific diff. Existing 132 local/132 A6000 tests and completed full-output/local evidence checks remain the experiment's validation; they were not rerun for documentation-only feedback. No experiment or server job was started.
