@@ -904,3 +904,32 @@ Recommendation: accept the controlled development negative. This fixed scalar-va
 Reviewed the new research-lead interim acceptance of the repair. Repaired run `20260912-181047-ttie-t014-stage-a-repaired` remains active from source `f861b2c6ffde6d017cb174ef8e00cb75701bf5e1`; at least259/400 source episodes completed at10:33Z, no new failure. Remaining filesystem space71,434,928,128bytes. No rerun, method/loss/threshold/code changes or fresh manifest.
 
 The final report will separately present (1) each head's source-train value/derivative fit, (2) each head's calibration identity-gradient distribution, (3) calibration causal deltas and heterogeneous Sobolev/value-only MSE ratio, (4) saved trajectory/selection/projection/movable-boundary/oracle diagnostics, and (5) both frozen head hashes, asset identities, initial failure and repaired receipts/tests. Only the literal eight calibration clauses qualify Stage A. Existing saved training/calibration outputs supply these quantities; no selector or gate change. PR14 remains draft pending completion.
+
+## 2026-09-12T11:23Z — T014 PARTIAL: Stage A8/8 verified; frozen fresh Stage B running
+
+**Stage A passes, but T014 is not yet freshly qualified.** Full passing source evidence/receipt/both heads: `6a9870f836b6763f843d78e5c549eba432b0a150`; immutable scientific source `f861b2c6ffde6d017cb174ef8e00cb75701bf5e1`. Draft [PR14](https://github.com/word-ky/TTIE/pull/14) remains open pending Stage B. Detailed method/condition table and separate diagnostics: [T014 analysis](https://github.com/word-ky/TTIE/blob/codex/T014-sobolev-energy/research_log/T014_analysis.md), actual A audit `final_distributions.json/.md` and `summary.json/.md`.
+
+| Stage-A clause | Observed | Requirement | Result |
+|---|---:|---:|---|
+| Calibration positive gradient fraction |73/74=.9864864864864865|>=.80|PASS|
+| Calibration median cosine |.9360590709945287|>=.50|PASS|
+| Clean p95 MSE |.0002394345123320852|<=.005|PASS|
+| Dark/identity MSE |.5591337468311788|<=.65|PASS|
+| Bright/identity MSE |.41086523819069704|<=.65|PASS|
+| Heterogeneous/discrete MSE |.9263470330290793|<=.95|PASS|
+| Heterogeneous/fixed16 MSE |.9186562220330877|<=.95|PASS|
+| Heterogeneous/value-only MSE |.8342483020057921|<=.95|PASS|
+
+**Source fit, separate from calibration:**7346state rows,7248eligible directional rows; value-only/Sobolev Huber.033193279057741165/.051005665212869644, positivefraction.8652042150497437/.9976544976234436, median.46205344796180725/.9724292755126953. Same rows/architecture/normalization/seed/batch order/100epochs/final checkpoint. No fallback selection or tuning.
+
+**Calibration causal comparison:** value-only59/74positive, median.4246446532217347; Sobolev73/74positive, median.9360590709945287. Paired deltas+.18918918918918926 in positivefraction and+.511414417772794 in median; heterogeneous MSE16.58%lower than matched value-only. These are source-calibration evidence, not source-fit statistics or fresh qualification.
+
+**Trajectory diagnostics:** primary heterogeneous MSE.0337993793888, oracle.0323520277627; primary/oracle1.044737586056045; oracle/discrete.8866791483267122 and oracle/fixed16.8793176720108989. Primary projected-update fraction.936 and final movable-boundary fraction.650485436893; control.972/.800970873786. All selected-step and per-condition distributions are saved.25all-inactive calibration inputs;12400energycheckpoints/12000updates/2557oldsemantic checkpoints. No selector/gate changes.
+
+**Verification:** repaired A run20260912-181047-ttie-t014-stage-a-repaired exited0 at11:01:44Z.125local tests135.151s,125A6000 tests37.822s, original calibration bitwise preflight. Remote4600hashes/all stored-pixel MSE/features/both head scores and selections/train-only normalization/final source-fit/calibration summaries exact; local3100small hashes/1000rows/148alignments, summary difference0. Full41.93GB pixels retained remotely. All source derivative records checked; direct-autograd equivalence remains the fixed actual-CLIP fixture, not an all-state derivative rerun. Frozen CLIP/prototype/T007 identities and both unchanged head hashes verified. Accepted initial failure and numerical cache repair remain in evidence; no threshold, loss or source-manifest changes.
+
+**Freeze-before-fresh ledger:** committed receipt and both heads at6a9870f8, verified actual Git blobs for receipt AND both weights, then generated fresh40manifest. Receipt SHA`c6c611aa5769d9f857ff57675e745abe8415721c0315458b85d30e1b5b5c9a68`; Sobolev SHA`c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521`; control SHA`df6c5af2610e741cf03a59239135a82204550fab3bcbf9e408e553521ce7b69c`. Source-manifest SHA`4dbf8c604bc44574a5823ec8e22142c8ac39574b6103c4bbd0a69647f15a2257`. Fresh `T014_manifest.json` excludes608prior IDs,40IDs50844..55150; SHA`1e891b2d9049b0bc7f68fbc1e656f1e90c8cb88ff0d526fbe20cf950c293d8b5`, committed before outcomes in`7416a1b91949985312cef002d47568091fb57761`. No fresh data before the required barrier.
+
+**Active fresh run:** `20260912-191947-ttie-t014-stage-b`, release20260912-191938-ttie-t014-stage-b, physicalGPU1.125startup tests pass37.516s; original calibration bitwise and frozen energy receipt verified before first fresh scoring.240episodes planned, twelve unchanged criteria plus report-only offset stress. Execution logs/metadata stay `/home/wenchang/asdasdsad/wjq/TTIE/runs/<run-id>`; actual artifacts are `/media/wenchang/F/wjq/TTIE/runs/<run-id>/artifacts`. Home has only36GB free; existing writable F mount has19.4TB free. Existing artifact-directory environment setting selects the new location; all historical data retained, no scientific change.
+
+Continue only this active fresh run. Finalize/verify/report Stage B whether qualified or negative; no new features, basis, detector, meta, prompt or ViT3 task. Recovery notes record the two storage locations explicitly and are mirrored to both server project roots.
