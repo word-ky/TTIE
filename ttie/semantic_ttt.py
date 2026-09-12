@@ -27,13 +27,25 @@ class EVGamma(ISP):
 
 class Region2(EVGamma):
     """T010 fixed coordinate quadrants, promoted unchanged from T009 Piecewise2."""
-    def __init__(self):super().__init__(2)
+    def __init__(self,active=None):
+        super().__init__(2)
+        self.register_buffer('active',None if active is None else active.detach().clone().reshape(2,2))
 
     def parameter_field(self,size):
         h,w=size
         y=(torch.arange(h,device=self.raw.device)>=h//2).long()
         x=(torch.arange(w,device=self.raw.device)>=w//2).long()
         return self.physical_grid()[:,:,y[:,None],x[None,:]]
+
+    def forward(self,image):
+        result=super().forward(image)
+        if self.active is None:return result
+        h,w=image.shape[-2:]
+        y=(torch.arange(h,device=image.device)>=h//2).long()
+        x=(torch.arange(w,device=image.device)>=w//2).long()
+        active=self.active[y[:,None],x[None,:]]
+        # Exact frozen-gate abstention, including low-valued floating pixels.
+        return torch.where(active,result,image)
 
 
 class SemanticScorer(nn.Module):
@@ -95,13 +107,15 @@ def choose_candidate(candidates, losses, identity):
     return min(zip(candidates,losses),key=lambda pair:(pair[1],abs(pair[0]-identity),pair[0]))[0]
 
 
-def run_method(image, objective, method, *, max_steps=40, coordinates='ev_gamma', record_states=False, renderer='bilinear2'):
+def run_method(image, objective, method, *, max_steps=40, coordinates='ev_gamma', record_states=False, renderer='bilinear2',
+               project=None, search_candidates=None, exact_updates=False):
     source=image.detach()
     size=2 if method.startswith('spatial2') else 1
     model=(EVGamma(size) if coordinates=='ev_gamma' else CoordinateISP(size,coordinates)).to(source)
-    if renderer=='region2':model=Region2().to(source)
+    if renderer=='region2':model=Region2(active=project.active if project is not None else None).to(source)
     states=[]
     losses=[];gradients=[];ranges=[];search=[];updates=0
+    gradient_vectors=[];projections=[]
     with torch.no_grad():initial=float(objective.from_scores(objective.original_scores))
     reason='identity' if method=='identity' else 'no_active' if not objective.active.any() else None
     if reason is not None:
@@ -118,6 +132,7 @@ def run_method(image, objective, method, *, max_steps=40, coordinates='ev_gamma'
             for y in range(size):
                 for x in range(size):
                     for channel,candidates,identity in ((0,EV_CANDIDATES,0.),(1,GAMMA_CANDIDATES,1.)):
+                        if search_candidates is not None:candidates=search_candidates(y,x,channel)
                         scores=[]
                         for candidate in candidates:
                             values[0,channel,y,x]=candidate;model.set_grid(values)
@@ -137,18 +152,25 @@ def run_method(image, objective, method, *, max_steps=40, coordinates='ev_gamma'
             loss=objective(output)
             losses.append(float(loss.detach()));ranges.append(grid_ranges(model))
             if not torch.isfinite(loss):raise RuntimeError('Nonfinite T008 semantic loss')
-            if float(loss.detach())<=1e-8:reason='clean_envelope';break
+            if not exact_updates and float(loss.detach())<=1e-8:reason='clean_envelope';break
             if step==max_steps:reason='max_updates';break
             optimizer.zero_grad(set_to_none=True)
             gradient,=torch.autograd.grad(loss,model.raw)
             if not torch.isfinite(gradient).all():raise RuntimeError('Nonfinite T008 ISP gradient')
             gradients.append(float(gradient.norm()));model.raw.grad=gradient
+            gradient_vectors.append(gradient.detach().cpu().tolist())
             optimizer.step();updates+=1
+            if project is not None:
+                pre_raw=model.raw.detach().cpu().tolist();pre_grid=model.physical_grid().detach()[:,:2].cpu().tolist()
+                project(model)
+                projections.append(dict(pre_raw=pre_raw,pre_grid=pre_grid,post_raw=model.raw.detach().cpu().tolist(),
+                                        post_grid=model.physical_grid().detach()[:,:2].cpu().tolist()))
     output=output.detach();grid=model.physical_grid().detach()[:,:2]
     assert torch.isfinite(output).all() and torch.isfinite(grid).all()
     return dict(image=output,raw=model.raw.detach().clone(),grid=grid,states=states,
                 diagnostics=dict(loss_before=initial,loss_after=losses[-1],loss_trajectory=losses,gradient_norms=gradients,
                  parameter_ranges=ranges,steps=updates,stop_reason=reason,search=search,active_count=int(objective.active.sum()),
+                 gradient_vectors=gradient_vectors,projections=projections,
                  all_finite=True,parameter_count=model.raw.numel(),final_grid=grid.cpu().tolist(),
                  final_ranges=grid_ranges(model),reset='identity and fresh optimizer per episode'))
 
