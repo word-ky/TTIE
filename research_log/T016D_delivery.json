@@ -1,0 +1,63 @@
+{
+  "task": "T016-D",
+  "status": "DONE",
+  "delivered_utc": "2026-09-12T19:54:12.608442+00:00",
+  "source_sha": "c91495225b6df73c814ee6f48b7bd3ab8ff2b6c7",
+  "evidence_sha": "aa71d268294e35f5df67c76eada29f9bec117abe",
+  "main_done_sha": "d4fda9f8794ad6909e1dbc409b5bb57fa537741d",
+  "main_final_sha": "e7082c87a256ecc29709373b38c46d83dd74d68c",
+  "branch": "codex/T016D-pairwise-ranking",
+  "pr": "https://github.com/word-ky/TTIE/pull/19",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": null,
+  "github_mergeable_state": "unknown",
+  "local_merge_tree_passed": true,
+  "recovery": {
+    "task": "T016-D",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T016D_recovery.tar.gz",
+    "bytes": 829436,
+    "sha256": "c1947a736fec775ca6764bca1cf3c56d286fe78eee38445754dd808886e9c304",
+    "entries": 146,
+    "analysis_sha256": "eee3a9b9eb1dde35d9148efe9c92a5eec2673d2f99f45bf9687225fd9ddc841b",
+    "main_sha": "e7082c87a256ecc29709373b38c46d83dd74d68c"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "c1947a736fec775ca6764bca1cf3c56d286fe78eee38445754dd808886e9c304",
+      "analysis_sha256": "eee3a9b9eb1dde35d9148efe9c92a5eec2673d2f99f45bf9687225fd9ddc841b",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "c1947a736fec775ca6764bca1cf3c56d286fe78eee38445754dd808886e9c304",
+      "analysis_sha256": "eee3a9b9eb1dde35d9148efe9c92a5eec2673d2f99f45bf9687225fd9ddc841b",
+      "verified": true
+    }
+  ],
+  "oof_receipt": {
+    "evaluation_started_utc": "2026-09-12T19:40:48.872001+00:00",
+    "oof_frozen_sha256": "804cc575c2cf8a61899c2c3c7cada48618a07b51b4692ff075d4ddfeca7bc05d",
+    "unchanged_oof_hashes": {
+      "rank28": "36d623a96ea5f69298111ac07b2b9fc38df26fcc51075fd4acbe8d7117e91d10",
+      "rank30": "a7860cc345489e27084c1dd0049e83986fdcdfe1b4bd65d0d0ad6db4876f177a"
+    }
+  },
+  "interpretation": "neither_rank_probe_establishes_safe_development_ranking",
+  "clauses_passed": {
+    "rank28": 1,
+    "rank30": 1
+  },
+  "comparison": {
+    "rank30_over_rank28": 0.9665639197566726,
+    "rank28_over_probe28": 0.9886940383940429,
+    "rank30_over_probe30": 0.965223273628518
+  },
+  "focused_tests_passed": true,
+  "artifact_verification_passed": true,
+  "correlation_verification_passed": true,
+  "heartbeat": "existing ttie-chatgpt every15minutes; unchanged state quiet",
+  "next_action": "await research-lead review or newly issued task; no rerun or self-merge"
+}
