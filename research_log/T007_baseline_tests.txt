@@ -1,0 +1,51 @@
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_auc_ties_and_literal_conjunction (test_clip_signal.ClipSignalTests.test_auc_ties_and_literal_conjunction) ... ok
+test_calibration_ignores_heldout_values_and_dirty_calibration (test_clip_signal.ClipSignalTests.test_calibration_ignores_heldout_values_and_dirty_calibration) ... ok
+test_detached_winner_threshold_and_zero_loss (test_clip_signal.ClipSignalTests.test_detached_winner_threshold_and_zero_loss) ... ok
+test_frozen_encoder_has_pixel_gradient (test_clip_signal.ClipSignalTests.test_frozen_encoder_has_pixel_gradient) ... ok
+test_scores_do_not_consume_evaluation_reference_or_labels (test_clip_signal.ClipSignalTests.test_scores_do_not_consume_evaluation_reference_or_labels) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+test_clean_source_calibration_only (test_learned_prototypes.LearnedPrototypeTests.test_clean_source_calibration_only) ... ok
+test_exact_initialization_and_gradient_ownership (test_learned_prototypes.LearnedPrototypeTests.test_exact_initialization_and_gradient_ownership) ... ok
+test_fresh_deterministic_manifest (test_learned_prototypes.LearnedPrototypeTests.test_fresh_deterministic_manifest) ... ok
+test_pixel_only_inference_and_decisions (test_learned_prototypes.LearnedPrototypeTests.test_pixel_only_inference_and_decisions) ... ok
+test_source_only_training_freezes_before_inference (test_learned_prototypes.LearnedPrototypeTests.test_source_only_training_freezes_before_inference) ... ok
+test_five_views_and_differentiable_geometry (test_natural.NaturalTests.test_five_views_and_differentiable_geometry) ... ok
+test_gain_conventions_match_previous_suite (test_natural.NaturalTests.test_gain_conventions_match_previous_suite) ... ok
+test_gate_requires_mixed_recall_and_low_wrong_activation (test_prototype_audit.PrototypeAuditTests.test_gate_requires_mixed_recall_and_low_wrong_activation) ... ok
+test_metadata_changes_only_offline_localization (test_prototype_audit.PrototypeAuditTests.test_metadata_changes_only_offline_localization) ... ok
+test_mixed_labels_and_all_view_denominators (test_prototype_audit.PrototypeAuditTests.test_mixed_labels_and_all_view_denominators) ... ok
+test_global_unaffected_by_tv_and_components_reconstruct_total (test_regularization.RegularizationTests.test_global_unaffected_by_tv_and_components_reconstruct_total) ... ok
+test_identity_normalization_anchor_and_bounds (test_regularization.RegularizationTests.test_identity_normalization_anchor_and_bounds) ... ok
+test_tv_constant_varying_and_analytic_value (test_regularization.RegularizationTests.test_tv_constant_varying_and_analytic_value) ... ok
+test_zero_weight_t001_fixed_numeric_regression (test_regularization.RegularizationTests.test_zero_weight_t001_fixed_numeric_regression) ... ok
+test_exact_probe_sign_magnitude_and_response (test_relative_clip.RelativeTests.test_exact_probe_sign_magnitude_and_response) ... ok
+test_fresh_manifest_and_calibration_excludes_other_rows (test_relative_clip.RelativeTests.test_fresh_manifest_and_calibration_excludes_other_rows) ... ok
+test_literal_gate_uses_correct_type_tpr_and_precision (test_relative_clip.RelativeTests.test_literal_gate_uses_correct_type_tpr_and_precision) ... ok
+test_metadata_does_not_change_responses_gates_targets (test_relative_clip.RelativeTests.test_metadata_does_not_change_responses_gates_targets) ... ok
+test_all_fixed_settings_and_component_trajectories (test_safety_sweep.SafetySweepTests.test_all_fixed_settings_and_component_trajectories) ... ok
+test_clean_reference_replacement_never_changes_any_trajectory (test_safety_sweep.SafetySweepTests.test_clean_reference_replacement_never_changes_any_trajectory) ... ok
+test_predeclared_decision_rule_known_values (test_safety_sweep.SafetySweepTests.test_predeclared_decision_rule_known_values) ... ok
+test_clean_families_and_determinism (test_suite.SuiteTests.test_clean_families_and_determinism) ... ok
+test_degradation_masks_and_t001_equivalence (test_suite.SuiteTests.test_degradation_masks_and_t001_equivalence) ... ok
+test_evaluation_only_reference_and_exports (test_suite.SuiteTests.test_evaluation_only_reference_and_exports) ... ok
+test_identity_drift_clean_condition (test_suite.SuiteTests.test_identity_drift_clean_condition) ... ok
+test_count_aggregation_and_uniform_field (test_uniform.UniformTests.test_count_aggregation_and_uniform_field) ... ok
+test_spatial_one_matches_global_exactly (test_uniform.UniformTests.test_spatial_one_matches_global_exactly) ... ok
+test_symmetric_control_stays_near_global_and_resets (test_uniform.UniformTests.test_symmetric_control_stays_near_global_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 10.556s
+
+OK
