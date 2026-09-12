@@ -1449,3 +1449,40 @@ Command: `D:/anaconda3/python.exe -m ttie.local_geometry --source-sha 5247690887
 Files: compactttie/local_geometry.py andtests/test_local_geometry.py;spec/baseline/test/runlogs/command/analysis;T017A_run baseline/config/decisions/freeze/evaluation/summary/receipt;verify_t017a.py andverificationJSON/log;HANDOFF. All6inputartifactpaths/commits/hashes inconfig. FouractualscientificruntimefilesbinddeclaredsourceSHA usingexistingprovenancehelper. No scientificdeviation.
 
 Recommendednextdecision: preservecontrollednegative/inconclusive **4/5**. Thiscoarsetau.05local-axisreferencecrossdoesnotyetjustifycontinuousgeometryoptimization; itdoesnotruleoutalllearnedspatialbases. Thechoicesareexplicitlyreference-only,neverlabel-freetest-timeselection. StopafterT017-A; no derivative-supervisedobjective,geometryoptimizer,freshdataorunissuedfuturetaskstarted. No selfmerge. Evidencepushed; home/Frecoverymirrorsbeingfinalized, finalhashesinT017A_delivery.json. Existing15minuteheartbeatcontinues.
+
+
+---
+
+## T017-B — DONE — 2026-09-12T23:06:12.357977+00:00
+
+**Literal attribution: soft-to-hard transfer-dominant.** Same category exceeds the predeclared 2/3 threshold both overall and in quadrants. This is reference-only development diagnosis, not a qualification experiment or deployable selector.
+
+- Source freeze: `3351bb8e23f028debd97a31a8066366a8aca2894`.
+- Evidence commit: `3cf8fae217728e2adb95eaad5fab0e7e98960d36`.
+- Branch: `codex/T017B-soft-hard-attribution`.
+- Ready PR: https://github.com/word-ky/TTIE/pull/23 (open, unmerged; no self-merge).
+- Accepted A merge: `42bafee15964b75c9194e0b92d7f4bae23d049fc`.
+
+| Group | Harmful hard moves | Transfer | Soft interaction | Zero/tie |
+|---|---:|---:|---:|---:|
+| Overall | 20 | 19 (95%) | 1 (5%) | 0 |
+| Left/right | 9 | 9 (100%) | 0 | 0 |
+| Quadrants | 11 | 10 (90.9091%) | 1 (9.0909%) | 0 |
+| Offset | 0 | 0 (undefined fraction) | 0 (undefined) | 0 (undefined) |
+
+Soft-oracle tie-aware equality: overall 104/120 (86.6667%), LR 34/40 (85%), quadrants 37/40 (92.5%), offset 33/40 (82.5%). First-lexicographic equality: 92/120, 29/40, 37/40, 26/40. There are 12 tied soft-oracle episodes (5 LR, 7 offset), all selected in their tie sets. Overall soft separability regret mean 3.224369914581378e-05, median 0, p95 0.00016416171565651887, max 0.00128931924700737, zero count 104. Full per-family distributions and 3x3 soft/hard sign contingencies are in the report and JSON. Secondary diagnostics do not override the fixed rule.
+
+Files: `ttie/geometry_attribution.py`, `tests/test_geometry_attribution.py`, `research_log/T017B_analysis.md`, `T017B.md`, `T017B_run/`, baseline/test/run/verification receipts, independent `T017B_verify.py`, and handoff. Final delivery/recovery receipt follows in the same PR.
+
+Commands and outcomes:
+- `D:/anaconda3/python.exe -m unittest tests.test_geometry_attribution -v`: 4 tests PASS in 0.042 s.
+- `D:/anaconda3/python.exe -m py_compile ttie/geometry_attribution.py tests/test_geometry_attribution.py`: PASS.
+- Restricted precheck: 120x27 exact grid, all 120 frozen choices and hard MSEs, entire A summary/evaluation and [true,true,true,true,false] (4/5) reproduced before attribution.
+- `D:/anaconda3/python.exe -m ttie.geometry_attribution --source-sha 3351bb8e23f028debd97a31a8066366a8aca2894 --output research_log/T017B_run`: one CPU run, exit 0; exact timestamps in run receipt.
+- `D:/anaconda3/python.exe research_log/T017B_verify.py`: PASS, 5 source hashes/9 immutable input hashes/120 choices and quantities/all group statistics and strict dominance rule checked independently.
+
+Decision SHA remains `8aefe5e88aa823e6d415bb1580a00765aaf507e4a106766fef5495e238a1bc26`; raw bytes unchanged. All new per-episode quantities are computed and hash-frozen before family metadata is attached. Existing A summary reproduction separately uses its original family reporting. No clipping, tolerance, alternate choices or rescue rule.
+
+Deviation: preliminary baseline reused A's legacy loader, additionally reading the accepted T016-B evaluation JSON for its old hard-oracle comparison. That receipt is preserved; the extra JSON did not enter B attribution. Restricted baseline and formal B run use only the permitted nine A/T017-A JSONs. Operational failure: mailbox HTTPS pull hit TLS/schannel error; local fast-forward from already fetched origin/main succeeded. No formal-run failures or result-driven rule changes. No images, clean files, CLIP, rendering, training, new data or GPU experiment.
+
+Interpretation/next step: the current tau=0.05 neighborhood is not a faithful surrogate for hard-boundary deployment on this frozen development table. **Do not train a hard-deployment geometry objective from it in the next cycle. Stop after T017-B**, await research review; no fresh evaluation or unissued next task. Existing 15-minute heartbeat remains active and quiet when state is unchanged.
