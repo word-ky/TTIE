@@ -25,7 +25,7 @@ class QualityHead(nn.Module):
     def normalization(self):return {k:getattr(self,k).cpu().tolist() for k in ('x_mean','x_scale','y_mean','y_scale')}
 
 
-def train_head(features,mse,*,head_factory=QualityHead):
+def train_head(features,mse,*,head_factory=QualityHead,extra_loss=None):
     # No calibration data, clean pixels, condition or image IDs are inputs here.
     torch.manual_seed(7);torch.set_num_threads(1)
     features=features.detach().cpu().float();target=(mse.detach().cpu().double()+1e-6).log()
@@ -39,12 +39,18 @@ def train_head(features,mse,*,head_factory=QualityHead):
     optimizer=torch.optim.AdamW(head.parameters(),lr=1e-3,weight_decay=1e-4)
     generator=torch.Generator().manual_seed(7);history=[]
     for epoch in range(100):
-        order=torch.randperm(len(features),generator=generator);total=0.
+        order=torch.randperm(len(features),generator=generator);total=0.;extra_total=0.
         for batch in order.split(256):
-            prediction=head.standardized(features[batch]);loss=nn.functional.huber_loss(prediction,target[batch],delta=1.)
+            x=features[batch].requires_grad_(extra_loss is not None)
+            prediction=head.standardized(x);value_loss=nn.functional.huber_loss(prediction,target[batch],delta=1.)
+            loss=value_loss
+            if extra_loss is not None:
+                additional=extra_loss(head,prediction,x,batch);loss=loss+additional
+                extra_total+=float(additional.detach())*len(batch)
             optimizer.zero_grad(set_to_none=True);loss.backward();optimizer.step()
-            total+=float(loss.detach())*len(batch)
+            total+=float(value_loss.detach())*len(batch)
         history.append(dict(epoch=epoch+1,train_huber=total/len(features)))
+        if extra_loss is not None:history[-1]['train_direction_batch_weighted']=extra_total/len(features)
     head.zero_grad(set_to_none=True);head.eval().requires_grad_(False)
     return head,history
 

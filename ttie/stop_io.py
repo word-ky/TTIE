@@ -13,7 +13,7 @@ def save_label_free(directory,trajectory,results,decision=None):
     torch.save(trajectory['images'],directory/'checkpoint_images.pt')
     small={k:trajectory[k] for k in ('scores','grids','states','features')}
     torch.save(small,directory/'trajectory.pt')
-    torch.save({n:{k:r[k].cpu() for k in ('image','raw','grid')} for n,r in results.items()},directory/'outputs.pt')
+    torch.save({n:{k:r[k].cpu().clone() for k in ('image','raw','grid')} for n,r in results.items()},directory/'outputs.pt')
     write(directory/'decisions.json',dict(gate=trajectory['gate'],trajectory=trajectory['diagnostics'],selection=decision,
           methods={n:r['diagnostics'] for n,r in results.items()}))
     receipts={name:dict(file=name,bytes=(directory/name).stat().st_size,sha256=sha(directory/name))

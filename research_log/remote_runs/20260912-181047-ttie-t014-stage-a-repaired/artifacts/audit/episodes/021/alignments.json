@@ -1,0 +1,66 @@
+[
+  {
+    "image_id": 49091,
+    "condition": "homogeneous_dark",
+    "method": "region2_ttt_energy_value_only",
+    "cosine": 0.1574805372045563,
+    "positive": true,
+    "energy_gradient": [
+      0.5411829352378845,
+      -0.3570891320705414,
+      -1.103926420211792,
+      1.6313104629516602,
+      -0.2207362949848175,
+      -0.2069208174943924,
+      0.6355353593826294,
+      -0.33527371287345886
+    ],
+    "reference_gradient": [
+      -0.3728419542312622,
+      -1.200667142868042,
+      -0.28697139024734497,
+      0.0,
+      0.23131151497364044,
+      0.5624575018882751,
+      0.19807976484298706,
+      0.0
+    ],
+    "energy_gradient_norm": 2.2154172017068254,
+    "reference_gradient_norm": 1.439466686397584,
+    "reference_only": true,
+    "coordinates": "Region2 raw EV/gamma at identity",
+    "zero_norm_rule": "cosine 0, counts nonpositive"
+  },
+  {
+    "image_id": 49091,
+    "condition": "homogeneous_dark",
+    "method": "region2_ttt_energy_sobolev",
+    "cosine": 0.94623013335082,
+    "positive": true,
+    "energy_gradient": [
+      -0.7167774438858032,
+      -2.3504743576049805,
+      -1.4256982803344727,
+      0.1364411562681198,
+      0.41381630301475525,
+      0.9028034806251526,
+      0.8864525556564331,
+      0.03335803002119064
+    ],
+    "reference_gradient": [
+      -0.3728419542312622,
+      -1.200667142868042,
+      -0.28697139024734497,
+      0.0,
+      0.23131151497364044,
+      0.5624575018882751,
+      0.19807976484298706,
+      0.0
+    ],
+    "energy_gradient_norm": 3.140531855332926,
+    "reference_gradient_norm": 1.439466686397584,
+    "reference_only": true,
+    "coordinates": "Region2 raw EV/gamma at identity",
+    "zero_norm_rule": "cosine 0, counts nonpositive"
+  }
+]

@@ -1,0 +1,419 @@
+[autodl] run_id=20260912-191947-ttie-t014-stage-b
+[autodl] started_at=2026-09-12T19:19:58+08:00
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+3.12.12 | packaged by conda-forge | (main, Jan 26 2026, 23:51:32) [GCC 14.3.0]
+torch 2.4.0
+torchvision 0.19.0
+open_clip_torch 2.26.1
+timm 1.0.29
+Pillow 12.3.0
+CUDA 12.1 NVIDIA RTX A6000
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_auc_ties_and_literal_conjunction (test_clip_signal.ClipSignalTests.test_auc_ties_and_literal_conjunction) ... ok
+test_calibration_ignores_heldout_values_and_dirty_calibration (test_clip_signal.ClipSignalTests.test_calibration_ignores_heldout_values_and_dirty_calibration) ... ok
+test_detached_winner_threshold_and_zero_loss (test_clip_signal.ClipSignalTests.test_detached_winner_threshold_and_zero_loss) ... ok
+test_frozen_encoder_has_pixel_gradient (test_clip_signal.ClipSignalTests.test_frozen_encoder_has_pixel_gradient) ... ok
+test_scores_do_not_consume_evaluation_reference_or_labels (test_clip_signal.ClipSignalTests.test_scores_do_not_consume_evaluation_reference_or_labels) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_bank_order_sobol_mapping_and_inactive_identity (test_energy_core.EnergyCoreTests.test_bank_order_sobol_mapping_and_inactive_identity) ... ok
+test_exact_updates_selection_reset_projection_and_metadata_rejection (test_energy_core.EnergyCoreTests.test_exact_updates_selection_reset_projection_and_metadata_rejection) ... ok
+test_features_have_live_evidence_and_state_gradients (test_energy_core.EnergyCoreTests.test_features_have_live_evidence_and_state_gradients) ... ok
+test_fixed_training_recipe_normalization_save_and_device_gradient (test_energy_core.EnergyCoreTests.test_fixed_training_recipe_normalization_save_and_device_gradient) ... /home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+ok
+test_saved_gradients_features_selection_survive_reference_replacement (test_energy_evidence.EnergyEvidenceTests.test_saved_gradients_features_selection_survive_reference_replacement) ... ok
+test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass (test_energy_evidence.EnergyEvidenceTests.test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass) ... ok
+test_source_bank_saved_before_targets_and_cosine_known_cases (test_energy_evidence.EnergyEvidenceTests.test_source_bank_saved_before_targets_and_cosine_known_cases) ... ok
+test_frozen_energy_bank_normalization_source_and_actual_git_blob (test_energy_pilot.EnergyPilotTests.test_frozen_energy_bank_normalization_source_and_actual_git_blob) ... ok
+test_new_source_excludes408_and_failed_source_prevents_fresh_read (test_energy_pilot.EnergyPilotTests.test_new_source_excludes408_and_failed_source_prevents_fresh_read) ... ok
+test_tiny_source_train_calibration_and_no_fresh_manifest (test_energy_pilot.EnergyPilotTests.test_tiny_source_train_calibration_and_no_fresh_manifest) ... T013 bank 1 1 clean states 1
+T013 bank 2 1 homogeneous_dark states 24
+T013 bank 3 1 homogeneous_bright states 24
+T013 bank 4 1 left_right states 24
+T013 bank 5 1 quadrants states 24
+T013 trained energy 97 rows 100 epochs
+T013 A finalized 1 2 clean seconds 0.14
+T013 A finalized 2 2 homogeneous_dark seconds 0.62
+T013 A finalized 3 2 homogeneous_bright seconds 0.62
+T013 A finalized 4 2 left_right seconds 0.64
+T013 A finalized 5 2 quadrants seconds 0.65
+ok
+test_coordinate_restrictions_exact (test_geometry.GeometryTests.test_coordinate_restrictions_exact) ... ok
+test_development_manifest_excludes_all_old_data (test_geometry.GeometryTests.test_development_manifest_excludes_all_old_data) ... ok
+test_diagnosis_rules_and_objective_priority_are_literal (test_geometry.GeometryTests.test_diagnosis_rules_and_objective_priority_are_literal) ... ok
+test_literal_surface_and_tied_ranks (test_geometry.GeometryTests.test_literal_surface_and_tied_ranks) ... ok
+test_oracle_resets_identity_and_is_diagnostic_only (test_geometry.GeometryTests.test_oracle_resets_identity_and_is_diagnostic_only) ... ok
+test_piecewise_constant_equivalence_and_odd_quadrant_boundary (test_geometry.GeometryTests.test_piecewise_constant_equivalence_and_odd_quadrant_boundary) ... ok
+test_recording_leaves_t008_trajectory_unchanged_and_reference_is_offline (test_geometry.GeometryTests.test_recording_leaves_t008_trajectory_unchanged_and_reference_is_offline) ... ok
+test_reference_gradient_changes_without_affecting_semantic_api (test_geometry.GeometryTests.test_reference_gradient_changes_without_affecting_semantic_api) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+test_image_any_denominators_tradeoffs_auc_and_gate (test_joint_audit.JointAuditTests.test_image_any_denominators_tradeoffs_auc_and_gate) ... ok
+test_metadata_is_attached_after_persistence_cannot_change_pixel_inference (test_joint_audit.JointAuditTests.test_metadata_is_attached_after_persistence_cannot_change_pixel_inference) ... ok
+test_calibration_image_max_linear_percentile_and_exclusion (test_joint_gate.JointGateTests.test_calibration_image_max_linear_percentile_and_exclusion) ... ok
+test_exact_saved_prototype_and_t006_score_arithmetic (test_joint_gate.JointGateTests.test_exact_saved_prototype_and_t006_score_arithmetic) ... ok
+test_fresh_manifest_excludes_every_prior_split (test_joint_gate.JointGateTests.test_fresh_manifest_excludes_every_prior_split) ... ok
+test_same_scores_raw_winner_strict_boundary_and_activation_only (test_joint_gate.JointGateTests.test_same_scores_raw_winner_strict_boundary_and_activation_only) ... ok
+test_clean_source_calibration_only (test_learned_prototypes.LearnedPrototypeTests.test_clean_source_calibration_only) ... ok
+test_exact_initialization_and_gradient_ownership (test_learned_prototypes.LearnedPrototypeTests.test_exact_initialization_and_gradient_ownership) ... ok
+test_fresh_deterministic_manifest (test_learned_prototypes.LearnedPrototypeTests.test_fresh_deterministic_manifest) ... ok
+test_pixel_only_inference_and_decisions (test_learned_prototypes.LearnedPrototypeTests.test_pixel_only_inference_and_decisions) ... ok
+test_source_only_training_freezes_before_inference (test_learned_prototypes.LearnedPrototypeTests.test_source_only_training_freezes_before_inference) ... ok
+test_five_views_and_differentiable_geometry (test_natural.NaturalTests.test_five_views_and_differentiable_geometry) ... ok
+test_gain_conventions_match_previous_suite (test_natural.NaturalTests.test_gain_conventions_match_previous_suite) ... ok
+test_each_threshold_is_enforced (test_projected_metrics.ProjectedMetricsTests.test_each_threshold_is_enforced) ... ok
+test_literal_criteria_one_step_not_selector_stress_excluded (test_projected_metrics.ProjectedMetricsTests.test_literal_criteria_one_step_not_selector_stress_excluded) ... ok
+test_all_nine_outputs_decisions_and_hashes_precede_metrics (test_projected_pilot.ProjectedPilotTests.test_all_nine_outputs_decisions_and_hashes_precede_metrics) ... ok
+test_fresh_manifest_uses_existing_order_exclusions_and_new_split (test_projected_pilot.ProjectedPilotTests.test_fresh_manifest_uses_existing_order_exclusions_and_new_split) ... ok
+test_replacement_reference_leaves_outputs_gradients_and_states_unchanged (test_projected_pilot.ProjectedPilotTests.test_replacement_reference_leaves_outputs_gradients_and_states_unchanged) ... ok
+test_discrete_candidates_are_legal_and_inactive_output_unchanged (test_projected_ttt.ProjectedTests.test_discrete_candidates_are_legal_and_inactive_output_unchanged) ... ok
+test_episode_reset_no_active_and_no_metadata_api (test_projected_ttt.ProjectedTests.test_episode_reset_no_active_and_no_metadata_api) ... ok
+test_global_conflict_agreement_and_no_active (test_projected_ttt.ProjectedTests.test_global_conflict_agreement_and_no_active) ... ok
+test_inactive_low_value_pixels_are_bitwise_unchanged (test_projected_ttt.ProjectedTests.test_inactive_low_value_pixels_are_bitwise_unchanged) ... ok
+test_one_step_matches_first_full_update_and_audits_projection (test_projected_ttt.ProjectedTests.test_one_step_matches_first_full_update_and_audits_projection) ... ok
+test_projection_bounds_signs_and_inactive_exact_identity (test_projected_ttt.ProjectedTests.test_projection_bounds_signs_and_inactive_exact_identity) ... ok
+test_renderer_and_envelope_baseline_parity (test_projected_ttt.ProjectedTests.test_renderer_and_envelope_baseline_parity) ... ok
+test_gate_requires_mixed_recall_and_low_wrong_activation (test_prototype_audit.PrototypeAuditTests.test_gate_requires_mixed_recall_and_low_wrong_activation) ... ok
+test_metadata_changes_only_offline_localization (test_prototype_audit.PrototypeAuditTests.test_metadata_changes_only_offline_localization) ... ok
+test_mixed_labels_and_all_view_denominators (test_prototype_audit.PrototypeAuditTests.test_mixed_labels_and_all_view_denominators) ... ok
+test_global_unaffected_by_tv_and_components_reconstruct_total (test_regularization.RegularizationTests.test_global_unaffected_by_tv_and_components_reconstruct_total) ... ok
+test_identity_normalization_anchor_and_bounds (test_regularization.RegularizationTests.test_identity_normalization_anchor_and_bounds) ... ok
+test_tv_constant_varying_and_analytic_value (test_regularization.RegularizationTests.test_tv_constant_varying_and_analytic_value) ... ok
+test_zero_weight_t001_fixed_numeric_regression (test_regularization.RegularizationTests.test_zero_weight_t001_fixed_numeric_regression) ... ok
+test_exact_probe_sign_magnitude_and_response (test_relative_clip.RelativeTests.test_exact_probe_sign_magnitude_and_response) ... ok
+test_fresh_manifest_and_calibration_excludes_other_rows (test_relative_clip.RelativeTests.test_fresh_manifest_and_calibration_excludes_other_rows) ... ok
+test_literal_gate_uses_correct_type_tpr_and_precision (test_relative_clip.RelativeTests.test_literal_gate_uses_correct_type_tpr_and_precision) ... ok
+test_metadata_does_not_change_responses_gates_targets (test_relative_clip.RelativeTests.test_metadata_does_not_change_responses_gates_targets) ... ok
+test_literal_grid_feasibility_and_conservative_tie (test_residual_metrics.ResidualMetricsTests.test_literal_grid_feasibility_and_conservative_tie) ... ok
+test_offset_boundary_and_offline_regional_mse (test_residual_metrics.ResidualMetricsTests.test_offset_boundary_and_offline_regional_mse) ... ok
+test_qualification_conjunction_and_stress_exclusion (test_residual_metrics.ResidualMetricsTests.test_qualification_conjunction_and_stress_exclusion) ... ok
+test_all_eight_outputs_and_decisions_precede_reference_access (test_residual_pilot.ResidualPilotTests.test_all_eight_outputs_and_decisions_precede_reference_access) ... ok
+test_manifest_algorithm_excludes_all_prior_ids_and_small_images (test_residual_pilot.ResidualPilotTests.test_manifest_algorithm_excludes_all_prior_ids_and_small_images) ... ok
+test_source_actions_include_all_fixed_pairs_without_reference_api (test_residual_pilot.ResidualPilotTests.test_source_actions_include_all_fixed_pairs_without_reference_api) ... ok
+test_all_methods_reset_and_reject_reference_metadata (test_residual_ttt.ResidualTests.test_all_methods_reset_and_reject_reference_metadata) ... ok
+test_coordinate_only_region_matches_diagnostic_and_constant_bilinear (test_residual_ttt.ResidualTests.test_coordinate_only_region_matches_diagnostic_and_constant_bilinear) ... ok
+test_equation_frozen_winner_initial_energy_opposite_penalty (test_residual_ttt.ResidualTests.test_equation_frozen_winner_initial_energy_opposite_penalty) ... ok
+test_no_active_exact_identity_all_methods (test_residual_ttt.ResidualTests.test_no_active_exact_identity_all_methods) ... ok
+test_zero_rho_loss_gradient_and_trajectory_match (test_residual_ttt.ResidualTests.test_zero_rho_loss_gradient_and_trajectory_match) ... ok
+test_literal_mean_gates_paired_rows_and_gradient_exclusion (test_restoration_metrics.RestorationMetricTests.test_literal_mean_gates_paired_rows_and_gradient_exclusion) ... ok
+test_official_fresh_manifest_prefix_and_exclusions (test_restoration_metrics.RestorationMetricTests.test_official_fresh_manifest_prefix_and_exclusions) ... ok
+test_replaced_reference_changes_metrics_only_after_methods_complete (test_restoration_metrics.RestorationMetricTests.test_replaced_reference_changes_metrics_only_after_methods_complete) ... ok
+test_all_fixed_settings_and_component_trajectories (test_safety_sweep.SafetySweepTests.test_all_fixed_settings_and_component_trajectories) ... ok
+test_clean_reference_replacement_never_changes_any_trajectory (test_safety_sweep.SafetySweepTests.test_clean_reference_replacement_never_changes_any_trajectory) ... ok
+test_predeclared_decision_rule_known_values (test_safety_sweep.SafetySweepTests.test_predeclared_decision_rule_known_values) ... ok
+test_direct_policy_and_exact_candidate_ties (test_semantic_ttt.SemanticTTTTests.test_direct_policy_and_exact_candidate_ties) ... ok
+test_episode_reset_and_metadata_cannot_enter_trajectory (test_semantic_ttt.SemanticTTTTests.test_episode_reset_and_metadata_cannot_enter_trajectory) ... ok
+test_fixed_original_mask_and_two_sided_hinge (test_semantic_ttt.SemanticTTTTests.test_fixed_original_mask_and_two_sided_hinge) ... ok
+test_frozen_encoder_gradients_reach_both_isp_coordinates (test_semantic_ttt.SemanticTTTTests.test_frozen_encoder_gradients_reach_both_isp_coordinates) ... ok
+test_global_spatial_constant_render_and_fixed_other_operators (test_semantic_ttt.SemanticTTTTests.test_global_spatial_constant_render_and_fixed_other_operators) ... ok
+test_literal_saved_calibration_and_hash (test_semantic_ttt.SemanticTTTTests.test_literal_saved_calibration_and_hash) ... ok
+test_no_active_is_bitwise_identity_for_every_method (test_semantic_ttt.SemanticTTTTests.test_no_active_is_bitwise_identity_for_every_method) ... ok
+test_bank_coordinates_unchanged_exact_inactive_and_value_only_rows (test_sobolev_core.SobolevCoreTests.test_bank_coordinates_unchanged_exact_inactive_and_value_only_rows) ... ok
+test_cached_features_use_same_grad_forward_path_as_derivatives (test_sobolev_core.SobolevCoreTests.test_cached_features_use_same_grad_forward_path_as_derivatives) ... ok
+test_cached_jacobian_matches_direct_chain_rule_and_reference (test_sobolev_core.SobolevCoreTests.test_cached_jacobian_matches_direct_chain_rule_and_reference) ... ok
+test_inference_rejects_all_source_supervision (test_sobolev_core.SobolevCoreTests.test_inference_rejects_all_source_supervision) ... ok
+test_same_source_value_control_is_bitwise_t013_and_direction_loss (test_sobolev_core.SobolevCoreTests.test_same_source_value_control_is_bitwise_t013_and_direction_loss) ... ok
+test_eight_and_twelve_literal_clauses_include_control (test_sobolev_evidence.SobolevEvidenceTests.test_eight_and_twelve_literal_clauses_include_control) ... ok
+test_reference_replacement_preserves_all_persisted_label_free_evidence (test_sobolev_evidence.SobolevEvidenceTests.test_reference_replacement_preserves_all_persisted_label_free_evidence) ... ok
+test_508_prior_exclusions_and_failed_gate_never_reads_fresh_pool (test_sobolev_pilot.SobolevPilotTests.test_508_prior_exclusions_and_failed_gate_never_reads_fresh_pool) ... ok
+test_receipt_both_heads_convention_and_actual_git_blobs (test_sobolev_pilot.SobolevPilotTests.test_receipt_both_heads_convention_and_actual_git_blobs) ... ok
+test_tiny_complete_source_two_heads_calibration_and_no_fresh (test_sobolev_pilot.SobolevPilotTests.test_tiny_complete_source_two_heads_calibration_and_no_fresh) ... T014 bank 1 1 clean states 1 seconds 0.01
+T014 bank 2 1 homogeneous_dark states 24 seconds 4.29
+T014 bank 3 1 homogeneous_bright states 24 seconds 4.28
+T014 bank 4 1 left_right states 24 seconds 4.27
+T014 bank 5 1 quadrants states 24 seconds 4.29
+T014 trained both heads 97 rows,100epochs
+T014 A finalized 1 2 clean seconds 0.15
+T014 A finalized 2 2 homogeneous_dark seconds 0.73
+T014 A finalized 3 2 homogeneous_bright seconds 0.72
+T014 A finalized 4 2 left_right seconds 0.75
+T014 A finalized 5 2 quadrants seconds 0.76
+ok
+test_fixed_step_safety_then_hetero_then_earliest (test_stop_metrics.StopMetricsTests.test_fixed_step_safety_then_hetero_then_earliest) ... ok
+test_stage_a_five_clauses_and_stage_b_eleven_with_stress_exclusion (test_stop_metrics.StopMetricsTests.test_stage_a_five_clauses_and_stage_b_eleven_with_stress_exclusion) ... ok
+test_development_80_20_split_and_fresh_barrier_precedes_pool_read (test_stop_pilot.StopPilotTests.test_development_80_20_split_and_fresh_barrier_precedes_pool_read) ... ok
+test_freeze_checks_head_manifest_code_normalization_and_git_blob (test_stop_pilot.StopPilotTests.test_freeze_checks_head_manifest_code_normalization_and_git_blob) ... ok
+test_source_training_and_calibration_end_to_end_without_fresh_data (test_stop_pilot.StopPilotTests.test_source_training_and_calibration_end_to_end_without_fresh_data) ... Stage A passes False failed ['homogeneous_dark', 'beyond_discrete', 'beyond_fixed_step'] fixed step 2
+STOP: no fresh T012 manifest/scoring in this process. Commit a passing frozen receipt first.
+ok
+test_stage_b_persistence_and_reference_replacement (test_stop_pilot.StopPilotTests.test_stage_b_persistence_and_reference_replacement) ... ok
+test_checkpoint_frozen_scores_and_cpu_cuda_selection (test_stop_quality.StopQualityTests.test_checkpoint_frozen_scores_and_cpu_cuda_selection) ... ok
+test_fixed_recipe_train_only_normalization_and_exact_repeat (test_stop_quality.StopQualityTests.test_fixed_recipe_train_only_normalization_and_exact_repeat) ... ok
+test_earliest_tie_and_inactive_bypass (test_stop_trajectory.StopTrajectoryTests.test_earliest_tie_and_inactive_bypass) ... ok
+test_feature_order_normalization_signs_terminal_and_projection_count (test_stop_trajectory.StopTrajectoryTests.test_feature_order_normalization_signs_terminal_and_projection_count) ... ok
+test_metadata_cannot_enter_capture_features_selection_or_output (test_stop_trajectory.StopTrajectoryTests.test_metadata_cannot_enter_capture_features_selection_or_output) ... ok
+test_passive_capture_exact_t011_outputs_gradients_and_states (test_stop_trajectory.StopTrajectoryTests.test_passive_capture_exact_t011_outputs_gradients_and_states) ... ok
+test_clean_families_and_determinism (test_suite.SuiteTests.test_clean_families_and_determinism) ... ok
+test_degradation_masks_and_t001_equivalence (test_suite.SuiteTests.test_degradation_masks_and_t001_equivalence) ... ok
+test_evaluation_only_reference_and_exports (test_suite.SuiteTests.test_evaluation_only_reference_and_exports) ... ok
+test_identity_drift_clean_condition (test_suite.SuiteTests.test_identity_drift_clean_condition) ... ok
+test_count_aggregation_and_uniform_field (test_uniform.UniformTests.test_count_aggregation_and_uniform_field) ... ok
+test_spatial_one_matches_global_exactly (test_uniform.UniformTests.test_spatial_one_matches_global_exactly) ... ok
+test_symmetric_control_stays_near_global_and_resets (test_uniform.UniformTests.test_symmetric_control_stays_near_global_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 125 tests in 37.516s
+
+OK
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+T014 B finalized 1 50844 clean seconds 0.34
+T014 B finalized 2 50844 homogeneous_dark seconds 9.23
+T014 B finalized 3 50844 homogeneous_bright seconds 11.98
+T014 B finalized 4 50844 left_right seconds 12.69
+T014 B finalized 5 50844 quadrants seconds 12.68
+T014 B finalized 6 50844 offset_left_right_40 seconds 13.18
+T014 B finalized 7 50896 clean seconds 0.17
+T014 B finalized 8 50896 homogeneous_dark seconds 0.16
+T014 B finalized 9 50896 homogeneous_bright seconds 12.32
+T014 B finalized 10 50896 left_right seconds 11.52
+T014 B finalized 11 50896 quadrants seconds 11.07
+T014 B finalized 12 50896 offset_left_right_40 seconds 10.47
+T014 B finalized 13 51008 clean seconds 0.19
+T014 B finalized 14 51008 homogeneous_dark seconds 11.82
+T014 B finalized 15 51008 homogeneous_bright seconds 12.49
+T014 B finalized 16 51008 left_right seconds 13.05
+T014 B finalized 17 51008 quadrants seconds 12.91
+T014 B finalized 18 51008 offset_left_right_40 seconds 12.89
+T014 B finalized 19 51309 clean seconds 0.25
+T014 B finalized 20 51309 homogeneous_dark seconds 11.19
+T014 B finalized 21 51309 homogeneous_bright seconds 13.35
+T014 B finalized 22 51309 left_right seconds 13.44
+T014 B finalized 23 51309 quadrants seconds 13.66
+T014 B finalized 24 51309 offset_left_right_40 seconds 13.51
+T014 B finalized 25 51314 clean seconds 0.22
+T014 B finalized 26 51314 homogeneous_dark seconds 12.74
+T014 B finalized 27 51314 homogeneous_bright seconds 11.37
+T014 B finalized 28 51314 left_right seconds 11.85
+T014 B finalized 29 51314 quadrants seconds 10.92
+T014 B finalized 30 51314 offset_left_right_40 seconds 12.23
+T014 B finalized 31 51326 clean seconds 0.22
+T014 B finalized 32 51326 homogeneous_dark seconds 12.5
+T014 B finalized 33 51326 homogeneous_bright seconds 12.44
+T014 B finalized 34 51326 left_right seconds 12.67
+T014 B finalized 35 51326 quadrants seconds 12.15
+T014 B finalized 36 51326 offset_left_right_40 seconds 12.82
+T014 B finalized 37 51610 clean seconds 11.92
+T014 B finalized 38 51610 homogeneous_dark seconds 12.52
+T014 B finalized 39 51610 homogeneous_bright seconds 12.59
+T014 B finalized 40 51610 left_right seconds 13.0
+T014 B finalized 41 51610 quadrants seconds 13.05
+T014 B finalized 42 51610 offset_left_right_40 seconds 12.78
+T014 B finalized 43 51712 clean seconds 0.26
+T014 B finalized 44 51712 homogeneous_dark seconds 12.88
+T014 B finalized 45 51712 homogeneous_bright seconds 12.84
+T014 B finalized 46 51712 left_right seconds 13.29
+T014 B finalized 47 51712 quadrants seconds 13.33
+T014 B finalized 48 51712 offset_left_right_40 seconds 13.7
+T014 B finalized 49 51738 clean seconds 0.21
+T014 B finalized 50 51738 homogeneous_dark seconds 12.36
+T014 B finalized 51 51738 homogeneous_bright seconds 10.67
+T014 B finalized 52 51738 left_right seconds 8.45
+T014 B finalized 53 51738 quadrants seconds 10.27
+T014 B finalized 54 51738 offset_left_right_40 seconds 9.99
+T014 B finalized 55 51938 clean seconds 0.22
+T014 B finalized 56 51938 homogeneous_dark seconds 9.21
+T014 B finalized 57 51938 homogeneous_bright seconds 8.79
+T014 B finalized 58 51938 left_right seconds 9.69
+T014 B finalized 59 51938 quadrants seconds 8.99
+T014 B finalized 60 51938 offset_left_right_40 seconds 0.25
+T014 B finalized 61 51961 clean seconds 0.23
+T014 B finalized 62 51961 homogeneous_dark seconds 9.63
+T014 B finalized 63 51961 homogeneous_bright seconds 11.65
+T014 B finalized 64 51961 left_right seconds 11.77
+T014 B finalized 65 51961 quadrants seconds 12.71
+T014 B finalized 66 51961 offset_left_right_40 seconds 13.0
+T014 B finalized 67 51976 clean seconds 12.42
+T014 B finalized 68 51976 homogeneous_dark seconds 12.83
+T014 B finalized 69 51976 homogeneous_bright seconds 12.73
+T014 B finalized 70 51976 left_right seconds 13.06
+T014 B finalized 71 51976 quadrants seconds 13.16
+T014 B finalized 72 51976 offset_left_right_40 seconds 12.78
+T014 B finalized 73 52007 clean seconds 0.22
+T014 B finalized 74 52007 homogeneous_dark seconds 12.57
+T014 B finalized 75 52007 homogeneous_bright seconds 11.99
+T014 B finalized 76 52007 left_right seconds 13.56
+T014 B finalized 77 52007 quadrants seconds 12.7
+T014 B finalized 78 52007 offset_left_right_40 seconds 12.39
+T014 B finalized 79 52017 clean seconds 0.25
+T014 B finalized 80 52017 homogeneous_dark seconds 12.83
+T014 B finalized 81 52017 homogeneous_bright seconds 13.11
+T014 B finalized 82 52017 left_right seconds 13.09
+T014 B finalized 83 52017 quadrants seconds 13.13
+T014 B finalized 84 52017 offset_left_right_40 seconds 13.12
+T014 B finalized 85 52412 clean seconds 0.24
+T014 B finalized 86 52412 homogeneous_dark seconds 12.73
+T014 B finalized 87 52412 homogeneous_bright seconds 12.21
+T014 B finalized 88 52412 left_right seconds 10.6
+T014 B finalized 89 52412 quadrants seconds 11.79
+T014 B finalized 90 52412 offset_left_right_40 seconds 14.15
+T014 B finalized 91 52413 clean seconds 0.29
+T014 B finalized 92 52413 homogeneous_dark seconds 12.98
+T014 B finalized 93 52413 homogeneous_bright seconds 12.4
+T014 B finalized 94 52413 left_right seconds 12.64
+T014 B finalized 95 52413 quadrants seconds 12.55
+T014 B finalized 96 52413 offset_left_right_40 seconds 12.51
+T014 B finalized 97 52462 clean seconds 0.21
+T014 B finalized 98 52462 homogeneous_dark seconds 0.2
+T014 B finalized 99 52462 homogeneous_bright seconds 12.55
+T014 B finalized 100 52462 left_right seconds 12.86
+T014 B finalized 101 52462 quadrants seconds 12.74
+T014 B finalized 102 52462 offset_left_right_40 seconds 12.83
+T014 B finalized 103 52507 clean seconds 0.2
+T014 B finalized 104 52507 homogeneous_dark seconds 10.6
+T014 B finalized 105 52507 homogeneous_bright seconds 12.54
+T014 B finalized 106 52507 left_right seconds 10.87
+T014 B finalized 107 52507 quadrants seconds 13.23
+T014 B finalized 108 52507 offset_left_right_40 seconds 10.9
+T014 B finalized 109 52565 clean seconds 0.29
+T014 B finalized 110 52565 homogeneous_dark seconds 12.79
+T014 B finalized 111 52565 homogeneous_bright seconds 12.38
+T014 B finalized 112 52565 left_right seconds 12.23
+T014 B finalized 113 52565 quadrants seconds 11.51
+T014 B finalized 114 52565 offset_left_right_40 seconds 12.22
+T014 B finalized 115 52591 clean seconds 0.29
+T014 B finalized 116 52591 homogeneous_dark seconds 10.66
+T014 B finalized 117 52591 homogeneous_bright seconds 12.51
+T014 B finalized 118 52591 left_right seconds 10.81
+T014 B finalized 119 52591 quadrants seconds 13.53
+T014 B finalized 120 52591 offset_left_right_40 seconds 11.05
+T014 B finalized 121 52891 clean seconds 0.27
+T014 B finalized 122 52891 homogeneous_dark seconds 12.63
+T014 B finalized 123 52891 homogeneous_bright seconds 9.66
+T014 B finalized 124 52891 left_right seconds 13.2
+T014 B finalized 125 52891 quadrants seconds 11.52
+T014 B finalized 126 52891 offset_left_right_40 seconds 12.06
+T014 B finalized 127 52996 clean seconds 0.28
+T014 B finalized 128 52996 homogeneous_dark seconds 12.09
+T014 B finalized 129 52996 homogeneous_bright seconds 10.8
+T014 B finalized 130 52996 left_right seconds 13.18
+T014 B finalized 131 52996 quadrants seconds 13.18
+T014 B finalized 132 52996 offset_left_right_40 seconds 13.19
+T014 B finalized 133 53505 clean seconds 0.28
+T014 B finalized 134 53505 homogeneous_dark seconds 13.0
+T014 B finalized 135 53505 homogeneous_bright seconds 13.03
+T014 B finalized 136 53505 left_right seconds 13.16
+T014 B finalized 137 53505 quadrants seconds 13.07
+T014 B finalized 138 53505 offset_left_right_40 seconds 12.9
+T014 B finalized 139 53529 clean seconds 0.26
+T014 B finalized 140 53529 homogeneous_dark seconds 10.75
+T014 B finalized 141 53529 homogeneous_bright seconds 12.77
+T014 B finalized 142 53529 left_right seconds 12.93
+T014 B finalized 143 53529 quadrants seconds 10.96
+T014 B finalized 144 53529 offset_left_right_40 seconds 12.7
+T014 B finalized 145 53624 clean seconds 0.26
+T014 B finalized 146 53624 homogeneous_dark seconds 12.64
+T014 B finalized 147 53624 homogeneous_bright seconds 12.62
+T014 B finalized 148 53624 left_right seconds 12.74
+T014 B finalized 149 53624 quadrants seconds 12.9
+T014 B finalized 150 53624 offset_left_right_40 seconds 12.8
+T014 B finalized 151 53626 clean seconds 0.27
+T014 B finalized 152 53626 homogeneous_dark seconds 10.24
+T014 B finalized 153 53626 homogeneous_bright seconds 12.58
+T014 B finalized 154 53626 left_right seconds 12.63
+T014 B finalized 155 53626 quadrants seconds 12.64
+T014 B finalized 156 53626 offset_left_right_40 seconds 12.59
+T014 B finalized 157 53909 clean seconds 0.26
+T014 B finalized 158 53909 homogeneous_dark seconds 12.33
+T014 B finalized 159 53909 homogeneous_bright seconds 12.48
+T014 B finalized 160 53909 left_right seconds 12.69
+T014 B finalized 161 53909 quadrants seconds 12.6
+T014 B finalized 162 53909 offset_left_right_40 seconds 12.58
+T014 B finalized 163 53994 clean seconds 0.26
+T014 B finalized 164 53994 homogeneous_dark seconds 10.45
+T014 B finalized 165 53994 homogeneous_bright seconds 12.15
+T014 B finalized 166 53994 left_right seconds 12.59
+T014 B finalized 167 53994 quadrants seconds 12.57
+T014 B finalized 168 53994 offset_left_right_40 seconds 12.42
+T014 B finalized 169 54123 clean seconds 0.27
+T014 B finalized 170 54123 homogeneous_dark seconds 0.28
+T014 B finalized 171 54123 homogeneous_bright seconds 12.61
+T014 B finalized 172 54123 left_right seconds 12.87
+T014 B finalized 173 54123 quadrants seconds 10.87
+T014 B finalized 174 54123 offset_left_right_40 seconds 12.85
+T014 B finalized 175 54164 clean seconds 0.29
+T014 B finalized 176 54164 homogeneous_dark seconds 10.72
+T014 B finalized 177 54164 homogeneous_bright seconds 12.62
+T014 B finalized 178 54164 left_right seconds 12.76
+T014 B finalized 179 54164 quadrants seconds 12.79
+T014 B finalized 180 54164 offset_left_right_40 seconds 12.94
+T014 B finalized 181 54592 clean seconds 0.3
+T014 B finalized 182 54592 homogeneous_dark seconds 12.95
+T014 B finalized 183 54592 homogeneous_bright seconds 12.43
+T014 B finalized 184 54592 left_right seconds 13.52
+T014 B finalized 185 54592 quadrants seconds 13.95
+T014 B finalized 186 54592 offset_left_right_40 seconds 12.87
+T014 B finalized 187 54605 clean seconds 0.25
+T014 B finalized 188 54605 homogeneous_dark seconds 12.1
+T014 B finalized 189 54605 homogeneous_bright seconds 12.19
+T014 B finalized 190 54605 left_right seconds 12.26
+T014 B finalized 191 54605 quadrants seconds 12.12
+T014 B finalized 192 54605 offset_left_right_40 seconds 12.33
+T014 B finalized 193 54628 clean seconds 0.28
+T014 B finalized 194 54628 homogeneous_dark seconds 10.57
+T014 B finalized 195 54628 homogeneous_bright seconds 12.62
+T014 B finalized 196 54628 left_right seconds 12.1
+T014 B finalized 197 54628 quadrants seconds 12.09
+T014 B finalized 198 54628 offset_left_right_40 seconds 12.21
+T014 B finalized 199 54654 clean seconds 0.32
+T014 B finalized 200 54654 homogeneous_dark seconds 0.3
+T014 B finalized 201 54654 homogeneous_bright seconds 12.88
+T014 B finalized 202 54654 left_right seconds 0.37
+T014 B finalized 203 54654 quadrants seconds 12.34
+T014 B finalized 204 54654 offset_left_right_40 seconds 0.35
+T014 B finalized 205 54931 clean seconds 0.3
+T014 B finalized 206 54931 homogeneous_dark seconds 12.1
+T014 B finalized 207 54931 homogeneous_bright seconds 10.9
+T014 B finalized 208 54931 left_right seconds 11.5
+T014 B finalized 209 54931 quadrants seconds 11.42
+T014 B finalized 210 54931 offset_left_right_40 seconds 13.2
+T014 B finalized 211 54967 clean seconds 0.32
+T014 B finalized 212 54967 homogeneous_dark seconds 12.17
+T014 B finalized 213 54967 homogeneous_bright seconds 12.26
+T014 B finalized 214 54967 left_right seconds 12.34
+T014 B finalized 215 54967 quadrants seconds 11.77
+T014 B finalized 216 54967 offset_left_right_40 seconds 12.33
+T014 B finalized 217 55002 clean seconds 0.31
+T014 B finalized 218 55002 homogeneous_dark seconds 9.47
+T014 B finalized 219 55002 homogeneous_bright seconds 11.36
+T014 B finalized 220 55002 left_right seconds 12.98
+T014 B finalized 221 55002 quadrants seconds 12.49
+T014 B finalized 222 55002 offset_left_right_40 seconds 13.04
+T014 B finalized 223 55022 clean seconds 0.3
+T014 B finalized 224 55022 homogeneous_dark seconds 12.72
+T014 B finalized 225 55022 homogeneous_bright seconds 12.62
+T014 B finalized 226 55022 left_right seconds 12.99
+T014 B finalized 227 55022 quadrants seconds 12.46
+T014 B finalized 228 55022 offset_left_right_40 seconds 12.46
+T014 B finalized 229 55072 clean seconds 0.34
+T014 B finalized 230 55072 homogeneous_dark seconds 11.18
+T014 B finalized 231 55072 homogeneous_bright seconds 11.93
+T014 B finalized 232 55072 left_right seconds 12.84
+T014 B finalized 233 55072 quadrants seconds 11.7
+T014 B finalized 234 55072 offset_left_right_40 seconds 13.05
+T014 B finalized 235 55150 clean seconds 0.32
+T014 B finalized 236 55150 homogeneous_dark seconds 12.57
+T014 B finalized 237 55150 homogeneous_bright seconds 11.4
+T014 B finalized 238 55150 left_right seconds 11.52
+T014 B finalized 239 55150 quadrants seconds 11.48
+T014 B finalized 240 55150 offset_left_right_40 seconds 11.56
+T014 Stage B passes True failed []
+STOP: no new manifest or next task in this process.
+[autodl] finished_at=2026-09-12T20:00:42+08:00
+[autodl] exit_code=0

@@ -28,13 +28,14 @@ def bank_targets(directory,bank,clean):
     write(directory/'targets.json',targets);return targets
 
 
-def run_label_free(image,scorer,receipt,head,*,max_steps=40):
+def run_label_free(image,scorer,receipt,head,*,max_steps=40,energy_specs=None):
     old=capture(image,scorer,receipt,max_steps=max_steps)
     results=controls(image,scorer,receipt,old,full=False);results.pop('region2_ttt_projected_1step')
     results['fixed_step_source']=checkpoint(old,16)
     trajectories={};decisions={}
-    for method in METHODS:
-        result,t,decision=trajectory(image,scorer,receipt,head,basis=method.split('_')[0],max_steps=max_steps)
+    specs=energy_specs if energy_specs is not None else {m:(head,m.split('_')[0]) for m in METHODS}
+    for method,(energy,basis) in specs.items():
+        result,t,decision=trajectory(image,scorer,receipt,energy,basis=basis,max_steps=max_steps)
         results[method]=result;trajectories[method]=t;decisions[method]=decision
     return results,old,trajectories,decisions
 
@@ -46,21 +47,22 @@ def save_episode(directory,results,old,trajectories,decisions):
     receipts={'semantic':save_label_free(directory/'semantic',old,{k:results[k] for k in
         ('identity','region2_direct','region2_discrete_projected','region2_ttt_projected','fixed_step_source')})}
     for method,t in trajectories.items():receipts[method]=save_label_free(directory/method,t,{method:results[method]},decisions[method])
-    torch.save({m:{k:r[k].cpu() for k in ('image','raw','grid')} for m,r in results.items()},directory/'outputs.pt')
+    torch.save({m:{k:r[k].cpu().clone() for k in ('image','raw','grid')} for m,r in results.items()},directory/'outputs.pt')
     write(directory/'decisions.json',dict(methods={m:r['diagnostics'] for m,r in results.items()},selections=decisions))
     receipts['episode']=hashes(directory,('outputs.pt','decisions.json'));write(directory/'label_free_receipt.json',receipts)
     return receipts
 
 
-def evaluate_episode(directory,results,trajectories,clean,image,*,image_id,condition,diagnose):
+def evaluate_episode(directory,results,trajectories,clean,image,*,image_id,condition,diagnose,
+                     primary_method=PRIMARY_METHOD,oracle_method=ORACLE):
     rows=evaluate_outputs(results,clean,image_id=image_id,condition=condition)
-    t=trajectories[PRIMARY_METHOD]
+    t=trajectories[primary_method]
     candidates={'identity':results['identity'],**{f'checkpoint_{i:02d}':checkpoint(t,i) for i in range(len(t['images']))}}
     per_step=evaluate_outputs(candidates,clean,image_id=image_id,condition=condition)[1:]
     for i,r in enumerate(per_step):r['selected_step']=i
     best=min(range(len(per_step)),key=lambda i:(per_step[i]['mse'],i))
-    rows.append(renamed_row(per_step[best],ORACLE));write(directory/'checkpoint_metrics.json',per_step)
-    write(directory/'oracle_diagnostic.json',dict(selected_step=best,reference_only=True,checkpoint_file=PRIMARY_METHOD+'/checkpoint_images.pt'))
+    rows.append(renamed_row(per_step[best],oracle_method));write(directory/'checkpoint_metrics.json',per_step)
+    write(directory/'oracle_diagnostic.json',dict(selected_step=best,reference_only=True,checkpoint_file=primary_method+'/checkpoint_images.pt'))
     for r in rows:
         if r['method'] in trajectories:r['selected_step']=results[r['method']]['diagnostics']['selected_step']
     write(directory/'metrics.json',rows)
