@@ -1082,3 +1082,46 @@ The actual completed run has separate evidence: T015_freeze_audit.json already c
 No frozen scientific/launcher change, rerun, newvalidator or newtask. Existing132local/132A6000tests and full-output/local verifications remain unchanged; this response needs only the7blobcomparison and documentationdiff check (CRLF-aware check passed; the default checker initially flagsWindowsCR as whitespace). Retain bounded4/10negative and await your acceptance, including the documentation deviation. A future explicitly authorized launch task may decide whether minimal pre-launch binding is necessary; none is added to this completed frozen experiment.
 
 Response: https://github.com/word-ky/TTIE/blob/d3abe168ed64e23c7e8ed726f910268f76810a89/research_log/T015_review_response.md
+
+## 2026-09-12T15:27:47Z — T015-CLOSEOUT DONE: future launch provenance guard and merge preparation
+
+Final engineering/PR head **c8c9c31aa996c747c7487b57688ad3a3c430a966**, branch `codex/T015-cross-basis-routing`, PR https://github.com/word-ky/TTIE/pull/15. Guard implementation commit `a4041746301f3cca3550393d188f8461b7fe30a0`. Acknowledged research acceptance of T015's bounded4/10negative and the explicitly authorized closeout in main`0b9adfc0320755abde53b787e4265ec6d1fd5597`; no T016/newscience.
+
+Automatic P2 comment5646591797 is resolved by a new small reusable guard, not by attributing it retrospectively to the accepted run. `verify_source()` resolves the declared Git commit, reads every explicit allow-listed Git blob, compares actual runtime bytes and rejects mismatch/missingblob/missingruntimefile/invalidrevision/Gitcommandfailure. It additionally rejects uncommitted allow-listed worktree/index changes while allowing bookkeeping changes. Explicitlist covers58files, including originaldonorinventory/routing/guard/prepareandrunentrypoints. Future config records the hashes returned by the successful binding rather than self-recording unverified files.
+
+The pilot calls the guard immediately after argument parsing, before RNG initialization, asset reads, model loading, scoring or output creation. The shell is now a direct delegate: its former environment/test-artifact prelude no longer generates output or runs model fixtures before the guard. Tests run separately. One guard/helper, no bypass or second validation layer.
+
+Validation completed this cycle:
+
+- Existing routing baseline:2testsPASS9.994s.
+- Helper real-Git fixtures:9testsPASS12.659s.
+- Focused integrated provenance fixtures:11testsPASS26.891s, including correctcommit/bookkeepingchanges, stalecommit, modifiedbytes(includinglineendings), dirtyscientificindexwithrestoredruntimebytes, missingblob/file, invalidrevision, missingGitdirectory andGitcommandfailure. Failedbinding enters noasset/model/evaluation/output path; correctbinding reachesassetpreflightonlyafterverification.
+- Full local `D:\anaconda3\python.exe -m unittest discover -s tests -v`: **143testsPASS118.624s**.
+- Python compilation and `D:\Git\bin\bash.exe -n scripts/run_t015_a6000.sh`:PASS.
+- Actual committed checkout check:58/58runtimefiles matcha4041746Gitblobs; scientificworktreeclean. Historicalc4e58e5SHA correctly fails againstthisnewcheckout atpilot.py. `T015_closeout_verification.json` records all58hashes and the real timestamp.
+
+Exact files changed for closeout relative to integratedmainbase`ab53c4b99cea86c61aa47d86ae2da83ea3d8df5f`:
+
+- `ttie/routing/provenance.py`
+- `ttie/routing/pilot.py`
+- `scripts/run_t015_a6000.sh`
+- `tests/test_routing_provenance.py`
+- `research_log/T015_closeout.md`
+- `research_log/T015_closeout_baseline.txt`
+- `research_log/T015_closeout_helper_tests.txt`
+- `research_log/T015_closeout_focused_tests.txt`
+- `research_log/T015_closeout_full_tests.txt`
+- `research_log/T015_closeout_verification.json`
+- `research_log/HANDOFF.md`
+- `research_log/T015_pr_body.md`
+- `research_log/heartbeat_checks.log`
+
+Integration: merged currentresearchmain0b9adfc withoutconflicts; research-owned inbox/state are byte-identicalto main, and main is anancestorof thefinalengineeringhead beforethismailbox-onlycommit. Codex outboxhistory remainsappend-only. PRdescription updatedaroundacceptednegative+futureguard; no selfmerge. Thefinalengineeringheadabove is intentionally stable while thismain-onlymailboxreceiptis added.
+
+No accepted T015 output or metric was regenerated: historicalremote_runs, T015manifest/freezeaudit andT014receipt diffempty. No donor renderer, objective, trajectory, router, energyhead or metricschanged. Existingfulltests usedtemporarylocalfixtures only, no freshCOCOevaluation,CLIPscoringexperiment orA6000job. No failed implementationtests or outcome-driven scientificpatches.
+
+Historicalrun did NOT contain thisguard. Its accepted attribution remains supported by separate explicitlyretrospective7/7Gitblobaudit andthealreadydisclosednamed-diff-timing/rawmetadata deviations. Future runtime directories now require accessible Gitcommitobjects andrawbyte-identicalscientificfiles; archive-only copies withoutGit correctlyfailclosed. No deploymentworkflowredesign is includedorrequiredfor thislocalcloseout.
+
+Full closeout report: https://github.com/word-ky/TTIE/blob/c8c9c31aa996c747c7487b57688ad3a3c430a966/research_log/T015_closeout.md
+
+Stop and await research-lead merge/acceptance and next task. Do not repeatT015/T015-CLOSEOUT or startlearnedbasis/T016/detector/meta/prompt/ViT3. Existing15minuteheartbeat continues.
