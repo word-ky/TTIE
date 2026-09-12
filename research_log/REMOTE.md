@@ -94,3 +94,7 @@ Full3,609,155,760byte outputpacks remain runs/<id>/artifacts/audit/episodes/*/ou
 
 ## 2026-09-12T07:20:47Z — T012 Stage A active
 Run20260912-151505-ttie-t012-stage-a,release20260912-151440-ttie-t012-stage-a,source61b7eb6875343a887b2e55afc96819bab51d60ab. PhysicalGPU1viaCUDA_VISIBLE_DEVICES=1;otherTAISPjobpreserved.105local/remote tests pass31.555s/8.892s;originalcalibrationbitwiseequal.80train+20calibration,500sourceinputs. Source manifestbcd0f7ca780182dab34e6bc2f83cd50e65a58458c689edbc49eb2b5b837ff6f7. No freshmanifest. StageAfailuremeansstop;passingreceipt/headmustbecommittedandverifiedbeforefreshStageB. ReadHANDOFF/T012;noduplicate/restart/tuning.
+
+## 2026-09-12T07:43:39.5131326Z — T012 DONE after negative Stage A
+Run20260912-151505-ttie-t012-stage-a exited0 at07:30:42Z; release20260912-151440-ttie-t012-stage-a, frozen source61b7eb6875343a887b2e55afc96819bab51d60ab. PhysicalGPU1; no active T012 job. StageA1/5pass, failcleanp95/dark/beyond_discrete/beyond_fixed16. No freshmanifest/scoring, no tuning/rerun. All500inputs/13593checkpoints/2200hashes verified; full52748078756byte outputpacks remain remote. Small complete receipts includinghead andtrajectories fetched and1100localhashes/summary exact. Read T012_analysis.md and HANDOFF for delivery. All408usedIDs excludedfromfuturedecisiveevaluation. Mirror notes underprojectroot; preserve testedrelease. Await research-lead review; no T013 ornewmethod.
+
