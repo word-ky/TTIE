@@ -17,6 +17,7 @@ from ..stop_receipt import sha
 from .io import run_label_free,persist_then_evaluate
 from .core import BASES,PRIMARY,ORACLE
 from .metrics import summarize,routing_diagnostics,markdown,summarize_trajectories
+from .provenance import T015_SOURCES,verify_source
 
 
 def evaluate(manifest,images,output,scorer,receipt,head,device,*,max_steps=40):
@@ -51,6 +52,7 @@ def main():
     for key in ('manifest','source-manifest','images','model-identity','prototypes','receipt','output','t006-images','energy','control','energy-receipt'):
         p.add_argument('--'+key,type=Path,required=True)
     p.add_argument('--source-sha',required=True);p.add_argument('--device',default='cuda:0');a=p.parse_args()
+    code=verify_source(a.source_sha,T015_SOURCES)
     torch.manual_seed(7);torch.set_num_threads(1);torch.use_deterministic_algorithms(False)
     torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
     receipt=json.loads(a.receipt.read_text());identity=json.loads(a.model_identity.read_text())
@@ -70,8 +72,6 @@ def main():
     assert torch.equal(actual,expected)
     a.output.mkdir(parents=True,exist_ok=True)
     write(a.output/'preflight.json',dict(original_calibration_bitwise_equal=True,frozen_t014_receipt_verified=True))
-    code={str(f).replace('\\','/'):sha(f) for f in sorted(Path('ttie/routing').glob('*.py'))+[
-        Path('scripts/prepare_t015.py'),Path('scripts/run_t015_a6000.sh')]}
     write(a.output/'config.json',dict(task='T015',source_sha=a.source_sha,source_code_sha256=code,
         frozen_t014_source_sha=frozen['source_sha'],manifest=manifest,manifest_sha256=sha(a.manifest),
         frozen_t014_receipt_sha256=sha(a.energy_receipt),frozen_receipt=receipt,model_identity=identity,
