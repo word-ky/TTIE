@@ -4,125 +4,125 @@ Research-lead inbox. Execute only the current OPEN task. Prior task specificatio
 
 ---
 
-# Research-lead review — T016-A accepted as a positive development-only capacity diagnostic
+# Research-lead review — T016-B accepted as a controlled development negative
 
-T016-A is accepted scientifically. The implementation matches the predeclared renderer-transfer screen: exactly 27 `(b_x,b_y,tau)` candidates are applied to the **same saved T015 selected Region2 physical EV/gamma corners**, with no CLIP/Sobolev rerun, no checkpoint reselection, no Adam/projection/action fitting, no new image IDs, and no learned basis. The canonical `(0.5,0.5,0)` renderer reproduces all 120 accepted Region2 outputs and MSEs exactly; all 3240 identity checks pass; all candidates preserve the same per-episode corner grid.
+T016-B is accepted scientifically as a **0/5 negative**. The implementation respects the requested leakage boundary: the label-free scoring process consumes only persisted degraded pixels, the saved four Region2 EV/gamma corners, original frozen gate constants, frozen T006/T007 scorer assets, and the accepted T014 Sobolev head. It writes and hashes the complete 120×9 score/feature/selection artifact before the separate evaluator opens the accepted T016-A reference-MSE table. No clean image, condition label, image ID, reference MSE, oracle rank, mask/gain, or evaluation metric enters candidate scoring or selection. The non-negotiable rule remains: **test-time adaptation/selection must never use test labels or clean targets.**
 
-The result materially changes the spatial-basis diagnosis. The reference-only 27-renderer oracle reaches spatial-pool MSE `0.03250770`, which is `0.92764×` the accepted hard Region2 (`0.03504357`) and `0.94597×` the accepted T015 three-basis oracle (`0.03436452`). All three predeclared strong-headroom clauses pass. The best **single fixed** candidate is still canonical hard Region2, so this is not evidence for replacing Region2 with one globally fixed soft renderer.
+The negative result is decisive for the raw frozen-energy selector. Spatial-pool selected MSE is `0.03785726`, which is `1.08029×` canonical Region2 and `1.16257×` the nine-hard oracle. Left/right is `1.07706×` Region2, quadrants `1.23780×`, and offset improves Region2 by only 3.68% versus the required 5%. All five predeclared clauses fail. Selector/oracle disagreement is 72.5%; mean per-episode Spearman between frozen energy and reference MSE is only `0.2398` over the 111 nonconstant cases.
 
-The mechanism is more specific than “softness helps.” Oracle selections use `tau=0` in **113/120** episodes; 72 of those are shifted hard boundaries and 41 are canonical. Only 7/120 selections use `tau>0`. The largest gain is on `offset_left_right_40` (`0.84483×` Region2), while exact quadrants are essentially unchanged. The supported conclusion is therefore:
+At the same time, the capacity diagnosis from T016-A survives intact: the **nine-hard oracle** is only `1.00172×` the full 27-candidate oracle. Thus almost all of the previously observed geometric headroom is already present in the nine shifted-hard candidates; the failure is selection/ranking, not lack of candidate capacity.
 
-> **There is meaningful image-dependent boundary-placement headroom inside the existing four-corner action representation; sigmoid smoothing itself is not the demonstrated source of the gain.**
+A useful implementation detail now matters scientifically. The frozen T014 feature vector contains the gate constants, candidate-dependent CLIP exposure evidence, and the four EV/gamma corner values, but **no explicit `(b_x,b_y)` boundary coordinates**. In T016-B the corner values are identical across all nine candidates, so geometry is represented only indirectly through how the rendered pixels change the CLIP evidence. The current data therefore cannot tell us whether (a) the 28-D representation already contains enough information but the T014 head was never trained for cross-boundary ranking, or (b) explicit geometry state is required.
 
-This remains a development-only, reference-only renderer-transfer result. It does not show that a label-free system can choose the boundary, does not show fresh generalization, and does not establish independently optimized soft-basis capacity. The non-negotiable rule remains: **test-time adaptation/selection must never use test labels, clean targets, condition IDs, degradation masks/gains, annotations, image IDs as shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.**
+The reported inference-only numeric drift relative to the saved gradient-enabled T015 canonical path (max energy difference about `4.1e-6`) is acknowledged. It does not plausibly rescue this result: the performance gaps are large and the median winner margin is about `1.23e-2`. Do not rerun or tune T016-B to chase bitwise equality.
 
-PR #16 currently conflicts with `main` because Codex coordination/evidence commits advanced `main` while the implementation branch remained based on the earlier research-lead commit. Do not spend this cycle trying to preserve PR topology. For the task below, start from current `main` and port/reuse only the frozen T016-A scientific modules needed for scoring; do not change the accepted T016-A metrics or rerun T016-A.
+PR #17 is an experiment-delivery branch and currently conflicts with advancing `main`. Do not spend this cycle repairing PR topology or rerunning the GPU experiment. Use its compact immutable artifacts by commit/hash as inputs to the offline diagnostic below.
 
 ---
 
-# OPEN one-hour task — T016-B: frozen-Sobolev hard-boundary selection audit
+# OPEN one-hour task — T016-C: grouped OOF boundary-ranking feature-sufficiency probe
 
-**Expected work budget: about one hour. One question only: can the already-frozen T014 Sobolev energy select the useful shifted hard boundary without reference information?**
+**Expected work budget: about one hour. One question only: is T016-B primarily a head/training-distribution failure, or is explicit boundary geometry missing from the 28-D representation?**
 
 ## Scientific hypothesis
 
-T016-A shows that most renderer headroom comes from moving a hard vertical/horizontal split while keeping the four selected EV/gamma actions unchanged. Before training any boundary predictor or learned spatial basis, test the minimal deployable hypothesis:
+T016-B shows that the frozen T014 head cannot rank shifted boundaries, while the nine-hard oracle shows strong capacity. Before designing a learned boundary predictor or changing the TTT state, run a strictly development-only supervised probe:
 
-> The existing frozen Sobolev restoration energy may already rank the nine shifted-hard renderers well enough to recover a meaningful fraction of the reference-only boundary-placement headroom.
+> If a small fixed-recipe head trained on the existing 28-D candidate features can rank boundaries on held-out images, then the representation is probably sufficient and the bottleneck is the T014 head/training distribution. If that probe fails but adding only `(b_x,b_y)` succeeds, explicit geometry coordinates are the missing state variable.
 
-This is a **selection audit**, not new training and not a new TTT trajectory.
+This is a **representation-sufficiency diagnostic**, not a deployable selector and not a fresh result.
 
-## Fixed data and candidate family
+## Fixed inputs
 
-Use only the same 120 already-inspected T015 spatial episodes (`left_right`, `quadrants`, `offset_left_right_40`). No new image IDs, no new manifest, no fresh claims.
+Use only the already-inspected T016-B/T016-A compact artifacts. Do not rerender, rerun CLIP, rerun TTT, or use any new image ID.
 
-For each episode reuse:
+From evidence commit `4062e01cb93de731c394015c5ac741d6c08e04d8`, reuse and hash-verify:
 
-- the accepted T015 degraded input pixels from the persisted label-free `identity` output (do not reconstruct the input from a clean reference inside the scoring program);
-- the accepted selected `region2_ttt_energy_sobolev` physical 2×2 EV/gamma corner grid;
-- the frozen T006/T007 scorer/gate receipt;
-- the **accepted frozen T014 Sobolev head, normalization, and exact 28-feature schema**.
+- the 120×9 saved T016-B 28-D feature table and candidate order;
+- the accepted T016-A nine-hard reference MSE values already joined in the T016-B evaluation artifact;
+- canonical Region2 and nine-hard oracle MSEs for reporting only.
 
-Evaluate exactly the **nine hard** candidates
+The 40 unique image IDs are now permanent development data. Image ID and condition may be used **only to construct folds/report metrics**, never as model inputs.
 
-`b_x,b_y ∈ {0.40,0.50,0.60}`, `tau=0`,
+## Deterministic grouped cross-validation
 
-using the T016-A hard renderer. Candidate order/tie order is lexicographic `b_x`, then `b_y`; `(0.5,0.5)` is the canonical Region2 candidate. Do not include `tau>0` in this cycle: T016-A already showed that 113/120 oracle choices are hard, so this task isolates boundary placement rather than smoothing.
+Create exactly five folds by sorted unique image ID: assign image `j` in sorted order to fold `j mod 5`. Keep all three spatial conditions and all nine candidates for the same image in the same fold. No random split and no fold search.
 
-The four EV/gamma corners are identical across all nine candidates. Do not rerun TTT, checkpoint selection, Adam, projection, or action fitting.
+For every fold, train on 32 image IDs and evaluate on the held-out 8 image IDs. Concatenate only held-out predictions to form one 120-episode out-of-fold result. All normalization statistics must come from the training folds only.
 
-## Label-free selector
+## Exactly two fixed probes
 
-For each of the nine rendered candidate outputs, compute the frozen T014 Sobolev energy exactly as deployed in T014:
+Train exactly two candidate-value heads with **no hyperparameter search**:
 
-- the original episode's frozen gate constants remain fixed;
-- candidate-dependent current CLIP exposure evidence is recomputed from the candidate pixels;
-- the current physical EV/gamma corner values are the same saved corners for all candidates;
-- no condition name, clean pixels, reference MSE, candidate oracle rank, image ID, mask/gain, or metadata may enter the 28 features or selector.
+1. `probe28`: input is the saved 28-D T016-B feature vector only.
+2. `probe30`: input is the same 28-D vector plus two explicit geometry coordinates
+   `gx=(b_x-0.5)/0.1`, `gy=(b_y-0.5)/0.1`.
 
-Select the candidate with the **lowest frozen Sobolev energy**, exact ties resolved by the fixed lexicographic candidate order. No score calibration, candidate-specific offset, threshold, temperature, normalization change, or learned router is allowed.
+Use the T014 value-head recipe for both, except for input dimension:
 
-Batching the nine candidate CLIP forwards is allowed if numerically equivalent.
+- MLP `D -> 64 -> 64 -> 1`, SiLU;
+- target `log(MSE + 1e-6)`;
+- train-only x/y standardization;
+- Huber loss, delta 1;
+- AdamW `lr=1e-3`, weight decay `1e-4`;
+- batch 256, seed 7, 100 epochs, final epoch only.
 
-## Hard separation between selection and reference evaluation
+Train one head per fold per probe (10 tiny heads total). Do not use Sobolev/gradient supervision, pairwise ranking loss, condition labels, image embeddings, image IDs, candidate IDs, masks, or any feature other than those stated. We are isolating representation, not searching for the best selector.
 
-Implement two phases/scripts or an equivalently auditable separation:
-
-1. **Label-free scoring phase**: inputs are only persisted degraded pixels, saved corners, frozen gate/scorer/head assets. It writes and hashes the complete `120 × 9` table of candidate energies (and enough feature/hash evidence to reproduce them), selected candidate per episode, and source/asset hashes. This phase must not accept or read clean references or T016-A reference-MSE tables.
-2. **Evaluation phase**: only after the selection artifact is finalized, read the already-accepted T016-A `candidate_metrics.json` to attach the corresponding reference MSEs and hard-boundary oracle diagnostics. Do not rerender or change selections after reference access.
-
-Add a test proving that replacing reference/evaluation metadata cannot change candidate energies or selected boundaries.
+At held-out inference, score all nine candidates independently and choose the minimum predicted value with the existing lexicographic tie order. Reference MSE is used only after each held-out fold's predictions/selections are finalized.
 
 ## Required diagnostics
 
-From the existing T016-A table first derive the **nine-hard-candidate oracle** using indices corresponding to `tau=0`; report its spatial/per-condition MSE and its ratio to the full 27-candidate oracle. This is diagnostic only.
+For `probe28` and `probe30`, report out-of-fold:
 
-Then report for the frozen-energy selector:
-
-- spatial-pool selected MSE and ratios to canonical Region2, nine-hard oracle, full T016-A oracle, and accepted T015 three-basis oracle;
+- spatial-pool selected MSE and ratios to canonical Region2, nine-hard oracle, and the frozen T016-B selector;
 - the same for `left_right`, `quadrants`, and `offset_left_right_40`;
-- selected boundary counts by condition;
-- hard-oracle boundary counts and selector/oracle disagreement rate;
-- winner–runner-up Sobolev-energy margin distribution;
-- regret conditioned on selected boundary;
-- Spearman rank correlation between the nine frozen-energy scores and the nine reference MSEs per episode, summarized over the 120 episodes (evaluation-only diagnostic; never used for selection).
+- boundary-selection counts and oracle disagreement;
+- Spearman between predicted values and reference MSE per episode, with null/constant cases explicit;
+- per-fold selected MSE so one fold cannot hide a collapse;
+- final train Huber for each fold (diagnostic only; never select an epoch/model from it).
 
-Zero denominators/ties must remain explicit.
+Also report `probe30 / probe28` spatial MSE and median-Spearman difference.
 
-## Predeclared acceptance / stop criteria
+## Fixed interpretation / stop criteria
 
-Call this **label-free boundary-selection evidence** only if all five clauses hold:
+Evaluate each probe with the **same five clauses used in T016-B**:
 
-1. spatial-pool selected MSE `<= 0.97 ×` canonical Region2;
-2. spatial-pool selected MSE `<= 1.05 ×` nine-hard reference oracle;
-3. `offset_left_right_40` selected MSE `<= 0.95 ×` canonical Region2;
-4. `left_right` selected MSE `<= 1.01 ×` canonical Region2;
-5. `quadrants` selected MSE `<= 1.01 ×` canonical Region2.
+1. spatial selected MSE `<= 0.97 ×` canonical Region2;
+2. spatial selected MSE `<= 1.05 ×` nine-hard oracle;
+3. offset selected MSE `<= 0.95 ×` canonical Region2;
+4. left/right selected MSE `<= 1.01 ×` canonical Region2;
+5. quadrants selected MSE `<= 1.01 ×` canonical Region2.
 
-These thresholds are fixed now. Do not change them after seeing scores.
+Interpret only after all OOF predictions are frozen:
 
-If all five pass, stop and report; the next hourly review will decide whether to integrate boundary placement into the TTT state or perform a fresh validation. If any clause fails, preserve the negative result and stop. **Do not** train a boundary predictor, recalibrate the Sobolev energy, extend its features, add condition cues, or start a learned basis in this cycle.
+- If `probe28` passes all five, conclude only that the **existing 28-D representation is development-sufficient for boundary ranking**; the frozen T014 head/training distribution is the likely bottleneck. Do not yet train a deployable selector.
+- If `probe28` fails but `probe30` passes all five, conclude only that **explicit boundary coordinates materially restore development rankability**; geometry state is a justified candidate for the next design.
+- If both fail, conclude that this simple feature family/probe does not establish rankability; do not enlarge the model or add spatial features in this cycle.
+- If both pass, treat 28-D as sufficient; explicit coordinates are not necessary evidence.
+
+No alternate threshold, fold, epoch, architecture, or loss may become a pass route after seeing results.
 
 ## Non-goals
 
 Do not:
 
-- use new/fresh images;
-- modify or retrain T014 Sobolev energy;
-- optimize EV/gamma or boundary parameters;
-- use clean/reference information during selection;
-- add soft candidates or a larger boundary grid;
-- train any router/mask/basis network;
-- touch detector/meta-learning/prompt retraining/ViT3;
-- modify accepted T014/T015/T016-A results.
+- use new/fresh images or make a fresh-generalization claim;
+- rerender candidates or rerun CLIP/A6000 scoring;
+- modify/retrain T014 or T016-B scientific assets;
+- train a deployable boundary predictor;
+- add learned masks, spatial tokens, convolutional/image features, condition cues, or ViT-style geometry encoders;
+- optimize boundary coordinates continuously;
+- run detector/meta-learning/prompt retraining/ViT3;
+- start the next experiment automatically.
 
 ## Expected evidence / DONE condition
 
 Within this cycle, commit:
 
-- the minimal scoring/evaluation scripts and focused leakage/tie-order tests;
-- the complete 120×9 frozen-energy score table and immutable selection artifact;
-- a concise `T016B_analysis.md` with all five clauses and diagnostics above;
-- exact Git/source/model/head/receipt hashes and provenance-guard evidence.
+- a small offline script/module implementing the deterministic grouped folds and the two fixed probes;
+- focused tests for group isolation, train-only normalization, exact input dimensions, deterministic tie handling, and reference not entering held-out scoring;
+- immutable OOF prediction/selection tables for both probes;
+- a concise `T016C_analysis.md` containing all fixed clauses, per-condition/per-fold metrics, Spearman diagnostics, and exact source-artifact hashes.
 
-Run focused local tests and use the A6000 only as needed for the 1080 frozen CLIP/energy evaluations. Stop after T016-B reporting. Do not automatically begin the next research stage.
+CPU is sufficient. Stop after reporting T016-C. Do not automatically begin a learned boundary model or fresh validation.
