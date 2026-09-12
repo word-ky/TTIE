@@ -1133,3 +1133,36 @@ Acknowledged PR15 closeout acceptance/squash e1a6c500 and OPEN T016-A frommain58
 Plan: reuseonly120existing T015 spatialepisodes, savedselectedphysicalgrids andoriginalselectedoutputs/metrics. Complete all120nesting/identity checks before reportinganyheadroom; persistcompact120x27MSEs, globalfixedcandidate andper-conditionratios, oraclecounts/gaindistributions. Per-conditionfixed ratios use the samegloballychosenfixedcandidate. No CLIP/energy/checkpointselection/Adam/projection/actionfitting/newimages/manifest or newexperimentfamily.
 
 Deployment20260912-235801-ttie-t016a-screen is created. Preparing actualGitcommitobjects/index in thisnewrelease so theacceptedprovenanceguard canvalidateallscientificbytesbeforetheGPU1renderer-onlyrun. OriginalA6000pixelsstayF, noacceptedoutputwrites. No diagnosticMSEresults yet. Willreportliteralpositive/negative/inconclusive andstop; no nexttask.
+
+## 2026-09-12T16:16:04Z — T016-A DONE: verified renderer-transfer headroom screen
+
+Final engineering/evidence head **ee5d8fdaf3ab48ee7ad3654d45bdc65419be8367**, branchcodex/T016A-renderer-transfer, readyPR16 https://github.com/word-ky/TTIE/pull/16 (unmerged). Scientificimplementation **05e7dcf268c7b0479e6edabdc6ec76528d5730bf** frozenbeforediagnostic; no later renderer/scientific changes. T015-CLOSEOUT accepted/merged e1a6c500 was the donor; currentT016-Ainbox58fc57b9 governedthiscycle. PROJECT_STATE's oldercloseouttext was left research-lead-owned.
+
+The literal **strong_adaptive_basis_evidence** screen passes all3requiredoracleclauses. Exactly27predeclaredrenderers on120already-inspectedT015spatialepisodes; savedselectedRegion2physicalEV/gamma corners identicalfor allcandidates. No newIDs/manifest, CLIP/Sobolev evaluation, checkpointselection, Adam, projection, actionfitting, learnedbasis or otheroptimization.
+
+| Group | Region2 / global best fixed MSE | Oracle soft MSE | T015 oracle MSE | Fixed/Region2 | Oracle/Region2 | Oracle/fixed | Oracle/T015 oracle |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Spatial pool |0.03504357374816512|0.032507699506822973|0.03436451945065831|1|0.9276365401666568|0.9276365401666568|0.9459669457475923|
+| Left/right |0.03339701551012695|0.03211416923440993|0.03305891104973853|1|0.9615879965283717|0.9615879965283717|0.9714224762604189|
+| Quadrants |0.030983849649783225|0.030982188356574625|0.030584985890891404|1|0.9999463819626232|0.9999463819626232|1.0129868448231494|
+| Offset |0.04074985608458519|0.03442674092948437|0.039449661411345004|1|0.8448309819309345|0.8448309819309345|0.8726751941040454|
+
+Best fixed candidate is index12 **(.50,.50,0)**, the originalhardRegion2. The same globallyselectedcandidate is used in allcondition ratios; none is reselectedbycondition. Literalglobalratios .92763654<=.95Region2, .94596695<=.97T015oracle, .92763654<=.97bestfixed allPASS; fixed5%improvementFALSE. Hence7.24%aggregateoraclebenefit overRegion2/bestfixed and5.40%overT015oracle, butnofixedsoft-rendererbenefit.
+
+Oracle taucounts=**113/4/3** for0/.05/.10. The113hardchoices include41canonical and72shiftedhard choices.69/120episodes havepositivegain,51zero;12havemultipletiedminima. Full27candidatecountsbycondition andallfixedcandidateMSEsareinanalysis. Spatialrelativegain mean.0753885580102,median.007342507171290381,p95.33554802696181624,max.5507384686867153;zeroMSEdenominators0. Offsetprovideslargestbenefit(15.52%vsRegion2); quadrantsbarelychangeandare1.30%worsethanT015oracle. Countswithtiesarenotuniquepreferences. Resultsupportsreference-onlyboundaryplacementheadroom; do notattributeit tosigmoid-smoothing, successfullearnedlabel-freeselection, independentsoft-actioncapacity orfreshgeneralization.
+
+Sanity beforeheadroom: all120canonicalhardoutputs matchacceptedsavedpixels andMSE **exactly** (maxpixelabs0, maxMSEdiff0), all3240identitychecksPASS,120selectedgridsmatchacceptedtrajectoriesatthealready-selectedsteps, and everycandidatebufferretainsthesamephysicalgridhash. No sanityfailure/diagnosticrepair/repeatedscoringrun.
+
+Validation:5baselineISPtestsPASS2.759s;4renderer testsPASS.101s;6finalfocusedrenderer+literalmetric testsPASS.060s;PythoncompilePASS. Localpost-runverification checks61actualGitcodeblobs,120acceptedgrids/originalmetrics/sourcehashes,and independently recomputes fixed/oracle aggregates,ratios,counts,gains/quantilesandclauses fromall3240recordedcandidateMSEvalues. Maximumaggregate arithmeticdifference1.3877787807814457e-17. Candidate pixels were renderedonceintheformaldiagnostic; localauditdoesnotperformasecondrender. Nullzero-denominatorhandling is tested andreportedexplicitly.
+
+Run **20260913-000502-ttie-t016a-screen**, actualrelease20260912-235801-ttie-t016a-screen, exit0 at2026-09-12T16:05:23Z;A6000physicalGPU1,cuda0;Python3.12.12,Torch2.4.0+cu121,CUDA12.1,Pillow12.3.0. Exactcommandretainedinrun.sh/meta.json: python -m ttie.soft_basis.screen --source-sha05e7dcf... withoriginalF-audit,existingCOCOimages,T015manifestandnewrunoutput. ManifestSHA77f405417324fc4e2d50ccd4606caa06725416c9b0f5182daac5dbdc067a4a09 unchanged;all688inspectedIDsunchanged.
+
+Files: newttie/soft_basis/{__init__,renderer,screen}.py andtests/test_soft_basis.py; research_log/T016A_analysis.md,T016A.md,T016A_spec.md,focusedlogs,Git-object/runtime receipts,verify_t016a.py,completecompactrunmetrics/config/sanity/localverification andhandoff. NooriginalISP/Region2/donor/acceptedT014/T015filechanged. The120×27tableandcornervalues/sourcehashespercasearecandidate_metrics.json. No candidateimagepacks saved.
+
+RawrunarchiveSHA256 **a9330f26c3f2311572697bda33fb4b8b556573d9be0a4da52ecc02f465c86557**,69,856bytes, remote/localmatch. T016Aactualoutputs at /home/wenchang/asdasdsad/wjq/TTIE/runs/20260913-000502-ttie-t016a-screen/artifacts/audit; localresearch_log/remote_runs/sameID/artifacts/audit. OriginalT015largepacksremainreadonlyF. Runtime/localverification arepost-run derivedevidence,separatefromrawarchive.
+
+Deploymentfailuresonly: remoteGitshallowfetchfailedGnuTLS(-110)beforescoring; transferredexactlocalcommit+6015trees+61sourceblobs (packSHA5e249b20217cf4df3cc5e9c110d98767aafb0b4aedb66fff264efaa00fcf50f2). Fullread-tree attempted unnecessaryhistoricalblobs; stoppedonlythatobservedGittransportprocessandretainedlock, thenpopulatedindexfromexactscientificentries. Theunchangedacceptedguardpassed61/61beforeanydiagnosticdata/output. No bypass, scientificpatchoroutcome-drivenrerun.
+
+Full report: https://github.com/word-ky/TTIE/blob/ee5d8fdaf3ab48ee7ad3654d45bdc65419be8367/research_log/T016A_analysis.md
+
+Recommended nextdecision: thepredeclaredstrongscreenpasses andjustifiesconsidering a furtherboundedboundary-adaptation/capacityaudit, withhard-boundarydominanceandreference-onlyselectionexplicit. No follow-onreferenceoptimization, learnedbasis, newfreshdataorotherexperimenthasbeenstarted. Stopforresearch-leadreview/nexttask; do notselfmergePR16. Existing15-minuteheartbeatcontinuesandwillnotrepeatcompletedT016-A.
