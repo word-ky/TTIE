@@ -1,0 +1,42 @@
+[
+  {
+    "image_id": 13923,
+    "condition": "homogeneous_bright",
+    "method": "identity",
+    "mse": 0.028276527300477028,
+    "psnr_db": 15.485739282148609,
+    "recovery_ratio": 0.0,
+    "clean_drift_mse": null,
+    "dark_region_mse": null,
+    "bright_region_mse": null,
+    "loss_before": 18.754189598351935,
+    "loss_after": 18.754189598351935,
+    "active_count": 4,
+    "steps": 0,
+    "stop_reason": "identity",
+    "ev_min": 0.0,
+    "ev_max": 0.0,
+    "gamma_min": 1.0,
+    "gamma_max": 1.0
+  },
+  {
+    "image_id": 13923,
+    "condition": "homogeneous_bright",
+    "method": "region2_ttt_projected",
+    "mse": 0.023604411631822586,
+    "psnr_db": 16.27006820406943,
+    "recovery_ratio": 0.1652294717454793,
+    "clean_drift_mse": null,
+    "dark_region_mse": null,
+    "bright_region_mse": null,
+    "loss_before": 18.754189598351935,
+    "loss_after": 2.8841404026239594,
+    "active_count": 4,
+    "steps": 40,
+    "stop_reason": "saved_checkpoint",
+    "ev_min": -0.5,
+    "ev_max": -0.48153501749038696,
+    "gamma_min": 0.8000000715255737,
+    "gamma_max": 1.0138542652130127
+  }
+]

@@ -1,0 +1,1855 @@
+{
+  "source": "Complete official COCO val2017 image-only archive downloaded for T008",
+  "archive_sha256": "4f7e2ccb2866ec5041993c9cf2a952bbed69647b115d0f74da7ce8f4bef82f05",
+  "selection": "Numeric ascending; exclude308T004-T011; min-side>=320; first80train,next20calibration",
+  "excluded_prior_ids": [
+    139,
+    285,
+    632,
+    724,
+    776,
+    785,
+    802,
+    872,
+    885,
+    1000,
+    1268,
+    1296,
+    1353,
+    1425,
+    1532,
+    1584,
+    1675,
+    1761,
+    1818,
+    1993,
+    2006,
+    2149,
+    2153,
+    2157,
+    2261,
+    2431,
+    2473,
+    2532,
+    2587,
+    2592,
+    2685,
+    2923,
+    3156,
+    3255,
+    3501,
+    3553,
+    3661,
+    3845,
+    3934,
+    4134,
+    4395,
+    4495,
+    4765,
+    4795,
+    5001,
+    5037,
+    5060,
+    5193,
+    5477,
+    5503,
+    5529,
+    5600,
+    5992,
+    6012,
+    6040,
+    6213,
+    6460,
+    6471,
+    6614,
+    6723,
+    6763,
+    6771,
+    6818,
+    6894,
+    6954,
+    7088,
+    7108,
+    7278,
+    7281,
+    7386,
+    7511,
+    7574,
+    7784,
+    7795,
+    7816,
+    7818,
+    7888,
+    7977,
+    7991,
+    8021,
+    8211,
+    8277,
+    8532,
+    8629,
+    8690,
+    8762,
+    8844,
+    8899,
+    9378,
+    9400,
+    9448,
+    9483,
+    9590,
+    9769,
+    9772,
+    9891,
+    9914,
+    10092,
+    10363,
+    10583,
+    10707,
+    10764,
+    10977,
+    10995,
+    11051,
+    11122,
+    11149,
+    11197,
+    11511,
+    11615,
+    11699,
+    11760,
+    11813,
+    12062,
+    12120,
+    12280,
+    12576,
+    12639,
+    12667,
+    12670,
+    23034,
+    23272,
+    25181,
+    25228,
+    25394,
+    25560,
+    33221,
+    33368,
+    39405,
+    40036,
+    42070,
+    44260,
+    46872,
+    50145,
+    51598,
+    54593,
+    57725,
+    58655,
+    60090,
+    61268,
+    63047,
+    63154,
+    65074,
+    65288,
+    70229,
+    71451,
+    73702,
+    75393,
+    78404,
+    78959,
+    79565,
+    82812,
+    83172,
+    86755,
+    88218,
+    89556,
+    99054,
+    101420,
+    102331,
+    102356,
+    102805,
+    105335,
+    115946,
+    116479,
+    124798,
+    125778,
+    130386,
+    132329,
+    132703,
+    134886,
+    136466,
+    144932,
+    145665,
+    147223,
+    153632,
+    155443,
+    159458,
+    160556,
+    163155,
+    163611,
+    163682,
+    165336,
+    166259,
+    170670,
+    180751,
+    181859,
+    182923,
+    183246,
+    183675,
+    186980,
+    193884,
+    193926,
+    196009,
+    197796,
+    200667,
+    200961,
+    201418,
+    201775,
+    203095,
+    210855,
+    213605,
+    214703,
+    217060,
+    217425,
+    218997,
+    220584,
+    228981,
+    229553,
+    229601,
+    232348,
+    235778,
+    237316,
+    249219,
+    250766,
+    253819,
+    255165,
+    260105,
+    267670,
+    268729,
+    271471,
+    273551,
+    273711,
+    275727,
+    280779,
+    282037,
+    283268,
+    284279,
+    286849,
+    289415,
+    292155,
+    295420,
+    297681,
+    301376,
+    302760,
+    308793,
+    309964,
+    311950,
+    314294,
+    317024,
+    321333,
+    336587,
+    343706,
+    345252,
+    348481,
+    351810,
+    352900,
+    355817,
+    359219,
+    360097,
+    361551,
+    361586,
+    365208,
+    365886,
+    369323,
+    369442,
+    378244,
+    382088,
+    389804,
+    396580,
+    398438,
+    403122,
+    403817,
+    409268,
+    409475,
+    411665,
+    416534,
+    416758,
+    417465,
+    419882,
+    424721,
+    425226,
+    426376,
+    429109,
+    429623,
+    438304,
+    439773,
+    447200,
+    451090,
+    451155,
+    451714,
+    455301,
+    460841,
+    462031,
+    463802,
+    466156,
+    471567,
+    474170,
+    474452,
+    475365,
+    477623,
+    482100,
+    489091,
+    499266,
+    499313,
+    502737,
+    506310,
+    507042,
+    509258,
+    514979,
+    523782,
+    532058,
+    535523,
+    535578,
+    536038,
+    546219,
+    546826,
+    549167,
+    555012
+  ],
+  "inspected_prefix": [
+    {
+      "image_id": 1490,
+      "width": 640,
+      "height": 315,
+      "eligible": false
+    },
+    {
+      "image_id": 1503,
+      "width": 320,
+      "height": 240,
+      "eligible": false
+    },
+    {
+      "image_id": 2299,
+      "width": 500,
+      "height": 302,
+      "eligible": false
+    },
+    {
+      "image_id": 5586,
+      "width": 320,
+      "height": 240,
+      "eligible": false
+    },
+    {
+      "image_id": 12748,
+      "width": 480,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 13004,
+      "width": 375,
+      "height": 500,
+      "eligible": true
+    },
+    {
+      "image_id": 13177,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 13201,
+      "width": 427,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 13291,
+      "width": 500,
+      "height": 335,
+      "eligible": true
+    },
+    {
+      "image_id": 13348,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 13546,
+      "width": 640,
+      "height": 425,
+      "eligible": true
+    },
+    {
+      "image_id": 13597,
+      "width": 640,
+      "height": 425,
+      "eligible": true
+    },
+    {
+      "image_id": 13659,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 13729,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 13774,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 13923,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 14007,
+      "width": 640,
+      "height": 426,
+      "eligible": true
+    },
+    {
+      "image_id": 14038,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 14226,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 14380,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 14439,
+      "width": 640,
+      "height": 404,
+      "eligible": true
+    },
+    {
+      "image_id": 14473,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 14831,
+      "width": 480,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 14888,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 15079,
+      "width": 640,
+      "height": 424,
+      "eligible": true
+    },
+    {
+      "image_id": 15254,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 15272,
+      "width": 424,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 15278,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 15335,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 15338,
+      "width": 640,
+      "height": 424,
+      "eligible": true
+    },
+    {
+      "image_id": 15440,
+      "width": 404,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 15497,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 15517,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 15597,
+      "width": 433,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 15660,
+      "width": 640,
+      "height": 348,
+      "eligible": true
+    },
+    {
+      "image_id": 15746,
+      "width": 427,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 15751,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 15956,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 16010,
+      "width": 640,
+      "height": 471,
+      "eligible": true
+    },
+    {
+      "image_id": 16228,
+      "width": 640,
+      "height": 440,
+      "eligible": true
+    },
+    {
+      "image_id": 16249,
+      "width": 500,
+      "height": 365,
+      "eligible": true
+    },
+    {
+      "image_id": 16439,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 16451,
+      "width": 612,
+      "height": 612,
+      "eligible": true
+    },
+    {
+      "image_id": 16502,
+      "width": 375,
+      "height": 500,
+      "eligible": true
+    },
+    {
+      "image_id": 16598,
+      "width": 478,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 16958,
+      "width": 640,
+      "height": 428,
+      "eligible": true
+    },
+    {
+      "image_id": 17029,
+      "width": 640,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 17031,
+      "width": 500,
+      "height": 334,
+      "eligible": true
+    },
+    {
+      "image_id": 17115,
+      "width": 443,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 17178,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 17182,
+      "width": 640,
+      "height": 428,
+      "eligible": true
+    },
+    {
+      "image_id": 17207,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 17379,
+      "width": 478,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 17436,
+      "width": 481,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 17627,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 17714,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 17899,
+      "width": 480,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 17905,
+      "width": 480,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 17959,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 18150,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 18193,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 18380,
+      "width": 640,
+      "height": 426,
+      "eligible": true
+    },
+    {
+      "image_id": 18491,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 18519,
+      "width": 515,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 18575,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 18737,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 18770,
+      "width": 640,
+      "height": 428,
+      "eligible": true
+    },
+    {
+      "image_id": 18833,
+      "width": 640,
+      "height": 426,
+      "eligible": true
+    },
+    {
+      "image_id": 18837,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 19042,
+      "width": 640,
+      "height": 371,
+      "eligible": true
+    },
+    {
+      "image_id": 19109,
+      "width": 640,
+      "height": 428,
+      "eligible": true
+    },
+    {
+      "image_id": 19221,
+      "width": 640,
+      "height": 478,
+      "eligible": true
+    },
+    {
+      "image_id": 19402,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 19432,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 19742,
+      "width": 500,
+      "height": 374,
+      "eligible": true
+    },
+    {
+      "image_id": 19786,
+      "width": 500,
+      "height": 375,
+      "eligible": true
+    },
+    {
+      "image_id": 19924,
+      "width": 458,
+      "height": 500,
+      "eligible": true
+    },
+    {
+      "image_id": 20059,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 20107,
+      "width": 333,
+      "height": 500,
+      "eligible": true
+    },
+    {
+      "image_id": 20247,
+      "width": 640,
+      "height": 457,
+      "eligible": true
+    },
+    {
+      "image_id": 20333,
+      "width": 427,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 20553,
+      "width": 500,
+      "height": 375,
+      "eligible": true
+    },
+    {
+      "image_id": 20571,
+      "width": 539,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 20992,
+      "width": 500,
+      "height": 333,
+      "eligible": true
+    },
+    {
+      "image_id": 21167,
+      "width": 426,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 21465,
+      "width": 500,
+      "height": 281,
+      "eligible": false
+    },
+    {
+      "image_id": 21503,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 21604,
+      "width": 512,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 21839,
+      "width": 480,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 21879,
+      "width": 640,
+      "height": 427,
+      "eligible": true
+    },
+    {
+      "image_id": 21903,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 22192,
+      "width": 640,
+      "height": 426,
+      "eligible": true
+    },
+    {
+      "image_id": 22371,
+      "width": 425,
+      "height": 282,
+      "eligible": false
+    },
+    {
+      "image_id": 22396,
+      "width": 640,
+      "height": 495,
+      "eligible": true
+    },
+    {
+      "image_id": 22479,
+      "width": 640,
+      "height": 605,
+      "eligible": true
+    },
+    {
+      "image_id": 22589,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 22623,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 22705,
+      "width": 482,
+      "height": 640,
+      "eligible": true
+    },
+    {
+      "image_id": 22755,
+      "width": 640,
+      "height": 479,
+      "eligible": true
+    },
+    {
+      "image_id": 22892,
+      "width": 500,
+      "height": 334,
+      "eligible": true
+    },
+    {
+      "image_id": 22935,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 22969,
+      "width": 500,
+      "height": 375,
+      "eligible": true
+    },
+    {
+      "image_id": 23023,
+      "width": 612,
+      "height": 612,
+      "eligible": true
+    },
+    {
+      "image_id": 23126,
+      "width": 640,
+      "height": 428,
+      "eligible": true
+    },
+    {
+      "image_id": 23230,
+      "width": 640,
+      "height": 480,
+      "eligible": true
+    },
+    {
+      "image_id": 23359,
+      "width": 640,
+      "height": 428,
+      "eligible": true
+    }
+  ],
+  "images": [
+    {
+      "image_id": 12748,
+      "filename": "000000012748.jpg",
+      "width": 480,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "9ccd35fa48729821628123c5d2a57742f49ece28f9813817cfd0ea3867f40831",
+      "source_url": "http://images.cocodataset.org/val2017/000000012748.jpg"
+    },
+    {
+      "image_id": 13004,
+      "filename": "000000013004.jpg",
+      "width": 375,
+      "height": 500,
+      "split": "train_t012_stop",
+      "sha256": "09d489992329d2a17186a82781c7d23d8c687ee580567babc7494f9bc8b1220a",
+      "source_url": "http://images.cocodataset.org/val2017/000000013004.jpg"
+    },
+    {
+      "image_id": 13177,
+      "filename": "000000013177.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "f93626195530f46ed849091160f8cccce1a255ca886fd5945f5719adc12dc789",
+      "source_url": "http://images.cocodataset.org/val2017/000000013177.jpg"
+    },
+    {
+      "image_id": 13201,
+      "filename": "000000013201.jpg",
+      "width": 427,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "b99aa5fe13f26b9350d136cbb103c95896d81bfa504087888f13f76f5bd4adce",
+      "source_url": "http://images.cocodataset.org/val2017/000000013201.jpg"
+    },
+    {
+      "image_id": 13291,
+      "filename": "000000013291.jpg",
+      "width": 500,
+      "height": 335,
+      "split": "train_t012_stop",
+      "sha256": "1e46187ec49947bfd8dd22f4d774bddfe3e29ca863fe09530516598998b8e640",
+      "source_url": "http://images.cocodataset.org/val2017/000000013291.jpg"
+    },
+    {
+      "image_id": 13348,
+      "filename": "000000013348.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "8371f759628048bd294db70d9fbacb6d4f2558a12c25337fa04fea6418c9922a",
+      "source_url": "http://images.cocodataset.org/val2017/000000013348.jpg"
+    },
+    {
+      "image_id": 13546,
+      "filename": "000000013546.jpg",
+      "width": 640,
+      "height": 425,
+      "split": "train_t012_stop",
+      "sha256": "63129a14da61b57cbcd9b3403bc76a73d091e1940e1b416ae9f5c70b7a1dbb54",
+      "source_url": "http://images.cocodataset.org/val2017/000000013546.jpg"
+    },
+    {
+      "image_id": 13597,
+      "filename": "000000013597.jpg",
+      "width": 640,
+      "height": 425,
+      "split": "train_t012_stop",
+      "sha256": "e2b4ec9273cf30313e97ba917e85fec88cd9bbcf599781373deae5101ae8f327",
+      "source_url": "http://images.cocodataset.org/val2017/000000013597.jpg"
+    },
+    {
+      "image_id": 13659,
+      "filename": "000000013659.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "b357d19dee467587a8788ac4e5b45677f4fde1b62726c690795e188ae75d822b",
+      "source_url": "http://images.cocodataset.org/val2017/000000013659.jpg"
+    },
+    {
+      "image_id": 13729,
+      "filename": "000000013729.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "a3b3689660e2db3d49e131e9856d3d06bb376400e8fa2afc1ce64c5c4765a4ef",
+      "source_url": "http://images.cocodataset.org/val2017/000000013729.jpg"
+    },
+    {
+      "image_id": 13774,
+      "filename": "000000013774.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "d4a83955582202cd1c3586807245cec71bb38c856eee74d452c1ca752eed8655",
+      "source_url": "http://images.cocodataset.org/val2017/000000013774.jpg"
+    },
+    {
+      "image_id": 13923,
+      "filename": "000000013923.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "91494500cd053f1c4e547edc53f62edce2b088588bf9b4dbc8ceaea86ad4d49e",
+      "source_url": "http://images.cocodataset.org/val2017/000000013923.jpg"
+    },
+    {
+      "image_id": 14007,
+      "filename": "000000014007.jpg",
+      "width": 640,
+      "height": 426,
+      "split": "train_t012_stop",
+      "sha256": "4fa388665548f563e50c107089669a589812c4a14cb1dd3b87860fb25bdd4b45",
+      "source_url": "http://images.cocodataset.org/val2017/000000014007.jpg"
+    },
+    {
+      "image_id": 14038,
+      "filename": "000000014038.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "7dc972133bcc2e8e49ca1c2b7c20678eecb0c853e78f085f7270f295e1349350",
+      "source_url": "http://images.cocodataset.org/val2017/000000014038.jpg"
+    },
+    {
+      "image_id": 14226,
+      "filename": "000000014226.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "7342b8ee76ae63bfa942cb6849300cb39618b2453b2a51ef48650970bdeb837a",
+      "source_url": "http://images.cocodataset.org/val2017/000000014226.jpg"
+    },
+    {
+      "image_id": 14380,
+      "filename": "000000014380.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "f9e17866f4db47a88724f051f0cd2a2650168c09ab6908bc4f75e5dba398ba1b",
+      "source_url": "http://images.cocodataset.org/val2017/000000014380.jpg"
+    },
+    {
+      "image_id": 14439,
+      "filename": "000000014439.jpg",
+      "width": 640,
+      "height": 404,
+      "split": "train_t012_stop",
+      "sha256": "fc23e512cfe33e0b7f5e3445dc4189eb053fed6a16964b2454775a6df3fa5eba",
+      "source_url": "http://images.cocodataset.org/val2017/000000014439.jpg"
+    },
+    {
+      "image_id": 14473,
+      "filename": "000000014473.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "1b0fad3e8260366a27f9cb20fdd0f9d7c669bb40a535f6364b8c2e1c03d7b5c2",
+      "source_url": "http://images.cocodataset.org/val2017/000000014473.jpg"
+    },
+    {
+      "image_id": 14831,
+      "filename": "000000014831.jpg",
+      "width": 480,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "ac9629cb598e5d30bbb0a174a01ac4e398de3d54ef8c5bac4f81a738597c39cd",
+      "source_url": "http://images.cocodataset.org/val2017/000000014831.jpg"
+    },
+    {
+      "image_id": 14888,
+      "filename": "000000014888.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "aba25018b65a2a52ce7d77e68c6501e532084cd327e6cb230225e302fca95f4c",
+      "source_url": "http://images.cocodataset.org/val2017/000000014888.jpg"
+    },
+    {
+      "image_id": 15079,
+      "filename": "000000015079.jpg",
+      "width": 640,
+      "height": 424,
+      "split": "train_t012_stop",
+      "sha256": "a44d7b20692b108c648ba73018390297bad07d23b8be13dd24bc637bd31534ba",
+      "source_url": "http://images.cocodataset.org/val2017/000000015079.jpg"
+    },
+    {
+      "image_id": 15254,
+      "filename": "000000015254.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "a03e74678aedee90fe6777e9ba4eef8b3025ba0b6f426723b2cf2b35c5ffef4f",
+      "source_url": "http://images.cocodataset.org/val2017/000000015254.jpg"
+    },
+    {
+      "image_id": 15272,
+      "filename": "000000015272.jpg",
+      "width": 424,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "d4a09d9517fea54811b7fabb1274117a107c4cb8fdccfbcae4ced6dd82034ce5",
+      "source_url": "http://images.cocodataset.org/val2017/000000015272.jpg"
+    },
+    {
+      "image_id": 15278,
+      "filename": "000000015278.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "7f16701e7994ba6bfffe83abaa9d87b128c0d612e11f014001c51a6fc10ade58",
+      "source_url": "http://images.cocodataset.org/val2017/000000015278.jpg"
+    },
+    {
+      "image_id": 15335,
+      "filename": "000000015335.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "9fbfdb443c249bdac83b8d0c9d4120a817cdf3987a7826a90e9fcbc95b535986",
+      "source_url": "http://images.cocodataset.org/val2017/000000015335.jpg"
+    },
+    {
+      "image_id": 15338,
+      "filename": "000000015338.jpg",
+      "width": 640,
+      "height": 424,
+      "split": "train_t012_stop",
+      "sha256": "b9e7f3f58e1568b0af83d0494d21614a38bb212da2d4b14bc36bd002c0b6f0ad",
+      "source_url": "http://images.cocodataset.org/val2017/000000015338.jpg"
+    },
+    {
+      "image_id": 15440,
+      "filename": "000000015440.jpg",
+      "width": 404,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "477f0dd9751336fc5e5ef0f7c406506998049de4edae936311a4400c934c8419",
+      "source_url": "http://images.cocodataset.org/val2017/000000015440.jpg"
+    },
+    {
+      "image_id": 15497,
+      "filename": "000000015497.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "fc0fff04645dfadedbc34e23860dc62c45a213ac22d18b8194d269b66774d745",
+      "source_url": "http://images.cocodataset.org/val2017/000000015497.jpg"
+    },
+    {
+      "image_id": 15517,
+      "filename": "000000015517.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "db13a24631806ad53b865d8edb4926d455cf54ae60e72b45778e5e58fb164369",
+      "source_url": "http://images.cocodataset.org/val2017/000000015517.jpg"
+    },
+    {
+      "image_id": 15597,
+      "filename": "000000015597.jpg",
+      "width": 433,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "e34e098c9a41160f1f6cd0181d946ddca4e31bb94af38c060e36d6ec4f406e79",
+      "source_url": "http://images.cocodataset.org/val2017/000000015597.jpg"
+    },
+    {
+      "image_id": 15660,
+      "filename": "000000015660.jpg",
+      "width": 640,
+      "height": 348,
+      "split": "train_t012_stop",
+      "sha256": "d908b9557857567ac19501f12f6c090ba3568d11421a2fe6296133a27e48a991",
+      "source_url": "http://images.cocodataset.org/val2017/000000015660.jpg"
+    },
+    {
+      "image_id": 15746,
+      "filename": "000000015746.jpg",
+      "width": 427,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "ba79e69d4272bc31ea4fb9f3731e020a9c8acf1fbf3b6ffb78528d70e2e183f7",
+      "source_url": "http://images.cocodataset.org/val2017/000000015746.jpg"
+    },
+    {
+      "image_id": 15751,
+      "filename": "000000015751.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "e0929307bb91557c288fe98307c198a838abe835820322596232842784f6ce72",
+      "source_url": "http://images.cocodataset.org/val2017/000000015751.jpg"
+    },
+    {
+      "image_id": 15956,
+      "filename": "000000015956.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "c561d4e58f9141d15a5c4231075a51dbbf257e2901acc482765e15dcee1375b0",
+      "source_url": "http://images.cocodataset.org/val2017/000000015956.jpg"
+    },
+    {
+      "image_id": 16010,
+      "filename": "000000016010.jpg",
+      "width": 640,
+      "height": 471,
+      "split": "train_t012_stop",
+      "sha256": "40ba5b198298d09e33f6428e28779a9cd9bc55756b2f9ae15c258672d6363ba3",
+      "source_url": "http://images.cocodataset.org/val2017/000000016010.jpg"
+    },
+    {
+      "image_id": 16228,
+      "filename": "000000016228.jpg",
+      "width": 640,
+      "height": 440,
+      "split": "train_t012_stop",
+      "sha256": "b34d80f1f13989eb0c7031f95373a9e26c698397cb9511b422dcf5daba60110e",
+      "source_url": "http://images.cocodataset.org/val2017/000000016228.jpg"
+    },
+    {
+      "image_id": 16249,
+      "filename": "000000016249.jpg",
+      "width": 500,
+      "height": 365,
+      "split": "train_t012_stop",
+      "sha256": "6b8ddae2940c3f03b1cec347e49fb9cf1c944a6142d71dbe7c7a3c2187852b34",
+      "source_url": "http://images.cocodataset.org/val2017/000000016249.jpg"
+    },
+    {
+      "image_id": 16439,
+      "filename": "000000016439.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "8f09a3ac88ba6c74d0d8d0097e8a5aa0c58b7fdc3f51f36beafe8fa958f5e724",
+      "source_url": "http://images.cocodataset.org/val2017/000000016439.jpg"
+    },
+    {
+      "image_id": 16451,
+      "filename": "000000016451.jpg",
+      "width": 612,
+      "height": 612,
+      "split": "train_t012_stop",
+      "sha256": "83fade2162445d292c33005ad31d9ad05de5a4691489b0762bc81ec401cb2cbc",
+      "source_url": "http://images.cocodataset.org/val2017/000000016451.jpg"
+    },
+    {
+      "image_id": 16502,
+      "filename": "000000016502.jpg",
+      "width": 375,
+      "height": 500,
+      "split": "train_t012_stop",
+      "sha256": "171ce16f5646725403aed126091a0e3c88333a6fe4ea5c36f7c9b21ccfe2b30c",
+      "source_url": "http://images.cocodataset.org/val2017/000000016502.jpg"
+    },
+    {
+      "image_id": 16598,
+      "filename": "000000016598.jpg",
+      "width": 478,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "a794c8d8258774f04fcf04921d0daf10d60a35d038117279ff0880a2accd49b3",
+      "source_url": "http://images.cocodataset.org/val2017/000000016598.jpg"
+    },
+    {
+      "image_id": 16958,
+      "filename": "000000016958.jpg",
+      "width": 640,
+      "height": 428,
+      "split": "train_t012_stop",
+      "sha256": "8595370fdfc1ca1382a3eb464e53b2ae6c483d76d426d85b4fe0511ff25c0333",
+      "source_url": "http://images.cocodataset.org/val2017/000000016958.jpg"
+    },
+    {
+      "image_id": 17029,
+      "filename": "000000017029.jpg",
+      "width": 640,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "d619327903c6b05520f0d6768807c067cce2d6d908d2d83da018a1da3b1792cf",
+      "source_url": "http://images.cocodataset.org/val2017/000000017029.jpg"
+    },
+    {
+      "image_id": 17031,
+      "filename": "000000017031.jpg",
+      "width": 500,
+      "height": 334,
+      "split": "train_t012_stop",
+      "sha256": "cbe18fd21bd5691cb27085cda1f10c3c5556d5918fcd04363a5e5b145ee3177b",
+      "source_url": "http://images.cocodataset.org/val2017/000000017031.jpg"
+    },
+    {
+      "image_id": 17115,
+      "filename": "000000017115.jpg",
+      "width": 443,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "ad0fc963b409ee072d6cc837cb58e9f0bf64de41fb4e5f13f20cc70dfe3c617b",
+      "source_url": "http://images.cocodataset.org/val2017/000000017115.jpg"
+    },
+    {
+      "image_id": 17178,
+      "filename": "000000017178.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "89dd925868177ba4f2e4f82eb5f530bb8b839079bb58f872d78d8ab322c5a305",
+      "source_url": "http://images.cocodataset.org/val2017/000000017178.jpg"
+    },
+    {
+      "image_id": 17182,
+      "filename": "000000017182.jpg",
+      "width": 640,
+      "height": 428,
+      "split": "train_t012_stop",
+      "sha256": "0ec7cbf35b5ff0352f9da0653eda2aaf5b578e7f2b5c8480c5b6c19fd2435141",
+      "source_url": "http://images.cocodataset.org/val2017/000000017182.jpg"
+    },
+    {
+      "image_id": 17207,
+      "filename": "000000017207.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "fd477a26cf3682083ae6633c3778fcce9e53fdfbb0670232d608865ddb606884",
+      "source_url": "http://images.cocodataset.org/val2017/000000017207.jpg"
+    },
+    {
+      "image_id": 17379,
+      "filename": "000000017379.jpg",
+      "width": 478,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "52b592adcb73170d7d07994a8781e92feddf3c7f1c45173a050c7ecfe12e7743",
+      "source_url": "http://images.cocodataset.org/val2017/000000017379.jpg"
+    },
+    {
+      "image_id": 17436,
+      "filename": "000000017436.jpg",
+      "width": 481,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "8ea0f1195969c20030b2a7d90d008643582abeb0b7bff59a2fdd555d79c14ebf",
+      "source_url": "http://images.cocodataset.org/val2017/000000017436.jpg"
+    },
+    {
+      "image_id": 17627,
+      "filename": "000000017627.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "bad16bff668a52e7df757c6382244c86b416315b86a52749dd7bc6ec68e7092f",
+      "source_url": "http://images.cocodataset.org/val2017/000000017627.jpg"
+    },
+    {
+      "image_id": 17714,
+      "filename": "000000017714.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "ff331d262fea90025ec3b628757b047259f244b5a65550b1d0d079578179387a",
+      "source_url": "http://images.cocodataset.org/val2017/000000017714.jpg"
+    },
+    {
+      "image_id": 17899,
+      "filename": "000000017899.jpg",
+      "width": 480,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "2e1e630f37d1f6f1b0c06941ea56431c9be8701c928df634b8dbe9121e735fbb",
+      "source_url": "http://images.cocodataset.org/val2017/000000017899.jpg"
+    },
+    {
+      "image_id": 17905,
+      "filename": "000000017905.jpg",
+      "width": 480,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "5fcff2c9895b398fa086180c2fbe39b17a4e07d47282bd0b184599764afba33d",
+      "source_url": "http://images.cocodataset.org/val2017/000000017905.jpg"
+    },
+    {
+      "image_id": 17959,
+      "filename": "000000017959.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "8d525d9c133ee9ce8110fd8e2cca767d051bd22e8822c8f9ede6e72b7ff398d8",
+      "source_url": "http://images.cocodataset.org/val2017/000000017959.jpg"
+    },
+    {
+      "image_id": 18150,
+      "filename": "000000018150.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "c49c2bb7e3ea8951c997f9984d13cb9f2bf8c1a0b4f7c398c0317f36435059f0",
+      "source_url": "http://images.cocodataset.org/val2017/000000018150.jpg"
+    },
+    {
+      "image_id": 18193,
+      "filename": "000000018193.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "ee9037876bab7f2b504cd4be49144bbde27f32ddc05361cd6f3c843c947dd911",
+      "source_url": "http://images.cocodataset.org/val2017/000000018193.jpg"
+    },
+    {
+      "image_id": 18380,
+      "filename": "000000018380.jpg",
+      "width": 640,
+      "height": 426,
+      "split": "train_t012_stop",
+      "sha256": "5f019938d891305fab6ae0d0e9edc79e0d74407cdbd0ecce324aada0ab93a86e",
+      "source_url": "http://images.cocodataset.org/val2017/000000018380.jpg"
+    },
+    {
+      "image_id": 18491,
+      "filename": "000000018491.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "195369c44ad1810c524d5523a556356b2ee384310d7493310ccb8165c42767ed",
+      "source_url": "http://images.cocodataset.org/val2017/000000018491.jpg"
+    },
+    {
+      "image_id": 18519,
+      "filename": "000000018519.jpg",
+      "width": 515,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "87b0a064b596b4e821ebb371077c053e836c0ea667ca491075804bb3c9ce95ea",
+      "source_url": "http://images.cocodataset.org/val2017/000000018519.jpg"
+    },
+    {
+      "image_id": 18575,
+      "filename": "000000018575.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "fe6cdcb9053cb1621bda79d13e20cad49b898678fb2279f772964d65698c3c6a",
+      "source_url": "http://images.cocodataset.org/val2017/000000018575.jpg"
+    },
+    {
+      "image_id": 18737,
+      "filename": "000000018737.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "61b0ee16f913053290e0ee24971a6833b21290ee6a74039a0e0f3faa72dcf61c",
+      "source_url": "http://images.cocodataset.org/val2017/000000018737.jpg"
+    },
+    {
+      "image_id": 18770,
+      "filename": "000000018770.jpg",
+      "width": 640,
+      "height": 428,
+      "split": "train_t012_stop",
+      "sha256": "92edb27a1c69e8e77d6ee17ddd2f12489d1852ff4c32c8357b329ba1fd26b046",
+      "source_url": "http://images.cocodataset.org/val2017/000000018770.jpg"
+    },
+    {
+      "image_id": 18833,
+      "filename": "000000018833.jpg",
+      "width": 640,
+      "height": 426,
+      "split": "train_t012_stop",
+      "sha256": "3aaed3d8164deb6f7e5e18f3b1b3fc1b481d32078b342a07b629a7bdefc14e4d",
+      "source_url": "http://images.cocodataset.org/val2017/000000018833.jpg"
+    },
+    {
+      "image_id": 18837,
+      "filename": "000000018837.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "70f986167a5f1ea723ee2a25273f39ee1d1d7a3bf8b2fa3a37eca946111f1d93",
+      "source_url": "http://images.cocodataset.org/val2017/000000018837.jpg"
+    },
+    {
+      "image_id": 19042,
+      "filename": "000000019042.jpg",
+      "width": 640,
+      "height": 371,
+      "split": "train_t012_stop",
+      "sha256": "c97e2e9a24160678ad908797a306d146354f66b196627a0bbb564c733b041007",
+      "source_url": "http://images.cocodataset.org/val2017/000000019042.jpg"
+    },
+    {
+      "image_id": 19109,
+      "filename": "000000019109.jpg",
+      "width": 640,
+      "height": 428,
+      "split": "train_t012_stop",
+      "sha256": "5469f123ab838c9fdcc567c13148399dcb4cfa4eeee80e6e56a13627808a6d54",
+      "source_url": "http://images.cocodataset.org/val2017/000000019109.jpg"
+    },
+    {
+      "image_id": 19221,
+      "filename": "000000019221.jpg",
+      "width": 640,
+      "height": 478,
+      "split": "train_t012_stop",
+      "sha256": "0085f80b9136c625b63fed2c233c432c3189841d5bf630a10e09ee1554c9bc79",
+      "source_url": "http://images.cocodataset.org/val2017/000000019221.jpg"
+    },
+    {
+      "image_id": 19402,
+      "filename": "000000019402.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "b08173e02dc865e7f13fecbcbed574b70271c07fef6023236d0dea8d6bf77619",
+      "source_url": "http://images.cocodataset.org/val2017/000000019402.jpg"
+    },
+    {
+      "image_id": 19432,
+      "filename": "000000019432.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "train_t012_stop",
+      "sha256": "fa54de5a592c892ed3aceb11ebacff27abad01dc3bcef308943b097c1d65c0f0",
+      "source_url": "http://images.cocodataset.org/val2017/000000019432.jpg"
+    },
+    {
+      "image_id": 19742,
+      "filename": "000000019742.jpg",
+      "width": 500,
+      "height": 374,
+      "split": "train_t012_stop",
+      "sha256": "6ccc37eeba5118114222f8de61228e95cf6c28fb631c9e759fcdcd450061337a",
+      "source_url": "http://images.cocodataset.org/val2017/000000019742.jpg"
+    },
+    {
+      "image_id": 19786,
+      "filename": "000000019786.jpg",
+      "width": 500,
+      "height": 375,
+      "split": "train_t012_stop",
+      "sha256": "109307de9a894df50386a58dec9347e6c280ee024f426933e2e34bfd57478960",
+      "source_url": "http://images.cocodataset.org/val2017/000000019786.jpg"
+    },
+    {
+      "image_id": 19924,
+      "filename": "000000019924.jpg",
+      "width": 458,
+      "height": 500,
+      "split": "train_t012_stop",
+      "sha256": "b0bb42c6674456ecd9155b790a6a595646aacfe45ce80bd7667ac75fb7fe8bc8",
+      "source_url": "http://images.cocodataset.org/val2017/000000019924.jpg"
+    },
+    {
+      "image_id": 20059,
+      "filename": "000000020059.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "train_t012_stop",
+      "sha256": "7bf0e3dc0cc83a62dfc9c9bfd57163cb541574a0b866fd1a555fdd24cd2859f2",
+      "source_url": "http://images.cocodataset.org/val2017/000000020059.jpg"
+    },
+    {
+      "image_id": 20107,
+      "filename": "000000020107.jpg",
+      "width": 333,
+      "height": 500,
+      "split": "train_t012_stop",
+      "sha256": "7c7e83890969c3bb7647cda61e17fa8ad3dc33210dbc9db616afb71f20958d3d",
+      "source_url": "http://images.cocodataset.org/val2017/000000020107.jpg"
+    },
+    {
+      "image_id": 20247,
+      "filename": "000000020247.jpg",
+      "width": 640,
+      "height": 457,
+      "split": "train_t012_stop",
+      "sha256": "92a0ab00f3a0b9f6de5162449a8b79167363897fb489c172eebc244bccef23cb",
+      "source_url": "http://images.cocodataset.org/val2017/000000020247.jpg"
+    },
+    {
+      "image_id": 20333,
+      "filename": "000000020333.jpg",
+      "width": 427,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "c32e6edfc1e53898d98edde0f92cd5755ca6fe980b8f522fb29d9676aaf88294",
+      "source_url": "http://images.cocodataset.org/val2017/000000020333.jpg"
+    },
+    {
+      "image_id": 20553,
+      "filename": "000000020553.jpg",
+      "width": 500,
+      "height": 375,
+      "split": "train_t012_stop",
+      "sha256": "739fee1c09f6d7c1670d2f558f70d2aea2ea6863a964c5a9582ca3bb70a55cb5",
+      "source_url": "http://images.cocodataset.org/val2017/000000020553.jpg"
+    },
+    {
+      "image_id": 20571,
+      "filename": "000000020571.jpg",
+      "width": 539,
+      "height": 640,
+      "split": "train_t012_stop",
+      "sha256": "ee40916130fd5be75f3357c910c392b8bdda7f494078992472f67587d62b50a4",
+      "source_url": "http://images.cocodataset.org/val2017/000000020571.jpg"
+    },
+    {
+      "image_id": 20992,
+      "filename": "000000020992.jpg",
+      "width": 500,
+      "height": 333,
+      "split": "train_t012_stop",
+      "sha256": "c705bfad8bb9333fd641c31a14514ed56f04f32082707a132ada26b365142378",
+      "source_url": "http://images.cocodataset.org/val2017/000000020992.jpg"
+    },
+    {
+      "image_id": 21167,
+      "filename": "000000021167.jpg",
+      "width": 426,
+      "height": 640,
+      "split": "calibration_t012_stop",
+      "sha256": "b77df96f91ed9a0842559ea8a238d602d4a09069b9129c43a9d62a27361df156",
+      "source_url": "http://images.cocodataset.org/val2017/000000021167.jpg"
+    },
+    {
+      "image_id": 21503,
+      "filename": "000000021503.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "calibration_t012_stop",
+      "sha256": "83f04a37053c9bfaaaae137edb80a262fb8604af40064bfdee7899129ee5ce77",
+      "source_url": "http://images.cocodataset.org/val2017/000000021503.jpg"
+    },
+    {
+      "image_id": 21604,
+      "filename": "000000021604.jpg",
+      "width": 512,
+      "height": 640,
+      "split": "calibration_t012_stop",
+      "sha256": "129977690e3a8a14f333033c0a2295ae8a8f6d0cbcfa6498273e4912d1ca3e46",
+      "source_url": "http://images.cocodataset.org/val2017/000000021604.jpg"
+    },
+    {
+      "image_id": 21839,
+      "filename": "000000021839.jpg",
+      "width": 480,
+      "height": 640,
+      "split": "calibration_t012_stop",
+      "sha256": "a943ad725c69a532f7a37b6a95e20fc5d7f070f1c5637c44107fbf031a9fe265",
+      "source_url": "http://images.cocodataset.org/val2017/000000021839.jpg"
+    },
+    {
+      "image_id": 21879,
+      "filename": "000000021879.jpg",
+      "width": 640,
+      "height": 427,
+      "split": "calibration_t012_stop",
+      "sha256": "e18240615b9733cad806a5fca799dfbec344f98f5585722305e99a57346c76cc",
+      "source_url": "http://images.cocodataset.org/val2017/000000021879.jpg"
+    },
+    {
+      "image_id": 21903,
+      "filename": "000000021903.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "calibration_t012_stop",
+      "sha256": "3fa9ccedfc3ac829c07e14b0e7ef4211b5963f7700dc6e30dde3054f704efa09",
+      "source_url": "http://images.cocodataset.org/val2017/000000021903.jpg"
+    },
+    {
+      "image_id": 22192,
+      "filename": "000000022192.jpg",
+      "width": 640,
+      "height": 426,
+      "split": "calibration_t012_stop",
+      "sha256": "3e9ffc06c76b3b856c1f6911aaeefac685ebe80a3bbd72d4d3c6254825ab159b",
+      "source_url": "http://images.cocodataset.org/val2017/000000022192.jpg"
+    },
+    {
+      "image_id": 22396,
+      "filename": "000000022396.jpg",
+      "width": 640,
+      "height": 495,
+      "split": "calibration_t012_stop",
+      "sha256": "7f40854ecf8edcf2638d2cc5aa8c422d07875478c65514506c81d0200985f6be",
+      "source_url": "http://images.cocodataset.org/val2017/000000022396.jpg"
+    },
+    {
+      "image_id": 22479,
+      "filename": "000000022479.jpg",
+      "width": 640,
+      "height": 605,
+      "split": "calibration_t012_stop",
+      "sha256": "9f09af60f0a4f214a8b34ff6badbd25111cd8438c39097197a629255408cdb75",
+      "source_url": "http://images.cocodataset.org/val2017/000000022479.jpg"
+    },
+    {
+      "image_id": 22589,
+      "filename": "000000022589.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "calibration_t012_stop",
+      "sha256": "a613ba4b6d895c6844d151efe922430660ef602ae40d4e16e1762f06b2d17335",
+      "source_url": "http://images.cocodataset.org/val2017/000000022589.jpg"
+    },
+    {
+      "image_id": 22623,
+      "filename": "000000022623.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "calibration_t012_stop",
+      "sha256": "93699b28cbecfe8f38fd82e3201ed1c7310fe664206a97306c806a4000c09a80",
+      "source_url": "http://images.cocodataset.org/val2017/000000022623.jpg"
+    },
+    {
+      "image_id": 22705,
+      "filename": "000000022705.jpg",
+      "width": 482,
+      "height": 640,
+      "split": "calibration_t012_stop",
+      "sha256": "01627a2e4b79593b0debcffcdcf9b6c795d0d9e71aa2a3e9e22a9db05a70bc85",
+      "source_url": "http://images.cocodataset.org/val2017/000000022705.jpg"
+    },
+    {
+      "image_id": 22755,
+      "filename": "000000022755.jpg",
+      "width": 640,
+      "height": 479,
+      "split": "calibration_t012_stop",
+      "sha256": "e419f292592075e18a264216c6ef3f8a597f027d9407e278d15811a9fc9c8952",
+      "source_url": "http://images.cocodataset.org/val2017/000000022755.jpg"
+    },
+    {
+      "image_id": 22892,
+      "filename": "000000022892.jpg",
+      "width": 500,
+      "height": 334,
+      "split": "calibration_t012_stop",
+      "sha256": "feafcf6539422208c296d7e15151a9bb0a19fb14db57d93a3ebf733a21fb7843",
+      "source_url": "http://images.cocodataset.org/val2017/000000022892.jpg"
+    },
+    {
+      "image_id": 22935,
+      "filename": "000000022935.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "calibration_t012_stop",
+      "sha256": "90fad7bfc9fab88492d9722ea1aa14ee77514d8c10dbda86086bd37d8a05acf0",
+      "source_url": "http://images.cocodataset.org/val2017/000000022935.jpg"
+    },
+    {
+      "image_id": 22969,
+      "filename": "000000022969.jpg",
+      "width": 500,
+      "height": 375,
+      "split": "calibration_t012_stop",
+      "sha256": "a4cd0db37176242a6911559074b58a67306c6a774df9dd07f1c9a30112ecbc30",
+      "source_url": "http://images.cocodataset.org/val2017/000000022969.jpg"
+    },
+    {
+      "image_id": 23023,
+      "filename": "000000023023.jpg",
+      "width": 612,
+      "height": 612,
+      "split": "calibration_t012_stop",
+      "sha256": "6c33ee9f7ee0332811ba3612c8ffa3636cbbe503e3b6f8c1f7f6ca0f2703ca3d",
+      "source_url": "http://images.cocodataset.org/val2017/000000023023.jpg"
+    },
+    {
+      "image_id": 23126,
+      "filename": "000000023126.jpg",
+      "width": 640,
+      "height": 428,
+      "split": "calibration_t012_stop",
+      "sha256": "65917720776abafb2706e037fda7a9d90eb17b659bfa49ac20d19b06abff2e9e",
+      "source_url": "http://images.cocodataset.org/val2017/000000023126.jpg"
+    },
+    {
+      "image_id": 23230,
+      "filename": "000000023230.jpg",
+      "width": 640,
+      "height": 480,
+      "split": "calibration_t012_stop",
+      "sha256": "f13b4e3bd41de8c752f4954f97f80db3323fe44b0cc656456df8a97560318566",
+      "source_url": "http://images.cocodataset.org/val2017/000000023230.jpg"
+    },
+    {
+      "image_id": 23359,
+      "filename": "000000023359.jpg",
+      "width": 640,
+      "height": 428,
+      "split": "calibration_t012_stop",
+      "sha256": "5f4a78725b9f016407a69420d14222ecdc424994be22085318cdb6071c1ad7b7",
+      "source_url": "http://images.cocodataset.org/val2017/000000023359.jpg"
+    }
+  ]
+}
