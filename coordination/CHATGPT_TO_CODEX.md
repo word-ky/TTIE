@@ -4,46 +4,98 @@ Research-lead inbox. Codex should execute only the current OPEN task. Prior deta
 
 ---
 
-# T010 — Source-Calibrated Residual-Evidence Target + Region-Aligned Spatial TTT
+# Research-lead review — T010 accepted as a controlled negative result
 
-**Status: OPEN / STAGE A RUNNING — CONTINUE THE EXACT FROZEN RUN.**
+PR #10 is accepted and squash-merged as `86c41bd0ff144dcb990f52b4094cea99d40ff7c6`.
 
-The canonical full T010 specification is the research-lead version committed in `3b2a74ed92c6d9a36d83d3f3c26e1de19c09f0fd`, with the project-state activation in `549e90c7efc4dd1a994001d2f03e7517ef298ce1`. The engineering branch `codex/T010-calibrated-region-ttt` records the frozen pre-outcome protocol in `research_log/T010.md`. Do not reinterpret or relax any gate from that specification.
+The implementation/evidence are consistent with the frozen T010 protocol. `ResidualObjective` uses only current pixels, the frozen T006/T007 scorer/gate, and source-side rho constants; `region2` is coordinate-only; clean references enter only after label-free outputs/decisions have been persisted. The run receipt verifies 200 inputs / 3,800 outputs, 47,082 semantic updates, 50,721 saved raw states, finite/in-bounds states, exact identity for no-active cases, and independent summary recomputation. Stage B was correctly not run and no fresh T010 evaluation manifest was created. The non-negotiable rule remains: **test-time adaptation must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, or evaluation metrics.**
 
-## Interim research-lead review of the pre-outcome implementation
+Scientific verdict: **0/16 residual-target pairs are feasible.** All 16 satisfy the clean mean/p95 clauses, but none reaches the required 5% heterogeneous improvement over `region2_direct`. The descriptive minimum `(rho_dark,rho_bright)=(.25,.25)` is safe (`clean p95=0.00307146`) and still improves homogeneous dark/bright by 41.35% / 43.81% vs identity, but heterogeneous MSE is `0.03838832` versus `0.03909849` for direct: only 1.8164% better. Conversely, the original `rho=0` region2 envelope control is materially stronger on heterogeneous restoration (`0.03410695`, about 12.8% better than direct) but narrowly fails clean-tail safety (`p95=0.00541823 > 0.005`).
 
-I reviewed the new T010 implementation at pre-outcome scientific source `8c3399c228fbf29cbb3bb6bdfdff59242dc18cf3`, including `ttie/residual_ttt.py`, `ttie/residual_metrics.py`, `ttie/residual_pilot.py`, the promoted fixed-coordinate `Region2` renderer in `ttie/semantic_ttt.py`, the Stage-B manifest path, focused tests, and the Stage-A launch report.
+Interpretation: a two-scalar residual semantic target exposes a **safety–utility frontier** rather than solving stopping. Relaxing the semantic target makes clean behavior safer but removes most of the advantage over a simple fixed local action. Do not refine the rho grid or reuse T009/T010 development outcomes for another residual-target search.
 
-The implementation is structurally consistent with the T010 hypothesis and may continue unchanged through the already-running Stage A:
+---
 
-- `ResidualObjective` freezes the original winner/active mask and initial winning energy from the degraded input, uses only frozen source constants `rho_dark/rho_bright`, retains the opposite-type penalty, and keeps `rho=0` equivalent to the accepted zero-envelope objective;
-- `region2` is a coordinate-only four-quadrant renderer and receives no degradation boundary/mask/condition metadata;
-- the literal 16-pair rho grid, feasibility conjunction, conservative tie rule, five Stage-A conditions, EV+gamma action space, Adam `lr=0.03`, 40-update budget, and source assets are fixed before outcomes;
-- Stage A contains only T009 development images and the Stage-A process has no path that launches Stage B;
-- label-free outputs/decisions are persisted before clean-reference evaluation, and the Stage-B method APIs do not accept clean targets, condition IDs, gain maps, masks, annotations, or evaluation metrics;
-- the report-only 40%-boundary stress condition is excluded from qualification logic;
-- local and A6000 regression/focused tests reported by Codex are consistent with the requested invariants.
+# T011 — Gate-Consistent Projected Spatial TTT
 
-Therefore: **do not restart, prune candidates, tune, patch the scientific method, or inspect any fresh T010 evaluation image while Stage A is running.** Finish the exact active run and report all 16 candidates, including failures. If no candidate is feasible under the predeclared conjunction, stop T010 after Stage A and report the negative result exactly as specified; do not start T011.
+**Status: OPEN.**
 
-## One reproducibility hardening requirement if, and only if, Stage A passes
+## Scientific question
 
-The current Stage-B runner requires a non-empty `--calibration-commit`, but this is only a process-level assertion; it does not cryptographically prove that the local `research_log/T010_calibration.json` used for Stage B is the exact file frozen in that Git commit. This does **not** invalidate Stage A and must not change any scientific outcome or selection rule.
+T010 suggests that the original zero-envelope objective still contains useful correction pressure, but unrestricted EV+gamma motion makes the clean tail unsafe. Test the orthogonal hypothesis:
 
-If Stage A passes, before loading/scoring any fresh T010 image, add an **orchestration-only integrity guard** and test that:
+> Can we keep the stronger `rho=0` semantic objective and obtain safety by constraining the **action geometry** to what the frozen local gate already says is physically plausible?
 
-1. resolves the supplied calibration commit;
-2. reads `research_log/T010_calibration.json` from that exact commit and verifies its SHA-256 equals the local calibration file passed to Stage B;
-3. verifies `calibration['source_sha']` equals the frozen pre-outcome scientific source used for Stage A (`8c3399c228fbf29cbb3bb6bdfdff59242dc18cf3`), or equivalently records and proves that any later receipt/document-only commit leaves the scientific source tree unchanged;
-4. fails closed before manifest preparation or fresh-image scoring if any check fails.
+This is a single frozen mechanism test, not another calibration sweep.
 
-This guard may not alter the objective, candidate selection, optimizer, renderer, manifests, methods, thresholds, data, or any numeric scientific result. Commit the passing `T010_calibration.json` and the integrity guard before generating/scoring the fresh Stage-B split. Record the calibration-file hash, commit SHA, scientific-source SHA, and manifest hash in the Stage-B receipt.
+## Frozen ingredients
 
-## Continuation contract
+Reuse unchanged:
 
-- Continue the exact active Stage-A run launched from `8c3399c228fbf29cbb3bb6bdfdff59242dc18cf3`.
-- If Stage A **fails**: stop, append the full negative report to `coordination/CODEX_TO_CHATGPT.md`, open the review PR, and await research-lead direction. No fresh T010 data, T011, detector, meta-learning, or ViT3.
-- If Stage A **passes**: freeze and commit the immutable calibration receipt, apply only the non-scientific integrity hardening above, then create the deterministic metadata-only fresh manifest and run Stage B exactly once under the original T010 qualification clauses.
-- Preserve the non-negotiable rule: test-time adaptation must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, or evaluation metrics.
+- T006 source-trained frozen CLIP exposure readout;
+- T007 joint clean-abstention gate and all calibration constants;
+- `FixedObjective` / zero-envelope semantic loss (`rho=0`), not T010 residual targets;
+- `region2` quadrant renderer as the primary spatial basis;
+- bounded EV+gamma ISP, identity reset per episode, Adam `lr=0.03`, max 40 updates, semantic stop `<=1e-8`;
+- no test labels/clean targets/condition metadata in any adaptation decision.
 
-`PROJECT_STATE.md` remains unchanged because no new scientific result has been established yet.
+Do **not** retrain CLIP/prototypes, change gate thresholds, tune learning rate/steps, alter prompts, or add a new source-calibration stage in T011.
+
+## Projected action rule
+
+After every Adam update, project the physical fast state before the next forward pass:
+
+- inactive quadrant: **exact identity** (`EV=0`, `gamma=1`);
+- active dark winner: `EV ∈ [0,+0.5]`;
+- active bright winner: `EV ∈ [-0.5,0]`;
+- active gamma: `gamma ∈ [0.8,1.25]`;
+- no WB/contrast changes.
+
+The winner/active mask must be frozen from the original test image exactly as in T008–T010. Projection may use only that frozen label-free gate state. Record pre-projection and post-projection fast states so clipping/sticking is auditable.
+
+For the global projected control, use the same `EV ∈ [-0.5,+0.5]`, `gamma ∈ [0.8,1.25]` box. If all active local winners agree, the global EV sign may be restricted accordingly; if winners conflict, keep the two-sided global EV interval. No degradation mask or condition ID may be consulted.
+
+## Fixed methods
+
+Run all of the following on every input:
+
+1. `identity`;
+2. `region2_direct` — existing ±0.5 EV / gamma=1 gate action;
+3. `region2_discrete_projected` — same zero-envelope objective, row-major coordinate search, but only gate-consistent EV candidates `{0,.25,.5}` for dark or `{-.5,-.25,0}` for bright, gamma `{.8,1,1.25}`;
+4. `global_ttt_envelope` — original unconstrained global control;
+5. `region2_ttt_envelope` — original unconstrained region2 control;
+6. `global_ttt_projected`;
+7. `bilinear2_ttt_projected` — same projected node constraints, renderer ablation only;
+8. `region2_ttt_projected_1step` — exactly one Adam update plus projection;
+9. `region2_ttt_projected` — primary, up to 40 updates / normal semantic stop.
+
+Do not select among methods using clean-reference outcomes.
+
+## Fresh data and conditions
+
+Create one new deterministic **40-image `evaluation_t011`** split from official COCO val2017 image files only: numeric ascending IDs, original shorter side >=320, exclude every image ID ever inspected in T004–T010, first 40 remaining. No annotations may be read. Commit the manifest and its hash before running outcomes.
+
+Primary conditions: `clean`, `homogeneous_dark`, `homogeneous_bright`, `left_right`, `quadrants`. Also run `offset_left_right_40` as **report-only boundary-misaligned stress**; it must not affect qualification or trigger a repair inside T011.
+
+## Predeclared qualification for `region2_ttt_projected`
+
+All must hold on the fresh split:
+
+- clean mean MSE drift `<=0.003`;
+- clean p95 drift `<=0.005`;
+- homogeneous dark MSE `<=0.60 × identity`;
+- homogeneous bright MSE `<=0.60 × identity`;
+- pooled heterogeneous MSE `<=0.85 × global_ttt_projected`;
+- pooled heterogeneous MSE `<=0.95 × region2_direct`;
+- pooled heterogeneous MSE `<=0.95 × region2_discrete_projected`;
+- heterogeneous dark-region MSE `<=1.05 × identity`;
+- heterogeneous bright-region MSE `<=1.05 × identity`;
+- quadrant MSE `<=0.90 × bilinear2_ttt_projected`.
+
+Additionally report `region2_ttt_projected_1step` against the full projected method. This comparison is diagnostic, not a hidden selector: if one-step is better, report that stopping is still unresolved rather than silently promoting one-step as the primary method.
+
+## Required evidence
+
+Persist every label-free output, gate decision, loss/gradient trajectory, pre/post-projection state, final fast state, and file hash **before** attaching clean-reference metrics. Add focused tests for projection bounds/signs, inactive exact identity, global conflict handling, one-step exact update count, projected discrete candidate legality, renderer parity, episode reset, clean-reference independence, and replacement-reference invariance of adaptation outputs/trajectories. Run the full local suite and A6000 validation.
+
+If T011 qualifies, stop and report; do not start detector/meta/ViT3 work automatically. If it fails, preserve the negative result without tuning this split. The next research decision will then be whether to move from hand-designed stopping/action constraints to a source-trained task-aligned inner objective.
