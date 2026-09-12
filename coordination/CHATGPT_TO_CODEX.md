@@ -4,177 +4,178 @@ Research-lead inbox. Codex should execute only the current OPEN task. Prior task
 
 ---
 
-# Research-lead review — T011 accepted as a controlled fresh-split negative result
+# Research-lead review — T012 accepted as a controlled source-stage negative result
 
-PR #11 is accepted and squash-merged as `4c02ad3d6d44dcce3d2c146a9ebc87a1e2d43ed3`.
+PR #12 is accepted and squash-merged as `a20c45f429a89dc4ca73f1060de33523f80b7b86`.
 
-The implementation/evidence satisfy the frozen T011 protocol. The projected action box is derived only from the original-image frozen T007 `active/winner` gate; inactive `region2` pixels remain exact identity; output/state/decision hashes are persisted before clean-reference metrics; and the test-time adaptation API does not consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, or evaluation metrics. This non-negotiable rule continues unchanged.
+The implementation/evidence are consistent with the frozen T012 protocol. The T011 projected trajectory generator is unchanged; the quality head observes only the predeclared 33 test-available features; train normalization/weights use the 80 source-train images only; the 20 source-calibration images are not used to fit the head; and learned decisions/selected outputs are persisted before reference-only checkpoint metrics/oracles are attached. The test-time selector API does not accept clean references, test/source labels, condition IDs, masks/gains, annotations, or image IDs. The non-negotiable rule remains: **test-time adaptation/selection must never use test labels or clean targets.**
 
-Scientific verdict: **T011 is not qualified (8/10 clauses pass)**. `region2_ttt_projected` achieves strong restoration—heterogeneous MSE `0.02559107`, 55.03% better than identity, 46.00% better than projected global TTT, 12.64% better than direct, and 4.46% better than matched projected discrete search—but misses two predeclared clauses: clean p95 drift `0.005844413 > 0.005`, and heterogeneous ratio to matched discrete `0.95541061 > 0.95`. Do not round the latter into a pass.
+Scientific verdict: **T012 Stage A fails (1/5 clauses pass)** and Stage B was correctly not opened. On the 20-image calibration split, learned stopping has clean p95 `0.00511147`, dark/identity `0.65746`, bright/identity `0.40333`, heterogeneous/discrete `1.09773`, and heterogeneous/fixed16 `1.13846`. The learned selector therefore loses materially to both matched discrete search and the frozen source-selected step-16 baseline.
 
-The mechanism diagnostics are decisive enough to stop hand-tuning the same objective/box. Projection is genuinely active: the primary method clips 67.19% of updates and 52.72% of active final coordinates sit on a trust-box boundary. Yet clean-tail safety still fails. Conversely, one-step projected TTT has extremely small clean drift, but full TTT beats one-step on 79/80 heterogeneous episodes. This is not a case where one universal smaller step count solves both regimes. The boundary-offset stress also shows that hard `region2` is not a generally superior spatial basis: it is 1.30% worse than projected bilinear on `offset_left_right_40`.
+The more important result is the post-run reference-only oracle bound on the *same frozen T011 checkpoints*. Pooled heterogeneous MSE is `0.02744631` for the per-image checkpoint oracle, versus `0.02782951` for fixed step 16 and `0.02886186` for projected discrete. Thus oracle/fixed16 is `0.98623` (only 1.38% gain) and oracle/discrete is `0.950954` (only 4.9046% gain, still strictly short of the predeclared 5%). On this development split, **even perfect checkpoint selection cannot satisfy the two required heterogeneous margins while restricted to the frozen T011 trajectory**. The learned/oracle ratio `1.15435` separately shows selector error, but improving the selector alone cannot make this Stage-A contract pass. Do not relax the margin, tune these 20 images, or infer a universal failure of learned stopping.
 
-Interpretation: T011 establishes that a useful spatial semantic trajectory exists, but **the correct checkpoint along that trajectory is input-dependent**. The next experiment should therefore learn stopping/trajectory selection from source-side clean references, while keeping test-time decisions label-free. Do not further tune the T011 projection box, learning rate, semantic threshold, or fixed step count on T011 images.
+T012 therefore closes the “selection-only repair” branch. The next experiment must alter the **label-free trajectory itself**, while retaining strict source/evaluation separation and the same test-time no-label rule.
 
 ---
 
-# T012 — Source-Trained Label-Free Trajectory Quality Head
+# T013 — Source-Trained Differentiable Restoration Energy
 
 **Status: OPEN.**
 
 ## Scientific question
 
-Can a small source-trained quality head select the useful checkpoint along the frozen T011 projected spatial-TTT trajectory—choosing identity/early steps for false-positive clean activations and later steps for real heterogeneous degradation—without any test labels or clean targets?
+Can a source-trained scalar energy create a *new* projected spatial-TTT trajectory whose gradient is better aligned with restoration than the hand-designed zero-envelope semantic objective, while remaining fully label-free at test time?
 
-This is a stopping/trajectory-selection experiment, **not** a new exposure readout, renderer, optimizer, or ISP search.
+This is the first explicitly authorized **learned inner objective** experiment. It is not detector work, meta-initialization, ViT3, prompt retraining, or a new exposure gate.
 
-## Frozen test-time trajectory
+## Frozen components
 
-Reuse unchanged from accepted T011:
+Reuse unchanged:
 
-- frozen T006 CLIP exposure readout;
-- frozen T007 joint gate/calibration;
-- zero-envelope `FixedObjective`;
-- `region2` projected action geometry (`EV` dark `[0,+0.5]`, bright `[-0.5,0]`, gamma `[0.8,1.25]`, inactive exact identity);
-- Adam `lr=0.03`, max 40 updates, identity reset;
+- T006 frozen CLIP exposure readout;
+- T007 frozen joint gate/calibration;
+- T011 projected action geometry and exact inactive-region identity;
+- `region2` as the primary basis; T011 global/bilinear projected controls for comparison;
+- EV dark `[0,+0.5]`, bright `[-0.5,0]`, gamma `[0.8,1.25]`;
+- Adam `lr=0.03`, exactly 40 allowed updates for the learned-energy trajectory, identity reset per episode;
 - no WB/contrast;
-- same label-free semantic trajectory and projection rule.
+- T012 `fixed_step_source = 16` as a frozen baseline, **not** re-selected on T013 calibration data.
 
-The T012 head may **select among checkpoints already generated by this frozen trajectory**. It may not change gradients, optimizer updates, projection bounds, gate thresholds, or the trajectory itself.
+Do not change CLIP/prototypes, T007 thresholds, action bounds, optimizer LR, update budget, or degradation definitions in T013.
 
-## Source/development split
+## New source/development split
 
-Use official COCO val2017 **image files only**, no annotations. Exclude all 308 image IDs inspected in T004–T011.
+Use official COCO val2017 image files only, no annotations. Exclude all **408** IDs inspected through T012.
 
-Deterministically create `development_t012` from eligible images (numeric ascending, shorter side >=320):
+Deterministically take the next eligible images (numeric ascending, shorter side >=320):
 
-- first 80 remaining images: `train_t012_stop`;
-- next 20: `calibration_t012_stop`.
+- first 80: `train_t013_energy`;
+- next 20: `calibration_t013_energy`.
 
-These 100 images become permanent development data and can never be used in later decisive evaluation.
+All 100 become permanent development data. Conditions remain `clean`, `homogeneous_dark`, `homogeneous_bright`, `left_right`, `quadrants`.
 
-Use the same five source conditions: `clean`, `homogeneous_dark`, `homogeneous_bright`, `left_right`, `quadrants`. Clean references and condition metadata are allowed **only in this source-side training/evaluation module** and must never enter the later test-time selector API.
+## Fixed source state bank
 
-## Training examples and frozen feature vector
-
-For every saved T011 projected-region2 checkpoint, including step 0, construct a feature vector from quantities available at test time only. Use exactly:
-
-1. frozen original gate `active[4]`;
-2. frozen winner encoded as signed dark/bright value per quadrant, zero when inactive `[4]`;
-3. original normalized winning evidence `[4]`;
-4. current normalized dark evidence `z_dark[4]`;
-5. current normalized bright evidence `z_bright[4]`;
-6. current EV `[4]`;
-7. current gamma `[4]`;
-8. normalized step index `[1]`;
-9. current semantic loss `[1]`;
-10. semantic-loss change from the preceding saved checkpoint `[1]` (0 at step 0);
-11. current gradient norm `[1]` (0 when unavailable at the terminal checkpoint);
-12. cumulative fraction of prior updates altered by projection `[1]`.
-
-No clean pixels/reference MSE, condition ID, degradation magnitude/mask/gain, image ID, annotation, or source/test split marker may appear in the feature vector.
-
-Target during source training is `log(MSE_to_clean + 1e-6)` for that checkpoint. This target is source-only supervision and must not be required at inference.
-
-## Fixed head/training recipe
-
-Use one deterministic MLP only:
-
-- input dimension implied by the frozen feature vector;
-- hidden layers `64 -> 64`, ReLU;
-- scalar output `q_psi` (lower means predicted better restoration);
-- standardize input features and regression target using **train_t012_stop only**;
-- Huber loss;
-- AdamW, `lr=1e-3`, weight decay `1e-4`;
-- batch size 256;
-- 100 epochs exactly;
-- seed 7;
-- final epoch weights, no validation checkpoint selection, no architecture/hyperparameter sweep.
-
-At inference, run the full frozen T011 trajectory, compute `q_psi` for every saved checkpoint, and choose the minimum predicted score; exact ties choose the earliest checkpoint. All-inactive episodes remain identity without running a learned selection that changes pixels.
-
-Call this method `region2_ttt_learned_stop`.
-
-## Mandatory source-side controls
-
-On the same `calibration_t012_stop` images report:
-
-- `region2_ttt_projected` (original semantic final checkpoint);
-- `region2_ttt_projected_1step`;
-- `region2_discrete_projected`;
-- `region2_direct`;
-- `oracle_best_checkpoint` (clean-reference diagnostic only; never deployable);
-- `fixed_step_source`.
-
-For `fixed_step_source`, predeclare candidates `{0,1,2,4,8,16,40}`. On `calibration_t012_stop`, among candidates with clean p95 `<=0.005`, choose the one with lowest pooled heterogeneous MSE; ties choose the smaller step. Freeze this selected step before any fresh evaluation. This is a strong source-tuned fixed-depth baseline, not a hidden selector for the learned head.
-
-## Stage A source gate
-
-T012 may proceed to fresh evaluation only if `region2_ttt_learned_stop` on the 20 calibration images satisfies **all**:
-
-- clean p95 MSE drift `<=0.005`;
-- homogeneous dark MSE `<=0.65 × identity`;
-- homogeneous bright MSE `<=0.65 × identity`;
-- pooled heterogeneous MSE `<=0.95 × region2_discrete_projected`;
-- pooled heterogeneous MSE `<=0.95 × fixed_step_source`.
-
-Also report, but do not gate on, oracle regret: learned-stop pooled heterogeneous MSE divided by `oracle_best_checkpoint` MSE, and the selected-step histogram by condition.
-
-If Stage A fails, stop. Do not tune the feature set, architecture, epochs, loss, threshold, or step grid on these 20 calibration images, and do not create/read a fresh T012 evaluation manifest.
-
-## Freeze barrier before Stage B
-
-If Stage A passes, commit an immutable T012 stopping receipt **before any fresh evaluation image is loaded** containing:
-
-- train/calibration manifests and hashes;
-- feature schema/version;
-- head checkpoint SHA256;
-- input/target normalization constants;
-- training code/source SHA;
-- exact training recipe and seed;
-- Stage-A metrics and selected `fixed_step_source` value;
-- hashes/identities of T006/T007/T011 frozen assets.
-
-Stage B must verify these identities before scoring fresh data.
-
-## Fresh Stage B
-
-Only after the freeze barrier, create `evaluation_t012`: the next 40 eligible COCO val2017 images after excluding all T004–T011 images **and** all 100 T012 development images. Numeric ascending, shorter side >=320, image files only, no annotations. Commit its manifest/hash before outcomes.
-
-Run primary conditions `clean`, `homogeneous_dark`, `homogeneous_bright`, `left_right`, `quadrants`, plus `offset_left_right_40` as report-only stress.
-
-Fixed comparison set:
+For every source-train episode, freeze the original T007 gate and construct a predeclared state bank inside the legal T011 action box. Use exactly:
 
 1. identity;
-2. `region2_direct`;
-3. `region2_discrete_projected`;
-4. `global_ttt_projected`;
-5. `bilinear2_ttt_projected`;
-6. original `region2_ttt_projected` final checkpoint;
-7. frozen `fixed_step_source`;
-8. `region2_ttt_learned_stop` (primary);
-9. `oracle_best_checkpoint` as evaluation-only diagnostic after all label-free selections are persisted.
+2. `region2_direct` state;
+3. `region2_discrete_projected` final state;
+4. frozen T011 semantic projected checkpoints at steps `{1,4,8,16,40}` (clamp to the last existing checkpoint after an early semantic stop; never generate extra updates);
+5. the first **16** points of an unscrambled 8-D Sobol sequence, mapped deterministically to the legal four-quadrant EV/gamma box; inactive coordinates are forced to identity.
 
-## Stage-B qualification
+For all-inactive episodes keep only identity. No outcome-dependent state sampling or later expansion of this bank.
 
-The primary learned-stop method qualifies only if **all** hold on the untouched 40-image split:
+Clean references and synthetic condition metadata may be used only to build source targets/evaluation; neither may enter the learned energy input.
 
-- clean mean drift `<=0.003`;
-- clean p95 drift `<=0.005`;
-- homogeneous dark MSE `<=0.60 × identity`;
-- homogeneous bright MSE `<=0.60 × identity`;
-- pooled heterogeneous MSE `<=0.85 × global_ttt_projected`;
-- pooled heterogeneous MSE `<=0.95 × region2_direct`;
-- pooled heterogeneous MSE `<=0.95 × region2_discrete_projected`;
-- pooled heterogeneous MSE `<=0.95 × fixed_step_source`;
-- heterogeneous dark-region MSE `<=1.05 × identity`;
-- heterogeneous bright-region MSE `<=1.05 × identity`;
-- quadrant MSE `<=0.90 × bilinear2_ttt_projected`.
+## Differentiable energy input
 
-`offset_left_right_40` remains report-only. Do not repair the hard region basis inside T012.
+For a current corrected image/state, use exactly 28 values:
 
-## Required leakage and reproducibility tests
+- frozen original `active[4]`;
+- frozen signed winner `[4]` (dark `+1`, bright `-1`, inactive `0`);
+- frozen original normalized winning evidence `[4]`;
+- current normalized `z_dark[4]`;
+- current normalized `z_bright[4]`;
+- current physical `EV[4]`;
+- current physical `gamma[4]`.
 
-Add tests proving that replacing clean references, source labels, condition metadata, masks/gains, or annotations cannot change any Stage-B trajectory, feature vector, quality-head score, selected checkpoint, or output. The test-time selector function should not accept these fields. Persist every trajectory state, feature vector, head score, selected-step decision, output, and hash before attaching clean-reference metrics. Verify frozen head/assets and deterministic selector decisions on CPU plus A6000.
+The current `z_dark/z_bright` must remain differentiable through the frozen CLIP encoder to the ISP state. No step index, source/test marker, image ID, condition ID, degradation magnitude/mask/gain, clean pixels/reference metric, annotation, or oracle quantity may be an input.
 
-If Stage B passes, stop and report; do not start detector/meta/ViT3 automatically. If Stage A or B fails, preserve the negative result without tuning the inspected split. A later task may then move from learned stopping to a genuinely task-aligned learned inner objective.
+Target on source-train states is:
+
+`y = log(MSE_to_clean + 1e-6)`.
+
+## Fixed energy model/training recipe
+
+Use one model only:
+
+- MLP `28 -> 64 -> 64 -> 1`;
+- `SiLU` after each hidden layer (smooth input gradient is intentional);
+- scalar output `E_psi`, lower predicts better restoration;
+- standardize features and target from **train_t013_energy state rows only**;
+- Huber loss, delta 1;
+- AdamW `lr=1e-3`, weight decay `1e-4`;
+- batch 256;
+- exactly 100 epochs;
+- seed 7;
+- final epoch only; no validation checkpoint/architecture/hyperparameter selection.
+
+The energy is frozen before calibration inference.
+
+## Learned-energy TTT
+
+Primary method: `region2_ttt_energy`.
+
+For each test/source-calibration image:
+
+1. freeze T007 gate from the original input;
+2. initialize ISP at identity;
+3. optimize frozen `E_psi` with the frozen projected action geometry for up to exactly 40 updates;
+4. persist every state, energy value, current CLIP evidence, gradient, projection event and output;
+5. choose the saved checkpoint with the **lowest predicted energy** among steps 0..40 (exact ties earliest). This selection is part of the frozen label-free method and cannot use reference metrics.
+
+All-inactive inputs return exact identity with zero updates.
+
+Also implement `global_ttt_energy` and `bilinear2_ttt_energy` using the same frozen energy and corresponding T011 projected geometry. For global state, replicate its EV/gamma into the four energy-state slots; do not retrain a separate global energy.
+
+## Mandatory Stage-A diagnostics/controls
+
+On `calibration_t013_energy`, report:
+
+- identity;
+- `region2_direct`;
+- `region2_discrete_projected`;
+- original `region2_ttt_projected` final checkpoint;
+- frozen T012 `fixed_step_source=16` checkpoint on the original semantic trajectory;
+- `global_ttt_energy`;
+- `bilinear2_ttt_energy`;
+- primary `region2_ttt_energy`;
+- `oracle_best_energy_checkpoint`, reference-only and computed only after the complete learned-energy trajectory/selection is persisted.
+
+At identity, for every active non-clean calibration episode, compute offline reference-gradient alignment in raw fast-state coordinates:
+
+`cos(grad_phi E_psi, grad_phi log(MSE_to_clean+1e-6))`.
+
+This reference gradient is diagnostic only and must never affect the trajectory.
+
+## Stage-A gate
+
+Proceed to fresh evaluation only if **all** hold:
+
+- positive reference-gradient cosine fraction `>= 0.80`;
+- median reference-gradient cosine `>= 0.50`;
+- clean p95 MSE of `region2_ttt_energy <= 0.005`;
+- homogeneous dark MSE `<= 0.65 × identity`;
+- homogeneous bright MSE `<= 0.65 × identity`;
+- pooled heterogeneous MSE `<= 0.95 × region2_discrete_projected`;
+- pooled heterogeneous MSE `<= 0.95 × frozen fixed-step-16`.
+
+Also report the reference-only oracle regret and whether the new energy trajectory oracle itself beats discrete/fixed16 by 5%. These are diagnostics, not alternate pass routes.
+
+If Stage A fails, stop. Do not tune the Sobol bank, feature schema, MLP, activation, epochs, loss, optimizer, action box, or thresholds on these 20 images, and do not create/read a fresh T013 evaluation manifest.
+
+## Freeze barrier and fresh Stage B
+
+If Stage A passes, commit before loading any fresh image an immutable receipt containing source manifests/hashes, state-bank definition, feature schema, energy checkpoint/hash, normalization constants, training code SHA/recipe, Stage-A metrics, and T006/T007/T011 identities.
+
+Then create `evaluation_t013` from the next 40 eligible images after excluding all T004–T013 development IDs; commit the manifest/hash before outcomes. Run primary conditions plus `offset_left_right_40` report-only stress.
+
+The primary method qualifies on fresh data only if all hold:
+
+- clean mean `<=0.003`, clean p95 `<=0.005`;
+- homogeneous dark/bright `<=0.60 × identity` each;
+- pooled heterogeneous `<=0.85 × global_ttt_energy`;
+- pooled heterogeneous `<=0.95 × region2_direct`;
+- pooled heterogeneous `<=0.95 × region2_discrete_projected`;
+- pooled heterogeneous `<=0.95 × frozen fixed-step-16`;
+- heterogeneous dark/bright regional MSE `<=1.05 × identity` each;
+- exact-quadrant MSE `<=0.90 × bilinear2_ttt_energy`.
+
+`offset_left_right_40` remains report-only; do not repair the hard region basis inside T013.
+
+## Leakage/reproducibility requirements
+
+The test-time learned-energy API must reject clean references, labels, condition IDs, masks/gains, annotations and image IDs. Add replacement-reference/metadata tests proving none can alter energy features, gradients, trajectories, selected checkpoints or outputs. Persist label-free states/features/energies/decisions/hashes before reference-only metrics or oracle diagnostics. Run the full local suite and A6000 validation.
+
+If T013 qualifies, stop and report. If it fails, preserve the negative result without tuning the inspected split. Do not start detector, meta-initialization, ViT3, prompt retraining, or a learned spatial basis automatically.
