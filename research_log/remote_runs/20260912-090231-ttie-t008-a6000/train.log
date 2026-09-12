@@ -1,0 +1,330 @@
+[autodl] run_id=20260912-090231-ttie-t008-a6000
+[autodl] started_at=2026-09-12T09:02:35+08:00
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+3.12.12 | packaged by conda-forge | (main, Jan 26 2026, 23:51:32) [GCC 14.3.0]
+torch 2.4.0
+torchvision 0.19.0
+open_clip_torch 2.26.1
+timm 1.0.29
+Pillow 12.3.0
+CUDA 12.1 NVIDIA RTX A6000
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_auc_ties_and_literal_conjunction (test_clip_signal.ClipSignalTests.test_auc_ties_and_literal_conjunction) ... ok
+test_calibration_ignores_heldout_values_and_dirty_calibration (test_clip_signal.ClipSignalTests.test_calibration_ignores_heldout_values_and_dirty_calibration) ... ok
+test_detached_winner_threshold_and_zero_loss (test_clip_signal.ClipSignalTests.test_detached_winner_threshold_and_zero_loss) ... ok
+test_frozen_encoder_has_pixel_gradient (test_clip_signal.ClipSignalTests.test_frozen_encoder_has_pixel_gradient) ... ok
+test_scores_do_not_consume_evaluation_reference_or_labels (test_clip_signal.ClipSignalTests.test_scores_do_not_consume_evaluation_reference_or_labels) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+test_image_any_denominators_tradeoffs_auc_and_gate (test_joint_audit.JointAuditTests.test_image_any_denominators_tradeoffs_auc_and_gate) ... ok
+test_metadata_is_attached_after_persistence_cannot_change_pixel_inference (test_joint_audit.JointAuditTests.test_metadata_is_attached_after_persistence_cannot_change_pixel_inference) ... ok
+test_calibration_image_max_linear_percentile_and_exclusion (test_joint_gate.JointGateTests.test_calibration_image_max_linear_percentile_and_exclusion) ... ok
+test_exact_saved_prototype_and_t006_score_arithmetic (test_joint_gate.JointGateTests.test_exact_saved_prototype_and_t006_score_arithmetic) ... ok
+test_fresh_manifest_excludes_every_prior_split (test_joint_gate.JointGateTests.test_fresh_manifest_excludes_every_prior_split) ... ok
+test_same_scores_raw_winner_strict_boundary_and_activation_only (test_joint_gate.JointGateTests.test_same_scores_raw_winner_strict_boundary_and_activation_only) ... ok
+test_clean_source_calibration_only (test_learned_prototypes.LearnedPrototypeTests.test_clean_source_calibration_only) ... ok
+test_exact_initialization_and_gradient_ownership (test_learned_prototypes.LearnedPrototypeTests.test_exact_initialization_and_gradient_ownership) ... ok
+test_fresh_deterministic_manifest (test_learned_prototypes.LearnedPrototypeTests.test_fresh_deterministic_manifest) ... ok
+test_pixel_only_inference_and_decisions (test_learned_prototypes.LearnedPrototypeTests.test_pixel_only_inference_and_decisions) ... ok
+test_source_only_training_freezes_before_inference (test_learned_prototypes.LearnedPrototypeTests.test_source_only_training_freezes_before_inference) ... ok
+test_five_views_and_differentiable_geometry (test_natural.NaturalTests.test_five_views_and_differentiable_geometry) ... ok
+test_gain_conventions_match_previous_suite (test_natural.NaturalTests.test_gain_conventions_match_previous_suite) ... ok
+test_gate_requires_mixed_recall_and_low_wrong_activation (test_prototype_audit.PrototypeAuditTests.test_gate_requires_mixed_recall_and_low_wrong_activation) ... ok
+test_metadata_changes_only_offline_localization (test_prototype_audit.PrototypeAuditTests.test_metadata_changes_only_offline_localization) ... ok
+test_mixed_labels_and_all_view_denominators (test_prototype_audit.PrototypeAuditTests.test_mixed_labels_and_all_view_denominators) ... ok
+test_global_unaffected_by_tv_and_components_reconstruct_total (test_regularization.RegularizationTests.test_global_unaffected_by_tv_and_components_reconstruct_total) ... ok
+test_identity_normalization_anchor_and_bounds (test_regularization.RegularizationTests.test_identity_normalization_anchor_and_bounds) ... ok
+test_tv_constant_varying_and_analytic_value (test_regularization.RegularizationTests.test_tv_constant_varying_and_analytic_value) ... ok
+test_zero_weight_t001_fixed_numeric_regression (test_regularization.RegularizationTests.test_zero_weight_t001_fixed_numeric_regression) ... ok
+test_exact_probe_sign_magnitude_and_response (test_relative_clip.RelativeTests.test_exact_probe_sign_magnitude_and_response) ... ok
+test_fresh_manifest_and_calibration_excludes_other_rows (test_relative_clip.RelativeTests.test_fresh_manifest_and_calibration_excludes_other_rows) ... ok
+test_literal_gate_uses_correct_type_tpr_and_precision (test_relative_clip.RelativeTests.test_literal_gate_uses_correct_type_tpr_and_precision) ... ok
+test_metadata_does_not_change_responses_gates_targets (test_relative_clip.RelativeTests.test_metadata_does_not_change_responses_gates_targets) ... ok
+test_literal_mean_gates_paired_rows_and_gradient_exclusion (test_restoration_metrics.RestorationMetricTests.test_literal_mean_gates_paired_rows_and_gradient_exclusion) ... ok
+test_official_fresh_manifest_prefix_and_exclusions (test_restoration_metrics.RestorationMetricTests.test_official_fresh_manifest_prefix_and_exclusions) ... ok
+test_replaced_reference_changes_metrics_only_after_methods_complete (test_restoration_metrics.RestorationMetricTests.test_replaced_reference_changes_metrics_only_after_methods_complete) ... ok
+test_all_fixed_settings_and_component_trajectories (test_safety_sweep.SafetySweepTests.test_all_fixed_settings_and_component_trajectories) ... ok
+test_clean_reference_replacement_never_changes_any_trajectory (test_safety_sweep.SafetySweepTests.test_clean_reference_replacement_never_changes_any_trajectory) ... ok
+test_predeclared_decision_rule_known_values (test_safety_sweep.SafetySweepTests.test_predeclared_decision_rule_known_values) ... ok
+test_direct_policy_and_exact_candidate_ties (test_semantic_ttt.SemanticTTTTests.test_direct_policy_and_exact_candidate_ties) ... ok
+test_episode_reset_and_metadata_cannot_enter_trajectory (test_semantic_ttt.SemanticTTTTests.test_episode_reset_and_metadata_cannot_enter_trajectory) ... ok
+test_fixed_original_mask_and_two_sided_hinge (test_semantic_ttt.SemanticTTTTests.test_fixed_original_mask_and_two_sided_hinge) ... ok
+test_frozen_encoder_gradients_reach_both_isp_coordinates (test_semantic_ttt.SemanticTTTTests.test_frozen_encoder_gradients_reach_both_isp_coordinates) ... ok
+test_global_spatial_constant_render_and_fixed_other_operators (test_semantic_ttt.SemanticTTTTests.test_global_spatial_constant_render_and_fixed_other_operators) ... ok
+test_literal_saved_calibration_and_hash (test_semantic_ttt.SemanticTTTTests.test_literal_saved_calibration_and_hash) ... ok
+test_no_active_is_bitwise_identity_for_every_method (test_semantic_ttt.SemanticTTTTests.test_no_active_is_bitwise_identity_for_every_method) ... ok
+test_clean_families_and_determinism (test_suite.SuiteTests.test_clean_families_and_determinism) ... ok
+test_degradation_masks_and_t001_equivalence (test_suite.SuiteTests.test_degradation_masks_and_t001_equivalence) ... ok
+test_evaluation_only_reference_and_exports (test_suite.SuiteTests.test_evaluation_only_reference_and_exports) ... ok
+test_identity_drift_clean_condition (test_suite.SuiteTests.test_identity_drift_clean_condition) ... ok
+test_count_aggregation_and_uniform_field (test_uniform.UniformTests.test_count_aggregation_and_uniform_field) ... ok
+test_spatial_one_matches_global_exactly (test_uniform.UniformTests.test_spatial_one_matches_global_exactly) ... ok
+test_symmetric_control_stays_near_global_and_resets (test_uniform.UniformTests.test_symmetric_control_stays_near_global_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 62 tests in 5.693s
+
+OK
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+Finalized 139 clean episodes 1 seconds 0.05
+Finalized 139 homogeneous_dark episodes 2 seconds 4.34
+Finalized 139 homogeneous_bright episodes 3 seconds 4.79
+Finalized 139 left_right episodes 4 seconds 3.81
+Finalized 139 quadrants episodes 5 seconds 3.15
+Finalized 139 smooth_gradient episodes 6 seconds 1.36
+Finalized 285 clean episodes 7 seconds 0.05
+Finalized 285 homogeneous_dark episodes 8 seconds 1.21
+Finalized 285 homogeneous_bright episodes 9 seconds 4.71
+Finalized 285 left_right episodes 10 seconds 4.72
+Finalized 285 quadrants episodes 11 seconds 4.71
+Finalized 285 smooth_gradient episodes 12 seconds 1.61
+Finalized 632 clean episodes 13 seconds 0.05
+Finalized 632 homogeneous_dark episodes 14 seconds 1.03
+Finalized 632 homogeneous_bright episodes 15 seconds 0.84
+Finalized 632 left_right episodes 16 seconds 2.94
+Finalized 632 quadrants episodes 17 seconds 0.07
+Finalized 632 smooth_gradient episodes 18 seconds 0.67
+Finalized 724 clean episodes 19 seconds 0.05
+Finalized 724 homogeneous_dark episodes 20 seconds 1.53
+Finalized 724 homogeneous_bright episodes 21 seconds 4.74
+Finalized 724 left_right episodes 22 seconds 4.78
+Finalized 724 quadrants episodes 23 seconds 4.75
+Finalized 724 smooth_gradient episodes 24 seconds 0.05
+Finalized 776 clean episodes 25 seconds 0.05
+Finalized 776 homogeneous_dark episodes 26 seconds 0.96
+Finalized 776 homogeneous_bright episodes 27 seconds 0.85
+Finalized 776 left_right episodes 28 seconds 0.88
+Finalized 776 quadrants episodes 29 seconds 2.08
+Finalized 776 smooth_gradient episodes 30 seconds 0.05
+Finalized 785 clean episodes 31 seconds 0.06
+Finalized 785 homogeneous_dark episodes 32 seconds 4.5
+Finalized 785 homogeneous_bright episodes 33 seconds 4.76
+Finalized 785 left_right episodes 34 seconds 4.8
+Finalized 785 quadrants episodes 35 seconds 4.83
+Finalized 785 smooth_gradient episodes 36 seconds 0.58
+Finalized 802 clean episodes 37 seconds 0.06
+Finalized 802 homogeneous_dark episodes 38 seconds 1.46
+Finalized 802 homogeneous_bright episodes 39 seconds 1.05
+Finalized 802 left_right episodes 40 seconds 3.91
+Finalized 802 quadrants episodes 41 seconds 1.43
+Finalized 802 smooth_gradient episodes 42 seconds 0.05
+Finalized 872 clean episodes 43 seconds 0.04
+Finalized 872 homogeneous_dark episodes 44 seconds 2.65
+Finalized 872 homogeneous_bright episodes 45 seconds 3.92
+Finalized 872 left_right episodes 46 seconds 3.45
+Finalized 872 quadrants episodes 47 seconds 4.63
+Finalized 872 smooth_gradient episodes 48 seconds 4.72
+Finalized 885 clean episodes 49 seconds 0.06
+Finalized 885 homogeneous_dark episodes 50 seconds 1.73
+Finalized 885 homogeneous_bright episodes 51 seconds 0.05
+Finalized 885 left_right episodes 52 seconds 1.31
+Finalized 885 quadrants episodes 53 seconds 1.55
+Finalized 885 smooth_gradient episodes 54 seconds 0.05
+Finalized 1000 clean episodes 55 seconds 0.05
+Finalized 1000 homogeneous_dark episodes 56 seconds 1.26
+Finalized 1000 homogeneous_bright episodes 57 seconds 0.86
+Finalized 1000 left_right episodes 58 seconds 1.28
+Finalized 1000 quadrants episodes 59 seconds 3.54
+Finalized 1000 smooth_gradient episodes 60 seconds 0.05
+Finalized 1268 clean episodes 61 seconds 0.05
+Finalized 1268 homogeneous_dark episodes 62 seconds 3.31
+Finalized 1268 homogeneous_bright episodes 63 seconds 0.69
+Finalized 1268 left_right episodes 64 seconds 2.39
+Finalized 1268 quadrants episodes 65 seconds 4.29
+Finalized 1268 smooth_gradient episodes 66 seconds 0.06
+Finalized 1296 clean episodes 67 seconds 0.05
+Finalized 1296 homogeneous_dark episodes 68 seconds 1.65
+Finalized 1296 homogeneous_bright episodes 69 seconds 1.19
+Finalized 1296 left_right episodes 70 seconds 4.72
+Finalized 1296 quadrants episodes 71 seconds 4.87
+Finalized 1296 smooth_gradient episodes 72 seconds 0.68
+Finalized 1353 clean episodes 73 seconds 0.05
+Finalized 1353 homogeneous_dark episodes 74 seconds 1.38
+Finalized 1353 homogeneous_bright episodes 75 seconds 0.05
+Finalized 1353 left_right episodes 76 seconds 1.27
+Finalized 1353 quadrants episodes 77 seconds 1.33
+Finalized 1353 smooth_gradient episodes 78 seconds 0.05
+Finalized 1425 clean episodes 79 seconds 0.05
+Finalized 1425 homogeneous_dark episodes 80 seconds 4.79
+Finalized 1425 homogeneous_bright episodes 81 seconds 4.75
+Finalized 1425 left_right episodes 82 seconds 4.83
+Finalized 1425 quadrants episodes 83 seconds 3.79
+Finalized 1425 smooth_gradient episodes 84 seconds 0.05
+Finalized 1532 clean episodes 85 seconds 0.05
+Finalized 1532 homogeneous_dark episodes 86 seconds 0.05
+Finalized 1532 homogeneous_bright episodes 87 seconds 0.67
+Finalized 1532 left_right episodes 88 seconds 0.75
+Finalized 1532 quadrants episodes 89 seconds 0.75
+Finalized 1532 smooth_gradient episodes 90 seconds 0.05
+Finalized 1584 clean episodes 91 seconds 0.04
+Finalized 1584 homogeneous_dark episodes 92 seconds 2.27
+Finalized 1584 homogeneous_bright episodes 93 seconds 0.66
+Finalized 1584 left_right episodes 94 seconds 4.72
+Finalized 1584 quadrants episodes 95 seconds 4.64
+Finalized 1584 smooth_gradient episodes 96 seconds 0.04
+Finalized 1675 clean episodes 97 seconds 0.05
+Finalized 1675 homogeneous_dark episodes 98 seconds 1.22
+Finalized 1675 homogeneous_bright episodes 99 seconds 4.7
+Finalized 1675 left_right episodes 100 seconds 3.76
+Finalized 1675 quadrants episodes 101 seconds 3.76
+Finalized 1675 smooth_gradient episodes 102 seconds 0.05
+Finalized 1761 clean episodes 103 seconds 0.06
+Finalized 1761 homogeneous_dark episodes 104 seconds 3.32
+Finalized 1761 homogeneous_bright episodes 105 seconds 4.77
+Finalized 1761 left_right episodes 106 seconds 4.78
+Finalized 1761 quadrants episodes 107 seconds 4.81
+Finalized 1761 smooth_gradient episodes 108 seconds 0.05
+Finalized 1818 clean episodes 109 seconds 0.05
+Finalized 1818 homogeneous_dark episodes 110 seconds 0.05
+Finalized 1818 homogeneous_bright episodes 111 seconds 1.25
+Finalized 1818 left_right episodes 112 seconds 1.16
+Finalized 1818 quadrants episodes 113 seconds 1.06
+Finalized 1818 smooth_gradient episodes 114 seconds 0.76
+Finalized 1993 clean episodes 115 seconds 0.06
+Finalized 1993 homogeneous_dark episodes 116 seconds 1.14
+Finalized 1993 homogeneous_bright episodes 117 seconds 3.22
+Finalized 1993 left_right episodes 118 seconds 3.19
+Finalized 1993 quadrants episodes 119 seconds 4.31
+Finalized 1993 smooth_gradient episodes 120 seconds 0.05
+Finalized 2006 clean episodes 121 seconds 0.05
+Finalized 2006 homogeneous_dark episodes 122 seconds 2.77
+Finalized 2006 homogeneous_bright episodes 123 seconds 4.73
+Finalized 2006 left_right episodes 124 seconds 2.03
+Finalized 2006 quadrants episodes 125 seconds 4.52
+Finalized 2006 smooth_gradient episodes 126 seconds 0.05
+Finalized 2149 clean episodes 127 seconds 0.05
+Finalized 2149 homogeneous_dark episodes 128 seconds 1.83
+Finalized 2149 homogeneous_bright episodes 129 seconds 0.05
+Finalized 2149 left_right episodes 130 seconds 1.85
+Finalized 2149 quadrants episodes 131 seconds 1.17
+Finalized 2149 smooth_gradient episodes 132 seconds 0.05
+Finalized 2153 clean episodes 133 seconds 0.05
+Finalized 2153 homogeneous_dark episodes 134 seconds 1.94
+Finalized 2153 homogeneous_bright episodes 135 seconds 0.75
+Finalized 2153 left_right episodes 136 seconds 3.14
+Finalized 2153 quadrants episodes 137 seconds 1.56
+Finalized 2153 smooth_gradient episodes 138 seconds 0.05
+Finalized 2157 clean episodes 139 seconds 0.05
+Finalized 2157 homogeneous_dark episodes 140 seconds 1.7
+Finalized 2157 homogeneous_bright episodes 141 seconds 0.67
+Finalized 2157 left_right episodes 142 seconds 1.37
+Finalized 2157 quadrants episodes 143 seconds 2.99
+Finalized 2157 smooth_gradient episodes 144 seconds 0.05
+Finalized 2261 clean episodes 145 seconds 0.05
+Finalized 2261 homogeneous_dark episodes 146 seconds 2.09
+Finalized 2261 homogeneous_bright episodes 147 seconds 4.81
+Finalized 2261 left_right episodes 148 seconds 4.74
+Finalized 2261 quadrants episodes 149 seconds 4.81
+Finalized 2261 smooth_gradient episodes 150 seconds 0.77
+Finalized 2431 clean episodes 151 seconds 0.05
+Finalized 2431 homogeneous_dark episodes 152 seconds 3.76
+Finalized 2431 homogeneous_bright episodes 153 seconds 4.62
+Finalized 2431 left_right episodes 154 seconds 4.73
+Finalized 2431 quadrants episodes 155 seconds 4.78
+Finalized 2431 smooth_gradient episodes 156 seconds 0.05
+Finalized 2473 clean episodes 157 seconds 0.05
+Finalized 2473 homogeneous_dark episodes 158 seconds 1.2
+Finalized 2473 homogeneous_bright episodes 159 seconds 1.93
+Finalized 2473 left_right episodes 160 seconds 1.95
+Finalized 2473 quadrants episodes 161 seconds 1.07
+Finalized 2473 smooth_gradient episodes 162 seconds 1.08
+Finalized 2532 clean episodes 163 seconds 0.05
+Finalized 2532 homogeneous_dark episodes 164 seconds 1.26
+Finalized 2532 homogeneous_bright episodes 165 seconds 4.74
+Finalized 2532 left_right episodes 166 seconds 4.75
+Finalized 2532 quadrants episodes 167 seconds 4.77
+Finalized 2532 smooth_gradient episodes 168 seconds 0.67
+Finalized 2587 clean episodes 169 seconds 4.74
+Finalized 2587 homogeneous_dark episodes 170 seconds 4.73
+Finalized 2587 homogeneous_bright episodes 171 seconds 4.74
+Finalized 2587 left_right episodes 172 seconds 4.77
+Finalized 2587 quadrants episodes 173 seconds 4.77
+Finalized 2587 smooth_gradient episodes 174 seconds 4.73
+Finalized 2592 clean episodes 175 seconds 4.81
+Finalized 2592 homogeneous_dark episodes 176 seconds 4.81
+Finalized 2592 homogeneous_bright episodes 177 seconds 4.43
+Finalized 2592 left_right episodes 178 seconds 3.52
+Finalized 2592 quadrants episodes 179 seconds 4.9
+Finalized 2592 smooth_gradient episodes 180 seconds 4.86
+Finalized 2685 clean episodes 181 seconds 0.05
+Finalized 2685 homogeneous_dark episodes 182 seconds 1.25
+Finalized 2685 homogeneous_bright episodes 183 seconds 4.68
+Finalized 2685 left_right episodes 184 seconds 4.33
+Finalized 2685 quadrants episodes 185 seconds 4.74
+Finalized 2685 smooth_gradient episodes 186 seconds 0.92
+Finalized 2923 clean episodes 187 seconds 0.05
+Finalized 2923 homogeneous_dark episodes 188 seconds 0.05
+Finalized 2923 homogeneous_bright episodes 189 seconds 1.83
+Finalized 2923 left_right episodes 190 seconds 1.6
+Finalized 2923 quadrants episodes 191 seconds 0.78
+Finalized 2923 smooth_gradient episodes 192 seconds 0.05
+Finalized 3156 clean episodes 193 seconds 0.05
+Finalized 3156 homogeneous_dark episodes 194 seconds 2.29
+Finalized 3156 homogeneous_bright episodes 195 seconds 4.57
+Finalized 3156 left_right episodes 196 seconds 4.79
+Finalized 3156 quadrants episodes 197 seconds 4.78
+Finalized 3156 smooth_gradient episodes 198 seconds 2.99
+Finalized 3255 clean episodes 199 seconds 0.07
+Finalized 3255 homogeneous_dark episodes 200 seconds 1.27
+Finalized 3255 homogeneous_bright episodes 201 seconds 4.78
+Finalized 3255 left_right episodes 202 seconds 4.82
+Finalized 3255 quadrants episodes 203 seconds 4.81
+Finalized 3255 smooth_gradient episodes 204 seconds 0.06
+Finalized 3501 clean episodes 205 seconds 0.04
+Finalized 3501 homogeneous_dark episodes 206 seconds 1.8
+Finalized 3501 homogeneous_bright episodes 207 seconds 4.66
+Finalized 3501 left_right episodes 208 seconds 4.69
+Finalized 3501 quadrants episodes 209 seconds 4.71
+Finalized 3501 smooth_gradient episodes 210 seconds 0.04
+Finalized 3553 clean episodes 211 seconds 0.06
+Finalized 3553 homogeneous_dark episodes 212 seconds 2.82
+Finalized 3553 homogeneous_bright episodes 213 seconds 1.0
+Finalized 3553 left_right episodes 214 seconds 4.8
+Finalized 3553 quadrants episodes 215 seconds 4.68
+Finalized 3553 smooth_gradient episodes 216 seconds 0.05
+Finalized 3661 clean episodes 217 seconds 0.06
+Finalized 3661 homogeneous_dark episodes 218 seconds 1.41
+Finalized 3661 homogeneous_bright episodes 219 seconds 4.77
+Finalized 3661 left_right episodes 220 seconds 4.83
+Finalized 3661 quadrants episodes 221 seconds 4.14
+Finalized 3661 smooth_gradient episodes 222 seconds 4.78
+Finalized 3845 clean episodes 223 seconds 0.05
+Finalized 3845 homogeneous_dark episodes 224 seconds 1.03
+Finalized 3845 homogeneous_bright episodes 225 seconds 1.46
+Finalized 3845 left_right episodes 226 seconds 3.01
+Finalized 3845 quadrants episodes 227 seconds 3.02
+Finalized 3845 smooth_gradient episodes 228 seconds 0.67
+Finalized 3934 clean episodes 229 seconds 0.94
+Finalized 3934 homogeneous_dark episodes 230 seconds 1.58
+Finalized 3934 homogeneous_bright episodes 231 seconds 4.64
+Finalized 3934 left_right episodes 232 seconds 3.59
+Finalized 3934 quadrants episodes 233 seconds 3.72
+Finalized 3934 smooth_gradient episodes 234 seconds 4.87
+Finalized 4134 clean episodes 235 seconds 0.07
+Finalized 4134 homogeneous_dark episodes 236 seconds 1.44
+Finalized 4134 homogeneous_bright episodes 237 seconds 4.83
+Finalized 4134 left_right episodes 238 seconds 4.89
+Finalized 4134 quadrants episodes 239 seconds 4.88
+Finalized 4134 smooth_gradient episodes 240 seconds 4.74
+T008 verdict False ['clean_p95', 'spatial_vs_global', 'beyond_direct', 'bright_region_safety']
+T008 complete. Stop; no detector/T009 authorized.
+[autodl] finished_at=2026-09-12T09:11:47+08:00
+[autodl] exit_code=0
