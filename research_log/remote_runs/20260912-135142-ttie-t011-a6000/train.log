@@ -1,0 +1,360 @@
+[autodl] run_id=20260912-135142-ttie-t011-a6000
+[autodl] started_at=2026-09-12T13:51:48+08:00
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+3.12.12 | packaged by conda-forge | (main, Jan 26 2026, 23:51:32) [GCC 14.3.0]
+torch 2.4.0
+torchvision 0.19.0
+open_clip_torch 2.26.1
+timm 1.0.29
+Pillow 12.3.0
+CUDA 12.1 NVIDIA RTX A6000
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_auc_ties_and_literal_conjunction (test_clip_signal.ClipSignalTests.test_auc_ties_and_literal_conjunction) ... ok
+test_calibration_ignores_heldout_values_and_dirty_calibration (test_clip_signal.ClipSignalTests.test_calibration_ignores_heldout_values_and_dirty_calibration) ... ok
+test_detached_winner_threshold_and_zero_loss (test_clip_signal.ClipSignalTests.test_detached_winner_threshold_and_zero_loss) ... ok
+test_frozen_encoder_has_pixel_gradient (test_clip_signal.ClipSignalTests.test_frozen_encoder_has_pixel_gradient) ... ok
+test_scores_do_not_consume_evaluation_reference_or_labels (test_clip_signal.ClipSignalTests.test_scores_do_not_consume_evaluation_reference_or_labels) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_coordinate_restrictions_exact (test_geometry.GeometryTests.test_coordinate_restrictions_exact) ... ok
+test_development_manifest_excludes_all_old_data (test_geometry.GeometryTests.test_development_manifest_excludes_all_old_data) ... ok
+test_diagnosis_rules_and_objective_priority_are_literal (test_geometry.GeometryTests.test_diagnosis_rules_and_objective_priority_are_literal) ... ok
+test_literal_surface_and_tied_ranks (test_geometry.GeometryTests.test_literal_surface_and_tied_ranks) ... ok
+test_oracle_resets_identity_and_is_diagnostic_only (test_geometry.GeometryTests.test_oracle_resets_identity_and_is_diagnostic_only) ... ok
+test_piecewise_constant_equivalence_and_odd_quadrant_boundary (test_geometry.GeometryTests.test_piecewise_constant_equivalence_and_odd_quadrant_boundary) ... ok
+test_recording_leaves_t008_trajectory_unchanged_and_reference_is_offline (test_geometry.GeometryTests.test_recording_leaves_t008_trajectory_unchanged_and_reference_is_offline) ... ok
+test_reference_gradient_changes_without_affecting_semantic_api (test_geometry.GeometryTests.test_reference_gradient_changes_without_affecting_semantic_api) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+test_image_any_denominators_tradeoffs_auc_and_gate (test_joint_audit.JointAuditTests.test_image_any_denominators_tradeoffs_auc_and_gate) ... ok
+test_metadata_is_attached_after_persistence_cannot_change_pixel_inference (test_joint_audit.JointAuditTests.test_metadata_is_attached_after_persistence_cannot_change_pixel_inference) ... ok
+test_calibration_image_max_linear_percentile_and_exclusion (test_joint_gate.JointGateTests.test_calibration_image_max_linear_percentile_and_exclusion) ... ok
+test_exact_saved_prototype_and_t006_score_arithmetic (test_joint_gate.JointGateTests.test_exact_saved_prototype_and_t006_score_arithmetic) ... ok
+test_fresh_manifest_excludes_every_prior_split (test_joint_gate.JointGateTests.test_fresh_manifest_excludes_every_prior_split) ... ok
+test_same_scores_raw_winner_strict_boundary_and_activation_only (test_joint_gate.JointGateTests.test_same_scores_raw_winner_strict_boundary_and_activation_only) ... ok
+test_clean_source_calibration_only (test_learned_prototypes.LearnedPrototypeTests.test_clean_source_calibration_only) ... ok
+test_exact_initialization_and_gradient_ownership (test_learned_prototypes.LearnedPrototypeTests.test_exact_initialization_and_gradient_ownership) ... ok
+test_fresh_deterministic_manifest (test_learned_prototypes.LearnedPrototypeTests.test_fresh_deterministic_manifest) ... ok
+test_pixel_only_inference_and_decisions (test_learned_prototypes.LearnedPrototypeTests.test_pixel_only_inference_and_decisions) ... ok
+test_source_only_training_freezes_before_inference (test_learned_prototypes.LearnedPrototypeTests.test_source_only_training_freezes_before_inference) ... ok
+test_five_views_and_differentiable_geometry (test_natural.NaturalTests.test_five_views_and_differentiable_geometry) ... ok
+test_gain_conventions_match_previous_suite (test_natural.NaturalTests.test_gain_conventions_match_previous_suite) ... ok
+test_each_threshold_is_enforced (test_projected_metrics.ProjectedMetricsTests.test_each_threshold_is_enforced) ... ok
+test_literal_criteria_one_step_not_selector_stress_excluded (test_projected_metrics.ProjectedMetricsTests.test_literal_criteria_one_step_not_selector_stress_excluded) ... ok
+test_all_nine_outputs_decisions_and_hashes_precede_metrics (test_projected_pilot.ProjectedPilotTests.test_all_nine_outputs_decisions_and_hashes_precede_metrics) ... ok
+test_fresh_manifest_uses_existing_order_exclusions_and_new_split (test_projected_pilot.ProjectedPilotTests.test_fresh_manifest_uses_existing_order_exclusions_and_new_split) ... ok
+test_replacement_reference_leaves_outputs_gradients_and_states_unchanged (test_projected_pilot.ProjectedPilotTests.test_replacement_reference_leaves_outputs_gradients_and_states_unchanged) ... ok
+test_discrete_candidates_are_legal_and_inactive_output_unchanged (test_projected_ttt.ProjectedTests.test_discrete_candidates_are_legal_and_inactive_output_unchanged) ... ok
+test_episode_reset_no_active_and_no_metadata_api (test_projected_ttt.ProjectedTests.test_episode_reset_no_active_and_no_metadata_api) ... ok
+test_global_conflict_agreement_and_no_active (test_projected_ttt.ProjectedTests.test_global_conflict_agreement_and_no_active) ... ok
+test_inactive_low_value_pixels_are_bitwise_unchanged (test_projected_ttt.ProjectedTests.test_inactive_low_value_pixels_are_bitwise_unchanged) ... ok
+test_one_step_matches_first_full_update_and_audits_projection (test_projected_ttt.ProjectedTests.test_one_step_matches_first_full_update_and_audits_projection) ... ok
+test_projection_bounds_signs_and_inactive_exact_identity (test_projected_ttt.ProjectedTests.test_projection_bounds_signs_and_inactive_exact_identity) ... ok
+test_renderer_and_envelope_baseline_parity (test_projected_ttt.ProjectedTests.test_renderer_and_envelope_baseline_parity) ... ok
+test_gate_requires_mixed_recall_and_low_wrong_activation (test_prototype_audit.PrototypeAuditTests.test_gate_requires_mixed_recall_and_low_wrong_activation) ... ok
+test_metadata_changes_only_offline_localization (test_prototype_audit.PrototypeAuditTests.test_metadata_changes_only_offline_localization) ... ok
+test_mixed_labels_and_all_view_denominators (test_prototype_audit.PrototypeAuditTests.test_mixed_labels_and_all_view_denominators) ... ok
+test_global_unaffected_by_tv_and_components_reconstruct_total (test_regularization.RegularizationTests.test_global_unaffected_by_tv_and_components_reconstruct_total) ... ok
+test_identity_normalization_anchor_and_bounds (test_regularization.RegularizationTests.test_identity_normalization_anchor_and_bounds) ... ok
+test_tv_constant_varying_and_analytic_value (test_regularization.RegularizationTests.test_tv_constant_varying_and_analytic_value) ... ok
+test_zero_weight_t001_fixed_numeric_regression (test_regularization.RegularizationTests.test_zero_weight_t001_fixed_numeric_regression) ... ok
+test_exact_probe_sign_magnitude_and_response (test_relative_clip.RelativeTests.test_exact_probe_sign_magnitude_and_response) ... ok
+test_fresh_manifest_and_calibration_excludes_other_rows (test_relative_clip.RelativeTests.test_fresh_manifest_and_calibration_excludes_other_rows) ... ok
+test_literal_gate_uses_correct_type_tpr_and_precision (test_relative_clip.RelativeTests.test_literal_gate_uses_correct_type_tpr_and_precision) ... ok
+test_metadata_does_not_change_responses_gates_targets (test_relative_clip.RelativeTests.test_metadata_does_not_change_responses_gates_targets) ... ok
+test_literal_grid_feasibility_and_conservative_tie (test_residual_metrics.ResidualMetricsTests.test_literal_grid_feasibility_and_conservative_tie) ... ok
+test_offset_boundary_and_offline_regional_mse (test_residual_metrics.ResidualMetricsTests.test_offset_boundary_and_offline_regional_mse) ... ok
+test_qualification_conjunction_and_stress_exclusion (test_residual_metrics.ResidualMetricsTests.test_qualification_conjunction_and_stress_exclusion) ... ok
+test_all_eight_outputs_and_decisions_precede_reference_access (test_residual_pilot.ResidualPilotTests.test_all_eight_outputs_and_decisions_precede_reference_access) ... ok
+test_manifest_algorithm_excludes_all_prior_ids_and_small_images (test_residual_pilot.ResidualPilotTests.test_manifest_algorithm_excludes_all_prior_ids_and_small_images) ... ok
+test_source_actions_include_all_fixed_pairs_without_reference_api (test_residual_pilot.ResidualPilotTests.test_source_actions_include_all_fixed_pairs_without_reference_api) ... ok
+test_all_methods_reset_and_reject_reference_metadata (test_residual_ttt.ResidualTests.test_all_methods_reset_and_reject_reference_metadata) ... ok
+test_coordinate_only_region_matches_diagnostic_and_constant_bilinear (test_residual_ttt.ResidualTests.test_coordinate_only_region_matches_diagnostic_and_constant_bilinear) ... ok
+test_equation_frozen_winner_initial_energy_opposite_penalty (test_residual_ttt.ResidualTests.test_equation_frozen_winner_initial_energy_opposite_penalty) ... ok
+test_no_active_exact_identity_all_methods (test_residual_ttt.ResidualTests.test_no_active_exact_identity_all_methods) ... ok
+test_zero_rho_loss_gradient_and_trajectory_match (test_residual_ttt.ResidualTests.test_zero_rho_loss_gradient_and_trajectory_match) ... ok
+test_literal_mean_gates_paired_rows_and_gradient_exclusion (test_restoration_metrics.RestorationMetricTests.test_literal_mean_gates_paired_rows_and_gradient_exclusion) ... ok
+test_official_fresh_manifest_prefix_and_exclusions (test_restoration_metrics.RestorationMetricTests.test_official_fresh_manifest_prefix_and_exclusions) ... ok
+test_replaced_reference_changes_metrics_only_after_methods_complete (test_restoration_metrics.RestorationMetricTests.test_replaced_reference_changes_metrics_only_after_methods_complete) ... ok
+test_all_fixed_settings_and_component_trajectories (test_safety_sweep.SafetySweepTests.test_all_fixed_settings_and_component_trajectories) ... ok
+test_clean_reference_replacement_never_changes_any_trajectory (test_safety_sweep.SafetySweepTests.test_clean_reference_replacement_never_changes_any_trajectory) ... ok
+test_predeclared_decision_rule_known_values (test_safety_sweep.SafetySweepTests.test_predeclared_decision_rule_known_values) ... ok
+test_direct_policy_and_exact_candidate_ties (test_semantic_ttt.SemanticTTTTests.test_direct_policy_and_exact_candidate_ties) ... ok
+test_episode_reset_and_metadata_cannot_enter_trajectory (test_semantic_ttt.SemanticTTTTests.test_episode_reset_and_metadata_cannot_enter_trajectory) ... ok
+test_fixed_original_mask_and_two_sided_hinge (test_semantic_ttt.SemanticTTTTests.test_fixed_original_mask_and_two_sided_hinge) ... ok
+test_frozen_encoder_gradients_reach_both_isp_coordinates (test_semantic_ttt.SemanticTTTTests.test_frozen_encoder_gradients_reach_both_isp_coordinates) ... ok
+test_global_spatial_constant_render_and_fixed_other_operators (test_semantic_ttt.SemanticTTTTests.test_global_spatial_constant_render_and_fixed_other_operators) ... ok
+test_literal_saved_calibration_and_hash (test_semantic_ttt.SemanticTTTTests.test_literal_saved_calibration_and_hash) ... ok
+test_no_active_is_bitwise_identity_for_every_method (test_semantic_ttt.SemanticTTTTests.test_no_active_is_bitwise_identity_for_every_method) ... ok
+test_clean_families_and_determinism (test_suite.SuiteTests.test_clean_families_and_determinism) ... ok
+test_degradation_masks_and_t001_equivalence (test_suite.SuiteTests.test_degradation_masks_and_t001_equivalence) ... ok
+test_evaluation_only_reference_and_exports (test_suite.SuiteTests.test_evaluation_only_reference_and_exports) ... ok
+test_identity_drift_clean_condition (test_suite.SuiteTests.test_identity_drift_clean_condition) ... ok
+test_count_aggregation_and_uniform_field (test_uniform.UniformTests.test_count_aggregation_and_uniform_field) ... ok
+test_spatial_one_matches_global_exactly (test_uniform.UniformTests.test_spatial_one_matches_global_exactly) ... ok
+test_symmetric_control_stays_near_global_and_resets (test_uniform.UniformTests.test_symmetric_control_stays_near_global_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 93 tests in 7.082s
+
+OK
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+Finalized T011 8211 clean inputs 1 seconds 0.25
+Finalized T011 8211 homogeneous_dark inputs 2 seconds 4.63
+Finalized T011 8211 homogeneous_bright inputs 3 seconds 2.46
+Finalized T011 8211 left_right inputs 4 seconds 8.14
+Finalized T011 8211 quadrants inputs 5 seconds 4.22
+Finalized T011 8211 offset_left_right_40 inputs 6 seconds 11.45
+Finalized T011 8277 clean inputs 7 seconds 0.06
+Finalized T011 8277 homogeneous_dark inputs 8 seconds 1.73
+Finalized T011 8277 homogeneous_bright inputs 9 seconds 4.91
+Finalized T011 8277 left_right inputs 10 seconds 4.77
+Finalized T011 8277 quadrants inputs 11 seconds 5.91
+Finalized T011 8277 offset_left_right_40 inputs 12 seconds 10.02
+Finalized T011 8532 clean inputs 13 seconds 11.12
+Finalized T011 8532 homogeneous_dark inputs 14 seconds 10.96
+Finalized T011 8532 homogeneous_bright inputs 15 seconds 11.04
+Finalized T011 8532 left_right inputs 16 seconds 11.25
+Finalized T011 8532 quadrants inputs 17 seconds 10.69
+Finalized T011 8532 offset_left_right_40 inputs 18 seconds 11.33
+Finalized T011 8629 clean inputs 19 seconds 11.04
+Finalized T011 8629 homogeneous_dark inputs 20 seconds 10.36
+Finalized T011 8629 homogeneous_bright inputs 21 seconds 10.53
+Finalized T011 8629 left_right inputs 22 seconds 11.07
+Finalized T011 8629 quadrants inputs 23 seconds 11.06
+Finalized T011 8629 offset_left_right_40 inputs 24 seconds 11.04
+Finalized T011 8690 clean inputs 25 seconds 0.07
+Finalized T011 8690 homogeneous_dark inputs 26 seconds 8.78
+Finalized T011 8690 homogeneous_bright inputs 27 seconds 11.19
+Finalized T011 8690 left_right inputs 28 seconds 11.26
+Finalized T011 8690 quadrants inputs 29 seconds 10.69
+Finalized T011 8690 offset_left_right_40 inputs 30 seconds 10.87
+Finalized T011 8762 clean inputs 31 seconds 0.08
+Finalized T011 8762 homogeneous_dark inputs 32 seconds 11.29
+Finalized T011 8762 homogeneous_bright inputs 33 seconds 0.08
+Finalized T011 8762 left_right inputs 34 seconds 8.7
+Finalized T011 8762 quadrants inputs 35 seconds 11.25
+Finalized T011 8762 offset_left_right_40 inputs 36 seconds 11.27
+Finalized T011 8844 clean inputs 37 seconds 11.13
+Finalized T011 8844 homogeneous_dark inputs 38 seconds 11.18
+Finalized T011 8844 homogeneous_bright inputs 39 seconds 11.33
+Finalized T011 8844 left_right inputs 40 seconds 10.66
+Finalized T011 8844 quadrants inputs 41 seconds 11.34
+Finalized T011 8844 offset_left_right_40 inputs 42 seconds 11.16
+Finalized T011 8899 clean inputs 43 seconds 0.07
+Finalized T011 8899 homogeneous_dark inputs 44 seconds 5.04
+Finalized T011 8899 homogeneous_bright inputs 45 seconds 1.97
+Finalized T011 8899 left_right inputs 46 seconds 1.84
+Finalized T011 8899 quadrants inputs 47 seconds 8.0
+Finalized T011 8899 offset_left_right_40 inputs 48 seconds 0.1
+Finalized T011 9378 clean inputs 49 seconds 11.23
+Finalized T011 9378 homogeneous_dark inputs 50 seconds 11.26
+Finalized T011 9378 homogeneous_bright inputs 51 seconds 11.38
+Finalized T011 9378 left_right inputs 52 seconds 11.45
+Finalized T011 9378 quadrants inputs 53 seconds 11.45
+Finalized T011 9378 offset_left_right_40 inputs 54 seconds 11.55
+Finalized T011 9400 clean inputs 55 seconds 11.16
+Finalized T011 9400 homogeneous_dark inputs 56 seconds 11.26
+Finalized T011 9400 homogeneous_bright inputs 57 seconds 11.24
+Finalized T011 9400 left_right inputs 58 seconds 11.33
+Finalized T011 9400 quadrants inputs 59 seconds 11.18
+Finalized T011 9400 offset_left_right_40 inputs 60 seconds 11.27
+Finalized T011 9448 clean inputs 61 seconds 0.07
+Finalized T011 9448 homogeneous_dark inputs 62 seconds 7.86
+Finalized T011 9448 homogeneous_bright inputs 63 seconds 11.28
+Finalized T011 9448 left_right inputs 64 seconds 11.23
+Finalized T011 9448 quadrants inputs 65 seconds 11.24
+Finalized T011 9448 offset_left_right_40 inputs 66 seconds 11.19
+Finalized T011 9483 clean inputs 67 seconds 0.08
+Finalized T011 9483 homogeneous_dark inputs 68 seconds 0.08
+Finalized T011 9483 homogeneous_bright inputs 69 seconds 11.22
+Finalized T011 9483 left_right inputs 70 seconds 11.19
+Finalized T011 9483 quadrants inputs 71 seconds 11.22
+Finalized T011 9483 offset_left_right_40 inputs 72 seconds 10.94
+Finalized T011 9590 clean inputs 73 seconds 0.08
+Finalized T011 9590 homogeneous_dark inputs 74 seconds 3.12
+Finalized T011 9590 homogeneous_bright inputs 75 seconds 1.43
+Finalized T011 9590 left_right inputs 76 seconds 8.04
+Finalized T011 9590 quadrants inputs 77 seconds 7.92
+Finalized T011 9590 offset_left_right_40 inputs 78 seconds 10.22
+Finalized T011 9769 clean inputs 79 seconds 0.08
+Finalized T011 9769 homogeneous_dark inputs 80 seconds 0.08
+Finalized T011 9769 homogeneous_bright inputs 81 seconds 4.66
+Finalized T011 9769 left_right inputs 82 seconds 4.78
+Finalized T011 9769 quadrants inputs 83 seconds 4.91
+Finalized T011 9769 offset_left_right_40 inputs 84 seconds 4.79
+Finalized T011 9772 clean inputs 85 seconds 0.07
+Finalized T011 9772 homogeneous_dark inputs 86 seconds 3.76
+Finalized T011 9772 homogeneous_bright inputs 87 seconds 11.23
+Finalized T011 9772 left_right inputs 88 seconds 11.23
+Finalized T011 9772 quadrants inputs 89 seconds 8.37
+Finalized T011 9772 offset_left_right_40 inputs 90 seconds 11.07
+Finalized T011 9891 clean inputs 91 seconds 0.08
+Finalized T011 9891 homogeneous_dark inputs 92 seconds 3.05
+Finalized T011 9891 homogeneous_bright inputs 93 seconds 11.53
+Finalized T011 9891 left_right inputs 94 seconds 7.01
+Finalized T011 9891 quadrants inputs 95 seconds 8.32
+Finalized T011 9891 offset_left_right_40 inputs 96 seconds 3.53
+Finalized T011 9914 clean inputs 97 seconds 0.08
+Finalized T011 9914 homogeneous_dark inputs 98 seconds 1.84
+Finalized T011 9914 homogeneous_bright inputs 99 seconds 11.21
+Finalized T011 9914 left_right inputs 100 seconds 5.74
+Finalized T011 9914 quadrants inputs 101 seconds 7.96
+Finalized T011 9914 offset_left_right_40 inputs 102 seconds 1.36
+Finalized T011 10092 clean inputs 103 seconds 0.09
+Finalized T011 10092 homogeneous_dark inputs 104 seconds 2.41
+Finalized T011 10092 homogeneous_bright inputs 105 seconds 11.31
+Finalized T011 10092 left_right inputs 106 seconds 10.7
+Finalized T011 10092 quadrants inputs 107 seconds 11.32
+Finalized T011 10092 offset_left_right_40 inputs 108 seconds 11.27
+Finalized T011 10363 clean inputs 109 seconds 11.26
+Finalized T011 10363 homogeneous_dark inputs 110 seconds 11.37
+Finalized T011 10363 homogeneous_bright inputs 111 seconds 11.3
+Finalized T011 10363 left_right inputs 112 seconds 10.95
+Finalized T011 10363 quadrants inputs 113 seconds 11.46
+Finalized T011 10363 offset_left_right_40 inputs 114 seconds 10.87
+Finalized T011 10583 clean inputs 115 seconds 0.07
+Finalized T011 10583 homogeneous_dark inputs 116 seconds 2.74
+Finalized T011 10583 homogeneous_bright inputs 117 seconds 11.1
+Finalized T011 10583 left_right inputs 118 seconds 11.16
+Finalized T011 10583 quadrants inputs 119 seconds 11.11
+Finalized T011 10583 offset_left_right_40 inputs 120 seconds 11.15
+Finalized T011 10707 clean inputs 121 seconds 8.46
+Finalized T011 10707 homogeneous_dark inputs 122 seconds 6.87
+Finalized T011 10707 homogeneous_bright inputs 123 seconds 11.27
+Finalized T011 10707 left_right inputs 124 seconds 11.28
+Finalized T011 10707 quadrants inputs 125 seconds 11.19
+Finalized T011 10707 offset_left_right_40 inputs 126 seconds 11.26
+Finalized T011 10764 clean inputs 127 seconds 0.09
+Finalized T011 10764 homogeneous_dark inputs 128 seconds 4.86
+Finalized T011 10764 homogeneous_bright inputs 129 seconds 0.92
+Finalized T011 10764 left_right inputs 130 seconds 2.18
+Finalized T011 10764 quadrants inputs 131 seconds 8.01
+Finalized T011 10764 offset_left_right_40 inputs 132 seconds 11.21
+Finalized T011 10977 clean inputs 133 seconds 0.09
+Finalized T011 10977 homogeneous_dark inputs 134 seconds 8.96
+Finalized T011 10977 homogeneous_bright inputs 135 seconds 11.28
+Finalized T011 10977 left_right inputs 136 seconds 11.31
+Finalized T011 10977 quadrants inputs 137 seconds 11.28
+Finalized T011 10977 offset_left_right_40 inputs 138 seconds 11.25
+Finalized T011 10995 clean inputs 139 seconds 11.17
+Finalized T011 10995 homogeneous_dark inputs 140 seconds 11.31
+Finalized T011 10995 homogeneous_bright inputs 141 seconds 11.2
+Finalized T011 10995 left_right inputs 142 seconds 11.26
+Finalized T011 10995 quadrants inputs 143 seconds 11.28
+Finalized T011 10995 offset_left_right_40 inputs 144 seconds 11.23
+Finalized T011 11051 clean inputs 145 seconds 0.08
+Finalized T011 11051 homogeneous_dark inputs 146 seconds 8.84
+Finalized T011 11051 homogeneous_bright inputs 147 seconds 11.16
+Finalized T011 11051 left_right inputs 148 seconds 9.83
+Finalized T011 11051 quadrants inputs 149 seconds 9.79
+Finalized T011 11051 offset_left_right_40 inputs 150 seconds 11.08
+Finalized T011 11122 clean inputs 151 seconds 0.09
+Finalized T011 11122 homogeneous_dark inputs 152 seconds 4.1
+Finalized T011 11122 homogeneous_bright inputs 153 seconds 11.14
+Finalized T011 11122 left_right inputs 154 seconds 4.16
+Finalized T011 11122 quadrants inputs 155 seconds 4.16
+Finalized T011 11122 offset_left_right_40 inputs 156 seconds 0.12
+Finalized T011 11149 clean inputs 157 seconds 0.09
+Finalized T011 11149 homogeneous_dark inputs 158 seconds 4.03
+Finalized T011 11149 homogeneous_bright inputs 159 seconds 11.31
+Finalized T011 11149 left_right inputs 160 seconds 7.84
+Finalized T011 11149 quadrants inputs 161 seconds 7.85
+Finalized T011 11149 offset_left_right_40 inputs 162 seconds 1.41
+Finalized T011 11197 clean inputs 163 seconds 0.1
+Finalized T011 11197 homogeneous_dark inputs 164 seconds 2.72
+Finalized T011 11197 homogeneous_bright inputs 165 seconds 1.96
+Finalized T011 11197 left_right inputs 166 seconds 0.91
+Finalized T011 11197 quadrants inputs 167 seconds 7.86
+Finalized T011 11197 offset_left_right_40 inputs 168 seconds 0.91
+Finalized T011 11511 clean inputs 169 seconds 0.09
+Finalized T011 11511 homogeneous_dark inputs 170 seconds 8.08
+Finalized T011 11511 homogeneous_bright inputs 171 seconds 11.27
+Finalized T011 11511 left_right inputs 172 seconds 11.37
+Finalized T011 11511 quadrants inputs 173 seconds 7.91
+Finalized T011 11511 offset_left_right_40 inputs 174 seconds 11.28
+Finalized T011 11615 clean inputs 175 seconds 0.09
+Finalized T011 11615 homogeneous_dark inputs 176 seconds 2.36
+Finalized T011 11615 homogeneous_bright inputs 177 seconds 1.08
+Finalized T011 11615 left_right inputs 178 seconds 6.96
+Finalized T011 11615 quadrants inputs 179 seconds 7.04
+Finalized T011 11615 offset_left_right_40 inputs 180 seconds 1.14
+Finalized T011 11699 clean inputs 181 seconds 0.1
+Finalized T011 11699 homogeneous_dark inputs 182 seconds 3.16
+Finalized T011 11699 homogeneous_bright inputs 183 seconds 11.25
+Finalized T011 11699 left_right inputs 184 seconds 11.29
+Finalized T011 11699 quadrants inputs 185 seconds 11.19
+Finalized T011 11699 offset_left_right_40 inputs 186 seconds 11.29
+Finalized T011 11760 clean inputs 187 seconds 0.1
+Finalized T011 11760 homogeneous_dark inputs 188 seconds 2.07
+Finalized T011 11760 homogeneous_bright inputs 189 seconds 11.32
+Finalized T011 11760 left_right inputs 190 seconds 11.34
+Finalized T011 11760 quadrants inputs 191 seconds 11.26
+Finalized T011 11760 offset_left_right_40 inputs 192 seconds 11.16
+Finalized T011 11813 clean inputs 193 seconds 10.02
+Finalized T011 11813 homogeneous_dark inputs 194 seconds 10.71
+Finalized T011 11813 homogeneous_bright inputs 195 seconds 11.24
+Finalized T011 11813 left_right inputs 196 seconds 11.25
+Finalized T011 11813 quadrants inputs 197 seconds 11.28
+Finalized T011 11813 offset_left_right_40 inputs 198 seconds 11.1
+Finalized T011 12062 clean inputs 199 seconds 0.1
+Finalized T011 12062 homogeneous_dark inputs 200 seconds 0.1
+Finalized T011 12062 homogeneous_bright inputs 201 seconds 2.52
+Finalized T011 12062 left_right inputs 202 seconds 4.23
+Finalized T011 12062 quadrants inputs 203 seconds 4.2
+Finalized T011 12062 offset_left_right_40 inputs 204 seconds 4.2
+Finalized T011 12120 clean inputs 205 seconds 0.1
+Finalized T011 12120 homogeneous_dark inputs 206 seconds 8.55
+Finalized T011 12120 homogeneous_bright inputs 207 seconds 2.09
+Finalized T011 12120 left_right inputs 208 seconds 9.81
+Finalized T011 12120 quadrants inputs 209 seconds 9.92
+Finalized T011 12120 offset_left_right_40 inputs 210 seconds 11.28
+Finalized T011 12280 clean inputs 211 seconds 0.1
+Finalized T011 12280 homogeneous_dark inputs 212 seconds 9.3
+Finalized T011 12280 homogeneous_bright inputs 213 seconds 11.34
+Finalized T011 12280 left_right inputs 214 seconds 11.28
+Finalized T011 12280 quadrants inputs 215 seconds 10.23
+Finalized T011 12280 offset_left_right_40 inputs 216 seconds 11.24
+Finalized T011 12576 clean inputs 217 seconds 0.1
+Finalized T011 12576 homogeneous_dark inputs 218 seconds 0.1
+Finalized T011 12576 homogeneous_bright inputs 219 seconds 11.21
+Finalized T011 12576 left_right inputs 220 seconds 11.18
+Finalized T011 12576 quadrants inputs 221 seconds 11.16
+Finalized T011 12576 offset_left_right_40 inputs 222 seconds 10.77
+Finalized T011 12639 clean inputs 223 seconds 0.1
+Finalized T011 12639 homogeneous_dark inputs 224 seconds 8.2
+Finalized T011 12639 homogeneous_bright inputs 225 seconds 1.49
+Finalized T011 12639 left_right inputs 226 seconds 10.41
+Finalized T011 12639 quadrants inputs 227 seconds 10.37
+Finalized T011 12639 offset_left_right_40 inputs 228 seconds 1.3
+Finalized T011 12667 clean inputs 229 seconds 0.1
+Finalized T011 12667 homogeneous_dark inputs 230 seconds 7.65
+Finalized T011 12667 homogeneous_bright inputs 231 seconds 11.19
+Finalized T011 12667 left_right inputs 232 seconds 9.82
+Finalized T011 12667 quadrants inputs 233 seconds 11.26
+Finalized T011 12667 offset_left_right_40 inputs 234 seconds 11.27
+Finalized T011 12670 clean inputs 235 seconds 0.11
+Finalized T011 12670 homogeneous_dark inputs 236 seconds 4.64
+Finalized T011 12670 homogeneous_bright inputs 237 seconds 2.86
+Finalized T011 12670 left_right inputs 238 seconds 7.99
+Finalized T011 12670 quadrants inputs 239 seconds 7.91
+Finalized T011 12670 offset_left_right_40 inputs 240 seconds 10.89
+T011 qualified False failed ['clean_p95', 'beyond_discrete'] STOP: no automatic next task.
+[autodl] finished_at=2026-09-12T14:21:21+08:00
+[autodl] exit_code=0

@@ -1,0 +1,2435 @@
+{
+  "task": "T011",
+  "declaration_commit": "d2929e6",
+  "physical_boundary_absolute_tolerance": 1e-06,
+  "hit_definition": "Any exact inequality of persisted pre/post raw coordinate; monotone map to EV/gamma",
+  "boundary_denominator": "Active fast coordinates only, excluding no-active global; EV sign-zero endpoint counts as boundary",
+  "groups": {
+    "clean": {
+      "global_ttt_projected": {
+        "episodes": 40,
+        "updates": 348,
+        "final_active_coordinates": 18,
+        "final_boundary_coordinates": 7,
+        "final_ev_active_coordinates": 9,
+        "final_ev_boundary_coordinates": 4,
+        "final_gamma_active_coordinates": 9,
+        "final_gamma_boundary_coordinates": 3,
+        "hit_updates": 153,
+        "ev_hit_updates": 98,
+        "ev_coordinates": 348,
+        "ev_coordinate_hits": 98,
+        "ev_active_coordinates": 348,
+        "ev_active_coordinate_hits": 98,
+        "gamma_hit_updates": 94,
+        "gamma_coordinates": 348,
+        "gamma_coordinate_hits": 94,
+        "gamma_active_coordinates": 348,
+        "gamma_active_coordinate_hits": 94,
+        "projection_hit_rate": 0.4396551724137931,
+        "final_boundary_occupancy": 0.3888888888888889,
+        "ev_update_hit_rate": 0.28160919540229884,
+        "ev_coordinate_hit_rate_all": 0.28160919540229884,
+        "ev_coordinate_hit_rate_active": 0.28160919540229884,
+        "final_ev_boundary_occupancy": 0.4444444444444444,
+        "gamma_update_hit_rate": 0.27011494252873564,
+        "gamma_coordinate_hit_rate_all": 0.27011494252873564,
+        "gamma_coordinate_hit_rate_active": 0.27011494252873564,
+        "final_gamma_boundary_occupancy": 0.3333333333333333
+      },
+      "all_projected_methods": {
+        "episodes": 160,
+        "updates": 1065,
+        "final_active_coordinates": 90,
+        "final_boundary_coordinates": 30,
+        "final_ev_active_coordinates": 45,
+        "final_ev_boundary_coordinates": 17,
+        "final_gamma_active_coordinates": 45,
+        "final_gamma_boundary_coordinates": 13,
+        "hit_updates": 719,
+        "ev_hit_updates": 585,
+        "ev_coordinates": 3216,
+        "ev_coordinate_hits": 1419,
+        "ev_active_coordinates": 1308,
+        "ev_active_coordinate_hits": 459,
+        "gamma_hit_updates": 573,
+        "gamma_coordinates": 3216,
+        "gamma_coordinate_hits": 1338,
+        "gamma_active_coordinates": 1308,
+        "gamma_active_coordinate_hits": 378,
+        "projection_hit_rate": 0.6751173708920187,
+        "final_boundary_occupancy": 0.3333333333333333,
+        "ev_update_hit_rate": 0.5492957746478874,
+        "ev_coordinate_hit_rate_all": 0.4412313432835821,
+        "ev_coordinate_hit_rate_active": 0.35091743119266056,
+        "final_ev_boundary_occupancy": 0.37777777777777777,
+        "gamma_update_hit_rate": 0.5380281690140845,
+        "gamma_coordinate_hit_rate_all": 0.416044776119403,
+        "gamma_coordinate_hit_rate_active": 0.2889908256880734,
+        "final_gamma_boundary_occupancy": 0.28888888888888886
+      },
+      "bilinear2_ttt_projected": {
+        "episodes": 40,
+        "updates": 360,
+        "final_active_coordinates": 24,
+        "final_boundary_coordinates": 14,
+        "final_ev_active_coordinates": 12,
+        "final_ev_boundary_coordinates": 8,
+        "final_gamma_active_coordinates": 12,
+        "final_gamma_boundary_coordinates": 6,
+        "hit_updates": 360,
+        "ev_hit_updates": 360,
+        "ev_coordinates": 1440,
+        "ev_coordinate_hits": 1194,
+        "ev_active_coordinates": 480,
+        "ev_active_coordinate_hits": 234,
+        "gamma_hit_updates": 360,
+        "gamma_coordinates": 1440,
+        "gamma_coordinate_hits": 1125,
+        "gamma_active_coordinates": 480,
+        "gamma_active_coordinate_hits": 165,
+        "projection_hit_rate": 1.0,
+        "final_boundary_occupancy": 0.5833333333333334,
+        "ev_update_hit_rate": 1.0,
+        "ev_coordinate_hit_rate_all": 0.8291666666666667,
+        "ev_coordinate_hit_rate_active": 0.4875,
+        "final_ev_boundary_occupancy": 0.6666666666666666,
+        "gamma_update_hit_rate": 1.0,
+        "gamma_coordinate_hit_rate_all": 0.78125,
+        "gamma_coordinate_hit_rate_active": 0.34375,
+        "final_gamma_boundary_occupancy": 0.5
+      },
+      "region2_ttt_projected_1step": {
+        "episodes": 40,
+        "updates": 9,
+        "final_active_coordinates": 24,
+        "final_boundary_coordinates": 0,
+        "final_ev_active_coordinates": 12,
+        "final_ev_boundary_coordinates": 0,
+        "final_gamma_active_coordinates": 12,
+        "final_gamma_boundary_coordinates": 0,
+        "hit_updates": 0,
+        "ev_hit_updates": 0,
+        "ev_coordinates": 36,
+        "ev_coordinate_hits": 0,
+        "ev_active_coordinates": 12,
+        "ev_active_coordinate_hits": 0,
+        "gamma_hit_updates": 0,
+        "gamma_coordinates": 36,
+        "gamma_coordinate_hits": 0,
+        "gamma_active_coordinates": 12,
+        "gamma_active_coordinate_hits": 0,
+        "projection_hit_rate": 0.0,
+        "final_boundary_occupancy": 0.0,
+        "ev_update_hit_rate": 0.0,
+        "ev_coordinate_hit_rate_all": 0.0,
+        "ev_coordinate_hit_rate_active": 0.0,
+        "final_ev_boundary_occupancy": 0.0,
+        "gamma_update_hit_rate": 0.0,
+        "gamma_coordinate_hit_rate_all": 0.0,
+        "gamma_coordinate_hit_rate_active": 0.0,
+        "final_gamma_boundary_occupancy": 0.0
+      },
+      "region2_ttt_projected": {
+        "episodes": 40,
+        "updates": 348,
+        "final_active_coordinates": 24,
+        "final_boundary_coordinates": 9,
+        "final_ev_active_coordinates": 12,
+        "final_ev_boundary_coordinates": 5,
+        "final_gamma_active_coordinates": 12,
+        "final_gamma_boundary_coordinates": 4,
+        "hit_updates": 206,
+        "ev_hit_updates": 127,
+        "ev_coordinates": 1392,
+        "ev_coordinate_hits": 127,
+        "ev_active_coordinates": 468,
+        "ev_active_coordinate_hits": 127,
+        "gamma_hit_updates": 119,
+        "gamma_coordinates": 1392,
+        "gamma_coordinate_hits": 119,
+        "gamma_active_coordinates": 468,
+        "gamma_active_coordinate_hits": 119,
+        "projection_hit_rate": 0.5919540229885057,
+        "final_boundary_occupancy": 0.375,
+        "ev_update_hit_rate": 0.3649425287356322,
+        "ev_coordinate_hit_rate_all": 0.09123563218390805,
+        "ev_coordinate_hit_rate_active": 0.27136752136752135,
+        "final_ev_boundary_occupancy": 0.4166666666666667,
+        "gamma_update_hit_rate": 0.34195402298850575,
+        "gamma_coordinate_hit_rate_all": 0.08548850574712644,
+        "gamma_coordinate_hit_rate_active": 0.25427350427350426,
+        "final_gamma_boundary_occupancy": 0.3333333333333333
+      }
+    },
+    "overall": {
+      "global_ttt_projected": {
+        "episodes": 240,
+        "updates": 6529,
+        "final_active_coordinates": 404,
+        "final_boundary_coordinates": 189,
+        "final_ev_active_coordinates": 202,
+        "final_ev_boundary_coordinates": 65,
+        "final_gamma_active_coordinates": 202,
+        "final_gamma_boundary_coordinates": 124,
+        "hit_updates": 4054,
+        "ev_hit_updates": 1627,
+        "ev_coordinates": 6529,
+        "ev_coordinate_hits": 1627,
+        "ev_active_coordinates": 6529,
+        "ev_active_coordinate_hits": 1627,
+        "gamma_hit_updates": 3356,
+        "gamma_coordinates": 6529,
+        "gamma_coordinate_hits": 3356,
+        "gamma_active_coordinates": 6529,
+        "gamma_active_coordinate_hits": 3356,
+        "projection_hit_rate": 0.6209220401286568,
+        "final_boundary_occupancy": 0.46782178217821785,
+        "ev_update_hit_rate": 0.24919589523663654,
+        "ev_coordinate_hit_rate_all": 0.24919589523663654,
+        "ev_coordinate_hit_rate_active": 0.24919589523663654,
+        "final_ev_boundary_occupancy": 0.3217821782178218,
+        "gamma_update_hit_rate": 0.5140143973043345,
+        "gamma_coordinate_hit_rate_all": 0.5140143973043345,
+        "gamma_coordinate_hit_rate_active": 0.5140143973043345,
+        "final_gamma_boundary_occupancy": 0.6138613861386139
+      },
+      "all_projected_methods": {
+        "episodes": 960,
+        "updates": 19634,
+        "final_active_coordinates": 3716,
+        "final_boundary_coordinates": 1458,
+        "final_ev_active_coordinates": 1858,
+        "final_ev_boundary_coordinates": 763,
+        "final_gamma_active_coordinates": 1858,
+        "final_gamma_boundary_coordinates": 695,
+        "hit_updates": 14601,
+        "ev_hit_updates": 11944,
+        "ev_coordinates": 58949,
+        "ev_coordinate_hits": 28747,
+        "ev_active_coordinates": 44116,
+        "ev_active_coordinate_hits": 20598,
+        "gamma_hit_updates": 12564,
+        "gamma_coordinates": 58949,
+        "gamma_coordinate_hits": 25558,
+        "gamma_active_coordinates": 44116,
+        "gamma_active_coordinate_hits": 17409,
+        "projection_hit_rate": 0.7436589589487623,
+        "final_boundary_occupancy": 0.3923573735199139,
+        "ev_update_hit_rate": 0.6083324844657227,
+        "ev_coordinate_hit_rate_all": 0.48765882372898606,
+        "ev_coordinate_hit_rate_active": 0.4669054311360957,
+        "final_ev_boundary_occupancy": 0.41065662002152853,
+        "gamma_update_hit_rate": 0.6399103595803198,
+        "gamma_coordinate_hit_rate_all": 0.43356121393068586,
+        "gamma_coordinate_hit_rate_active": 0.3946187324326775,
+        "final_gamma_boundary_occupancy": 0.37405812701829927
+      },
+      "bilinear2_ttt_projected": {
+        "episodes": 240,
+        "updates": 6929,
+        "final_active_coordinates": 1104,
+        "final_boundary_coordinates": 680,
+        "final_ev_active_coordinates": 552,
+        "final_ev_boundary_coordinates": 349,
+        "final_gamma_active_coordinates": 552,
+        "final_gamma_boundary_coordinates": 331,
+        "hit_updates": 6526,
+        "ev_hit_updates": 6482,
+        "ev_coordinates": 27716,
+        "ev_coordinate_hits": 18232,
+        "ev_active_coordinates": 19567,
+        "ev_active_coordinate_hits": 10083,
+        "gamma_hit_updates": 6166,
+        "gamma_coordinates": 27716,
+        "gamma_coordinate_hits": 16556,
+        "gamma_active_coordinates": 19567,
+        "gamma_active_coordinate_hits": 8407,
+        "projection_hit_rate": 0.9418386491557224,
+        "final_boundary_occupancy": 0.6159420289855072,
+        "ev_update_hit_rate": 0.9354885264828979,
+        "ev_coordinate_hit_rate_all": 0.6578149805166691,
+        "ev_coordinate_hit_rate_active": 0.5153063831961977,
+        "final_ev_boundary_occupancy": 0.6322463768115942,
+        "gamma_update_hit_rate": 0.889883100014432,
+        "gamma_coordinate_hit_rate_all": 0.5973444941550007,
+        "gamma_coordinate_hit_rate_active": 0.429651965043185,
+        "final_gamma_boundary_occupancy": 0.5996376811594203
+      },
+      "region2_ttt_projected_1step": {
+        "episodes": 240,
+        "updates": 202,
+        "final_active_coordinates": 1104,
+        "final_boundary_coordinates": 7,
+        "final_ev_active_coordinates": 552,
+        "final_ev_boundary_coordinates": 7,
+        "final_gamma_active_coordinates": 552,
+        "final_gamma_boundary_coordinates": 0,
+        "hit_updates": 7,
+        "ev_hit_updates": 7,
+        "ev_coordinates": 808,
+        "ev_coordinate_hits": 7,
+        "ev_active_coordinates": 552,
+        "ev_active_coordinate_hits": 7,
+        "gamma_hit_updates": 0,
+        "gamma_coordinates": 808,
+        "gamma_coordinate_hits": 0,
+        "gamma_active_coordinates": 552,
+        "gamma_active_coordinate_hits": 0,
+        "projection_hit_rate": 0.034653465346534656,
+        "final_boundary_occupancy": 0.006340579710144928,
+        "ev_update_hit_rate": 0.034653465346534656,
+        "ev_coordinate_hit_rate_all": 0.008663366336633664,
+        "ev_coordinate_hit_rate_active": 0.012681159420289856,
+        "final_ev_boundary_occupancy": 0.012681159420289856,
+        "gamma_update_hit_rate": 0.0,
+        "gamma_coordinate_hit_rate_all": 0.0,
+        "gamma_coordinate_hit_rate_active": 0.0,
+        "final_gamma_boundary_occupancy": 0.0
+      },
+      "region2_ttt_projected": {
+        "episodes": 240,
+        "updates": 5974,
+        "final_active_coordinates": 1104,
+        "final_boundary_coordinates": 582,
+        "final_ev_active_coordinates": 552,
+        "final_ev_boundary_coordinates": 342,
+        "final_gamma_active_coordinates": 552,
+        "final_gamma_boundary_coordinates": 240,
+        "hit_updates": 4014,
+        "ev_hit_updates": 3828,
+        "ev_coordinates": 23896,
+        "ev_coordinate_hits": 8881,
+        "ev_active_coordinates": 17468,
+        "ev_active_coordinate_hits": 8881,
+        "gamma_hit_updates": 3042,
+        "gamma_coordinates": 23896,
+        "gamma_coordinate_hits": 5646,
+        "gamma_active_coordinates": 17468,
+        "gamma_active_coordinate_hits": 5646,
+        "projection_hit_rate": 0.6719116170070305,
+        "final_boundary_occupancy": 0.5271739130434783,
+        "ev_update_hit_rate": 0.6407766990291263,
+        "ev_coordinate_hit_rate_all": 0.3716521593572146,
+        "ev_coordinate_hit_rate_active": 0.50841538813831,
+        "final_ev_boundary_occupancy": 0.6195652173913043,
+        "gamma_update_hit_rate": 0.5092065617676599,
+        "gamma_coordinate_hit_rate_all": 0.23627385336457984,
+        "gamma_coordinate_hit_rate_active": 0.32321960155713303,
+        "final_gamma_boundary_occupancy": 0.43478260869565216
+      }
+    },
+    "homogeneous_dark": {
+      "global_ttt_projected": {
+        "episodes": 40,
+        "updates": 925,
+        "hit_updates": 618,
+        "ev_hit_updates": 618,
+        "ev_coordinates": 925,
+        "ev_coordinate_hits": 618,
+        "ev_active_coordinates": 925,
+        "ev_active_coordinate_hits": 618,
+        "gamma_hit_updates": 468,
+        "gamma_coordinates": 925,
+        "gamma_coordinate_hits": 468,
+        "gamma_active_coordinates": 925,
+        "gamma_active_coordinate_hits": 468,
+        "final_active_coordinates": 72,
+        "final_boundary_coordinates": 46,
+        "final_ev_active_coordinates": 36,
+        "final_ev_boundary_coordinates": 28,
+        "final_gamma_active_coordinates": 36,
+        "final_gamma_boundary_coordinates": 18,
+        "projection_hit_rate": 0.6681081081081081,
+        "final_boundary_occupancy": 0.6388888888888888,
+        "ev_update_hit_rate": 0.6681081081081081,
+        "ev_coordinate_hit_rate_all": 0.6681081081081081,
+        "ev_coordinate_hit_rate_active": 0.6681081081081081,
+        "final_ev_boundary_occupancy": 0.7777777777777778,
+        "gamma_update_hit_rate": 0.505945945945946,
+        "gamma_coordinate_hit_rate_all": 0.505945945945946,
+        "gamma_coordinate_hit_rate_active": 0.505945945945946,
+        "final_gamma_boundary_occupancy": 0.5
+      },
+      "all_projected_methods": {
+        "episodes": 160,
+        "updates": 2955,
+        "hit_updates": 2207,
+        "ev_hit_updates": 2207,
+        "ev_coordinates": 9045,
+        "ev_coordinate_hits": 5910,
+        "ev_active_coordinates": 7355,
+        "ev_active_coordinate_hits": 4883,
+        "gamma_hit_updates": 1891,
+        "gamma_coordinates": 9045,
+        "gamma_coordinate_hits": 4498,
+        "gamma_active_coordinates": 7355,
+        "gamma_active_coordinate_hits": 3471,
+        "final_active_coordinates": 702,
+        "final_boundary_coordinates": 328,
+        "final_ev_active_coordinates": 351,
+        "final_ev_boundary_coordinates": 189,
+        "final_gamma_active_coordinates": 351,
+        "final_gamma_boundary_coordinates": 139,
+        "projection_hit_rate": 0.7468697123519459,
+        "final_boundary_occupancy": 0.4672364672364672,
+        "ev_update_hit_rate": 0.7468697123519459,
+        "ev_coordinate_hit_rate_all": 0.6533996683250415,
+        "ev_coordinate_hit_rate_active": 0.6639021074099252,
+        "final_ev_boundary_occupancy": 0.5384615384615384,
+        "gamma_update_hit_rate": 0.6399323181049069,
+        "gamma_coordinate_hit_rate_all": 0.4972913211719182,
+        "gamma_coordinate_hit_rate_active": 0.47192386131883074,
+        "final_gamma_boundary_occupancy": 0.396011396011396
+      },
+      "bilinear2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1075,
+        "hit_updates": 968,
+        "ev_hit_updates": 968,
+        "ev_coordinates": 4300,
+        "ev_coordinate_hits": 3261,
+        "ev_active_coordinates": 3273,
+        "ev_active_coordinate_hits": 2234,
+        "gamma_hit_updates": 927,
+        "gamma_coordinates": 4300,
+        "gamma_coordinate_hits": 2683,
+        "gamma_active_coordinates": 3273,
+        "gamma_active_coordinate_hits": 1656,
+        "final_active_coordinates": 210,
+        "final_boundary_coordinates": 144,
+        "final_ev_active_coordinates": 105,
+        "final_ev_boundary_coordinates": 80,
+        "final_gamma_active_coordinates": 105,
+        "final_gamma_boundary_coordinates": 64,
+        "projection_hit_rate": 0.9004651162790698,
+        "final_boundary_occupancy": 0.6857142857142857,
+        "ev_update_hit_rate": 0.9004651162790698,
+        "ev_coordinate_hit_rate_all": 0.7583720930232558,
+        "ev_coordinate_hit_rate_active": 0.6825542315918118,
+        "final_ev_boundary_occupancy": 0.7619047619047619,
+        "gamma_update_hit_rate": 0.8623255813953489,
+        "gamma_coordinate_hit_rate_all": 0.623953488372093,
+        "gamma_coordinate_hit_rate_active": 0.5059578368469294,
+        "final_gamma_boundary_occupancy": 0.6095238095238096
+      },
+      "region2_ttt_projected_1step": {
+        "episodes": 40,
+        "updates": 36,
+        "hit_updates": 0,
+        "ev_hit_updates": 0,
+        "ev_coordinates": 144,
+        "ev_coordinate_hits": 0,
+        "ev_active_coordinates": 105,
+        "ev_active_coordinate_hits": 0,
+        "gamma_hit_updates": 0,
+        "gamma_coordinates": 144,
+        "gamma_coordinate_hits": 0,
+        "gamma_active_coordinates": 105,
+        "gamma_active_coordinate_hits": 0,
+        "final_active_coordinates": 210,
+        "final_boundary_coordinates": 0,
+        "final_ev_active_coordinates": 105,
+        "final_ev_boundary_coordinates": 0,
+        "final_gamma_active_coordinates": 105,
+        "final_gamma_boundary_coordinates": 0,
+        "projection_hit_rate": 0.0,
+        "final_boundary_occupancy": 0.0,
+        "ev_update_hit_rate": 0.0,
+        "ev_coordinate_hit_rate_all": 0.0,
+        "ev_coordinate_hit_rate_active": 0.0,
+        "final_ev_boundary_occupancy": 0.0,
+        "gamma_update_hit_rate": 0.0,
+        "gamma_coordinate_hit_rate_all": 0.0,
+        "gamma_coordinate_hit_rate_active": 0.0,
+        "final_gamma_boundary_occupancy": 0.0
+      },
+      "region2_ttt_projected": {
+        "episodes": 40,
+        "updates": 919,
+        "hit_updates": 621,
+        "ev_hit_updates": 621,
+        "ev_coordinates": 3676,
+        "ev_coordinate_hits": 2031,
+        "ev_active_coordinates": 3052,
+        "ev_active_coordinate_hits": 2031,
+        "gamma_hit_updates": 496,
+        "gamma_coordinates": 3676,
+        "gamma_coordinate_hits": 1347,
+        "gamma_active_coordinates": 3052,
+        "gamma_active_coordinate_hits": 1347,
+        "final_active_coordinates": 210,
+        "final_boundary_coordinates": 138,
+        "final_ev_active_coordinates": 105,
+        "final_ev_boundary_coordinates": 81,
+        "final_gamma_active_coordinates": 105,
+        "final_gamma_boundary_coordinates": 57,
+        "projection_hit_rate": 0.675734494015234,
+        "final_boundary_occupancy": 0.6571428571428571,
+        "ev_update_hit_rate": 0.675734494015234,
+        "ev_coordinate_hit_rate_all": 0.5525027203482046,
+        "ev_coordinate_hit_rate_active": 0.6654652686762779,
+        "final_ev_boundary_occupancy": 0.7714285714285715,
+        "gamma_update_hit_rate": 0.5397170837867247,
+        "gamma_coordinate_hit_rate_all": 0.3664309031556039,
+        "gamma_coordinate_hit_rate_active": 0.4413499344692005,
+        "final_gamma_boundary_occupancy": 0.5428571428571428
+      }
+    },
+    "homogeneous_bright": {
+      "global_ttt_projected": {
+        "episodes": 40,
+        "updates": 1172,
+        "hit_updates": 596,
+        "ev_hit_updates": 512,
+        "ev_coordinates": 1172,
+        "ev_coordinate_hits": 512,
+        "ev_active_coordinates": 1172,
+        "ev_active_coordinate_hits": 512,
+        "gamma_hit_updates": 254,
+        "gamma_coordinates": 1172,
+        "gamma_coordinate_hits": 254,
+        "gamma_active_coordinates": 1172,
+        "gamma_active_coordinate_hits": 254,
+        "final_active_coordinates": 78,
+        "final_boundary_coordinates": 31,
+        "final_ev_active_coordinates": 39,
+        "final_ev_boundary_coordinates": 19,
+        "final_gamma_active_coordinates": 39,
+        "final_gamma_boundary_coordinates": 12,
+        "projection_hit_rate": 0.5085324232081911,
+        "final_boundary_occupancy": 0.3974358974358974,
+        "ev_update_hit_rate": 0.43686006825938567,
+        "ev_coordinate_hit_rate_all": 0.43686006825938567,
+        "ev_coordinate_hit_rate_active": 0.43686006825938567,
+        "final_ev_boundary_occupancy": 0.48717948717948717,
+        "gamma_update_hit_rate": 0.2167235494880546,
+        "gamma_coordinate_hit_rate_all": 0.2167235494880546,
+        "gamma_coordinate_hit_rate_active": 0.2167235494880546,
+        "final_gamma_boundary_occupancy": 0.3076923076923077
+      },
+      "all_projected_methods": {
+        "episodes": 160,
+        "updates": 3571,
+        "hit_updates": 2310,
+        "ev_hit_updates": 2154,
+        "ev_coordinates": 10768,
+        "ev_coordinate_hits": 4368,
+        "ev_active_coordinates": 8687,
+        "ev_active_coordinate_hits": 3325,
+        "gamma_hit_updates": 1640,
+        "gamma_coordinates": 10768,
+        "gamma_coordinate_hits": 3009,
+        "gamma_active_coordinates": 8687,
+        "gamma_active_coordinate_hits": 1966,
+        "final_active_coordinates": 774,
+        "final_boundary_coordinates": 221,
+        "final_ev_active_coordinates": 387,
+        "final_ev_boundary_coordinates": 132,
+        "final_gamma_active_coordinates": 387,
+        "final_gamma_boundary_coordinates": 89,
+        "projection_hit_rate": 0.6468776253150378,
+        "final_boundary_occupancy": 0.28552971576227393,
+        "ev_update_hit_rate": 0.6031923830859703,
+        "ev_coordinate_hit_rate_all": 0.40564635958395245,
+        "ev_coordinate_hit_rate_active": 0.3827558420628525,
+        "final_ev_boundary_occupancy": 0.34108527131782945,
+        "gamma_update_hit_rate": 0.4592551106132736,
+        "gamma_coordinate_hit_rate_all": 0.27943907875185736,
+        "gamma_coordinate_hit_rate_active": 0.22631518360768965,
+        "final_gamma_boundary_occupancy": 0.22997416020671835
+      },
+      "bilinear2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1194,
+        "hit_updates": 991,
+        "ev_hit_updates": 968,
+        "ev_coordinates": 4776,
+        "ev_coordinate_hits": 2479,
+        "ev_active_coordinates": 3733,
+        "ev_active_coordinate_hits": 1436,
+        "gamma_hit_updates": 896,
+        "gamma_coordinates": 4776,
+        "gamma_coordinate_hits": 2017,
+        "gamma_active_coordinates": 3733,
+        "gamma_active_coordinate_hits": 974,
+        "final_active_coordinates": 232,
+        "final_boundary_coordinates": 98,
+        "final_ev_active_coordinates": 116,
+        "final_ev_boundary_coordinates": 55,
+        "final_gamma_active_coordinates": 116,
+        "final_gamma_boundary_coordinates": 43,
+        "projection_hit_rate": 0.8299832495812395,
+        "final_boundary_occupancy": 0.4224137931034483,
+        "ev_update_hit_rate": 0.8107202680067002,
+        "ev_coordinate_hit_rate_all": 0.5190536013400335,
+        "ev_coordinate_hit_rate_active": 0.38467720332172517,
+        "final_ev_boundary_occupancy": 0.47413793103448276,
+        "gamma_update_hit_rate": 0.7504187604690117,
+        "gamma_coordinate_hit_rate_all": 0.42231993299832493,
+        "gamma_coordinate_hit_rate_active": 0.2609161532279668,
+        "final_gamma_boundary_occupancy": 0.3706896551724138
+      },
+      "region2_ttt_projected_1step": {
+        "episodes": 40,
+        "updates": 39,
+        "hit_updates": 1,
+        "ev_hit_updates": 1,
+        "ev_coordinates": 156,
+        "ev_coordinate_hits": 1,
+        "ev_active_coordinates": 116,
+        "ev_active_coordinate_hits": 1,
+        "gamma_hit_updates": 0,
+        "gamma_coordinates": 156,
+        "gamma_coordinate_hits": 0,
+        "gamma_active_coordinates": 116,
+        "gamma_active_coordinate_hits": 0,
+        "final_active_coordinates": 232,
+        "final_boundary_coordinates": 1,
+        "final_ev_active_coordinates": 116,
+        "final_ev_boundary_coordinates": 1,
+        "final_gamma_active_coordinates": 116,
+        "final_gamma_boundary_coordinates": 0,
+        "projection_hit_rate": 0.02564102564102564,
+        "final_boundary_occupancy": 0.004310344827586207,
+        "ev_update_hit_rate": 0.02564102564102564,
+        "ev_coordinate_hit_rate_all": 0.00641025641025641,
+        "ev_coordinate_hit_rate_active": 0.008620689655172414,
+        "final_ev_boundary_occupancy": 0.008620689655172414,
+        "gamma_update_hit_rate": 0.0,
+        "gamma_coordinate_hit_rate_all": 0.0,
+        "gamma_coordinate_hit_rate_active": 0.0,
+        "final_gamma_boundary_occupancy": 0.0
+      },
+      "region2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1166,
+        "hit_updates": 722,
+        "ev_hit_updates": 673,
+        "ev_coordinates": 4664,
+        "ev_coordinate_hits": 1376,
+        "ev_active_coordinates": 3666,
+        "ev_active_coordinate_hits": 1376,
+        "gamma_hit_updates": 490,
+        "gamma_coordinates": 4664,
+        "gamma_coordinate_hits": 738,
+        "gamma_active_coordinates": 3666,
+        "gamma_active_coordinate_hits": 738,
+        "final_active_coordinates": 232,
+        "final_boundary_coordinates": 91,
+        "final_ev_active_coordinates": 116,
+        "final_ev_boundary_coordinates": 57,
+        "final_gamma_active_coordinates": 116,
+        "final_gamma_boundary_coordinates": 34,
+        "projection_hit_rate": 0.6192109777015438,
+        "final_boundary_occupancy": 0.3922413793103448,
+        "ev_update_hit_rate": 0.5771869639794168,
+        "ev_coordinate_hit_rate_all": 0.2950257289879931,
+        "ev_coordinate_hit_rate_active": 0.37534097108565195,
+        "final_ev_boundary_occupancy": 0.49137931034482757,
+        "gamma_update_hit_rate": 0.4202401372212693,
+        "gamma_coordinate_hit_rate_all": 0.15823327615780447,
+        "gamma_coordinate_hit_rate_active": 0.20130932896890344,
+        "final_gamma_boundary_occupancy": 0.29310344827586204
+      }
+    },
+    "left_right": {
+      "global_ttt_projected": {
+        "episodes": 40,
+        "updates": 1378,
+        "hit_updates": 915,
+        "ev_hit_updates": 94,
+        "ev_coordinates": 1378,
+        "ev_coordinate_hits": 94,
+        "ev_active_coordinates": 1378,
+        "ev_active_coordinate_hits": 94,
+        "gamma_hit_updates": 905,
+        "gamma_coordinates": 1378,
+        "gamma_coordinate_hits": 905,
+        "gamma_active_coordinates": 1378,
+        "gamma_active_coordinate_hits": 905,
+        "final_active_coordinates": 80,
+        "final_boundary_coordinates": 35,
+        "final_ev_active_coordinates": 40,
+        "final_ev_boundary_coordinates": 3,
+        "final_gamma_active_coordinates": 40,
+        "final_gamma_boundary_coordinates": 32,
+        "projection_hit_rate": 0.6640058055152395,
+        "final_boundary_occupancy": 0.4375,
+        "ev_update_hit_rate": 0.06821480406386067,
+        "ev_coordinate_hit_rate_all": 0.06821480406386067,
+        "ev_coordinate_hit_rate_active": 0.06821480406386067,
+        "final_ev_boundary_occupancy": 0.075,
+        "gamma_update_hit_rate": 0.6567489114658926,
+        "gamma_coordinate_hit_rate_all": 0.6567489114658926,
+        "gamma_coordinate_hit_rate_active": 0.6567489114658926,
+        "final_gamma_boundary_occupancy": 0.8
+      },
+      "all_projected_methods": {
+        "episodes": 160,
+        "updates": 3993,
+        "hit_updates": 3069,
+        "ev_hit_updates": 2239,
+        "ev_coordinates": 11838,
+        "ev_coordinate_hits": 5634,
+        "ev_active_coordinates": 9280,
+        "ev_active_coordinate_hits": 4175,
+        "gamma_hit_updates": 2798,
+        "gamma_coordinates": 11838,
+        "gamma_coordinate_hits": 5415,
+        "gamma_active_coordinates": 9280,
+        "gamma_active_coordinate_hits": 3956,
+        "final_active_coordinates": 758,
+        "final_boundary_coordinates": 307,
+        "final_ev_active_coordinates": 379,
+        "final_ev_boundary_coordinates": 150,
+        "final_gamma_active_coordinates": 379,
+        "final_gamma_boundary_coordinates": 157,
+        "projection_hit_rate": 0.768595041322314,
+        "final_boundary_occupancy": 0.4050131926121372,
+        "ev_update_hit_rate": 0.5607312797395442,
+        "ev_coordinate_hit_rate_all": 0.4759249873289407,
+        "ev_coordinate_hit_rate_active": 0.44989224137931033,
+        "final_ev_boundary_occupancy": 0.39577836411609496,
+        "gamma_update_hit_rate": 0.7007262709742048,
+        "gamma_coordinate_hit_rate_all": 0.4574252407501267,
+        "gamma_coordinate_hit_rate_active": 0.42629310344827587,
+        "final_gamma_boundary_occupancy": 0.41424802110817943
+      },
+      "bilinear2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1412,
+        "hit_updates": 1369,
+        "ev_hit_updates": 1360,
+        "ev_coordinates": 5648,
+        "ev_coordinate_hits": 3654,
+        "ev_active_coordinates": 4189,
+        "ev_active_coordinate_hits": 2195,
+        "gamma_hit_updates": 1259,
+        "gamma_coordinates": 5648,
+        "gamma_coordinate_hits": 3273,
+        "gamma_active_coordinates": 4189,
+        "gamma_active_coordinate_hits": 1814,
+        "final_active_coordinates": 226,
+        "final_boundary_coordinates": 149,
+        "final_ev_active_coordinates": 113,
+        "final_ev_boundary_coordinates": 76,
+        "final_gamma_active_coordinates": 113,
+        "final_gamma_boundary_coordinates": 73,
+        "projection_hit_rate": 0.9695467422096318,
+        "final_boundary_occupancy": 0.6592920353982301,
+        "ev_update_hit_rate": 0.9631728045325779,
+        "ev_coordinate_hit_rate_all": 0.6469546742209632,
+        "ev_coordinate_hit_rate_active": 0.5239914060634996,
+        "final_ev_boundary_occupancy": 0.672566371681416,
+        "gamma_update_hit_rate": 0.8916430594900849,
+        "gamma_coordinate_hit_rate_all": 0.5794971671388102,
+        "gamma_coordinate_hit_rate_active": 0.43303891143470996,
+        "final_gamma_boundary_occupancy": 0.6460176991150443
+      },
+      "region2_ttt_projected_1step": {
+        "episodes": 40,
+        "updates": 40,
+        "hit_updates": 0,
+        "ev_hit_updates": 0,
+        "ev_coordinates": 160,
+        "ev_coordinate_hits": 0,
+        "ev_active_coordinates": 113,
+        "ev_active_coordinate_hits": 0,
+        "gamma_hit_updates": 0,
+        "gamma_coordinates": 160,
+        "gamma_coordinate_hits": 0,
+        "gamma_active_coordinates": 113,
+        "gamma_active_coordinate_hits": 0,
+        "final_active_coordinates": 226,
+        "final_boundary_coordinates": 0,
+        "final_ev_active_coordinates": 113,
+        "final_ev_boundary_coordinates": 0,
+        "final_gamma_active_coordinates": 113,
+        "final_gamma_boundary_coordinates": 0,
+        "projection_hit_rate": 0.0,
+        "final_boundary_occupancy": 0.0,
+        "ev_update_hit_rate": 0.0,
+        "ev_coordinate_hit_rate_all": 0.0,
+        "ev_coordinate_hit_rate_active": 0.0,
+        "final_ev_boundary_occupancy": 0.0,
+        "gamma_update_hit_rate": 0.0,
+        "gamma_coordinate_hit_rate_all": 0.0,
+        "gamma_coordinate_hit_rate_active": 0.0,
+        "final_gamma_boundary_occupancy": 0.0
+      },
+      "region2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1163,
+        "hit_updates": 785,
+        "ev_hit_updates": 785,
+        "ev_coordinates": 4652,
+        "ev_coordinate_hits": 1886,
+        "ev_active_coordinates": 3600,
+        "ev_active_coordinate_hits": 1886,
+        "gamma_hit_updates": 634,
+        "gamma_coordinates": 4652,
+        "gamma_coordinate_hits": 1237,
+        "gamma_active_coordinates": 3600,
+        "gamma_active_coordinate_hits": 1237,
+        "final_active_coordinates": 226,
+        "final_boundary_coordinates": 123,
+        "final_ev_active_coordinates": 113,
+        "final_ev_boundary_coordinates": 71,
+        "final_gamma_active_coordinates": 113,
+        "final_gamma_boundary_coordinates": 52,
+        "projection_hit_rate": 0.6749785038693035,
+        "final_boundary_occupancy": 0.5442477876106194,
+        "ev_update_hit_rate": 0.6749785038693035,
+        "ev_coordinate_hit_rate_all": 0.4054170249355116,
+        "ev_coordinate_hit_rate_active": 0.5238888888888888,
+        "final_ev_boundary_occupancy": 0.6283185840707964,
+        "gamma_update_hit_rate": 0.5451418744625968,
+        "gamma_coordinate_hit_rate_all": 0.26590713671539123,
+        "gamma_coordinate_hit_rate_active": 0.3436111111111111,
+        "final_gamma_boundary_occupancy": 0.46017699115044247
+      }
+    },
+    "quadrants": {
+      "global_ttt_projected": {
+        "episodes": 40,
+        "updates": 1456,
+        "hit_updates": 973,
+        "ev_hit_updates": 64,
+        "ev_coordinates": 1456,
+        "ev_coordinate_hits": 64,
+        "ev_active_coordinates": 1456,
+        "ev_active_coordinate_hits": 64,
+        "gamma_hit_updates": 945,
+        "gamma_coordinates": 1456,
+        "gamma_coordinate_hits": 945,
+        "gamma_active_coordinates": 1456,
+        "gamma_active_coordinate_hits": 945,
+        "final_active_coordinates": 80,
+        "final_boundary_coordinates": 36,
+        "final_ev_active_coordinates": 40,
+        "final_ev_boundary_coordinates": 2,
+        "final_gamma_active_coordinates": 40,
+        "final_gamma_boundary_coordinates": 34,
+        "projection_hit_rate": 0.6682692307692307,
+        "final_boundary_occupancy": 0.45,
+        "ev_update_hit_rate": 0.04395604395604396,
+        "ev_coordinate_hit_rate_all": 0.04395604395604396,
+        "ev_coordinate_hit_rate_active": 0.04395604395604396,
+        "final_ev_boundary_occupancy": 0.05,
+        "gamma_update_hit_rate": 0.6490384615384616,
+        "gamma_coordinate_hit_rate_all": 0.6490384615384616,
+        "gamma_coordinate_hit_rate_active": 0.6490384615384616,
+        "final_gamma_boundary_occupancy": 0.85
+      },
+      "all_projected_methods": {
+        "episodes": 160,
+        "updates": 4202,
+        "hit_updates": 3268,
+        "ev_hit_updates": 2347,
+        "ev_coordinates": 12440,
+        "ev_coordinate_hits": 5950,
+        "ev_active_coordinates": 9510,
+        "ev_active_coordinate_hits": 4169,
+        "gamma_hit_updates": 3018,
+        "gamma_coordinates": 12440,
+        "gamma_coordinate_hits": 6132,
+        "gamma_active_coordinates": 9510,
+        "gamma_active_coordinate_hits": 4351,
+        "final_active_coordinates": 764,
+        "final_boundary_coordinates": 317,
+        "final_ev_active_coordinates": 382,
+        "final_ev_boundary_coordinates": 147,
+        "final_gamma_active_coordinates": 382,
+        "final_gamma_boundary_coordinates": 170,
+        "projection_hit_rate": 0.777724892908139,
+        "final_boundary_occupancy": 0.41492146596858637,
+        "ev_update_hit_rate": 0.5585435506901475,
+        "ev_coordinate_hit_rate_all": 0.4782958199356913,
+        "ev_coordinate_hit_rate_active": 0.4383806519453207,
+        "final_ev_boundary_occupancy": 0.38481675392670156,
+        "gamma_update_hit_rate": 0.7182294145644931,
+        "gamma_coordinate_hit_rate_all": 0.4929260450160772,
+        "gamma_coordinate_hit_rate_active": 0.4575184016824395,
+        "final_gamma_boundary_occupancy": 0.44502617801047123
+      },
+      "bilinear2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1577,
+        "hit_updates": 1534,
+        "ev_hit_updates": 1522,
+        "ev_coordinates": 6308,
+        "ev_coordinate_hits": 4102,
+        "ev_active_coordinates": 4527,
+        "ev_active_coordinate_hits": 2321,
+        "gamma_hit_updates": 1461,
+        "gamma_coordinates": 6308,
+        "gamma_coordinate_hits": 4072,
+        "gamma_active_coordinates": 4527,
+        "gamma_active_coordinate_hits": 2291,
+        "final_active_coordinates": 228,
+        "final_boundary_coordinates": 163,
+        "final_ev_active_coordinates": 114,
+        "final_ev_boundary_coordinates": 76,
+        "final_gamma_active_coordinates": 114,
+        "final_gamma_boundary_coordinates": 87,
+        "projection_hit_rate": 0.9727330374128091,
+        "final_boundary_occupancy": 0.7149122807017544,
+        "ev_update_hit_rate": 0.9651236525047558,
+        "ev_coordinate_hit_rate_all": 0.650285351934052,
+        "ev_coordinate_hit_rate_active": 0.5127015683675723,
+        "final_ev_boundary_occupancy": 0.6666666666666666,
+        "gamma_update_hit_rate": 0.9264426125554851,
+        "gamma_coordinate_hit_rate_all": 0.6455294863665187,
+        "gamma_coordinate_hit_rate_active": 0.5060746631323172,
+        "final_gamma_boundary_occupancy": 0.7631578947368421
+      },
+      "region2_ttt_projected_1step": {
+        "episodes": 40,
+        "updates": 40,
+        "hit_updates": 0,
+        "ev_hit_updates": 0,
+        "ev_coordinates": 160,
+        "ev_coordinate_hits": 0,
+        "ev_active_coordinates": 114,
+        "ev_active_coordinate_hits": 0,
+        "gamma_hit_updates": 0,
+        "gamma_coordinates": 160,
+        "gamma_coordinate_hits": 0,
+        "gamma_active_coordinates": 114,
+        "gamma_active_coordinate_hits": 0,
+        "final_active_coordinates": 228,
+        "final_boundary_coordinates": 0,
+        "final_ev_active_coordinates": 114,
+        "final_ev_boundary_coordinates": 0,
+        "final_gamma_active_coordinates": 114,
+        "final_gamma_boundary_coordinates": 0,
+        "projection_hit_rate": 0.0,
+        "final_boundary_occupancy": 0.0,
+        "ev_update_hit_rate": 0.0,
+        "ev_coordinate_hit_rate_all": 0.0,
+        "ev_coordinate_hit_rate_active": 0.0,
+        "final_ev_boundary_occupancy": 0.0,
+        "gamma_update_hit_rate": 0.0,
+        "gamma_coordinate_hit_rate_all": 0.0,
+        "gamma_coordinate_hit_rate_active": 0.0,
+        "final_gamma_boundary_occupancy": 0.0
+      },
+      "region2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1129,
+        "hit_updates": 761,
+        "ev_hit_updates": 761,
+        "ev_coordinates": 4516,
+        "ev_coordinate_hits": 1784,
+        "ev_active_coordinates": 3413,
+        "ev_active_coordinate_hits": 1784,
+        "gamma_hit_updates": 612,
+        "gamma_coordinates": 4516,
+        "gamma_coordinate_hits": 1115,
+        "gamma_active_coordinates": 3413,
+        "gamma_active_coordinate_hits": 1115,
+        "final_active_coordinates": 228,
+        "final_boundary_coordinates": 118,
+        "final_ev_active_coordinates": 114,
+        "final_ev_boundary_coordinates": 69,
+        "final_gamma_active_coordinates": 114,
+        "final_gamma_boundary_coordinates": 49,
+        "projection_hit_rate": 0.6740478299379983,
+        "final_boundary_occupancy": 0.5175438596491229,
+        "ev_update_hit_rate": 0.6740478299379983,
+        "ev_coordinate_hit_rate_all": 0.3950398582816652,
+        "ev_coordinate_hit_rate_active": 0.5227072956343393,
+        "final_ev_boundary_occupancy": 0.6052631578947368,
+        "gamma_update_hit_rate": 0.54207263064659,
+        "gamma_coordinate_hit_rate_all": 0.24689991142604073,
+        "gamma_coordinate_hit_rate_active": 0.32669205977146204,
+        "final_gamma_boundary_occupancy": 0.4298245614035088
+      }
+    },
+    "offset_left_right_40": {
+      "global_ttt_projected": {
+        "episodes": 40,
+        "updates": 1250,
+        "hit_updates": 799,
+        "ev_hit_updates": 241,
+        "ev_coordinates": 1250,
+        "ev_coordinate_hits": 241,
+        "ev_active_coordinates": 1250,
+        "ev_active_coordinate_hits": 241,
+        "gamma_hit_updates": 690,
+        "gamma_coordinates": 1250,
+        "gamma_coordinate_hits": 690,
+        "gamma_active_coordinates": 1250,
+        "gamma_active_coordinate_hits": 690,
+        "final_active_coordinates": 76,
+        "final_boundary_coordinates": 34,
+        "final_ev_active_coordinates": 38,
+        "final_ev_boundary_coordinates": 9,
+        "final_gamma_active_coordinates": 38,
+        "final_gamma_boundary_coordinates": 25,
+        "projection_hit_rate": 0.6392,
+        "final_boundary_occupancy": 0.4473684210526316,
+        "ev_update_hit_rate": 0.1928,
+        "ev_coordinate_hit_rate_all": 0.1928,
+        "ev_coordinate_hit_rate_active": 0.1928,
+        "final_ev_boundary_occupancy": 0.23684210526315788,
+        "gamma_update_hit_rate": 0.552,
+        "gamma_coordinate_hit_rate_all": 0.552,
+        "gamma_coordinate_hit_rate_active": 0.552,
+        "final_gamma_boundary_occupancy": 0.6578947368421053
+      },
+      "all_projected_methods": {
+        "episodes": 160,
+        "updates": 3848,
+        "hit_updates": 3028,
+        "ev_hit_updates": 2412,
+        "ev_coordinates": 11642,
+        "ev_coordinate_hits": 5466,
+        "ev_active_coordinates": 7976,
+        "ev_active_coordinate_hits": 3587,
+        "gamma_hit_updates": 2644,
+        "gamma_coordinates": 11642,
+        "gamma_coordinate_hits": 5166,
+        "gamma_active_coordinates": 7976,
+        "gamma_active_coordinate_hits": 3287,
+        "final_active_coordinates": 628,
+        "final_boundary_coordinates": 255,
+        "final_ev_active_coordinates": 314,
+        "final_ev_boundary_coordinates": 128,
+        "final_gamma_active_coordinates": 314,
+        "final_gamma_boundary_coordinates": 127,
+        "projection_hit_rate": 0.7869022869022869,
+        "final_boundary_occupancy": 0.40605095541401276,
+        "ev_update_hit_rate": 0.6268191268191268,
+        "ev_coordinate_hit_rate_all": 0.4695069575674283,
+        "ev_coordinate_hit_rate_active": 0.44972417251755265,
+        "final_ev_boundary_occupancy": 0.40764331210191085,
+        "gamma_update_hit_rate": 0.6871101871101871,
+        "gamma_coordinate_hit_rate_all": 0.4437381893145508,
+        "gamma_coordinate_hit_rate_active": 0.412111334002006,
+        "final_gamma_boundary_occupancy": 0.40445859872611467
+      },
+      "bilinear2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1311,
+        "hit_updates": 1304,
+        "ev_hit_updates": 1304,
+        "ev_coordinates": 5244,
+        "ev_coordinate_hits": 3542,
+        "ev_active_coordinates": 3365,
+        "ev_active_coordinate_hits": 1663,
+        "gamma_hit_updates": 1263,
+        "gamma_coordinates": 5244,
+        "gamma_coordinate_hits": 3386,
+        "gamma_active_coordinates": 3365,
+        "gamma_active_coordinate_hits": 1507,
+        "final_active_coordinates": 184,
+        "final_boundary_coordinates": 112,
+        "final_ev_active_coordinates": 92,
+        "final_ev_boundary_coordinates": 54,
+        "final_gamma_active_coordinates": 92,
+        "final_gamma_boundary_coordinates": 58,
+        "projection_hit_rate": 0.9946605644546148,
+        "final_boundary_occupancy": 0.6086956521739131,
+        "ev_update_hit_rate": 0.9946605644546148,
+        "ev_coordinate_hit_rate_all": 0.6754385964912281,
+        "ev_coordinate_hit_rate_active": 0.49420505200594356,
+        "final_ev_boundary_occupancy": 0.5869565217391305,
+        "gamma_update_hit_rate": 0.9633867276887872,
+        "gamma_coordinate_hit_rate_all": 0.6456903127383676,
+        "gamma_coordinate_hit_rate_active": 0.44784546805349185,
+        "final_gamma_boundary_occupancy": 0.6304347826086957
+      },
+      "region2_ttt_projected_1step": {
+        "episodes": 40,
+        "updates": 38,
+        "hit_updates": 6,
+        "ev_hit_updates": 6,
+        "ev_coordinates": 152,
+        "ev_coordinate_hits": 6,
+        "ev_active_coordinates": 92,
+        "ev_active_coordinate_hits": 6,
+        "gamma_hit_updates": 0,
+        "gamma_coordinates": 152,
+        "gamma_coordinate_hits": 0,
+        "gamma_active_coordinates": 92,
+        "gamma_active_coordinate_hits": 0,
+        "final_active_coordinates": 184,
+        "final_boundary_coordinates": 6,
+        "final_ev_active_coordinates": 92,
+        "final_ev_boundary_coordinates": 6,
+        "final_gamma_active_coordinates": 92,
+        "final_gamma_boundary_coordinates": 0,
+        "projection_hit_rate": 0.15789473684210525,
+        "final_boundary_occupancy": 0.03260869565217391,
+        "ev_update_hit_rate": 0.15789473684210525,
+        "ev_coordinate_hit_rate_all": 0.039473684210526314,
+        "ev_coordinate_hit_rate_active": 0.06521739130434782,
+        "final_ev_boundary_occupancy": 0.06521739130434782,
+        "gamma_update_hit_rate": 0.0,
+        "gamma_coordinate_hit_rate_all": 0.0,
+        "gamma_coordinate_hit_rate_active": 0.0,
+        "final_gamma_boundary_occupancy": 0.0
+      },
+      "region2_ttt_projected": {
+        "episodes": 40,
+        "updates": 1249,
+        "hit_updates": 919,
+        "ev_hit_updates": 861,
+        "ev_coordinates": 4996,
+        "ev_coordinate_hits": 1677,
+        "ev_active_coordinates": 3269,
+        "ev_active_coordinate_hits": 1677,
+        "gamma_hit_updates": 691,
+        "gamma_coordinates": 4996,
+        "gamma_coordinate_hits": 1090,
+        "gamma_active_coordinates": 3269,
+        "gamma_active_coordinate_hits": 1090,
+        "final_active_coordinates": 184,
+        "final_boundary_coordinates": 103,
+        "final_ev_active_coordinates": 92,
+        "final_ev_boundary_coordinates": 59,
+        "final_gamma_active_coordinates": 92,
+        "final_gamma_boundary_coordinates": 44,
+        "projection_hit_rate": 0.7357886309047238,
+        "final_boundary_occupancy": 0.5597826086956522,
+        "ev_update_hit_rate": 0.6893514811849479,
+        "ev_coordinate_hit_rate_all": 0.3356685348278623,
+        "ev_coordinate_hit_rate_active": 0.5130009177118385,
+        "final_ev_boundary_occupancy": 0.6413043478260869,
+        "gamma_update_hit_rate": 0.5532425940752602,
+        "gamma_coordinate_hit_rate_all": 0.21817453963170536,
+        "gamma_coordinate_hit_rate_active": 0.33343530131538696,
+        "final_gamma_boundary_occupancy": 0.4782608695652174
+      }
+    }
+  },
+  "global_original_gate": {
+    "clean": {
+      "no_active": 31,
+      "inputs": 40,
+      "agree_dark": 2,
+      "agree_bright": 7,
+      "agree_dark_fraction": 0.05,
+      "agree_bright_fraction": 0.175,
+      "conflict_fraction": 0.0,
+      "no_active_fraction": 0.775
+    },
+    "overall": {
+      "no_active": 38,
+      "inputs": 240,
+      "agree_dark": 48,
+      "agree_bright": 74,
+      "conflict": 80,
+      "agree_dark_fraction": 0.2,
+      "agree_bright_fraction": 0.30833333333333335,
+      "conflict_fraction": 0.3333333333333333,
+      "no_active_fraction": 0.15833333333333333
+    },
+    "homogeneous_dark": {
+      "agree_dark": 36,
+      "inputs": 40,
+      "no_active": 4,
+      "agree_dark_fraction": 0.9,
+      "agree_bright_fraction": 0.0,
+      "conflict_fraction": 0.0,
+      "no_active_fraction": 0.1
+    },
+    "homogeneous_bright": {
+      "agree_bright": 39,
+      "inputs": 40,
+      "no_active": 1,
+      "agree_dark_fraction": 0.0,
+      "agree_bright_fraction": 0.975,
+      "conflict_fraction": 0.0,
+      "no_active_fraction": 0.025
+    },
+    "left_right": {
+      "conflict": 29,
+      "inputs": 40,
+      "agree_bright": 6,
+      "agree_dark": 5,
+      "agree_dark_fraction": 0.125,
+      "agree_bright_fraction": 0.15,
+      "conflict_fraction": 0.725,
+      "no_active_fraction": 0.0
+    },
+    "quadrants": {
+      "agree_bright": 6,
+      "inputs": 40,
+      "conflict": 32,
+      "agree_dark": 2,
+      "agree_dark_fraction": 0.05,
+      "agree_bright_fraction": 0.15,
+      "conflict_fraction": 0.8,
+      "no_active_fraction": 0.0
+    },
+    "offset_left_right_40": {
+      "conflict": 19,
+      "inputs": 40,
+      "agree_dark": 3,
+      "agree_bright": 16,
+      "no_active": 2,
+      "agree_dark_fraction": 0.075,
+      "agree_bright_fraction": 0.4,
+      "conflict_fraction": 0.475,
+      "no_active_fraction": 0.05
+    }
+  },
+  "one_step_vs_full": {
+    "clean": {
+      "count": 40,
+      "mean_one_step_minus_full_mse": -0.0009287848079907235,
+      "median_one_step_minus_full_mse": 0.0,
+      "one_step_better_count": 9,
+      "equal_count": 31
+    },
+    "homogeneous_dark": {
+      "count": 40,
+      "mean_one_step_minus_full_mse": 0.03199692974303616,
+      "median_one_step_minus_full_mse": 0.02688266895711422,
+      "one_step_better_count": 0,
+      "equal_count": 4
+    },
+    "homogeneous_bright": {
+      "count": 40,
+      "mean_one_step_minus_full_mse": 0.014404491649474948,
+      "median_one_step_minus_full_mse": 0.013831858523190022,
+      "one_step_better_count": 3,
+      "equal_count": 1
+    },
+    "left_right": {
+      "count": 40,
+      "mean_one_step_minus_full_mse": 0.024836412642616778,
+      "median_one_step_minus_full_mse": 0.022242498584091663,
+      "one_step_better_count": 0,
+      "equal_count": 0
+    },
+    "quadrants": {
+      "count": 40,
+      "mean_one_step_minus_full_mse": 0.025329437537584452,
+      "median_one_step_minus_full_mse": 0.02213747752830386,
+      "one_step_better_count": 1,
+      "equal_count": 0
+    },
+    "heterogeneous": {
+      "count": 80,
+      "mean_one_step_minus_full_mse": 0.025082925090100617,
+      "median_one_step_minus_full_mse": 0.02213747752830386,
+      "one_step_better_count": 1,
+      "equal_count": 0
+    },
+    "offset_left_right_40": {
+      "count": 40,
+      "mean_one_step_minus_full_mse": 0.010735318227671087,
+      "median_one_step_minus_full_mse": 0.010837351903319359,
+      "one_step_better_count": 3,
+      "equal_count": 2
+    }
+  },
+  "paired_one_step_differences": [
+    {
+      "image_id": 8211,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 8211,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.0075875818729400635
+    },
+    {
+      "image_id": 8211,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.02702096290886402
+    },
+    {
+      "image_id": 8211,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.022737471386790276
+    },
+    {
+      "image_id": 8211,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.011668190360069275
+    },
+    {
+      "image_id": 8211,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.016694456338882446
+    },
+    {
+      "image_id": 8277,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 8277,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.008258037269115448
+    },
+    {
+      "image_id": 8277,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.025383079424500465
+    },
+    {
+      "image_id": 8277,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.016998369246721268
+    },
+    {
+      "image_id": 8277,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.016175884753465652
+    },
+    {
+      "image_id": 8277,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.021706797182559967
+    },
+    {
+      "image_id": 8532,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.0006738384909112938
+    },
+    {
+      "image_id": 8532,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.06163223274052143
+    },
+    {
+      "image_id": 8532,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.00598834827542305
+    },
+    {
+      "image_id": 8532,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.04112887941300869
+    },
+    {
+      "image_id": 8532,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.038130469620227814
+    },
+    {
+      "image_id": 8532,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.02002595365047455
+    },
+    {
+      "image_id": 8629,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.018401532288407907
+    },
+    {
+      "image_id": 8629,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.09496520459651947
+    },
+    {
+      "image_id": 8629,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.006185054779052734
+    },
+    {
+      "image_id": 8629,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.04578395001590252
+    },
+    {
+      "image_id": 8629,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.04860956780612469
+    },
+    {
+      "image_id": 8629,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.003948517143726349
+    },
+    {
+      "image_id": 8690,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 8690,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.07394710928201675
+    },
+    {
+      "image_id": 8690,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.003354044631123543
+    },
+    {
+      "image_id": 8690,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.05287906154990196
+    },
+    {
+      "image_id": 8690,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.03488517552614212
+    },
+    {
+      "image_id": 8690,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": -0.0007566511631011963
+    },
+    {
+      "image_id": 8762,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 8762,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.010637527040671557
+    },
+    {
+      "image_id": 8762,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 8762,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.006133768241852522
+    },
+    {
+      "image_id": 8762,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.005280300974845886
+    },
+    {
+      "image_id": 8762,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": -0.0029948996379971504
+    },
+    {
+      "image_id": 8844,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.002313122502528131
+    },
+    {
+      "image_id": 8844,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.050806669518351555
+    },
+    {
+      "image_id": 8844,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.019004687666893005
+    },
+    {
+      "image_id": 8844,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.039003911428153515
+    },
+    {
+      "image_id": 8844,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.04095080029219389
+    },
+    {
+      "image_id": 8844,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.02662062458693981
+    },
+    {
+      "image_id": 8899,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 8899,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.029935181140899658
+    },
+    {
+      "image_id": 8899,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.009163040667772293
+    },
+    {
+      "image_id": 8899,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.010898694396018982
+    },
+    {
+      "image_id": 8899,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.024071762338280678
+    },
+    {
+      "image_id": 8899,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9378,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.002489435573806986
+    },
+    {
+      "image_id": 9378,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.016939271241426468
+    },
+    {
+      "image_id": 9378,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.003803959582000971
+    },
+    {
+      "image_id": 9378,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.012322393245995045
+    },
+    {
+      "image_id": 9378,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.011812307871878147
+    },
+    {
+      "image_id": 9378,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.003984905779361725
+    },
+    {
+      "image_id": 9400,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.005661514645908028
+    },
+    {
+      "image_id": 9400,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.018303795717656612
+    },
+    {
+      "image_id": 9400,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": -0.006521868519484997
+    },
+    {
+      "image_id": 9400,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.013967860490083694
+    },
+    {
+      "image_id": 9400,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": -0.0017203828319907188
+    },
+    {
+      "image_id": 9400,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.004532024264335632
+    },
+    {
+      "image_id": 9448,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9448,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.05205988511443138
+    },
+    {
+      "image_id": 9448,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.02564059291034937
+    },
+    {
+      "image_id": 9448,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.045138866640627384
+    },
+    {
+      "image_id": 9448,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.044395746663212776
+    },
+    {
+      "image_id": 9448,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.012477297335863113
+    },
+    {
+      "image_id": 9483,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9483,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9483,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.02446640655398369
+    },
+    {
+      "image_id": 9483,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.010228291153907776
+    },
+    {
+      "image_id": 9483,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.013639435172080994
+    },
+    {
+      "image_id": 9483,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.010228291153907776
+    },
+    {
+      "image_id": 9590,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9590,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.011947449296712875
+    },
+    {
+      "image_id": 9590,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.0035278936848044395
+    },
+    {
+      "image_id": 9590,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.008554467000067234
+    },
+    {
+      "image_id": 9590,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.011938605457544327
+    },
+    {
+      "image_id": 9590,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.0002418365329504013
+    },
+    {
+      "image_id": 9769,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9769,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9769,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.014047633856534958
+    },
+    {
+      "image_id": 9769,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.0065137967467308044
+    },
+    {
+      "image_id": 9769,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.007567517459392548
+    },
+    {
+      "image_id": 9769,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.006513800472021103
+    },
+    {
+      "image_id": 9772,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9772,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.03636039420962334
+    },
+    {
+      "image_id": 9772,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.024225890170782804
+    },
+    {
+      "image_id": 9772,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.025657040998339653
+    },
+    {
+      "image_id": 9772,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.035999927669763565
+    },
+    {
+      "image_id": 9772,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.012504443526268005
+    },
+    {
+      "image_id": 9891,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9891,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.04046148806810379
+    },
+    {
+      "image_id": 9891,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.015565995126962662
+    },
+    {
+      "image_id": 9891,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.03191508539021015
+    },
+    {
+      "image_id": 9891,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.03203459456562996
+    },
+    {
+      "image_id": 9891,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.005903489887714386
+    },
+    {
+      "image_id": 9914,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 9914,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.006188221275806427
+    },
+    {
+      "image_id": 9914,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.029381449799984694
+    },
+    {
+      "image_id": 9914,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.016711164265871048
+    },
+    {
+      "image_id": 9914,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.01897924765944481
+    },
+    {
+      "image_id": 9914,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.008077722042798996
+    },
+    {
+      "image_id": 10092,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 10092,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.03210907801985741
+    },
+    {
+      "image_id": 10092,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.012031547725200653
+    },
+    {
+      "image_id": 10092,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.020597975701093674
+    },
+    {
+      "image_id": 10092,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.024866383522748947
+    },
+    {
+      "image_id": 10092,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.012037832289934158
+    },
+    {
+      "image_id": 10363,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.00016022571389839868
+    },
+    {
+      "image_id": 10363,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.014823887962847948
+    },
+    {
+      "image_id": 10363,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.004609806463122368
+    },
+    {
+      "image_id": 10363,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.009871000424027443
+    },
+    {
+      "image_id": 10363,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.013213671743869781
+    },
+    {
+      "image_id": 10363,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.0018641594797372818
+    },
+    {
+      "image_id": 10583,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 10583,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.06808483973145485
+    },
+    {
+      "image_id": 10583,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.016966450959444046
+    },
+    {
+      "image_id": 10583,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.04648229666054249
+    },
+    {
+      "image_id": 10583,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.045216573402285576
+    },
+    {
+      "image_id": 10583,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.01596132665872574
+    },
+    {
+      "image_id": 10707,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.006159870739793405
+    },
+    {
+      "image_id": 10707,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.0526820607483387
+    },
+    {
+      "image_id": 10707,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.006894618272781372
+    },
+    {
+      "image_id": 10707,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.03754780255258083
+    },
+    {
+      "image_id": 10707,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.02729584090411663
+    },
+    {
+      "image_id": 10707,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.008756503462791443
+    },
+    {
+      "image_id": 10764,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 10764,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.014845727011561394
+    },
+    {
+      "image_id": 10764,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.0014258269220590591
+    },
+    {
+      "image_id": 10764,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.00609096884727478
+    },
+    {
+      "image_id": 10764,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.012006630189716816
+    },
+    {
+      "image_id": 10764,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": -0.0011002607643604279
+    },
+    {
+      "image_id": 10977,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 10977,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.06451833248138428
+    },
+    {
+      "image_id": 10977,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.009811995550990105
+    },
+    {
+      "image_id": 10977,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.05208585038781166
+    },
+    {
+      "image_id": 10977,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.03234873712062836
+    },
+    {
+      "image_id": 10977,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.01664073020219803
+    },
+    {
+      "image_id": 10995,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.0008501461343257688
+    },
+    {
+      "image_id": 10995,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.028096430003643036
+    },
+    {
+      "image_id": 10995,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": -0.0014124959707260132
+    },
+    {
+      "image_id": 10995,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.025974967516958714
+    },
+    {
+      "image_id": 10995,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.021736579947173595
+    },
+    {
+      "image_id": 10995,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.017504964023828506
+    },
+    {
+      "image_id": 11051,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11051,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.04360282514244318
+    },
+    {
+      "image_id": 11051,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.013616083189845085
+    },
+    {
+      "image_id": 11051,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.030984491109848022
+    },
+    {
+      "image_id": 11051,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.03783389087766409
+    },
+    {
+      "image_id": 11051,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.022009102627635002
+    },
+    {
+      "image_id": 11122,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11122,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.02174752950668335
+    },
+    {
+      "image_id": 11122,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": -0.002717040479183197
+    },
+    {
+      "image_id": 11122,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.02174752578139305
+    },
+    {
+      "image_id": 11122,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.02174752578139305
+    },
+    {
+      "image_id": 11122,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11149,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11149,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.010994784533977509
+    },
+    {
+      "image_id": 11149,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.036452735774219036
+    },
+    {
+      "image_id": 11149,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.026934511959552765
+    },
+    {
+      "image_id": 11149,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.02958139404654503
+    },
+    {
+      "image_id": 11149,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.010244645178318024
+    },
+    {
+      "image_id": 11197,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11197,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.011643987149000168
+    },
+    {
+      "image_id": 11197,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.01706046424806118
+    },
+    {
+      "image_id": 11197,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.002052620053291321
+    },
+    {
+      "image_id": 11197,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.021019412204623222
+    },
+    {
+      "image_id": 11197,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.0020526275038719177
+    },
+    {
+      "image_id": 11511,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11511,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.025668907910585403
+    },
+    {
+      "image_id": 11511,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.010820110328495502
+    },
+    {
+      "image_id": 11511,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.020478629507124424
+    },
+    {
+      "image_id": 11511,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.019932199269533157
+    },
+    {
+      "image_id": 11511,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.005153100937604904
+    },
+    {
+      "image_id": 11615,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11615,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.030778463929891586
+    },
+    {
+      "image_id": 11615,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.003933385014533997
+    },
+    {
+      "image_id": 11615,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.018625181168317795
+    },
+    {
+      "image_id": 11615,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.018625184893608093
+    },
+    {
+      "image_id": 11615,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.003933388739824295
+    },
+    {
+      "image_id": 11699,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11699,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.03472552448511124
+    },
+    {
+      "image_id": 11699,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.014260766096413136
+    },
+    {
+      "image_id": 11699,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.02397011686116457
+    },
+    {
+      "image_id": 11699,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.021648935973644257
+    },
+    {
+      "image_id": 11699,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.014195948839187622
+    },
+    {
+      "image_id": 11760,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 11760,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.008894376456737518
+    },
+    {
+      "image_id": 11760,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.0286757480353117
+    },
+    {
+      "image_id": 11760,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.02173707354813814
+    },
+    {
+      "image_id": 11760,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.022527429275214672
+    },
+    {
+      "image_id": 11760,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.015004400163888931
+    },
+    {
+      "image_id": 11813,
+      "condition": "clean",
+      "one_step_minus_full_mse": -0.00044170623004902154
+    },
+    {
+      "image_id": 11813,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.07022535614669323
+    },
+    {
+      "image_id": 11813,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.0019567441195249557
+    },
+    {
+      "image_id": 11813,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.02392331138253212
+    },
+    {
+      "image_id": 11813,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.030757572501897812
+    },
+    {
+      "image_id": 11813,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.011974893510341644
+    },
+    {
+      "image_id": 12062,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12062,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12062,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.02939467877149582
+    },
+    {
+      "image_id": 12062,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.01566952094435692
+    },
+    {
+      "image_id": 12062,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.015514086931943893
+    },
+    {
+      "image_id": 12062,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.01566951721906662
+    },
+    {
+      "image_id": 12120,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12120,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.022226277738809586
+    },
+    {
+      "image_id": 12120,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.02688479144126177
+    },
+    {
+      "image_id": 12120,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.028930265456438065
+    },
+    {
+      "image_id": 12120,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.03822552924975753
+    },
+    {
+      "image_id": 12120,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.02328827790915966
+    },
+    {
+      "image_id": 12280,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12280,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.0706302672624588
+    },
+    {
+      "image_id": 12280,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.033257815055549145
+    },
+    {
+      "image_id": 12280,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.039933739230036736
+    },
+    {
+      "image_id": 12280,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.059911539778113365
+    },
+    {
+      "image_id": 12280,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.020285718142986298
+    },
+    {
+      "image_id": 12576,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12576,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12576,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.02598540484905243
+    },
+    {
+      "image_id": 12576,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.011609017848968506
+    },
+    {
+      "image_id": 12576,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.013659238815307617
+    },
+    {
+      "image_id": 12576,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.011609017848968506
+    },
+    {
+      "image_id": 12639,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12639,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.04720183648169041
+    },
+    {
+      "image_id": 12639,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.015592675656080246
+    },
+    {
+      "image_id": 12639,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.03634050115942955
+    },
+    {
+      "image_id": 12639,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.029079552739858627
+    },
+    {
+      "image_id": 12639,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.011430058628320694
+    },
+    {
+      "image_id": 12667,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12667,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.06837834604084492
+    },
+    {
+      "image_id": 12667,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.02952261082828045
+    },
+    {
+      "image_id": 12667,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.04795702174305916
+    },
+    {
+      "image_id": 12667,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.05102391913533211
+    },
+    {
+      "image_id": 12667,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.03413165546953678
+    },
+    {
+      "image_id": 12670,
+      "condition": "clean",
+      "one_step_minus_full_mse": 0.0
+    },
+    {
+      "image_id": 12670,
+      "condition": "homogeneous_dark",
+      "one_step_minus_full_mse": 0.017968302592635155
+    },
+    {
+      "image_id": 12670,
+      "condition": "homogeneous_bright",
+      "one_step_minus_full_mse": 0.010917771607637405
+    },
+    {
+      "image_id": 12670,
+      "condition": "left_right",
+      "one_step_minus_full_mse": 0.017339044250547886
+    },
+    {
+      "image_id": 12670,
+      "condition": "quadrants",
+      "one_step_minus_full_mse": 0.01098652184009552
+    },
+    {
+      "image_id": 12670,
+      "condition": "offset_left_right_40",
+      "one_step_minus_full_mse": 0.00705651193857193
+    }
+  ],
+  "stress_report_only": true,
+  "no_method_selection": true
+}

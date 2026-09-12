@@ -1,0 +1,37 @@
+{
+  "task": "T011",
+  "archive_sha256": "88a63488c7e03010d85f764066bc39bf31fad300489880776a2102ffef674fee",
+  "verified_local_state_decision_files": 480,
+  "exact_case_row_membership": true,
+  "summary_and_diagnostics_recomputed": true,
+  "numeric_absolute_tolerance": 1e-12,
+  "nonidentical_float_reductions": [
+    {
+      "path": "summary.groups.left_right.global_ttt_projected.psnr_db.p95",
+      "absolute_difference": 3.552713678800501e-15
+    },
+    {
+      "path": "summary.groups.left_right.global_ttt_projected.loss_after.p95",
+      "absolute_difference": 8.881784197001252e-16
+    },
+    {
+      "path": "summary.groups.left_right.global_ttt_projected.recovery_ratio.p95",
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "path": "summary.groups.offset_left_right_40.region2_direct.loss_after.p95",
+      "absolute_difference": 4.440892098500626e-16
+    },
+    {
+      "path": "summary.groups.heterogeneous.global_ttt_projected.loss_after.p95",
+      "absolute_difference": 8.881784197001252e-16
+    }
+  ],
+  "max_absolute_difference": 3.552713678800501e-15,
+  "qualified": false,
+  "failed": [
+    "clean_p95",
+    "beyond_discrete"
+  ],
+  "model_or_output_regeneration": false
+}
