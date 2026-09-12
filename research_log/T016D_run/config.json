@@ -1,0 +1,233 @@
+{
+  "task": "T016-D",
+  "source_sha": "c91495225b6df73c814ee6f48b7bd3ab8ff2b6c7",
+  "source_code_sha256": {
+    "ttie/__init__.py": "4de7703189366591a75bc1f59f8d0a02da9cf1ba06999293141560c0949512c6",
+    "ttie/adapt.py": "beef1fb7f668f3c0cc9e24b6a3966d7cc0e60952f312d1843196de153ba8cc26",
+    "ttie/clip_audit.py": "d372201b4c1c5f3e1aabe38a5f0e421481bb7751c50d2c8c172b24aa6a82e11a",
+    "ttie/clip_signal.py": "8a9b3647f4eb26304f338163cf151d593f7680f64c5059caebdde68115b91ed8",
+    "ttie/demo.py": "b33f1cd922fa26493f402fb0a31aba0106c98f2541001c4691124c0b20a8fd95",
+    "ttie/energy_bank.py": "b467400c80d003c7af88741f66aa5c984d7535914b8262e3b88e1aa3755d117a",
+    "ttie/energy_io.py": "3f59c23392ae1dec390ef26302e7fd1adbe9afffd45f0c6f168edd9a5d16ffa9",
+    "ttie/energy_metrics.py": "f28337257a1c2591f1ad278f8fee68619296e3f27eeb669af9a7e66a05ffe6be",
+    "ttie/energy_model.py": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4",
+    "ttie/energy_pilot.py": "de1d99fa1e17fb1c550022ff0a3c7dddb24b59c01e4a47cce8efc8d34ca3891b",
+    "ttie/energy_receipt.py": "4beb5d58ab48c13fc568676b230e56bed55a3b5ae66aeb5bac3fdea6deda26d2",
+    "ttie/energy_ttt.py": "e8ae260766266a149d08f7ec84b3216ceb18f549ebbef98a7cde3c017dcabade",
+    "ttie/geometry_audit.py": "2277bacffc8327462664979415b73417aac49b8dac7f3a92ae92244b9f010718",
+    "ttie/geometry_summary.py": "1e246b83acf44dee04a1005fab193b41b3269f728aa3c1f24ef368d02e1a1791",
+    "ttie/isp.py": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9",
+    "ttie/joint_audit.py": "89c1e38e5a6e1c30155f77ba613fcf62db24bbc071927f344dd673e481552c61",
+    "ttie/joint_gate.py": "7f5f983d7cabac4bc16f93515f924fb4009374fa038113ad49984b74f4b5637f",
+    "ttie/learned_prototypes.py": "062cb21f65e5611839802ad8dbe86bde883b14c75d50dc5116766e5c903f8eec",
+    "ttie/natural.py": "bfc8cbf8d5c2f92e7e4dfdb49f5c0fc217cb25167be2a8b7a16a0322996fb94e",
+    "ttie/offline_geometry.py": "89519bb7c6eabe9381ee6caa2e10de93fb770bc7901a872309b888e801e84187",
+    "ttie/projected_metrics.py": "38fe641da26300b7ca800b29e8659845a8306fe48a0f19bc5f54d01a2d87d673",
+    "ttie/projected_pilot.py": "c99e74b744d152c34714b2ad0c890d729048e91c48c24ea4c0cd1fe769fcd11b",
+    "ttie/projected_ttt.py": "f5fb68a742ee4038b903bf62ae37ae0b3011762ce3035ba09a3b9609a25a6457",
+    "ttie/prototype_audit.py": "0a0e85871034ee2d1378edfb7f8f3c50f8d040e4b1c525878015d2f3b0b11920",
+    "ttie/regularization.py": "8e15fc50b0681a80fb4f5dbab269e12d54696911f426754870c675767b1c9283",
+    "ttie/relative_audit.py": "5a2804fcf891d41f234c2a675399b88884b51e3892b783f5aeb3d6075fb999ca",
+    "ttie/relative_clip.py": "9e860dd0924f68a56486dd5405e6ba2e61d00d5ce20d75d285f4d0a18198dc17",
+    "ttie/residual_data.py": "8965e60144b4a8e74a59ecb34e45e93acc8101d1e4b819c5a31e4225b746e9d4",
+    "ttie/residual_metrics.py": "de0fc3b36e431b097253ff1084073c717967a623009c8681748bb789e69df523",
+    "ttie/residual_pilot.py": "558c279a5159ca39c52913006e499c81dd0ea338a34b5e66993eecbfa8087715",
+    "ttie/residual_ttt.py": "e472223bb6d6463a44863ae0e9b204d06742b6679327f0efd45766bb56b98cfe",
+    "ttie/restoration_metrics.py": "eba47577737c0ac31afc2e001d8b9b52a648054ea95bf5030338d03a33d5bc97",
+    "ttie/restoration_pilot.py": "36343f59c25ec8bd94c0d038d3e2f3d94f709ffa4d807486df3324c3d4bd5c69",
+    "ttie/safety_summary.py": "58d9b3541ea817ee476b7f89a28ecf5bd880ef9d5b916aba2826acaeec8e5f89",
+    "ttie/safety_sweep.py": "97c5c77769411ebee7e08bdf8f0c10ea3969503cb4a1d3df52dba0bce6888bd3",
+    "ttie/semantic_ttt.py": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72",
+    "ttie/sobolev_io.py": "07830efd9110a9cccc0692a329cdce1c9ef7c39ab1d063c88bd0f177fdbfde17",
+    "ttie/sobolev_metrics.py": "9efb029c68298b522305bbf0c496469e026051f7195ec878c6929a08a842b5ce",
+    "ttie/sobolev_pilot.py": "7dfdba0e0cabff5f46aff6864994e578f0e110d7dcce019f9b7c58d9ace995d3",
+    "ttie/sobolev_receipt.py": "bea1230071c18df8836393b36d31dadda7d94cb68ca8c3e9837b3177fd7c5ac6",
+    "ttie/sobolev_source.py": "475d7c6134a15891d1c601df1b46d55d92850f05dd632b7facc08c6507c50764",
+    "ttie/sobolev_train.py": "ddffd3d998bd8ab0f9616bc6effbd8acf03fee92ba8044ca394505ebbbc5b96d",
+    "ttie/stop_io.py": "eac212a4b0afd131f107f885911c5d32cee659e1e501c5f58db4ec4004c6c0e9",
+    "ttie/stop_metrics.py": "03cb5ec750cdbe69b96556dfc1902f5e3500ae4b25da98d800a2c0b8cb35326f",
+    "ttie/stop_pilot.py": "e323f4de0b315762bbf330bdfaa97a53da902af59211d868239c18c64dd6da49",
+    "ttie/stop_quality.py": "4e6816898e6924732cf2409619c05212a412aab13da15cac5678c7bc6243c19a",
+    "ttie/stop_receipt.py": "f81a20de0808cfebd3321176ed74f9e3bd3ec58df29d63cf937d00c362b81ed4",
+    "ttie/stop_trajectory.py": "38965a15430d383b429086ec4460fff2dd3c500a7d162f39b705c40ae4b23ce7",
+    "ttie/suite.py": "25a9becfe7c9b43a11d7a01343e2991bb279dd780b9825783b1d0cd1a12e6c45",
+    "ttie/summarize.py": "c35d6cd863e109903163741794ecc0b12b221865bea015a486173c2d55af43e5",
+    "ttie/routing/__init__.py": "3c825a354237ba074f14c152d6aeba5a68324497cffce0f91ce4d9d5f243bc5b",
+    "ttie/routing/core.py": "25fce10eacb5cadae671ebbfda848ee0f6ec31f2160b68a93be38dc0460a9b31",
+    "ttie/routing/io.py": "bfa5df72de1805b22d81654c2d025bd8bb861ff6e25eabd3c331c8f760faf96f",
+    "ttie/routing/metrics.py": "2c7a726dd275ba332213b18fcbd1e5d2c0cdc92b3c5a3157c94ba67549e69a8c",
+    "ttie/routing/pilot.py": "4451a9f03a301b98ba7e501c943e2cff8f2018db1383018f28dc57467c629fff",
+    "ttie/routing/provenance.py": "5f5e81984ad2b7f9751c609ee849eb91382b95fd5e6be86583a481224e6b590b",
+    "scripts/prepare_t015.py": "186267b6ce3854ff4ef2d838c6c8a89aad547077f8b223e95a54f0091a02b3c7",
+    "scripts/run_t015_a6000.sh": "4b7cca29731bda5f41f36fa4e2f34476c1980f3373456465b55d6b97d86d5761",
+    "ttie/boundary_probe.py": "1b211a6296bcb5a19b988c4501a4c6b0ecd1227980f91eb5c9fb1916c9c82381",
+    "ttie/boundary_probe_metrics.py": "e745a80d5b7ead4a5c012aa492e1205bba51f6d8889fd4dd57bd88dd32c20fc2",
+    "ttie/boundary_probe_run.py": "e61d3d331b0162b83c4d6f6b11bf060b021296502b7806710221df9fb1f22192",
+    "ttie/boundary_rank.py": "e9d0270c1a7e53c3684a69ac50e08497c84779fbcdadc1c71f0b610d9711bcb1",
+    "ttie/boundary_rank_run.py": "efbb7fa522f8249f1f00ee42fd9fc1530ff7e2cfbb2e7b10e1a19e7be7219144"
+  },
+  "input_artifact_hashes": {
+    "T016B/selection": {
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/scoring/selection.json",
+      "sha256": "99dbb10260e5045d5c5deb1d53b5f68d42567a02d5a1b898b234e6b5d113b866",
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8"
+    },
+    "T016B/reference": {
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/evaluation/evaluation.json",
+      "sha256": "8a2204fc481da3559b337ec634ef9c87cf890d63bd7edf2cf5ae947aaea0e22e",
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8"
+    },
+    "T016B/selection_receipt": {
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/scoring/selection_receipt.json",
+      "sha256": "1fd17da1fd52db1ffe86749542908cf81b5b441c2a6b6ca0a85819e440c5c3ac",
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8"
+    },
+    "T016B/config": {
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/scoring/config.json",
+      "sha256": "e4c8d8ddfe16333fa4c766f6e1ecca2388e89a7f2ce9ba36c3537017cd666e64",
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8"
+    },
+    "T016B/evaluation_receipt": {
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/evaluation/evaluation_receipt.json",
+      "sha256": "d7b6865c0d6771e202c223cab18e721582297f2f0473597eea2106304782e900",
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8"
+    },
+    "T016C/folds": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/folds.json",
+      "sha256": "8fdb03cdac63af5d6e58b557c96679bc15c1e2e921e525916eb9d21ad22cd2c1"
+    },
+    "T016C/config": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/config.json",
+      "sha256": "588292038c6e23b2d7c8fcf69a32cfe7cbb76ec0f6ca8b63e27a7a96126e081b"
+    },
+    "T016C/evaluation": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/evaluation.json",
+      "sha256": "50598604e2a0f4bf0cfa515cf3fe60e193ae110e10226e60eeb98059ec26785d"
+    },
+    "T016C/summary": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/summary.json",
+      "sha256": "161871d68044ccee3007903eb3176fb3c723c52c5530e9823859ae15d83fd417"
+    },
+    "T016C/OOF_frozen": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/OOF_frozen.json",
+      "sha256": "be6e3f5192107e8215aa09a5c556327faf0e99afd8bbcf296445766120638bdc"
+    }
+  },
+  "candidates": [
+    [
+      0.4,
+      0.4,
+      0.0
+    ],
+    [
+      0.4,
+      0.5,
+      0.0
+    ],
+    [
+      0.4,
+      0.6,
+      0.0
+    ],
+    [
+      0.5,
+      0.4,
+      0.0
+    ],
+    [
+      0.5,
+      0.5,
+      0.0
+    ],
+    [
+      0.5,
+      0.6,
+      0.0
+    ],
+    [
+      0.6,
+      0.4,
+      0.0
+    ],
+    [
+      0.6,
+      0.5,
+      0.0
+    ],
+    [
+      0.6,
+      0.6,
+      0.0
+    ]
+  ],
+  "recipes": {
+    "rank28": {
+      "hidden": [
+        64,
+        64
+      ],
+      "activation": "SiLU",
+      "loss": "unweighted pairwise logistic",
+      "optimizer": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "pair_batch_size": 256,
+      "epochs": 100,
+      "seed": 7,
+      "checkpoint": "final_epoch",
+      "device": "cpu",
+      "normalization": "all training candidate rows only; population std; constant scales=1",
+      "output_standardization": false,
+      "pair_order": "saved episode order, then lexicographic i<j",
+      "ties": "skip exact reference MSE equality only",
+      "input_dim": 28
+    },
+    "rank30": {
+      "hidden": [
+        64,
+        64
+      ],
+      "activation": "SiLU",
+      "loss": "unweighted pairwise logistic",
+      "optimizer": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "pair_batch_size": 256,
+      "epochs": 100,
+      "seed": 7,
+      "checkpoint": "final_epoch",
+      "device": "cpu",
+      "normalization": "all training candidate rows only; population std; constant scales=1",
+      "output_standardization": false,
+      "pair_order": "saved episode order, then lexicographic i<j",
+      "ties": "skip exact reference MSE equality only",
+      "input_dim": 30
+    }
+  },
+  "input_standardization_population": "all 864 training candidate rows, including episodes whose reference candidates tie",
+  "cpu_only": true,
+  "runtime": {
+    "python": "3.12.7",
+    "torch": "2.13.0+cpu",
+    "device": "cpu"
+  },
+  "development_only": true,
+  "new_image_ids": 0,
+  "rendering_calls": 0,
+  "clip_calls": 0
+}
