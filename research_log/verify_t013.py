@@ -14,6 +14,7 @@ from ttie.stop_receipt import sha
 from ttie.stop_trajectory import feature_vectors
 from ttie.natural import load_image,degrade
 from ttie.restoration_metrics import evaluate_outputs
+from ttie.semantic_ttt import Region2
 
 
 def main():
@@ -25,7 +26,9 @@ def main():
     head=load_energy(root/'energy.pt');assert head.normalization()==receipt['normalization']
     gpu_head=load_energy(root/'energy.pt').cuda()
     totals=dict(hashed_files=0,large_image_bytes=0,training_inputs=0,training_states=0,calibration_inputs=0,
-                energy_checkpoints=0,energy_updates=0,semantic_checkpoints=0,inactive_region_checks=0,no_active_inputs=0)
+                energy_checkpoints=0,energy_updates=0,semantic_checkpoints=0,inactive_region_checks=0,no_active_inputs=0,
+                inherited_direct_roundoff_regions=0,inherited_direct_max_abs_roundoff=0.)
+    direct_roundoff=[]
     def verify_files(directory,files):
         for name,r in files.items():
             file=directory/name;assert file.stat().st_size==r['bytes'] and sha(file)==r['sha256'];totals['hashed_files']+=1
@@ -50,7 +53,27 @@ def main():
         assert all(torch.isfinite(t).all() for t in small.values())
         f=torch.stack([features(obj(gate),s,g) for s,g in zip(small['scores'],small['grids'])]);assert torch.equal(f,small['features'])
         clean=load_image(args.images/f"{e['image_id']:012d}.jpg");image=degrade(clean,e['condition'])
-        assert torch.equal(images[0],image);inactive_checks(images,image,gate)
+        assert torch.equal(images[0],image)
+        if len(images)>1:
+            # The prescribed bank retains the original T011 direct output.
+            # That legacy control has no inactive pixel mask (raw state is
+            # identity), unlike projected Region2 and the new energy method.
+            legacy=Region2().cuda()
+            with torch.no_grad():
+                legacy.raw.copy_(small['states'][1].cuda());replayed=legacy(image.cuda()).cpu()
+            assert torch.equal(replayed,images[1])
+            h,w=image.shape[-2:]
+            for q,active in enumerate(gate['active']):
+                if active:continue
+                assert small['grids'][1,0,:,q//2,q%2].tolist()==[0.,1.]
+                yr=slice(0,h//2) if q<2 else slice(h//2,h);xr=slice(0,w//2) if q%2==0 else slice(w//2,w)
+                delta=float((images[1,...,yr,xr]-image[...,yr,xr]).abs().max())
+                if delta:
+                    direct_roundoff.append(dict(image_id=e['image_id'],condition=e['condition'],quadrant=q,max_abs=delta))
+                    totals['inherited_direct_roundoff_regions']+=1
+                    totals['inherited_direct_max_abs_roundoff']=max(totals['inherited_direct_max_abs_roundoff'],delta)
+            inactive_checks(torch.cat((images[:1],images[2:])),image,gate)
+        else:inactive_checks(images,image,gate)
         targets=read(d/'targets.json');values=[float((v-clean).square().mean()) for v in images]
         assert values==[t['mse'] for t in targets]
         xs.append(small['features']);ys.append(torch.tensor(values,dtype=torch.float64))
@@ -111,6 +134,7 @@ def main():
     report=read(root/'summary.json');assert stage_a(rows,alignments)==report==receipt['stage_a']
     assert totals['training_inputs']==400 and totals['calibration_inputs']==100
     assert totals['training_states']==final['training_states'] and totals['energy_checkpoints']==final['energy_checkpoints']
+    (root/'inherited_direct_roundoff.json').write_text(json.dumps(direct_roundoff,indent=2)+'\n')
     result=dict(task='T013',stage='A',all_hashes_verified=True,all_stored_mse_recomputed_exact=True,
         train_only_normalization_exact=True,features_recomputed_exact=True,energy_scores_selection_exact=True,
         summary_alignment_recomputed_exact=True,passes=report['passes'],failed=report['failed'],**totals)

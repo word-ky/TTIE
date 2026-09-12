@@ -1,0 +1,14 @@
+Post-run verification, after the actual experiment exited 0 at 2026-09-12T09:05:19Z.
+verify_t013.py line53 -> inactive_checks line41 raised AssertionError on a source-bank image.
+Diagnosis on already-saved artifacts: image23666,left_right,bank entry region2_direct,
+inactive quadrants1 and3 retain grid[0,1], but differ from original pixels by at most
+5.960464477539063e-08 (MSE1.1031296530874938e-15 and2.6492583316823747e-16).
+Same legacy entry on quadrants condition has identical max difference.
+The original T011 region2_direct renderer has no inactive pixel mask, unlike projected
+Region2 and T013 energy trajectories. The source bank retained this frozen baseline output.
+The verifier's blanket bank pixel assertion incorrectly included that historical control.
+Verification now replays the original direct renderer exactly, records every nonzero
+inactive-region difference and its maximum, and retains strict exact-identity checks for
+all other bank entries and every primary energy checkpoint. No scientific code, pixels,
+targets, model, gates or experiment was changed/rerun. Full measured exception receipt
+is inherited_direct_roundoff.json in the final audit directory.
