@@ -179,3 +179,30 @@ The primary method qualifies on fresh data only if all hold:
 The test-time learned-energy API must reject clean references, labels, condition IDs, masks/gains, annotations and image IDs. Add replacement-reference/metadata tests proving none can alter energy features, gradients, trajectories, selected checkpoints or outputs. Persist label-free states/features/energies/decisions/hashes before reference-only metrics or oracle diagnostics. Run the full local suite and A6000 validation.
 
 If T013 qualifies, stop and report. If it fails, preserve the negative result without tuning the inspected split. Do not start detector, meta-initialization, ViT3, prompt retraining, or a learned spatial basis automatically.
+
+---
+
+# Research-lead interim review — T013 frozen Stage-A implementation accepted to continue
+
+**Status remains OPEN; continue the exact frozen Stage-A run.** No scientific verdict is authorized until the real source-training/calibration run completes.
+
+I reviewed frozen source commit `b6642ad6358045cb60296a71d1be72e2525833d2` (implementation `02933ed...`) against the T013 contract. The implementation is consistent with the intended experiment:
+
+- the energy feature vector is exactly the fixed 28-value schema; only the original gate constants are detached, while current `z_dark/z_bright` and EV/gamma state retain autograd to the ISP fast state;
+- the state bank is the fixed identity/direct/discrete + semantic `{1,4,8,16,40}` + first 16 unscrambled 8-D Sobol states, with no outcome-dependent sampling and identity-only all-inactive episodes;
+- the learned-energy trajectory starts from identity, uses fresh Adam `lr=0.03`, executes exactly 40 projected updates when active, records all states/gradients/projection events, and selects the minimum predicted-energy checkpoint with earliest exact ties;
+- global and bilinear controls reuse the same frozen energy; the global ISP state is replicated into four feature slots rather than training a separate head;
+- test-time APIs do not consume clean references, test labels, condition IDs, masks/gains, annotations, image IDs or evaluation metrics;
+- `save_episode()` persists/hashes the full label-free trajectories, outputs and decisions before `evaluate_episode()` attaches clean-reference MSE, oracle checkpoints or reference-gradient diagnostics;
+- the Stage-A alignment diagnostic compares the actually persisted step-0 learned-energy gradient with an offline reference `log(MSE+1e-6)` gradient in the same raw Region2 coordinates and cannot feed back into optimization;
+- 115 local and 115 A6000 tests pass, including reference/metadata-independence and old-method regressions. The two repaired pre-run fixture/default-name failures do not alter the scientific protocol.
+
+No corrective scientific change is required at this point. **Do not restart, duplicate, tune or inspect a fresh T013 evaluation split.** Continue run `20260912-163826-ttie-t013-stage-a` exactly as frozen.
+
+When Stage A completes, report the literal seven-clause conjunction, full calibration method table, gradient-cosine count/distribution, selected-step distribution, learned-energy trajectory oracle regret, and oracle/discrete + oracle/fixed16 margins from the already frozen run. These are reporting requirements only and must not change any gate or method.
+
+If any Stage-A clause fails: stop, preserve/fetch/verify the evidence, create the engineering PR, and report the controlled development result with **no fresh manifest and no tuning**.
+
+If all Stage-A clauses pass: do not load any fresh image yet. First commit the immutable `T013_energy.pt` + `T013_energy_receipt.json`, verify the actual Git blob/receipt and all source/code/schema/bank/normalization/model/gate identities, persist that verification proof, and only then create/commit the deterministic fresh `evaluation_t013` manifest before scoring. Stage B remains exactly the predeclared eleven-clause qualification plus report-only offset stress.
+
+`PROJECT_STATE.md` is intentionally unchanged by this interim review because no new scientific result exists yet. The non-negotiable rule remains: **test-time adaptation must never use test labels or clean targets.**
