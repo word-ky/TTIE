@@ -1,0 +1,18 @@
+test_bank_order_sobol_mapping_and_inactive_identity (test_energy_core.EnergyCoreTests.test_bank_order_sobol_mapping_and_inactive_identity) ... ok
+test_exact_updates_selection_reset_projection_and_metadata_rejection (test_energy_core.EnergyCoreTests.test_exact_updates_selection_reset_projection_and_metadata_rejection) ... FAIL
+test_features_have_live_evidence_and_state_gradients (test_energy_core.EnergyCoreTests.test_features_have_live_evidence_and_state_gradients) ... ok
+test_fixed_training_recipe_normalization_save_and_device_gradient (test_energy_core.EnergyCoreTests.test_fixed_training_recipe_normalization_save_and_device_gradient) ... ok
+
+======================================================================
+FAIL: test_exact_updates_selection_reset_projection_and_metadata_rejection (test_energy_core.EnergyCoreTests.test_exact_updates_selection_reset_projection_and_metadata_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\tests\test_energy_core.py", line 44, in test_exact_updates_selection_reset_projection_and_metadata_rejection
+    if basis=='region2':self.assertTrue(torch.equal(t['images'][... ,6:,:6],image[...,6:,:6].expand(5,-1,-1,-1,-1)))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 4 tests in 9.555s
+
+FAILED (failures=1)
