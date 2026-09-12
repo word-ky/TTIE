@@ -10,7 +10,7 @@ Can a vision system adapt a compact spatial correction field per test image, wit
 
 ## Current hypothesis
 
-A useful spatial TTT system requires four aligned pieces: (i) a content-safe nuisance signal, (ii) a label-free inner objective whose gradient field produces restoration-useful states, (iii) safe projected action/stopping geometry, and (iv) a spatial representation/decision rule that can choose geometry safely per image. T014 establishes the first three for canonical hard Region2. T015 rules out routing among global/bilinear2/Region2 because that three-output set has only 1.94% oracle headroom. T016-A shows strong development-only headroom from moving the hard Region2 boundary while keeping the four actions fixed. T016-B/C/D then show that frozen-energy ranking, pointwise value supervision, and direct pairwise ranking all remain unsafe. T016-D nevertheless produces substantially stronger rank signal with explicit boundary coordinates, so the immediate unresolved question is whether the remaining failure is **forced low-confidence adaptation** rather than total lack of boundary information.
+A useful spatial TTT system requires four aligned pieces: (i) a content-safe nuisance signal, (ii) a label-free inner objective whose gradient field produces restoration-useful states, (iii) safe projected action/stopping geometry, and (iv) a spatial representation/decision rule that chooses geometry safely per image. T014 establishes the first three for canonical hard Region2. T015 rules out routing among global/bilinear2/Region2 because that three-output set has only 1.94% oracle headroom. T016-A establishes real development-only capacity in moving the hard Region2 boundary with fixed actions. T016-B/C/D show that frozen-energy ranking, pointwise value supervision, and forced pairwise rank30 selection are unsafe. T016-E then shows that a simple canonical confidence fallback can numerically pass all five development clauses, but the prescribed reuse of old OOF scores creates an inherited outer-fold dependency. The immediate question is therefore whether the confidence mechanism survives **proper fully nested image-level cross-fitting**.
 
 ## Best fresh-validated method
 
@@ -34,27 +34,29 @@ Test-time adaptation never consumes test labels, clean targets, condition IDs, d
 - **T013:** scalar source-trained restoration energy is a controlled negative; fitting restoration value does not sufficiently constrain the test-time derivative field.
 - **T014:** source-supervised Sobolev restoration energy is the first fully qualified learned-inner-objective result. Stage A passes **8/8** development clauses and frozen Stage B passes **12/12** fresh clauses on 40 unseen images. Fresh heterogeneous MSE is `0.03385803`, 19.17% below matched value-only, 11.72% below projected discrete, and 8.31% below semantic fixed16. Unseen-calibration gradient alignment is `73/74` positive with median cosine `0.93606`, versus `59/74` and `0.42464` for value-only.
 - **T015:** frozen routing among global/bilinear2/Region2 is a controlled fresh negative (**4/10**). Routed spatial MSE `0.03780638`; best fixed Region2 `0.03504357`; oracle among the same three outputs `0.03436452`, only **1.94%** better than Region2. A smarter selector over the same three outputs is not justified.
-- **T016-A:** fixed-action renderer-transfer is a positive development-only capacity diagnostic. Twenty-seven predeclared shiftable/soft renderers reuse the same selected four Region2 EV/gamma corners. Per-image reference oracle spatial MSE `0.03250770 = 0.92764×` Region2 and `0.94597×` the T015 three-basis oracle. `113/120` oracle selections use hard (`tau=0`) boundaries, so the main capacity is adaptive boundary placement, not smoothing.
-- **T016-B:** frozen T014 energy is a controlled development negative for nine-hard cross-boundary selection (**0/5**). Spatial MSE `0.03785726 = 1.08029×` Region2 and `1.16257×` the nine-hard oracle; selector/oracle disagreement 72.5%, mean Spearman `0.2398`. The nine-hard oracle is only `1.00172×` the full T016-A oracle, so candidate capacity is sufficient; ranking is the bottleneck.
-- **T016-C:** two deterministic image-grouped five-fold OOF **pointwise value** probes are controlled development negatives (**0/5 each**). `probe28` spatial MSE `0.03580669 = 1.02178×` Region2. Adding boundary coordinates gives `probe30 = 0.03545103 = 1.01163×` Region2. Coordinates alone do not restore safe rankability under absolute-value Huber training.
-- **T016-D:** two deterministic grouped-OOF **pairwise ranking** probes are controlled development negatives (**1/5 each**). `rank28` spatial MSE `0.03540186 = 1.01022×` Region2. `rank30` improves to `0.03421816 = 0.97645×` Region2 and `1.05081×` the nine-hard oracle, with pooled median Spearman `0.75` and strong offset improvement (`0.88846×` Region2), but still harms left/right (`1.04687×`) and quadrants (`1.01626×`) beyond the 1% safety bounds. Pairwise supervision therefore exposes useful ranking signal but forced argmin selection is still unsafe.
+- **T016-A:** fixed-action renderer-transfer is a positive development-only capacity diagnostic. Twenty-seven predeclared shiftable/soft renderers reuse the same selected four Region2 EV/gamma corners. Per-image reference oracle spatial MSE `0.03250770 = 0.92764×` Region2. `113/120` oracle selections use hard (`tau=0`) boundaries, so the main capacity is adaptive boundary placement, not smoothing.
+- **T016-B:** frozen T014 energy is a controlled development negative for nine-hard cross-boundary selection (**0/5**). Spatial MSE `0.03785726 = 1.08029×` Region2 and `1.16257×` the nine-hard oracle. The nine-hard oracle is only `1.00172×` the full T016-A oracle, so candidate capacity is sufficient; ranking is the bottleneck.
+- **T016-C:** two image-grouped five-fold OOF pointwise-value probes are controlled development negatives (**0/5 each**). `probe28 = 1.02178×` Region2; adding explicit boundary coordinates gives `probe30 = 1.01163×`. Coordinates alone do not restore safe rankability under absolute-value regression.
+- **T016-D:** pairwise OOF ranking probes are controlled development negatives (**1/5 each**). `rank30` improves to `0.03421816 = 0.97645×` Region2 and median pooled Spearman `0.75`, with strong offset gain (`0.88846×` Region2), but forced argmin harms left/right (`1.04687×`) and quadrants (`1.01626×`). Pairwise supervision exposes useful ranking signal while forced selection remains unsafe.
+- **T016-E:** the prescribed confidence fallback on frozen T016-D OOF scores gives a literal **5/5 numerical pass**: spatial `0.96750×` Region2, hard-oracle ratio `1.04118×`, offset `0.90806×`, left/right `1.00988×`, quadrants `1.00000×`; 32/120 episodes adapt and 27/32 adapted episodes are beneficial. However this is **not leakage-free nested CV**: calibration-image OOF scores can come from rankers trained on the current outer-held-out IDs. The result therefore supports confidence/abstention as a promising mechanism only; it does not establish development-safe generalization, a deployable `t=0.75`, or fresh qualification.
 
 ## Interpretation of the strongest evidence
 
 T014 supports the narrow causal claim that **derivative supervision matters more than scalar value fit for gradient-based TTT**. The supported method is still Sobolev objective plus projected action geometry, not unconstrained learned energy.
 
-T015–T016 isolate the remaining spatial problem. There is real capacity in moving the hard Region2 boundary, especially under boundary-offset degradation. The nine-hard candidate family captures essentially all of the T016-A oracle benefit, so lack of candidate capacity is not the immediate issue. The frozen T014 energy cannot rank those candidates, and neither small pointwise-value nor pairwise scalar probes meet the safety clauses. However T016-D materially improves rank correlation and pooled MSE—especially with explicit boundary coordinates—while the residual failures are dominated by unnecessary noncanonical selections on left/right and quadrants. A simple confidence-aware canonical fallback is therefore the minimal next diagnostic before richer representations or learned spatial models.
+T015–T016 isolate the remaining spatial issue. Adaptive hard-boundary placement has real oracle headroom and nine hard candidates capture essentially all of it. Direct frozen-energy selection fails. Pairwise rank30 learns substantial ordering signal, especially with explicit boundary coordinates, but unconditional selection is unsafe. T016-E indicates that canonical abstention may be the missing decision rule, yet its 5/5 pass is methodologically non-decisive because the threshold calibration reuses OOF scores with inherited outer-held-out training dependence. The next required evidence is a fully nested ranker-plus-threshold audit, not a larger model or fresh run.
 
-The best fresh-validated spatial basis remains canonical Region2. T016-A/B/C/D are development diagnostics only and do not replace T014.
+The best fresh-validated spatial basis remains canonical Region2. T016-A through T016-E are development diagnostics only and do not replace T014.
 
 ## Non-negotiable design principles
 
 - Test-time adaptation/selection must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, image IDs as shortcuts, source-only Jacobians/reference gradients, or evaluation metrics.
-- Source/development clean references may be used only in explicitly declared training/calibration/diagnostic stages; held-out outputs/decisions must be frozen before reference evaluation.
-- Label-free outputs/trajectories/decisions must be finalized and persisted before clean-reference metrics/oracles are attached.
+- Source/development clean references may be used only in explicitly declared training/calibration/diagnostic stages; a held-out image's decision path must exclude that image's reference.
+- Label-free outputs/trajectories/decisions must be finalized and persisted before their held-out clean-reference metrics/oracles are attached.
 - Fresh/development IDs become permanently unavailable for corrective fresh tuning after inspection.
 - A selector claim must be compared against a reference-only oracle; weak oracle headroom does not justify learning the selector.
-- Do not infer deployable rankability from train loss or average correlation alone; selected MSE and safety clauses remain decisive.
+- Do not infer deployable rankability from training loss or correlation alone; selected MSE and safety clauses remain decisive.
+- Cross-validation claims must be genuinely image-grouped and, when a second-stage calibrator is fit, properly nested so outer-held-out examples cannot influence first-stage models used for calibration.
 - Fresh-run launchers must fail closed by binding declared source SHAs to actual runtime scientific files.
 - Development-only oracle/OOF diagnostics guide research direction but are not deployable or fresh qualification.
 
@@ -71,14 +73,15 @@ The best fresh-validated spatial basis remains canonical Region2. T016-A/B/C/D a
 - **M8 / T013:** completed — scalar learned inner objective negative.
 - **M9 / T014:** **COMPLETED — SOBOLEV INNER OBJECTIVE PASSED 8/8 DEVELOPMENT AND 12/12 FRESH QUALIFICATION.**
 - **M10 / T015:** **COMPLETED — CROSS-BASIS ROUTING NEGATIVE (4/10); ORACLE HEADROOM 1.94%.**
-- **M11 / T016-A:** **COMPLETED — SHIFTABLE-BOUNDARY CAPACITY POSITIVE; 7.24% BELOW REGION2 ORACLE MSE.**
+- **M11 / T016-A:** **COMPLETED — SHIFTABLE-BOUNDARY CAPACITY POSITIVE.**
 - **M11 / T016-B:** **COMPLETED — FROZEN ENERGY BOUNDARY SELECTOR NEGATIVE (0/5).**
-- **M11 / T016-C:** **COMPLETED — 28-D AND 30-D POINTWISE OOF VALUE PROBES BOTH NEGATIVE (0/5).**
-- **M11 / T016-D:** **COMPLETED — 28-D AND 30-D PAIRWISE OOF RANK PROBES BOTH NEGATIVE (1/5), WITH STRONGER RANK SIGNAL.**
-- **M11 / T016-E:** **ACTIVE — NESTED-OOF CONFIDENCE/ABSTENTION AUDIT ON FROZEN RANK30.**
+- **M11 / T016-C:** **COMPLETED — POINTWISE OOF VALUE PROBES NEGATIVE (0/5).**
+- **M11 / T016-D:** **COMPLETED — PAIRWISE OOF RANK PROBES NEGATIVE (1/5), WITH STRONGER RANK SIGNAL.**
+- **M11 / T016-E:** **COMPLETED — LITERAL CONFIDENCE AUDIT 5/5, BUT NOT FULLY NESTED; SCIENTIFICALLY NON-DECISIVE.**
+- **M11 / T016-F:** **ACTIVE — FULLY NESTED RANK30 + CONFIDENCE AUDIT.**
 
 ## Current open task
 
-`T016-E — nested-OOF confidence-abstention audit for rank30` in `coordination/CHATGPT_TO_CODEX.md`.
+`T016-F — fully nested rank30 + confidence fallback audit` in `coordination/CHATGPT_TO_CODEX.md`.
 
-T016-E is CPU-only and retrains nothing. It uses the frozen T016-D rank30 OOF scores, calibrates exactly one normalized score-margin threshold per outer fold using only the other 32 IDs and their already-OOF scores/reference values, freezes all thresholds/held-out decisions before reference evaluation, and tests the unchanged five deployment-facing clauses. No new data, model, feature, renderer, CLIP, TTT, alternate threshold grid, continuous boundary, detector, meta-learning, prompt retraining, or ViT3 work is authorized in this cycle.
+T016-F trains exactly 25 small CPU rank30 heads under fixed outer/inner image folds, uses the unchanged pairwise recipe and unchanged T016-E confidence/grid, and tests whether the 5/5 result survives proper nesting. No new data, feature, renderer, CLIP, TTT, threshold definition, larger model, fresh split, detector, meta-learning, prompt retraining, or ViT3 work is authorized in this cycle.
