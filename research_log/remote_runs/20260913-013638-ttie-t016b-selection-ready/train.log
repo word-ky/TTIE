@@ -1,0 +1,30 @@
+[autodl] run_id=20260913-013638-ttie-t016b-selection-ready
+[autodl] started_at=2026-09-13T01:36:51+08:00
+Prepared 120 persisted label-free episodes
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260913-013400-ttie-t016b-selection/ttie/soft_basis/score.py", line 85, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260913-013400-ttie-t016b-selection/ttie/soft_basis/score.py", line 54, in main
+    frozen = verify_receipt(a.energy_receipt, a.energy, a.control, a.source_manifest, identity, gate_receipt)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260913-013400-ttie-t016b-selection/ttie/sobolev_receipt.py", line 32, in verify_receipt
+    assert r['energy_sha256']==sha(primary) and r['value_only_sha256']==sha(control) and r['source_manifest_sha256']==sha(manifest)
+                               ^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260913-013400-ttie-t016b-selection/ttie/stop_receipt.py", line 10, in sha
+    def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                                        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'research_log/T014_energy.pt'
+[autodl] finished_at=2026-09-13T01:36:58+08:00
+[autodl] exit_code=1

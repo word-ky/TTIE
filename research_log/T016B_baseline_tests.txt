@@ -1,0 +1,19 @@
+test_energy_core (unittest.loader._FailedTest.test_energy_core) ... ERROR
+
+======================================================================
+ERROR: test_energy_core (unittest.loader._FailedTest.test_energy_core)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_energy_core
+Traceback (most recent call last):
+  File "D:\anaconda3\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\tests\test_energy_core.py", line 9, in <module>
+    from test_semantic_ttt import scorer,RECEIPT
+ModuleNotFoundError: No module named 'test_semantic_ttt'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

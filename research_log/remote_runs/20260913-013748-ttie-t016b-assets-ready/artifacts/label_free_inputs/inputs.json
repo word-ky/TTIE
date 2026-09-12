@@ -1,0 +1,1394 @@
+{
+  "source_sha": "7352c073a0d34af3aee63b6817fa02b63f79f860",
+  "source_code_sha256": {
+    "ttie/__init__.py": "4de7703189366591a75bc1f59f8d0a02da9cf1ba06999293141560c0949512c6",
+    "ttie/adapt.py": "beef1fb7f668f3c0cc9e24b6a3966d7cc0e60952f312d1843196de153ba8cc26",
+    "ttie/clip_audit.py": "d372201b4c1c5f3e1aabe38a5f0e421481bb7751c50d2c8c172b24aa6a82e11a",
+    "ttie/clip_signal.py": "8a9b3647f4eb26304f338163cf151d593f7680f64c5059caebdde68115b91ed8",
+    "ttie/demo.py": "b33f1cd922fa26493f402fb0a31aba0106c98f2541001c4691124c0b20a8fd95",
+    "ttie/energy_bank.py": "b467400c80d003c7af88741f66aa5c984d7535914b8262e3b88e1aa3755d117a",
+    "ttie/energy_io.py": "3f59c23392ae1dec390ef26302e7fd1adbe9afffd45f0c6f168edd9a5d16ffa9",
+    "ttie/energy_metrics.py": "f28337257a1c2591f1ad278f8fee68619296e3f27eeb669af9a7e66a05ffe6be",
+    "ttie/energy_model.py": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4",
+    "ttie/energy_pilot.py": "de1d99fa1e17fb1c550022ff0a3c7dddb24b59c01e4a47cce8efc8d34ca3891b",
+    "ttie/energy_receipt.py": "4beb5d58ab48c13fc568676b230e56bed55a3b5ae66aeb5bac3fdea6deda26d2",
+    "ttie/energy_ttt.py": "e8ae260766266a149d08f7ec84b3216ceb18f549ebbef98a7cde3c017dcabade",
+    "ttie/geometry_audit.py": "2277bacffc8327462664979415b73417aac49b8dac7f3a92ae92244b9f010718",
+    "ttie/geometry_summary.py": "1e246b83acf44dee04a1005fab193b41b3269f728aa3c1f24ef368d02e1a1791",
+    "ttie/isp.py": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9",
+    "ttie/joint_audit.py": "89c1e38e5a6e1c30155f77ba613fcf62db24bbc071927f344dd673e481552c61",
+    "ttie/joint_gate.py": "7f5f983d7cabac4bc16f93515f924fb4009374fa038113ad49984b74f4b5637f",
+    "ttie/learned_prototypes.py": "062cb21f65e5611839802ad8dbe86bde883b14c75d50dc5116766e5c903f8eec",
+    "ttie/natural.py": "bfc8cbf8d5c2f92e7e4dfdb49f5c0fc217cb25167be2a8b7a16a0322996fb94e",
+    "ttie/offline_geometry.py": "89519bb7c6eabe9381ee6caa2e10de93fb770bc7901a872309b888e801e84187",
+    "ttie/projected_metrics.py": "38fe641da26300b7ca800b29e8659845a8306fe48a0f19bc5f54d01a2d87d673",
+    "ttie/projected_pilot.py": "c99e74b744d152c34714b2ad0c890d729048e91c48c24ea4c0cd1fe769fcd11b",
+    "ttie/projected_ttt.py": "f5fb68a742ee4038b903bf62ae37ae0b3011762ce3035ba09a3b9609a25a6457",
+    "ttie/prototype_audit.py": "0a0e85871034ee2d1378edfb7f8f3c50f8d040e4b1c525878015d2f3b0b11920",
+    "ttie/regularization.py": "8e15fc50b0681a80fb4f5dbab269e12d54696911f426754870c675767b1c9283",
+    "ttie/relative_audit.py": "5a2804fcf891d41f234c2a675399b88884b51e3892b783f5aeb3d6075fb999ca",
+    "ttie/relative_clip.py": "9e860dd0924f68a56486dd5405e6ba2e61d00d5ce20d75d285f4d0a18198dc17",
+    "ttie/residual_data.py": "8965e60144b4a8e74a59ecb34e45e93acc8101d1e4b819c5a31e4225b746e9d4",
+    "ttie/residual_metrics.py": "de0fc3b36e431b097253ff1084073c717967a623009c8681748bb789e69df523",
+    "ttie/residual_pilot.py": "558c279a5159ca39c52913006e499c81dd0ea338a34b5e66993eecbfa8087715",
+    "ttie/residual_ttt.py": "e472223bb6d6463a44863ae0e9b204d06742b6679327f0efd45766bb56b98cfe",
+    "ttie/restoration_metrics.py": "eba47577737c0ac31afc2e001d8b9b52a648054ea95bf5030338d03a33d5bc97",
+    "ttie/restoration_pilot.py": "36343f59c25ec8bd94c0d038d3e2f3d94f709ffa4d807486df3324c3d4bd5c69",
+    "ttie/safety_summary.py": "58d9b3541ea817ee476b7f89a28ecf5bd880ef9d5b916aba2826acaeec8e5f89",
+    "ttie/safety_sweep.py": "97c5c77769411ebee7e08bdf8f0c10ea3969503cb4a1d3df52dba0bce6888bd3",
+    "ttie/semantic_ttt.py": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72",
+    "ttie/sobolev_io.py": "07830efd9110a9cccc0692a329cdce1c9ef7c39ab1d063c88bd0f177fdbfde17",
+    "ttie/sobolev_metrics.py": "9efb029c68298b522305bbf0c496469e026051f7195ec878c6929a08a842b5ce",
+    "ttie/sobolev_pilot.py": "7dfdba0e0cabff5f46aff6864994e578f0e110d7dcce019f9b7c58d9ace995d3",
+    "ttie/sobolev_receipt.py": "bea1230071c18df8836393b36d31dadda7d94cb68ca8c3e9837b3177fd7c5ac6",
+    "ttie/sobolev_source.py": "475d7c6134a15891d1c601df1b46d55d92850f05dd632b7facc08c6507c50764",
+    "ttie/sobolev_train.py": "ddffd3d998bd8ab0f9616bc6effbd8acf03fee92ba8044ca394505ebbbc5b96d",
+    "ttie/stop_io.py": "eac212a4b0afd131f107f885911c5d32cee659e1e501c5f58db4ec4004c6c0e9",
+    "ttie/stop_metrics.py": "03cb5ec750cdbe69b96556dfc1902f5e3500ae4b25da98d800a2c0b8cb35326f",
+    "ttie/stop_pilot.py": "e323f4de0b315762bbf330bdfaa97a53da902af59211d868239c18c64dd6da49",
+    "ttie/stop_quality.py": "4e6816898e6924732cf2409619c05212a412aab13da15cac5678c7bc6243c19a",
+    "ttie/stop_receipt.py": "f81a20de0808cfebd3321176ed74f9e3bd3ec58df29d63cf937d00c362b81ed4",
+    "ttie/stop_trajectory.py": "38965a15430d383b429086ec4460fff2dd3c500a7d162f39b705c40ae4b23ce7",
+    "ttie/suite.py": "25a9becfe7c9b43a11d7a01343e2991bb279dd780b9825783b1d0cd1a12e6c45",
+    "ttie/summarize.py": "c35d6cd863e109903163741794ecc0b12b221865bea015a486173c2d55af43e5",
+    "ttie/routing/__init__.py": "3c825a354237ba074f14c152d6aeba5a68324497cffce0f91ce4d9d5f243bc5b",
+    "ttie/routing/core.py": "25fce10eacb5cadae671ebbfda848ee0f6ec31f2160b68a93be38dc0460a9b31",
+    "ttie/routing/io.py": "bfa5df72de1805b22d81654c2d025bd8bb861ff6e25eabd3c331c8f760faf96f",
+    "ttie/routing/metrics.py": "2c7a726dd275ba332213b18fcbd1e5d2c0cdc92b3c5a3157c94ba67549e69a8c",
+    "ttie/routing/pilot.py": "4451a9f03a301b98ba7e501c943e2cff8f2018db1383018f28dc57467c629fff",
+    "ttie/routing/provenance.py": "5f5e81984ad2b7f9751c609ee849eb91382b95fd5e6be86583a481224e6b590b",
+    "scripts/prepare_t015.py": "186267b6ce3854ff4ef2d838c6c8a89aad547077f8b223e95a54f0091a02b3c7",
+    "scripts/run_t015_a6000.sh": "4b7cca29731bda5f41f36fa4e2f34476c1980f3373456465b55d6b97d86d5761",
+    "ttie/soft_basis/__init__.py": "24f1a7cf0016657ba5a317b8c5495da457fc3a44b6710c7436c4b8ead386b1a9",
+    "ttie/soft_basis/renderer.py": "7a3f3f5a745356f855d87d52b101d610f709352b71487384a2c56f3dc81687f1",
+    "ttie/soft_basis/selection.py": "f77b00815e45bb559874ebb041294c3c389e11af22d8c823d213ab4c0c585221",
+    "ttie/soft_basis/score.py": "06dfcd84794914ba0425eda640c913147f496c27d9b25ebfe832c8f023dae147",
+    "ttie/soft_basis/prepare.py": "f436b0c3e53e609fa01fcbf8adf8954819a1faf5c2eaa4a6f3faa6f43862a63a",
+    "ttie/soft_basis/evaluate.py": "bb76fa416d8eaa8dbe43051bd1eefb1f64ac56ec0420ea31086bb15d8e25fa15",
+    "scripts/run_t016b_a6000.sh": "087ca1966860729f740544ff857869fc3a7931c899e05d0e5a8eb06ef2535ff8"
+  },
+  "original_audit": "/media/wenchang/F/wjq/TTIE/runs/20260912-213014-ttie-t015-fresh-ready/artifacts/audit",
+  "episode_list_sha256": "ddc0fda411b84c6d9c1b3bd26af46d26f3eeada8fc7bb415e6236eb4e9434933",
+  "episodes": [
+    {
+      "episode": "episodes/003",
+      "file": "003.pt",
+      "sha256": "a958c8dfe03c45cd776c9e510a505a1c8d36e92bdac9769b1348a559e7379020",
+      "pixels_sha256": "bc35de6eb4e06ece3779b54f08bffe5fa62387d61be0a3076a208db51299ad83",
+      "corners_sha256": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "source_files": {
+        "outputs.pt": "364350a18e401ed85814b389c6afeb56d738c7b3b3d1ab51b625719c35fc63e1",
+        "region2_ttt_energy_sobolev/decisions.json": "d46c1961d131a5a2085c93ab16e8ef3a928814b098be06a961589dcfb16f83fc"
+      }
+    },
+    {
+      "episode": "episodes/004",
+      "file": "004.pt",
+      "sha256": "f1ffd1f88daa656bb62b60ad9810f6aa2ad4482b36ed7a1fd7f57a88366fb9ac",
+      "pixels_sha256": "665a0d9c91554bf4fdd33da7368a8af983ed6600cccda9cc5e853dd8b6ee443b",
+      "corners_sha256": "b004c62adce76348b8c8f36c9957ae66f89c1b9acc4f3d550229ce2a3dd7ba8d",
+      "source_files": {
+        "outputs.pt": "2426989db778664ac9be1e890ecf79cce1bc402ad7ec211529f9b5614c0cadd6",
+        "region2_ttt_energy_sobolev/decisions.json": "e428908803e9bee75b646832157a30743799b4345078450fe272f5530690aa3f"
+      }
+    },
+    {
+      "episode": "episodes/005",
+      "file": "005.pt",
+      "sha256": "42f7b87bde46443472296556cb8b5d1d31061088806bef74b2dfc52f01c79ebe",
+      "pixels_sha256": "75b2e47b7a0c10d4210897c68dc024fccbfd6cd6f18009c39ca96f3bf45afc11",
+      "corners_sha256": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "source_files": {
+        "outputs.pt": "788b6d6d2e94d133c750120ab4b7cb79a8774110d59739c9cf18b5749e3f4cda",
+        "region2_ttt_energy_sobolev/decisions.json": "d46c1961d131a5a2085c93ab16e8ef3a928814b098be06a961589dcfb16f83fc"
+      }
+    },
+    {
+      "episode": "episodes/009",
+      "file": "009.pt",
+      "sha256": "a6c4d32490e86941e3718251a4c7cc1285b2abf1a6e2e382ab267d4a7d79deed",
+      "pixels_sha256": "92746f9e6d56334c074f7c77bbdd627885eb8a75c34c18c254020f539a6e1dee",
+      "corners_sha256": "9b3eaaa318d3940c5065292751f2dc7beb1690c62d2dfdd9725a29b95d91e5ac",
+      "source_files": {
+        "outputs.pt": "1786334fc15979dcb3e717225b860cc2cabff88ae67912276eb7f0a187ef8e57",
+        "region2_ttt_energy_sobolev/decisions.json": "94c089cdaa4c4cb905aa969cfde06dc190f8f153490b2e81c45e6b4329fb9d0f"
+      }
+    },
+    {
+      "episode": "episodes/010",
+      "file": "010.pt",
+      "sha256": "802c08ebd785611bba8b97a2e190647bb309faab114b69aa4a4fdb1cc515d6bf",
+      "pixels_sha256": "0691475d9894bc8131401f3fc75f44fee7c8ca3be9125230d42378eaa56d8f78",
+      "corners_sha256": "d56dd5e94e3e5614a8e6581322b12088513167788a9eee27ec1146cdb8d205b1",
+      "source_files": {
+        "outputs.pt": "44800f2e8401159c44e77c6ebf422809eadcc8472d2d3c4f7e8d0df297e02ae1",
+        "region2_ttt_energy_sobolev/decisions.json": "8e7d11e7247e8000c489840be33429731b8ae8d77d565d0e2bd80d840001fc6d"
+      }
+    },
+    {
+      "episode": "episodes/011",
+      "file": "011.pt",
+      "sha256": "31138e2621d7c9ecc0a3f46c7df9e2eecbd14e27be9d5f85d83593982ba38124",
+      "pixels_sha256": "22dcad7c35fa09d4b45d4598c0c79c468a9fe210707272adb3a6817ecfae23ca",
+      "corners_sha256": "cf2ff9a58b7bbb9ab75af3bd5ac6ff925043352d5b8a76777ec9bc1a5b0357e4",
+      "source_files": {
+        "outputs.pt": "af629e36cc60c6bdc684b4e4c9d55eee5091dcc4e2fd49fd85b99289682cff1f",
+        "region2_ttt_energy_sobolev/decisions.json": "3f72a8294e8bcf8689ee1169f71bf17331b1cb75800a8dc351a86646fb763a58"
+      }
+    },
+    {
+      "episode": "episodes/015",
+      "file": "015.pt",
+      "sha256": "9d236b7614e112c5c36b0a11144b1867cac2b5778e69476a4292adeb4d6a9850",
+      "pixels_sha256": "501fb94612b033500db837b8b003c246be63fd6b355e8c61abdaf5a05984df35",
+      "corners_sha256": "cbcb41648ca56557e027c83fd84e5bf0d50d6451e877ce0c3e058071bf66e04f",
+      "source_files": {
+        "outputs.pt": "ecbdb8b7865f8eba8d41a4895a158921027ac2aeefe2037a0401be96be5c5095",
+        "region2_ttt_energy_sobolev/decisions.json": "d38ff57bc572c870d0c9608cefc7918d8ad6883f27a21becb4d7c764d8255df3"
+      }
+    },
+    {
+      "episode": "episodes/016",
+      "file": "016.pt",
+      "sha256": "f45195bc39f164dcbae1d26f667878619d26a4bffa5ed5924cbc2f628b3d742f",
+      "pixels_sha256": "1c3bffce0d361ba1b02292f8d146029b6558970a003dfe87ce4f7dc3fac98030",
+      "corners_sha256": "b0e2d6310519f07cafd089258a99bb08228b4655aca5bebd6e1ee4a6899b7f2e",
+      "source_files": {
+        "outputs.pt": "12bb582f58f9095b916aa27c3bfae51c5f415c2efccd67b26486102d9b38e00c",
+        "region2_ttt_energy_sobolev/decisions.json": "3451bfeaaab09940d4769f91ff8cd71cba2df9015993ae54118d47e8616afb26"
+      }
+    },
+    {
+      "episode": "episodes/017",
+      "file": "017.pt",
+      "sha256": "81b5a762f6e68c501f34bb0eb81ee2f5bc7cb3e7a766f529f23b0a848cef18cb",
+      "pixels_sha256": "06c06230e76d34c6f4af003f5d06e3f37208aa73f6780a47670db6ac05bdd966",
+      "corners_sha256": "593e43e09402fa40f58783ad7785217fcbca3fbb3d5ea1208eb24b5f9126bad1",
+      "source_files": {
+        "outputs.pt": "3b66abfc17c1bc0a09ede8abfb18a91f1dec989b4233dfc2595f94574bb8ac0b",
+        "region2_ttt_energy_sobolev/decisions.json": "7934ebb51fb1003ffe9171bdd79d8609edd48832649c24f12b69aebd6816dd6c"
+      }
+    },
+    {
+      "episode": "episodes/021",
+      "file": "021.pt",
+      "sha256": "e11b4dffaf559e0854f42b92e7adbb077e1b4d73ee8e49c976dbe6b896624508",
+      "pixels_sha256": "55a64857a87fdfaf54d1f069b599aada1fe460a654c3641d255ca5ef75754c10",
+      "corners_sha256": "171461becdb12e5e30f6ad0f9baf6df79369b49a8797948c61ec812a92329782",
+      "source_files": {
+        "outputs.pt": "99b47f9de407aa7584a8a22a8d54837f1d655b8a6c76cde9837017321f530e4a",
+        "region2_ttt_energy_sobolev/decisions.json": "315bf195a0a4831cc29ae12c18deb381c8d4ac636349d75cc1c545ef9865f609"
+      }
+    },
+    {
+      "episode": "episodes/022",
+      "file": "022.pt",
+      "sha256": "24c2ec2a672e2a07dccd3a993ad207441c6f904f59f1d6aaf98a7a4288f9b79c",
+      "pixels_sha256": "ce36e29661afcdc510659b618c36f28a84d60ea8ec3257d3f06704068f3750a9",
+      "corners_sha256": "8c254cf1d1e39149dcc740cb67b2f2509c32a99d19ea4d54132c7976cf6e6f0e",
+      "source_files": {
+        "outputs.pt": "f15e5deb194390adf46cd647a35e571d49be3309b6fe2b0f0c765d772c6201dd",
+        "region2_ttt_energy_sobolev/decisions.json": "f81f7f678ac7b7223d8af0b0f60e9649cc0a5d7d738ad622fa94f82a4d289ba5"
+      }
+    },
+    {
+      "episode": "episodes/023",
+      "file": "023.pt",
+      "sha256": "f236f09f356d443b531d2ad0ab94d60695af716dcf2f6608ff7995a8c0e0bdcc",
+      "pixels_sha256": "6c5968ab1fb55f0918d118e05ceb88c499fa6ee5fdfd5a59aa1a72b6372d52ed",
+      "corners_sha256": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "source_files": {
+        "outputs.pt": "b0a26c8e868ca040e333ee7b90d448a3f98a82adc3fd66d555810b7f331f7e5a",
+        "region2_ttt_energy_sobolev/decisions.json": "0012fe9cf09ab861fcef3636bbc083381fa42d0bc9e5c546df70854c5da3fb0d"
+      }
+    },
+    {
+      "episode": "episodes/027",
+      "file": "027.pt",
+      "sha256": "9c153ff1149b248c53c9b65d718323e43b8817bff5372c22411ea17953d40bfb",
+      "pixels_sha256": "7c217e20da773b663911b60c45b9e1aa0e8cf74fcdd3ae9363f4b0eafb42ea65",
+      "corners_sha256": "71343547a15c5b822ef1d8e083077ca4acb287a9beeb5279aa2405844e95710b",
+      "source_files": {
+        "outputs.pt": "b0a37f87f87404348c607c00ebc83cfda39b21dd7f5e852445a102d3418e58ab",
+        "region2_ttt_energy_sobolev/decisions.json": "51ab0edb5e6a2e555a9a878219bd91395c05066cad18e7f26c0e438a4eb47617"
+      }
+    },
+    {
+      "episode": "episodes/028",
+      "file": "028.pt",
+      "sha256": "30e842f6301e5d08677df23c7a094128a6c663c4c9a9af3f653aa95af4665415",
+      "pixels_sha256": "5b9f7035920b9591fbbb245a128886eb34ff00d84ac28f0596fd0db94962c2cd",
+      "corners_sha256": "a697bcfa88e731f3e6566de7ded697a61880bb71f8418c76a11a85188503fa64",
+      "source_files": {
+        "outputs.pt": "79767c4b1ee06b4812cd108385735dab47141278124e1148efc320cea390d98b",
+        "region2_ttt_energy_sobolev/decisions.json": "db354e25acdfc53e0b44d5ada545dedc9c340bd5140c8abedcfaf90bf9839877"
+      }
+    },
+    {
+      "episode": "episodes/029",
+      "file": "029.pt",
+      "sha256": "564e21388f2440835f8517ee0eaf38983b245b786c3f19ab40e358d4e86799f4",
+      "pixels_sha256": "6744565c8d7041c0bde87a847cb029179c76f21bbfee99f7c6f45b357cd85eac",
+      "corners_sha256": "c4293952d91a5c2b13fa49e267c95a46b7e2e52077ef1e5a28aed12087643276",
+      "source_files": {
+        "outputs.pt": "92a8e6d5702edea52a0e9f923ca2dcab4d8a281413535631cd6ac706818b0695",
+        "region2_ttt_energy_sobolev/decisions.json": "d43a2c6e29952e478b70a28ba6d8a8b3b7e02d79ff2648bc6457b4176cdde8f4"
+      }
+    },
+    {
+      "episode": "episodes/033",
+      "file": "033.pt",
+      "sha256": "990ad76c0c46ed590f451411f260382f7c6452162d6b126ba573ca12af916a66",
+      "pixels_sha256": "7b0c61467df638ae35aae687093e3ebbc4d91bcc0741d6d1c2e61ae8e9f13bae",
+      "corners_sha256": "aba58383b2622ecd4df7a353d8aac94ab4c7c2f7e6dc96cadb612b290ccd7d71",
+      "source_files": {
+        "outputs.pt": "1b48dd358b1ef99419418442664fb6ccc2316a3ad7472574b13b6955541d561b",
+        "region2_ttt_energy_sobolev/decisions.json": "f068a8bc6427fd3e69f43eceac43edf7ac84b3a825a9a2eba6e7db86180cc93a"
+      }
+    },
+    {
+      "episode": "episodes/034",
+      "file": "034.pt",
+      "sha256": "47c35851d70f90f3daf5ebfd32304161a8c92860df7aa7fad537a8a731dc3724",
+      "pixels_sha256": "72d1d58ec4b9374f64e3b5942d3b00a2bfd1748ed3f089874d4898cb2b5797fd",
+      "corners_sha256": "437d63706035b39bba54262e4012c5685e8aeffa6984bdb6ca3feea04226af00",
+      "source_files": {
+        "outputs.pt": "0488bdab49e7d33c6aaf513e9bef8c576356868507343bc007b4984ef87b728b",
+        "region2_ttt_energy_sobolev/decisions.json": "ded4f21b3efd372097a15b7b356e26f637cc47ef62668d6dcba7d2cbb054beac"
+      }
+    },
+    {
+      "episode": "episodes/035",
+      "file": "035.pt",
+      "sha256": "d38ccdadfa81e37b4f9d412ad9a10c20fba3668d30d2f8ba47c22aed1950c857",
+      "pixels_sha256": "81bdbc27da7eaa3c4562b1f24b079ebd93629cb72dfe2b60be163e9481b813ca",
+      "corners_sha256": "a47c96036161360848a985dfc2300a17455e8de80bc4eae92113ced9c07b5af5",
+      "source_files": {
+        "outputs.pt": "2d55129151dcc656d3913cd42029ff7bd4d7ea2b522132f62398cc2795b25246",
+        "region2_ttt_energy_sobolev/decisions.json": "27e66487d6551b07700cd01ca9610296fcec6a9a8f1c6359a8fc018602664b49"
+      }
+    },
+    {
+      "episode": "episodes/039",
+      "file": "039.pt",
+      "sha256": "9d646bf6bb27ae11f1f1d06ba72696f3b06a6ac9eca0f573adbfe912460f0499",
+      "pixels_sha256": "8759f8753c879fbb3c0eb1e56dc109d3ac792b6e64d2a9c46622e5d7805b5004",
+      "corners_sha256": "adb2e22fdd6d847dca434a3da4dc8ee52c31e1f85c32c0652e55a9a2d166c7db",
+      "source_files": {
+        "outputs.pt": "7726ac957f48aca0e7894773cdfd07700986b887bac8c7c98304f96251f2fc4f",
+        "region2_ttt_energy_sobolev/decisions.json": "5cf78651103d4f815400980a1f9da6c8909eaf0dae4bdc19a6d2dd0cee552027"
+      }
+    },
+    {
+      "episode": "episodes/040",
+      "file": "040.pt",
+      "sha256": "850488dcbb7962d6751239b6d1216eeadffa51c38ac6bc653911b651edccd9c7",
+      "pixels_sha256": "175f870f12b63990e8c8e12125278cab8ead46797fe9eebf34317f862677994a",
+      "corners_sha256": "5de8ef1665a010d6126651d6b7472ee86f8d4960fd5ca26bc6f292dacc3880ed",
+      "source_files": {
+        "outputs.pt": "7848e2d1deae099694cba450f096fde0032ecf2abc6ec40b3cf18f04c0ce6745",
+        "region2_ttt_energy_sobolev/decisions.json": "3cee53d2e5c47222017da693b8874852d30902279556d5c7c4435ed9d1d1897a"
+      }
+    },
+    {
+      "episode": "episodes/041",
+      "file": "041.pt",
+      "sha256": "6000164a5dd4d93e282496d59e5bb02264ac08e3666ecd290788e6b7fc18f9f7",
+      "pixels_sha256": "f3f7b3f404f676b9108d5686cf48c67a7cd2392f50445fb04849aa89eb275f0e",
+      "corners_sha256": "50d14852a4f95b00c91d90979e4515882422ae0f68c10cc6c6d31256b96744ca",
+      "source_files": {
+        "outputs.pt": "43f07be9ab9d20841cf9da9ae5caa6836c83f132ac8ec0b90066f9918f73b0aa",
+        "region2_ttt_energy_sobolev/decisions.json": "17428bbefd90a8a553c07d4bd3f27948c09f62961cc10c77123355130a1005bf"
+      }
+    },
+    {
+      "episode": "episodes/045",
+      "file": "045.pt",
+      "sha256": "2a02d3c15324442819f7f4b794fcda4f41ea675e12f5570c1c578782aeb9e478",
+      "pixels_sha256": "e1db06912f78c6ce06cf0109cde2f501355a1beb54abc61fb1536ab6e67a8f62",
+      "corners_sha256": "c2ea2a4758dbb4961d014efa721769c35fdabc95d72472a813fd8cc91c564840",
+      "source_files": {
+        "outputs.pt": "6452726fc4da02c12a6112c3a294fec906d3e8f5f35afa3b5c5704da56cde176",
+        "region2_ttt_energy_sobolev/decisions.json": "115ca42a9080d50c275cec589512cad829c18f4ba26b9bde4e547b2bad88de25"
+      }
+    },
+    {
+      "episode": "episodes/046",
+      "file": "046.pt",
+      "sha256": "a9085796ee6c29667fce3c51037783d8e0d891ecc05212fa3274fedc4e63e2b2",
+      "pixels_sha256": "12121dca115a9350d0f1911f6f28fef61cb2fb78f49c141885826359b4009a38",
+      "corners_sha256": "b3070d2aadda8f9bf1348773f8a18cefab12633b70142742d554a73b92f067e4",
+      "source_files": {
+        "outputs.pt": "f73eb60aa950450510245ecf099480da9681edfa3cfc144008d2035a68dea774",
+        "region2_ttt_energy_sobolev/decisions.json": "b79d8d2c8b5fa45c3bfef0fc9ae5716a23a528c12882cce439a073af0b3af46f"
+      }
+    },
+    {
+      "episode": "episodes/047",
+      "file": "047.pt",
+      "sha256": "4248caceb995f4cb7679a21dbe6386271baacbaf3935272446e9cba568265b95",
+      "pixels_sha256": "a5982653c3dddce1d04c4c3de771096d3709f77c95206d19accba874ad73a4bc",
+      "corners_sha256": "3002efb78977740231affff29deba525149948b6e8fbefd43bbbd9e341f03407",
+      "source_files": {
+        "outputs.pt": "ccae00720f6a216c954ff7d16631c09d2679941bfc7c0dc773f0883fc765ef65",
+        "region2_ttt_energy_sobolev/decisions.json": "6bd1dba321197cd75a054e9d362ec4462c218e21d603b22b139da8085f9c9a43"
+      }
+    },
+    {
+      "episode": "episodes/051",
+      "file": "051.pt",
+      "sha256": "905292ec25367ee5aa47fb21d5341bf12af88fac3a82718ccb6f618ea4d28ccd",
+      "pixels_sha256": "de0d6e0c509bcd8ee7c4fe7124c7b8829844c88bd5e6558c076320aeb048c48b",
+      "corners_sha256": "414182dbf8e49ee881af6ca6d67ec40fd34ea7ef736de27ae964ca1bca040437",
+      "source_files": {
+        "outputs.pt": "5d7fbf4bcf3678295597c5b2b2c0fc56fec6dd862e669ab890b9e1947cec2d13",
+        "region2_ttt_energy_sobolev/decisions.json": "405aebb69ec29c06dd7149de6929d71f725f59a395fbddb9c62734bb504efa01"
+      }
+    },
+    {
+      "episode": "episodes/052",
+      "file": "052.pt",
+      "sha256": "2aff32a7d7da414255f7624bb88bce6f968e7eee41ff95cbd8b26ba688abc8d0",
+      "pixels_sha256": "50ef3434b8fc8a24083d520648efeda54562155d491589322b2179c24f4da202",
+      "corners_sha256": "4cf8bf11595387d346568062f80e8b83dd43d316e2dc263b1b191c3340ccf0eb",
+      "source_files": {
+        "outputs.pt": "f8493fe4c87c9e9452a52888b43f7c5d428b115d884339848bbbf6374f5b4989",
+        "region2_ttt_energy_sobolev/decisions.json": "df440ebb05793e802828d834c318ca49ab942a48eec451024197e3d3050c9e07"
+      }
+    },
+    {
+      "episode": "episodes/053",
+      "file": "053.pt",
+      "sha256": "968dbdfd42103ac0ef21a475ede6a67ebaf7b900eb754b336f7122b7074efcbf",
+      "pixels_sha256": "3f523e15b40226013e952241befc46505173b85f2e1b2b9015811a38e83801d8",
+      "corners_sha256": "ade57a6623a94955fe3622db39596a5f41a7302b0453837f187173c6441cd765",
+      "source_files": {
+        "outputs.pt": "572145f3f2c65c3dea06e0bbccdff01654337c17648008491d70ef937a322680",
+        "region2_ttt_energy_sobolev/decisions.json": "1ba32f866b8ec8a7cd6fb7fa79d82e05519f1cb64e9fb5096eed216570ede427"
+      }
+    },
+    {
+      "episode": "episodes/057",
+      "file": "057.pt",
+      "sha256": "7679a7ab1bc00d7ed7f5528573450a26eaca747bb3add2c8cde5dece2801789f",
+      "pixels_sha256": "3df6db9d0a471a74ba1667936bcb583a6d565cf0d66c43c9eca8fb58c24cf6ea",
+      "corners_sha256": "b458b4d1ea0a9ac69c1d99a68e6441aa5c0e11946a94f393b7cccfe3b5454daf",
+      "source_files": {
+        "outputs.pt": "aee7940d0082129b2bfa71a3871da526cb7af0acd69acd40d43ad53300f8ee86",
+        "region2_ttt_energy_sobolev/decisions.json": "364c1716e5828cbea152c4dcbd45c45f93f3741473095a0fe23f474a6bab6be5"
+      }
+    },
+    {
+      "episode": "episodes/058",
+      "file": "058.pt",
+      "sha256": "0f929504340491f2303f89976f8168ae9822f4a08c676eba7441c6d0da9576ad",
+      "pixels_sha256": "f45cf88e7fc58d9d91947d5dbd42f0be9639a27b074b8b0ef77df2c1078fa90f",
+      "corners_sha256": "70006281f4eba346a319a7db07003c93e681b35d46a439363fb19536022a0a40",
+      "source_files": {
+        "outputs.pt": "9697f155614d9504aed038a9cedf4ef0f9b75787baf2cb27d4fe4c7fa20a73d7",
+        "region2_ttt_energy_sobolev/decisions.json": "f1a244897f1a03b893dc81d9d3bb4aaf00e31d941fca4f0981550f7610ed0288"
+      }
+    },
+    {
+      "episode": "episodes/059",
+      "file": "059.pt",
+      "sha256": "c9d2b6072d0ba107c5ade5cac708921353934801c332b9c36f5f92da8d8d2d31",
+      "pixels_sha256": "5bb1f262f9dead830020de44e5889dfe37d90bfb10f25fc3ffc069b08b633d29",
+      "corners_sha256": "dff2d0bdbc14fa050420e378ca6727c645c84c39d59ade5ec871656da5e32ea2",
+      "source_files": {
+        "outputs.pt": "95e96f4cb1fb72c92d638039f40aae0d1ef86cad35e7d16920b403fb8e699ff1",
+        "region2_ttt_energy_sobolev/decisions.json": "f559e13e85f67a2622350e44dd607dc75ccf58f4415322e51d7cf0abd9562141"
+      }
+    },
+    {
+      "episode": "episodes/063",
+      "file": "063.pt",
+      "sha256": "5951de5e8815e7f3828d9d70d0532c99c900dffc9b2b9232479491bf0dda1771",
+      "pixels_sha256": "a012956b9099697ae6f7d071824ad37f674ab874a7859039c33f319beee96a0a",
+      "corners_sha256": "154ac79e8c3c76c963a2c3a0c28885da4fe8edf78eb775e94d6711dfae64c22b",
+      "source_files": {
+        "outputs.pt": "7142a19c15299b31058e1f5c00970623123c0bbc3989bb052843292d51ddf831",
+        "region2_ttt_energy_sobolev/decisions.json": "e778b605c830e3067ab1f310f4469a76738b5cdbd853a7f8e725a55b1bcf6fc8"
+      }
+    },
+    {
+      "episode": "episodes/064",
+      "file": "064.pt",
+      "sha256": "7361a4f11349b52fb94601b1d4c1bd9fb410f1c5c372076c43fa444706b678ae",
+      "pixels_sha256": "630bbeee4fd3f6e44b22bb05792c6e55a1303c055470093ab8ad3c2048e3312b",
+      "corners_sha256": "9b1cc27f69fc48d31e983e32a925f569cb1a185257c77f9cda63d4f967caf39e",
+      "source_files": {
+        "outputs.pt": "2b66b4e88186ff1984528c212ae3f5caea352362fb7d0de06bee3bc7b0c6419f",
+        "region2_ttt_energy_sobolev/decisions.json": "e3b77b33703ba32de8d5f30f63743e6066c0bb9bb6782cc3076a2ad039c33241"
+      }
+    },
+    {
+      "episode": "episodes/065",
+      "file": "065.pt",
+      "sha256": "d7fea83d59696f3b6e91df78cb832a8cb2045a632b51044cd5d328a380f0f976",
+      "pixels_sha256": "136d14def7c56f50c8639993c038f7dee4c69e85213d40d9c7ac10a1d0b41332",
+      "corners_sha256": "4b9b64f73a9dcc3dd6c03083101e791a0d04b6d978099ac31b65f8f41961beb8",
+      "source_files": {
+        "outputs.pt": "92d598ba213a78f786f7da399985d7b9ae57a753b278f56285170a43d6cf81b7",
+        "region2_ttt_energy_sobolev/decisions.json": "250e68b083e0a59011feb8de2edfedd27d14bad874c239f4d781fb3cd229e075"
+      }
+    },
+    {
+      "episode": "episodes/069",
+      "file": "069.pt",
+      "sha256": "4693820829db12d1c1bdd4e372e1e9503d1a6dfc9c91cb16dfa6b534dcf5ef79",
+      "pixels_sha256": "9142424ea9258c9703a29f1741f4cbe9406148e40f3e4b5e9fa4716a9f64cb88",
+      "corners_sha256": "6dc16e3efe8f300e241d6aa44df8beb292b0a4b2870294872a8321979a59e4c4",
+      "source_files": {
+        "outputs.pt": "d3d03e0aeca2e929bec93d9a3e141e17a4f6b6374dfde38d87e9510ebbca4683",
+        "region2_ttt_energy_sobolev/decisions.json": "f709d0e54aa67ee5be7b155c3bc46de26170fbadc5b2228c730c161ef42d0b69"
+      }
+    },
+    {
+      "episode": "episodes/070",
+      "file": "070.pt",
+      "sha256": "3c03248ece069a023f197da9a799d33835e53977557738b1663cb9f016b1f4e8",
+      "pixels_sha256": "b04a8b09c64ad667874551278e46c90a907cc5dededd3da339bae3f725cff71c",
+      "corners_sha256": "1a7e093308baf4c09717509e7c70f5db04a2199d0b486759428080db223380bb",
+      "source_files": {
+        "outputs.pt": "a5edd0a1c8dc94e7fe80cc6cb27f55c8efed06324833640780c080961c05174b",
+        "region2_ttt_energy_sobolev/decisions.json": "62beefc201085ac14cf3b6a3b4bf25c65a6118b86c4e85c52616395a2c6e3b7e"
+      }
+    },
+    {
+      "episode": "episodes/071",
+      "file": "071.pt",
+      "sha256": "fb080dfe588e5e664d8235c432f8b4a8e601b601618e53e944725a04c205f394",
+      "pixels_sha256": "f8dfce2899d12c12e8cad196906c2a4ae13ea2848034a819ee1e0b8a1fec6eff",
+      "corners_sha256": "411a7689a3d0b3c1c26a26b99faa8c8a1f46ac1ad406dda1499cb2596ffec6cb",
+      "source_files": {
+        "outputs.pt": "a23ed24659be009dcee2ed2263bd83949597dfc95d1ea73f2f99311b1ac0ce68",
+        "region2_ttt_energy_sobolev/decisions.json": "cad55513698dfe76b8f4fd0350ed3a7ffe39b8b80b4ae53ea1a8541789dc153e"
+      }
+    },
+    {
+      "episode": "episodes/075",
+      "file": "075.pt",
+      "sha256": "8f95fb0ab4fa4f53ee380e71e424d7efdc4f710b164c19c527e0ce5129751995",
+      "pixels_sha256": "b4c83c51ba9688a5a9de8a72a21dfc29d9b95f30cdb4310409e15e6d995d9d5d",
+      "corners_sha256": "7069ec7f51ac181582adeb862efeb60f9a6b4b1d87a5e0140019c9d0444e2987",
+      "source_files": {
+        "outputs.pt": "8d5603f7aa02a9b0705817dc03e2677ff08c833911d0216999a3b2fd0fd43efb",
+        "region2_ttt_energy_sobolev/decisions.json": "abcaa04ceac7376674105aab84ff2a19649eba622f60b21be328d0ed7203d18f"
+      }
+    },
+    {
+      "episode": "episodes/076",
+      "file": "076.pt",
+      "sha256": "833535649925858c31808439d6950e4490e02f0bb6afbbf1568a7a2ca8a400b5",
+      "pixels_sha256": "eeb4540df426f10e8281cab3059aa844a80b03eccf0a8e75c5bdec8adb8339cb",
+      "corners_sha256": "cfa9433d269f5c78478719f55e48c95e780e1af4b03b79c54423e2e41d1aa39a",
+      "source_files": {
+        "outputs.pt": "ace32988aa640edafa1bc98c901b15d617f4828574112d92916659cd4ee3fe7a",
+        "region2_ttt_energy_sobolev/decisions.json": "ac726884986b32f6f5c5efcba47e07ea52cc59bfc89bba8c7eb573844df5a3fc"
+      }
+    },
+    {
+      "episode": "episodes/077",
+      "file": "077.pt",
+      "sha256": "4c9e9a8f27bf110409972e4a12590bbd788d58cba6014c1bda3f0ff16a12b722",
+      "pixels_sha256": "4e2df55baabd7877b452bdb212890a5ac3fe76c845b02af7de587b761c868baa",
+      "corners_sha256": "ed61c2b51ab080acaff494610f2a333a638a3e3d9b5c216a79e8acfdaa0f268a",
+      "source_files": {
+        "outputs.pt": "72b1730f1f42007fcda3344b7997bdbcafe30196559eb227b71891793f1d5221",
+        "region2_ttt_energy_sobolev/decisions.json": "c93173378153f7172d835573c210bdb5b78ed666c4fa9e1c9b34cea0277e58e3"
+      }
+    },
+    {
+      "episode": "episodes/081",
+      "file": "081.pt",
+      "sha256": "6afb3d611bd8693d59a5d3eb3697ebef742ac1b0e822e74b59b536323f0e5354",
+      "pixels_sha256": "e9afc2cc8264785283a621c8fb48c8aae36fe845cd7e8bd818a6c8cee804e510",
+      "corners_sha256": "92d3873fd38a0612a67d91ad05250ffbafaa73a831a1a3bbcb1dff929fbf07d3",
+      "source_files": {
+        "outputs.pt": "e3fccc1bdf51e502a0f64f33a44b325ddb7eaa7e1d7e32c5436f2ad1e780cabc",
+        "region2_ttt_energy_sobolev/decisions.json": "e4318abe007a8d16693c7abb762c04102524cc436e53fe019465f5d0947614bd"
+      }
+    },
+    {
+      "episode": "episodes/082",
+      "file": "082.pt",
+      "sha256": "700719263bc9d1b62729247a0e959641a87a8a324ca7260e46e78caae32d6894",
+      "pixels_sha256": "6aa7b912cfe83f7fb8d5de96e0b26acf0c63249d73a48219c9b20de92fac604d",
+      "corners_sha256": "f822a5a765dfc6465b484f9ca9fc8fc921a72c376b8fcfced10d560405890d43",
+      "source_files": {
+        "outputs.pt": "ccf1749e0178af461d1b247fb39dda5987abcb6372584250a8751f749b20c7ff",
+        "region2_ttt_energy_sobolev/decisions.json": "bc8087d487385302dbb69b5fd7181b5c6445812e39d8e9668fb023f60dd060ea"
+      }
+    },
+    {
+      "episode": "episodes/083",
+      "file": "083.pt",
+      "sha256": "5e56d125d57f56eab9c2c81472787b2d410862e3ef28d104bd326bd34585bfe6",
+      "pixels_sha256": "a5179aacdd07285ad99f6dbd65514a8a4c41c02e645cbba4e7e2450c4a76cf73",
+      "corners_sha256": "f1d3c13db04b197f2b1da78e090cd1c72ed0d2518aaf9b4acb9d20f89be2e0bc",
+      "source_files": {
+        "outputs.pt": "8ebf2b9df2d75f07f7e11b3489769127f7ac98d98398049f8e228126643cf2e5",
+        "region2_ttt_energy_sobolev/decisions.json": "79a18908de400a02e36b014f84f2fabf338bb36b5b8a42875ca59e0f42869637"
+      }
+    },
+    {
+      "episode": "episodes/087",
+      "file": "087.pt",
+      "sha256": "6e6d3d63cb16245b8e0da7dbff4e7401f8614e3ed7767a5f3bbaa2cbd533a298",
+      "pixels_sha256": "a270e17c6916bd1c91fef36ecdd01ed05bfc5bff47228c5165177d330a3f8e33",
+      "corners_sha256": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "source_files": {
+        "outputs.pt": "80ffaf564e79d45d3db5660a4380c95cd960af698670f870058e507e1f8df967",
+        "region2_ttt_energy_sobolev/decisions.json": "e81af126bcf4a4fcc1b73805fa281ddf6418145be9b26aeabe298f87121c1197"
+      }
+    },
+    {
+      "episode": "episodes/088",
+      "file": "088.pt",
+      "sha256": "978b9a003ba35a6a77ba8adcda14021c9714bc7f02f272833aeba78a9712b4ac",
+      "pixels_sha256": "5d9900d26d7849658e7c32be6a4381a33f9569596d9d2a8fa5381139a950e962",
+      "corners_sha256": "8c254cf1d1e39149dcc740cb67b2f2509c32a99d19ea4d54132c7976cf6e6f0e",
+      "source_files": {
+        "outputs.pt": "05f3dfea38ef6c99372785687f0460fe72c23a5bb40781f80e8e034a2b1591d8",
+        "region2_ttt_energy_sobolev/decisions.json": "80540d5d3bad221b7fd0cd5023a89812e0d54d9c7e348649c8a834aa067f3aeb"
+      }
+    },
+    {
+      "episode": "episodes/089",
+      "file": "089.pt",
+      "sha256": "dea8201666dedfd6f6c137ccfb34fb94055a295a7223dc917fd98fbabb0858a8",
+      "pixels_sha256": "a70edfaf8e056217a0e20ad9eb4c90f71065ef08d476be70e485cdc3fc594131",
+      "corners_sha256": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "source_files": {
+        "outputs.pt": "fac3eb69f43168ce56fd2ca51c89a1ae4d9f67afde73ba74e5f75b969e711125",
+        "region2_ttt_energy_sobolev/decisions.json": "ec24e81310e5e31e49008983b40c263bceace5903d816a4ceeb5a199ea529e7c"
+      }
+    },
+    {
+      "episode": "episodes/093",
+      "file": "093.pt",
+      "sha256": "09e42c6c28d421ecd9020f89ab5136da7e378f6d28bc9a53801e2263f5049bf3",
+      "pixels_sha256": "401ce44616080106280a3b43197ccb1f59eac400021c861d35c2c968050cd836",
+      "corners_sha256": "1480b2a848a6f2f75d9284ca7c710aabb29c5b9d3a643c6a53375f24abfd08bb",
+      "source_files": {
+        "outputs.pt": "1fa9992620bf8b5e86a2c23e68a3848a387ff5204fb1c059b136b6e1b1cf81bb",
+        "region2_ttt_energy_sobolev/decisions.json": "f929a698190dca73ef1aa880b69ccb8013e05c732882423ddbf15faa8e7fffe8"
+      }
+    },
+    {
+      "episode": "episodes/094",
+      "file": "094.pt",
+      "sha256": "97e1c54591432c2c7ac9a4cbf4b44e8972a9734da7d04d7f81b67ffaaaf1d7d5",
+      "pixels_sha256": "fe2c2da430fa6edd6049d8331a335ac119e13943dd4fb7a7cefd72815a13eda3",
+      "corners_sha256": "a2739c9996c62bd36a895ee72673cae255f41a18995a5cba1e735d5d4a0abc70",
+      "source_files": {
+        "outputs.pt": "5149bcd57296bdad50378120470789d21f6c7f7f173df8e3a798a376fad545fa",
+        "region2_ttt_energy_sobolev/decisions.json": "74435dfcb0581f6256e48608889a2bd0a7a9b83f0db1db7ccbf69f48cab10a14"
+      }
+    },
+    {
+      "episode": "episodes/095",
+      "file": "095.pt",
+      "sha256": "07c789343d89e301cce0b189ca10e401a2016411f34387f430bc34de2349460e",
+      "pixels_sha256": "28e4690bb16f7b8a70ab7b42444bff935819e998375d1483a4a6351f74831da8",
+      "corners_sha256": "1480b2a848a6f2f75d9284ca7c710aabb29c5b9d3a643c6a53375f24abfd08bb",
+      "source_files": {
+        "outputs.pt": "db80f5975a94a9bd964f65f96ec9c214988308a172df6a6c324a7e678f78ccf1",
+        "region2_ttt_energy_sobolev/decisions.json": "4c562c51c32815ae09d3b31db5c7ba0bc348896b4d2a5b0e7adbfe2c8a3351d4"
+      }
+    },
+    {
+      "episode": "episodes/099",
+      "file": "099.pt",
+      "sha256": "c362b0f0b0cc695f3831a108298593eb8d61ca30093557805068223de5d5a0f6",
+      "pixels_sha256": "75b07c6a8a626e3e4b3c4bc403b95a0806f28c9d9b49308dfd511170e1a6d728",
+      "corners_sha256": "9702ec14578e24c5e18e5b55c0998c84844c419a03139e44d8570fca1732af74",
+      "source_files": {
+        "outputs.pt": "150876c8f0f97d814c99424c60e2e8b4d5caf29268e6abb16a27c2afdfb2a867",
+        "region2_ttt_energy_sobolev/decisions.json": "70b305993fcb1bbf4a6785a1d4a6726fab96fcf2f76ae0f7d3d5672cbcf0c656"
+      }
+    },
+    {
+      "episode": "episodes/100",
+      "file": "100.pt",
+      "sha256": "483bf4991335db85500602b6759c406bc2c067fbf218b4171168e25d5ba283da",
+      "pixels_sha256": "3af38ca981afcc634ba2ca08577f62843bfcd8160c17f870ad0d7d9c8723c4ac",
+      "corners_sha256": "fea78f82726ea5461d064f6475ef2fd01ca679d0a240482b9323372826bdeecd",
+      "source_files": {
+        "outputs.pt": "f24e04746821b73013998bd688eb5c45383e0e58796fcee1dab988bfb2feacda",
+        "region2_ttt_energy_sobolev/decisions.json": "e88d5f363d27d45bfef8898fc4b45fbefb7cbbe6632023a9da7fc7fb2ac532f6"
+      }
+    },
+    {
+      "episode": "episodes/101",
+      "file": "101.pt",
+      "sha256": "0a1ca4bd8b45ff4273d6ed3ffcb8b04ab580d18401fbc3dc043c2f2b198818a3",
+      "pixels_sha256": "ad44231f8e89792ca51f6ba4a0c23c31fbaa8927a55fad8827af3a4415923e36",
+      "corners_sha256": "c6fd0b75e3ed14469a68d4bf2d537367ccd9029a4522a2eca35d3a6c069ac189",
+      "source_files": {
+        "outputs.pt": "75e63151813b5db9145dce4932c504a073429aa1ec80090b6a1bd97c18db66e8",
+        "region2_ttt_energy_sobolev/decisions.json": "e955e065ac33f9adec22fbb89c411eecb7bf3bea1a4d88abf5b497226bbb33f9"
+      }
+    },
+    {
+      "episode": "episodes/105",
+      "file": "105.pt",
+      "sha256": "16e651d819a8cdb8f77d40a8a17ec3bc27176c6b6b7ada3e04f16ca9b50923f1",
+      "pixels_sha256": "530318013d40bccbfb7bf4e9dfb7a7045c48e8770781950fa930f56ede274436",
+      "corners_sha256": "95dc9755c908378eb25073c1acf09f10b80ef7d6b9bc0d2b1d1aadcbf8aebc2c",
+      "source_files": {
+        "outputs.pt": "ef89ac01da787fc3625e18fc15092a092416d9b1718151bb766709fffc7786ac",
+        "region2_ttt_energy_sobolev/decisions.json": "0007a9b3b4f830c76bf42d66fc40bdc6a8c0c8d16d854533f002ffbe0564ecfe"
+      }
+    },
+    {
+      "episode": "episodes/106",
+      "file": "106.pt",
+      "sha256": "f0925fd3c65d339eedaba48b53bc40ac2add4ab1f990889072ec6e1b3e5c06b3",
+      "pixels_sha256": "788f5c090b072bda2a4967516a454dbac1c88f2066c6eebc2bdce9839412ca95",
+      "corners_sha256": "87c01766f1b91da10a98ed52ca5ac08c19c2e56229a691e071bad7c8df62d03e",
+      "source_files": {
+        "outputs.pt": "b33cdfb72702f5e6abfa79f76e622b54c6a31307dbff822c2b7905b5247cf084",
+        "region2_ttt_energy_sobolev/decisions.json": "7f44353b227068c35c19ee3b58e09433f6ba0a23734763766b93a5bea71fc566"
+      }
+    },
+    {
+      "episode": "episodes/107",
+      "file": "107.pt",
+      "sha256": "55c06876dc8087567ec501a8ffce6eada70a02f5ca5b56e0efed8cf6956c1b5a",
+      "pixels_sha256": "38285f22ae6d6b3124819a7ae75edfcbadea5ff2df68f4330b4a83cb3144698c",
+      "corners_sha256": "9bc6b4d1be8a4662cf6b45c483a5e0e1727efe987e036e7d02af6661ef6f9619",
+      "source_files": {
+        "outputs.pt": "bec2b989324592563eefec5f1d539213971122ed5bbee57ed5a712981b3dd52d",
+        "region2_ttt_energy_sobolev/decisions.json": "7190b523e494461c2535b9c02b38d92fc73b2f4c0815342bfad76b907aa00e1b"
+      }
+    },
+    {
+      "episode": "episodes/111",
+      "file": "111.pt",
+      "sha256": "a2120a135f4ec9f47ff945c3b1ab3b29e5c29d1be6c1c4aa741cd5a12c402612",
+      "pixels_sha256": "796c377821f69cc87af4b1b4dc56531806ed29a906abc548a63f07cf4b2b9a1b",
+      "corners_sha256": "d2e287ea6e4420410d80221f1ead4ca7dc085d51a3e92787b03fea15a17e4088",
+      "source_files": {
+        "outputs.pt": "04c56c36a6c656319a74025bcce4fa62dbd3a884959627ba5d39e7a2a515756e",
+        "region2_ttt_energy_sobolev/decisions.json": "ae776303ad24cdfb227e2a6c5ff9804f928dfbff552b734128872c4528054fa9"
+      }
+    },
+    {
+      "episode": "episodes/112",
+      "file": "112.pt",
+      "sha256": "f996d96c8f98498892cb4680d877e00835e2105009b805a2c7f6b73fb696ba32",
+      "pixels_sha256": "b3163c45a95a873ffccaa0df53f9dc71641938c87a48fc5179f5d1c3664751bb",
+      "corners_sha256": "8719d889bebb648463690d9636a4c9659a42e4492891664f22c19f6fb8da6563",
+      "source_files": {
+        "outputs.pt": "35a67854b2e3b185b5a39d8aa125b5db52ec38779ae0d39228b2c774d58d2f4b",
+        "region2_ttt_energy_sobolev/decisions.json": "76275a3bf8aacf53282bad9ce8079ff757b784b4c6cee2508cc458181f9b98e9"
+      }
+    },
+    {
+      "episode": "episodes/113",
+      "file": "113.pt",
+      "sha256": "95baf4f8f6cd32574dedfa21f0148fa630ed7b3afd8f1db0b2d1f9e0d3b6317d",
+      "pixels_sha256": "18ffde92008b8c8f9013145a49040369347834994df0e850af8174eb0b276077",
+      "corners_sha256": "c5b7d321a0dbe73b67f4cc7f8375e6f0e0104705ada1cd8e65bb9b9d4aee4bf2",
+      "source_files": {
+        "outputs.pt": "78cf8133d9414b34b6c87bee92c1bb81a0d8c63e726a55f97f3d4c073ac37b98",
+        "region2_ttt_energy_sobolev/decisions.json": "bd8454b116f2e531bd15faf5ddab414b25867fe71eddbc215ef0fadafd0b5cee"
+      }
+    },
+    {
+      "episode": "episodes/117",
+      "file": "117.pt",
+      "sha256": "d2716d89b4cdcc341708eeded3ff77e63a3a83a7ecbbd4196f481878d18aab8b",
+      "pixels_sha256": "ba41438d7ba984e2d0d098ef45620bbccaa417ea3e2c06885332722085e58886",
+      "corners_sha256": "ea1f7a61b783e5608cb73005ab522bd0af1e6d46cd2a060671fc86cca096523d",
+      "source_files": {
+        "outputs.pt": "be6f338346662843f4204d1918d8d6d98fe4a186046dfa3377c39b75b37ac6e5",
+        "region2_ttt_energy_sobolev/decisions.json": "b828b545ff93f5bf91428cc669756f155f262bfeb7e5d122c9eb12639e180cbb"
+      }
+    },
+    {
+      "episode": "episodes/118",
+      "file": "118.pt",
+      "sha256": "a81be39d91e7947a56b39450207b00e68672370be8d82436771a1172bfddf036",
+      "pixels_sha256": "19fd176194ba5a4cecb5e4f15fc97ce6c9a947fcd0d7496eb23da31b75fff0b7",
+      "corners_sha256": "b0f0d812d00d82ca40b24c7fdd1b3072da0874bb86adc56114bf4ff71246e12e",
+      "source_files": {
+        "outputs.pt": "b2f85a722381e83dfdaf0330ad0eddb38a080a7a084dc84220edaf284f576147",
+        "region2_ttt_energy_sobolev/decisions.json": "11f0841956a9fa8f1b2292587218404c8dfd76a35f0cc5ff20cbe640ed8895ce"
+      }
+    },
+    {
+      "episode": "episodes/119",
+      "file": "119.pt",
+      "sha256": "82e2545b917fb2f4c2cb4b81b64a9480a34ac590afe6979b7676f4abc79abfcf",
+      "pixels_sha256": "1f237882a1004846934034fd5b8d0bcf744fa35cfe9e6082c3a170931318706e",
+      "corners_sha256": "d57690f360b2ce015779650f0226bf5832e52967564b9db19ffbc443e60da43c",
+      "source_files": {
+        "outputs.pt": "3c211b9f872090fafb36efd22a94e03a48214d55196ed1a4572a33a1f9bc022f",
+        "region2_ttt_energy_sobolev/decisions.json": "23591c84a016298d1aba2c338c6d0da6fb83a60b76e142c9e37fa16af9ffd1df"
+      }
+    },
+    {
+      "episode": "episodes/123",
+      "file": "123.pt",
+      "sha256": "cc77fb2a5b6c9b126d24cfcf6e47290cbbc34cdd082c2448c01ff570b2c1b3a6",
+      "pixels_sha256": "a1f108ba5e0e4786e2ae990952b1e2efa4f18e4d63ad3ee87ae457f83ba52ebe",
+      "corners_sha256": "5fd4874a1d64822ce2a3127d11851d80a971359d41f8a1876f8de58fe7587021",
+      "source_files": {
+        "outputs.pt": "5caead79dbd61d75523ba0f08a71bd8200fb10054b08c691bb50ac82c1868f81",
+        "region2_ttt_energy_sobolev/decisions.json": "3d40bb47ab529859d9bab8c16815223e98343066cb1607a3a208e7db24664f1a"
+      }
+    },
+    {
+      "episode": "episodes/124",
+      "file": "124.pt",
+      "sha256": "3b422279aba09c40117ac9152bb94489dcb2134f92349c1980725442c8ee5c25",
+      "pixels_sha256": "3df73412d30c4d79b964c019d0eac8b39a771fb344cad0959f6ba72bc79b5db7",
+      "corners_sha256": "751c33e7dd7a7d2635123ae1652751d5a6d80886f07883c31359bc246bdf225b",
+      "source_files": {
+        "outputs.pt": "0d79fd98b409c793599d742ce5d9d51e46d653ddc1c76b87229876feaaf0c15e",
+        "region2_ttt_energy_sobolev/decisions.json": "d4c547050c7b1c254f56b8c4d3c11c63888fc90cc1ccd1da2740227956a8a415"
+      }
+    },
+    {
+      "episode": "episodes/125",
+      "file": "125.pt",
+      "sha256": "aee7703555a2f6c5321ff4d19d81d4494c95a4f46d897719574fc6218cd2322c",
+      "pixels_sha256": "aff681558c89e471e988d345484fe8e8259206f1e5ca041d7e6daaf687690974",
+      "corners_sha256": "7c052a6c65cc5d7a24f31a36ebed4604fd2377fd5a209c37869fbcce0a82d533",
+      "source_files": {
+        "outputs.pt": "bf3587ee5b865aa5bd97a612f858862a7aa06330621e455e75841bdeb5a48dbc",
+        "region2_ttt_energy_sobolev/decisions.json": "f2fb71878d6e8acc6b90f3c00848b73bda8df444325813699fa356bf182be777"
+      }
+    },
+    {
+      "episode": "episodes/129",
+      "file": "129.pt",
+      "sha256": "fb21fc1bf0c4b62e3b06ed6cac2ea2661a8c7cf178192c0928ca52396a6a6e6b",
+      "pixels_sha256": "0214085dd265ca8eb31ae9ba546f66e5b4d070209515b55047b8c98cf270faec",
+      "corners_sha256": "f1ac3688a1c0650f67feb3f42398d072cf812b5f1de2fb02f379f09001fa46e4",
+      "source_files": {
+        "outputs.pt": "e26afab4597762434785b73da6904c34cba43ef4cf83835d63c0ac4155bff3b0",
+        "region2_ttt_energy_sobolev/decisions.json": "cf6def33bb04ce118f9df2bfec50ecd9a7187b5da0badad9b9ba8f8307ef3218"
+      }
+    },
+    {
+      "episode": "episodes/130",
+      "file": "130.pt",
+      "sha256": "68675508ff2eefa3f823b1cbdc502c7872319cc8c497254570177a365c1a96ae",
+      "pixels_sha256": "1956b727b6b2356b81bc5861dd6d2ad91a3adf3d29b81a09373159adc961beef",
+      "corners_sha256": "c276100ae1b708a82ec633a673c22f76a95166b252b9c2227a21efafe0a00b7f",
+      "source_files": {
+        "outputs.pt": "a163f015b88fd821f633de82b310eeb39be79920e897ddd845c9025e41d18aae",
+        "region2_ttt_energy_sobolev/decisions.json": "780f3dfda403829ac00e853f088a30b1f41db6b13e1454a8090b481176cf47b8"
+      }
+    },
+    {
+      "episode": "episodes/131",
+      "file": "131.pt",
+      "sha256": "74d46688e75b14efe80563bab93fab6b82081340e8503a588eb68540910d4282",
+      "pixels_sha256": "5842182fd3340fa2b5b655edab1a49e97ed93a7d1be7305c151893d8d96139a4",
+      "corners_sha256": "93d9aa2e34a4b97bb49639848d51fb55d1deb1269312a23bd8eb8e0ccaa4883b",
+      "source_files": {
+        "outputs.pt": "b2c2e5cd6d4674a0386965946a1d5b9e3c274797136464ed388c761f1aaa469e",
+        "region2_ttt_energy_sobolev/decisions.json": "d2101ce97f61766379f95a9a708e71c11e44b8c17a6fc75a2bc06728bd115641"
+      }
+    },
+    {
+      "episode": "episodes/135",
+      "file": "135.pt",
+      "sha256": "9706411d7f7e61c01498057dd6cf37fa886d70e9065c6df12b5f4ad9b74b9803",
+      "pixels_sha256": "ed4e9c5cd2b29a55491199dd91d344a4a623f41bb28fe43337a470c64c0f81cc",
+      "corners_sha256": "a1d52fad95ff8fdeb7a3fff972f588175bf8a06fa7416138b8a60bf995c8d174",
+      "source_files": {
+        "outputs.pt": "0af7382bd180153d1dddbfecd7a9a821a019b6f2f96a16aa6c9ecdb5a3133de2",
+        "region2_ttt_energy_sobolev/decisions.json": "5630d863f399148ce7d2a206bd562552fdd89e7b30c005d04061bdb489c87089"
+      }
+    },
+    {
+      "episode": "episodes/136",
+      "file": "136.pt",
+      "sha256": "4086597ce6bdb87f9f8024fe8979ff4054f4a1169ce4fc06d9490bd344455315",
+      "pixels_sha256": "8677b46f12a0b05eae7e495dfdeca2f2ef96905aeadc9e86a00e118d9ef8e810",
+      "corners_sha256": "4d0d08fd480d15fd424efd4703963503729be06c9cfb733b63ea0552843f05dc",
+      "source_files": {
+        "outputs.pt": "d97e6be8977731600537757cdbd06b2a67016c5f703a3f0ab3afeb15b447b92d",
+        "region2_ttt_energy_sobolev/decisions.json": "1360c2fd2c26e812d5d9ca4a368d6bea14cb5fcde96c62a218098ff06913f9c3"
+      }
+    },
+    {
+      "episode": "episodes/137",
+      "file": "137.pt",
+      "sha256": "607da4603371c38a4551994c9d63c177d19c7ce511dec05a7888a6a2836fd2dd",
+      "pixels_sha256": "fb73667592040e4bcaaa6f8e688a46d04a01aaa38163ac64024f6b9195ebd2d1",
+      "corners_sha256": "b406ebae555d56d254bf8fafeb272020788b1557a0dc168fb596023fa384cc71",
+      "source_files": {
+        "outputs.pt": "fa45be7d866cf7293b654d2d95d2dd7d4f13f0b6acb6cf1c2cab53140ca4559a",
+        "region2_ttt_energy_sobolev/decisions.json": "4ee108bf2ee6386b46b3ee756886e5a818caf01fecc15914306eb442a6c725d4"
+      }
+    },
+    {
+      "episode": "episodes/141",
+      "file": "141.pt",
+      "sha256": "9aa574d8e841175d3a18908c9e29659f13dc7f01180a5d611e3f2dd07327bf0d",
+      "pixels_sha256": "6c7f4d27ccacff84756a3c66a3f0cc7e0a4c3d3c7713245d6f03e7afd84abf03",
+      "corners_sha256": "f289b13185cc2aef7f4190c04f8c59a05ff1fbb552d09b6ccaf299299f2aee93",
+      "source_files": {
+        "outputs.pt": "879156dd9a4fa3e819905666e51aa2e094af7e01a670789c2ad43d7a26100c20",
+        "region2_ttt_energy_sobolev/decisions.json": "cd26b6ed90943411c647b60d4a14dfa29ebc2153ffd28bd19c3ed0f02611efed"
+      }
+    },
+    {
+      "episode": "episodes/142",
+      "file": "142.pt",
+      "sha256": "a92cbc336a131f74427b938d3bce8421ac12b6b0cb17847b7e6c2e51457b2aa1",
+      "pixels_sha256": "4b80316e4de26891a5dff112142f08f0a9489e656d4671543a99e19127ff05a0",
+      "corners_sha256": "7746838602c009b286dcfe613f8451aff29b7434e476dac9f3e2d7bdfd3cfa7f",
+      "source_files": {
+        "outputs.pt": "7663ae577159df04194df13691fc46f5fcdcba7de3eb032c8801395f224e985b",
+        "region2_ttt_energy_sobolev/decisions.json": "fa538e3c4126efc01d75ae297a83e742cf00c0eb1e080ece1bd6b8ebfdf312e9"
+      }
+    },
+    {
+      "episode": "episodes/143",
+      "file": "143.pt",
+      "sha256": "4a362896e076a8d5f4d4c999e43da24b135eacaaef8d501040ac00d01f2f106f",
+      "pixels_sha256": "788edb11a155e2d6b368403bb51ef65c5e9f506b3d1f040c0c00d719ec60174e",
+      "corners_sha256": "874f5770b7c0e17d528657bd57dc941345a09c389c110de3c0d84790fd5d93ee",
+      "source_files": {
+        "outputs.pt": "0b887c1616788dbc7dd20e0cc702b678ef58c39d48825e49e6e09439b728ab8b",
+        "region2_ttt_energy_sobolev/decisions.json": "1cc3c82fe542af6b3b0c6d7053d03aca7f8870f692351b29a5687c243ac0c9ff"
+      }
+    },
+    {
+      "episode": "episodes/147",
+      "file": "147.pt",
+      "sha256": "c6f52945d0a4cd689f14d71426ae0c39dae91cd3ba090fbe2dd3af9476585244",
+      "pixels_sha256": "2bcf006407617298d77202a691382fee0d9efe01b942535f505b711c3deaa84d",
+      "corners_sha256": "8c7bcc8bea7500cd3ac8759008f62473ad47d213fffc066b075c0ff8179dc090",
+      "source_files": {
+        "outputs.pt": "16f6896f01388b1941534bb93d9724de9760081d4e234cc42334fc99ad574d0d",
+        "region2_ttt_energy_sobolev/decisions.json": "57e211ad10dd9914a63fe6374441b4b6ba70c1db9ee3aeb0e94507e59d57a458"
+      }
+    },
+    {
+      "episode": "episodes/148",
+      "file": "148.pt",
+      "sha256": "0ae1f27a27b3ce66afc031fcfb79e0297595abe002996da8bd99527da783e476",
+      "pixels_sha256": "70b8fc2a1c6998ce4290d806dc9fb5be99fd824c6fddc7786399369a871f1d83",
+      "corners_sha256": "f6a56ca5270ec84fe618e030dbd09c199d5edcdee4953abc86ffa55f20e962c6",
+      "source_files": {
+        "outputs.pt": "66e19474984d01231b4feb582c7f1109127e237ec3e907ba58c526f06ac0b0a5",
+        "region2_ttt_energy_sobolev/decisions.json": "c8eb8f300f1697078163f8310fb0d09e8a3d3ee41424a024891465db3f317c64"
+      }
+    },
+    {
+      "episode": "episodes/149",
+      "file": "149.pt",
+      "sha256": "24692ab36b64618107f2bb7eea72bf7b8c60e86ed80fac201d1d04926d424bc6",
+      "pixels_sha256": "f5ee6dd0be9a47a77c9b4409a342c74b36e55f406da021a45b39953036a08c25",
+      "corners_sha256": "8c7bcc8bea7500cd3ac8759008f62473ad47d213fffc066b075c0ff8179dc090",
+      "source_files": {
+        "outputs.pt": "1a2d802f3587d1cc5953847c2936d5dbfe05208f27f5a8d90d6f4e79475d57ee",
+        "region2_ttt_energy_sobolev/decisions.json": "0b1819ab543b9bf80b95d76fe5f10ad3935a9f5dba935cae48a5d144c041e780"
+      }
+    },
+    {
+      "episode": "episodes/153",
+      "file": "153.pt",
+      "sha256": "7636023a81652e2f841855f36b1695d6e3b5370d6712e13561f429ad969365f9",
+      "pixels_sha256": "b9f4099ed2e50126270771445c131ddc599d13530b15b45830d45d4574e39ce3",
+      "corners_sha256": "bfd7cce20932742d137da451d278614b904cae0deb6828469663c047c4989404",
+      "source_files": {
+        "outputs.pt": "05c184c12a7e949be2665c234ea8945c2cb8b19bb54d0d023072975d02b09766",
+        "region2_ttt_energy_sobolev/decisions.json": "6d5d823981af555cf1dd162524d5b6c7ff41d4bbb0c4fff28a88c7fdde1e0334"
+      }
+    },
+    {
+      "episode": "episodes/154",
+      "file": "154.pt",
+      "sha256": "ecad850d304df029c1a68d6d9eb0d2a5f43b9b2a25fac8ad3c96fda95917dfdc",
+      "pixels_sha256": "167e2c19ff4d01e9aa2808d6b5725963eb08ff9df0718eb7fe7998e0403192db",
+      "corners_sha256": "ad54b3625b4946f81f50d3142e365d825bbb3e03691e60775ef858d4b6d29b5a",
+      "source_files": {
+        "outputs.pt": "b83d6f9700f090fea078ba098131422757799a1065ddf152331d659f555d7868",
+        "region2_ttt_energy_sobolev/decisions.json": "1548486bda0f28f203102fbb05462f1b2210f343dddeec7db596071519c0f3cc"
+      }
+    },
+    {
+      "episode": "episodes/155",
+      "file": "155.pt",
+      "sha256": "cdd15da0431fec833f690dd6a56c17fe31b89bb75b23b313deb2a1a339d476e9",
+      "pixels_sha256": "f8a6c501fa9865ea0dd5372395d6affae79163c2d1bada634f5d2bcfb1a1b810",
+      "corners_sha256": "3c38342dadfd0ca2343db91f5132c75af6b9d13e5aba262269baba5afabfa109",
+      "source_files": {
+        "outputs.pt": "dae74460f1b7eaeddd557591c701006e625e7dc17df9d3aee6902c2645055546",
+        "region2_ttt_energy_sobolev/decisions.json": "8ea34d8e7c458479827303d129707cd0d0942d9aec7baa96d5f0117971d63191"
+      }
+    },
+    {
+      "episode": "episodes/159",
+      "file": "159.pt",
+      "sha256": "bb2dce4803076ce570f2576c1d2aaf77accefdaaefad95a630fb8ad59b73d52a",
+      "pixels_sha256": "2cbc06fe76344c2bf7cdb8dfa5f154893feb401d7bd1782c101db86f240edb08",
+      "corners_sha256": "07e2fa74a30e5e77c576a9f93312fbe1e6f9bd38cf9d0fe57e4b482a58cc85db",
+      "source_files": {
+        "outputs.pt": "ba3f80fcc6d16611dcf5c2be051c6c700c1d43f02b79d97ebca6b4d09c8d944a",
+        "region2_ttt_energy_sobolev/decisions.json": "39642dd43abd6d0a9c241ca604171cced91a3bcdfea87675edf11323e5a69f5d"
+      }
+    },
+    {
+      "episode": "episodes/160",
+      "file": "160.pt",
+      "sha256": "f44de89430e951f271759b8ae95054a1e1f8d6a7dd52e5f95e82cf977065cf7a",
+      "pixels_sha256": "67f9e25925d11069d070cf7e5a6cdf0ca2ba061b47bd56a66e5820ae7bdb7cfc",
+      "corners_sha256": "10f15bc2f8a042bbf68cd507c2e6bb72e0f9a2732b083a0c0ca4183ba53bc208",
+      "source_files": {
+        "outputs.pt": "f5064f78a7d9ea3849fdc02b005b607860505c8175aed339b2a33d5f8fca7504",
+        "region2_ttt_energy_sobolev/decisions.json": "5d39ba1e835cba946aea823bb88820bd5c60fdfe137f26791353a6be8afb6ce2"
+      }
+    },
+    {
+      "episode": "episodes/161",
+      "file": "161.pt",
+      "sha256": "636644905b9d086f87ff08be805deee524c6df7121c44fd9ae36c690234f9f1d",
+      "pixels_sha256": "4c0e2e8845db23bf0cfdc74f457aaea2d9048e3c58df25e702abe349e4a05a1f",
+      "corners_sha256": "a619ed3a39b2b6599a57b3c80932c32713da059e2949f239774547ecdb4c049c",
+      "source_files": {
+        "outputs.pt": "da8ffc33dc4b9a6fce74f612b1b700764476d6e793572b6f5a0c37bd314a7d61",
+        "region2_ttt_energy_sobolev/decisions.json": "b9f53d1fcd2298d463fed53721d437eca4552466de7f73aa103291c0b8f35cc3"
+      }
+    },
+    {
+      "episode": "episodes/165",
+      "file": "165.pt",
+      "sha256": "e6a3d8ce08631492ab5afc52020764e034e0cde2307e4f9ee21b9c72039247ba",
+      "pixels_sha256": "83ae6e3c9954d88fd0d38e9b368cf81e8fe6695922917d2e1173fd141689c82e",
+      "corners_sha256": "25f63c28e785964dd315f71a3c948d3f882ec8d9bde4d8bbc826570b521111a2",
+      "source_files": {
+        "outputs.pt": "89bacf3ea9dbe02523814919274ac38df33162b36af6fcf2b1c55e5ca5d27d6a",
+        "region2_ttt_energy_sobolev/decisions.json": "2b7bdc522bd27331fd307de7feeeb09df6501421069a0a3f5e8c90ef99c34bd3"
+      }
+    },
+    {
+      "episode": "episodes/166",
+      "file": "166.pt",
+      "sha256": "2ba3251cda994bdf58ba789f4ef3747e7fa700c19dd8ae0e801b4cb3a5bf3113",
+      "pixels_sha256": "f45cc45731fa026d9e36d7f47d628a8fc6beee5c78ef970733f95608c83cbe8c",
+      "corners_sha256": "ae909b9c4be6a36e50e97f2968690642d795633d32c410ea15db321a509f66d0",
+      "source_files": {
+        "outputs.pt": "df37441747c613665fea4ffd65e7f38f49775671d8f6a8e78ea7a9eadd2b96ec",
+        "region2_ttt_energy_sobolev/decisions.json": "dcfe1b80a157ba7006352e1120905eaef2c9cb2a849dd55a763a131b26a95113"
+      }
+    },
+    {
+      "episode": "episodes/167",
+      "file": "167.pt",
+      "sha256": "fb9155542b859b1bb959531602145cb7b98ffe61c9eccd45cdc7943d5f0b5acb",
+      "pixels_sha256": "781911f063b99ef62a784b6e5656896072b3e158f1aaad391dffbfbe0d047520",
+      "corners_sha256": "d661e0f8de53ad384c8741c46645fee0194276ccd9a72068ae3520e5bbddcf10",
+      "source_files": {
+        "outputs.pt": "3ec3bce71466990e44b74ea14c393fa542f0e207b505af970631c97ca521b6b7",
+        "region2_ttt_energy_sobolev/decisions.json": "b9e0143417b841a72097745ef42a74f8ba2a3d5d4a3da3d22da6e271522bbeb8"
+      }
+    },
+    {
+      "episode": "episodes/171",
+      "file": "171.pt",
+      "sha256": "1432fdf7c251f53961c87dab77a07da305d2cf917ef56688d6dd93e73042dd78",
+      "pixels_sha256": "9c8f81998b9b55686d0b185922e0f1d755af10d19266c532e3e757ea10052ee4",
+      "corners_sha256": "8c7bcc8bea7500cd3ac8759008f62473ad47d213fffc066b075c0ff8179dc090",
+      "source_files": {
+        "outputs.pt": "acb24b93239efe32d6a5ea03a560aed82f5cdffbe399edaf2981430002abd687",
+        "region2_ttt_energy_sobolev/decisions.json": "872ef226a6423a0f5dfd13203e73ab053d9d12826b004c356a7f4d9972c46adc"
+      }
+    },
+    {
+      "episode": "episodes/172",
+      "file": "172.pt",
+      "sha256": "658711bf83ba4b4961b395565599c19dbdff8cf4a11dc2b7043a8f1e74ebf92f",
+      "pixels_sha256": "623756a1d511d676b75d2ec2f347a9fac40dbdbf888d3faec708e1f3c5b9879f",
+      "corners_sha256": "b0f0d812d00d82ca40b24c7fdd1b3072da0874bb86adc56114bf4ff71246e12e",
+      "source_files": {
+        "outputs.pt": "5e399dc8dd15e97281330cb3bb3977b3812f97b9b7d1a33a8797015c8f3d9f8a",
+        "region2_ttt_energy_sobolev/decisions.json": "bbb421a66d8d55d1951cfda5befe957a4e8283600e2e207266a86aa951c2dfb7"
+      }
+    },
+    {
+      "episode": "episodes/173",
+      "file": "173.pt",
+      "sha256": "3cb8304c5d452f1a59d001a077894b3ab312c006b475b6fd38d3cba0f3983382",
+      "pixels_sha256": "b90d5d68a5a2ab1b6a05d62d8cc10329cc603d63782135e24b2b6c447b72544a",
+      "corners_sha256": "00ee0bfcec1711b54d8f91fa7a90fd0f2cb47908d1a9f086b237bf2d4aa01da5",
+      "source_files": {
+        "outputs.pt": "7d179165c2eaa6036937c3ac08602a19971116fecdef700e02a5939830ff6dfd",
+        "region2_ttt_energy_sobolev/decisions.json": "83f24cc590c63dce3cec80cde0b0172f4f356d831b7b39974abcda75e4643bcc"
+      }
+    },
+    {
+      "episode": "episodes/177",
+      "file": "177.pt",
+      "sha256": "2f4e0eff81604b4683814863e31e58c88bfdbcfe38d904f1e45f25da6efa55ca",
+      "pixels_sha256": "ed331c0a6db92c3f234aa9c7dea01be02a8979bd9987d9261ba80cc12582a3a7",
+      "corners_sha256": "3744b2104c0e93847a426331ffce32f9a290567102601713c518c8e6fc753097",
+      "source_files": {
+        "outputs.pt": "52129f4e07dca7241f7c47f4dceea5893b6f1c635273b40b6376be70be629681",
+        "region2_ttt_energy_sobolev/decisions.json": "f7193bb49f4d47838de894d01eff15ced109b82ae3739bd605c086cd41de7e4a"
+      }
+    },
+    {
+      "episode": "episodes/178",
+      "file": "178.pt",
+      "sha256": "ccc3d6e581d45d5ce95be4fa6461a059c199b1d4b37ed6b5f93ed530f088bd41",
+      "pixels_sha256": "391920365de2419a39fb814483ebcc01467e97577dca00b3903e469d15709e4a",
+      "corners_sha256": "397f0bf080eff32149552e08fade60cacf4ee2cc0946b69917f130ceac3aee9d",
+      "source_files": {
+        "outputs.pt": "b6acbe51cf29f4f90db5324352cf723d286c86fb4aa4e5eaa80480bbcc45ac1d",
+        "region2_ttt_energy_sobolev/decisions.json": "3fd44a2228d13af7b32aa73cf88fdd15d26e114b3269d0945f73c6747d4ddfbd"
+      }
+    },
+    {
+      "episode": "episodes/179",
+      "file": "179.pt",
+      "sha256": "082953034b9eaa51bebac9621f0c6c8e880bcd1f272144031df4ee65c554fdae",
+      "pixels_sha256": "4c7d3a19c4b4489065656922a354b174f5ed022707274de98c4a9f3e16a69dae",
+      "corners_sha256": "cd20c53b88c7e7a96b0956701eec96863a80f5d60af3c2eb0f2272bb226f94d2",
+      "source_files": {
+        "outputs.pt": "d22ff41f26913db74b85d552e426f60a26bb55e8ab2e6f40888d3ef0d9ee738a",
+        "region2_ttt_energy_sobolev/decisions.json": "9c9d02d37e469588b9488624172781ba622e2a94ab181d534b5747bce3154024"
+      }
+    },
+    {
+      "episode": "episodes/183",
+      "file": "183.pt",
+      "sha256": "a0bf7e7eddc3456eddcd55e6bd0e9ca344a2d5cdb6b21e33f3a07d69bc7458d8",
+      "pixels_sha256": "a77014e1a7712dcdbfbfff6b7e3603aa9aaafbf71b3aa75dfa2ab729d071a9c7",
+      "corners_sha256": "8c7bcc8bea7500cd3ac8759008f62473ad47d213fffc066b075c0ff8179dc090",
+      "source_files": {
+        "outputs.pt": "8f01e1e5e64d4ae44b2933a60a6012523d33d2b0a700ff00be0507cecb88311e",
+        "region2_ttt_energy_sobolev/decisions.json": "d40a5753002ea7684f447eb112a94187cf727ccbe88b765d2ddecde8abc05233"
+      }
+    },
+    {
+      "episode": "episodes/184",
+      "file": "184.pt",
+      "sha256": "38028f158e3280bde875e5e095a89ff9257568dee96f14a94b8b110968915ec0",
+      "pixels_sha256": "dc0cbf9e5ce296ed897dfb697ff6e556de97396cafa6ca5a77e2f61afc859cbe",
+      "corners_sha256": "5001f890a9bf8b9e3b9c764bd398738ca326e5e00115000cdf133c8928bac2a4",
+      "source_files": {
+        "outputs.pt": "9a0c42a2af1205b473c14c659607bea467c015f7b21063f60c95c7035709c2f5",
+        "region2_ttt_energy_sobolev/decisions.json": "b89a4c8dbe6dd97ec562cb79a0acbaa8d717bc18ed65f758a8c87244e8f37da1"
+      }
+    },
+    {
+      "episode": "episodes/185",
+      "file": "185.pt",
+      "sha256": "2db899e33c5569c36a221c39105186a38bd86ca9cee340788480ccf99c5136dc",
+      "pixels_sha256": "1adb38290f3f38c736e9c5dcab27fc6de64db43c0cf9d3173ef13d195515c757",
+      "corners_sha256": "8c7bcc8bea7500cd3ac8759008f62473ad47d213fffc066b075c0ff8179dc090",
+      "source_files": {
+        "outputs.pt": "158effcd604d9a4a3c4c561647cb032e4e90317df2d11aca4b9aaed03847fdcd",
+        "region2_ttt_energy_sobolev/decisions.json": "86ccac00c45f99e2c337b44399c2a395fa4abeb702d3173ee2fc7112032c5abb"
+      }
+    },
+    {
+      "episode": "episodes/189",
+      "file": "189.pt",
+      "sha256": "ef6240942bcf5091947c8222cbf107d1577978c78e14ad4836c1886db17add5b",
+      "pixels_sha256": "4d695c807a457c9f69ac203b33e98725f33e46ee0be96225c48b811db5ae2e3e",
+      "corners_sha256": "171461becdb12e5e30f6ad0f9baf6df79369b49a8797948c61ec812a92329782",
+      "source_files": {
+        "outputs.pt": "965f3894f26dc5b7e41c745ea818f26dc751a88a1e9962abde90fa006b831e19",
+        "region2_ttt_energy_sobolev/decisions.json": "7b50d79796631fec06f09c96a669dabcb89a43b15244016d673bbf367f96e56c"
+      }
+    },
+    {
+      "episode": "episodes/190",
+      "file": "190.pt",
+      "sha256": "eaed9aa97ab670c259bf07533ad1e3053a0fe7b6f7bab2242131306ea4b42edd",
+      "pixels_sha256": "0d1115d32f11c7d66ff5fb95ce173fb6edcc5c34993d54ad87968972f26def9e",
+      "corners_sha256": "8c254cf1d1e39149dcc740cb67b2f2509c32a99d19ea4d54132c7976cf6e6f0e",
+      "source_files": {
+        "outputs.pt": "92697476405566389cbe5266b11c2b61c835f11e8f8ccd86ddccaa40e6d278cc",
+        "region2_ttt_energy_sobolev/decisions.json": "e82fcee9537b668e86e1455e1ca17dc5dec923d159f22d198462f86c62d464a1"
+      }
+    },
+    {
+      "episode": "episodes/191",
+      "file": "191.pt",
+      "sha256": "5209d78924336201adc6e507750666429821bde06234b44cf9fc6a9204225650",
+      "pixels_sha256": "498ede503e9542e46eca59a4818037d30eb0b719072abec6a440776c14fd7550",
+      "corners_sha256": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "source_files": {
+        "outputs.pt": "8fdf7f531c9f841e24237f6bc1d21e03a16217ff92038ae052276e630ee7b66e",
+        "region2_ttt_energy_sobolev/decisions.json": "481c325bc6b36f9dc3bbd13d2bdda2c2af03e79bce4109fedf8f220d1c0121e4"
+      }
+    },
+    {
+      "episode": "episodes/195",
+      "file": "195.pt",
+      "sha256": "350db21e8581b29c86070bc8a5d9303ee3ea2fff11d516c099b20eae05083bd5",
+      "pixels_sha256": "b6a34659d79ef639555fb6d583239954030a9419f008903be59eb1954a7f012d",
+      "corners_sha256": "90e483ab9159a45fa4f54d0d5dcc44a769f0ab8c4ad7dec529c1525e9595c1a2",
+      "source_files": {
+        "outputs.pt": "a8568c9692721cba092a34408aa4236d548fe8b52fe2f964e1b8503435a85274",
+        "region2_ttt_energy_sobolev/decisions.json": "82470cd6eb91cd6f70f00f1d9485ed0903a22ddd9c3fb52d44f253bd97b69d03"
+      }
+    },
+    {
+      "episode": "episodes/196",
+      "file": "196.pt",
+      "sha256": "a7639f3bd7901ed4be8b1ec363aa430980665c1dadb1f1d607dcc9cfbb55efda",
+      "pixels_sha256": "b81c124c5fb5a0322ab1c530b06f3a02126a4d4104788ed7919a3830d90ce75c",
+      "corners_sha256": "a7d40896b1e2bccf9894052af3a4eaede923962c644e58fc5793de9249b301be",
+      "source_files": {
+        "outputs.pt": "d25f412faa36eaf58ae2367c0a5733d746739c70cdf0ea5811a0b5c0d417838a",
+        "region2_ttt_energy_sobolev/decisions.json": "69e577a965dc52017dbda3a69367ada73718c6bef7854ed53abb2c30e54531f5"
+      }
+    },
+    {
+      "episode": "episodes/197",
+      "file": "197.pt",
+      "sha256": "9f9d218ed0849e6a0ae4b4abb31b6b689404fc204bbca55a36b3c39b3489291f",
+      "pixels_sha256": "e32df0e0e2ce099f7490c9d9ab2caba8a7d569b1b0d41aa840b27705a0396d74",
+      "corners_sha256": "8f0f83e8fd5b928cb4878118ef25472539f84303ced304e5f9c1301c9cbeffc7",
+      "source_files": {
+        "outputs.pt": "c6dc2c94625f0ad0b368dc0b77e28cd4a9354dc6a5d2578d61dad34067e0c8f4",
+        "region2_ttt_energy_sobolev/decisions.json": "8db0a28ea6e691a5bec63901ffb4fe06c5e116868c9b9a48222880145da80715"
+      }
+    },
+    {
+      "episode": "episodes/201",
+      "file": "201.pt",
+      "sha256": "7be2c6472d27bbc56f3cd5c6fd18c0b88b986641c3f4bfb9118dcedfc489e7d0",
+      "pixels_sha256": "d8c90f2082875c528cc378143c5dd608c298473f93cb19127f10efb676e67463",
+      "corners_sha256": "29320ddb625af6cf9a41d9a9453f5860ac3b65d13589d38d0c1fcc46112fa53b",
+      "source_files": {
+        "outputs.pt": "b7507c60895c96b35a4f4c2a75fc52d5ba22033115668a6c483fc1306c5790f5",
+        "region2_ttt_energy_sobolev/decisions.json": "cab350923e723580ea488bcdf215f6c5c816719177099e55ab0312980d1057d1"
+      }
+    },
+    {
+      "episode": "episodes/202",
+      "file": "202.pt",
+      "sha256": "54a25ed60b84c2269c09044d9e257d5cb0ad8c7192eab66696b305e4fe41c6b4",
+      "pixels_sha256": "b977195548be8dae66430dc3703326035161117c17948617e62375f47a30881e",
+      "corners_sha256": "7653db3239f4eed8c604d37848d859905293df0233f21f9f8c665de53c0e4014",
+      "source_files": {
+        "outputs.pt": "b38f7ff96d9e383b07972ae27b062229eccbf1a8991d08a9f7ba2b7cd6e232fb",
+        "region2_ttt_energy_sobolev/decisions.json": "e9e92226b9d5145583e9b6f2fcfd2d3d317a66eb7d918fb86906f192a7704454"
+      }
+    },
+    {
+      "episode": "episodes/203",
+      "file": "203.pt",
+      "sha256": "6b1c19646be89fcebaae32aec6f498c205f8c46e32a630c05d1673a28f92f746",
+      "pixels_sha256": "084bac737250c480ab19915bedd04eac9aa09fea228fdb7eb3d71767130bbf8b",
+      "corners_sha256": "b5e29ba9097c73d63f181b81e493d85f45368204a0cbc9e869c33ad2fc3263ec",
+      "source_files": {
+        "outputs.pt": "25b5b54f021f85af8401fb49977bf94fb83035e38ec0b1c5b3a58936035b658f",
+        "region2_ttt_energy_sobolev/decisions.json": "76650a1e06fbab44ddd61850252ca50ef8d451184a1febd21cffc2ee4b4170c3"
+      }
+    },
+    {
+      "episode": "episodes/207",
+      "file": "207.pt",
+      "sha256": "a19c9916c10d963e85366d19ab7efafe48e685336cc9ea1f2506010c2472550f",
+      "pixels_sha256": "946aa04e854c901aa700a8acf1d08acc855f86297d00bc8256eb647738ddd2aa",
+      "corners_sha256": "489d369d661a183c7e0d7c29f6faca4ac92d03ad49ed2e85d820668f3685e660",
+      "source_files": {
+        "outputs.pt": "9aba4aa846a5319d306aea82fead32f63def4f7f981c619fd443fa82b31d666c",
+        "region2_ttt_energy_sobolev/decisions.json": "74dc80689dec3a450f2123c110cf637137f2a6c3f877b65eafda912f755e6146"
+      }
+    },
+    {
+      "episode": "episodes/208",
+      "file": "208.pt",
+      "sha256": "9a147d3b29de6451d8e96074c519ae80cfc9541776980b68a01d81d56f204082",
+      "pixels_sha256": "5bcd96a4e34c43a4c75a2ee592daecf3e4a4f3852c6daae8c372f1aa8685e151",
+      "corners_sha256": "bd98df872a1c7946769b5bc532b9b213be0af2d5865884a5761d504c19037bae",
+      "source_files": {
+        "outputs.pt": "61d82ed77491247f38b1e552b42da7ff12f05588c89a52ed0b100016c1a64bd8",
+        "region2_ttt_energy_sobolev/decisions.json": "229d9ffab8665a22a133232a8364a9dbec773b2936bb630632273f049d3d28b2"
+      }
+    },
+    {
+      "episode": "episodes/209",
+      "file": "209.pt",
+      "sha256": "58af3fc188e666605787f7dcf29912ce5a18c7d3e66a5f22953ef01a8d066da2",
+      "pixels_sha256": "13d6c233c67a304f2f46ae2ed0042e5ec0a115e7b5049120748b46e5db57141c",
+      "corners_sha256": "08ad046cc1a36ee76d013980357d4493bf4c476b6ca71ca387f855dd9c8cb604",
+      "source_files": {
+        "outputs.pt": "1327c7fdfd2d28e65a21109b46a4df7b16eeeaeb2742493b4c41067856b17e39",
+        "region2_ttt_energy_sobolev/decisions.json": "ca8cccac0301243b1a22e9d0c236a25475d4c779e8dc63346a486b53dba7ae2c"
+      }
+    },
+    {
+      "episode": "episodes/213",
+      "file": "213.pt",
+      "sha256": "29dcc260587168f7a9b009bb37bf800ce9cae5687abd7ce01eb9f9c8e6888371",
+      "pixels_sha256": "7fee7637f6e0a75b8abbf99a40b87ebde79927c6d84392c421c4c961bfc2e0b0",
+      "corners_sha256": "67c989527ca13052c5160ec5f44023f597eb6e791ee49a27433d9f694dd1de91",
+      "source_files": {
+        "outputs.pt": "0ba3fe94b22199625af3cd49237d92f2f0af476a786941598ab30745c75ffdbd",
+        "region2_ttt_energy_sobolev/decisions.json": "bfb74a56106ea4f2a19b46380e03774819cd826694c5c08b51082b710a44b5e9"
+      }
+    },
+    {
+      "episode": "episodes/214",
+      "file": "214.pt",
+      "sha256": "703edc9506e97c89a2eec4a91cc2b7ddfdde8ca813298aaf595e23b2b50c4018",
+      "pixels_sha256": "89461179f3dd8fc8877c1ae556d33bf2a4e5bacad56ad7890db7861938655211",
+      "corners_sha256": "4d5910e12b2899aad75d28f9e02f7f7e627dbe293e3f1c7da519789bc32fb9f5",
+      "source_files": {
+        "outputs.pt": "2358d52e23bbab89921cab1182f433b61cde4613fbfe61ca45c800e986eacce7",
+        "region2_ttt_energy_sobolev/decisions.json": "f681f1e5c6243b2e4a150ae598537ca1561dbe8ed27584899e90e446eeba57a7"
+      }
+    },
+    {
+      "episode": "episodes/215",
+      "file": "215.pt",
+      "sha256": "0220865f55f8fffad2f4367cf8844a583274255db39053a18c0955a1a1ee5215",
+      "pixels_sha256": "55c2c3f68dbace6e75568eeb97deba3e95961ce658762710d674772d710aa54c",
+      "corners_sha256": "5fae79ca77f62288a5d89324f3ba0f19968e08560aa44f4c9bb05aa1cd2aa39e",
+      "source_files": {
+        "outputs.pt": "e2e751e30166cbec7edd87097665ce771d276a5183c02f121d5a28092c7f176d",
+        "region2_ttt_energy_sobolev/decisions.json": "20ba52ab0cfebab99b6a760df7a06782ab418a55c1aa2bb86649465c8f464aab"
+      }
+    },
+    {
+      "episode": "episodes/219",
+      "file": "219.pt",
+      "sha256": "1dc3a311b298af22d8932d83e9b93eb1a6bceee795a7b30b96f1a5fa964eb905",
+      "pixels_sha256": "d64d273e003fb570fd56cffeace7c810022c60fa01ae8df9fa84aa5e4955ffd9",
+      "corners_sha256": "d19ac26d7af4f0c67d73904ffff663ce3e761310b45e38e73c2d82cbb96557e0",
+      "source_files": {
+        "outputs.pt": "f731c6c2131a7a63ef483c1517ec5cee9aa3a6c5f4f91191cca17a8cf70e6b37",
+        "region2_ttt_energy_sobolev/decisions.json": "7912ced860eac946a02b17295c2cd28c2ed68e55c5a2e36148c9533ff23d4a1d"
+      }
+    },
+    {
+      "episode": "episodes/220",
+      "file": "220.pt",
+      "sha256": "bcb1e80994b8db1afb612dc4f8672430230d6d347c63e909367df1f8fcb59861",
+      "pixels_sha256": "48dfa2a26c4078761189579a287ca88d4f1576d40b8a39b92ed7fc982c790bb6",
+      "corners_sha256": "3730eaf978d70125bfb4481ff37cbfe0776a14ac4c6f02ec6ddcfbf5f22e374e",
+      "source_files": {
+        "outputs.pt": "f4a1b54586610aac82adcf61bbb73ceb4d861b13d826bc01ed42174831853bdc",
+        "region2_ttt_energy_sobolev/decisions.json": "369d1001730a0a88e8552017ed967192584dc46fa99fb866c607cf158963e059"
+      }
+    },
+    {
+      "episode": "episodes/221",
+      "file": "221.pt",
+      "sha256": "25cc4965e9404f51d94d680b4926596c1c10aef28cc4091b3fac0dafea3f286f",
+      "pixels_sha256": "166831aae11f6c8da784a2f8d6ac061fb8da340c4936624169ad0fb1dc5544b7",
+      "corners_sha256": "7a97deacbffb0ba5989231d2da4d86a2e6acaeec26169b01558650c012990862",
+      "source_files": {
+        "outputs.pt": "1fc35aba74d76d5db2c3ba162d44c213b546d87b1d389f637c2542f28f00003b",
+        "region2_ttt_energy_sobolev/decisions.json": "fd121518e04aea3bc61eae72a7aeda41496a11b1aeb0d6d04713c15191a784ad"
+      }
+    },
+    {
+      "episode": "episodes/225",
+      "file": "225.pt",
+      "sha256": "20617991c73731cbed08870b4fc727776478233dac20e2276308582e9a9e0d4c",
+      "pixels_sha256": "c5fc679dfbebda0c33827b827a1308f80bddb6094545825360813144de600ac1",
+      "corners_sha256": "bc249cdb45902b3422001f7fb5a1585569648668b89c4264b7c6a8b34e61b165",
+      "source_files": {
+        "outputs.pt": "0cc6389b503ee0299fe0d1c4679ae6c501efabae317ca0729ad52ad68d410044",
+        "region2_ttt_energy_sobolev/decisions.json": "4c379f9a061a4a543c953f79e5be8b8326a95a3b1d860b58c83bdc7e33940e82"
+      }
+    },
+    {
+      "episode": "episodes/226",
+      "file": "226.pt",
+      "sha256": "cca46465c62ed55d27ccfffbabda733bfbbdb98484fefcc86c067f844f60708f",
+      "pixels_sha256": "095acc048b0de3303f9e4201ee53df62e530bac940d8655f38cda2529af33b7a",
+      "corners_sha256": "3b7f4b24149a1e7c9f0e0ec06f6feecd9fab33c7a51cdfb5c89a28b30bccb04f",
+      "source_files": {
+        "outputs.pt": "456297b8f25f9e82c21dcc63f06b217a70266d2d8f6a76b01aae3e421de0e660",
+        "region2_ttt_energy_sobolev/decisions.json": "3b1a9a6544d0cc966c448c4ceb7bc5e5405a63f60ba35d87f2c3b215d3b437bd"
+      }
+    },
+    {
+      "episode": "episodes/227",
+      "file": "227.pt",
+      "sha256": "4a26ace3a1ce38949528e7e8fa996306b1f04e5dab115021ec28f709c1ba1646",
+      "pixels_sha256": "ffde747c82c450c0c310338b796ab9e6585e42b8a4993cf99a78cdc28efb50e5",
+      "corners_sha256": "4af4f7bc32265aa77e6d3a33c5788535712701997a659225d3b31fc92f552615",
+      "source_files": {
+        "outputs.pt": "df198173e3a949b324b5e648897d0ec0f72b209a6300daeed9e30c9e2acdf59d",
+        "region2_ttt_energy_sobolev/decisions.json": "491462f55691752b8e7d0000df8d15a6c9868b1a7e61987ab326e6da0fe7ed62"
+      }
+    },
+    {
+      "episode": "episodes/231",
+      "file": "231.pt",
+      "sha256": "17595a905f4512663f0f1889648bd23e6376ae538286604c699d9b9def8a92de",
+      "pixels_sha256": "b1e28eed97e8604be1271c5748cb330dea38f1ce14bf9e8002d360a4fb8d9fc5",
+      "corners_sha256": "e4551fd76b474cbfa7243071e97f26f9cfe3d79bed9bc2f9f9ae6c60c95b8f70",
+      "source_files": {
+        "outputs.pt": "51b527daa7f55eb0615b63debe165cb06a28359771a908e3b097ae972e76cb02",
+        "region2_ttt_energy_sobolev/decisions.json": "95865e4638bf9a1ab5ab0f806f20e782eebea5c678619c65cd7ebee7dbdd8de2"
+      }
+    },
+    {
+      "episode": "episodes/232",
+      "file": "232.pt",
+      "sha256": "0e8100f12ec9f88b0d3d11b6076636b06979bb86982605d8842764861a918e69",
+      "pixels_sha256": "8615016c1a82f671371585bc72f0158eadf5ff3081aa76eed4af1cc24ea3f857",
+      "corners_sha256": "a3351b0ae135c416bd349261d770fcea6f35c60c3d2cfcefec77aa828081d09d",
+      "source_files": {
+        "outputs.pt": "3c523c8a1a581a3b3f50b43e032768fe67f6d0f6e2f1803f8571deb2005c1451",
+        "region2_ttt_energy_sobolev/decisions.json": "c1fc8f4749f48c9ab48003db4268652a6a3422a6adef5e994c49401122317cea"
+      }
+    },
+    {
+      "episode": "episodes/233",
+      "file": "233.pt",
+      "sha256": "5b5f7cbb320b6d21d02a9fcf6fdb0346f429cd2b073fb3219f2ee57e3cf00c5b",
+      "pixels_sha256": "ab9a725748c6757ac37a60cb2c3241314dafb2b6a02411860f33905b8fbc8725",
+      "corners_sha256": "2f2edaf6c9731598cf6ae0e08be6990bff0106bd85ab001b1055b98dadbeca93",
+      "source_files": {
+        "outputs.pt": "3a7a78bbedf2536073637e3abbbc5f58e0a1f42f13ac62ef1033e7257a842405",
+        "region2_ttt_energy_sobolev/decisions.json": "7b7cda966e2f34f486da135c74ebd6fb55cfd6b50030e1774e173ac0d05d7fb7"
+      }
+    },
+    {
+      "episode": "episodes/237",
+      "file": "237.pt",
+      "sha256": "26be36c39710ae2372acec1c7e152a6c91d2ba8457d2086b621efcac84a97cc1",
+      "pixels_sha256": "c2e7c03178665bb4c8a70cb1cfe66ceb013b575864f9641f63c21c1268dd157c",
+      "corners_sha256": "171461becdb12e5e30f6ad0f9baf6df79369b49a8797948c61ec812a92329782",
+      "source_files": {
+        "outputs.pt": "1855bad885401b4aea77a52d9abfa4c6c5620f764149fff83fa3a0b01e477c1a",
+        "region2_ttt_energy_sobolev/decisions.json": "b34957d9eb0f5284e5acd7535e5403098d6ded5b08c35cb93b4cfd8b7ae01a1c"
+      }
+    },
+    {
+      "episode": "episodes/238",
+      "file": "238.pt",
+      "sha256": "6fc657270ea8c3ba9c8046317b1b9daa5cb116e16bc56e83157e5cbcf3242bf9",
+      "pixels_sha256": "9ad83afe48cc047d24126e6e4e20ad1324eaac4cc7a78bdc2527b7a4e6045e36",
+      "corners_sha256": "8c254cf1d1e39149dcc740cb67b2f2509c32a99d19ea4d54132c7976cf6e6f0e",
+      "source_files": {
+        "outputs.pt": "d6bad7cc70e50eb2afe5e7d3cf5692b9d69cfd3b602d9d578932542a6bf3da05",
+        "region2_ttt_energy_sobolev/decisions.json": "3069028d3670394e995bd597268a05f31c2a1c46172c357d8e949b4393b972a8"
+      }
+    },
+    {
+      "episode": "episodes/239",
+      "file": "239.pt",
+      "sha256": "6c0fa6a5c57322ffef8fc5926ca2479ecada7f4d4089a92c0013ef4fcfdc0386",
+      "pixels_sha256": "12909190dc7637005828902d0c50dc14cc020153476a593c31b58ea4ee146749",
+      "corners_sha256": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "source_files": {
+        "outputs.pt": "96adc43a75ee4bdfb202e947bf8fc8c84e03b9b2dff96ba2b4152f1e013472bc",
+        "region2_ttt_energy_sobolev/decisions.json": "0986e0d5c24c746d97af77955064255ca168537cf03ac4f82f8d8d100e2535fc"
+      }
+    }
+  ]
+}
