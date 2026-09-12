@@ -1,0 +1,239 @@
+{
+  "task": "T017-B",
+  "status": "DONE",
+  "delivered_utc": "2026-09-12T23:07:50.696500+00:00",
+  "source_sha": "3351bb8e23f028debd97a31a8066366a8aca2894",
+  "evidence_sha": "3cf8fae217728e2adb95eaad5fab0e7e98960d36",
+  "main_done_sha": "2dc88658f7c5e70a30fbd75cbbf47abf365bfd1b",
+  "branch": "codex/T017B-soft-hard-attribution",
+  "pr": "https://github.com/word-ky/TTIE/pull/23",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": null,
+  "github_mergeable_state": "unknown",
+  "local_merge_tree_passed": true,
+  "recovery": {
+    "task": "T017-B",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T017B_recovery.tar.gz",
+    "bytes": 243617,
+    "sha256": "293c344a32409aacbaa360a1c6a35207e58503b32de1abe2cc5f282b791172d4",
+    "entries": 46,
+    "analysis_sha256": "45e34542b91991655a6fbe3b26842aa1b6bc96468cd18b9f455e00f83aa4a849",
+    "main_sha": "2dc88658f7c5e70a30fbd75cbbf47abf365bfd1b"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "293c344a32409aacbaa360a1c6a35207e58503b32de1abe2cc5f282b791172d4",
+      "analysis_sha256": "45e34542b91991655a6fbe3b26842aa1b6bc96468cd18b9f455e00f83aa4a849",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "293c344a32409aacbaa360a1c6a35207e58503b32de1abe2cc5f282b791172d4",
+      "analysis_sha256": "45e34542b91991655a6fbe3b26842aa1b6bc96468cd18b9f455e00f83aa4a849",
+      "verified": true
+    }
+  ],
+  "summary": {
+    "groups": {
+      "spatial_pool": {
+        "count": 120,
+        "harmful_hard_moves": 20,
+        "category_counts": {
+          "transfer_flip": 19,
+          "soft_interaction_failure": 1,
+          "zero/tie": 0
+        },
+        "category_fractions": {
+          "transfer_flip": 0.95,
+          "soft_interaction_failure": 0.05,
+          "zero/tie": 0.0
+        },
+        "dominance": "transfer_dominant",
+        "sign_contingency": {
+          "negative": {
+            "negative": 1,
+            "zero": 0,
+            "positive": 0
+          },
+          "zero": {
+            "negative": 0,
+            "zero": 39,
+            "positive": 0
+          },
+          "positive": {
+            "negative": 19,
+            "zero": 0,
+            "positive": 61
+          }
+        },
+        "soft_separability_regret": {
+          "mean": 3.224369914581378e-05,
+          "median": 0.0,
+          "p95": 0.00016416171565651887,
+          "max": 0.00128931924700737,
+          "zero_count": 104
+        },
+        "first_soft_oracle_equal_count": 92,
+        "first_soft_oracle_equal_fraction": 0.7666666666666667,
+        "in_soft_oracle_tie_set_count": 104,
+        "in_soft_oracle_tie_set_fraction": 0.8666666666666667,
+        "soft_oracle_tied_episodes": 12,
+        "selected_in_tied_soft_oracle_count": 12
+      },
+      "left_right": {
+        "count": 40,
+        "harmful_hard_moves": 9,
+        "category_counts": {
+          "transfer_flip": 9,
+          "soft_interaction_failure": 0,
+          "zero/tie": 0
+        },
+        "category_fractions": {
+          "transfer_flip": 1.0,
+          "soft_interaction_failure": 0.0,
+          "zero/tie": 0.0
+        },
+        "dominance": "transfer_dominant",
+        "sign_contingency": {
+          "negative": {
+            "negative": 0,
+            "zero": 0,
+            "positive": 0
+          },
+          "zero": {
+            "negative": 0,
+            "zero": 5,
+            "positive": 0
+          },
+          "positive": {
+            "negative": 9,
+            "zero": 0,
+            "positive": 26
+          }
+        },
+        "soft_separability_regret": {
+          "mean": 1.5571340918540953e-05,
+          "median": 0.0,
+          "p95": 5.402667447924581e-05,
+          "max": 0.0003486126661300659,
+          "zero_count": 34
+        },
+        "first_soft_oracle_equal_count": 29,
+        "first_soft_oracle_equal_fraction": 0.725,
+        "in_soft_oracle_tie_set_count": 34,
+        "in_soft_oracle_tie_set_fraction": 0.85,
+        "soft_oracle_tied_episodes": 5,
+        "selected_in_tied_soft_oracle_count": 5
+      },
+      "quadrants": {
+        "count": 40,
+        "harmful_hard_moves": 11,
+        "category_counts": {
+          "transfer_flip": 10,
+          "soft_interaction_failure": 1,
+          "zero/tie": 0
+        },
+        "category_fractions": {
+          "transfer_flip": 0.9090909090909091,
+          "soft_interaction_failure": 0.09090909090909091,
+          "zero/tie": 0.0
+        },
+        "dominance": "transfer_dominant",
+        "sign_contingency": {
+          "negative": {
+            "negative": 1,
+            "zero": 0,
+            "positive": 0
+          },
+          "zero": {
+            "negative": 0,
+            "zero": 29,
+            "positive": 0
+          },
+          "positive": {
+            "negative": 10,
+            "zero": 0,
+            "positive": 0
+          }
+        },
+        "soft_separability_regret": {
+          "mean": 1.2148963287472725e-05,
+          "median": 0.0,
+          "p95": 3.247549757361388e-05,
+          "max": 0.00034543126821517944,
+          "zero_count": 37
+        },
+        "first_soft_oracle_equal_count": 37,
+        "first_soft_oracle_equal_fraction": 0.925,
+        "in_soft_oracle_tie_set_count": 37,
+        "in_soft_oracle_tie_set_fraction": 0.925,
+        "soft_oracle_tied_episodes": 0,
+        "selected_in_tied_soft_oracle_count": 0
+      },
+      "offset_left_right_40": {
+        "count": 40,
+        "harmful_hard_moves": 0,
+        "category_counts": {
+          "transfer_flip": 0,
+          "soft_interaction_failure": 0,
+          "zero/tie": 0
+        },
+        "category_fractions": {
+          "transfer_flip": null,
+          "soft_interaction_failure": null,
+          "zero/tie": null
+        },
+        "dominance": "no_harmful_moves",
+        "sign_contingency": {
+          "negative": {
+            "negative": 0,
+            "zero": 0,
+            "positive": 0
+          },
+          "zero": {
+            "negative": 0,
+            "zero": 5,
+            "positive": 0
+          },
+          "positive": {
+            "negative": 0,
+            "zero": 0,
+            "positive": 35
+          }
+        },
+        "soft_separability_regret": {
+          "mean": 6.901079323142766e-05,
+          "median": 0.0,
+          "p95": 0.00023978343233465942,
+          "max": 0.00128931924700737,
+          "zero_count": 33
+        },
+        "first_soft_oracle_equal_count": 26,
+        "first_soft_oracle_equal_fraction": 0.65,
+        "in_soft_oracle_tie_set_count": 33,
+        "in_soft_oracle_tie_set_fraction": 0.825,
+        "soft_oracle_tied_episodes": 7,
+        "selected_in_tied_soft_oracle_count": 7
+      }
+    },
+    "interpretation": "transfer_dominant",
+    "reference_only": true,
+    "qualification_experiment": false
+  },
+  "decision_receipt": {
+    "reporting_started_utc": "2026-09-12T23:02:11.869323+00:00",
+    "quantities_sha256": "e2d97a7b4c5fd9182a028cdc9403390480dd5ed51aa16f4016b4376531e3dee8",
+    "quantities_frozen_sha256": "481cab25ba9f70be834777954136371ccd764ee771b2e083021f772e933a78fd",
+    "original_decisions_sha256": "8aefe5e88aa823e6d415bb1580a00765aaf507e4a106766fef5495e238a1bc26"
+  },
+  "focused_tests_passed": true,
+  "independent_verification_passed": true,
+  "reference_only": true,
+  "no_training_pixels_rendering_or_gpu_experiment": true,
+  "deviation": "Preliminary legacy baseline additionally read T016-B evaluation JSON; restricted baseline and formal attribution use only permitted A/T017-A JSONs.",
+  "heartbeat": "existing ttie-chatgpt every 15 minutes; unchanged state quiet",
+  "next_action": "await research review; no hard-deployment geometry training, fresh evaluation, self-merge or unissued next task"
+}
