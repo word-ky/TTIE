@@ -150,3 +150,23 @@ Add focused tests proving:
 - oracle_best_basis is evaluation-only.
 
 Run full local and A6000 tests. Freeze scientific code and the 40-image manifest before outcomes. If T015 completes, stop and report; do not automatically start learned basis, detector, meta-learning, prompt retraining, or ViT3 work.
+
+---
+
+# Research-lead interim review — T015 frozen implementation accepted for fresh preparation
+
+Reviewed Codex partial report `38ed3971` and frozen engineering commit `c4e58e5ad64bfce0bea72561997db8007e12b510` / draft PR #15 against the T015 contract and current project state.
+
+The implementation is scientifically consistent with the frozen routing audit. `route()` receives exactly three scalar selected Sobolev-energy values and applies literal deterministic tie order `global -> bilinear2 -> region2`. `run_label_free()` reuses the unchanged T014 per-basis trajectory/checkpoint machinery; there is no new training, calibration, normalization, score offset, temperature, threshold, or learned router. The routed output is a copy of the already-selected frozen-basis result, so routing does not create a fourth trajectory.
+
+The leakage boundary is also correct: all three basis trajectories, selected energy scores, outputs/decisions and `routing.json` are written and hashed first; only then does the reference callable enter `evaluate_episode()`. `oracle_best_basis` is computed from reference MSE only after persistence and cannot influence the router. The ten-clause reducer matches the predeclared contract, including primary `offset_left_right_40`, evaluation-only `best_fixed_basis_spatial`, the 3% adaptive-basis clause, both 1% family non-inferiority clauses, and the 5% oracle-regret bound. Current local evidence (132 full tests plus focused routing/persistence/fixture tests) is sufficient to proceed to the one frozen fresh experiment; PR #15 must remain draft until that experiment and evidence verification finish.
+
+**Proceed, but preserve a strict freeze barrier before any T015 outcome is produced:**
+
+1. Generate `research_log/T015_manifest.json` by metadata only from official COCO val2017 image files. Verify exactly 40 `evaluation_t015` IDs, exclusion of all 648 previously inspected IDs, original shorter side >=320, and no annotation access. Commit the manifest and record its SHA256 before launching the experiment.
+2. Treat `c4e58e5ad64bfce0bea72561997db8007e12b510` as the immutable scientific implementation. The later manifest/evidence commit may add the manifest and bookkeeping only. Before launch, record `git diff --name-only c4e58e5..RUN_COMMIT` and verify there are **no changes** to `ttie/routing/**`, the frozen T014 donor code, `scripts/prepare_t015.py`, or `scripts/run_t015_a6000.sh`. Also preserve the existing T014 receipt/code-inventory verification. Do not repair or refactor scientific code after any fresh output exists.
+3. Run exactly one formal 40-image × 6-condition = **240-input** A6000 evaluation with the frozen Sobolev checkpoint and the committed manifest. No duplicate run, score calibration, basis-specific correction, threshold tuning, or fresh-split replacement is permitted based on outcomes. The non-negotiable rule remains: **test-time adaptation/routing must never use test labels, clean targets, condition IDs, masks/gains, annotations, image IDs as shortcuts, source-only Jacobians/reference gradients, or evaluation metrics.**
+4. At completion, verify all 240 episode receipts/hashes and recompute the summary independently from saved metrics. Report all ten clauses literally, the reference-only best fixed basis, `oracle_best_basis / best_fixed_basis_spatial`, basis-selection counts by each condition, oracle basis counts, full winner–runner-up energy-margin distribution, routing/oracle disagreement, and regret conditioned on routed basis. Preserve zero-oracle cases as absolute regret rather than silently dividing by zero.
+5. If any clause fails, preserve the bounded fresh negative result and stop. In particular, do not learn a score calibration or a new spatial basis on `evaluation_t015`. If all ten pass, stop and report the positive routing result; do not start detector/meta/ViT3/learned-basis work automatically.
+
+No `PROJECT_STATE.md` change is warranted yet: T015 has a reviewed frozen implementation but no fresh scientific outcome.
