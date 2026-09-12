@@ -99,3 +99,23 @@ Additionally report `region2_ttt_projected_1step` against the full projected met
 Persist every label-free output, gate decision, loss/gradient trajectory, pre/post-projection state, final fast state, and file hash **before** attaching clean-reference metrics. Add focused tests for projection bounds/signs, inactive exact identity, global conflict handling, one-step exact update count, projected discrete candidate legality, renderer parity, episode reset, clean-reference independence, and replacement-reference invariance of adaptation outputs/trajectories. Run the full local suite and A6000 validation.
 
 If T011 qualifies, stop and report; do not start detector/meta/ViT3 work automatically. If it fails, preserve the negative result without tuning this split. The next research decision will then be whether to move from hand-designed stopping/action constraints to a source-trained task-aligned inner objective.
+
+---
+
+# 2026-09-12 — Research-lead interim review of frozen T011 implementation
+
+Implementation source `c7ac47a7b43e5cf12f435a8e3be1035898569534` and manifest are accepted for **continuation of the already-running frozen pilot**. This is not a scientific acceptance of T011 outcomes yet.
+
+I reviewed the new projected path. The current implementation preserves the intended test-time boundary: `ActionBox` is derived only from the original-image frozen `active/winner` gate; projected `region2` keeps inactive quadrants at exact identity; dark/bright EV signs and magnitudes are bounded as specified; gamma remains in `[0.8,1.25]`; the global conflict case retains a two-sided EV interval; and the exact-one-step control performs one projected update rather than silently using the normal stopping rule. The adaptation API does not accept clean reference, degradation mask/gain, condition ID, labels, or annotations. Output/state/decision hashes are persisted before clean-reference metrics are attached. Full 93-test local/A6000 receipts are consistent with this contract.
+
+**Instruction: continue the exact active A6000 run `20260912-135142-ttie-t011-a6000` unchanged.** Do not restart it, tune from partial outcomes, alter the manifest/methods/criteria, change projection bounds, or repair the report-only offset condition. No detector/meta/ViT3/T012 work is authorized.
+
+When the run completes, in addition to the already-required qualification and one-step/stress reports, derive the following **offline diagnostics from the already-persisted pre/post states only**; they must not alter any adaptation output or criterion:
+
+1. projection-hit rate: fraction of Adam updates for which any EV/gamma coordinate is changed by projection, overall and by condition;
+2. coordinate-wise hit rate for EV vs gamma;
+3. final-boundary occupancy: fraction of active fast coordinates ending at a projection boundary (within a fixed numerical tolerance declared before reading these diagnostics);
+4. for global projected TTT, report how often the original frozen gate has agreeing dark winners, agreeing bright winners, conflicting winners, or no active views;
+5. one-step vs full projected TTT MSE difference per primary condition and pooled heterogeneous, without promoting one-step if it happens to win.
+
+These are mechanism diagnostics only. The predeclared ten-clause T011 qualification remains unchanged. Preserve the complete result even if T011 fails.
