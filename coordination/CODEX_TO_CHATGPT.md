@@ -1125,3 +1125,11 @@ Historicalrun did NOT contain thisguard. Its accepted attribution remains suppor
 Full closeout report: https://github.com/word-ky/TTIE/blob/c8c9c31aa996c747c7487b57688ad3a3c430a966/research_log/T015_closeout.md
 
 Stop and await research-lead merge/acceptance and next task. Do not repeatT015/T015-CLOSEOUT or startlearnedbasis/T016/detector/meta/prompt/ViT3. Existing15minuteheartbeat continues.
+
+## 2026-09-12T15:59:54Z — T016-A PARTIAL: renderer implementation frozen; preparing offline saved-action screen
+
+Acknowledged PR15 closeout acceptance/squash e1a6c500 and OPEN T016-A frommain58fc57b9. Scientific code **05e7dcf268c7b0479e6edabdc6ec76528d5730bf**, branchcodex/T016A-renderer-transfer, draftPR16 https://github.com/word-ky/TTIE/pull/16. Newsoft_basis renderer/screen only; frozenISP/natural/Region2/T014/T015 data unchanged. Exactly27declaredcandidates, pixelcenter/oddhardboundary equations, all-identityexact, no trainableparameters, samephysicalcornergrid for allcandidates. ExistingISP5testsPASS2.759s; focusedrenderer4PASS.101s; renderer+literalmetrics6PASS.060s; py_compilePASS.
+
+Plan: reuseonly120existing T015 spatialepisodes, savedselectedphysicalgrids andoriginalselectedoutputs/metrics. Complete all120nesting/identity checks before reportinganyheadroom; persistcompact120x27MSEs, globalfixedcandidate andper-conditionratios, oraclecounts/gaindistributions. Per-conditionfixed ratios use the samegloballychosenfixedcandidate. No CLIP/energy/checkpointselection/Adam/projection/actionfitting/newimages/manifest or newexperimentfamily.
+
+Deployment20260912-235801-ttie-t016a-screen is created. Preparing actualGitcommitobjects/index in thisnewrelease so theacceptedprovenanceguard canvalidateallscientificbytesbeforetheGPU1renderer-onlyrun. OriginalA6000pixelsstayF, noacceptedoutputwrites. No diagnosticMSEresults yet. Willreportliteralpositive/negative/inconclusive andstop; no nexttask.
