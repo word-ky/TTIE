@@ -4,6 +4,38 @@ Research-lead inbox. Codex should execute only the current OPEN task. Prior deta
 
 ---
 
+# Research-lead interim review — T014 repaired Stage A may continue
+
+**T014 remains OPEN. Do not merge PR #14 yet. Continue only the already-active repaired run `20260912-181047-ttie-t014-stage-a-repaired` from frozen source `f861b2c6ffde6d017cb174ef8e00cb75701bf5e1`. Do not start a duplicate run, retune, or inspect/create fresh Stage-B data.**
+
+I reviewed the repair boundary and the Sobolev implementation. The initial T014 run failed on the first source image before either head was fitted and before calibration because the cached source feature used a no-grad CLIP forward while the Jacobian path used a grad-enabled forward; the observed real-CLIP mismatch was `5.4836273193359375e-06`. The repair changes only source feature caching so the cached feature and `J` describe the same differentiable forward. The `1e-6` check was not relaxed, no scientific threshold/gate/loss/state-bank/manifest was changed, the failed receipt was preserved, and the added real-source regression verifies bitwise feature equality with cached derivative features plus direct/cached chain-rule gradient agreement. This is an acceptable implementation/numerical-consistency repair, not a new scientific variant.
+
+The derivative path is consistent with the T014 contract: source-only `J = ∂f/∂phi` is stored in the eight raw Region2 EV/gamma coordinates; the first 12 frozen/gate feature rows have zero Jacobian; current CLIP evidence and current ISP coordinates contribute the remaining derivative rows; `g_ref` is source-only; and the trained Sobolev head forms `g_E = J^T ∇_f E`. The directional term is applied only on active rows with nonzero reference gradient. At inference, neither `J` nor `g_ref` enters the energy API. The value-only control and Sobolev head share the same source rows, normalization recipe, seed/batch order, architecture, 100-epoch budget, and final-checkpoint rule.
+
+Continue the exact frozen Stage A. No changes are authorized while it runs.
+
+## Required final T014 Stage-A report
+
+When the repaired run completes, report the predeclared eight-clause conjunction literally. In addition, keep the following quantities **separate** rather than conflating source-fit diagnostics with calibration evidence:
+
+1. **Source-train derivative fit:** for both heads, value Huber, directional cosine distribution, positive fraction, and median cosine on the source training rows. These are training diagnostics only and must not be used as a gate.
+2. **Calibration derivative alignment:** for both heads, the offline identity-state reference-gradient cosine distribution on the 20 calibration images. Only the Sobolev primary's calibration values count toward the `>=0.80` positive-fraction and `>=0.50` median gates.
+3. **Matched-control causal delta:** report Sobolev minus value-only calibration positive-cosine fraction and median cosine, plus heterogeneous MSE ratio `sobolev/value_only`. The value-only head must remain the same-source exact-control branch, not a selectable fallback.
+4. **Trajectory quality:** report selected-step histograms, projected-update fraction, final movable-boundary fraction, Sobolev reference-only oracle MSE, primary/oracle regret, oracle/discrete ratio, and oracle/fixed16 ratio. This is diagnostic only and must not modify the selector or gate.
+5. **Reproducibility:** verify both head hashes are unchanged from post-training through calibration; verify frozen CLIP/prototype/T007 assets; retain the initial failed-run evidence and repaired-run receipt; report the exact source SHA/manifest SHA and all tests.
+
+A source-train cosine improvement does **not** qualify T014 by itself. The scientific question is whether derivative supervision transfers to unseen source-calibration images and creates a better label-free trajectory.
+
+If **any** of the eight Stage-A clauses fails, stop T014 at Stage A, preserve the negative result, finish the draft PR/evidence, and do not create/read `evaluation_t014`. No loss-weight tuning, feature changes, state-bank expansion, extra epochs, LR changes, action-box changes, or reruns on this split.
+
+If and only if all eight clauses pass, first create the immutable T014 receipt containing both checkpoint hashes, source manifest/hash, exact feature/Jacobian convention, code SHA, training recipe, Stage-A metrics, and frozen asset identities. Commit it and verify the actual Git blobs for **both** heads before generating or reading any fresh Stage-B image. Then follow the already-specified fresh 40-image protocol unchanged.
+
+The non-negotiable rule remains: **test-time adaptation must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, source Jacobians/reference gradients, or evaluation metrics.**
+
+No detector/meta-initialization/ViT3/prompt/learned-basis work is authorized.
+
+---
+
 # Research-lead review — T013 accepted as a controlled source-stage negative result
 
 PR #13 is accepted and squash-merged as `80bafdad5758f62f29dd3257fac3876c37bfda7f`.
