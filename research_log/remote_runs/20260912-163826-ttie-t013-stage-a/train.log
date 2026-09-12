@@ -1,0 +1,659 @@
+[autodl] run_id=20260912-163826-ttie-t013-stage-a
+[autodl] started_at=2026-09-12T16:38:34+08:00
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+3.12.12 | packaged by conda-forge | (main, Jan 26 2026, 23:51:32) [GCC 14.3.0]
+torch 2.4.0
+torchvision 0.19.0
+open_clip_torch 2.26.1
+timm 1.0.29
+Pillow 12.3.0
+CUDA 12.1 NVIDIA RTX A6000
+test_cpu_diagnostics_and_loss_decrease (test_adapt.AdaptTests.test_cpu_diagnostics_and_loss_decrease) ... <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+ok
+test_episode_reset_reproducibility (test_adapt.AdaptTests.test_episode_reset_reproducibility) ... ok
+test_fixed_prior_value (test_adapt.AdaptTests.test_fixed_prior_value) ... ok
+test_only_fast_parameters_updated (test_adapt.AdaptTests.test_only_fast_parameters_updated) ... ok
+test_zero_steps_identity (test_adapt.AdaptTests.test_zero_steps_identity) ... ok
+test_auc_ties_and_literal_conjunction (test_clip_signal.ClipSignalTests.test_auc_ties_and_literal_conjunction) ... ok
+test_calibration_ignores_heldout_values_and_dirty_calibration (test_clip_signal.ClipSignalTests.test_calibration_ignores_heldout_values_and_dirty_calibration) ... ok
+test_detached_winner_threshold_and_zero_loss (test_clip_signal.ClipSignalTests.test_detached_winner_threshold_and_zero_loss) ... ok
+test_frozen_encoder_has_pixel_gradient (test_clip_signal.ClipSignalTests.test_frozen_encoder_has_pixel_gradient) ... ok
+test_scores_do_not_consume_evaluation_reference_or_labels (test_clip_signal.ClipSignalTests.test_scores_do_not_consume_evaluation_reference_or_labels) ... ok
+test_evaluation_reference_does_not_affect_adaptation (test_demo.DemoTests.test_evaluation_reference_does_not_affect_adaptation) ... ok
+test_full_demo_is_deterministic (test_demo.DemoTests.test_full_demo_is_deterministic) ... ok
+test_metrics_known_value (test_demo.DemoTests.test_metrics_known_value) ... ok
+test_bank_order_sobol_mapping_and_inactive_identity (test_energy_core.EnergyCoreTests.test_bank_order_sobol_mapping_and_inactive_identity) ... ok
+test_exact_updates_selection_reset_projection_and_metadata_rejection (test_energy_core.EnergyCoreTests.test_exact_updates_selection_reset_projection_and_metadata_rejection) ... ok
+test_features_have_live_evidence_and_state_gradients (test_energy_core.EnergyCoreTests.test_features_have_live_evidence_and_state_gradients) ... ok
+test_fixed_training_recipe_normalization_save_and_device_gradient (test_energy_core.EnergyCoreTests.test_fixed_training_recipe_normalization_save_and_device_gradient) ... /home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+ok
+test_saved_gradients_features_selection_survive_reference_replacement (test_energy_evidence.EnergyEvidenceTests.test_saved_gradients_features_selection_survive_reference_replacement) ... ok
+test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass (test_energy_evidence.EnergyEvidenceTests.test_seven_source_eleven_fresh_gates_and_oracle_not_alternate_pass) ... ok
+test_source_bank_saved_before_targets_and_cosine_known_cases (test_energy_evidence.EnergyEvidenceTests.test_source_bank_saved_before_targets_and_cosine_known_cases) ... ok
+test_frozen_energy_bank_normalization_source_and_actual_git_blob (test_energy_pilot.EnergyPilotTests.test_frozen_energy_bank_normalization_source_and_actual_git_blob) ... ok
+test_new_source_excludes408_and_failed_source_prevents_fresh_read (test_energy_pilot.EnergyPilotTests.test_new_source_excludes408_and_failed_source_prevents_fresh_read) ... ok
+test_tiny_source_train_calibration_and_no_fresh_manifest (test_energy_pilot.EnergyPilotTests.test_tiny_source_train_calibration_and_no_fresh_manifest) ... T013 bank 1 1 clean states 1
+T013 bank 2 1 homogeneous_dark states 24
+T013 bank 3 1 homogeneous_bright states 24
+T013 bank 4 1 left_right states 24
+T013 bank 5 1 quadrants states 24
+T013 trained energy 97 rows 100 epochs
+T013 A finalized 1 2 clean seconds 0.13
+T013 A finalized 2 2 homogeneous_dark seconds 0.65
+T013 A finalized 3 2 homogeneous_bright seconds 0.65
+T013 A finalized 4 2 left_right seconds 0.68
+T013 A finalized 5 2 quadrants seconds 0.69
+ok
+test_coordinate_restrictions_exact (test_geometry.GeometryTests.test_coordinate_restrictions_exact) ... ok
+test_development_manifest_excludes_all_old_data (test_geometry.GeometryTests.test_development_manifest_excludes_all_old_data) ... ok
+test_diagnosis_rules_and_objective_priority_are_literal (test_geometry.GeometryTests.test_diagnosis_rules_and_objective_priority_are_literal) ... ok
+test_literal_surface_and_tied_ranks (test_geometry.GeometryTests.test_literal_surface_and_tied_ranks) ... ok
+test_oracle_resets_identity_and_is_diagnostic_only (test_geometry.GeometryTests.test_oracle_resets_identity_and_is_diagnostic_only) ... ok
+test_piecewise_constant_equivalence_and_odd_quadrant_boundary (test_geometry.GeometryTests.test_piecewise_constant_equivalence_and_odd_quadrant_boundary) ... ok
+test_recording_leaves_t008_trajectory_unchanged_and_reference_is_offline (test_geometry.GeometryTests.test_recording_leaves_t008_trajectory_unchanged_and_reference_is_offline) ... ok
+test_reference_gradient_changes_without_affecting_semantic_api (test_geometry.GeometryTests.test_reference_gradient_changes_without_affecting_semantic_api) ... ok
+test_constant_spatial_grid_matches_global (test_isp.ISPTests.test_constant_spatial_grid_matches_global) ... ok
+test_each_operator_has_finite_nonzero_gradient (test_isp.ISPTests.test_each_operator_has_finite_nonzero_gradient) ... ok
+test_identity_including_black_and_white (test_isp.ISPTests.test_identity_including_black_and_white) ... ok
+test_single_operator_semantics (test_isp.ISPTests.test_single_operator_semantics) ... ok
+test_spatial_interpolation_and_bounds (test_isp.ISPTests.test_spatial_interpolation_and_bounds) ... ok
+test_image_any_denominators_tradeoffs_auc_and_gate (test_joint_audit.JointAuditTests.test_image_any_denominators_tradeoffs_auc_and_gate) ... ok
+test_metadata_is_attached_after_persistence_cannot_change_pixel_inference (test_joint_audit.JointAuditTests.test_metadata_is_attached_after_persistence_cannot_change_pixel_inference) ... ok
+test_calibration_image_max_linear_percentile_and_exclusion (test_joint_gate.JointGateTests.test_calibration_image_max_linear_percentile_and_exclusion) ... ok
+test_exact_saved_prototype_and_t006_score_arithmetic (test_joint_gate.JointGateTests.test_exact_saved_prototype_and_t006_score_arithmetic) ... ok
+test_fresh_manifest_excludes_every_prior_split (test_joint_gate.JointGateTests.test_fresh_manifest_excludes_every_prior_split) ... ok
+test_same_scores_raw_winner_strict_boundary_and_activation_only (test_joint_gate.JointGateTests.test_same_scores_raw_winner_strict_boundary_and_activation_only) ... ok
+test_clean_source_calibration_only (test_learned_prototypes.LearnedPrototypeTests.test_clean_source_calibration_only) ... ok
+test_exact_initialization_and_gradient_ownership (test_learned_prototypes.LearnedPrototypeTests.test_exact_initialization_and_gradient_ownership) ... ok
+test_fresh_deterministic_manifest (test_learned_prototypes.LearnedPrototypeTests.test_fresh_deterministic_manifest) ... ok
+test_pixel_only_inference_and_decisions (test_learned_prototypes.LearnedPrototypeTests.test_pixel_only_inference_and_decisions) ... ok
+test_source_only_training_freezes_before_inference (test_learned_prototypes.LearnedPrototypeTests.test_source_only_training_freezes_before_inference) ... ok
+test_five_views_and_differentiable_geometry (test_natural.NaturalTests.test_five_views_and_differentiable_geometry) ... ok
+test_gain_conventions_match_previous_suite (test_natural.NaturalTests.test_gain_conventions_match_previous_suite) ... ok
+test_each_threshold_is_enforced (test_projected_metrics.ProjectedMetricsTests.test_each_threshold_is_enforced) ... ok
+test_literal_criteria_one_step_not_selector_stress_excluded (test_projected_metrics.ProjectedMetricsTests.test_literal_criteria_one_step_not_selector_stress_excluded) ... ok
+test_all_nine_outputs_decisions_and_hashes_precede_metrics (test_projected_pilot.ProjectedPilotTests.test_all_nine_outputs_decisions_and_hashes_precede_metrics) ... ok
+test_fresh_manifest_uses_existing_order_exclusions_and_new_split (test_projected_pilot.ProjectedPilotTests.test_fresh_manifest_uses_existing_order_exclusions_and_new_split) ... ok
+test_replacement_reference_leaves_outputs_gradients_and_states_unchanged (test_projected_pilot.ProjectedPilotTests.test_replacement_reference_leaves_outputs_gradients_and_states_unchanged) ... ok
+test_discrete_candidates_are_legal_and_inactive_output_unchanged (test_projected_ttt.ProjectedTests.test_discrete_candidates_are_legal_and_inactive_output_unchanged) ... ok
+test_episode_reset_no_active_and_no_metadata_api (test_projected_ttt.ProjectedTests.test_episode_reset_no_active_and_no_metadata_api) ... ok
+test_global_conflict_agreement_and_no_active (test_projected_ttt.ProjectedTests.test_global_conflict_agreement_and_no_active) ... ok
+test_inactive_low_value_pixels_are_bitwise_unchanged (test_projected_ttt.ProjectedTests.test_inactive_low_value_pixels_are_bitwise_unchanged) ... ok
+test_one_step_matches_first_full_update_and_audits_projection (test_projected_ttt.ProjectedTests.test_one_step_matches_first_full_update_and_audits_projection) ... ok
+test_projection_bounds_signs_and_inactive_exact_identity (test_projected_ttt.ProjectedTests.test_projection_bounds_signs_and_inactive_exact_identity) ... ok
+test_renderer_and_envelope_baseline_parity (test_projected_ttt.ProjectedTests.test_renderer_and_envelope_baseline_parity) ... ok
+test_gate_requires_mixed_recall_and_low_wrong_activation (test_prototype_audit.PrototypeAuditTests.test_gate_requires_mixed_recall_and_low_wrong_activation) ... ok
+test_metadata_changes_only_offline_localization (test_prototype_audit.PrototypeAuditTests.test_metadata_changes_only_offline_localization) ... ok
+test_mixed_labels_and_all_view_denominators (test_prototype_audit.PrototypeAuditTests.test_mixed_labels_and_all_view_denominators) ... ok
+test_global_unaffected_by_tv_and_components_reconstruct_total (test_regularization.RegularizationTests.test_global_unaffected_by_tv_and_components_reconstruct_total) ... ok
+test_identity_normalization_anchor_and_bounds (test_regularization.RegularizationTests.test_identity_normalization_anchor_and_bounds) ... ok
+test_tv_constant_varying_and_analytic_value (test_regularization.RegularizationTests.test_tv_constant_varying_and_analytic_value) ... ok
+test_zero_weight_t001_fixed_numeric_regression (test_regularization.RegularizationTests.test_zero_weight_t001_fixed_numeric_regression) ... ok
+test_exact_probe_sign_magnitude_and_response (test_relative_clip.RelativeTests.test_exact_probe_sign_magnitude_and_response) ... ok
+test_fresh_manifest_and_calibration_excludes_other_rows (test_relative_clip.RelativeTests.test_fresh_manifest_and_calibration_excludes_other_rows) ... ok
+test_literal_gate_uses_correct_type_tpr_and_precision (test_relative_clip.RelativeTests.test_literal_gate_uses_correct_type_tpr_and_precision) ... ok
+test_metadata_does_not_change_responses_gates_targets (test_relative_clip.RelativeTests.test_metadata_does_not_change_responses_gates_targets) ... ok
+test_literal_grid_feasibility_and_conservative_tie (test_residual_metrics.ResidualMetricsTests.test_literal_grid_feasibility_and_conservative_tie) ... ok
+test_offset_boundary_and_offline_regional_mse (test_residual_metrics.ResidualMetricsTests.test_offset_boundary_and_offline_regional_mse) ... ok
+test_qualification_conjunction_and_stress_exclusion (test_residual_metrics.ResidualMetricsTests.test_qualification_conjunction_and_stress_exclusion) ... ok
+test_all_eight_outputs_and_decisions_precede_reference_access (test_residual_pilot.ResidualPilotTests.test_all_eight_outputs_and_decisions_precede_reference_access) ... ok
+test_manifest_algorithm_excludes_all_prior_ids_and_small_images (test_residual_pilot.ResidualPilotTests.test_manifest_algorithm_excludes_all_prior_ids_and_small_images) ... ok
+test_source_actions_include_all_fixed_pairs_without_reference_api (test_residual_pilot.ResidualPilotTests.test_source_actions_include_all_fixed_pairs_without_reference_api) ... ok
+test_all_methods_reset_and_reject_reference_metadata (test_residual_ttt.ResidualTests.test_all_methods_reset_and_reject_reference_metadata) ... ok
+test_coordinate_only_region_matches_diagnostic_and_constant_bilinear (test_residual_ttt.ResidualTests.test_coordinate_only_region_matches_diagnostic_and_constant_bilinear) ... ok
+test_equation_frozen_winner_initial_energy_opposite_penalty (test_residual_ttt.ResidualTests.test_equation_frozen_winner_initial_energy_opposite_penalty) ... ok
+test_no_active_exact_identity_all_methods (test_residual_ttt.ResidualTests.test_no_active_exact_identity_all_methods) ... ok
+test_zero_rho_loss_gradient_and_trajectory_match (test_residual_ttt.ResidualTests.test_zero_rho_loss_gradient_and_trajectory_match) ... ok
+test_literal_mean_gates_paired_rows_and_gradient_exclusion (test_restoration_metrics.RestorationMetricTests.test_literal_mean_gates_paired_rows_and_gradient_exclusion) ... ok
+test_official_fresh_manifest_prefix_and_exclusions (test_restoration_metrics.RestorationMetricTests.test_official_fresh_manifest_prefix_and_exclusions) ... ok
+test_replaced_reference_changes_metrics_only_after_methods_complete (test_restoration_metrics.RestorationMetricTests.test_replaced_reference_changes_metrics_only_after_methods_complete) ... ok
+test_all_fixed_settings_and_component_trajectories (test_safety_sweep.SafetySweepTests.test_all_fixed_settings_and_component_trajectories) ... ok
+test_clean_reference_replacement_never_changes_any_trajectory (test_safety_sweep.SafetySweepTests.test_clean_reference_replacement_never_changes_any_trajectory) ... ok
+test_predeclared_decision_rule_known_values (test_safety_sweep.SafetySweepTests.test_predeclared_decision_rule_known_values) ... ok
+test_direct_policy_and_exact_candidate_ties (test_semantic_ttt.SemanticTTTTests.test_direct_policy_and_exact_candidate_ties) ... ok
+test_episode_reset_and_metadata_cannot_enter_trajectory (test_semantic_ttt.SemanticTTTTests.test_episode_reset_and_metadata_cannot_enter_trajectory) ... ok
+test_fixed_original_mask_and_two_sided_hinge (test_semantic_ttt.SemanticTTTTests.test_fixed_original_mask_and_two_sided_hinge) ... ok
+test_frozen_encoder_gradients_reach_both_isp_coordinates (test_semantic_ttt.SemanticTTTTests.test_frozen_encoder_gradients_reach_both_isp_coordinates) ... ok
+test_global_spatial_constant_render_and_fixed_other_operators (test_semantic_ttt.SemanticTTTTests.test_global_spatial_constant_render_and_fixed_other_operators) ... ok
+test_literal_saved_calibration_and_hash (test_semantic_ttt.SemanticTTTTests.test_literal_saved_calibration_and_hash) ... ok
+test_no_active_is_bitwise_identity_for_every_method (test_semantic_ttt.SemanticTTTTests.test_no_active_is_bitwise_identity_for_every_method) ... ok
+test_fixed_step_safety_then_hetero_then_earliest (test_stop_metrics.StopMetricsTests.test_fixed_step_safety_then_hetero_then_earliest) ... ok
+test_stage_a_five_clauses_and_stage_b_eleven_with_stress_exclusion (test_stop_metrics.StopMetricsTests.test_stage_a_five_clauses_and_stage_b_eleven_with_stress_exclusion) ... ok
+test_development_80_20_split_and_fresh_barrier_precedes_pool_read (test_stop_pilot.StopPilotTests.test_development_80_20_split_and_fresh_barrier_precedes_pool_read) ... ok
+test_freeze_checks_head_manifest_code_normalization_and_git_blob (test_stop_pilot.StopPilotTests.test_freeze_checks_head_manifest_code_normalization_and_git_blob) ... ok
+test_source_training_and_calibration_end_to_end_without_fresh_data (test_stop_pilot.StopPilotTests.test_source_training_and_calibration_end_to_end_without_fresh_data) ... Stage A passes False failed ['homogeneous_dark', 'beyond_discrete', 'beyond_fixed_step'] fixed step 2
+STOP: no fresh T012 manifest/scoring in this process. Commit a passing frozen receipt first.
+ok
+test_stage_b_persistence_and_reference_replacement (test_stop_pilot.StopPilotTests.test_stage_b_persistence_and_reference_replacement) ... ok
+test_checkpoint_frozen_scores_and_cpu_cuda_selection (test_stop_quality.StopQualityTests.test_checkpoint_frozen_scores_and_cpu_cuda_selection) ... ok
+test_fixed_recipe_train_only_normalization_and_exact_repeat (test_stop_quality.StopQualityTests.test_fixed_recipe_train_only_normalization_and_exact_repeat) ... ok
+test_earliest_tie_and_inactive_bypass (test_stop_trajectory.StopTrajectoryTests.test_earliest_tie_and_inactive_bypass) ... ok
+test_feature_order_normalization_signs_terminal_and_projection_count (test_stop_trajectory.StopTrajectoryTests.test_feature_order_normalization_signs_terminal_and_projection_count) ... ok
+test_metadata_cannot_enter_capture_features_selection_or_output (test_stop_trajectory.StopTrajectoryTests.test_metadata_cannot_enter_capture_features_selection_or_output) ... ok
+test_passive_capture_exact_t011_outputs_gradients_and_states (test_stop_trajectory.StopTrajectoryTests.test_passive_capture_exact_t011_outputs_gradients_and_states) ... ok
+test_clean_families_and_determinism (test_suite.SuiteTests.test_clean_families_and_determinism) ... ok
+test_degradation_masks_and_t001_equivalence (test_suite.SuiteTests.test_degradation_masks_and_t001_equivalence) ... ok
+test_evaluation_only_reference_and_exports (test_suite.SuiteTests.test_evaluation_only_reference_and_exports) ... ok
+test_identity_drift_clean_condition (test_suite.SuiteTests.test_identity_drift_clean_condition) ... ok
+test_count_aggregation_and_uniform_field (test_uniform.UniformTests.test_count_aggregation_and_uniform_field) ... ok
+test_spatial_one_matches_global_exactly (test_uniform.UniformTests.test_spatial_one_matches_global_exactly) ... ok
+test_symmetric_control_stays_near_global_and_resets (test_uniform.UniformTests.test_symmetric_control_stays_near_global_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 115 tests in 14.908s
+
+OK
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+T013 bank 1 23666 clean states 1
+T013 bank 2 23666 homogeneous_dark states 24
+T013 bank 3 23666 homogeneous_bright states 1
+T013 bank 4 23666 left_right states 24
+T013 bank 5 23666 quadrants states 24
+T013 bank 6 23751 clean states 1
+T013 bank 7 23751 homogeneous_dark states 24
+T013 bank 8 23751 homogeneous_bright states 24
+T013 bank 9 23751 left_right states 24
+T013 bank 10 23751 quadrants states 24
+T013 bank 11 23781 clean states 1
+T013 bank 12 23781 homogeneous_dark states 24
+T013 bank 13 23781 homogeneous_bright states 24
+T013 bank 14 23781 left_right states 24
+T013 bank 15 23781 quadrants states 24
+T013 bank 16 23899 clean states 24
+T013 bank 17 23899 homogeneous_dark states 24
+T013 bank 18 23899 homogeneous_bright states 24
+T013 bank 19 23899 left_right states 24
+T013 bank 20 23899 quadrants states 24
+T013 bank 21 23937 clean states 1
+T013 bank 22 23937 homogeneous_dark states 24
+T013 bank 23 23937 homogeneous_bright states 24
+T013 bank 24 23937 left_right states 24
+T013 bank 25 23937 quadrants states 24
+T013 bank 26 24021 clean states 1
+T013 bank 27 24021 homogeneous_dark states 24
+T013 bank 28 24021 homogeneous_bright states 1
+T013 bank 29 24021 left_right states 24
+T013 bank 30 24021 quadrants states 24
+T013 bank 31 24027 clean states 1
+T013 bank 32 24027 homogeneous_dark states 24
+T013 bank 33 24027 homogeneous_bright states 24
+T013 bank 34 24027 left_right states 24
+T013 bank 35 24027 quadrants states 24
+T013 bank 36 24144 clean states 1
+T013 bank 37 24144 homogeneous_dark states 1
+T013 bank 38 24144 homogeneous_bright states 24
+T013 bank 39 24144 left_right states 24
+T013 bank 40 24144 quadrants states 24
+T013 bank 41 24243 clean states 1
+T013 bank 42 24243 homogeneous_dark states 1
+T013 bank 43 24243 homogeneous_bright states 24
+T013 bank 44 24243 left_right states 24
+T013 bank 45 24243 quadrants states 24
+T013 bank 46 24567 clean states 1
+T013 bank 47 24567 homogeneous_dark states 1
+T013 bank 48 24567 homogeneous_bright states 24
+T013 bank 49 24567 left_right states 24
+T013 bank 50 24567 quadrants states 24
+T013 bank 51 24610 clean states 1
+T013 bank 52 24610 homogeneous_dark states 24
+T013 bank 53 24610 homogeneous_bright states 24
+T013 bank 54 24610 left_right states 24
+T013 bank 55 24610 quadrants states 24
+T013 bank 56 24919 clean states 1
+T013 bank 57 24919 homogeneous_dark states 24
+T013 bank 58 24919 homogeneous_bright states 24
+T013 bank 59 24919 left_right states 24
+T013 bank 60 24919 quadrants states 24
+T013 bank 61 25057 clean states 24
+T013 bank 62 25057 homogeneous_dark states 24
+T013 bank 63 25057 homogeneous_bright states 24
+T013 bank 64 25057 left_right states 24
+T013 bank 65 25057 quadrants states 24
+T013 bank 66 25096 clean states 1
+T013 bank 67 25096 homogeneous_dark states 24
+T013 bank 68 25096 homogeneous_bright states 24
+T013 bank 69 25096 left_right states 24
+T013 bank 70 25096 quadrants states 24
+T013 bank 71 25139 clean states 1
+T013 bank 72 25139 homogeneous_dark states 24
+T013 bank 73 25139 homogeneous_bright states 24
+T013 bank 74 25139 left_right states 24
+T013 bank 75 25139 quadrants states 24
+T013 bank 76 25386 clean states 1
+T013 bank 77 25386 homogeneous_dark states 24
+T013 bank 78 25386 homogeneous_bright states 24
+T013 bank 79 25386 left_right states 24
+T013 bank 80 25386 quadrants states 24
+T013 bank 81 25393 clean states 1
+T013 bank 82 25393 homogeneous_dark states 24
+T013 bank 83 25393 homogeneous_bright states 24
+T013 bank 84 25393 left_right states 24
+T013 bank 85 25393 quadrants states 24
+T013 bank 86 25424 clean states 1
+T013 bank 87 25424 homogeneous_dark states 24
+T013 bank 88 25424 homogeneous_bright states 24
+T013 bank 89 25424 left_right states 24
+T013 bank 90 25424 quadrants states 24
+T013 bank 91 25593 clean states 1
+T013 bank 92 25593 homogeneous_dark states 1
+T013 bank 93 25593 homogeneous_bright states 24
+T013 bank 94 25593 left_right states 24
+T013 bank 95 25593 quadrants states 24
+T013 bank 96 25603 clean states 1
+T013 bank 97 25603 homogeneous_dark states 24
+T013 bank 98 25603 homogeneous_bright states 24
+T013 bank 99 25603 left_right states 24
+T013 bank 100 25603 quadrants states 24
+T013 bank 101 25986 clean states 1
+T013 bank 102 25986 homogeneous_dark states 24
+T013 bank 103 25986 homogeneous_bright states 24
+T013 bank 104 25986 left_right states 24
+T013 bank 105 25986 quadrants states 24
+T013 bank 106 26204 clean states 1
+T013 bank 107 26204 homogeneous_dark states 24
+T013 bank 108 26204 homogeneous_bright states 24
+T013 bank 109 26204 left_right states 24
+T013 bank 110 26204 quadrants states 24
+T013 bank 111 26465 clean states 1
+T013 bank 112 26465 homogeneous_dark states 1
+T013 bank 113 26465 homogeneous_bright states 24
+T013 bank 114 26465 left_right states 24
+T013 bank 115 26465 quadrants states 24
+T013 bank 116 26564 clean states 1
+T013 bank 117 26564 homogeneous_dark states 24
+T013 bank 118 26564 homogeneous_bright states 24
+T013 bank 119 26564 left_right states 24
+T013 bank 120 26564 quadrants states 24
+T013 bank 121 26690 clean states 24
+T013 bank 122 26690 homogeneous_dark states 24
+T013 bank 123 26690 homogeneous_bright states 24
+T013 bank 124 26690 left_right states 24
+T013 bank 125 26690 quadrants states 24
+T013 bank 126 26926 clean states 24
+T013 bank 127 26926 homogeneous_dark states 24
+T013 bank 128 26926 homogeneous_bright states 24
+T013 bank 129 26926 left_right states 24
+T013 bank 130 26926 quadrants states 24
+T013 bank 131 26941 clean states 1
+T013 bank 132 26941 homogeneous_dark states 24
+T013 bank 133 26941 homogeneous_bright states 24
+T013 bank 134 26941 left_right states 24
+T013 bank 135 26941 quadrants states 24
+T013 bank 136 27186 clean states 1
+T013 bank 137 27186 homogeneous_dark states 24
+T013 bank 138 27186 homogeneous_bright states 1
+T013 bank 139 27186 left_right states 24
+T013 bank 140 27186 quadrants states 24
+T013 bank 141 27620 clean states 1
+T013 bank 142 27620 homogeneous_dark states 24
+T013 bank 143 27620 homogeneous_bright states 24
+T013 bank 144 27620 left_right states 24
+T013 bank 145 27620 quadrants states 24
+T013 bank 146 27696 clean states 1
+T013 bank 147 27696 homogeneous_dark states 24
+T013 bank 148 27696 homogeneous_bright states 24
+T013 bank 149 27696 left_right states 24
+T013 bank 150 27696 quadrants states 24
+T013 bank 151 27768 clean states 1
+T013 bank 152 27768 homogeneous_dark states 24
+T013 bank 153 27768 homogeneous_bright states 24
+T013 bank 154 27768 left_right states 24
+T013 bank 155 27768 quadrants states 24
+T013 bank 156 27972 clean states 24
+T013 bank 157 27972 homogeneous_dark states 24
+T013 bank 158 27972 homogeneous_bright states 24
+T013 bank 159 27972 left_right states 24
+T013 bank 160 27972 quadrants states 24
+T013 bank 161 27982 clean states 1
+T013 bank 162 27982 homogeneous_dark states 24
+T013 bank 163 27982 homogeneous_bright states 24
+T013 bank 164 27982 left_right states 24
+T013 bank 165 27982 quadrants states 24
+T013 bank 166 28285 clean states 1
+T013 bank 167 28285 homogeneous_dark states 24
+T013 bank 168 28285 homogeneous_bright states 1
+T013 bank 169 28285 left_right states 24
+T013 bank 170 28285 quadrants states 24
+T013 bank 171 28449 clean states 1
+T013 bank 172 28449 homogeneous_dark states 24
+T013 bank 173 28449 homogeneous_bright states 24
+T013 bank 174 28449 left_right states 24
+T013 bank 175 28449 quadrants states 24
+T013 bank 176 28452 clean states 1
+T013 bank 177 28452 homogeneous_dark states 24
+T013 bank 178 28452 homogeneous_bright states 24
+T013 bank 179 28452 left_right states 24
+T013 bank 180 28452 quadrants states 24
+T013 bank 181 28809 clean states 24
+T013 bank 182 28809 homogeneous_dark states 24
+T013 bank 183 28809 homogeneous_bright states 24
+T013 bank 184 28809 left_right states 24
+T013 bank 185 28809 quadrants states 24
+T013 bank 186 28993 clean states 1
+T013 bank 187 28993 homogeneous_dark states 1
+T013 bank 188 28993 homogeneous_bright states 24
+T013 bank 189 28993 left_right states 24
+T013 bank 190 28993 quadrants states 24
+T013 bank 191 29187 clean states 1
+T013 bank 192 29187 homogeneous_dark states 24
+T013 bank 193 29187 homogeneous_bright states 24
+T013 bank 194 29187 left_right states 1
+T013 bank 195 29187 quadrants states 1
+T013 bank 196 29393 clean states 1
+T013 bank 197 29393 homogeneous_dark states 1
+T013 bank 198 29393 homogeneous_bright states 24
+T013 bank 199 29393 left_right states 24
+T013 bank 200 29393 quadrants states 24
+T013 bank 201 29397 clean states 1
+T013 bank 202 29397 homogeneous_dark states 24
+T013 bank 203 29397 homogeneous_bright states 24
+T013 bank 204 29397 left_right states 24
+T013 bank 205 29397 quadrants states 24
+T013 bank 206 29596 clean states 1
+T013 bank 207 29596 homogeneous_dark states 24
+T013 bank 208 29596 homogeneous_bright states 24
+T013 bank 209 29596 left_right states 24
+T013 bank 210 29596 quadrants states 24
+T013 bank 211 29640 clean states 1
+T013 bank 212 29640 homogeneous_dark states 24
+T013 bank 213 29640 homogeneous_bright states 24
+T013 bank 214 29640 left_right states 24
+T013 bank 215 29640 quadrants states 24
+T013 bank 216 29675 clean states 1
+T013 bank 217 29675 homogeneous_dark states 24
+T013 bank 218 29675 homogeneous_bright states 24
+T013 bank 219 29675 left_right states 24
+T013 bank 220 29675 quadrants states 24
+T013 bank 221 29984 clean states 1
+T013 bank 222 29984 homogeneous_dark states 24
+T013 bank 223 29984 homogeneous_bright states 24
+T013 bank 224 29984 left_right states 24
+T013 bank 225 29984 quadrants states 24
+T013 bank 226 30213 clean states 1
+T013 bank 227 30213 homogeneous_dark states 24
+T013 bank 228 30213 homogeneous_bright states 24
+T013 bank 229 30213 left_right states 24
+T013 bank 230 30213 quadrants states 24
+T013 bank 231 30494 clean states 1
+T013 bank 232 30494 homogeneous_dark states 1
+T013 bank 233 30494 homogeneous_bright states 24
+T013 bank 234 30494 left_right states 24
+T013 bank 235 30494 quadrants states 24
+T013 bank 236 30504 clean states 1
+T013 bank 237 30504 homogeneous_dark states 24
+T013 bank 238 30504 homogeneous_bright states 24
+T013 bank 239 30504 left_right states 24
+T013 bank 240 30504 quadrants states 24
+T013 bank 241 30675 clean states 1
+T013 bank 242 30675 homogeneous_dark states 24
+T013 bank 243 30675 homogeneous_bright states 24
+T013 bank 244 30675 left_right states 24
+T013 bank 245 30675 quadrants states 24
+T013 bank 246 30785 clean states 1
+T013 bank 247 30785 homogeneous_dark states 24
+T013 bank 248 30785 homogeneous_bright states 24
+T013 bank 249 30785 left_right states 24
+T013 bank 250 30785 quadrants states 24
+T013 bank 251 30828 clean states 1
+T013 bank 252 30828 homogeneous_dark states 24
+T013 bank 253 30828 homogeneous_bright states 24
+T013 bank 254 30828 left_right states 24
+T013 bank 255 30828 quadrants states 24
+T013 bank 256 31050 clean states 1
+T013 bank 257 31050 homogeneous_dark states 24
+T013 bank 258 31050 homogeneous_bright states 24
+T013 bank 259 31050 left_right states 24
+T013 bank 260 31050 quadrants states 24
+T013 bank 261 31093 clean states 1
+T013 bank 262 31093 homogeneous_dark states 24
+T013 bank 263 31093 homogeneous_bright states 1
+T013 bank 264 31093 left_right states 24
+T013 bank 265 31093 quadrants states 24
+T013 bank 266 31118 clean states 1
+T013 bank 267 31118 homogeneous_dark states 24
+T013 bank 268 31118 homogeneous_bright states 1
+T013 bank 269 31118 left_right states 24
+T013 bank 270 31118 quadrants states 24
+T013 bank 271 31217 clean states 1
+T013 bank 272 31217 homogeneous_dark states 24
+T013 bank 273 31217 homogeneous_bright states 24
+T013 bank 274 31217 left_right states 24
+T013 bank 275 31217 quadrants states 24
+T013 bank 276 31248 clean states 1
+T013 bank 277 31248 homogeneous_dark states 24
+T013 bank 278 31248 homogeneous_bright states 24
+T013 bank 279 31248 left_right states 24
+T013 bank 280 31248 quadrants states 24
+T013 bank 281 31269 clean states 1
+T013 bank 282 31269 homogeneous_dark states 24
+T013 bank 283 31269 homogeneous_bright states 24
+T013 bank 284 31269 left_right states 24
+T013 bank 285 31269 quadrants states 24
+T013 bank 286 31296 clean states 1
+T013 bank 287 31296 homogeneous_dark states 24
+T013 bank 288 31296 homogeneous_bright states 24
+T013 bank 289 31296 left_right states 24
+T013 bank 290 31296 quadrants states 24
+T013 bank 291 31322 clean states 1
+T013 bank 292 31322 homogeneous_dark states 24
+T013 bank 293 31322 homogeneous_bright states 24
+T013 bank 294 31322 left_right states 24
+T013 bank 295 31322 quadrants states 24
+T013 bank 296 31620 clean states 1
+T013 bank 297 31620 homogeneous_dark states 24
+T013 bank 298 31620 homogeneous_bright states 24
+T013 bank 299 31620 left_right states 24
+T013 bank 300 31620 quadrants states 24
+T013 bank 301 31735 clean states 1
+T013 bank 302 31735 homogeneous_dark states 24
+T013 bank 303 31735 homogeneous_bright states 24
+T013 bank 304 31735 left_right states 24
+T013 bank 305 31735 quadrants states 24
+T013 bank 306 31749 clean states 24
+T013 bank 307 31749 homogeneous_dark states 24
+T013 bank 308 31749 homogeneous_bright states 24
+T013 bank 309 31749 left_right states 24
+T013 bank 310 31749 quadrants states 24
+T013 bank 311 31817 clean states 1
+T013 bank 312 31817 homogeneous_dark states 24
+T013 bank 313 31817 homogeneous_bright states 24
+T013 bank 314 31817 left_right states 24
+T013 bank 315 31817 quadrants states 24
+T013 bank 316 32038 clean states 24
+T013 bank 317 32038 homogeneous_dark states 24
+T013 bank 318 32038 homogeneous_bright states 24
+T013 bank 319 32038 left_right states 24
+T013 bank 320 32038 quadrants states 24
+T013 bank 321 32081 clean states 1
+T013 bank 322 32081 homogeneous_dark states 24
+T013 bank 323 32081 homogeneous_bright states 24
+T013 bank 324 32081 left_right states 24
+T013 bank 325 32081 quadrants states 24
+T013 bank 326 32285 clean states 1
+T013 bank 327 32285 homogeneous_dark states 24
+T013 bank 328 32285 homogeneous_bright states 24
+T013 bank 329 32285 left_right states 24
+T013 bank 330 32285 quadrants states 24
+T013 bank 331 32334 clean states 1
+T013 bank 332 32334 homogeneous_dark states 24
+T013 bank 333 32334 homogeneous_bright states 24
+T013 bank 334 32334 left_right states 24
+T013 bank 335 32334 quadrants states 24
+T013 bank 336 32570 clean states 1
+T013 bank 337 32570 homogeneous_dark states 24
+T013 bank 338 32570 homogeneous_bright states 24
+T013 bank 339 32570 left_right states 24
+T013 bank 340 32570 quadrants states 24
+T013 bank 341 32610 clean states 1
+T013 bank 342 32610 homogeneous_dark states 24
+T013 bank 343 32610 homogeneous_bright states 24
+T013 bank 344 32610 left_right states 24
+T013 bank 345 32610 quadrants states 24
+T013 bank 346 32735 clean states 1
+T013 bank 347 32735 homogeneous_dark states 24
+T013 bank 348 32735 homogeneous_bright states 24
+T013 bank 349 32735 left_right states 24
+T013 bank 350 32735 quadrants states 24
+T013 bank 351 32811 clean states 1
+T013 bank 352 32811 homogeneous_dark states 24
+T013 bank 353 32811 homogeneous_bright states 24
+T013 bank 354 32811 left_right states 24
+T013 bank 355 32811 quadrants states 24
+T013 bank 356 32817 clean states 1
+T013 bank 357 32817 homogeneous_dark states 24
+T013 bank 358 32817 homogeneous_bright states 24
+T013 bank 359 32817 left_right states 24
+T013 bank 360 32817 quadrants states 24
+T013 bank 361 32861 clean states 1
+T013 bank 362 32861 homogeneous_dark states 24
+T013 bank 363 32861 homogeneous_bright states 24
+T013 bank 364 32861 left_right states 24
+T013 bank 365 32861 quadrants states 24
+T013 bank 366 32887 clean states 1
+T013 bank 367 32887 homogeneous_dark states 24
+T013 bank 368 32887 homogeneous_bright states 24
+T013 bank 369 32887 left_right states 24
+T013 bank 370 32887 quadrants states 24
+T013 bank 371 32901 clean states 1
+T013 bank 372 32901 homogeneous_dark states 1
+T013 bank 373 32901 homogeneous_bright states 24
+T013 bank 374 32901 left_right states 24
+T013 bank 375 32901 quadrants states 24
+T013 bank 376 32941 clean states 1
+T013 bank 377 32941 homogeneous_dark states 24
+T013 bank 378 32941 homogeneous_bright states 24
+T013 bank 379 32941 left_right states 24
+T013 bank 380 32941 quadrants states 24
+T013 bank 381 33005 clean states 1
+T013 bank 382 33005 homogeneous_dark states 24
+T013 bank 383 33005 homogeneous_bright states 24
+T013 bank 384 33005 left_right states 24
+T013 bank 385 33005 quadrants states 24
+T013 bank 386 33104 clean states 1
+T013 bank 387 33104 homogeneous_dark states 1
+T013 bank 388 33104 homogeneous_bright states 24
+T013 bank 389 33104 left_right states 24
+T013 bank 390 33104 quadrants states 24
+T013 bank 391 33109 clean states 1
+T013 bank 392 33109 homogeneous_dark states 24
+T013 bank 393 33109 homogeneous_bright states 24
+T013 bank 394 33109 left_right states 24
+T013 bank 395 33109 quadrants states 24
+T013 bank 396 33114 clean states 1
+T013 bank 397 33114 homogeneous_dark states 24
+T013 bank 398 33114 homogeneous_bright states 24
+T013 bank 399 33114 left_right states 24
+T013 bank 400 33114 quadrants states 24
+T013 trained energy 7530 rows 100 epochs
+T013 A finalized 1 33638 clean seconds 0.25
+T013 A finalized 2 33638 homogeneous_dark seconds 11.03
+T013 A finalized 3 33638 homogeneous_bright seconds 0.25
+T013 A finalized 4 33638 left_right seconds 8.82
+T013 A finalized 5 33638 quadrants seconds 8.89
+T013 A finalized 6 33707 clean seconds 0.13
+T013 A finalized 7 33707 homogeneous_dark seconds 7.24
+T013 A finalized 8 33707 homogeneous_bright seconds 9.64
+T013 A finalized 9 33707 left_right seconds 10.46
+T013 A finalized 10 33707 quadrants seconds 9.78
+T013 A finalized 11 33759 clean seconds 0.15
+T013 A finalized 12 33759 homogeneous_dark seconds 0.15
+T013 A finalized 13 33759 homogeneous_bright seconds 8.21
+T013 A finalized 14 33759 left_right seconds 9.27
+T013 A finalized 15 33759 quadrants seconds 9.05
+T013 A finalized 16 33854 clean seconds 0.16
+T013 A finalized 17 33854 homogeneous_dark seconds 11.07
+T013 A finalized 18 33854 homogeneous_bright seconds 11.54
+T013 A finalized 19 33854 left_right seconds 11.77
+T013 A finalized 20 33854 quadrants seconds 11.61
+T013 A finalized 21 34071 clean seconds 11.5
+T013 A finalized 22 34071 homogeneous_dark seconds 11.37
+T013 A finalized 23 34071 homogeneous_bright seconds 11.58
+T013 A finalized 24 34071 left_right seconds 11.72
+T013 A finalized 25 34071 quadrants seconds 11.65
+T013 A finalized 26 34139 clean seconds 0.15
+T013 A finalized 27 34139 homogeneous_dark seconds 9.0
+T013 A finalized 28 34139 homogeneous_bright seconds 11.33
+T013 A finalized 29 34139 left_right seconds 11.39
+T013 A finalized 30 34139 quadrants seconds 11.35
+T013 A finalized 31 34205 clean seconds 0.16
+T013 A finalized 32 34205 homogeneous_dark seconds 11.45
+T013 A finalized 33 34205 homogeneous_bright seconds 11.49
+T013 A finalized 34 34205 left_right seconds 11.62
+T013 A finalized 35 34205 quadrants seconds 11.63
+T013 A finalized 36 34417 clean seconds 0.16
+T013 A finalized 37 34417 homogeneous_dark seconds 11.21
+T013 A finalized 38 34417 homogeneous_bright seconds 11.25
+T013 A finalized 39 34417 left_right seconds 11.46
+T013 A finalized 40 34417 quadrants seconds 11.48
+T013 A finalized 41 34452 clean seconds 0.16
+T013 A finalized 42 34452 homogeneous_dark seconds 8.92
+T013 A finalized 43 34452 homogeneous_bright seconds 11.17
+T013 A finalized 44 34452 left_right seconds 11.45
+T013 A finalized 45 34452 quadrants seconds 9.08
+T013 A finalized 46 34760 clean seconds 0.24
+T013 A finalized 47 34760 homogeneous_dark seconds 11.45
+T013 A finalized 48 34760 homogeneous_bright seconds 8.65
+T013 A finalized 49 34760 left_right seconds 11.66
+T013 A finalized 50 34760 quadrants seconds 11.61
+T013 A finalized 51 34873 clean seconds 0.16
+T013 A finalized 52 34873 homogeneous_dark seconds 9.12
+T013 A finalized 53 34873 homogeneous_bright seconds 10.51
+T013 A finalized 54 34873 left_right seconds 9.27
+T013 A finalized 55 34873 quadrants seconds 8.98
+T013 A finalized 56 35062 clean seconds 11.48
+T013 A finalized 57 35062 homogeneous_dark seconds 11.52
+T013 A finalized 58 35062 homogeneous_bright seconds 11.39
+T013 A finalized 59 35062 left_right seconds 11.7
+T013 A finalized 60 35062 quadrants seconds 11.57
+T013 A finalized 61 35197 clean seconds 0.15
+T013 A finalized 62 35197 homogeneous_dark seconds 11.33
+T013 A finalized 63 35197 homogeneous_bright seconds 11.58
+T013 A finalized 64 35197 left_right seconds 11.52
+T013 A finalized 65 35197 quadrants seconds 11.46
+T013 A finalized 66 35279 clean seconds 0.14
+T013 A finalized 67 35279 homogeneous_dark seconds 7.85
+T013 A finalized 68 35279 homogeneous_bright seconds 10.84
+T013 A finalized 69 35279 left_right seconds 11.44
+T013 A finalized 70 35279 quadrants seconds 11.6
+T013 A finalized 71 35326 clean seconds 0.17
+T013 A finalized 72 35326 homogeneous_dark seconds 8.86
+T013 A finalized 73 35326 homogeneous_bright seconds 11.22
+T013 A finalized 74 35326 left_right seconds 11.44
+T013 A finalized 75 35326 quadrants seconds 11.31
+T013 A finalized 76 35682 clean seconds 11.23
+T013 A finalized 77 35682 homogeneous_dark seconds 10.96
+T013 A finalized 78 35682 homogeneous_bright seconds 11.27
+T013 A finalized 79 35682 left_right seconds 11.31
+T013 A finalized 80 35682 quadrants seconds 10.35
+T013 A finalized 81 35770 clean seconds 0.15
+T013 A finalized 82 35770 homogeneous_dark seconds 8.52
+T013 A finalized 83 35770 homogeneous_bright seconds 11.05
+T013 A finalized 84 35770 left_right seconds 11.32
+T013 A finalized 85 35770 quadrants seconds 11.2
+T013 A finalized 86 35963 clean seconds 0.15
+T013 A finalized 87 35963 homogeneous_dark seconds 11.32
+T013 A finalized 88 35963 homogeneous_bright seconds 10.17
+T013 A finalized 89 35963 left_right seconds 11.35
+T013 A finalized 90 35963 quadrants seconds 10.44
+T013 A finalized 91 36494 clean seconds 0.19
+T013 A finalized 92 36494 homogeneous_dark seconds 11.45
+T013 A finalized 93 36494 homogeneous_bright seconds 11.58
+T013 A finalized 94 36494 left_right seconds 11.74
+T013 A finalized 95 36494 quadrants seconds 11.57
+T013 A finalized 96 36539 clean seconds 0.16
+T013 A finalized 97 36539 homogeneous_dark seconds 11.21
+T013 A finalized 98 36539 homogeneous_bright seconds 11.18
+T013 A finalized 99 36539 left_right seconds 11.86
+T013 A finalized 100 36539 quadrants seconds 11.8
+T013 Stage A passes False failed ['gradient_positive', 'gradient_median', 'beyond_discrete', 'beyond_fixed_step']
+STOP: no new manifest or next task in this process.
+[autodl] finished_at=2026-09-12T17:05:19+08:00
+[autodl] exit_code=0

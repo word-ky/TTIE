@@ -1,0 +1,279 @@
+{
+  "gate": {
+    "scores": [
+      [
+        -0.030699046328663826,
+        -0.07361987233161926
+      ],
+      [
+        -0.07653629779815674,
+        -0.07301581650972366
+      ],
+      [
+        -0.07273609191179276,
+        -0.07562907785177231
+      ],
+      [
+        -0.0999559611082077,
+        -0.08958150446414948
+      ]
+    ],
+    "active": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "winner": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "evidence": [
+      -0.7741867220799082,
+      -1.2911863105053694,
+      -1.3341506123084375,
+      -1.5775649737628836
+    ]
+  },
+  "trajectory": {
+    "loss_before": -14.445552825927734,
+    "loss_after": -14.445552825927734,
+    "loss_trajectory": [
+      -14.445552825927734
+    ],
+    "gradient_norms": [],
+    "gradient_vectors": [],
+    "parameter_ranges": [
+      {
+        "min": [
+          0.0,
+          1.0
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      }
+    ],
+    "steps": 0,
+    "stop_reason": "no_active",
+    "search": [],
+    "active_count": 0,
+    "projections": [],
+    "all_finite": true,
+    "parameter_count": 8,
+    "final_grid": [
+      [
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ]
+      ]
+    ],
+    "final_ranges": {
+      "min": [
+        0.0,
+        1.0
+      ],
+      "max": [
+        0.0,
+        1.0
+      ]
+    },
+    "reset": "identity and fresh optimizer per episode",
+    "objective": "frozen T013 predicted log MSE",
+    "action_box": {
+      "lower": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        ]
+      ],
+      "upper": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        ]
+      ]
+    }
+  },
+  "selection": {
+    "selected_step": 0,
+    "scores": [
+      -14.445552825927734
+    ],
+    "bypass": "no_active"
+  },
+  "methods": {
+    "region2_ttt_energy": {
+      "loss_before": -14.445552825927734,
+      "loss_after": -14.445552825927734,
+      "loss_trajectory": [
+        -14.445552825927734
+      ],
+      "gradient_norms": [],
+      "gradient_vectors": [],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 0,
+      "stop_reason": "saved_checkpoint",
+      "search": [],
+      "active_count": 0,
+      "projections": [],
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          0.0,
+          1.0
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "objective": "frozen T013 predicted log MSE",
+      "action_box": {
+        "lower": [
+          [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          ]
+        ],
+        "upper": [
+          [
+            [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ]
+          ]
+        ]
+      },
+      "trajectory_updates": 0,
+      "selected_step": 0
+    }
+  }
+}

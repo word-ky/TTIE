@@ -1,0 +1,6312 @@
+{
+  "task": "T013",
+  "passes": false,
+  "source_manifest": {
+    "source": "Complete official COCO val2017 image-only archive downloaded for T008",
+    "archive_sha256": "4f7e2ccb2866ec5041993c9cf2a952bbed69647b115d0f74da7ce8f4bef82f05",
+    "selection": "Numeric ascending; exclude408prior IDs; min-side>=320; first80train,next20calibration",
+    "excluded_prior_ids": [
+      139,
+      285,
+      632,
+      724,
+      776,
+      785,
+      802,
+      872,
+      885,
+      1000,
+      1268,
+      1296,
+      1353,
+      1425,
+      1532,
+      1584,
+      1675,
+      1761,
+      1818,
+      1993,
+      2006,
+      2149,
+      2153,
+      2157,
+      2261,
+      2431,
+      2473,
+      2532,
+      2587,
+      2592,
+      2685,
+      2923,
+      3156,
+      3255,
+      3501,
+      3553,
+      3661,
+      3845,
+      3934,
+      4134,
+      4395,
+      4495,
+      4765,
+      4795,
+      5001,
+      5037,
+      5060,
+      5193,
+      5477,
+      5503,
+      5529,
+      5600,
+      5992,
+      6012,
+      6040,
+      6213,
+      6460,
+      6471,
+      6614,
+      6723,
+      6763,
+      6771,
+      6818,
+      6894,
+      6954,
+      7088,
+      7108,
+      7278,
+      7281,
+      7386,
+      7511,
+      7574,
+      7784,
+      7795,
+      7816,
+      7818,
+      7888,
+      7977,
+      7991,
+      8021,
+      8211,
+      8277,
+      8532,
+      8629,
+      8690,
+      8762,
+      8844,
+      8899,
+      9378,
+      9400,
+      9448,
+      9483,
+      9590,
+      9769,
+      9772,
+      9891,
+      9914,
+      10092,
+      10363,
+      10583,
+      10707,
+      10764,
+      10977,
+      10995,
+      11051,
+      11122,
+      11149,
+      11197,
+      11511,
+      11615,
+      11699,
+      11760,
+      11813,
+      12062,
+      12120,
+      12280,
+      12576,
+      12639,
+      12667,
+      12670,
+      12748,
+      13004,
+      13177,
+      13201,
+      13291,
+      13348,
+      13546,
+      13597,
+      13659,
+      13729,
+      13774,
+      13923,
+      14007,
+      14038,
+      14226,
+      14380,
+      14439,
+      14473,
+      14831,
+      14888,
+      15079,
+      15254,
+      15272,
+      15278,
+      15335,
+      15338,
+      15440,
+      15497,
+      15517,
+      15597,
+      15660,
+      15746,
+      15751,
+      15956,
+      16010,
+      16228,
+      16249,
+      16439,
+      16451,
+      16502,
+      16598,
+      16958,
+      17029,
+      17031,
+      17115,
+      17178,
+      17182,
+      17207,
+      17379,
+      17436,
+      17627,
+      17714,
+      17899,
+      17905,
+      17959,
+      18150,
+      18193,
+      18380,
+      18491,
+      18519,
+      18575,
+      18737,
+      18770,
+      18833,
+      18837,
+      19042,
+      19109,
+      19221,
+      19402,
+      19432,
+      19742,
+      19786,
+      19924,
+      20059,
+      20107,
+      20247,
+      20333,
+      20553,
+      20571,
+      20992,
+      21167,
+      21503,
+      21604,
+      21839,
+      21879,
+      21903,
+      22192,
+      22396,
+      22479,
+      22589,
+      22623,
+      22705,
+      22755,
+      22892,
+      22935,
+      22969,
+      23023,
+      23034,
+      23126,
+      23230,
+      23272,
+      23359,
+      25181,
+      25228,
+      25394,
+      25560,
+      33221,
+      33368,
+      39405,
+      40036,
+      42070,
+      44260,
+      46872,
+      50145,
+      51598,
+      54593,
+      57725,
+      58655,
+      60090,
+      61268,
+      63047,
+      63154,
+      65074,
+      65288,
+      70229,
+      71451,
+      73702,
+      75393,
+      78404,
+      78959,
+      79565,
+      82812,
+      83172,
+      86755,
+      88218,
+      89556,
+      99054,
+      101420,
+      102331,
+      102356,
+      102805,
+      105335,
+      115946,
+      116479,
+      124798,
+      125778,
+      130386,
+      132329,
+      132703,
+      134886,
+      136466,
+      144932,
+      145665,
+      147223,
+      153632,
+      155443,
+      159458,
+      160556,
+      163155,
+      163611,
+      163682,
+      165336,
+      166259,
+      170670,
+      180751,
+      181859,
+      182923,
+      183246,
+      183675,
+      186980,
+      193884,
+      193926,
+      196009,
+      197796,
+      200667,
+      200961,
+      201418,
+      201775,
+      203095,
+      210855,
+      213605,
+      214703,
+      217060,
+      217425,
+      218997,
+      220584,
+      228981,
+      229553,
+      229601,
+      232348,
+      235778,
+      237316,
+      249219,
+      250766,
+      253819,
+      255165,
+      260105,
+      267670,
+      268729,
+      271471,
+      273551,
+      273711,
+      275727,
+      280779,
+      282037,
+      283268,
+      284279,
+      286849,
+      289415,
+      292155,
+      295420,
+      297681,
+      301376,
+      302760,
+      308793,
+      309964,
+      311950,
+      314294,
+      317024,
+      321333,
+      336587,
+      343706,
+      345252,
+      348481,
+      351810,
+      352900,
+      355817,
+      359219,
+      360097,
+      361551,
+      361586,
+      365208,
+      365886,
+      369323,
+      369442,
+      378244,
+      382088,
+      389804,
+      396580,
+      398438,
+      403122,
+      403817,
+      409268,
+      409475,
+      411665,
+      416534,
+      416758,
+      417465,
+      419882,
+      424721,
+      425226,
+      426376,
+      429109,
+      429623,
+      438304,
+      439773,
+      447200,
+      451090,
+      451155,
+      451714,
+      455301,
+      460841,
+      462031,
+      463802,
+      466156,
+      471567,
+      474170,
+      474452,
+      475365,
+      477623,
+      482100,
+      489091,
+      499266,
+      499313,
+      502737,
+      506310,
+      507042,
+      509258,
+      514979,
+      523782,
+      532058,
+      535523,
+      535578,
+      536038,
+      546219,
+      546826,
+      549167,
+      555012
+    ],
+    "inspected_prefix": [
+      {
+        "image_id": 1490,
+        "width": 640,
+        "height": 315,
+        "eligible": false
+      },
+      {
+        "image_id": 1503,
+        "width": 320,
+        "height": 240,
+        "eligible": false
+      },
+      {
+        "image_id": 2299,
+        "width": 500,
+        "height": 302,
+        "eligible": false
+      },
+      {
+        "image_id": 5586,
+        "width": 320,
+        "height": 240,
+        "eligible": false
+      },
+      {
+        "image_id": 21465,
+        "width": 500,
+        "height": 281,
+        "eligible": false
+      },
+      {
+        "image_id": 22371,
+        "width": 425,
+        "height": 282,
+        "eligible": false
+      },
+      {
+        "image_id": 23666,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 23751,
+        "width": 430,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 23781,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 23899,
+        "width": 640,
+        "height": 425,
+        "eligible": true
+      },
+      {
+        "image_id": 23937,
+        "width": 640,
+        "height": 428,
+        "eligible": true
+      },
+      {
+        "image_id": 24021,
+        "width": 640,
+        "height": 390,
+        "eligible": true
+      },
+      {
+        "image_id": 24027,
+        "width": 500,
+        "height": 375,
+        "eligible": true
+      },
+      {
+        "image_id": 24144,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 24243,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 24567,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 24610,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 24919,
+        "width": 640,
+        "height": 425,
+        "eligible": true
+      },
+      {
+        "image_id": 25057,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 25096,
+        "width": 375,
+        "height": 500,
+        "eligible": true
+      },
+      {
+        "image_id": 25139,
+        "width": 500,
+        "height": 334,
+        "eligible": true
+      },
+      {
+        "image_id": 25386,
+        "width": 427,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 25393,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 25424,
+        "width": 427,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 25593,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 25603,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 25986,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 26204,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 26465,
+        "width": 500,
+        "height": 375,
+        "eligible": true
+      },
+      {
+        "image_id": 26564,
+        "width": 640,
+        "height": 426,
+        "eligible": true
+      },
+      {
+        "image_id": 26690,
+        "width": 427,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 26926,
+        "width": 423,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 26941,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 27186,
+        "width": 640,
+        "height": 428,
+        "eligible": true
+      },
+      {
+        "image_id": 27620,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 27696,
+        "width": 640,
+        "height": 410,
+        "eligible": true
+      },
+      {
+        "image_id": 27768,
+        "width": 612,
+        "height": 612,
+        "eligible": true
+      },
+      {
+        "image_id": 27932,
+        "width": 288,
+        "height": 307,
+        "eligible": false
+      },
+      {
+        "image_id": 27972,
+        "width": 640,
+        "height": 426,
+        "eligible": true
+      },
+      {
+        "image_id": 27982,
+        "width": 500,
+        "height": 334,
+        "eligible": true
+      },
+      {
+        "image_id": 28285,
+        "width": 640,
+        "height": 425,
+        "eligible": true
+      },
+      {
+        "image_id": 28449,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 28452,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 28809,
+        "width": 498,
+        "height": 500,
+        "eligible": true
+      },
+      {
+        "image_id": 28993,
+        "width": 612,
+        "height": 612,
+        "eligible": true
+      },
+      {
+        "image_id": 29187,
+        "width": 640,
+        "height": 491,
+        "eligible": true
+      },
+      {
+        "image_id": 29393,
+        "width": 500,
+        "height": 375,
+        "eligible": true
+      },
+      {
+        "image_id": 29397,
+        "width": 640,
+        "height": 449,
+        "eligible": true
+      },
+      {
+        "image_id": 29596,
+        "width": 640,
+        "height": 428,
+        "eligible": true
+      },
+      {
+        "image_id": 29640,
+        "width": 640,
+        "height": 426,
+        "eligible": true
+      },
+      {
+        "image_id": 29675,
+        "width": 478,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 29984,
+        "width": 640,
+        "height": 492,
+        "eligible": true
+      },
+      {
+        "image_id": 30213,
+        "width": 640,
+        "height": 449,
+        "eligible": true
+      },
+      {
+        "image_id": 30494,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 30504,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 30675,
+        "width": 640,
+        "height": 360,
+        "eligible": true
+      },
+      {
+        "image_id": 30785,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 30828,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 31050,
+        "width": 427,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 31093,
+        "width": 640,
+        "height": 426,
+        "eligible": true
+      },
+      {
+        "image_id": 31118,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 31217,
+        "width": 640,
+        "height": 426,
+        "eligible": true
+      },
+      {
+        "image_id": 31248,
+        "width": 500,
+        "height": 333,
+        "eligible": true
+      },
+      {
+        "image_id": 31269,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 31296,
+        "width": 640,
+        "height": 425,
+        "eligible": true
+      },
+      {
+        "image_id": 31322,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 31620,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 31735,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 31749,
+        "width": 640,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 31817,
+        "width": 334,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 32038,
+        "width": 333,
+        "height": 500,
+        "eligible": true
+      },
+      {
+        "image_id": 32081,
+        "width": 375,
+        "height": 500,
+        "eligible": true
+      },
+      {
+        "image_id": 32285,
+        "width": 640,
+        "height": 423,
+        "eligible": true
+      },
+      {
+        "image_id": 32334,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 32570,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 32610,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 32735,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 32811,
+        "width": 375,
+        "height": 500,
+        "eligible": true
+      },
+      {
+        "image_id": 32817,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 32861,
+        "width": 426,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 32887,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 32901,
+        "width": 640,
+        "height": 546,
+        "eligible": true
+      },
+      {
+        "image_id": 32941,
+        "width": 458,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 33005,
+        "width": 640,
+        "height": 426,
+        "eligible": true
+      },
+      {
+        "image_id": 33104,
+        "width": 428,
+        "height": 500,
+        "eligible": true
+      },
+      {
+        "image_id": 33109,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 33114,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 33638,
+        "width": 425,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 33707,
+        "width": 612,
+        "height": 612,
+        "eligible": true
+      },
+      {
+        "image_id": 33759,
+        "width": 640,
+        "height": 457,
+        "eligible": true
+      },
+      {
+        "image_id": 33854,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 34071,
+        "width": 640,
+        "height": 426,
+        "eligible": true
+      },
+      {
+        "image_id": 34139,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 34205,
+        "width": 640,
+        "height": 427,
+        "eligible": true
+      },
+      {
+        "image_id": 34257,
+        "width": 500,
+        "height": 309,
+        "eligible": false
+      },
+      {
+        "image_id": 34417,
+        "width": 500,
+        "height": 375,
+        "eligible": true
+      },
+      {
+        "image_id": 34452,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 34760,
+        "width": 426,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 34873,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 35062,
+        "width": 425,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 35197,
+        "width": 429,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 35279,
+        "width": 640,
+        "height": 463,
+        "eligible": true
+      },
+      {
+        "image_id": 35326,
+        "width": 640,
+        "height": 480,
+        "eligible": true
+      },
+      {
+        "image_id": 35682,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 35770,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 35963,
+        "width": 480,
+        "height": 640,
+        "eligible": true
+      },
+      {
+        "image_id": 36494,
+        "width": 640,
+        "height": 434,
+        "eligible": true
+      },
+      {
+        "image_id": 36539,
+        "width": 427,
+        "height": 640,
+        "eligible": true
+      }
+    ],
+    "images": [
+      {
+        "image_id": 23666,
+        "filename": "000000023666.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "c6e0dcc40c55570c04bb709097e3d0c6c6ada2ef55ca2a2601c67545581897d4",
+        "source_url": "http://images.cocodataset.org/val2017/000000023666.jpg"
+      },
+      {
+        "image_id": 23751,
+        "filename": "000000023751.jpg",
+        "width": 430,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "8f8d858e640624d5bbca80d54a936f77efb3ab7b50317613c3863ffdd9a4a9bc",
+        "source_url": "http://images.cocodataset.org/val2017/000000023751.jpg"
+      },
+      {
+        "image_id": 23781,
+        "filename": "000000023781.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "085b1c7f25bf1d149b6dff82dfdb0a83fbf6e875c01d5d374070eb582aada80e",
+        "source_url": "http://images.cocodataset.org/val2017/000000023781.jpg"
+      },
+      {
+        "image_id": 23899,
+        "filename": "000000023899.jpg",
+        "width": 640,
+        "height": 425,
+        "split": "train_t013_energy",
+        "sha256": "b7ef13fe4d8ab47a77e55dadd30295110ca97b7b3c3b8c85603009e7dc497983",
+        "source_url": "http://images.cocodataset.org/val2017/000000023899.jpg"
+      },
+      {
+        "image_id": 23937,
+        "filename": "000000023937.jpg",
+        "width": 640,
+        "height": 428,
+        "split": "train_t013_energy",
+        "sha256": "7789236aff12bffa0cf4ab954fb68531bea594d42e78cb80bbeac45175c5e144",
+        "source_url": "http://images.cocodataset.org/val2017/000000023937.jpg"
+      },
+      {
+        "image_id": 24021,
+        "filename": "000000024021.jpg",
+        "width": 640,
+        "height": 390,
+        "split": "train_t013_energy",
+        "sha256": "5b65fe7a6d334fa5f7d0328c37470d7d68d6e711b960d37f61ff133be78c4450",
+        "source_url": "http://images.cocodataset.org/val2017/000000024021.jpg"
+      },
+      {
+        "image_id": 24027,
+        "filename": "000000024027.jpg",
+        "width": 500,
+        "height": 375,
+        "split": "train_t013_energy",
+        "sha256": "63901c04b597683789f649524a489ad0d6bcf03929ec3fa334278b8a69fe369d",
+        "source_url": "http://images.cocodataset.org/val2017/000000024027.jpg"
+      },
+      {
+        "image_id": 24144,
+        "filename": "000000024144.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "5d0374a85c317f0b64b32c0ecf4e9a5cfc6bca105e3f703b4776cfc9aa0a20c4",
+        "source_url": "http://images.cocodataset.org/val2017/000000024144.jpg"
+      },
+      {
+        "image_id": 24243,
+        "filename": "000000024243.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "d5149ccbf5243f035138d8c982bcef0db2cf20e93cf249c73183957b9cff10ff",
+        "source_url": "http://images.cocodataset.org/val2017/000000024243.jpg"
+      },
+      {
+        "image_id": 24567,
+        "filename": "000000024567.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "44891e1a27e3a262a3d879fa27d2749b31ca71d648f800952f4dccc248bc3743",
+        "source_url": "http://images.cocodataset.org/val2017/000000024567.jpg"
+      },
+      {
+        "image_id": 24610,
+        "filename": "000000024610.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "aa7b8f989b3584fa3b41c743f5d1b3c45f9f6ead8c31d7a64f9b253b5c2868cb",
+        "source_url": "http://images.cocodataset.org/val2017/000000024610.jpg"
+      },
+      {
+        "image_id": 24919,
+        "filename": "000000024919.jpg",
+        "width": 640,
+        "height": 425,
+        "split": "train_t013_energy",
+        "sha256": "9c721d584521c2ae58bc0eb03b57c4ddb0a013d6af0ec08fd223ee7c11fc7b45",
+        "source_url": "http://images.cocodataset.org/val2017/000000024919.jpg"
+      },
+      {
+        "image_id": 25057,
+        "filename": "000000025057.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "8208c5aa7a2aa8b805e7581289a91c8ed0cad5cd8a90e826d1ea0ca59d1cb773",
+        "source_url": "http://images.cocodataset.org/val2017/000000025057.jpg"
+      },
+      {
+        "image_id": 25096,
+        "filename": "000000025096.jpg",
+        "width": 375,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "2115b6f6929bdbc88618a070f61bffaf944dfce7d666b4c8227151524d3bfc28",
+        "source_url": "http://images.cocodataset.org/val2017/000000025096.jpg"
+      },
+      {
+        "image_id": 25139,
+        "filename": "000000025139.jpg",
+        "width": 500,
+        "height": 334,
+        "split": "train_t013_energy",
+        "sha256": "9c1c256049d80c05aec424d06263b1e0f204c3e5c20352a76b9897fa3ae581f3",
+        "source_url": "http://images.cocodataset.org/val2017/000000025139.jpg"
+      },
+      {
+        "image_id": 25386,
+        "filename": "000000025386.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "64daf1359646414e79338f609083292162bf91e560e170c72a4666d95d341a44",
+        "source_url": "http://images.cocodataset.org/val2017/000000025386.jpg"
+      },
+      {
+        "image_id": 25393,
+        "filename": "000000025393.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "677e993476aed8ceca9bd9b8edbeb3c8874ed19488c9050cb8b55057a5f1547a",
+        "source_url": "http://images.cocodataset.org/val2017/000000025393.jpg"
+      },
+      {
+        "image_id": 25424,
+        "filename": "000000025424.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "89e8025ecb6f48125ac826dd5fe51409deae64e98133472adbe6ae62b6a61705",
+        "source_url": "http://images.cocodataset.org/val2017/000000025424.jpg"
+      },
+      {
+        "image_id": 25593,
+        "filename": "000000025593.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "83bafce2fe5f41a25e6f0e0f43c7e6d972641f0c3fdbb26441877366a5cb77ed",
+        "source_url": "http://images.cocodataset.org/val2017/000000025593.jpg"
+      },
+      {
+        "image_id": 25603,
+        "filename": "000000025603.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "f75a5898681ea62ef547b8c002e8e0eec00c50aa6b995334ab967798cff6e6dc",
+        "source_url": "http://images.cocodataset.org/val2017/000000025603.jpg"
+      },
+      {
+        "image_id": 25986,
+        "filename": "000000025986.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "721b718fe15a4f3739c0673acde4fa224ae7839f9317e7e66d256653551ea23b",
+        "source_url": "http://images.cocodataset.org/val2017/000000025986.jpg"
+      },
+      {
+        "image_id": 26204,
+        "filename": "000000026204.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "173a86fef1dbf7dd4c91dbc6ed7f1df26fdfdc398681aa04e558ee165f3ea326",
+        "source_url": "http://images.cocodataset.org/val2017/000000026204.jpg"
+      },
+      {
+        "image_id": 26465,
+        "filename": "000000026465.jpg",
+        "width": 500,
+        "height": 375,
+        "split": "train_t013_energy",
+        "sha256": "f941bf1156d9fc2831c487a93caf78ae3367ddaa5ba4f6cda4384af13ea91ff0",
+        "source_url": "http://images.cocodataset.org/val2017/000000026465.jpg"
+      },
+      {
+        "image_id": 26564,
+        "filename": "000000026564.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "ecefff4893149e6ac22348a59c8e4d3c1b3a751266a15bd38e3e6d041bf39c52",
+        "source_url": "http://images.cocodataset.org/val2017/000000026564.jpg"
+      },
+      {
+        "image_id": 26690,
+        "filename": "000000026690.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "a59b160b83fba25fb745b42efbab6d99202b4984dbbc1cdbe8d00201b561f8f4",
+        "source_url": "http://images.cocodataset.org/val2017/000000026690.jpg"
+      },
+      {
+        "image_id": 26926,
+        "filename": "000000026926.jpg",
+        "width": 423,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "7126855b6fe8548a6b9da18d8424f803c0eeb37deb3f5764f95f4d60d1915b37",
+        "source_url": "http://images.cocodataset.org/val2017/000000026926.jpg"
+      },
+      {
+        "image_id": 26941,
+        "filename": "000000026941.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "2e4081f3a5a5a747adb86d3f85dbd3e22db944ba8c2aa3f6119cb4146de4d2ad",
+        "source_url": "http://images.cocodataset.org/val2017/000000026941.jpg"
+      },
+      {
+        "image_id": 27186,
+        "filename": "000000027186.jpg",
+        "width": 640,
+        "height": 428,
+        "split": "train_t013_energy",
+        "sha256": "2e60a537145c388aba560db6312aecd5fddf5bce7a8f75adfd06492bdcd34e2e",
+        "source_url": "http://images.cocodataset.org/val2017/000000027186.jpg"
+      },
+      {
+        "image_id": 27620,
+        "filename": "000000027620.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "035a452ad79eb267a669fad48b220b1bf7d2e3500a5d736a195dc007df01bbfe",
+        "source_url": "http://images.cocodataset.org/val2017/000000027620.jpg"
+      },
+      {
+        "image_id": 27696,
+        "filename": "000000027696.jpg",
+        "width": 640,
+        "height": 410,
+        "split": "train_t013_energy",
+        "sha256": "9f24277c956430eb4502f44345bcfca81c43cfcca7184a75820e2ea1dde8cc64",
+        "source_url": "http://images.cocodataset.org/val2017/000000027696.jpg"
+      },
+      {
+        "image_id": 27768,
+        "filename": "000000027768.jpg",
+        "width": 612,
+        "height": 612,
+        "split": "train_t013_energy",
+        "sha256": "f9d68320358d980c1ef077c986316729fc3bd42b7e18e4433bf29b157f1f20f6",
+        "source_url": "http://images.cocodataset.org/val2017/000000027768.jpg"
+      },
+      {
+        "image_id": 27972,
+        "filename": "000000027972.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "aeb3671152fdb0f319a96bdcf659751a925e52d5ab867e7c412273f7bfe73845",
+        "source_url": "http://images.cocodataset.org/val2017/000000027972.jpg"
+      },
+      {
+        "image_id": 27982,
+        "filename": "000000027982.jpg",
+        "width": 500,
+        "height": 334,
+        "split": "train_t013_energy",
+        "sha256": "ef3fd6c41531be0ac195cf5efa67c803ca8630c066ef5c046d802ff8ea4ba440",
+        "source_url": "http://images.cocodataset.org/val2017/000000027982.jpg"
+      },
+      {
+        "image_id": 28285,
+        "filename": "000000028285.jpg",
+        "width": 640,
+        "height": 425,
+        "split": "train_t013_energy",
+        "sha256": "a37d71f6459efc47c22ec687945599cf4ec81c1056e6f0256eca3776834879b4",
+        "source_url": "http://images.cocodataset.org/val2017/000000028285.jpg"
+      },
+      {
+        "image_id": 28449,
+        "filename": "000000028449.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "520039fa3e2dad9a09632c7f5c5babb2ac30ce78137d3d140372ea6d43cd3ff2",
+        "source_url": "http://images.cocodataset.org/val2017/000000028449.jpg"
+      },
+      {
+        "image_id": 28452,
+        "filename": "000000028452.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "b9adf909244cbd3c6105af33723d6664bf7e88cd7ce4de697f990828d4c16a76",
+        "source_url": "http://images.cocodataset.org/val2017/000000028452.jpg"
+      },
+      {
+        "image_id": 28809,
+        "filename": "000000028809.jpg",
+        "width": 498,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "ae2c7be44df33d27135b6aa2f5d82d4c8bb9784e99469a04be708ee68943a45d",
+        "source_url": "http://images.cocodataset.org/val2017/000000028809.jpg"
+      },
+      {
+        "image_id": 28993,
+        "filename": "000000028993.jpg",
+        "width": 612,
+        "height": 612,
+        "split": "train_t013_energy",
+        "sha256": "9d582d15dc1a53b419f8c32253d4eb1bbe0fa20ada973e4d24e72af55b880a83",
+        "source_url": "http://images.cocodataset.org/val2017/000000028993.jpg"
+      },
+      {
+        "image_id": 29187,
+        "filename": "000000029187.jpg",
+        "width": 640,
+        "height": 491,
+        "split": "train_t013_energy",
+        "sha256": "636a078ae06c6779d11fe5bc889506a6cbf5cad7a3c82dccf1d7d98130bbef73",
+        "source_url": "http://images.cocodataset.org/val2017/000000029187.jpg"
+      },
+      {
+        "image_id": 29393,
+        "filename": "000000029393.jpg",
+        "width": 500,
+        "height": 375,
+        "split": "train_t013_energy",
+        "sha256": "378763dec71a25c7cb44ff9e345c84ca0fe2d8bf993b88775c360549edf3b733",
+        "source_url": "http://images.cocodataset.org/val2017/000000029393.jpg"
+      },
+      {
+        "image_id": 29397,
+        "filename": "000000029397.jpg",
+        "width": 640,
+        "height": 449,
+        "split": "train_t013_energy",
+        "sha256": "4185e741b14c3e6e2b9da920217a988d08cb89dfc41d377c3aeb4f1e41d8c2f3",
+        "source_url": "http://images.cocodataset.org/val2017/000000029397.jpg"
+      },
+      {
+        "image_id": 29596,
+        "filename": "000000029596.jpg",
+        "width": 640,
+        "height": 428,
+        "split": "train_t013_energy",
+        "sha256": "b8e8d8f5fb32fb90cc1c064bbc0fad3846b3a6c1fc6773fe74700a86b184c315",
+        "source_url": "http://images.cocodataset.org/val2017/000000029596.jpg"
+      },
+      {
+        "image_id": 29640,
+        "filename": "000000029640.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "11957ae08b2b2a3802cb671efab513fdc32ee83a31b390341f2db228b6015c8d",
+        "source_url": "http://images.cocodataset.org/val2017/000000029640.jpg"
+      },
+      {
+        "image_id": 29675,
+        "filename": "000000029675.jpg",
+        "width": 478,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "59647741cd07304fd4ef6309bf4707c6abf96bc8e654ce632be41f590e5cf65d",
+        "source_url": "http://images.cocodataset.org/val2017/000000029675.jpg"
+      },
+      {
+        "image_id": 29984,
+        "filename": "000000029984.jpg",
+        "width": 640,
+        "height": 492,
+        "split": "train_t013_energy",
+        "sha256": "1c1ea8336e8c0e5baa9e6ebd7c732aa49b7b30e411fd9cd97fcc3ded654777a3",
+        "source_url": "http://images.cocodataset.org/val2017/000000029984.jpg"
+      },
+      {
+        "image_id": 30213,
+        "filename": "000000030213.jpg",
+        "width": 640,
+        "height": 449,
+        "split": "train_t013_energy",
+        "sha256": "27fdc374629bb5fc3c059eb7f5516b940596f0b50087adf364b6b09922089eaf",
+        "source_url": "http://images.cocodataset.org/val2017/000000030213.jpg"
+      },
+      {
+        "image_id": 30494,
+        "filename": "000000030494.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "eabc12936cefe60de3cc9cf4bdb49fbb0f9435f188ec54dfb067f597b51c0c3f",
+        "source_url": "http://images.cocodataset.org/val2017/000000030494.jpg"
+      },
+      {
+        "image_id": 30504,
+        "filename": "000000030504.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "6a07fb2882010ba47140c43ffd7cd4a51331f197666ea9837b43bc077e88f552",
+        "source_url": "http://images.cocodataset.org/val2017/000000030504.jpg"
+      },
+      {
+        "image_id": 30675,
+        "filename": "000000030675.jpg",
+        "width": 640,
+        "height": 360,
+        "split": "train_t013_energy",
+        "sha256": "66c6259b826b869e0d2dba078a0de6d9c82617843c2d5448e9b34566bab6f979",
+        "source_url": "http://images.cocodataset.org/val2017/000000030675.jpg"
+      },
+      {
+        "image_id": 30785,
+        "filename": "000000030785.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "5a389b114f8aa2833b93c491616ee551ad6b3c316b2470265998013585f1387f",
+        "source_url": "http://images.cocodataset.org/val2017/000000030785.jpg"
+      },
+      {
+        "image_id": 30828,
+        "filename": "000000030828.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "0c9fb9dc3bd6a11defb1ebecc1c3a50914a0007e53cf4b16f1cffe7b363fbd79",
+        "source_url": "http://images.cocodataset.org/val2017/000000030828.jpg"
+      },
+      {
+        "image_id": 31050,
+        "filename": "000000031050.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "6b16283fc0f115b7c14288a8e7949ccfedc10440842a5de7064f9c58c4c7fba7",
+        "source_url": "http://images.cocodataset.org/val2017/000000031050.jpg"
+      },
+      {
+        "image_id": 31093,
+        "filename": "000000031093.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "769ceca7a3baf1319cffe4ad462561859d1e3f1029034fb87a12ef69acdf91bd",
+        "source_url": "http://images.cocodataset.org/val2017/000000031093.jpg"
+      },
+      {
+        "image_id": 31118,
+        "filename": "000000031118.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "2cdfc92ff0193efb0a93f9021841308f1cb204d1ac4810d00aa32a515ef033f7",
+        "source_url": "http://images.cocodataset.org/val2017/000000031118.jpg"
+      },
+      {
+        "image_id": 31217,
+        "filename": "000000031217.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "c3bd88960d608cb0406e870e224fdf0a5cfd8365537c2fee54bd10453dd402f0",
+        "source_url": "http://images.cocodataset.org/val2017/000000031217.jpg"
+      },
+      {
+        "image_id": 31248,
+        "filename": "000000031248.jpg",
+        "width": 500,
+        "height": 333,
+        "split": "train_t013_energy",
+        "sha256": "fc5a3defaf6427f8f59d0a68d85ef6f73b25fa8d55fed78393f31a9e3e0e6270",
+        "source_url": "http://images.cocodataset.org/val2017/000000031248.jpg"
+      },
+      {
+        "image_id": 31269,
+        "filename": "000000031269.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "91de0bc1f19dbacec3234adfd8e9eb160c5a08bf1dcfc4b6ccc08af09611708a",
+        "source_url": "http://images.cocodataset.org/val2017/000000031269.jpg"
+      },
+      {
+        "image_id": 31296,
+        "filename": "000000031296.jpg",
+        "width": 640,
+        "height": 425,
+        "split": "train_t013_energy",
+        "sha256": "e44caeefa73a14822ea5d47f5c84023ef7883bc064bcc089ca2f368a8945e2ac",
+        "source_url": "http://images.cocodataset.org/val2017/000000031296.jpg"
+      },
+      {
+        "image_id": 31322,
+        "filename": "000000031322.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "10f00a49fd34b83b1656f627061df90603bfd3e3f2ea8119975993ed0ffa5e47",
+        "source_url": "http://images.cocodataset.org/val2017/000000031322.jpg"
+      },
+      {
+        "image_id": 31620,
+        "filename": "000000031620.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "61512f0a301dd85e22fabacf58d2f04d003cc89428c127c5c6aafad9f4c30ee1",
+        "source_url": "http://images.cocodataset.org/val2017/000000031620.jpg"
+      },
+      {
+        "image_id": 31735,
+        "filename": "000000031735.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "49568f890bcbfddb7afd18ba8afc6c1b20ffe6611a888a3cb93150d24b253ffa",
+        "source_url": "http://images.cocodataset.org/val2017/000000031735.jpg"
+      },
+      {
+        "image_id": 31749,
+        "filename": "000000031749.jpg",
+        "width": 640,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "7fa4284ccb0f885ee85ba6d12222dabb404d8a0e3b081bbaf89148f95ccb7ca0",
+        "source_url": "http://images.cocodataset.org/val2017/000000031749.jpg"
+      },
+      {
+        "image_id": 31817,
+        "filename": "000000031817.jpg",
+        "width": 334,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "7b2e9e578996e44b1e9ab8d7658a3de6970de0d8738abb560866fd998bf399b4",
+        "source_url": "http://images.cocodataset.org/val2017/000000031817.jpg"
+      },
+      {
+        "image_id": 32038,
+        "filename": "000000032038.jpg",
+        "width": 333,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "5afb15a7ca2105d97e1f3a095dcbb1bdbe92232b1aaad9b7ab3bca63ee8adc3d",
+        "source_url": "http://images.cocodataset.org/val2017/000000032038.jpg"
+      },
+      {
+        "image_id": 32081,
+        "filename": "000000032081.jpg",
+        "width": 375,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "2acde5232e9dd81c012d6e0314f733985f603c95d7d482d5a52e4191daa00bae",
+        "source_url": "http://images.cocodataset.org/val2017/000000032081.jpg"
+      },
+      {
+        "image_id": 32285,
+        "filename": "000000032285.jpg",
+        "width": 640,
+        "height": 423,
+        "split": "train_t013_energy",
+        "sha256": "080779f05a0141b2d762ac043d96928fdc56bab73edb8ddb57e872501c8e940a",
+        "source_url": "http://images.cocodataset.org/val2017/000000032285.jpg"
+      },
+      {
+        "image_id": 32334,
+        "filename": "000000032334.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "68388310570b436dfccb56686a02d54621673b2d95074bfb6dab46388f22066d",
+        "source_url": "http://images.cocodataset.org/val2017/000000032334.jpg"
+      },
+      {
+        "image_id": 32570,
+        "filename": "000000032570.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "f193d982ca276820bb038610d4ac45fb2de46715510186b834c984a7f099a365",
+        "source_url": "http://images.cocodataset.org/val2017/000000032570.jpg"
+      },
+      {
+        "image_id": 32610,
+        "filename": "000000032610.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "a77e88c3a333e9264c55f6c92c97d54e1e41b9c48f9307509c39f17ab14fb382",
+        "source_url": "http://images.cocodataset.org/val2017/000000032610.jpg"
+      },
+      {
+        "image_id": 32735,
+        "filename": "000000032735.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "309105454f28c30038cce8c44d48300b626548477957b3d056bfacf9da3127e4",
+        "source_url": "http://images.cocodataset.org/val2017/000000032735.jpg"
+      },
+      {
+        "image_id": 32811,
+        "filename": "000000032811.jpg",
+        "width": 375,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "bee917a2ebb2c2a35fab43f9673164e64b1512c846bdca19bdb629611b80fb04",
+        "source_url": "http://images.cocodataset.org/val2017/000000032811.jpg"
+      },
+      {
+        "image_id": 32817,
+        "filename": "000000032817.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "b0028b5505cb3969c3bca9e63a6e0691b5ba85f8db31dcf68eb46881f3c98b78",
+        "source_url": "http://images.cocodataset.org/val2017/000000032817.jpg"
+      },
+      {
+        "image_id": 32861,
+        "filename": "000000032861.jpg",
+        "width": 426,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "4381cc5866c6c160595d85695f0b7d7ad30b077f788c208f769a38d3a0a681e8",
+        "source_url": "http://images.cocodataset.org/val2017/000000032861.jpg"
+      },
+      {
+        "image_id": 32887,
+        "filename": "000000032887.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "f85c17ab33d54631410d6335a5eaa1de780904b777f1da15f9c06ce6e61d3520",
+        "source_url": "http://images.cocodataset.org/val2017/000000032887.jpg"
+      },
+      {
+        "image_id": 32901,
+        "filename": "000000032901.jpg",
+        "width": 640,
+        "height": 546,
+        "split": "train_t013_energy",
+        "sha256": "92ab99b7bc4581270d47ad6b1f7f1b06c9b7615e226c68cd8691726cbc53c264",
+        "source_url": "http://images.cocodataset.org/val2017/000000032901.jpg"
+      },
+      {
+        "image_id": 32941,
+        "filename": "000000032941.jpg",
+        "width": 458,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "2b881cc082e3d79f6685320ddf02e04ec534e7f904a090a4e627eb445cb26ebc",
+        "source_url": "http://images.cocodataset.org/val2017/000000032941.jpg"
+      },
+      {
+        "image_id": 33005,
+        "filename": "000000033005.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "840a583d45613d662220754de433f96bac6e094372546cf2f3090f73e645d7ef",
+        "source_url": "http://images.cocodataset.org/val2017/000000033005.jpg"
+      },
+      {
+        "image_id": 33104,
+        "filename": "000000033104.jpg",
+        "width": 428,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "24d3088e3db4b4a04c83f0c1cf3dddbc33c02389eb2591d9d03c4a3cf73796ed",
+        "source_url": "http://images.cocodataset.org/val2017/000000033104.jpg"
+      },
+      {
+        "image_id": 33109,
+        "filename": "000000033109.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "d4c1905fc9f846478feaf8cd048d39a2d50829d1dae1ef954d9b0e015c081b4d",
+        "source_url": "http://images.cocodataset.org/val2017/000000033109.jpg"
+      },
+      {
+        "image_id": 33114,
+        "filename": "000000033114.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "6ad530e1d20b1b23d52b880192d8ef314cae28a93b9300561d419ea6a2bbdbfc",
+        "source_url": "http://images.cocodataset.org/val2017/000000033114.jpg"
+      },
+      {
+        "image_id": 33638,
+        "filename": "000000033638.jpg",
+        "width": 425,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "997707b5024a71c18d33a03a6f8627556f0b309c92f03962bf0da3f83f5f8f0e",
+        "source_url": "http://images.cocodataset.org/val2017/000000033638.jpg"
+      },
+      {
+        "image_id": 33707,
+        "filename": "000000033707.jpg",
+        "width": 612,
+        "height": 612,
+        "split": "calibration_t013_energy",
+        "sha256": "78d30a901a0cdf841fcb9342dc1262d61feaae89e4ef5ee1f0de9e275bfe3464",
+        "source_url": "http://images.cocodataset.org/val2017/000000033707.jpg"
+      },
+      {
+        "image_id": 33759,
+        "filename": "000000033759.jpg",
+        "width": 640,
+        "height": 457,
+        "split": "calibration_t013_energy",
+        "sha256": "1752e2ea7125cfc42c0b5e73390e647f98d0e32d7df9c528f6e839b108d672b7",
+        "source_url": "http://images.cocodataset.org/val2017/000000033759.jpg"
+      },
+      {
+        "image_id": 33854,
+        "filename": "000000033854.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "calibration_t013_energy",
+        "sha256": "b86eeebe566cee1e853f153675db94ba23d6642956f29ea473804c7852cb6b37",
+        "source_url": "http://images.cocodataset.org/val2017/000000033854.jpg"
+      },
+      {
+        "image_id": 34071,
+        "filename": "000000034071.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "calibration_t013_energy",
+        "sha256": "a948458ba76bbb64a2a1ce28a88ffb43c7ced9f03f983648fe7ece83a8826b75",
+        "source_url": "http://images.cocodataset.org/val2017/000000034071.jpg"
+      },
+      {
+        "image_id": 34139,
+        "filename": "000000034139.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "calibration_t013_energy",
+        "sha256": "1173eb43bb487f08c3620b12daf67c98a6bcc14b7893521393055bfb84db33c5",
+        "source_url": "http://images.cocodataset.org/val2017/000000034139.jpg"
+      },
+      {
+        "image_id": 34205,
+        "filename": "000000034205.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "calibration_t013_energy",
+        "sha256": "48fbf607e09ff475a83d2f67ae74e59da68e7992ecb43245c4ba65a8ae3c2509",
+        "source_url": "http://images.cocodataset.org/val2017/000000034205.jpg"
+      },
+      {
+        "image_id": 34417,
+        "filename": "000000034417.jpg",
+        "width": 500,
+        "height": 375,
+        "split": "calibration_t013_energy",
+        "sha256": "2fbaf1efa2a724925d68f07b64d84a02c0ce7cbbe9f3e26262625659f9f31c68",
+        "source_url": "http://images.cocodataset.org/val2017/000000034417.jpg"
+      },
+      {
+        "image_id": 34452,
+        "filename": "000000034452.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "calibration_t013_energy",
+        "sha256": "a1b87d38128e4507b46e9cb99ab1fe96b062f3838af2be0618e6e3fc5abdd5e5",
+        "source_url": "http://images.cocodataset.org/val2017/000000034452.jpg"
+      },
+      {
+        "image_id": 34760,
+        "filename": "000000034760.jpg",
+        "width": 426,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "0fd67be645460db96f578a810d5d59b84ec4ca8f7ee905a1b538b8591211a1a9",
+        "source_url": "http://images.cocodataset.org/val2017/000000034760.jpg"
+      },
+      {
+        "image_id": 34873,
+        "filename": "000000034873.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "calibration_t013_energy",
+        "sha256": "376dbffac6db0b092cc07b43dfc34886725682d8e641caeff54710ac8f61ffb6",
+        "source_url": "http://images.cocodataset.org/val2017/000000034873.jpg"
+      },
+      {
+        "image_id": 35062,
+        "filename": "000000035062.jpg",
+        "width": 425,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "ced2374ae4276360bd7ca8f1aa2cf46bfebd62af2ac1eaa04a8e64fccc150333",
+        "source_url": "http://images.cocodataset.org/val2017/000000035062.jpg"
+      },
+      {
+        "image_id": 35197,
+        "filename": "000000035197.jpg",
+        "width": 429,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "ba3bbe396c1ef5ceb856b4e3d5017207db5320a2883fecb2ceca0d6fc79c4fd8",
+        "source_url": "http://images.cocodataset.org/val2017/000000035197.jpg"
+      },
+      {
+        "image_id": 35279,
+        "filename": "000000035279.jpg",
+        "width": 640,
+        "height": 463,
+        "split": "calibration_t013_energy",
+        "sha256": "ad30a4335a65035ef96c5503151ea47370e6f66e65b70a44c26ed1c4d580df95",
+        "source_url": "http://images.cocodataset.org/val2017/000000035279.jpg"
+      },
+      {
+        "image_id": 35326,
+        "filename": "000000035326.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "calibration_t013_energy",
+        "sha256": "585b9ab944861e297b49d352117de3ab59a5c3bd55f3a298bdf91b7a3a544678",
+        "source_url": "http://images.cocodataset.org/val2017/000000035326.jpg"
+      },
+      {
+        "image_id": 35682,
+        "filename": "000000035682.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "1844cfa76d23a9768578f2c27306ecbad99326d2d374b070af9c56d50058c155",
+        "source_url": "http://images.cocodataset.org/val2017/000000035682.jpg"
+      },
+      {
+        "image_id": 35770,
+        "filename": "000000035770.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "bfec13432579cd1aac19f4dc14884a1b16b0708101271bd03cca378591f36ec7",
+        "source_url": "http://images.cocodataset.org/val2017/000000035770.jpg"
+      },
+      {
+        "image_id": 35963,
+        "filename": "000000035963.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "4ccc0b243ad62dde6d6500eb86f7a670f631302bb97d0e5bebd92f1d784d456b",
+        "source_url": "http://images.cocodataset.org/val2017/000000035963.jpg"
+      },
+      {
+        "image_id": 36494,
+        "filename": "000000036494.jpg",
+        "width": 640,
+        "height": 434,
+        "split": "calibration_t013_energy",
+        "sha256": "08defd539aa6aaea4f85c03b650b6b3d4ceb5d47e65a29d9aa17d18915daf9b8",
+        "source_url": "http://images.cocodataset.org/val2017/000000036494.jpg"
+      },
+      {
+        "image_id": 36539,
+        "filename": "000000036539.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "e16c9d4bab618469d1d841a4b905fa01232f42c0f18884b349b243b736c66d86",
+        "source_url": "http://images.cocodataset.org/val2017/000000036539.jpg"
+      }
+    ]
+  },
+  "source_manifest_sha256": "101ba5ed775c0a15002fdd3be3a01874b9dbbfb98242784e865de4e2ff9060e7",
+  "split_manifests": {
+    "train_t013_energy": [
+      {
+        "image_id": 23666,
+        "filename": "000000023666.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "c6e0dcc40c55570c04bb709097e3d0c6c6ada2ef55ca2a2601c67545581897d4",
+        "source_url": "http://images.cocodataset.org/val2017/000000023666.jpg"
+      },
+      {
+        "image_id": 23751,
+        "filename": "000000023751.jpg",
+        "width": 430,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "8f8d858e640624d5bbca80d54a936f77efb3ab7b50317613c3863ffdd9a4a9bc",
+        "source_url": "http://images.cocodataset.org/val2017/000000023751.jpg"
+      },
+      {
+        "image_id": 23781,
+        "filename": "000000023781.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "085b1c7f25bf1d149b6dff82dfdb0a83fbf6e875c01d5d374070eb582aada80e",
+        "source_url": "http://images.cocodataset.org/val2017/000000023781.jpg"
+      },
+      {
+        "image_id": 23899,
+        "filename": "000000023899.jpg",
+        "width": 640,
+        "height": 425,
+        "split": "train_t013_energy",
+        "sha256": "b7ef13fe4d8ab47a77e55dadd30295110ca97b7b3c3b8c85603009e7dc497983",
+        "source_url": "http://images.cocodataset.org/val2017/000000023899.jpg"
+      },
+      {
+        "image_id": 23937,
+        "filename": "000000023937.jpg",
+        "width": 640,
+        "height": 428,
+        "split": "train_t013_energy",
+        "sha256": "7789236aff12bffa0cf4ab954fb68531bea594d42e78cb80bbeac45175c5e144",
+        "source_url": "http://images.cocodataset.org/val2017/000000023937.jpg"
+      },
+      {
+        "image_id": 24021,
+        "filename": "000000024021.jpg",
+        "width": 640,
+        "height": 390,
+        "split": "train_t013_energy",
+        "sha256": "5b65fe7a6d334fa5f7d0328c37470d7d68d6e711b960d37f61ff133be78c4450",
+        "source_url": "http://images.cocodataset.org/val2017/000000024021.jpg"
+      },
+      {
+        "image_id": 24027,
+        "filename": "000000024027.jpg",
+        "width": 500,
+        "height": 375,
+        "split": "train_t013_energy",
+        "sha256": "63901c04b597683789f649524a489ad0d6bcf03929ec3fa334278b8a69fe369d",
+        "source_url": "http://images.cocodataset.org/val2017/000000024027.jpg"
+      },
+      {
+        "image_id": 24144,
+        "filename": "000000024144.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "5d0374a85c317f0b64b32c0ecf4e9a5cfc6bca105e3f703b4776cfc9aa0a20c4",
+        "source_url": "http://images.cocodataset.org/val2017/000000024144.jpg"
+      },
+      {
+        "image_id": 24243,
+        "filename": "000000024243.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "d5149ccbf5243f035138d8c982bcef0db2cf20e93cf249c73183957b9cff10ff",
+        "source_url": "http://images.cocodataset.org/val2017/000000024243.jpg"
+      },
+      {
+        "image_id": 24567,
+        "filename": "000000024567.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "44891e1a27e3a262a3d879fa27d2749b31ca71d648f800952f4dccc248bc3743",
+        "source_url": "http://images.cocodataset.org/val2017/000000024567.jpg"
+      },
+      {
+        "image_id": 24610,
+        "filename": "000000024610.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "aa7b8f989b3584fa3b41c743f5d1b3c45f9f6ead8c31d7a64f9b253b5c2868cb",
+        "source_url": "http://images.cocodataset.org/val2017/000000024610.jpg"
+      },
+      {
+        "image_id": 24919,
+        "filename": "000000024919.jpg",
+        "width": 640,
+        "height": 425,
+        "split": "train_t013_energy",
+        "sha256": "9c721d584521c2ae58bc0eb03b57c4ddb0a013d6af0ec08fd223ee7c11fc7b45",
+        "source_url": "http://images.cocodataset.org/val2017/000000024919.jpg"
+      },
+      {
+        "image_id": 25057,
+        "filename": "000000025057.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "8208c5aa7a2aa8b805e7581289a91c8ed0cad5cd8a90e826d1ea0ca59d1cb773",
+        "source_url": "http://images.cocodataset.org/val2017/000000025057.jpg"
+      },
+      {
+        "image_id": 25096,
+        "filename": "000000025096.jpg",
+        "width": 375,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "2115b6f6929bdbc88618a070f61bffaf944dfce7d666b4c8227151524d3bfc28",
+        "source_url": "http://images.cocodataset.org/val2017/000000025096.jpg"
+      },
+      {
+        "image_id": 25139,
+        "filename": "000000025139.jpg",
+        "width": 500,
+        "height": 334,
+        "split": "train_t013_energy",
+        "sha256": "9c1c256049d80c05aec424d06263b1e0f204c3e5c20352a76b9897fa3ae581f3",
+        "source_url": "http://images.cocodataset.org/val2017/000000025139.jpg"
+      },
+      {
+        "image_id": 25386,
+        "filename": "000000025386.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "64daf1359646414e79338f609083292162bf91e560e170c72a4666d95d341a44",
+        "source_url": "http://images.cocodataset.org/val2017/000000025386.jpg"
+      },
+      {
+        "image_id": 25393,
+        "filename": "000000025393.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "677e993476aed8ceca9bd9b8edbeb3c8874ed19488c9050cb8b55057a5f1547a",
+        "source_url": "http://images.cocodataset.org/val2017/000000025393.jpg"
+      },
+      {
+        "image_id": 25424,
+        "filename": "000000025424.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "89e8025ecb6f48125ac826dd5fe51409deae64e98133472adbe6ae62b6a61705",
+        "source_url": "http://images.cocodataset.org/val2017/000000025424.jpg"
+      },
+      {
+        "image_id": 25593,
+        "filename": "000000025593.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "83bafce2fe5f41a25e6f0e0f43c7e6d972641f0c3fdbb26441877366a5cb77ed",
+        "source_url": "http://images.cocodataset.org/val2017/000000025593.jpg"
+      },
+      {
+        "image_id": 25603,
+        "filename": "000000025603.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "f75a5898681ea62ef547b8c002e8e0eec00c50aa6b995334ab967798cff6e6dc",
+        "source_url": "http://images.cocodataset.org/val2017/000000025603.jpg"
+      },
+      {
+        "image_id": 25986,
+        "filename": "000000025986.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "721b718fe15a4f3739c0673acde4fa224ae7839f9317e7e66d256653551ea23b",
+        "source_url": "http://images.cocodataset.org/val2017/000000025986.jpg"
+      },
+      {
+        "image_id": 26204,
+        "filename": "000000026204.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "173a86fef1dbf7dd4c91dbc6ed7f1df26fdfdc398681aa04e558ee165f3ea326",
+        "source_url": "http://images.cocodataset.org/val2017/000000026204.jpg"
+      },
+      {
+        "image_id": 26465,
+        "filename": "000000026465.jpg",
+        "width": 500,
+        "height": 375,
+        "split": "train_t013_energy",
+        "sha256": "f941bf1156d9fc2831c487a93caf78ae3367ddaa5ba4f6cda4384af13ea91ff0",
+        "source_url": "http://images.cocodataset.org/val2017/000000026465.jpg"
+      },
+      {
+        "image_id": 26564,
+        "filename": "000000026564.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "ecefff4893149e6ac22348a59c8e4d3c1b3a751266a15bd38e3e6d041bf39c52",
+        "source_url": "http://images.cocodataset.org/val2017/000000026564.jpg"
+      },
+      {
+        "image_id": 26690,
+        "filename": "000000026690.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "a59b160b83fba25fb745b42efbab6d99202b4984dbbc1cdbe8d00201b561f8f4",
+        "source_url": "http://images.cocodataset.org/val2017/000000026690.jpg"
+      },
+      {
+        "image_id": 26926,
+        "filename": "000000026926.jpg",
+        "width": 423,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "7126855b6fe8548a6b9da18d8424f803c0eeb37deb3f5764f95f4d60d1915b37",
+        "source_url": "http://images.cocodataset.org/val2017/000000026926.jpg"
+      },
+      {
+        "image_id": 26941,
+        "filename": "000000026941.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "2e4081f3a5a5a747adb86d3f85dbd3e22db944ba8c2aa3f6119cb4146de4d2ad",
+        "source_url": "http://images.cocodataset.org/val2017/000000026941.jpg"
+      },
+      {
+        "image_id": 27186,
+        "filename": "000000027186.jpg",
+        "width": 640,
+        "height": 428,
+        "split": "train_t013_energy",
+        "sha256": "2e60a537145c388aba560db6312aecd5fddf5bce7a8f75adfd06492bdcd34e2e",
+        "source_url": "http://images.cocodataset.org/val2017/000000027186.jpg"
+      },
+      {
+        "image_id": 27620,
+        "filename": "000000027620.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "035a452ad79eb267a669fad48b220b1bf7d2e3500a5d736a195dc007df01bbfe",
+        "source_url": "http://images.cocodataset.org/val2017/000000027620.jpg"
+      },
+      {
+        "image_id": 27696,
+        "filename": "000000027696.jpg",
+        "width": 640,
+        "height": 410,
+        "split": "train_t013_energy",
+        "sha256": "9f24277c956430eb4502f44345bcfca81c43cfcca7184a75820e2ea1dde8cc64",
+        "source_url": "http://images.cocodataset.org/val2017/000000027696.jpg"
+      },
+      {
+        "image_id": 27768,
+        "filename": "000000027768.jpg",
+        "width": 612,
+        "height": 612,
+        "split": "train_t013_energy",
+        "sha256": "f9d68320358d980c1ef077c986316729fc3bd42b7e18e4433bf29b157f1f20f6",
+        "source_url": "http://images.cocodataset.org/val2017/000000027768.jpg"
+      },
+      {
+        "image_id": 27972,
+        "filename": "000000027972.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "aeb3671152fdb0f319a96bdcf659751a925e52d5ab867e7c412273f7bfe73845",
+        "source_url": "http://images.cocodataset.org/val2017/000000027972.jpg"
+      },
+      {
+        "image_id": 27982,
+        "filename": "000000027982.jpg",
+        "width": 500,
+        "height": 334,
+        "split": "train_t013_energy",
+        "sha256": "ef3fd6c41531be0ac195cf5efa67c803ca8630c066ef5c046d802ff8ea4ba440",
+        "source_url": "http://images.cocodataset.org/val2017/000000027982.jpg"
+      },
+      {
+        "image_id": 28285,
+        "filename": "000000028285.jpg",
+        "width": 640,
+        "height": 425,
+        "split": "train_t013_energy",
+        "sha256": "a37d71f6459efc47c22ec687945599cf4ec81c1056e6f0256eca3776834879b4",
+        "source_url": "http://images.cocodataset.org/val2017/000000028285.jpg"
+      },
+      {
+        "image_id": 28449,
+        "filename": "000000028449.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "520039fa3e2dad9a09632c7f5c5babb2ac30ce78137d3d140372ea6d43cd3ff2",
+        "source_url": "http://images.cocodataset.org/val2017/000000028449.jpg"
+      },
+      {
+        "image_id": 28452,
+        "filename": "000000028452.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "b9adf909244cbd3c6105af33723d6664bf7e88cd7ce4de697f990828d4c16a76",
+        "source_url": "http://images.cocodataset.org/val2017/000000028452.jpg"
+      },
+      {
+        "image_id": 28809,
+        "filename": "000000028809.jpg",
+        "width": 498,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "ae2c7be44df33d27135b6aa2f5d82d4c8bb9784e99469a04be708ee68943a45d",
+        "source_url": "http://images.cocodataset.org/val2017/000000028809.jpg"
+      },
+      {
+        "image_id": 28993,
+        "filename": "000000028993.jpg",
+        "width": 612,
+        "height": 612,
+        "split": "train_t013_energy",
+        "sha256": "9d582d15dc1a53b419f8c32253d4eb1bbe0fa20ada973e4d24e72af55b880a83",
+        "source_url": "http://images.cocodataset.org/val2017/000000028993.jpg"
+      },
+      {
+        "image_id": 29187,
+        "filename": "000000029187.jpg",
+        "width": 640,
+        "height": 491,
+        "split": "train_t013_energy",
+        "sha256": "636a078ae06c6779d11fe5bc889506a6cbf5cad7a3c82dccf1d7d98130bbef73",
+        "source_url": "http://images.cocodataset.org/val2017/000000029187.jpg"
+      },
+      {
+        "image_id": 29393,
+        "filename": "000000029393.jpg",
+        "width": 500,
+        "height": 375,
+        "split": "train_t013_energy",
+        "sha256": "378763dec71a25c7cb44ff9e345c84ca0fe2d8bf993b88775c360549edf3b733",
+        "source_url": "http://images.cocodataset.org/val2017/000000029393.jpg"
+      },
+      {
+        "image_id": 29397,
+        "filename": "000000029397.jpg",
+        "width": 640,
+        "height": 449,
+        "split": "train_t013_energy",
+        "sha256": "4185e741b14c3e6e2b9da920217a988d08cb89dfc41d377c3aeb4f1e41d8c2f3",
+        "source_url": "http://images.cocodataset.org/val2017/000000029397.jpg"
+      },
+      {
+        "image_id": 29596,
+        "filename": "000000029596.jpg",
+        "width": 640,
+        "height": 428,
+        "split": "train_t013_energy",
+        "sha256": "b8e8d8f5fb32fb90cc1c064bbc0fad3846b3a6c1fc6773fe74700a86b184c315",
+        "source_url": "http://images.cocodataset.org/val2017/000000029596.jpg"
+      },
+      {
+        "image_id": 29640,
+        "filename": "000000029640.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "11957ae08b2b2a3802cb671efab513fdc32ee83a31b390341f2db228b6015c8d",
+        "source_url": "http://images.cocodataset.org/val2017/000000029640.jpg"
+      },
+      {
+        "image_id": 29675,
+        "filename": "000000029675.jpg",
+        "width": 478,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "59647741cd07304fd4ef6309bf4707c6abf96bc8e654ce632be41f590e5cf65d",
+        "source_url": "http://images.cocodataset.org/val2017/000000029675.jpg"
+      },
+      {
+        "image_id": 29984,
+        "filename": "000000029984.jpg",
+        "width": 640,
+        "height": 492,
+        "split": "train_t013_energy",
+        "sha256": "1c1ea8336e8c0e5baa9e6ebd7c732aa49b7b30e411fd9cd97fcc3ded654777a3",
+        "source_url": "http://images.cocodataset.org/val2017/000000029984.jpg"
+      },
+      {
+        "image_id": 30213,
+        "filename": "000000030213.jpg",
+        "width": 640,
+        "height": 449,
+        "split": "train_t013_energy",
+        "sha256": "27fdc374629bb5fc3c059eb7f5516b940596f0b50087adf364b6b09922089eaf",
+        "source_url": "http://images.cocodataset.org/val2017/000000030213.jpg"
+      },
+      {
+        "image_id": 30494,
+        "filename": "000000030494.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "eabc12936cefe60de3cc9cf4bdb49fbb0f9435f188ec54dfb067f597b51c0c3f",
+        "source_url": "http://images.cocodataset.org/val2017/000000030494.jpg"
+      },
+      {
+        "image_id": 30504,
+        "filename": "000000030504.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "6a07fb2882010ba47140c43ffd7cd4a51331f197666ea9837b43bc077e88f552",
+        "source_url": "http://images.cocodataset.org/val2017/000000030504.jpg"
+      },
+      {
+        "image_id": 30675,
+        "filename": "000000030675.jpg",
+        "width": 640,
+        "height": 360,
+        "split": "train_t013_energy",
+        "sha256": "66c6259b826b869e0d2dba078a0de6d9c82617843c2d5448e9b34566bab6f979",
+        "source_url": "http://images.cocodataset.org/val2017/000000030675.jpg"
+      },
+      {
+        "image_id": 30785,
+        "filename": "000000030785.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "5a389b114f8aa2833b93c491616ee551ad6b3c316b2470265998013585f1387f",
+        "source_url": "http://images.cocodataset.org/val2017/000000030785.jpg"
+      },
+      {
+        "image_id": 30828,
+        "filename": "000000030828.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "0c9fb9dc3bd6a11defb1ebecc1c3a50914a0007e53cf4b16f1cffe7b363fbd79",
+        "source_url": "http://images.cocodataset.org/val2017/000000030828.jpg"
+      },
+      {
+        "image_id": 31050,
+        "filename": "000000031050.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "6b16283fc0f115b7c14288a8e7949ccfedc10440842a5de7064f9c58c4c7fba7",
+        "source_url": "http://images.cocodataset.org/val2017/000000031050.jpg"
+      },
+      {
+        "image_id": 31093,
+        "filename": "000000031093.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "769ceca7a3baf1319cffe4ad462561859d1e3f1029034fb87a12ef69acdf91bd",
+        "source_url": "http://images.cocodataset.org/val2017/000000031093.jpg"
+      },
+      {
+        "image_id": 31118,
+        "filename": "000000031118.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "2cdfc92ff0193efb0a93f9021841308f1cb204d1ac4810d00aa32a515ef033f7",
+        "source_url": "http://images.cocodataset.org/val2017/000000031118.jpg"
+      },
+      {
+        "image_id": 31217,
+        "filename": "000000031217.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "c3bd88960d608cb0406e870e224fdf0a5cfd8365537c2fee54bd10453dd402f0",
+        "source_url": "http://images.cocodataset.org/val2017/000000031217.jpg"
+      },
+      {
+        "image_id": 31248,
+        "filename": "000000031248.jpg",
+        "width": 500,
+        "height": 333,
+        "split": "train_t013_energy",
+        "sha256": "fc5a3defaf6427f8f59d0a68d85ef6f73b25fa8d55fed78393f31a9e3e0e6270",
+        "source_url": "http://images.cocodataset.org/val2017/000000031248.jpg"
+      },
+      {
+        "image_id": 31269,
+        "filename": "000000031269.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "91de0bc1f19dbacec3234adfd8e9eb160c5a08bf1dcfc4b6ccc08af09611708a",
+        "source_url": "http://images.cocodataset.org/val2017/000000031269.jpg"
+      },
+      {
+        "image_id": 31296,
+        "filename": "000000031296.jpg",
+        "width": 640,
+        "height": 425,
+        "split": "train_t013_energy",
+        "sha256": "e44caeefa73a14822ea5d47f5c84023ef7883bc064bcc089ca2f368a8945e2ac",
+        "source_url": "http://images.cocodataset.org/val2017/000000031296.jpg"
+      },
+      {
+        "image_id": 31322,
+        "filename": "000000031322.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "10f00a49fd34b83b1656f627061df90603bfd3e3f2ea8119975993ed0ffa5e47",
+        "source_url": "http://images.cocodataset.org/val2017/000000031322.jpg"
+      },
+      {
+        "image_id": 31620,
+        "filename": "000000031620.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "61512f0a301dd85e22fabacf58d2f04d003cc89428c127c5c6aafad9f4c30ee1",
+        "source_url": "http://images.cocodataset.org/val2017/000000031620.jpg"
+      },
+      {
+        "image_id": 31735,
+        "filename": "000000031735.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "49568f890bcbfddb7afd18ba8afc6c1b20ffe6611a888a3cb93150d24b253ffa",
+        "source_url": "http://images.cocodataset.org/val2017/000000031735.jpg"
+      },
+      {
+        "image_id": 31749,
+        "filename": "000000031749.jpg",
+        "width": 640,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "7fa4284ccb0f885ee85ba6d12222dabb404d8a0e3b081bbaf89148f95ccb7ca0",
+        "source_url": "http://images.cocodataset.org/val2017/000000031749.jpg"
+      },
+      {
+        "image_id": 31817,
+        "filename": "000000031817.jpg",
+        "width": 334,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "7b2e9e578996e44b1e9ab8d7658a3de6970de0d8738abb560866fd998bf399b4",
+        "source_url": "http://images.cocodataset.org/val2017/000000031817.jpg"
+      },
+      {
+        "image_id": 32038,
+        "filename": "000000032038.jpg",
+        "width": 333,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "5afb15a7ca2105d97e1f3a095dcbb1bdbe92232b1aaad9b7ab3bca63ee8adc3d",
+        "source_url": "http://images.cocodataset.org/val2017/000000032038.jpg"
+      },
+      {
+        "image_id": 32081,
+        "filename": "000000032081.jpg",
+        "width": 375,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "2acde5232e9dd81c012d6e0314f733985f603c95d7d482d5a52e4191daa00bae",
+        "source_url": "http://images.cocodataset.org/val2017/000000032081.jpg"
+      },
+      {
+        "image_id": 32285,
+        "filename": "000000032285.jpg",
+        "width": 640,
+        "height": 423,
+        "split": "train_t013_energy",
+        "sha256": "080779f05a0141b2d762ac043d96928fdc56bab73edb8ddb57e872501c8e940a",
+        "source_url": "http://images.cocodataset.org/val2017/000000032285.jpg"
+      },
+      {
+        "image_id": 32334,
+        "filename": "000000032334.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "68388310570b436dfccb56686a02d54621673b2d95074bfb6dab46388f22066d",
+        "source_url": "http://images.cocodataset.org/val2017/000000032334.jpg"
+      },
+      {
+        "image_id": 32570,
+        "filename": "000000032570.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "f193d982ca276820bb038610d4ac45fb2de46715510186b834c984a7f099a365",
+        "source_url": "http://images.cocodataset.org/val2017/000000032570.jpg"
+      },
+      {
+        "image_id": 32610,
+        "filename": "000000032610.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "a77e88c3a333e9264c55f6c92c97d54e1e41b9c48f9307509c39f17ab14fb382",
+        "source_url": "http://images.cocodataset.org/val2017/000000032610.jpg"
+      },
+      {
+        "image_id": 32735,
+        "filename": "000000032735.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "train_t013_energy",
+        "sha256": "309105454f28c30038cce8c44d48300b626548477957b3d056bfacf9da3127e4",
+        "source_url": "http://images.cocodataset.org/val2017/000000032735.jpg"
+      },
+      {
+        "image_id": 32811,
+        "filename": "000000032811.jpg",
+        "width": 375,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "bee917a2ebb2c2a35fab43f9673164e64b1512c846bdca19bdb629611b80fb04",
+        "source_url": "http://images.cocodataset.org/val2017/000000032811.jpg"
+      },
+      {
+        "image_id": 32817,
+        "filename": "000000032817.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "b0028b5505cb3969c3bca9e63a6e0691b5ba85f8db31dcf68eb46881f3c98b78",
+        "source_url": "http://images.cocodataset.org/val2017/000000032817.jpg"
+      },
+      {
+        "image_id": 32861,
+        "filename": "000000032861.jpg",
+        "width": 426,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "4381cc5866c6c160595d85695f0b7d7ad30b077f788c208f769a38d3a0a681e8",
+        "source_url": "http://images.cocodataset.org/val2017/000000032861.jpg"
+      },
+      {
+        "image_id": 32887,
+        "filename": "000000032887.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "f85c17ab33d54631410d6335a5eaa1de780904b777f1da15f9c06ce6e61d3520",
+        "source_url": "http://images.cocodataset.org/val2017/000000032887.jpg"
+      },
+      {
+        "image_id": 32901,
+        "filename": "000000032901.jpg",
+        "width": 640,
+        "height": 546,
+        "split": "train_t013_energy",
+        "sha256": "92ab99b7bc4581270d47ad6b1f7f1b06c9b7615e226c68cd8691726cbc53c264",
+        "source_url": "http://images.cocodataset.org/val2017/000000032901.jpg"
+      },
+      {
+        "image_id": 32941,
+        "filename": "000000032941.jpg",
+        "width": 458,
+        "height": 640,
+        "split": "train_t013_energy",
+        "sha256": "2b881cc082e3d79f6685320ddf02e04ec534e7f904a090a4e627eb445cb26ebc",
+        "source_url": "http://images.cocodataset.org/val2017/000000032941.jpg"
+      },
+      {
+        "image_id": 33005,
+        "filename": "000000033005.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "train_t013_energy",
+        "sha256": "840a583d45613d662220754de433f96bac6e094372546cf2f3090f73e645d7ef",
+        "source_url": "http://images.cocodataset.org/val2017/000000033005.jpg"
+      },
+      {
+        "image_id": 33104,
+        "filename": "000000033104.jpg",
+        "width": 428,
+        "height": 500,
+        "split": "train_t013_energy",
+        "sha256": "24d3088e3db4b4a04c83f0c1cf3dddbc33c02389eb2591d9d03c4a3cf73796ed",
+        "source_url": "http://images.cocodataset.org/val2017/000000033104.jpg"
+      },
+      {
+        "image_id": 33109,
+        "filename": "000000033109.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "d4c1905fc9f846478feaf8cd048d39a2d50829d1dae1ef954d9b0e015c081b4d",
+        "source_url": "http://images.cocodataset.org/val2017/000000033109.jpg"
+      },
+      {
+        "image_id": 33114,
+        "filename": "000000033114.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "train_t013_energy",
+        "sha256": "6ad530e1d20b1b23d52b880192d8ef314cae28a93b9300561d419ea6a2bbdbfc",
+        "source_url": "http://images.cocodataset.org/val2017/000000033114.jpg"
+      }
+    ],
+    "calibration_t013_energy": [
+      {
+        "image_id": 33638,
+        "filename": "000000033638.jpg",
+        "width": 425,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "997707b5024a71c18d33a03a6f8627556f0b309c92f03962bf0da3f83f5f8f0e",
+        "source_url": "http://images.cocodataset.org/val2017/000000033638.jpg"
+      },
+      {
+        "image_id": 33707,
+        "filename": "000000033707.jpg",
+        "width": 612,
+        "height": 612,
+        "split": "calibration_t013_energy",
+        "sha256": "78d30a901a0cdf841fcb9342dc1262d61feaae89e4ef5ee1f0de9e275bfe3464",
+        "source_url": "http://images.cocodataset.org/val2017/000000033707.jpg"
+      },
+      {
+        "image_id": 33759,
+        "filename": "000000033759.jpg",
+        "width": 640,
+        "height": 457,
+        "split": "calibration_t013_energy",
+        "sha256": "1752e2ea7125cfc42c0b5e73390e647f98d0e32d7df9c528f6e839b108d672b7",
+        "source_url": "http://images.cocodataset.org/val2017/000000033759.jpg"
+      },
+      {
+        "image_id": 33854,
+        "filename": "000000033854.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "calibration_t013_energy",
+        "sha256": "b86eeebe566cee1e853f153675db94ba23d6642956f29ea473804c7852cb6b37",
+        "source_url": "http://images.cocodataset.org/val2017/000000033854.jpg"
+      },
+      {
+        "image_id": 34071,
+        "filename": "000000034071.jpg",
+        "width": 640,
+        "height": 426,
+        "split": "calibration_t013_energy",
+        "sha256": "a948458ba76bbb64a2a1ce28a88ffb43c7ced9f03f983648fe7ece83a8826b75",
+        "source_url": "http://images.cocodataset.org/val2017/000000034071.jpg"
+      },
+      {
+        "image_id": 34139,
+        "filename": "000000034139.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "calibration_t013_energy",
+        "sha256": "1173eb43bb487f08c3620b12daf67c98a6bcc14b7893521393055bfb84db33c5",
+        "source_url": "http://images.cocodataset.org/val2017/000000034139.jpg"
+      },
+      {
+        "image_id": 34205,
+        "filename": "000000034205.jpg",
+        "width": 640,
+        "height": 427,
+        "split": "calibration_t013_energy",
+        "sha256": "48fbf607e09ff475a83d2f67ae74e59da68e7992ecb43245c4ba65a8ae3c2509",
+        "source_url": "http://images.cocodataset.org/val2017/000000034205.jpg"
+      },
+      {
+        "image_id": 34417,
+        "filename": "000000034417.jpg",
+        "width": 500,
+        "height": 375,
+        "split": "calibration_t013_energy",
+        "sha256": "2fbaf1efa2a724925d68f07b64d84a02c0ce7cbbe9f3e26262625659f9f31c68",
+        "source_url": "http://images.cocodataset.org/val2017/000000034417.jpg"
+      },
+      {
+        "image_id": 34452,
+        "filename": "000000034452.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "calibration_t013_energy",
+        "sha256": "a1b87d38128e4507b46e9cb99ab1fe96b062f3838af2be0618e6e3fc5abdd5e5",
+        "source_url": "http://images.cocodataset.org/val2017/000000034452.jpg"
+      },
+      {
+        "image_id": 34760,
+        "filename": "000000034760.jpg",
+        "width": 426,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "0fd67be645460db96f578a810d5d59b84ec4ca8f7ee905a1b538b8591211a1a9",
+        "source_url": "http://images.cocodataset.org/val2017/000000034760.jpg"
+      },
+      {
+        "image_id": 34873,
+        "filename": "000000034873.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "calibration_t013_energy",
+        "sha256": "376dbffac6db0b092cc07b43dfc34886725682d8e641caeff54710ac8f61ffb6",
+        "source_url": "http://images.cocodataset.org/val2017/000000034873.jpg"
+      },
+      {
+        "image_id": 35062,
+        "filename": "000000035062.jpg",
+        "width": 425,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "ced2374ae4276360bd7ca8f1aa2cf46bfebd62af2ac1eaa04a8e64fccc150333",
+        "source_url": "http://images.cocodataset.org/val2017/000000035062.jpg"
+      },
+      {
+        "image_id": 35197,
+        "filename": "000000035197.jpg",
+        "width": 429,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "ba3bbe396c1ef5ceb856b4e3d5017207db5320a2883fecb2ceca0d6fc79c4fd8",
+        "source_url": "http://images.cocodataset.org/val2017/000000035197.jpg"
+      },
+      {
+        "image_id": 35279,
+        "filename": "000000035279.jpg",
+        "width": 640,
+        "height": 463,
+        "split": "calibration_t013_energy",
+        "sha256": "ad30a4335a65035ef96c5503151ea47370e6f66e65b70a44c26ed1c4d580df95",
+        "source_url": "http://images.cocodataset.org/val2017/000000035279.jpg"
+      },
+      {
+        "image_id": 35326,
+        "filename": "000000035326.jpg",
+        "width": 640,
+        "height": 480,
+        "split": "calibration_t013_energy",
+        "sha256": "585b9ab944861e297b49d352117de3ab59a5c3bd55f3a298bdf91b7a3a544678",
+        "source_url": "http://images.cocodataset.org/val2017/000000035326.jpg"
+      },
+      {
+        "image_id": 35682,
+        "filename": "000000035682.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "1844cfa76d23a9768578f2c27306ecbad99326d2d374b070af9c56d50058c155",
+        "source_url": "http://images.cocodataset.org/val2017/000000035682.jpg"
+      },
+      {
+        "image_id": 35770,
+        "filename": "000000035770.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "bfec13432579cd1aac19f4dc14884a1b16b0708101271bd03cca378591f36ec7",
+        "source_url": "http://images.cocodataset.org/val2017/000000035770.jpg"
+      },
+      {
+        "image_id": 35963,
+        "filename": "000000035963.jpg",
+        "width": 480,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "4ccc0b243ad62dde6d6500eb86f7a670f631302bb97d0e5bebd92f1d784d456b",
+        "source_url": "http://images.cocodataset.org/val2017/000000035963.jpg"
+      },
+      {
+        "image_id": 36494,
+        "filename": "000000036494.jpg",
+        "width": 640,
+        "height": 434,
+        "split": "calibration_t013_energy",
+        "sha256": "08defd539aa6aaea4f85c03b650b6b3d4ceb5d47e65a29d9aa17d18915daf9b8",
+        "source_url": "http://images.cocodataset.org/val2017/000000036494.jpg"
+      },
+      {
+        "image_id": 36539,
+        "filename": "000000036539.jpg",
+        "width": 427,
+        "height": 640,
+        "split": "calibration_t013_energy",
+        "sha256": "e16c9d4bab618469d1d841a4b905fa01232f42c0f18884b349b243b736c66d86",
+        "source_url": "http://images.cocodataset.org/val2017/000000036539.jpg"
+      }
+    ]
+  },
+  "split_manifest_sha256": {
+    "train_t013_energy": "7edda3789028c073d906dff13354403dc3c2be9fa460ec0ce513a690b4a16a24",
+    "calibration_t013_energy": "d4400eec1055211d83c17cc71ba34616321f8b72cf55021284843b6ac753fb12"
+  },
+  "feature_schema": {
+    "version": "T013-28-v1",
+    "names": [
+      "active_TL",
+      "active_TR",
+      "active_BL",
+      "active_BR",
+      "signed_winner_TL",
+      "signed_winner_TR",
+      "signed_winner_BL",
+      "signed_winner_BR",
+      "original_winning_evidence_TL",
+      "original_winning_evidence_TR",
+      "original_winning_evidence_BL",
+      "original_winning_evidence_BR",
+      "z_dark_TL",
+      "z_dark_TR",
+      "z_dark_BL",
+      "z_dark_BR",
+      "z_bright_TL",
+      "z_bright_TR",
+      "z_bright_BL",
+      "z_bright_BR",
+      "ev_TL",
+      "ev_TR",
+      "ev_BL",
+      "ev_BR",
+      "gamma_TL",
+      "gamma_TR",
+      "gamma_BL",
+      "gamma_BR"
+    ],
+    "dimension": 28
+  },
+  "state_bank": {
+    "version": "T013-bank-v1",
+    "order": [
+      "identity",
+      "region2_direct",
+      "region2_discrete_projected",
+      "semantic_1",
+      "semantic_4",
+      "semantic_8",
+      "semantic_16",
+      "semantic_40",
+      "sobol_00",
+      "sobol_01",
+      "sobol_02",
+      "sobol_03",
+      "sobol_04",
+      "sobol_05",
+      "sobol_06",
+      "sobol_07",
+      "sobol_08",
+      "sobol_09",
+      "sobol_10",
+      "sobol_11",
+      "sobol_12",
+      "sobol_13",
+      "sobol_14",
+      "sobol_15"
+    ],
+    "sobol": {
+      "dimension": 8,
+      "scramble": false,
+      "skip": 0,
+      "count": 16,
+      "coordinates": "EV TL TR BL BR; gamma TL TR BL BR",
+      "mapping": "lower+u*(upper-lower)"
+    },
+    "duplicate_states": "retain fixed entries",
+    "no_active": "identity only"
+  },
+  "energy_sha256": "43181ee022bfa845d7b3433546a3d8d9899f2b253b4e1296dc826d784119fd47",
+  "normalization": {
+    "x_mean": [
+      0.6374502182006836,
+      0.7203187346458435,
+      0.6406374573707581,
+      0.6087649464607239,
+      0.24860557913780212,
+      -0.4270916283130646,
+      -0.009561752900481224,
+      0.01593625545501709,
+      1.5454777479171753,
+      1.8436295986175537,
+      1.513293743133545,
+      1.4861353635787964,
+      0.3459104597568512,
+      -0.6944751739501953,
+      -0.4094524681568146,
+      -0.2810363471508026,
+      -0.9896166920661926,
+      0.09115477651357651,
+      -0.46849653124809265,
+      -0.44629940390586853,
+      0.06530007719993591,
+      -0.1175139993429184,
+      -0.0057360390201210976,
+      0.0011657116701826453,
+      0.9902842044830322,
+      0.9982085227966309,
+      0.9921904802322388,
+      0.9929339289665222
+    ],
+    "x_scale": [
+      0.4807363450527191,
+      0.4488425850868225,
+      0.4798136055469513,
+      0.48802682757377625,
+      0.7587130069732666,
+      0.7334244847297668,
+      0.8003411889076233,
+      0.7800711393356323,
+      1.2627148628234863,
+      1.5232657194137573,
+      1.3930093050003052,
+      1.404828667640686,
+      1.3261144161224365,
+      1.3950488567352295,
+      1.5296326875686646,
+      1.592124581336975,
+      1.5663158893585205,
+      1.510524034500122,
+      1.7137572765350342,
+      1.5934699773788452,
+      0.24636369943618774,
+      0.2420063465833664,
+      0.2554015517234802,
+      0.2485024333000183,
+      0.10051543265581131,
+      0.10456257313489914,
+      0.0998978316783905,
+      0.09823226928710938
+    ],
+    "y_mean": -3.571509599685669,
+    "y_scale": 1.3408702611923218
+  },
+  "recipe": {
+    "input_dim": 28,
+    "hidden": [
+      64,
+      64
+    ],
+    "activation": "SiLU",
+    "loss": "Huber",
+    "delta": 1.0,
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "batch_size": 256,
+    "epochs": 100,
+    "seed": 7,
+    "checkpoint": "final_epoch",
+    "device": "cpu",
+    "normalization": "train rows only, population std; constant scales=1",
+    "target": "log(MSE+1e-6)"
+  },
+  "source_sha": "b6642ad6358045cb60296a71d1be72e2525833d2",
+  "source_code_sha256": {
+    "ttie/__init__.py": "4de7703189366591a75bc1f59f8d0a02da9cf1ba06999293141560c0949512c6",
+    "ttie/adapt.py": "beef1fb7f668f3c0cc9e24b6a3966d7cc0e60952f312d1843196de153ba8cc26",
+    "ttie/clip_audit.py": "d372201b4c1c5f3e1aabe38a5f0e421481bb7751c50d2c8c172b24aa6a82e11a",
+    "ttie/clip_signal.py": "8a9b3647f4eb26304f338163cf151d593f7680f64c5059caebdde68115b91ed8",
+    "ttie/demo.py": "b33f1cd922fa26493f402fb0a31aba0106c98f2541001c4691124c0b20a8fd95",
+    "ttie/energy_bank.py": "b467400c80d003c7af88741f66aa5c984d7535914b8262e3b88e1aa3755d117a",
+    "ttie/energy_io.py": "7cedcdadc19ebe2a827144ae998ba7483dfd5d219d323f71077a9fb5bc6f2f84",
+    "ttie/energy_metrics.py": "1ac4485f5fc73c43d1739aca490a3814e078eec6dc485640d0e6a5cde754306a",
+    "ttie/energy_model.py": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4",
+    "ttie/energy_pilot.py": "de1d99fa1e17fb1c550022ff0a3c7dddb24b59c01e4a47cce8efc8d34ca3891b",
+    "ttie/energy_receipt.py": "4beb5d58ab48c13fc568676b230e56bed55a3b5ae66aeb5bac3fdea6deda26d2",
+    "ttie/energy_ttt.py": "e8ae260766266a149d08f7ec84b3216ceb18f549ebbef98a7cde3c017dcabade",
+    "ttie/geometry_audit.py": "2277bacffc8327462664979415b73417aac49b8dac7f3a92ae92244b9f010718",
+    "ttie/geometry_summary.py": "1e246b83acf44dee04a1005fab193b41b3269f728aa3c1f24ef368d02e1a1791",
+    "ttie/isp.py": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9",
+    "ttie/joint_audit.py": "89c1e38e5a6e1c30155f77ba613fcf62db24bbc071927f344dd673e481552c61",
+    "ttie/joint_gate.py": "7f5f983d7cabac4bc16f93515f924fb4009374fa038113ad49984b74f4b5637f",
+    "ttie/learned_prototypes.py": "062cb21f65e5611839802ad8dbe86bde883b14c75d50dc5116766e5c903f8eec",
+    "ttie/natural.py": "bfc8cbf8d5c2f92e7e4dfdb49f5c0fc217cb25167be2a8b7a16a0322996fb94e",
+    "ttie/offline_geometry.py": "89519bb7c6eabe9381ee6caa2e10de93fb770bc7901a872309b888e801e84187",
+    "ttie/projected_metrics.py": "38fe641da26300b7ca800b29e8659845a8306fe48a0f19bc5f54d01a2d87d673",
+    "ttie/projected_pilot.py": "c99e74b744d152c34714b2ad0c890d729048e91c48c24ea4c0cd1fe769fcd11b",
+    "ttie/projected_ttt.py": "f5fb68a742ee4038b903bf62ae37ae0b3011762ce3035ba09a3b9609a25a6457",
+    "ttie/prototype_audit.py": "0a0e85871034ee2d1378edfb7f8f3c50f8d040e4b1c525878015d2f3b0b11920",
+    "ttie/regularization.py": "8e15fc50b0681a80fb4f5dbab269e12d54696911f426754870c675767b1c9283",
+    "ttie/relative_audit.py": "5a2804fcf891d41f234c2a675399b88884b51e3892b783f5aeb3d6075fb999ca",
+    "ttie/relative_clip.py": "9e860dd0924f68a56486dd5405e6ba2e61d00d5ce20d75d285f4d0a18198dc17",
+    "ttie/residual_data.py": "8965e60144b4a8e74a59ecb34e45e93acc8101d1e4b819c5a31e4225b746e9d4",
+    "ttie/residual_metrics.py": "de0fc3b36e431b097253ff1084073c717967a623009c8681748bb789e69df523",
+    "ttie/residual_pilot.py": "558c279a5159ca39c52913006e499c81dd0ea338a34b5e66993eecbfa8087715",
+    "ttie/residual_ttt.py": "e472223bb6d6463a44863ae0e9b204d06742b6679327f0efd45766bb56b98cfe",
+    "ttie/restoration_metrics.py": "eba47577737c0ac31afc2e001d8b9b52a648054ea95bf5030338d03a33d5bc97",
+    "ttie/restoration_pilot.py": "36343f59c25ec8bd94c0d038d3e2f3d94f709ffa4d807486df3324c3d4bd5c69",
+    "ttie/safety_summary.py": "58d9b3541ea817ee476b7f89a28ecf5bd880ef9d5b916aba2826acaeec8e5f89",
+    "ttie/safety_sweep.py": "97c5c77769411ebee7e08bdf8f0c10ea3969503cb4a1d3df52dba0bce6888bd3",
+    "ttie/semantic_ttt.py": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72",
+    "ttie/stop_io.py": "1e2e4b8a12d25d564846865728489c1cac39fa7c830b9f7f082b382961f75f92",
+    "ttie/stop_metrics.py": "03cb5ec750cdbe69b96556dfc1902f5e3500ae4b25da98d800a2c0b8cb35326f",
+    "ttie/stop_pilot.py": "e323f4de0b315762bbf330bdfaa97a53da902af59211d868239c18c64dd6da49",
+    "ttie/stop_quality.py": "5006204e4e8eae71e4da72271c246492af4aa728cacd83d8515fceea5490888e",
+    "ttie/stop_receipt.py": "f81a20de0808cfebd3321176ed74f9e3bd3ec58df29d63cf937d00c362b81ed4",
+    "ttie/stop_trajectory.py": "38965a15430d383b429086ec4460fff2dd3c500a7d162f39b705c40ae4b23ce7",
+    "ttie/suite.py": "25a9becfe7c9b43a11d7a01343e2991bb279dd780b9825783b1d0cd1a12e6c45",
+    "ttie/summarize.py": "c35d6cd863e109903163741794ecc0b12b221865bea015a486173c2d55af43e5",
+    "scripts/prepare_t013.py": "4a2e9545b14b9ea62cbc02c7d0bf7f92ed5d629d447f062437dc58fdb536f4f5",
+    "scripts/run_t013_a6000.sh": "fa37589541238a2f23def282dae2e794c95b4419ac7565e10302163e6d3220a9"
+  },
+  "stage_a": {
+    "stage": "A",
+    "groups": {
+      "clean": {
+        "identity": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "psnr_db": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 0.7721015965903056,
+            "median": -0.0,
+            "p95": 6.1534093720545275
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.7721015965903056,
+            "median": -0.0,
+            "p95": 6.1534093720545275
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        },
+        "region2_direct": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0003580142292776145,
+            "median": 0.0,
+            "p95": 0.002195431396830829
+          },
+          "psnr_db": {
+            "count": 3,
+            "mean": 28.57565245470318,
+            "median": 26.868669221001653,
+            "p95": 34.81868056565825
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 0.0003580142292776145,
+            "median": 0.0,
+            "p95": 0.002195431396830829
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 0.7721015965903056,
+            "median": -0.0,
+            "p95": 6.1534093720545275
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.5976873897324098,
+            "median": -0.0,
+            "p95": 2.944561340589629
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        },
+        "region2_discrete_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0002250165125587955,
+            "median": 0.0,
+            "p95": 0.0019263850466813893
+          },
+          "psnr_db": {
+            "count": 3,
+            "mean": 28.807956692949997,
+            "median": 27.158679160187233,
+            "p95": 31.720267453768315
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 0.0002250165125587955,
+            "median": 0.0,
+            "p95": 0.0019263850466813893
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 0.7721015965903056,
+            "median": -0.0,
+            "p95": 6.1534093720545275
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.3161066701990718,
+            "median": -0.0,
+            "p95": 1.2932153941700124
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        },
+        "region2_ttt_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0002433263463899493,
+            "median": 0.0,
+            "p95": 0.0016141684318426999
+          },
+          "psnr_db": {
+            "count": 3,
+            "mean": 27.945370025406664,
+            "median": 27.96456240492534,
+            "p95": 28.638037900489216
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 0.0002433263463899493,
+            "median": 0.0,
+            "p95": 0.0016141684318426999
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 0.7721015965903056,
+            "median": -0.0,
+            "p95": 6.1534093720545275
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.2763178335585718,
+            "median": -0.0,
+            "p95": 1.0431304291254297
+          },
+          "steps": {
+            "count": 20,
+            "mean": 6,
+            "median": 0.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        },
+        "fixed_step_source": {
+          "mse": {
+            "count": 20,
+            "mean": 0.00022583910613320767,
+            "median": 0.0,
+            "p95": 0.0016095826111268254
+          },
+          "psnr_db": {
+            "count": 3,
+            "mean": 28.3244443000572,
+            "median": 27.96456240492534,
+            "p95": 29.470594169846212
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 0.00022583910613320767,
+            "median": 0.0,
+            "p95": 0.0016095826111268254
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 0.7721015965903056,
+            "median": -0.0,
+            "p95": 6.1534093720545275
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.28268650175365045,
+            "median": -0.0,
+            "p95": 1.0494990973205085
+          },
+          "steps": {
+            "count": 20,
+            "mean": 2.4,
+            "median": 0.0,
+            "p95": 16.0
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        },
+        "global_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0018875419860705732,
+            "median": 0.0,
+            "p95": 0.01155345528386534
+          },
+          "psnr_db": {
+            "count": 3,
+            "mean": 19.749768682805165,
+            "median": 19.58009520258716,
+            "p95": 22.703039949720043
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 0.0018875419860705732,
+            "median": 0.0,
+            "p95": 0.01155345528386534
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -12.082382547855378,
+            "median": -13.69572114944458,
+            "p95": -2.9215011954307553
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -12.548649060726166,
+            "median": -13.832840919494629,
+            "p95": -4.669804227352142
+          },
+          "steps": {
+            "count": 20,
+            "mean": 2.9,
+            "median": 0.0,
+            "p95": 13.150000000000016
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        },
+        "bilinear2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0004267005861038342,
+            "median": 0.0,
+            "p95": 0.0021089496614877163
+          },
+          "psnr_db": {
+            "count": 3,
+            "mean": 27.00134929076092,
+            "median": 27.193830553319415,
+            "p95": 31.101964420693907
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 0.0004267005861038342,
+            "median": 0.0,
+            "p95": 0.0021089496614877163
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -12.082382547855378,
+            "median": -13.69572114944458,
+            "p95": -2.9215011954307553
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -12.388984870910644,
+            "median": -13.69572114944458,
+            "p95": -3.96815128326416
+          },
+          "steps": {
+            "count": 20,
+            "mean": 4.3,
+            "median": 0.0,
+            "p95": 36.1
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        },
+        "region2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0005608959938399494,
+            "median": 0.0,
+            "p95": 0.003968007455114277
+          },
+          "psnr_db": {
+            "count": 3,
+            "mean": 25.135948952722195,
+            "median": 24.141815708429846,
+            "p95": 28.653406498699034
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 0.0005608959938399494,
+            "median": 0.0,
+            "p95": 0.003968007455114277
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -12.082382488250733,
+            "median": -13.69572114944458,
+            "p95": -2.9215009689331053
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -12.321754121780396,
+            "median": -13.69572114944458,
+            "p95": -4.161099815368652
+          },
+          "steps": {
+            "count": 20,
+            "mean": 4.45,
+            "median": 0.0,
+            "p95": 36.2
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        },
+        "oracle_best_energy_checkpoint": {
+          "mse": {
+            "count": 20,
+            "mean": 5.0510749302604334e-18,
+            "median": 0.0,
+            "p95": 3.69786874220707e-17
+          },
+          "psnr_db": {
+            "count": 3,
+            "mean": 164.78545971572237,
+            "median": 164.32594881129143,
+            "p95": 165.66381880775037
+          },
+          "clean_drift_mse": {
+            "count": 20,
+            "mean": 5.0510749302604334e-18,
+            "median": 0.0,
+            "p95": 3.69786874220707e-17
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -12.082382488250733,
+            "median": -13.69572114944458,
+            "p95": -2.9215009689331053
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -12.082382488250733,
+            "median": -13.69572114944458,
+            "p95": -2.9215009689331053
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          }
+        }
+      },
+      "homogeneous_dark": {
+        "identity": {
+          "mse": {
+            "count": 20,
+            "mean": 0.07090148674324155,
+            "median": 0.06388331577181816,
+            "p95": 0.13214952200651173
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 12.121086807257281,
+            "median": 11.946205762516188,
+            "p95": 14.600495880896881
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 5.57678523295701,
+            "median": 3.3864552012754827,
+            "p95": 16.00242623787525
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 5.57678523295701,
+            "median": 3.3864552012754827,
+            "p95": 16.00242623787525
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          }
+        },
+        "region2_direct": {
+          "mse": {
+            "count": 20,
+            "mean": 0.04619118212722242,
+            "median": 0.0388838704675436,
+            "p95": 0.10611162595450879
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 14.300801025565935,
+            "median": 14.104396416762553,
+            "p95": 18.19517860179222
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 5.57678523295701,
+            "median": 3.3864552012754827,
+            "p95": 16.00242623787525
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.9141948332233933,
+            "median": 0.2971349423401425,
+            "p95": 9.038889889191575
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.37645866559186475,
+            "median": 0.39398917538373673,
+            "p95": 0.5629493962883951
+          }
+        },
+        "region2_discrete_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.038503298215800896,
+            "median": 0.03263699822127819,
+            "p95": 0.09909385330975057
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 15.718085014805526,
+            "median": 14.87950408078467,
+            "p95": 22.79717467553483
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 5.57678523295701,
+            "median": 3.3864552012754827,
+            "p95": 16.00242623787525
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.861238302424118,
+            "median": 0.05671968680953866,
+            "p95": 3.8103976806371254
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5056976768855783,
+            "median": 0.5260156254310522,
+            "p95": 0.8485260709095146
+          }
+        },
+        "region2_ttt_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0377189849561546,
+            "median": 0.028475573286414146,
+            "p95": 0.09971464090049269
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 15.864632839270127,
+            "median": 15.521503157936687,
+            "p95": 22.79717467553483
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 5.57678523295701,
+            "median": 3.3864552012754827,
+            "p95": 16.00242623787525
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.0322594770101166,
+            "median": 0.05671947520399136,
+            "p95": 3.9813757753380936
+          },
+          "steps": {
+            "count": 20,
+            "mean": 27.1,
+            "median": 40.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5163873009558999,
+            "median": 0.5240193446303241,
+            "p95": 0.8485260709095146
+          }
+        },
+        "fixed_step_source": {
+          "mse": {
+            "count": 20,
+            "mean": 0.037955826317192985,
+            "median": 0.02865523938089609,
+            "p95": 0.10122755132615567
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 15.819212127437352,
+            "median": 15.488607011003957,
+            "p95": 22.676399635010636
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 5.57678523295701,
+            "median": 3.3864552012754827,
+            "p95": 16.00242623787525
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.0331069836890359,
+            "median": 0.05671947520399136,
+            "p95": 3.9820633214863954
+          },
+          "steps": {
+            "count": 20,
+            "mean": 12.7,
+            "median": 16.0,
+            "p95": 16.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5132279468178933,
+            "median": 0.5220417680116127,
+            "p95": 0.8442463788613751
+          }
+        },
+        "global_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0381095219461713,
+            "median": 0.01369625749066472,
+            "p95": 0.12448872253298768
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 17.502193763574386,
+            "median": 18.63798274465076,
+            "p95": 22.925094499402128
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -3.1174355864524843,
+            "median": -2.9472413063049316,
+            "p95": -2.1304037094116213
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -4.315663409233093,
+            "median": -4.379730701446533,
+            "p95": -2.7525120019912714
+          },
+          "steps": {
+            "count": 20,
+            "mean": 12.05,
+            "median": 12.0,
+            "p95": 15.400000000000006
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.557135722641735,
+            "median": 0.7985923599226201,
+            "p95": 0.8529611257766679
+          }
+        },
+        "bilinear2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.04155886973021552,
+            "median": 0.03448361810296774,
+            "p95": 0.11578349433839322
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 15.349586179580738,
+            "median": 14.65354517941751,
+            "p95": 22.79894087506221
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -3.1174355864524843,
+            "median": -2.9472413063049316,
+            "p95": -2.1304037094116213
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -4.029350626468658,
+            "median": -3.739313840866089,
+            "p95": -3.002973389625549
+          },
+          "steps": {
+            "count": 20,
+            "mean": 22.95,
+            "median": 25.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.45912733021461305,
+            "median": 0.5008199505531108,
+            "p95": 0.848586054074361
+          }
+        },
+        "region2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.040616221661912276,
+            "median": 0.030126702040433884,
+            "p95": 0.11960115469992161
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 15.479013942185457,
+            "median": 15.215948322919491,
+            "p95": 22.79723890910004
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -3.1174357295036317,
+            "median": -2.947241425514221,
+            "p95": -2.1304046154022216
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -4.035247528553009,
+            "median": -3.6459022760391235,
+            "p95": -2.869838488101959
+          },
+          "steps": {
+            "count": 20,
+            "mean": 26.35,
+            "median": 27.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.47873448974471255,
+            "median": 0.48267270971883924,
+            "p95": 0.8485282609513461
+          }
+        },
+        "oracle_best_energy_checkpoint": {
+          "mse": {
+            "count": 20,
+            "mean": 0.039776644471567126,
+            "median": 0.029565989039838314,
+            "p95": 0.11898353286087512
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 15.561936379148614,
+            "median": 15.302756772558027,
+            "p95": 22.799075966240085
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -3.1174357295036317,
+            "median": -2.947241425514221,
+            "p95": -2.1304046154022216
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -4.0298682928085325,
+            "median": -3.6459022760391235,
+            "p95": -2.8660836100578306
+          },
+          "steps": {
+            "count": 20,
+            "mean": 20.8,
+            "median": 16.5,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.4877093499892358,
+            "median": 0.4896582019457188,
+            "p95": 0.8485906219484014
+          }
+        }
+      },
+      "homogeneous_bright": {
+        "identity": {
+          "mse": {
+            "count": 20,
+            "mean": 0.03550040533300489,
+            "median": 0.03480287455022335,
+            "p95": 0.05834755580872297
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 14.904961071004465,
+            "median": 14.58388550995555,
+            "p95": 17.667379789335786
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.600741315943175,
+            "median": 6.924692781396676,
+            "p95": 13.724728978350335
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 7.600741315943175,
+            "median": 6.924692781396676,
+            "p95": 13.724728978350335
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          }
+        },
+        "region2_direct": {
+          "mse": {
+            "count": 20,
+            "mean": 0.014952536870259792,
+            "median": 0.010815024375915527,
+            "p95": 0.03256110288202763
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 19.50069771770883,
+            "median": 19.69413138115968,
+            "p95": 24.981707379456566
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.600741315943175,
+            "median": 6.924692781396676,
+            "p95": 13.724728978350335
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.1174085560005134,
+            "median": 0.39798215237020057,
+            "p95": 4.665132064240695
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5337173543863318,
+            "median": 0.621281261309374,
+            "p95": 0.9131038363646071
+          }
+        },
+        "region2_discrete_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.017098331195302307,
+            "median": 0.014139562379568815,
+            "p95": 0.03600338231772184
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 18.331128473453493,
+            "median": 18.497835899964585,
+            "p95": 21.924972548275036
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.600741315943175,
+            "median": 6.924692781396676,
+            "p95": 13.724728978350335
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.7367543845215806,
+            "median": 0.14351131328176303,
+            "p95": 3.662666767328108
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.4503736433910318,
+            "median": 0.5038976314094843,
+            "p95": 0.8361739566751167
+          }
+        },
+        "region2_ttt_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.01695556743070483,
+            "median": 0.01433734130114317,
+            "p95": 0.03564288150519133
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 18.512167793787025,
+            "median": 18.43568753818782,
+            "p95": 22.66569088403924
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.600741315943175,
+            "median": 6.924692781396676,
+            "p95": 13.724728978350335
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.7971629485650129,
+            "median": 0.14351248425651159,
+            "p95": 4.300838610565918
+          },
+          "steps": {
+            "count": 20,
+            "mean": 33.2,
+            "median": 40.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.4522227267254218,
+            "median": 0.512778730893192,
+            "p95": 0.8923480990509125
+          }
+        },
+        "fixed_step_source": {
+          "mse": {
+            "count": 20,
+            "mean": 0.016938808059785516,
+            "median": 0.013960672542452812,
+            "p95": 0.03550726473331452
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 18.557642012936444,
+            "median": 18.560113653869912,
+            "p95": 22.53116757276483
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.600741315943175,
+            "median": 6.924692781396676,
+            "p95": 13.724728978350335
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 0.8440972548514591,
+            "median": 0.14613677458660365,
+            "p95": 4.740224215803389
+          },
+          "steps": {
+            "count": 20,
+            "mean": 14.15,
+            "median": 16.0,
+            "p95": 16.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.45727014803439686,
+            "median": 0.5223049788235066,
+            "p95": 0.8745148999121214
+          }
+        },
+        "global_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.02281244990299456,
+            "median": 0.01686422387138009,
+            "p95": 0.06175006888806821
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 18.708951439787505,
+            "median": 17.828642287050066,
+            "p95": 27.499562194780335
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -4.015678369998932,
+            "median": -3.184317469596863,
+            "p95": -2.721042263507843
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -5.329121470451355,
+            "median": -4.746822118759155,
+            "p95": -3.8219258427619933
+          },
+          "steps": {
+            "count": 20,
+            "mean": 24.75,
+            "median": 22.5,
+            "p95": 39.05
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.16996882768978383,
+            "median": 0.4400706418552552,
+            "p95": 0.9137110181340806
+          }
+        },
+        "bilinear2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.01807357124052942,
+            "median": 0.01084567466750741,
+            "p95": 0.042442911304533495
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 18.678011386946594,
+            "median": 19.64749436311595,
+            "p95": 22.46724400459658
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -4.015678369998932,
+            "median": -3.184317469596863,
+            "p95": -2.721042263507843
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -5.481392216682434,
+            "median": -4.902700424194336,
+            "p95": -3.8480947613716125
+          },
+          "steps": {
+            "count": 20,
+            "mean": 31.45,
+            "median": 34.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.44105760186003523,
+            "median": 0.5853078993053744,
+            "p95": 0.8901505179943143
+          }
+        },
+        "region2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.020746523747220635,
+            "median": 0.0151066561229527,
+            "p95": 0.04264850411564113
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 17.91032431196107,
+            "median": 18.211858251277658,
+            "p95": 22.05293861010387
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -4.015678584575653,
+            "median": -3.184317708015442,
+            "p95": -2.7210418224334716
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -5.414196538925171,
+            "median": -4.717776775360107,
+            "p95": -3.7387712836265563
+          },
+          "steps": {
+            "count": 20,
+            "mean": 31.35,
+            "median": 34.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.36531702976416897,
+            "median": 0.46024878309169087,
+            "p95": 0.8792114124981525
+          }
+        },
+        "oracle_best_energy_checkpoint": {
+          "mse": {
+            "count": 20,
+            "mean": 0.017563133232761173,
+            "median": 0.012663821689784527,
+            "p95": 0.04169091135263444
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 18.91721199464016,
+            "median": 18.97577535425124,
+            "p95": 23.57019054983268
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "bright_region_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -4.015678584575653,
+            "median": -3.184317708015442,
+            "p95": -2.7210418224334716
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -5.133747327327728,
+            "median": -4.481582403182983,
+            "p95": -3.5803486585617064
+          },
+          "steps": {
+            "count": 20,
+            "mean": 10.5,
+            "median": 10.0,
+            "p95": 21.1
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.4926207744015897,
+            "median": 0.5618687267737925,
+            "p95": 0.9095950765911879
+          }
+        }
+      },
+      "left_right": {
+        "identity": {
+          "mse": {
+            "count": 20,
+            "mean": 0.052278547338210045,
+            "median": 0.0513109490275383,
+            "p95": 0.08539818972349167
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 13.255240396269786,
+            "median": 12.898121760806713,
+            "p95": 15.136286217554911
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.06990716892760247,
+            "median": 0.06741161644458771,
+            "p95": 0.1280998416244984
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.03466942384839058,
+            "median": 0.03484747186303139,
+            "p95": 0.053023436479270464
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.634460382926152,
+            "median": 6.7297650113956475,
+            "p95": 16.8730999244052
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 7.634460382926152,
+            "median": 6.7297650113956475,
+            "p95": 16.8730999244052
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          }
+        },
+        "region2_direct": {
+          "mse": {
+            "count": 20,
+            "mean": 0.02881411259295419,
+            "median": 0.021100955083966255,
+            "p95": 0.056601995229721085
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 16.411301050162468,
+            "median": 16.758518700655898,
+            "p95": 20.716674744426445
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.04099252285959665,
+            "median": 0.03382183983922005,
+            "p95": 0.0787640053778887
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.01664229783928022,
+            "median": 0.012693899217993021,
+            "p95": 0.03649447709321977
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.634460382926152,
+            "median": 6.7297650113956475,
+            "p95": 16.8730999244052
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 2.133920950290027,
+            "median": 0.47078560173291484,
+            "p95": 10.573459837294253
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.47644125205544885,
+            "median": 0.4799866460220396,
+            "p95": 0.7617804938031616
+          }
+        },
+        "region2_discrete_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.02438164538471028,
+            "median": 0.01804793905466795,
+            "p95": 0.048938302323222174
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 17.1697481945696,
+            "median": 17.438289654259872,
+            "p95": 22.355609859541513
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.03119722528026614,
+            "median": 0.021824407391250134,
+            "p95": 0.07219486571848395
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.01756810031365603,
+            "median": 0.015021226834505796,
+            "p95": 0.03591656498610975
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.634460382926152,
+            "median": 6.7297650113956475,
+            "p95": 16.8730999244052
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.2067703929564118,
+            "median": 0.2041337759449266,
+            "p95": 4.9153184075863
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5489866790104838,
+            "median": 0.5528595464012165,
+            "p95": 0.799548796180566
+          }
+        },
+        "region2_ttt_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.02333281874889508,
+            "median": 0.014642567839473486,
+            "p95": 0.05041686613112689
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 17.448848274581206,
+            "median": 18.343848900683028,
+            "p95": 21.846486763905183
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.02957751413450751,
+            "median": 0.016235371585935354,
+            "p95": 0.07219486571848395
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.017089679022319615,
+            "median": 0.013876721728593111,
+            "p95": 0.03591656498610975
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.634460382926152,
+            "median": 6.7297650113956475,
+            "p95": 16.8730999244052
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.5200699263376047,
+            "median": 0.20539306919558048,
+            "p95": 5.882575225319358
+          },
+          "steps": {
+            "count": 20,
+            "mean": 35.35,
+            "median": 40.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5690255471073057,
+            "median": 0.6014432734246723,
+            "p95": 0.8300507139292744
+          }
+        },
+        "fixed_step_source": {
+          "mse": {
+            "count": 20,
+            "mean": 0.023603902012109757,
+            "median": 0.015273564495146275,
+            "p95": 0.05040584709495307
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 17.371259632923987,
+            "median": 18.164128479259524,
+            "p95": 21.457257497636018
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.03003836097304884,
+            "median": 0.016400089487433434,
+            "p95": 0.07220152951776984
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.017171750497072934,
+            "median": 0.013876721728593111,
+            "p95": 0.03591656498610975
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.634460382926152,
+            "median": 6.7297650113956475,
+            "p95": 16.8730999244052
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.5291969506409773,
+            "median": 0.22220515867467833,
+            "p95": 5.882834074152083
+          },
+          "steps": {
+            "count": 20,
+            "mean": 14.95,
+            "median": 16.0,
+            "p95": 16.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5629874430679046,
+            "median": 0.5993794564309629,
+            "p95": 0.8174471278482394
+          }
+        },
+        "global_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.05670712338760495,
+            "median": 0.052117619663476944,
+            "p95": 0.08582976423203946
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 12.632448640435475,
+            "median": 12.831777824442153,
+            "p95": 14.33057217797737
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.03886104533557955,
+            "median": 0.030013798736035824,
+            "p95": 0.10140758082270622
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.0745368723757565,
+            "median": 0.06396094337105751,
+            "p95": 0.16470489129424096
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -2.879528760910034,
+            "median": -2.95454740524292,
+            "p95": -2.1000278592109662
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -3.861651909351349,
+            "median": -3.7245211601257324,
+            "p95": -2.7793242096900923
+          },
+          "steps": {
+            "count": 20,
+            "mean": 17.2,
+            "median": 13.0,
+            "p95": 34.2
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": -0.30102469304172186,
+            "median": -0.10231232511331612,
+            "p95": 0.292050024432701
+          }
+        },
+        "bilinear2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.03558840688783675,
+            "median": 0.03214462660253048,
+            "p95": 0.06731367409229279
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 15.096520340377173,
+            "median": 14.942208627256381,
+            "p95": 18.216923543841208
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.04175558272763737,
+            "median": 0.0291464077308774,
+            "p95": 0.10537517182528973
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.029428779846057296,
+            "median": 0.0226674135774374,
+            "p95": 0.05402133949100972
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -2.879528760910034,
+            "median": -2.95454740524292,
+            "p95": -2.1000278592109662
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -3.89188038110733,
+            "median": -3.7921948432922363,
+            "p95": -2.83989734649658
+          },
+          "steps": {
+            "count": 20,
+            "mean": 28.2,
+            "median": 30.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.3036952324248334,
+            "median": 0.27741763214388837,
+            "p95": 0.6111608129944552
+          }
+        },
+        "region2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.02977938186377287,
+            "median": 0.020362223498523235,
+            "p95": 0.06909580565989018
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 16.31530968420025,
+            "median": 16.91324997122236,
+            "p95": 19.837865454697678
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.034479992485285035,
+            "median": 0.018140493892133236,
+            "p95": 0.10166455283761025
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.02508605138864368,
+            "median": 0.02272710297256708,
+            "p95": 0.05264812726527453
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -2.8795286893844603,
+            "median": -2.9545481204986572,
+            "p95": -2.1000278592109662
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -3.9521265268325805,
+            "median": -3.8005090951919556,
+            "p95": -2.867301249504087
+          },
+          "steps": {
+            "count": 20,
+            "mean": 27.4,
+            "median": 29.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.4046911812444805,
+            "median": 0.5420742395950919,
+            "p95": 0.7907095259340708
+          }
+        },
+        "oracle_best_energy_checkpoint": {
+          "mse": {
+            "count": 20,
+            "mean": 0.0279897999484092,
+            "median": 0.017068066634237766,
+            "p95": 0.06647267974913121
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 16.66663023203636,
+            "median": 17.681049900841803,
+            "p95": 21.65615955269145
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.03429858128329215,
+            "median": 0.017334358766674995,
+            "p95": 0.10166830644011499
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.02168801159132272,
+            "median": 0.019781394861638546,
+            "p95": 0.04801219068467617
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -2.8795286893844603,
+            "median": -2.9545481204986572,
+            "p95": -2.1000278592109662
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -3.8813433408737184,
+            "median": -3.786939024925232,
+            "p95": -2.8504943013191197
+          },
+          "steps": {
+            "count": 20,
+            "mean": 15.65,
+            "median": 12.5,
+            "p95": 38.1
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.4612302554278539,
+            "median": 0.5420742395950919,
+            "p95": 0.8106856181832114
+          }
+        }
+      },
+      "quadrants": {
+        "identity": {
+          "mse": {
+            "count": 20,
+            "mean": 0.052509377081878486,
+            "median": 0.050863465294241905,
+            "p95": 0.08393883369863034
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 13.251092029824079,
+            "median": 12.944793310561053,
+            "p95": 15.237956413151572
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.07028060336597264,
+            "median": 0.06065604276955128,
+            "p95": 0.13154108300805092
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.03473814679309726,
+            "median": 0.03431098163127899,
+            "p95": 0.056657508946955204
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.651221497783311,
+            "median": 5.816362521231419,
+            "p95": 14.577882101183134
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 7.651221497783311,
+            "median": 5.816362521231419,
+            "p95": 14.577882101183134
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          }
+        },
+        "region2_direct": {
+          "mse": {
+            "count": 20,
+            "mean": 0.02974616759456694,
+            "median": 0.023208176717162132,
+            "p95": 0.05613643825054169
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 16.1941997312047,
+            "median": 16.343707503675503,
+            "p95": 18.903018291083097
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.04403177814383526,
+            "median": 0.03639056161046028,
+            "p95": 0.0844425916671753
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.015460556925972924,
+            "median": 0.012789171189069748,
+            "p95": 0.03641109615564348
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.651221497783311,
+            "median": 5.816362521231419,
+            "p95": 14.577882101183134
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.9058881461935806,
+            "median": 0.39740073445341656,
+            "p95": 7.766633617585979
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.46055169069449015,
+            "median": 0.4845008950066138,
+            "p95": 0.6877404319355147
+          }
+        },
+        "region2_discrete_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.026447087415726857,
+            "median": 0.022398260422050953,
+            "p95": 0.04877083320170641
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 16.653103431911074,
+            "median": 16.5016494627609,
+            "p95": 20.175452273958445
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.03553286075039068,
+            "median": 0.029060826636850834,
+            "p95": 0.07505396232008935
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.01736131260404363,
+            "median": 0.015553480479866266,
+            "p95": 0.03641109988093378
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.651221497783311,
+            "median": 5.816362521231419,
+            "p95": 14.577882101183134
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.040786496626814,
+            "median": 0.24966708416600447,
+            "p95": 3.8747095166209435
+          },
+          "steps": {
+            "count": 20,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5149232024173438,
+            "median": 0.5570097579970096,
+            "p95": 0.7262470704709885
+          }
+        },
+        "region2_ttt_projected": {
+          "mse": {
+            "count": 20,
+            "mean": 0.02572387346881442,
+            "median": 0.019676292315125465,
+            "p95": 0.05025923941284418
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 16.8530151641441,
+            "median": 17.08086323025789,
+            "p95": 20.00075316647252
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.03446132183453301,
+            "median": 0.025603679940104485,
+            "p95": 0.07505396232008935
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.01698642465053126,
+            "median": 0.015807974617928267,
+            "p95": 0.03557834587991239
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.651221497783311,
+            "median": 5.816362521231419,
+            "p95": 14.577882101183134
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.0386644325549081,
+            "median": 0.24370300456665558,
+            "p95": 3.8745931888537517
+          },
+          "steps": {
+            "count": 20,
+            "mean": 32.8,
+            "median": 40.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5286394834343137,
+            "median": 0.5382859589251834,
+            "p95": 0.761017089399546
+          }
+        },
+        "fixed_step_source": {
+          "mse": {
+            "count": 20,
+            "mean": 0.02609899378148839,
+            "median": 0.020085524767637253,
+            "p95": 0.05033350959420204
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 16.780685876648366,
+            "median": 16.99675391664703,
+            "p95": 20.113249154010752
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.034811644082947166,
+            "median": 0.025885681621730328,
+            "p95": 0.07505396232008935
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.017386344564147293,
+            "median": 0.01578546455129981,
+            "p95": 0.035381473414599914
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": 7.651221497783311,
+            "median": 5.816362521231419,
+            "p95": 14.577882101183134
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": 1.0791393769531703,
+            "median": 0.24335727004929608,
+            "p95": 3.8925463921315377
+          },
+          "steps": {
+            "count": 20,
+            "mean": 14.3,
+            "median": 16.0,
+            "p95": 16.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.5212788621060092,
+            "median": 0.5285038274585332,
+            "p95": 0.7458054727894969
+          }
+        },
+        "global_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.05649861022830009,
+            "median": 0.05363423749804497,
+            "p95": 0.08852559216320516
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 12.877546279327316,
+            "median": 12.706853696190507,
+            "p95": 15.722768145056031
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.03157681729644537,
+            "median": 0.02085491642355919,
+            "p95": 0.09391821697354319
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.08142040334641934,
+            "median": 0.06954900547862053,
+            "p95": 0.16851356700062753
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -3.2305551767349243,
+            "median": -2.932663679122925,
+            "p95": -2.4375018596649167
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -4.598474359512329,
+            "median": -4.344721555709839,
+            "p95": -2.9234510779380796
+          },
+          "steps": {
+            "count": 20,
+            "mean": 17.1,
+            "median": 12.0,
+            "p95": 37.150000000000006
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": -0.1516007244252987,
+            "median": -0.1941464098519039,
+            "p95": 0.32385837579903587
+          }
+        },
+        "bilinear2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.038351074093952775,
+            "median": 0.03558104299008846,
+            "p95": 0.06358858980238438
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 14.714134534387686,
+            "median": 14.519893586088592,
+            "p95": 17.701133630161202
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.04623708541039377,
+            "median": 0.0421177614480257,
+            "p95": 0.08488890193402768
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.03046506135724485,
+            "median": 0.029414046555757523,
+            "p95": 0.05741996988654137
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -3.2305551767349243,
+            "median": -2.932663679122925,
+            "p95": -2.4375018596649167
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -4.512860906124115,
+            "median": -4.103492021560669,
+            "p95": -3.2815643191337585
+          },
+          "steps": {
+            "count": 20,
+            "mean": 30.75,
+            "median": 33.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.27089889058028543,
+            "median": 0.29777880222193986,
+            "p95": 0.4544250792620438
+          }
+        },
+        "region2_ttt_energy": {
+          "mse": {
+            "count": 20,
+            "mean": 0.031882728729397056,
+            "median": 0.0247931107878685,
+            "p95": 0.06054327208548784
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 15.729771734146786,
+            "median": 16.06224405795144,
+            "p95": 18.4172523695212
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.038496258633676915,
+            "median": 0.027717694640159607,
+            "p95": 0.0767510298639536
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.025269197882153094,
+            "median": 0.020514151081442833,
+            "p95": 0.05617077965289354
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -3.2305549502372743,
+            "median": -2.932663917541504,
+            "p95": -2.4375018596649167
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -4.313732028007507,
+            "median": -4.012504577636719,
+            "p95": -3.1159151077270506
+          },
+          "steps": {
+            "count": 20,
+            "mean": 27.65,
+            "median": 28.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.39723617468563815,
+            "median": 0.4035844444974646,
+            "p95": 0.6398129430074693
+          }
+        },
+        "oracle_best_energy_checkpoint": {
+          "mse": {
+            "count": 20,
+            "mean": 0.029932647151872514,
+            "median": 0.02330929320305586,
+            "p95": 0.05454674325883389
+          },
+          "psnr_db": {
+            "count": 20,
+            "mean": 16.040176028721703,
+            "median": 16.32492168560104,
+            "p95": 19.62491424808038
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 20,
+            "mean": 0.03757661405834369,
+            "median": 0.026339936070144176,
+            "p95": 0.0764048408716917
+          },
+          "bright_region_mse": {
+            "count": 20,
+            "mean": 0.022288679011398926,
+            "median": 0.02029501274228096,
+            "p95": 0.05240200739353895
+          },
+          "loss_before": {
+            "count": 20,
+            "mean": -3.2305549502372743,
+            "median": -2.932663917541504,
+            "p95": -2.4375018596649167
+          },
+          "loss_after": {
+            "count": 20,
+            "mean": -4.238984942436218,
+            "median": -3.9519500732421875,
+            "p95": -2.9743248581886292
+          },
+          "steps": {
+            "count": 20,
+            "mean": 12.7,
+            "median": 11.5,
+            "p95": 21.65000000000001
+          },
+          "recovery_ratio": {
+            "count": 20,
+            "mean": 0.43738950295541057,
+            "median": 0.4474226720782826,
+            "p95": 0.7001386437026496
+          }
+        }
+      },
+      "heterogeneous": {
+        "identity": {
+          "mse": {
+            "count": 40,
+            "mean": 0.05239396221004426,
+            "median": 0.0513109490275383,
+            "p95": 0.08539818972349167
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 13.253166213046931,
+            "median": 12.898121760806713,
+            "p95": 15.237956413151549
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.07009388614678755,
+            "median": 0.06276976503431797,
+            "p95": 0.13127920329570766
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.03470378532074392,
+            "median": 0.03475531376898289,
+            "p95": 0.056657508946955204
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": 7.6428409403547315,
+            "median": 6.470593425766738,
+            "p95": 16.873099924405196
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": 7.6428409403547315,
+            "median": 6.470593425766738,
+            "p95": 16.873099924405196
+          },
+          "steps": {
+            "count": 40,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0
+          }
+        },
+        "region2_direct": {
+          "mse": {
+            "count": 40,
+            "mean": 0.029280140093760565,
+            "median": 0.02303450647741556,
+            "p95": 0.05613643825054168
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 16.302750390683585,
+            "median": 16.376210914026963,
+            "p95": 20.716674744426413
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.04251215050171595,
+            "median": 0.03483843244612217,
+            "p95": 0.08444259166717528
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.01605142738262657,
+            "median": 0.012789171189069748,
+            "p95": 0.03649447709321971
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": 7.6428409403547315,
+            "median": 6.470593425766738,
+            "p95": 16.873099924405196
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": 2.019904548241804,
+            "median": 0.41867702895784886,
+            "p95": 10.550897595033316
+          },
+          "steps": {
+            "count": 40,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": 0.4684964713749695,
+            "median": 0.4844609215366951,
+            "p95": 0.7617804938031614
+          }
+        },
+        "region2_discrete_projected": {
+          "mse": {
+            "count": 40,
+            "mean": 0.025414366400218567,
+            "median": 0.020136459730565548,
+            "p95": 0.0487708332017064
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 16.911425813240335,
+            "median": 16.967230430940617,
+            "p95": 22.3556098595415
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.03336504301532841,
+            "median": 0.026859458535909653,
+            "p95": 0.07505396232008933
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.017464706458849833,
+            "median": 0.015354279428720474,
+            "p95": 0.03619933668524022
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": 7.6428409403547315,
+            "median": 6.470593425766738,
+            "p95": 16.873099924405196
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": 1.1237784447916128,
+            "median": 0.21973381287165059,
+            "p95": 4.881000580905065
+          },
+          "steps": {
+            "count": 40,
+            "mean": 0,
+            "median": 0.0,
+            "p95": 0.0
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": 0.5319549407139138,
+            "median": 0.5528595464012165,
+            "p95": 0.7933002284488154
+          }
+        },
+        "region2_ttt_projected": {
+          "mse": {
+            "count": 40,
+            "mean": 0.024528346108854748,
+            "median": 0.017713644541800022,
+            "p95": 0.05025923941284418
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 17.150931719362653,
+            "median": 17.516949825423296,
+            "p95": 21.846486763905165
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.03201941798452026,
+            "median": 0.020313763990998268,
+            "p95": 0.07505396232008933
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.017038051836425438,
+            "median": 0.015190335921943188,
+            "p95": 0.035916564986109685
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": 7.6428409403547315,
+            "median": 6.470593425766738,
+            "p95": 16.873099924405196
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": 1.2793671794462564,
+            "median": 0.21973236542234326,
+            "p95": 5.62881169094516
+          },
+          "steps": {
+            "count": 40,
+            "mean": 34.075,
+            "median": 40.0,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": 0.5488325152708097,
+            "median": 0.5914765458486283,
+            "p95": 0.8222408274286784
+          }
+        },
+        "fixed_step_source": {
+          "mse": {
+            "count": 40,
+            "mean": 0.02485144789679907,
+            "median": 0.01778025459498167,
+            "p95": 0.05033350959420203
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 17.075972754786175,
+            "median": 17.500738905080325,
+            "p95": 21.457257497636
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.032425002527998,
+            "median": 0.020937043242156506,
+            "p95": 0.07505396232008933
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.017279047530610114,
+            "median": 0.014969032257795334,
+            "p95": 0.035916564986109685
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": 7.6428409403547315,
+            "median": 6.470593425766738,
+            "p95": 16.873099924405196
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": 1.304168163797074,
+            "median": 0.22220515867467833,
+            "p95": 5.644983925778124
+          },
+          "steps": {
+            "count": 40,
+            "mean": 14.625,
+            "median": 16.0,
+            "p95": 16.0
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": 0.5421331525869568,
+            "median": 0.5868486869902491,
+            "p95": 0.8151764002382965
+          }
+        },
+        "global_ttt_energy": {
+          "mse": {
+            "count": 40,
+            "mean": 0.056602866807952526,
+            "median": 0.05293866619467735,
+            "p95": 0.08830453418195247
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 12.754997459881395,
+            "median": 12.762552524535588,
+            "p95": 15.18511138278903
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.03521893131601246,
+            "median": 0.02541287336498499,
+            "p95": 0.10140758082270622
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.07797863786108791,
+            "median": 0.06844136118888855,
+            "p95": 0.16836713179945945
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": -3.0550419688224792,
+            "median": -2.932663679122925,
+            "p95": -2.2798160791397097
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": -4.230063134431839,
+            "median": -3.908599615097046,
+            "p95": -2.879951977729798
+          },
+          "steps": {
+            "count": 40,
+            "mean": 17.15,
+            "median": 12.0,
+            "p95": 37.05
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": -0.22631270873351028,
+            "median": -0.12699881446642858,
+            "p95": 0.32177724207646735
+          }
+        },
+        "bilinear2_ttt_energy": {
+          "mse": {
+            "count": 40,
+            "mean": 0.03696974049089476,
+            "median": 0.032963989302515984,
+            "p95": 0.06731367409229277
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 14.905327437382429,
+            "median": 14.825329403209615,
+            "p95": 18.216923543841197
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.043996334069015576,
+            "median": 0.030678550712764263,
+            "p95": 0.09092799797654148
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.02994692060165107,
+            "median": 0.027426625601947308,
+            "p95": 0.057419969886541355
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": -3.0550419688224792,
+            "median": -2.932663679122925,
+            "p95": -2.2798160791397097
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": -4.202370643615723,
+            "median": -4.049282789230347,
+            "p95": -2.991520261764527
+          },
+          "steps": {
+            "count": 40,
+            "mean": 29.475,
+            "median": 31.5,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": 0.2872970615025594,
+            "median": 0.28061859762254343,
+            "p95": 0.5973987608789861
+          }
+        },
+        "region2_ttt_energy": {
+          "mse": {
+            "count": 40,
+            "mean": 0.030831055296584964,
+            "median": 0.023238358087837696,
+            "p95": 0.0614178270101547
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 16.02254070917352,
+            "median": 16.338311503477566,
+            "p95": 19.83786545469767
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.03648812555948098,
+            "median": 0.021411731839179993,
+            "p95": 0.09636760763823984
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.02517762463539839,
+            "median": 0.021077792160212994,
+            "p95": 0.05614545624703169
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": -3.0550418198108673,
+            "median": -2.932663917541504,
+            "p95": -2.2798160791397097
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": -4.132929277420044,
+            "median": -3.892479419708252,
+            "p95": -3.0186563372612003
+          },
+          "steps": {
+            "count": 40,
+            "mean": 27.525,
+            "median": 28.5,
+            "p95": 40.0
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": 0.40096367796505933,
+            "median": 0.46638275976248894,
+            "p95": 0.7702470904044296
+          }
+        },
+        "oracle_best_energy_checkpoint": {
+          "mse": {
+            "count": 40,
+            "mean": 0.028961223550140858,
+            "median": 0.02091111335903406,
+            "p95": 0.06127976775169371
+          },
+          "psnr_db": {
+            "count": 40,
+            "mean": 16.353403130379032,
+            "median": 16.796229336108407,
+            "p95": 21.65615955269145
+          },
+          "clean_drift_mse": {
+            "count": 0,
+            "mean": null,
+            "median": null,
+            "p95": null
+          },
+          "dark_region_mse": {
+            "count": 40,
+            "mean": 0.035937597670817924,
+            "median": 0.021411731839179993,
+            "p95": 0.08979001678526398
+          },
+          "bright_region_mse": {
+            "count": 40,
+            "mean": 0.021988345301360825,
+            "median": 0.019781394861638546,
+            "p95": 0.05219024419784546
+          },
+          "loss_before": {
+            "count": 40,
+            "mean": -3.0550418198108673,
+            "median": -2.932663917541504,
+            "p95": -2.2798160791397097
+          },
+          "loss_after": {
+            "count": 40,
+            "mean": -4.060164141654968,
+            "median": -3.880569815635681,
+            "p95": -2.9743248581886292
+          },
+          "steps": {
+            "count": 40,
+            "mean": 14.175,
+            "median": 12.0,
+            "p95": 34.19999999999999
+          },
+          "recovery_ratio": {
+            "count": 40,
+            "mean": 0.44930987919163223,
+            "median": 0.48966927773945906,
+            "p95": 0.7978894763250757
+          }
+        }
+      }
+    },
+    "values": {
+      "positive_cosine_fraction": 0.6923076923076923,
+      "median_cosine": 0.2476488006325565,
+      "clean_p95": 0.003968007455114277,
+      "dark_ratio": 0.572854301476039,
+      "bright_ratio": 0.5844024470315694,
+      "discrete_ratio": 1.2131349179068975,
+      "fixed_step_ratio": 1.2406140448885508
+    },
+    "criteria": {
+      "gradient_positive": false,
+      "gradient_median": false,
+      "clean_p95": true,
+      "homogeneous_dark": true,
+      "homogeneous_bright": true,
+      "beyond_discrete": false,
+      "beyond_fixed_step": false
+    },
+    "passes": false,
+    "failed": [
+      "gradient_positive",
+      "gradient_median",
+      "beyond_discrete",
+      "beyond_fixed_step"
+    ],
+    "alignment_count": 78,
+    "oracle": {
+      "oracle_regret_ratio": 1.0645632855672291,
+      "oracle_over_discrete": 1.1395611086291644,
+      "oracle_over_fixed16": 1.1653736905152772,
+      "oracle_beats_discrete_5pct": false,
+      "oracle_beats_fixed16_5pct": false
+    }
+  },
+  "fixed_step_source": 16,
+  "model_identity": {
+    "model": "ViT-B-32",
+    "pretrained": "laion2b_s34b_b79k",
+    "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t004/open_clip_pytorch_model.bin",
+    "sha256": "1bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad",
+    "bytes": 605219813,
+    "source_url": "https://huggingface.co/laion/CLIP-ViT-B-32-laion2B-s34B-b79K/resolve/main/open_clip_pytorch_model.bin",
+    "pretrained_config": {
+      "url": "",
+      "hf_hub": "laion/CLIP-ViT-B-32-laion2B-s34B-b79K/",
+      "mean": [
+        0.48145466,
+        0.4578275,
+        0.40821073
+      ],
+      "std": [
+        0.26862954,
+        0.26130258,
+        0.27577711
+      ],
+      "interpolation": "bicubic",
+      "resize_mode": "shortest"
+    }
+  },
+  "frozen_gate_receipt": {
+    "q_joint": 1.053775168916056,
+    "image_ids": [
+      289415,
+      292155,
+      295420,
+      297681,
+      301376,
+      302760,
+      308793,
+      309964,
+      311950,
+      314294,
+      317024,
+      321333,
+      336587,
+      343706,
+      345252,
+      348481,
+      351810,
+      352900,
+      355817,
+      359219
+    ],
+    "image_maxima": [
+      0.966900133007273,
+      -0.42415040266456433,
+      0.003417587300990481,
+      1.045022610029266,
+      -0.00017987301584160425,
+      -1.4139439068289226,
+      -0.23478663853396337,
+      -1.0733080170485656,
+      -0.4727151148567779,
+      1.2200737877650598,
+      -0.5922590465609983,
+      0.23499348878693455,
+      -0.7935831789525812,
+      -0.5361569928382042,
+      0.009407697409344405,
+      0.8233528443629119,
+      0.12757529503753332,
+      -0.585677928197646,
+      -1.1529738087621342,
+      -0.7646620006011516
+    ],
+    "percentile": 95,
+    "interpolation": "linear",
+    "evidence_dtype": "float64",
+    "calibration": {
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "scale": [
+        0.07507099353490992,
+        0.057845398696933635
+      ],
+      "image_ids": [
+        289415,
+        292155,
+        295420,
+        297681,
+        301376,
+        302760,
+        308793,
+        309964,
+        311950,
+        314294,
+        317024,
+        321333,
+        336587,
+        343706,
+        345252,
+        348481,
+        351810,
+        352900,
+        355817,
+        359219
+      ],
+      "view_count": 100,
+      "percentile": 95,
+      "std_correction": 0,
+      "scale_floor": 0.01
+    },
+    "prototype_identity": {
+      "sha256": "b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7",
+      "bytes": 20201,
+      "frozen": true,
+      "training_steps": 500
+    },
+    "t006_calibration_scores_sha256": "85a2c7835a9478556f4c71e6a15475e0e205ed015db7a8c1e8834972d93d8b3e",
+    "model_identity": {
+      "model": "ViT-B-32",
+      "pretrained": "laion2b_s34b_b79k",
+      "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t004/open_clip_pytorch_model.bin",
+      "sha256": "1bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad",
+      "bytes": 605219813,
+      "source_url": "https://huggingface.co/laion/CLIP-ViT-B-32-laion2B-s34B-b79K/resolve/main/open_clip_pytorch_model.bin",
+      "pretrained_config": {
+        "url": "",
+        "hf_hub": "laion/CLIP-ViT-B-32-laion2B-s34B-b79K/",
+        "mean": [
+          0.48145466,
+          0.4578275,
+          0.40821073
+        ],
+        "std": [
+          0.26862954,
+          0.26130258,
+          0.27577711
+        ],
+        "interpolation": "bicubic",
+        "resize_mode": "shortest"
+      }
+    }
+  },
+  "t011_frozen_source": "c7ac47a7b43e5cf12f435a8e3be1035898569534",
+  "t012_fixed_baseline_source": "61b7eb6875343a887b2e55afc96819bab51d60ab"
+}

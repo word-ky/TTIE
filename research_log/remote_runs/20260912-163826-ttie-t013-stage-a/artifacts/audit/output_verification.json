@@ -1,0 +1,29 @@
+{
+  "task": "T013",
+  "stage": "A",
+  "all_hashes_verified": true,
+  "all_stored_mse_recomputed_exact": true,
+  "train_only_normalization_exact": true,
+  "features_recomputed_exact": true,
+  "energy_scores_selection_exact": true,
+  "summary_alignment_recomputed_exact": true,
+  "passes": false,
+  "failed": [
+    "gradient_positive",
+    "gradient_median",
+    "beyond_discrete",
+    "beyond_fixed_step"
+  ],
+  "hashed_files": 3000,
+  "large_image_bytes": 80026086548,
+  "training_inputs": 400,
+  "training_states": 7530,
+  "calibration_inputs": 100,
+  "energy_checkpoints": 10020,
+  "energy_updates": 9720,
+  "semantic_checkpoints": 2789,
+  "inactive_region_checks": 14160,
+  "no_active_inputs": 19,
+  "inherited_direct_roundoff_regions": 422,
+  "inherited_direct_max_abs_roundoff": 5.960464477539063e-08
+}
