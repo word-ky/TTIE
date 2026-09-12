@@ -827,3 +827,62 @@ Learned trajectories haveexact40Adamupdates whenactive, no semantic or negative-
 Added energy_model/bank/ttt/io/metrics/receipt/pilot, stagedpreparation/runner and10tests. Baseline105pass49.209s. Focusedcore4pass10.289s; oldtraining2pass10.454s; evidence3pass11.804s; tinyend-to-endpilot3pass35.566s. Two pre-run test failures repaired and preserved: an incorrect fixture quadrant slice, and an old evaluator default discrete-method name. No criterion weakening or scientific outcome tuning. ExistingNVMLwarning/CUDA backward nondeterminism remain; actualCUDAworks, CPU/CUDAenergyfixture tested. No strictbitwiseCUDATTTrepeatclaim.
 
 StageA always stops aftercalibration. Sevenclauses exactlyinbox. If anyfails, nofreshmanifest/tuning. Ifallpass, commitenergy+receipt, verifyactualGitblobandallsource/head/schema/recipe/bank/model/gateidentities, onlythen prepare/commitnext40freshmanifest before scoring. StageB11clauses,offsetstressreport-only. No detector/meta/ViT3/prompt/learnedbasis. Continue exactrun; fullfinalevidence/PRwillfollow. Implementationcontract/recoverylog research_log/T013.md.
+
+## 2026-09-12T09:23:52.4934581Z — T013 DONE: controlled negative Stage A (3/7), no Stage B
+
+PR: https://github.com/word-ky/TTIE/pull/13. Branch `codex/T013-learned-restoration-energy`; frozen experimental source+manifest `b6642ad6358045cb60296a71d1be72e2525833d2`; implementation `02933ed665692036ea17bbe4ed9c67e48ca314d6`; full evidence commit `41ca21fbd6f1029e114f30d0b4734229c90294c5`. Interim research-lead review `9a847735c2a53e1be50ff6f094fcc6ae8fdea36e` accepted the frozen implementation; its requested cosine/selected-step distributions are included below and in saved artifacts. No scientific code changed after the frozen source.
+
+Run `20260912-163826-ttie-t013-stage-a`, release `20260912-163818-ttie-t013-stage-a`, exited 0 at **2026-09-12T09:05:19Z**. Command: `CUDA_VISIBLE_DEVICES=1 bash scripts/run_t013_a6000.sh A b6642ad6358045cb60296a71d1be72e2525833d2`. Physical second A6000; unrelated first-GPU job preserved. Source 80 train + 20 calibration images exclude all 408 prior IDs. Manifest SHA256 `101ba5ed775c0a15002fdd3be3a01874b9dbbfb98242784e865de4e2ff9060e7`. All 100 now permanent development; future decisive exclusions total 508. **No fresh T013 manifest was created/read, no Stage B was scored, and no tuning or experimental rerun followed the failed source gate.**
+
+Implementation: new energy_model/bank/ttt/io/metrics/receipt/pilot, staged preparation/runner and 10 tests. Reuse unchanged T011 gate/scorer/geometry/renderers/semantic/direct/discrete controls and T012 source-training loop via optional dimension/activation/model factory with original defaults preserved. The 28-feature SiLU MLP receives only original gate constants, current differentiable exposure evidence and current EV/gamma; test-time APIs reject clean references, labels, condition IDs, masks/gains, annotations and image IDs. All label-free trajectories/energies/gradients/outputs/decisions/hashes precede reference metrics and offline gradient diagnostics.
+
+Fixed training: 400 episodes / 7,530 bank rows (310 active with 24 states; 90 all-inactive identity-only). Predeclared identity/direct/discrete + semantic1/4/8/16/40 + Sobol0..15 bank, duplicates retained, no outcome sampling. MLP28→64→64→1 SiLU, train-only population normalization, constant scales1, Huber delta1, AdamW lr1e-3/wd1e-4, batch256, 100epochs, seed7, finalepoch only. CPU one-thread training; Huber epoch1 .19657343623251872, epoch100 .026784924789273724. Energy SHA256 `43181ee022bfa845d7b3433546a3d8d9899f2b253b4e1296dc826d784119fd47`, frozen before calibration and unchanged afterward. Failed receipt/head remain under the actual run audit directory, not approved Stage-B assets.
+
+Learned-energy methods execute exactly40 projected Adam updates whenever active and select the minimum saved energy, exact ties earliest. All-inactive images return exact identity with zero updates. Global repeats its physical state into four feature slots and uses the same head. Original semantic fixed16 is frozen, not reselected. Full generation precedes checkpoint selection; no early-exit compute-saving claim.
+
+| Stage-A clause | Observed | Required | Result |
+|---|---:|---:|---|
+| positive_cosine_fraction | 0.6923076923076923 | >=.80 | Fail |
+| median_cosine | 0.2476488006325565 | >=.50 | Fail |
+| clean_p95 | 0.003968007455114277 | <=.005 | Pass |
+| dark_ratio | 0.572854301476039 | <=.65 | Pass |
+| bright_ratio | 0.5844024470315694 | <=.65 | Pass |
+| discrete_ratio | 1.213134917906898 | <=.95 | Fail |
+| fixed_step_ratio | 1.240614044888551 | <=.95 | Fail |
+
+Complete calibration MSE table (20 images per condition, 40 pooled heterogeneous episodes):
+
+| Method | Clean mean | Clean p95 | Dark | Bright | Left/right | Quadrants | Heterogeneous |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| identity | 0 | 0 | 0.07090148674 | 0.03550040533 | 0.05227854734 | 0.05250937708 | 0.05239396221 |
+| region2_direct | 0.0003580142293 | 0.002195431397 | 0.04619118213 | 0.01495253687 | 0.02881411259 | 0.02974616759 | 0.02928014009 |
+| region2_discrete_projected | 0.0002250165126 | 0.001926385047 | 0.03850329822 | 0.0170983312 | 0.02438164538 | 0.02644708742 | 0.0254143664 |
+| region2_ttt_projected | 0.0002433263464 | 0.001614168432 | 0.03771898496 | 0.01695556743 | 0.02333281875 | 0.02572387347 | 0.02452834611 |
+| fixed_step_source | 0.0002258391061 | 0.001609582611 | 0.03795582632 | 0.01693880806 | 0.02360390201 | 0.02609899378 | 0.0248514479 |
+| global_ttt_energy | 0.001887541986 | 0.01155345528 | 0.03810952195 | 0.0228124499 | 0.05670712339 | 0.05649861023 | 0.05660286681 |
+| bilinear2_ttt_energy | 0.0004267005861 | 0.002108949661 | 0.04155886973 | 0.01807357124 | 0.03558840689 | 0.03835107409 | 0.03696974049 |
+| region2_ttt_energy | 0.0005608959938 | 0.003968007455 | 0.04061622166 | 0.02074652375 | 0.02977938186 | 0.03188272873 | 0.0308310553 |
+| oracle_best_energy_checkpoint | 5.05107493e-18 | 3.697868742e-17 | 0.03977664447 | 0.01756313323 | 0.02798979995 | 0.02993264715 | 0.02896122355 |
+
+Primary heterogeneous MSE `.030831055296584964`: 41.16% better than identity, but **21.31% worse than projected discrete**, **24.06% worse than fixed16**, **25.70% worse than old semantic final**, and 5.30% worse than direct. Clean p95 and homogeneous dark/bright safety/utility pass. These within-split controls prevent treating a gain over identity or the weak global-energy control as qualification.
+
+**Oracle diagnosis:** reference-only best-energy-checkpoint MSE `.028961223550140858`; learned/oracle `1.0645632855672291`. Even perfect selection on these new saved checkpoints is **13.96% worse than discrete** (ratio `1.1395611086291644`), **16.54% worse than fixed16** (`1.1653736905152772`) and **18.07% worse than old semantic final** (`1.1807246775470865`). Both requested oracle-versus-baseline5% diagnostics are false. Thus selection error is present, but fixing selection alone cannot meet the required restoration margins on these trajectories.
+
+Gradient cosine uses every active non-clean calibration episode and all eight raw Region2 coordinates at identity. The energy vector is the actually persisted first-update gradient; the reference log-MSE gradient is computed only offline after persistence. Zero-norm vectors count as cosine0/nonpositive (none observed). Full78raw pairs are retained. **54 positive / 24 negative / 0 zero**, mean `.21138412638500492`, min/max `-.9569045485274166` / `.9874440244351873`; P10/P25/median/P75/P90 = `-.6131000503721937 / -.14838803743895732 / .2476488006325565 / .6735466077677272 / .902599307897006`. Bins [-1,-.5),[-.5,0),[0,.5),[.5,1] contain10/14/28/26. By condition: dark16/19positive, median.262895076; bright12/19, median.275691037; LR13/20, median.386743944; quadrants13/20, median.092901887. Full per-condition distributions in distributions.json/.md.
+
+Primary selected steps (step:count; no-active bypass count separate):
+- clean: `{'0': 17, '13': 1, '36': 1, '40': 1}`; no-active bypass 17.
+- homogeneous_dark: `{'0': 1, '12': 2, '13': 1, '14': 1, '20': 1, '23': 1, '24': 1, '26': 1, '27': 2, '28': 1, '32': 1, '33': 1, '36': 1, '40': 5}`; no-active bypass 1.
+- homogeneous_bright: `{'0': 1, '12': 1, '22': 1, '27': 1, '29': 2, '30': 1, '31': 1, '33': 1, '34': 2, '35': 1, '37': 2, '38': 1, '39': 1, '40': 4}`; no-active bypass 1.
+- left_right: `{'12': 5, '13': 1, '20': 1, '23': 1, '24': 1, '28': 1, '30': 1, '32': 1, '39': 2, '40': 6}`; no-active bypass 0.
+- quadrants: `{'14': 3, '18': 1, '23': 1, '24': 1, '25': 1, '26': 2, '27': 1, '29': 2, '31': 1, '32': 1, '33': 1, '34': 1, '36': 1, '38': 1, '40': 2}`; no-active bypass 0.
+
+All19primary step0 selections here are original no-active bypasses; all three active clean episodes select13/36/40. Distributions for global and bilinear energy are also included in distributions.json/.md. This is reporting only, with no change to selection or qualification.
+
+Validation: baseline105tests pass49.209s; focused core4pass10.289s, old training2pass10.454s, evidence3pass11.804s, tiny end-to-end3pass35.566s. **115 local tests pass86.125s;115 A6000 tests pass14.908s**; original calibration scores bitwise equal. Actual audit verifies **3,000 file hashes**, all stored bank/checkpoint/output MSE, features, train-only normalization, frozen-head GPU energy scores/selections, alignment cosines and source summary exactly. Counts:400traininputs/7530states;100calinputs/10020energycheckpoints/9720energyupdates;2789semanticcheckpoints;19no-active calibration inputs;14160strict inactive-region checks. Local **1700 small-file hashes** and energy hash match; all900calibration rows and78alignment records match; summary recomputation differs by at most **5.551115123125783e-17**, same verdict. Five fixed representativeID33638panels inspected; no favorable-image selection.
+
+Failures/details: two pre-run failures were repaired and preserved (wrong fixture quadrant slice; old default discrete-method name in the new evaluator adapter). No gate weakening. Post-run audit found that the source-bank `region2_direct` entry preserves the original T011 unmasked direct renderer: inactive parameters remain EV0/gamma1, but 422inactive-region instances have floating-point pixel drift, max **5.960464477539063e-08**. Every such image exactly replays that historical renderer. All other bank entries and every primary energy checkpoint satisfy strict inactive pixel identity. This qualifies earlier masked-bank shorthand; the exception and original audit assertion are disclosed, not silently normalized. No experimental code/output/target/head changed or reran. Known NVML warning and CUDA backward nondeterminism remain; actual CUDA works, frozen-score selection replay is exact, no strict bitwise repeated-CUDA-trajectory claim.
+
+Evidence: `research_log/T013.md`, `T013_analysis.md`, and `research_log/remote_runs/20260912-163826-ttie-t013-stage-a/` contain full manifests/weights/history/states/features/scores/gradients/projections/decisions/targets/metrics/distributions/figures/tests/environment/run logs and verification receipts. Full large float32 image packs **80,026,086,548 bytes** remain under `/home/wenchang/asdasdsad/wjq/TTIE/runs/20260912-163826-ttie-t013-stage-a/artifacts/audit/`; every path/byte count/SHA is recorded and verified. Only bank_images.pt/checkpoint_images.pt/outputs.pt were excluded from the fetched archive; none deleted. Archive SHA256 `f1b553880a43f5f74cc5a1d500241059577a632e869a5fb79e1f8ca0e204a147` matches remote/local. Preserve tested release; recovery notes mirrored separately under project root.
+
+Recommendation: accept the controlled development negative. This fixed scalar-value regression recipe does not establish sufficiently aligned gradients or better reachable states on the new calibration split. The result does not prove a universal failure of learned energies and has no fresh Stage-B claim. Reconsider derivative supervision, feature sufficiency or source-state coverage only through an explicit new task; these are candidate explanations, not proven diagnoses. No detector/meta/ViT3/prompt/learned-basis/T014 work started. Await research-lead review; do not repeat DONE T013 while the inbox remains OPEN.
