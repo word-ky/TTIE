@@ -577,3 +577,69 @@ T007 acceptance received. T008 implementation/predeclaration source992f7ac8c15a7
 A6000 release20260912-090227-ttie-t008; active run20260912-090231-ttie-t008-a6000, bash scripts/run_t008_a6000.sh. Expected240inputs/1680methodrows. Everyinput's7outputs/decisions persisted before clean-reference evaluation. RepresentativeID139fixed across6conditions. No interimoutcome tuning. Fullprecisionoutputs remainremote withperfilehashes; finalmetrics/trajectories/figures/reportfollow afterfullrun.
 
 Observed nvidia-smi NVMLdriver/library mismatch; actualCUDA tensor operations/model run work. No driver/environmentchanges. Permit previouslyobserved unsupported strictantialiasedbicubic backward, seed7/TF32off, actualcalibration-onlygradientpreflight beforefreshscoring. OriginalT006assets suppliedafterdeploy so *.pt exclusion issue avoided. Continue this exactjob, do notlaunchduplicate. No detector/T009.
+
+---
+
+## 2026-09-12T01:17:10Z — T008 DONE: restoration pilot fails four qualification criteria
+
+**Status: DONE.** PR https://github.com/word-ky/TTIE/pull/8 awaits review. Branch `codex/T008-semantic-spatial-ttt`. Predeclared/tested source **992f7ac8c15a7cb350f027283269f99cfdecf9f0**; experiment evidence **89bdcbf7305d600aa4981e81e7494335325fdcfd**; reporting precision **facf43efb79b44506b906d55d0f0be67c8f70ad2**. Source/manifest/protocol/tests were pushed before fresh outcomes. No detector/T009 or post-outcome tuning.
+
+### Implementation and protocol compliance
+
+Added `semantic_ttt.py`, `restoration_metrics.py`, `restoration_pilot.py`, two focused test files, preparation/run scripts, protocol/manifest, and complete metadata/trajectory/figure receipts. No T001–T007 implementation or tests changed. EVGamma reuses the existing bounded ISP mapping/render path with only 2 global or 8 spatial raw EV/gamma coordinates; WB/contrast remain non-trainable identity. Every episode resets raw parameters and Adam. The original four-quadrant scores/mask/winner are computed once and frozen across all methods. The two-sided hinge remains differentiable through frozen CLIP/prototypes to the ISP. Same fixed direct actions, candidate sets/order/ties, and Adam .03/max40/stop1e-8 as requested.
+
+All seven methods ran for all 40 images and all six conditions. Each input's seven full-precision output/raw/grid tensors and gate/trajectory diagnostics were persisted before condition/reference evaluation. No adaptation/control API accepts clean reference, condition, gain, mask, label or evaluation metric. The exact accepted prototype SHA256 `b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7`, checkpoint, tau/scale and q_joint `1.053775168916056` are unchanged. Scores/ISP float32; normalized loss float64, predeclared.
+
+Complete official COCO val2017 image-only archive obtained because no full directory was available: 815585330 bytes, 5000 JPEGs. No annotations. Numeric filename selection excludes all 188 T004–T007 IDs, requires original min-side >=320, takes first40. Archive/image SHA256, dimensions, URLs and inspected prefix in T008_manifest.json, committed before outcomes. Representative ID139 fixed for every condition. Dataset provenance is now the full official image directory; this small ascending-ID synthetic pilot still does not establish broad generalization.
+
+### Commands, tests and actual run
+
+Local: `D:/anaconda3/python.exe -m unittest discover -s tests -v`, with focused `test_semantic_ttt.py` and `test_restoration_metrics.py` runs. Prior52 baseline tests pass14.899s; new7 invariants pass3.103s; new3 evaluation/manifest tests pass3.082s. **All62 local tests pass8.985s; all62 A6000 tests pass5.693s**, retaining every prior test.
+
+Existing AutoDL deploy/run/log/copy helpers used with project `.autodl/config.json`. Release **20260912-090227-ttie-t008**; run **20260912-090231-ttie-t008-a6000**; command `bash scripts/run_t008_a6000.sh`; exit0 at **2026-09-12T01:11:47Z**. Original T006 audit assets copied into the release after default .pt exclusions before any tests, avoiding the known T007 deployment failure. Data-only download run085514 also exit0. No scientific/runtime failure or experiment rerun.
+
+Actual original source-calibration scores are bitwise identical. Frozen-encoder gradients reach both EV/gamma: raw-gradient norm12.0686569; absolute coordinate sums21.7788200/9.9694595. CLIP/prototypes remain frozen with no .grad or updates. As predeclared from T004's observed limitation, strict deterministic algorithms are disabled for unsupported antialiased-bicubic CUDA backward, seed7/TF32off; repeat gradient max difference **2.52723694e-5**. Do not claim bitwise adaptation repeats. nvidia-smi reports NVML driver/library mismatch, but actual CUDA/model execution works; no drivers/dependencies changed.
+
+Verified **240 input episodes, 1680 unique method rows, 5040 per-input pairwise MSE comparisons, 8565 Adam updates**. All outputs/raw fields/losses/gradients finite and physical fields in bounds. All discrete selections match stored candidate losses and tie rules. All **66 no-active episodes return exact identity** for every method, zero updates. Final frozen assets verified. Local summary/paired recomputation matches saved results exactly; no model rerun.
+
+### Fixed qualification: FAIL
+
+| Criterion | Actual | Verdict |
+|---|---:|---|
+| Clean spatialTTT mean drift <=.001 |.000816900702|PASS|
+| Clean spatialTTT p95 drift <=.005 |.009289116040|FAIL|
+| Homogeneous dark MSE reduction >=10% vs identity |61.25897%|PASS|
+| Homogeneous bright MSE reduction >=10% vs identity |58.70200%|PASS|
+| Pooled heterogeneous MSE reduction >=10% vs identity |16.17631%|PASS|
+| Pooled heterogeneous MSE reduction >=15% vs globalTTT |4.45405%|FAIL|
+| Pooled heterogeneous MSE >=5% lower than spatial direct |14.73464% HIGHER|FAIL|
+| Pooled heterogeneous MSE no more than5% above spatial discrete |14.41182% lower|PASS|
+| Dark-region MSE not >10% worse than identity |30.27282% lower|PASS|
+| Bright-region MSE not >10% worse than identity |13.65144% HIGHER|FAIL|
+| Leakage/immutability |verified|PASS|
+
+Pooled left_right + quadrants, 80 inputs:
+
+| Method | Mean MSE | Mean PSNR dB | Mean per-image recovery |
+|---|---:|---:|---:|
+|identity|.05992154|12.50577|0|
+|global_direct|.06044955|12.45303|-.016079|
+|spatial2_direct|.04377792|13.88546|.255237|
+|global_discrete|.06367791|12.32680|-.140779|
+|spatial2_discrete|.05868620|13.10449|-.044951|
+|global_ttt|.05256994|13.08908|.069117|
+|spatial2_ttt|.05022844|13.64422|.112563|
+
+Gate reductions use ratios of mean MSE; mean per-image recovery is a different statistic and is reported separately. All method/condition means, medians, p95s, PSNR, recovery, region MSE, loss/step statistics and pairwise comparisons are in summary.json/md and paired.json/csv. Perfect reconstruction PSNR is +infinity, stored null with a separate perfect count rather than included as finite PSNR.
+
+Spatial TTT beats spatial direct on30/80 heterogeneous inputs, loses49, ties1. Direct-minus-TTT MSE mean difference is -.006450521294, median -.003865085542. Left-right spatialTTT MSE .04284468 improves over global .05308801, but quadrants spatial .05761221 worsens versus global .05205186. Fixed spatial direct wins both heterogeneous condition means. Spatial discrete is worse than TTT pooled; do not misstate the failed TTT-vs-direct result as a discrete-search win.
+
+### Failure interpretation and artifacts
+
+There is objective utility on homogeneous exposure, but the fixed spatial TTT mechanism fails qualification. Clean gating abstains on37/40 images; the three active clean images (8/160 active quadrants) cause a tail with max drift .012000620365. Heterogeneous gating activates at least one quadrant on79/80 inputs, so the failure is not simply missing all coverage. Spatial TTT reduces heterogeneous semantic loss **6.070292621 -> .660988056**, below spatial direct's1.806699109, yet produces worse reference MSE. Lower frozen-feature loss is not sufficient restoration evidence.
+
+The dark-region MSE improves .081414989335 -> .056768374646, while bright-region MSE worsens .038444179064 -> .043692361377 (+13.65%). This is an observed harmful region tradeoff; it does not uniquely identify whether objective geometry or coupled spatial actions cause it. Smooth-gradient, report-only: spatialTTT MSE .02690429 versus identity .02042468, worse; it does not alter the primary gate.
+
+Full outputs: **240 SHA256-verified tensor packs, 2,883,922,320 bytes**, retained under remote `TTIE/runs/20260912-090231-ttie-t008-a6000/artifacts/audit/episodes/`. Exact paths/bytes/hashes in output_manifest.json; output_verification.json records the audit. All per-episode decisions/trajectories, metrics, paired rows, summaries, config, preflight/final checks, six fixed representative RGB/EV/gamma panels and environment/test/log/run receipts are committed under local `research_log/remote_runs/20260912-090231-ttie-t008-a6000/`. Only the large outputs.pt files are kept remotely rather than duplicated in Git. Metadata bundle fetched through existing SSH/tar/Copy-FromAutodl; archive cached inside project .autodl. No project artifacts depend solely on session memory. Latest T008/REMOTE/HANDOFF notes mirrored under remote project research_log; no active TTIE job remains.
+
+Recommend research-lead review of PR8 and diagnosis of identity-tail damage, insufficient pooled spatial gain, fixed-action competitiveness and bright-region harm before detector coupling. This controlled pilot does not support the required next-stage claim; no threshold/step/field/weight tuning on these40 images. T008 is complete, not a request to bypass its failed gate. Await a new explicitly scoped task. Heartbeat remains15min and will not rerun completed T008 while OPEN persists.
