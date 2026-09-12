@@ -1,0 +1,92 @@
+[
+  {
+    "image_id": 6460,
+    "condition": "quadrants",
+    "method": "direct",
+    "renderer": "bilinear2",
+    "mse": 0.04816154018044472,
+    "dark_mse": 0.08520062267780304,
+    "bright_mse": 0.011122465133666992,
+    "direct_node_grid": [
+      [
+        [
+          [
+            0.0,
+            -0.5
+          ],
+          [
+            -0.5,
+            0.5
+          ]
+        ],
+        [
+          [
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ]
+      ]
+    ],
+    "diagnostic_only": true
+  },
+  {
+    "image_id": 6460,
+    "condition": "quadrants",
+    "method": "oracle",
+    "renderer": "bilinear2",
+    "mse": 0.01615062542259693,
+    "dark_mse": 0.013772562146186829,
+    "bright_mse": 0.018528688699007034,
+    "direct_node_grid": null,
+    "diagnostic_only": true
+  },
+  {
+    "image_id": 6460,
+    "condition": "quadrants",
+    "method": "direct",
+    "renderer": "piecewise2",
+    "mse": 0.04018683731555939,
+    "dark_mse": 0.0707804262638092,
+    "bright_mse": 0.009593244642019272,
+    "direct_node_grid": [
+      [
+        [
+          [
+            0.0,
+            -0.5
+          ],
+          [
+            -0.5,
+            0.5
+          ]
+        ],
+        [
+          [
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ]
+      ]
+    ],
+    "diagnostic_only": true
+  },
+  {
+    "image_id": 6460,
+    "condition": "quadrants",
+    "method": "oracle",
+    "renderer": "piecewise2",
+    "mse": 0.003463358385488391,
+    "dark_mse": 0.0004940502694807947,
+    "bright_mse": 0.006432666443288326,
+    "direct_node_grid": null,
+    "diagnostic_only": true
+  }
+]

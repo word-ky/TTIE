@@ -120,3 +120,5 @@ The held-out audit saves learned/zero-shot scores, decisions and clipping for al
 T007 fixed joint calibration audit: run `bash scripts/run_t007_a6000.sh` with the existing A6000 workflow. Protocol and frozen threshold: `research_log/T007.md` and `research_log/T007_joint_calibration.json`. Reuses T006 saved prototypes, changes activation only, and stops before ISP adaptation.
 
 T008 seven-method semantic restoration pilot: `bash scripts/run_t008_a6000.sh`. Frozen protocol/data provenance: `research_log/T008.md` and `T008_manifest.json`. Supply original T006 audit .pt artifacts after deployment exclusions; all full-precision outputs persist remotely before reference evaluation.
+
+T009 development geometry audit: `bash scripts/run_t009_a6000.sh`; fixed protocol `research_log/T009.md`. Offline reference/oracle APIs are separate from semantic TTT. Generate fixed-ID plots after completion with `python scripts/plot_t009.py <audit-directory>`. Development results do not authorize a new held-out claim.

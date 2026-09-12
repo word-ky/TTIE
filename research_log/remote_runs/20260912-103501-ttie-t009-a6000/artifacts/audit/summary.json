@@ -1,0 +1,6296 @@
+{
+  "groups": {
+    "clean": {
+      "1_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "positive_fraction": null,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 0,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 8,
+          "step1_improves": 0,
+          "final_improves_vs_identity": 0,
+          "last_update_improves_vs_previous": 0.25,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": 0.4336119678399302,
+          "identity_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 9.397044232173357e-05,
+            "median": 0.0
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.0017208234916324728,
+            "median": 0.0
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "identity_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          },
+          "step1_mse_active": {
+            "n": 8,
+            "mean": 0.00046985221160866786,
+            "median": 0.00038078737270552665
+          },
+          "final_mse_active": {
+            "n": 8,
+            "mean": 0.008604117458162364,
+            "median": 0.004605054506100714
+          },
+          "oracle_best_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.0017208234916324728,
+          "median": 0.0
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 0.18986015426630373,
+          "median": 0.0
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "1_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "positive_fraction": null,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 0,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 8,
+          "step1_improves": 0,
+          "final_improves_vs_identity": 0,
+          "last_update_improves_vs_previous": 0.125,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": -0.25037823850606994,
+          "identity_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 5.6090837233568894e-06,
+            "median": 0.0
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.0025493157387245446,
+            "median": 0.0
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "identity_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          },
+          "step1_mse_active": {
+            "n": 8,
+            "mean": 2.8045418616784445e-05,
+            "median": 2.7442020837042946e-05
+          },
+          "final_mse_active": {
+            "n": 8,
+            "mean": 0.012746578693622723,
+            "median": 0.009890172630548477
+          },
+          "oracle_best_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.0025493157387245446,
+          "median": 0.0
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 0.18951214032851332,
+          "median": 0.0
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "1_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "positive_fraction": null,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 0,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 8,
+          "step1_improves": 0,
+          "final_improves_vs_identity": 0,
+          "last_update_improves_vs_previous": 0.25,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": 0.14302672196551008,
+          "identity_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.0001004986075713532,
+            "median": 0.0
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.002645572042092681,
+            "median": 0.0
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "identity_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          },
+          "step1_mse_active": {
+            "n": 8,
+            "mean": 0.000502493037856766,
+            "median": 0.00034889596281573176
+          },
+          "final_mse_active": {
+            "n": 8,
+            "mean": 0.013227860210463405,
+            "median": 0.014328331220895052
+          },
+          "oracle_best_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.002645572042092681,
+          "median": 0.0
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 0.30651916707926885,
+          "median": 0.0
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "positive_fraction": null,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 0,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 8,
+          "step1_improves": 0,
+          "final_improves_vs_identity": 0,
+          "last_update_improves_vs_previous": 0.125,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": 0.39907459439140003,
+          "identity_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 9.05712520761881e-05,
+            "median": 0.0
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.007174514455255121,
+            "median": 0.0
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "identity_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          },
+          "step1_mse_active": {
+            "n": 8,
+            "mean": 0.0004528562603809405,
+            "median": 0.00033768205321393907
+          },
+          "final_mse_active": {
+            "n": 8,
+            "mean": 0.035872572276275605,
+            "median": 0.020534312818199396
+          },
+          "oracle_best_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.007174514455255121,
+          "median": 0.0
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 0.30366184626663856,
+          "median": 0.0
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "positive_fraction": null,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 0,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 8,
+          "step1_improves": 0,
+          "final_improves_vs_identity": 0,
+          "last_update_improves_vs_previous": 0,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": -0.04388291458984023,
+          "identity_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 4.021591803393676e-06,
+            "median": 0.0
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.0017163733835332095,
+            "median": 0.0
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "identity_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          },
+          "step1_mse_active": {
+            "n": 8,
+            "mean": 2.010795901696838e-05,
+            "median": 2.035059605987044e-05
+          },
+          "final_mse_active": {
+            "n": 8,
+            "mean": 0.008581866917666048,
+            "median": 0.006713136797770858
+          },
+          "oracle_best_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.0017163733835332095,
+          "median": 0.0
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 0.26354214877339205,
+          "median": 0.0
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "positive_fraction": null,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 0,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 8,
+          "step1_improves": 0,
+          "final_improves_vs_identity": 0,
+          "last_update_improves_vs_previous": 0.25,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": -0.1132094887170698,
+          "identity_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.00010875896005018149,
+            "median": 0.0
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.007467169529991225,
+            "median": 0.0
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 2.3127851914158637e-17,
+            "median": 0.0
+          },
+          "identity_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          },
+          "step1_mse_active": {
+            "n": 8,
+            "mean": 0.0005437948002509074,
+            "median": 0.00042260249028913677
+          },
+          "final_mse_active": {
+            "n": 8,
+            "mean": 0.03733584764995612,
+            "median": 0.026015507988631725
+          },
+          "oracle_best_mse_active": {
+            "n": 8,
+            "mean": 1.1563925957079318e-16,
+            "median": 4.564824003642465e-17
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.007467169529991225,
+          "median": 0.0
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 0.43352717897793597,
+          "median": 0.0
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      }
+    },
+    "homogeneous_dark": {
+      "1_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 35,
+            "mean": 1.0,
+            "median": 1.0
+          },
+          "positive_fraction": 1.0,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 35,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 35,
+              "mean": 1.0,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 35,
+              "mean": 22.7786433832986,
+              "median": 21.361576080322266
+            },
+            "reference_abs_sum": {
+              "n": 35,
+              "mean": 0.19947181386607035,
+              "median": 0.20093056559562683
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 35,
+          "step1_improves": 1,
+          "final_improves_vs_identity": 1,
+          "last_update_improves_vs_previous": 0.7714285714285715,
+          "strictly_better_earlier_step_fraction": 0.2571428571428571,
+          "loss_decrease_vs_mse_change_pearson": 0.051484658847203824,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.09041504669003189,
+            "median": 0.08943915367126465
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.08516230718232691,
+            "median": 0.08333387598395348
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.027028841015669512,
+            "median": 0.010702840983867645
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.02666230215495986,
+            "median": 0.008773969486355782
+          },
+          "identity_mse_active": {
+            "n": 35,
+            "mean": 0.0879427896546466,
+            "median": 0.08858383446931839
+          },
+          "step1_mse_active": {
+            "n": 35,
+            "mean": 0.08193965878869806,
+            "median": 0.08253693580627441
+          },
+          "final_mse_active": {
+            "n": 35,
+            "mean": 0.015501411741089604,
+            "median": 0.004529433324933052
+          },
+          "oracle_best_mse_active": {
+            "n": 35,
+            "mean": 0.015082510185992857,
+            "median": 0.0033252197317779064
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.027028841015669512,
+          "median": 0.010702840983867645
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 4.533009036232285,
+          "median": 3.6131338857241406
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "1_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 35,
+            "mean": 0.9428571428571428,
+            "median": 1.0
+          },
+          "positive_fraction": 0.9714285714285714,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 35,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 35,
+              "mean": 0.9714285714285714,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 35,
+              "mean": 10.10478093964713,
+              "median": 7.563592910766602
+            },
+            "reference_abs_sum": {
+              "n": 35,
+              "mean": 0.11789326444268226,
+              "median": 0.12434494495391846
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 35,
+          "step1_improves": 0.9714285714285714,
+          "final_improves_vs_identity": 0.9714285714285714,
+          "last_update_improves_vs_previous": 0.9714285714285714,
+          "strictly_better_earlier_step_fraction": 0.02857142857142857,
+          "loss_decrease_vs_mse_change_pearson": 0.28251116011270194,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.09041504669003189,
+            "median": 0.08943915367126465
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.08742239931598306,
+            "median": 0.08549761399626732
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.03964708845596761,
+            "median": 0.028900152072310448
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.039120096177794036,
+            "median": 0.028178169392049313
+          },
+          "identity_mse_active": {
+            "n": 35,
+            "mean": 0.0879427896546466,
+            "median": 0.08858383446931839
+          },
+          "step1_mse_active": {
+            "n": 35,
+            "mean": 0.08452262122716223,
+            "median": 0.08464253693819046
+          },
+          "final_mse_active": {
+            "n": 35,
+            "mean": 0.029922265958573138,
+            "median": 0.026148546487092972
+          },
+          "oracle_best_mse_active": {
+            "n": 35,
+            "mean": 0.02931998906923192,
+            "median": 0.026148546487092972
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.03964708845596761,
+          "median": 0.028900152072310448
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 3.2037729944638516,
+          "median": 2.376178549670824
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "1_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 35,
+            "mean": 0.9495269746452509,
+            "median": 0.9828983193516954
+          },
+          "positive_fraction": 0.9714285714285714,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 35,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 35,
+              "mean": 1.0,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 35,
+              "mean": 22.77860267843519,
+              "median": 21.361364364624023
+            },
+            "reference_abs_sum": {
+              "n": 35,
+              "mean": 0.19947191391672406,
+              "median": 0.2009308785200119
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 35,
+              "mean": 0.9714285714285714,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 35,
+              "mean": 10.104798759732928,
+              "median": 7.563887596130371
+            },
+            "reference_abs_sum": {
+              "n": 35,
+              "mean": 0.11789313810212272,
+              "median": 0.1243446096777916
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 35,
+          "step1_improves": 1,
+          "final_improves_vs_identity": 1,
+          "last_update_improves_vs_previous": 0.6857142857142857,
+          "strictly_better_earlier_step_fraction": 0.37142857142857144,
+          "loss_decrease_vs_mse_change_pearson": 0.17455212850847282,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.09041504669003189,
+            "median": 0.08943915367126465
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.08226027158088982,
+            "median": 0.07949773967266083
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.024295945201447466,
+            "median": 0.0077954926528036594
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.02279793363486533,
+            "median": 0.00693689682520926
+          },
+          "identity_mse_active": {
+            "n": 35,
+            "mean": 0.0879427896546466,
+            "median": 0.08858383446931839
+          },
+          "step1_mse_active": {
+            "n": 35,
+            "mean": 0.07862304667276995,
+            "median": 0.07869985699653625
+          },
+          "final_mse_active": {
+            "n": 35,
+            "mean": 0.01237810223912155,
+            "median": 0.007363177835941315
+          },
+          "oracle_best_mse_active": {
+            "n": 35,
+            "mean": 0.010666089020170537,
+            "median": 0.0032182694412767887
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.024295945201447466,
+          "median": 0.0077954926528036594
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 4.565927103379267,
+          "median": 3.8371746180989392
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 35,
+            "mean": 0.7989620200683605,
+            "median": 0.8719555015701487
+          },
+          "positive_fraction": 1.0,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 35,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 35,
+              "mean": 0.95,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 35,
+              "mean": 23.130074037824357,
+              "median": 21.361526489257812
+            },
+            "reference_abs_sum": {
+              "n": 35,
+              "mean": 0.1994922461254256,
+              "median": 0.20094875991344452
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 35,
+          "step1_improves": 0.9714285714285714,
+          "final_improves_vs_identity": 0.9714285714285714,
+          "last_update_improves_vs_previous": 0.6285714285714286,
+          "strictly_better_earlier_step_fraction": 0.37142857142857144,
+          "loss_decrease_vs_mse_change_pearson": -0.021396373870592574,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.09041504669003189,
+            "median": 0.08943915367126465
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.08561386405490339,
+            "median": 0.08333387598395348
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.03167519257003733,
+            "median": 0.013176472391933203
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.030920874827370427,
+            "median": 0.012856611981987953
+          },
+          "identity_mse_active": {
+            "n": 35,
+            "mean": 0.0879427896546466,
+            "median": 0.08858383446931839
+          },
+          "step1_mse_active": {
+            "n": 35,
+            "mean": 0.08245572378592832,
+            "median": 0.08253693580627441
+          },
+          "final_mse_active": {
+            "n": 35,
+            "mean": 0.020811527803224244,
+            "median": 0.008882179856300354
+          },
+          "oracle_best_mse_active": {
+            "n": 35,
+            "mean": 0.019949450383033505,
+            "median": 0.008863049559295177
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.03167519257003733,
+          "median": 0.013176472391933203
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 4.570495176368099,
+          "median": 3.6806796854153
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 35,
+            "mean": 0.7406481430179438,
+            "median": 0.8025176465526831
+          },
+          "positive_fraction": 0.9714285714285714,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 35,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 35,
+              "mean": 0.8785714285714286,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 35,
+              "mean": 10.492217486245291,
+              "median": 7.693019390106201
+            },
+            "reference_abs_sum": {
+              "n": 35,
+              "mean": 0.11790159206305231,
+              "median": 0.12436706572771072
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 35,
+          "step1_improves": 0.9142857142857143,
+          "final_improves_vs_identity": 0.9142857142857143,
+          "last_update_improves_vs_previous": 0.8857142857142857,
+          "strictly_better_earlier_step_fraction": 0.2,
+          "loss_decrease_vs_mse_change_pearson": 0.13141946081488406,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.09041504669003189,
+            "median": 0.08943915367126465
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.08808221621438861,
+            "median": 0.08604641258716583
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.05288351842900738,
+            "median": 0.03928131051361561
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.051557034568395464,
+            "median": 0.037174291908741
+          },
+          "identity_mse_active": {
+            "n": 35,
+            "mean": 0.0879427896546466,
+            "median": 0.08858383446931839
+          },
+          "step1_mse_active": {
+            "n": 35,
+            "mean": 0.08527669768248286,
+            "median": 0.08464253693819046
+          },
+          "final_mse_active": {
+            "n": 35,
+            "mean": 0.045049614499190024,
+            "median": 0.034699104726314545
+          },
+          "oracle_best_mse_active": {
+            "n": 35,
+            "mean": 0.04353363294420498,
+            "median": 0.03439917787909508
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.05288351842900738,
+          "median": 0.03928131051361561
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 3.4199944145457133,
+          "median": 2.5852064406960897
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 35,
+            "mean": 0.7747472527147199,
+            "median": 0.8477772234700751
+          },
+          "positive_fraction": 1.0,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 35,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 35,
+              "mean": 0.95,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 35,
+              "mean": 23.13003681727818,
+              "median": 21.36158561706543
+            },
+            "reference_abs_sum": {
+              "n": 35,
+              "mean": 0.1994922725217683,
+              "median": 0.20094875991344452
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 35,
+              "mean": 0.8785714285714286,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 35,
+              "mean": 10.49223598752703,
+              "median": 7.6930317878723145
+            },
+            "reference_abs_sum": {
+              "n": 35,
+              "mean": 0.11790164208837918,
+              "median": 0.12436729669570923
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 35,
+          "step1_improves": 0.9428571428571428,
+          "final_improves_vs_identity": 0.9428571428571428,
+          "last_update_improves_vs_previous": 0.6285714285714286,
+          "strictly_better_earlier_step_fraction": 0.42857142857142855,
+          "loss_decrease_vs_mse_change_pearson": 0.06441877240231714,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.09041504669003189,
+            "median": 0.08943915367126465
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.08335738517343998,
+            "median": 0.08001824095845222
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.03201105826883577,
+            "median": 0.01587060373276472
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.03039538999873912,
+            "median": 0.01243527652695775
+          },
+          "identity_mse_active": {
+            "n": 35,
+            "mean": 0.0879427896546466,
+            "median": 0.08858383446931839
+          },
+          "step1_mse_active": {
+            "n": 35,
+            "mean": 0.07987689077854157,
+            "median": 0.07869985699653625
+          },
+          "final_mse_active": {
+            "n": 35,
+            "mean": 0.02119537431613675,
+            "median": 0.010229280218482018
+          },
+          "oracle_best_mse_active": {
+            "n": 35,
+            "mean": 0.019348896293169153,
+            "median": 0.008038102649152279
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.03201105826883577,
+          "median": 0.01587060373276472
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 4.665846289460125,
+          "median": 3.9116640779897587
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      }
+    },
+    "homogeneous_bright": {
+      "1_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.9487179487179487,
+            "median": 1.0
+          },
+          "positive_fraction": 0.9743589743589743,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.9743589743589743,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 147.56929382911096,
+              "median": 118.17636108398438
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.40381044493271756,
+              "median": 0.3821006417274475
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.9743589743589743,
+          "final_improves_vs_identity": 0.9487179487179487,
+          "last_update_improves_vs_previous": 0.4358974358974359,
+          "strictly_better_earlier_step_fraction": 0.8461538461538461,
+          "loss_decrease_vs_mse_change_pearson": 0.08113424372413827,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.04543409757316112,
+            "median": 0.04408014938235283
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.03497930569574237,
+            "median": 0.033671868965029716
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.01265583632630296,
+            "median": 0.008073337841778994
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.007725396624300629,
+            "median": 0.005970014724880457
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.045733011208283596,
+            "median": 0.04461635276675224
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.03501014774426436,
+            "median": 0.03356727212667465
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.012114281724326504,
+            "median": 0.008012284524738789
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.007057420491503599,
+            "median": 0.005527603905647993
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.01265583632630296,
+          "median": 0.008073337841778994
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 8.078453648848631,
+          "median": 9.024987836338166
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "1_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": -0.6923076923076923,
+            "median": -1.0
+          },
+          "positive_fraction": 0.15384615384615385,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.15384615384615385,
+              "median": 0.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 2.635295293843135,
+              "median": 2.2707879543304443
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.037446871089438595,
+              "median": 0.03991629183292389
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.15384615384615385,
+          "final_improves_vs_identity": 0.15384615384615385,
+          "last_update_improves_vs_previous": 0.20512820512820512,
+          "strictly_better_earlier_step_fraction": 0.9743589743589743,
+          "loss_decrease_vs_mse_change_pearson": 0.14690740356561105,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.04543409757316112,
+            "median": 0.04408014938235283
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.04614975298754871,
+            "median": 0.045456746593117714
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.06889093464706093,
+            "median": 0.07651543617248535
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.043847141321748495,
+            "median": 0.04324408061802387
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.045733011208283596,
+            "median": 0.04461635276675224
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.04646701676150163,
+            "median": 0.04585991054773331
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.06979130564305262,
+            "median": 0.07770122587680817
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.04410536377093731,
+            "median": 0.04351668432354927
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.06889093464706093,
+          "median": 0.07651543617248535
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 1.2079035238856142,
+          "median": 0.9080445380483952
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "1_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.9406006370460998,
+            "median": 0.9926719987387379
+          },
+          "positive_fraction": 0.9743589743589743,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.9743589743589743,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 147.56923034863595,
+              "median": 118.17686462402344
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.4038106963420526,
+              "median": 0.38210436701774597
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.15384615384615385,
+              "median": 0.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 2.6352873540077453,
+              "median": 2.270845413208008
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.03744688768608448,
+              "median": 0.03991614282131195
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.9743589743589743,
+          "final_improves_vs_identity": 0.9487179487179487,
+          "last_update_improves_vs_previous": 0.38461538461538464,
+          "strictly_better_earlier_step_fraction": 0.8205128205128205,
+          "loss_decrease_vs_mse_change_pearson": 0.022413060594381293,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.04543409757316112,
+            "median": 0.04408014938235283
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.03573405044153333,
+            "median": 0.03489265590906143
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.014903577735822182,
+            "median": 0.014160505030304193
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.009629174864676316,
+            "median": 0.007582984399050474
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.045733011208283596,
+            "median": 0.04461635276675224
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.03578424491943457,
+            "median": 0.034974105656147
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.014419657528961603,
+            "median": 0.013667388819158077
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.009010013558555586,
+            "median": 0.007305980660021305
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.014903577735822182,
+          "median": 0.014160505030304193
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 8.264900428152972,
+          "median": 9.062664703166725
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.8461951194264491,
+            "median": 0.9161086307355544
+          },
+          "positive_fraction": 0.9743589743589743,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.9615384615384616,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 147.63377962356958,
+              "median": 118.17597961425781
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.40384977903121555,
+              "median": 0.3821418285369873
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.9743589743589743,
+          "final_improves_vs_identity": 0.9487179487179487,
+          "last_update_improves_vs_previous": 0.38461538461538464,
+          "strictly_better_earlier_step_fraction": 0.8205128205128205,
+          "loss_decrease_vs_mse_change_pearson": 0.07941456408051632,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.04543409757316112,
+            "median": 0.04408014938235283
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.035141278570517895,
+            "median": 0.03429513983428478
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.01291645854653325,
+            "median": 0.008760260418057442
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.007959768717410044,
+            "median": 0.006495859008282423
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.045733011208283596,
+            "median": 0.04461635276675224
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.03517627376967516,
+            "median": 0.03461195528507233
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.012381586565588338,
+            "median": 0.008544616401195526
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.007297802125461972,
+            "median": 0.006482033059000969
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.01291645854653325,
+          "median": 0.008760260418057442
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 8.289084374017683,
+          "median": 9.09417926957764
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": -0.404277089249984,
+            "median": -0.5119534337892268
+          },
+          "positive_fraction": 0.15384615384615385,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.30128205128205127,
+              "median": 0.25
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 3.0674564143021903,
+              "median": 2.9263575077056885
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.03744842073856256,
+              "median": 0.03991618752479553
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.3076923076923077,
+          "final_improves_vs_identity": 0.20512820512820512,
+          "last_update_improves_vs_previous": 0.2564102564102564,
+          "strictly_better_earlier_step_fraction": 0.9230769230769231,
+          "loss_decrease_vs_mse_change_pearson": 0.1393157622281332,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.04543409757316112,
+            "median": 0.04408014938235283
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.04577178074978292,
+            "median": 0.04543625935912132
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.06064383778721094,
+            "median": 0.06103895790874958
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.044009616249240935,
+            "median": 0.04353031516075134
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.045733011208283596,
+            "median": 0.04461635276675224
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.046079352927895695,
+            "median": 0.04585991054773331
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.0613327447611552,
+            "median": 0.06105509772896767
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.04427200472221161,
+            "median": 0.043543945997953415
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.06064383778721094,
+          "median": 0.06103895790874958
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 1.5058800437601314,
+          "median": 1.2782734183202722
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      },
+      "2_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.8393075329170062,
+            "median": 0.9133109006375011
+          },
+          "positive_fraction": 0.9743589743589743,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "bright_cosine": {
+            "n": 0,
+            "mean": null,
+            "median": null
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.9615384615384616,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 147.63383014385516,
+              "median": 118.17584991455078
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.4038498462774815,
+              "median": 0.3821415901184082
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.30128205128205127,
+              "median": 0.25
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 3.0674556211019173,
+              "median": 2.926389694213867
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.03744842744886111,
+              "median": 0.03991616517305374
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.9743589743589743,
+          "final_improves_vs_identity": 0.9230769230769231,
+          "last_update_improves_vs_previous": 0.38461538461538464,
+          "strictly_better_earlier_step_fraction": 0.7948717948717948,
+          "loss_decrease_vs_mse_change_pearson": 0.13940779662482417,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.04543409757316112,
+            "median": 0.04408014938235283
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.03552116914652288,
+            "median": 0.03524897247552872
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.016120774584123865,
+            "median": 0.013261237647384405
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.009384086076170205,
+            "median": 0.007647213293239474
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.045733011208283596,
+            "median": 0.04461635276675224
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.03556590512968027,
+            "median": 0.035311371088027954
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.015668064552860763,
+            "median": 0.013154491782188416
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.008758640442139063,
+            "median": 0.007505467627197504
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.016120774584123865,
+          "median": 0.013261237647384405
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 8.584798634828184,
+          "median": 9.206445900643725
+        },
+        "dark_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "bright_mse": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        }
+      }
+    },
+    "left_right": {
+      "1_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.7435897435897436,
+            "median": 1.0
+          },
+          "positive_fraction": 0.8717948717948718,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 39,
+            "mean": -0.6923076923076923,
+            "median": -1.0
+          },
+          "bright_cosine": {
+            "n": 39,
+            "mean": 0.6923076923076923,
+            "median": 1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.8717948717948718,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 78.04193937778473,
+              "median": 57.92708969116211
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.10919807335505119,
+              "median": 0.1130203902721405
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.8205128205128205,
+          "final_improves_vs_identity": 0.6410256410256411,
+          "last_update_improves_vs_previous": 0.5641025641025641,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": 0.6711035468835413,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06728013474494218,
+            "median": 0.06592917442321777
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06504792482592166,
+            "median": 0.06333359889686108
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.07307030926458538,
+            "median": 0.06934775412082672
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.062055490305647255,
+            "median": 0.062499670311808586
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.06775195438128251,
+            "median": 0.06610249727964401
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.06546250831049222,
+            "median": 0.06484231352806091
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.07369059491424988,
+            "median": 0.06944866478443146
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.062393344699954376,
+            "median": 0.06320956349372864
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.07307030926458538,
+          "median": 0.06934775412082672
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 4.829336329959759,
+          "median": 3.546014235012551
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.10765372215646493,
+          "median": 0.10389484465122223
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.038513942796271294,
+          "median": 0.024225491099059582
+        }
+      },
+      "1_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.8974358974358975,
+            "median": 1.0
+          },
+          "positive_fraction": 0.9487179487179487,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 39,
+            "mean": 0.8974358974358975,
+            "median": 1.0
+          },
+          "bright_cosine": {
+            "n": 39,
+            "mean": -0.8974358974358975,
+            "median": -1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.9487179487179487,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 6.459736451220054,
+              "median": 4.730704307556152
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.041775961593091965,
+              "median": 0.042404670268297195
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.9230769230769231,
+          "final_improves_vs_identity": 0.8205128205128205,
+          "last_update_improves_vs_previous": 0.5384615384615384,
+          "strictly_better_earlier_step_fraction": 0.6153846153846154,
+          "loss_decrease_vs_mse_change_pearson": 0.1930555663456339,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06728013474494218,
+            "median": 0.06592917442321777
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06618318147957325,
+            "median": 0.06494586542248726
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.05514297494664788,
+            "median": 0.053455252200365067
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.05260531548410654,
+            "median": 0.053455252200365067
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.06775195438128251,
+            "median": 0.06610249727964401
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.06662687410910924,
+            "median": 0.06502548605203629
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.05530358535739092,
+            "median": 0.05348696932196617
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.052700857703502364,
+            "median": 0.05348696932196617
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.05514297494664788,
+          "median": 0.053455252200365067
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 2.4203093114539262,
+          "median": 1.5931971228157507
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.039558408653829244,
+          "median": 0.030667982064187527
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.07070505293086171,
+          "median": 0.07431736588478088
+        }
+      },
+      "1_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.6965510354583269,
+            "median": 0.8953243870607509
+          },
+          "positive_fraction": 0.8717948717948718,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 39,
+            "mean": -0.5186713502539515,
+            "median": -0.7933718607418038
+          },
+          "bright_cosine": {
+            "n": 39,
+            "mean": 0.6892133329731018,
+            "median": 0.9847403791099261
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.8717948717948718,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 78.04195433702225,
+              "median": 57.92641067504883
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.1091980681850169,
+              "median": 0.11302024126052856
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.9487179487179487,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 6.459733320543399,
+              "median": 4.730694770812988
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.04177592915500729,
+              "median": 0.04240486025810242
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.8717948717948718,
+          "final_improves_vs_identity": 0.7435897435897436,
+          "last_update_improves_vs_previous": 0.6153846153846154,
+          "strictly_better_earlier_step_fraction": 0.6666666666666666,
+          "loss_decrease_vs_mse_change_pearson": 0.4591194500213287,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06728013474494218,
+            "median": 0.06592917442321777
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06394767151214183,
+            "median": 0.06199347786605358
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.05705272252671421,
+            "median": 0.04979443736374378
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.0478164566680789,
+            "median": 0.04687481373548508
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.06775195438128251,
+            "median": 0.06610249727964401
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.06433404337328213,
+            "median": 0.06330569088459015
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.05726230082412561,
+            "median": 0.049979064613580704
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.047789207635781705,
+            "median": 0.046401023864746094
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.05705272252671421,
+          "median": 0.04979443736374378
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 6.248359502447105,
+          "median": 5.281258952147505
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.06298091150529217,
+          "median": 0.0470183789730072
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.05111790600931272,
+          "median": 0.03630634769797325
+        }
+      },
+      "2_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.6743173672682505,
+            "median": 0.8085145558179292
+          },
+          "positive_fraction": 0.9487179487179487,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 39,
+            "mean": -0.07659525300656406,
+            "median": -0.21148841267640975
+          },
+          "bright_cosine": {
+            "n": 39,
+            "mean": 0.7037983952510262,
+            "median": 0.8943674055440212
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.6474358974358975,
+              "median": 0.5
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 83.47837352752686,
+              "median": 60.559940338134766
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.22892346863563245,
+              "median": 0.22868971526622772
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.8717948717948718,
+          "final_improves_vs_identity": 0.7948717948717948,
+          "last_update_improves_vs_previous": 0.5128205128205128,
+          "strictly_better_earlier_step_fraction": 0.6410256410256411,
+          "loss_decrease_vs_mse_change_pearson": 0.48946597659333574,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06728013474494218,
+            "median": 0.06592917442321777
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06394414687529207,
+            "median": 0.061654502525925636
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.04792474105488509,
+            "median": 0.04522588662803173
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.04086847228463739,
+            "median": 0.040174391120672226
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.06775195438128251,
+            "median": 0.06610249727964401
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.06433042836112854,
+            "median": 0.06210527941584587
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.047900268545326516,
+            "median": 0.04500428959727287
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.04066306980661093,
+            "median": 0.03937075287103653
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.04792474105488509,
+          "median": 0.04522588662803173
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 6.673606477472436,
+          "median": 5.600061822093235
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.06619017471675762,
+          "median": 0.05953490734100342
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.029678702575620265,
+          "median": 0.015132060274481773
+        }
+      },
+      "2_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.5940995958375851,
+            "median": 0.6959778568429951
+          },
+          "positive_fraction": 0.9230769230769231,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 39,
+            "mean": 0.668892994881223,
+            "median": 0.8049847685638859
+          },
+          "bright_cosine": {
+            "n": 39,
+            "mean": -0.2573450436560219,
+            "median": -0.22099899929024888
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.6089743589743589,
+              "median": 0.5
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 6.9309675968610325,
+              "median": 4.953374862670898
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.061480478885082096,
+              "median": 0.0609741136431694
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.9230769230769231,
+          "final_improves_vs_identity": 0.8461538461538461,
+          "last_update_improves_vs_previous": 0.5641025641025641,
+          "strictly_better_earlier_step_fraction": 0.5128205128205128,
+          "loss_decrease_vs_mse_change_pearson": 0.12209920740729555,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06728013474494218,
+            "median": 0.06592917442321777
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06619928944855928,
+            "median": 0.06494586542248726
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.0549617629032582,
+            "median": 0.05185125954449177
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.05119351046159863,
+            "median": 0.04731474444270134
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.06775195438128251,
+            "median": 0.06610249727964401
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.06664339510294107,
+            "median": 0.06502548605203629
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.055117726851350225,
+            "median": 0.05205762758851051
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.0512528525522122,
+            "median": 0.045750319957733154
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.0549617629032582,
+          "median": 0.05185125954449177
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 2.73123903851556,
+          "median": 2.09723901108892
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.04740279405377805,
+          "median": 0.03482680767774582
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.06250112112611532,
+          "median": 0.06180218607187271
+        }
+      },
+      "2_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 39,
+            "mean": 0.6662035074332642,
+            "median": 0.7759841153450181
+          },
+          "positive_fraction": 0.9487179487179487,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 39,
+          "dark_cosine": {
+            "n": 39,
+            "mean": -0.020891500347863513,
+            "median": -0.15091068389315176
+          },
+          "bright_cosine": {
+            "n": 39,
+            "mean": 0.6938782217235656,
+            "median": 0.8826064131812218
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.6474358974358975,
+              "median": 0.5
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 83.47831395956186,
+              "median": 60.559261322021484
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.22892345984776816,
+              "median": 0.22869008779525757
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 39,
+              "mean": 0.6089743589743589,
+              "median": 0.5
+            },
+            "semantic_abs_sum": {
+              "n": 39,
+              "mean": 6.930965466377063,
+              "median": 4.953372001647949
+            },
+            "reference_abs_sum": {
+              "n": 39,
+              "mean": 0.0614804873863856,
+              "median": 0.06097427010536194
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 39,
+          "step1_improves": 0.9487179487179487,
+          "final_improves_vs_identity": 0.7948717948717948,
+          "last_update_improves_vs_previous": 0.358974358974359,
+          "strictly_better_earlier_step_fraction": 0.7435897435897436,
+          "loss_decrease_vs_mse_change_pearson": 0.34862435785902285,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06728013474494218,
+            "median": 0.06592917442321777
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06287423395551742,
+            "median": 0.06060083582997322
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.047697038785554466,
+            "median": 0.041628772392868996
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.038865395297762007,
+            "median": 0.03740288317203522
+          },
+          "identity_mse_active": {
+            "n": 39,
+            "mean": 0.06775195438128251,
+            "median": 0.06610249727964401
+          },
+          "step1_mse_active": {
+            "n": 39,
+            "mean": 0.06323308177674428,
+            "median": 0.0606730580329895
+          },
+          "final_mse_active": {
+            "n": 39,
+            "mean": 0.04766672775626947,
+            "median": 0.04096684604883194
+          },
+          "oracle_best_mse_active": {
+            "n": 39,
+            "mean": 0.03860863187135412,
+            "median": 0.03691842034459114
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.047697038785554466,
+          "median": 0.041628772392868996
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 7.134859932187679,
+          "median": 6.404427811711059
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.06423813817964401,
+          "median": 0.03793143294751644
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.031165168655570598,
+          "median": 0.020166845060884953
+        }
+      }
+    },
+    "quadrants": {
+      "1_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 40,
+            "mean": 0.85,
+            "median": 1.0
+          },
+          "positive_fraction": 0.925,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 40,
+          "dark_cosine": {
+            "n": 40,
+            "mean": -0.8,
+            "median": -1.0
+          },
+          "bright_cosine": {
+            "n": 40,
+            "mean": 0.8,
+            "median": 1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 40,
+              "mean": 0.925,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 40,
+              "mean": 86.66159758865834,
+              "median": 68.29679870605469
+            },
+            "reference_abs_sum": {
+              "n": 40,
+              "mean": 0.10028275544755161,
+              "median": 0.09355932474136353
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 40,
+          "step1_improves": 0.875,
+          "final_improves_vs_identity": 0.625,
+          "last_update_improves_vs_previous": 0.4,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": 0.5669465344895305,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06505183321423828,
+            "median": 0.06544232740998268
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.07421079999767244,
+            "median": 0.06529367342591286
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.06211039405316114,
+            "median": 0.06247229501605034
+          },
+          "identity_mse_active": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse_active": {
+            "n": 40,
+            "mean": 0.06505183321423828,
+            "median": 0.06544232740998268
+          },
+          "final_mse_active": {
+            "n": 40,
+            "mean": 0.07421079999767244,
+            "median": 0.06529367342591286
+          },
+          "oracle_best_mse_active": {
+            "n": 40,
+            "mean": 0.06211039405316114,
+            "median": 0.06247229501605034
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.07421079999767244,
+          "median": 0.06529367342591286
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 4.814041902068671,
+          "median": 3.651217733174342
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.10844597875093313,
+          "median": 0.10778309404850006
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.039975622267229484,
+          "median": 0.019243025220930576
+        }
+      },
+      "1_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 40,
+            "mean": 0.85,
+            "median": 1.0
+          },
+          "positive_fraction": 0.925,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 40,
+          "dark_cosine": {
+            "n": 40,
+            "mean": 0.85,
+            "median": 1.0
+          },
+          "bright_cosine": {
+            "n": 40,
+            "mean": -0.85,
+            "median": -1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 40,
+              "mean": 0.925,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 40,
+              "mean": 6.2988011665642265,
+              "median": 4.4513795375823975
+            },
+            "reference_abs_sum": {
+              "n": 40,
+              "mean": 0.041950729419477285,
+              "median": 0.04120583087205887
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 40,
+          "step1_improves": 0.925,
+          "final_improves_vs_identity": 0.775,
+          "last_update_improves_vs_previous": 0.375,
+          "strictly_better_earlier_step_fraction": 0.725,
+          "loss_decrease_vs_mse_change_pearson": 0.011414061754441842,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06646723435260356,
+            "median": 0.06598889827728271
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.05903309509158135,
+            "median": 0.054576631635427475
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.05447300048545003,
+            "median": 0.053620222955942154
+          },
+          "identity_mse_active": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse_active": {
+            "n": 40,
+            "mean": 0.06646723435260356,
+            "median": 0.06598889827728271
+          },
+          "final_mse_active": {
+            "n": 40,
+            "mean": 0.05903309509158135,
+            "median": 0.054576631635427475
+          },
+          "oracle_best_mse_active": {
+            "n": 40,
+            "mean": 0.05447300048545003,
+            "median": 0.053620222955942154
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.05903309509158135,
+          "median": 0.054576631635427475
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 2.5287180276000516,
+          "median": 1.6174675963009957
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.045513839705381545,
+          "median": 0.026758205145597458
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.07255235146731139,
+          "median": 0.07364246249198914
+        }
+      },
+      "1_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 40,
+            "mean": 0.7351005509614519,
+            "median": 0.9101832031920192
+          },
+          "positive_fraction": 0.925,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 40,
+          "dark_cosine": {
+            "n": 40,
+            "mean": -0.5432627894918535,
+            "median": -0.8057008347307928
+          },
+          "bright_cosine": {
+            "n": 40,
+            "mean": 0.723988739751144,
+            "median": 0.9862706747049939
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 40,
+              "mean": 0.925,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 40,
+              "mean": 86.6616024941206,
+              "median": 68.29717636108398
+            },
+            "reference_abs_sum": {
+              "n": 40,
+              "mean": 0.1002827303018421,
+              "median": 0.09355911985039711
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 40,
+              "mean": 0.925,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 40,
+              "mean": 6.298783720657229,
+              "median": 4.451331615447998
+            },
+            "reference_abs_sum": {
+              "n": 40,
+              "mean": 0.04195072355214506,
+              "median": 0.041205789893865585
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 40,
+          "step1_improves": 0.9,
+          "final_improves_vs_identity": 0.8,
+          "last_update_improves_vs_previous": 0.475,
+          "strictly_better_earlier_step_fraction": 0.65,
+          "loss_decrease_vs_mse_change_pearson": 0.13064651068120345,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06414754968136549,
+            "median": 0.06404523178935051
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.05782386497594416,
+            "median": 0.04734197072684765
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.04810947389341891,
+            "median": 0.045950084924697876
+          },
+          "identity_mse_active": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse_active": {
+            "n": 40,
+            "mean": 0.06414754968136549,
+            "median": 0.06404523178935051
+          },
+          "final_mse_active": {
+            "n": 40,
+            "mean": 0.05782386497594416,
+            "median": 0.04734197072684765
+          },
+          "oracle_best_mse_active": {
+            "n": 40,
+            "mean": 0.04810947389341891,
+            "median": 0.045950084924697876
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.05782386497594416,
+          "median": 0.04734197072684765
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 6.570195122364093,
+          "median": 5.5776912281877475
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.0635530778032262,
+          "median": 0.04121662303805351
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.05209465189836919,
+          "median": 0.03934934362769127
+        }
+      },
+      "2_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 40,
+            "mean": 0.5758692343503625,
+            "median": 0.6620855570799209
+          },
+          "positive_fraction": 0.875,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 40,
+          "dark_cosine": {
+            "n": 40,
+            "mean": -0.30069989994729707,
+            "median": -0.3840128595036219
+          },
+          "bright_cosine": {
+            "n": 40,
+            "mean": 0.6528432987841415,
+            "median": 0.798803325353392
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 40,
+              "mean": 0.56875,
+              "median": 0.5
+            },
+            "semantic_abs_sum": {
+              "n": 40,
+              "mean": 91.21428918838501,
+              "median": 68.29730224609375
+            },
+            "reference_abs_sum": {
+              "n": 40,
+              "mean": 0.17101020086556673,
+              "median": 0.1740511953830719
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 40,
+          "step1_improves": 0.875,
+          "final_improves_vs_identity": 0.6,
+          "last_update_improves_vs_previous": 0.325,
+          "strictly_better_earlier_step_fraction": 0.8,
+          "loss_decrease_vs_mse_change_pearson": 0.28911312842309095,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06518719969317317,
+            "median": 0.06543466448783875
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.06863964921794832,
+            "median": 0.06314865872263908
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.05476535293273628,
+            "median": 0.055359989404678345
+          },
+          "identity_mse_active": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse_active": {
+            "n": 40,
+            "mean": 0.06518719969317317,
+            "median": 0.06543466448783875
+          },
+          "final_mse_active": {
+            "n": 40,
+            "mean": 0.06863964921794832,
+            "median": 0.06314865872263908
+          },
+          "oracle_best_mse_active": {
+            "n": 40,
+            "mean": 0.05476535293273628,
+            "median": 0.055359989404678345
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.06863964921794832,
+          "median": 0.06314865872263908
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 7.14177881001393,
+          "median": 6.557731269026221
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.08659248240091984,
+          "median": 0.0929199643433094
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.05068681765114889,
+          "median": 0.022616232745349407
+        }
+      },
+      "2_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 40,
+            "mean": 0.5364501887574294,
+            "median": 0.5849596740248174
+          },
+          "positive_fraction": 0.925,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 40,
+          "dark_cosine": {
+            "n": 40,
+            "mean": 0.6050070586649972,
+            "median": 0.6899435365664737
+          },
+          "bright_cosine": {
+            "n": 40,
+            "mean": -0.355873117161055,
+            "median": -0.4162769828452211
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 40,
+              "mean": 0.65625,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 40,
+              "mean": 7.0998619556427,
+              "median": 4.78540301322937
+            },
+            "reference_abs_sum": {
+              "n": 40,
+              "mean": 0.05128108309581876,
+              "median": 0.04946785792708397
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 40,
+          "step1_improves": 0.925,
+          "final_improves_vs_identity": 0.75,
+          "last_update_improves_vs_previous": 0.4,
+          "strictly_better_earlier_step_fraction": 0.675,
+          "loss_decrease_vs_mse_change_pearson": 0.13262470693135622,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06647914089262486,
+            "median": 0.06617949903011322
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.05818035490810871,
+            "median": 0.056137144565582275
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.054050497338175775,
+            "median": 0.05077515169978142
+          },
+          "identity_mse_active": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse_active": {
+            "n": 40,
+            "mean": 0.06647914089262486,
+            "median": 0.06617949903011322
+          },
+          "final_mse_active": {
+            "n": 40,
+            "mean": 0.05818035490810871,
+            "median": 0.056137144565582275
+          },
+          "oracle_best_mse_active": {
+            "n": 40,
+            "mean": 0.054050497338175775,
+            "median": 0.05077515169978142
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.05818035490810871,
+          "median": 0.056137144565582275
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 2.9211852458800855,
+          "median": 2.0568264351908994
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.05254177050665021,
+          "median": 0.037272097542881966
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.06381894019432366,
+          "median": 0.06439627707004547
+        }
+      },
+      "2_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 40,
+            "mean": 0.5670643732965194,
+            "median": 0.6342624271914437
+          },
+          "positive_fraction": 0.875,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 40,
+          "dark_cosine": {
+            "n": 40,
+            "mean": -0.21462876705268283,
+            "median": -0.31375218447594005
+          },
+          "bright_cosine": {
+            "n": 40,
+            "mean": 0.6378526278655793,
+            "median": 0.7860454048627581
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 40,
+              "mean": 0.56875,
+              "median": 0.5
+            },
+            "semantic_abs_sum": {
+              "n": 40,
+              "mean": 91.21442294120789,
+              "median": 68.2971076965332
+            },
+            "reference_abs_sum": {
+              "n": 40,
+              "mean": 0.17101028207689523,
+              "median": 0.17405139654874802
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 40,
+              "mean": 0.65625,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 40,
+              "mean": 7.099847337603569,
+              "median": 4.785414934158325
+            },
+            "reference_abs_sum": {
+              "n": 40,
+              "mean": 0.051281073782593015,
+              "median": 0.04946781136095524
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 40,
+          "active_updated_episodes": 40,
+          "step1_improves": 0.85,
+          "final_improves_vs_identity": 0.575,
+          "last_update_improves_vs_previous": 0.325,
+          "strictly_better_earlier_step_fraction": 0.775,
+          "loss_decrease_vs_mse_change_pearson": 0.2352293294898141,
+          "identity_mse": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse": {
+            "n": 40,
+            "mean": 0.06432086830027402,
+            "median": 0.06387027353048325
+          },
+          "final_mse": {
+            "n": 40,
+            "mean": 0.06579294083639979,
+            "median": 0.05331951193511486
+          },
+          "offline_oracle_best_mse": {
+            "n": 40,
+            "mean": 0.04995712656527758,
+            "median": 0.047691330313682556
+          },
+          "identity_mse_active": {
+            "n": 40,
+            "mean": 0.06734997956082225,
+            "median": 0.06720498576760292
+          },
+          "step1_mse_active": {
+            "n": 40,
+            "mean": 0.06432086830027402,
+            "median": 0.06387027353048325
+          },
+          "final_mse_active": {
+            "n": 40,
+            "mean": 0.06579294083639979,
+            "median": 0.05331951193511486
+          },
+          "oracle_best_mse_active": {
+            "n": 40,
+            "mean": 0.04995712656527758,
+            "median": 0.047691330313682556
+          }
+        },
+        "final_mse": {
+          "n": 40,
+          "mean": 0.06579294083639979,
+          "median": 0.05331951193511486
+        },
+        "semantic_reduction": {
+          "n": 40,
+          "mean": 7.611288041541633,
+          "median": 6.818325443859861
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.07899929902341682,
+          "median": 0.0665106475353241
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.05258658342063427,
+          "median": 0.025784149765968323
+        }
+      }
+    },
+    "pooled_all": {
+      "1_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.8823529411764706,
+            "median": 1.0
+          },
+          "positive_fraction": 0.9411764705882353,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.7468354430379747,
+            "median": -1.0
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.7468354430379747,
+            "median": 1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.9411764705882353,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 85.37617331392624,
+              "median": 62.933624267578125
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.20261539814665036,
+              "median": 0.15600790083408356
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 200,
+          "active_updated_episodes": 161,
+          "step1_improves": 0.8695652173913043,
+          "final_improves_vs_identity": 0.7577639751552795,
+          "last_update_improves_vs_previous": 0.5217391304347826,
+          "strictly_better_earlier_step_fraction": 0.8012422360248447,
+          "loss_decrease_vs_mse_change_pearson": 0.07466110775137262,
+          "identity_mse": {
+            "n": 200,
+            "mean": 0.05409585171379149,
+            "median": 0.05248496122658253
+          },
+          "step1_mse": {
+            "n": 200,
+            "mean": 0.05006706827211019,
+            "median": 0.04686467722058296
+          },
+          "final_mse": {
+            "n": 200,
+            "mean": 0.03773732201917255,
+            "median": 0.023334752768278122
+          },
+          "offline_oracle_best_mse": {
+            "n": 200,
+            "mean": 0.03171071662761378,
+            "median": 0.015804781578481197
+          },
+          "identity_mse_active": {
+            "n": 161,
+            "mean": 0.06334105887166833,
+            "median": 0.060867972671985626
+          },
+          "step1_mse_active": {
+            "n": 161,
+            "mean": 0.05833635894411391,
+            "median": 0.05215775594115257
+          },
+          "final_mse_active": {
+            "n": 161,
+            "mean": 0.04301990397152057,
+            "median": 0.03559591621160507
+          },
+          "oracle_best_mse_active": {
+            "n": 161,
+            "mean": 0.03553343764660284,
+            "median": 0.032749805599451065
+          }
+        },
+        "final_mse": {
+          "n": 200,
+          "mean": 0.03773732201917255,
+          "median": 0.023334752768278122
+        },
+        "semantic_reduction": {
+          "n": 200,
+          "mean": 4.48894021427513,
+          "median": 3.216161510347821
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.10804985045369904,
+          "median": 0.10464561358094215
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.039244782531750386,
+          "median": 0.021766025573015213
+        }
+      },
+      "1_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.49019607843137253,
+            "median": 1.0
+          },
+          "positive_fraction": 0.7450980392156863,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": 0.8734177215189873,
+            "median": 1.0
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": -0.8734177215189873,
+            "median": -1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.7450980392156863,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 6.276638023579627,
+              "median": 4.473611354827881
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.058130613770533746,
+              "median": 0.045552290976047516
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 200,
+          "active_updated_episodes": 161,
+          "step1_improves": 0.7018633540372671,
+          "final_improves_vs_identity": 0.639751552795031,
+          "last_update_improves_vs_previous": 0.4906832298136646,
+          "strictly_better_earlier_step_fraction": 0.6211180124223602,
+          "loss_decrease_vs_mse_change_pearson": -0.1735149748072221,
+          "identity_mse": {
+            "n": 200,
+            "mean": 0.05409585171379149,
+            "median": 0.05248496122658253
+          },
+          "step1_mse": {
+            "n": 200,
+            "mean": 0.053245635443886385,
+            "median": 0.05219398811459541
+          },
+          "final_mse": {
+            "n": 200,
+            "mean": 0.04505268177599646,
+            "median": 0.045495979487895966
+          },
+          "offline_oracle_best_mse": {
+            "n": 200,
+            "mean": 0.03800911069381983,
+            "median": 0.04113812930881977
+          },
+          "identity_mse_active": {
+            "n": 161,
+            "mean": 0.06334105887166833,
+            "median": 0.060867972671985626
+          },
+          "step1_mse_active": {
+            "n": 161,
+            "mean": 0.062284889592283094,
+            "median": 0.0604638047516346
+          },
+          "final_mse_active": {
+            "n": 161,
+            "mean": 0.052107307396146545,
+            "median": 0.050016582012176514
+          },
+          "oracle_best_mse_active": {
+            "n": 161,
+            "mean": 0.043357529654312214,
+            "median": 0.04548873007297516
+          }
+        },
+        "final_mse": {
+          "n": 200,
+          "mean": 0.04505268177599646,
+          "median": 0.045495979487895966
+        },
+        "semantic_reduction": {
+          "n": 200,
+          "mean": 1.9100431995463913,
+          "median": 1.1880802126475705
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.042536124179605395,
+          "median": 0.029234860092401505
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.07162870219908654,
+          "median": 0.07364246249198914
+        }
+      },
+      "1_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.8267083750242777,
+            "median": 0.9784014713518568
+          },
+          "positive_fraction": 0.934640522875817,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.5311227118933955,
+            "median": -0.8019262397779793
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.7068211338733763,
+            "median": 0.98526184336257
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.9411764705882353,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 85.3761529166714,
+              "median": 62.93461990356445
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.2026154772268937,
+              "median": 0.1560058444738388
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.7450980392156863,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 6.276634717153178,
+              "median": 4.473611831665039
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.058130579297141674,
+              "median": 0.04555240273475647
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 200,
+          "active_updated_episodes": 161,
+          "step1_improves": 0.8881987577639752,
+          "final_improves_vs_identity": 0.8260869565217391,
+          "last_update_improves_vs_previous": 0.5217391304347826,
+          "strictly_better_earlier_step_fraction": 0.6521739130434783,
+          "loss_decrease_vs_mse_change_pearson": 0.13806187215968413,
+          "identity_mse": {
+            "n": 200,
+            "mean": 0.05409585171379149,
+            "median": 0.05248496122658253
+          },
+          "step1_mse": {
+            "n": 200,
+            "mean": 0.04923800836470036,
+            "median": 0.04673214070498943
+          },
+          "final_mse": {
+            "n": 200,
+            "mean": 0.03134433649640414,
+            "median": 0.021790068596601486
+          },
+          "offline_oracle_best_mse": {
+            "n": 200,
+            "mean": 0.025670607812207896,
+            "median": 0.015996208414435387
+          },
+          "identity_mse_active": {
+            "n": 161,
+            "mean": 0.06334105887166833,
+            "median": 0.060867972671985626
+          },
+          "step1_mse_active": {
+            "n": 161,
+            "mean": 0.05730647086037499,
+            "median": 0.05202764645218849
+          },
+          "final_mse_active": {
+            "n": 161,
+            "mean": 0.03507830704882689,
+            "median": 0.02699345536530018
+          },
+          "oracle_best_mse_active": {
+            "n": 161,
+            "mean": 0.02803019688212348,
+            "median": 0.022243428975343704
+          }
+        },
+        "final_mse": {
+          "n": 200,
+          "mean": 0.03134433649640414,
+          "median": 0.021790068596601486
+        },
+        "semantic_reduction": {
+          "n": 200,
+          "mean": 5.191180264684541,
+          "median": 4.032354054914332
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.06326699465425918,
+          "median": 0.04293106682598591
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.051606278953840956,
+          "median": 0.03757459670305252
+        }
+      },
+      "2_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.7209047520098065,
+            "median": 0.816322975944113
+          },
+          "positive_fraction": 0.9477124183006536,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.1900659603183276,
+            "median": -0.26861863916286677
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.6779983464070339,
+            "median": 0.8903799399491563
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.7761437908496732,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 88.04900739707199,
+              "median": 63.04926681518555
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.25163917194784075,
+              "median": 0.2201894223690033
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 200,
+          "active_updated_episodes": 161,
+          "step1_improves": 0.8757763975155279,
+          "final_improves_vs_identity": 0.782608695652174,
+          "last_update_improves_vs_previous": 0.4409937888198758,
+          "strictly_better_earlier_step_fraction": 0.6832298136645962,
+          "loss_decrease_vs_mse_change_pearson": 0.12690257096780516,
+          "identity_mse": {
+            "n": 200,
+            "mean": 0.05409585171379149,
+            "median": 0.05248496122658253
+          },
+          "step1_mse": {
+            "n": 200,
+            "mean": 0.04999541208919254,
+            "median": 0.04686467722058296
+          },
+          "final_mse": {
+            "n": 200,
+            "mean": 0.03366611116893182,
+            "median": 0.02019123826175928
+          },
+          "offline_oracle_best_mse": {
+            "n": 200,
+            "mean": 0.026902893752430834,
+            "median": 0.013866671361029148
+          },
+          "identity_mse_active": {
+            "n": 161,
+            "mean": 0.06334105887166833,
+            "median": 0.060867972671985626
+          },
+          "step1_mse_active": {
+            "n": 161,
+            "mean": 0.05824734505229074,
+            "median": 0.05215775594115257
+          },
+          "final_mse_active": {
+            "n": 161,
+            "mean": 0.03796249918861283,
+            "median": 0.02541709877550602
+          },
+          "oracle_best_mse_active": {
+            "n": 161,
+            "mean": 0.02956098686997806,
+            "median": 0.021039288491010666
+          }
+        },
+        "final_mse": {
+          "n": 200,
+          "mean": 0.03366611116893182,
+          "median": 0.02019123826175928
+        },
+        "semantic_reduction": {
+          "n": 200,
+          "mean": 5.395725336827757,
+          "median": 4.344976188115175
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.07639132855883872,
+          "median": 0.07118765264749527
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.04018276011338458,
+          "median": 0.019090562127530575
+        }
+      },
+      "2_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.35806385825386705,
+            "median": 0.5664470831749445
+          },
+          "positive_fraction": 0.738562091503268,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": 0.636545685404653,
+            "median": 0.7383777755790365
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": -0.30723267581046904,
+            "median": -0.33456400189108954
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.6045751633986928,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 6.804971416206921,
+              "median": 4.696232318878174
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.06559494203504394,
+              "median": 0.05392299219965935
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 200,
+          "active_updated_episodes": 161,
+          "step1_improves": 0.7267080745341615,
+          "final_improves_vs_identity": 0.639751552795031,
+          "last_update_improves_vs_previous": 0.4906832298136646,
+          "strictly_better_earlier_step_fraction": 0.6086956521739131,
+          "loss_decrease_vs_mse_change_pearson": -0.16546075703711974,
+          "identity_mse": {
+            "n": 200,
+            "mean": 0.05409585171379149,
+            "median": 0.05248496122658253
+          },
+          "step1_mse": {
+            "n": 200,
+            "mean": 0.05330728977943181,
+            "median": 0.051755378022789955
+          },
+          "final_mse": {
+            "n": 200,
+            "mean": 0.04567716948222369,
+            "median": 0.0439950842410326
+          },
+          "offline_oracle_best_mse": {
+            "n": 200,
+            "mean": 0.04016213172348217,
+            "median": 0.04116039164364338
+          },
+          "identity_mse_active": {
+            "n": 161,
+            "mean": 0.06334105887166833,
+            "median": 0.060867972671985626
+          },
+          "step1_mse_active": {
+            "n": 161,
+            "mean": 0.06236147882898549,
+            "median": 0.060423001646995544
+          },
+          "final_mse_active": {
+            "n": 161,
+            "mean": 0.05288306852189465,
+            "median": 0.05157691612839699
+          },
+          "oracle_best_mse_active": {
+            "n": 161,
+            "mean": 0.04603208993960705,
+            "median": 0.04461635276675224
+          }
+        },
+        "final_mse": {
+          "n": 200,
+          "mean": 0.04567716948222369,
+          "median": 0.0439950842410326
+        },
+        "semantic_reduction": {
+          "n": 200,
+          "mean": 2.1683681782949766,
+          "median": 1.5737134617288828
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.04997228228021413,
+          "median": 0.03558924049139023
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.0631600306602195,
+          "median": 0.06318546459078789
+        }
+      },
+      "2_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.7092396035982779,
+            "median": 0.7972689243248985
+          },
+          "positive_fraction": 0.9477124183006536,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.11898631893258214,
+            "median": -0.20991540502999678
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.6655108324283826,
+            "median": 0.8693086495366846
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.7761437908496732,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 88.049031544355,
+              "median": 63.04961395263672
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.2516392141191009,
+              "median": 0.22018936276435852
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.6045751633986928,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 6.80497108156385,
+              "median": 4.696262836456299
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.06559495492138309,
+              "median": 0.053923092782497406
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 200,
+          "active_updated_episodes": 161,
+          "step1_improves": 0.8819875776397516,
+          "final_improves_vs_identity": 0.7639751552795031,
+          "last_update_improves_vs_previous": 0.40993788819875776,
+          "strictly_better_earlier_step_fraction": 0.7080745341614907,
+          "loss_decrease_vs_mse_change_pearson": 0.14420431542200282,
+          "identity_mse": {
+            "n": 200,
+            "mean": 0.05409585171379149,
+            "median": 0.05248496122658253
+          },
+          "step1_mse": {
+            "n": 200,
+            "mean": 0.049236483107160896,
+            "median": 0.046206412836909294
+          },
+          "final_mse": {
+            "n": 200,
+            "mean": 0.03381779640098102,
+            "median": 0.020732596516609192
+          },
+          "offline_oracle_best_mse": {
+            "n": 200,
+            "mean": 0.025720399587589787,
+            "median": 0.013987847603857517
+          },
+          "identity_mse_active": {
+            "n": 161,
+            "mean": 0.06334105887166833,
+            "median": 0.060867972671985626
+          },
+          "step1_mse_active": {
+            "n": 161,
+            "mean": 0.0573045761305123,
+            "median": 0.051199089735746384
+          },
+          "final_mse_active": {
+            "n": 161,
+            "mean": 0.03815092804830128,
+            "median": 0.027377497404813766
+          },
+          "oracle_best_mse_active": {
+            "n": 161,
+            "mean": 0.028092050019243843,
+            "median": 0.019894694909453392
+          }
+        },
+        "final_mse": {
+          "n": 200,
+          "mean": 0.03381779640098102,
+          "median": 0.020732596516609192
+        },
+        "semantic_reduction": {
+          "n": 200,
+          "mean": 5.686064015399111,
+          "median": 4.540298377733612
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.07161871860153042,
+          "median": 0.05151340551674366
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.04187587603810243,
+          "median": 0.021733694709837437
+        }
+      }
+    },
+    "pooled_nonclean": {
+      "1_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.8823529411764706,
+            "median": 1.0
+          },
+          "positive_fraction": 0.9411764705882353,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.7468354430379747,
+            "median": -1.0
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.7468354430379747,
+            "median": 1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.9411764705882353,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 85.37617331392624,
+              "median": 62.933624267578125
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.20261539814665036,
+              "median": 0.15600790083408356
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 160,
+          "active_updated_episodes": 153,
+          "step1_improves": 0.9150326797385621,
+          "final_improves_vs_identity": 0.7973856209150327,
+          "last_update_improves_vs_previous": 0.5359477124183006,
+          "strictly_better_earlier_step_fraction": 0.7908496732026143,
+          "loss_decrease_vs_mse_change_pearson": 0.11819995314154468,
+          "identity_mse": {
+            "n": 160,
+            "mean": 0.06761981464223936,
+            "median": 0.06279913149774075
+          },
+          "step1_mse": {
+            "n": 160,
+            "mean": 0.06256034272955731,
+            "median": 0.05744658038020134
+          },
+          "final_mse": {
+            "n": 160,
+            "mean": 0.046741446651057575,
+            "median": 0.0422070249915123
+          },
+          "offline_oracle_best_mse": {
+            "n": 160,
+            "mean": 0.03963839578451722,
+            "median": 0.036742910742759705
+          },
+          "identity_mse_active": {
+            "n": 153,
+            "mean": 0.06665300966234379,
+            "median": 0.06123670935630798
+          },
+          "step1_mse_active": {
+            "n": 153,
+            "mean": 0.061362058642545556,
+            "median": 0.05651070550084114
+          },
+          "final_mse_active": {
+            "n": 153,
+            "mean": 0.04481942222058505,
+            "median": 0.03970465809106827
+          },
+          "oracle_best_mse_active": {
+            "n": 153,
+            "mean": 0.037391395170608216,
+            "median": 0.034585244953632355
+          }
+        },
+        "final_mse": {
+          "n": 160,
+          "mean": 0.046741446651057575,
+          "median": 0.0422070249915123
+        },
+        "semantic_reduction": {
+          "n": 160,
+          "mean": 5.563710229277336,
+          "median": 4.255195439754386
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.10804985045369904,
+          "median": 0.10464561358094215
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.039244782531750386,
+          "median": 0.021766025573015213
+        }
+      },
+      "1_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.49019607843137253,
+            "median": 1.0
+          },
+          "positive_fraction": 0.7450980392156863,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": 0.8734177215189873,
+            "median": 1.0
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": -0.8734177215189873,
+            "median": -1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.7450980392156863,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 6.276638023579627,
+              "median": 4.473611354827881
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.058130613770533746,
+              "median": 0.045552290976047516
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 160,
+          "active_updated_episodes": 153,
+          "step1_improves": 0.738562091503268,
+          "final_improves_vs_identity": 0.673202614379085,
+          "last_update_improves_vs_previous": 0.5098039215686274,
+          "strictly_better_earlier_step_fraction": 0.6013071895424836,
+          "loss_decrease_vs_mse_change_pearson": -0.15713405380192083,
+          "identity_mse": {
+            "n": 160,
+            "mean": 0.06761981464223936,
+            "median": 0.06279913149774075
+          },
+          "step1_mse": {
+            "n": 160,
+            "mean": 0.06655564203392714,
+            "median": 0.061728473752737045
+          },
+          "final_mse": {
+            "n": 160,
+            "mean": 0.05567852328531444,
+            "median": 0.052476791664958
+          },
+          "offline_oracle_best_mse": {
+            "n": 160,
+            "mean": 0.047511388367274775,
+            "median": 0.047117529436945915
+          },
+          "identity_mse_active": {
+            "n": 153,
+            "mean": 0.06665300966234379,
+            "median": 0.06123670935630798
+          },
+          "step1_mse_active": {
+            "n": 153,
+            "mean": 0.06554014941835715,
+            "median": 0.06134069710969925
+          },
+          "final_mse_active": {
+            "n": 153,
+            "mean": 0.05416538471392557,
+            "median": 0.05206482112407684
+          },
+          "oracle_best_mse_active": {
+            "n": 153,
+            "mean": 0.04562459002839389,
+            "median": 0.04665395990014076
+          }
+        },
+        "final_mse": {
+          "n": 160,
+          "mean": 0.05567852328531444,
+          "median": 0.052476791664958
+        },
+        "semantic_reduction": {
+          "n": 160,
+          "mean": 2.340175964350861,
+          "median": 1.5150266793377611
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.042536124179605395,
+          "median": 0.029234860092401505
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.07162870219908654,
+          "median": 0.07364246249198914
+        }
+      },
+      "1_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.8267083750242777,
+            "median": 0.9784014713518568
+          },
+          "positive_fraction": 0.934640522875817,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.5311227118933955,
+            "median": -0.8019262397779793
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.7068211338733763,
+            "median": 0.98526184336257
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.9411764705882353,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 85.3761529166714,
+              "median": 62.93461990356445
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.2026154772268937,
+              "median": 0.1560058444738388
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.7450980392156863,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 6.276634717153178,
+              "median": 4.473611831665039
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.058130579297141674,
+              "median": 0.04555240273475647
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 160,
+          "active_updated_episodes": 153,
+          "step1_improves": 0.934640522875817,
+          "final_improves_vs_identity": 0.869281045751634,
+          "last_update_improves_vs_previous": 0.5359477124183006,
+          "strictly_better_earlier_step_fraction": 0.6339869281045751,
+          "loss_decrease_vs_mse_change_pearson": 0.215381000256071,
+          "identity_mse": {
+            "n": 160,
+            "mean": 0.06761981464223936,
+            "median": 0.06279913149774075
+          },
+          "step1_mse": {
+            "n": 160,
+            "mean": 0.061522385803982615,
+            "median": 0.056439854204654694
+          },
+          "final_mse": {
+            "n": 160,
+            "mean": 0.03851902760998201,
+            "median": 0.031015805900096893
+          },
+          "offline_oracle_best_mse": {
+            "n": 160,
+            "mean": 0.03208825976525986,
+            "median": 0.028934543952345848
+          },
+          "identity_mse_active": {
+            "n": 153,
+            "mean": 0.06665300966234379,
+            "median": 0.06123670935630798
+          },
+          "step1_mse_active": {
+            "n": 153,
+            "mean": 0.060276613491617774,
+            "median": 0.0560690201818943
+          },
+          "final_mse_active": {
+            "n": 153,
+            "mean": 0.036220814073055045,
+            "median": 0.028585562482476234
+          },
+          "oracle_best_mse_active": {
+            "n": 153,
+            "mean": 0.029495828091646272,
+            "median": 0.02699345536530018
+          }
+        },
+        "final_mse": {
+          "n": 160,
+          "mean": 0.03851902760998201,
+          "median": 0.031015805900096893
+        },
+        "semantic_reduction": {
+          "n": 160,
+          "mean": 6.41234553908586,
+          "median": 5.39676796110202
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.06326699465425918,
+          "median": 0.04293106682598591
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.051606278953840956,
+          "median": 0.03757459670305252
+        }
+      },
+      "2_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.7209047520098065,
+            "median": 0.816322975944113
+          },
+          "positive_fraction": 0.9477124183006536,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.1900659603183276,
+            "median": -0.26861863916286677
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.6779983464070339,
+            "median": 0.8903799399491563
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.7761437908496732,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 88.04900739707199,
+              "median": 63.04926681518555
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.25163917194784075,
+              "median": 0.2201894223690033
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 160,
+          "active_updated_episodes": 153,
+          "step1_improves": 0.9215686274509803,
+          "final_improves_vs_identity": 0.8235294117647058,
+          "last_update_improves_vs_previous": 0.45751633986928103,
+          "strictly_better_earlier_step_fraction": 0.6666666666666666,
+          "loss_decrease_vs_mse_change_pearson": 0.24729518693004102,
+          "identity_mse": {
+            "n": 160,
+            "mean": 0.06761981464223936,
+            "median": 0.06279913149774075
+          },
+          "step1_mse": {
+            "n": 160,
+            "mean": 0.06247162229847163,
+            "median": 0.057104602456092834
+          },
+          "final_mse": {
+            "n": 160,
+            "mean": 0.040289010347350995,
+            "median": 0.028091159649193287
+          },
+          "offline_oracle_best_mse": {
+            "n": 160,
+            "mean": 0.033628617190538536,
+            "median": 0.02476193569600582
+          },
+          "identity_mse_active": {
+            "n": 153,
+            "mean": 0.06665300966234379,
+            "median": 0.06123670935630798
+          },
+          "step1_mse_active": {
+            "n": 153,
+            "mean": 0.061269279106769686,
+            "median": 0.05613068863749504
+          },
+          "final_mse_active": {
+            "n": 153,
+            "mean": 0.03807177641278733,
+            "median": 0.02541709877550602
+          },
+          "oracle_best_mse_active": {
+            "n": 153,
+            "mean": 0.03110665938605534,
+            "median": 0.022461870685219765
+          }
+        },
+        "final_mse": {
+          "n": 160,
+          "mean": 0.040289010347350995,
+          "median": 0.028091159649193287
+        },
+        "semantic_reduction": {
+          "n": 160,
+          "mean": 6.668741209468037,
+          "median": 5.633337617273778
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.07639132855883872,
+          "median": 0.07118765264749527
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.04018276011338458,
+          "median": 0.019090562127530575
+        }
+      },
+      "2_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.35806385825386705,
+            "median": 0.5664470831749445
+          },
+          "positive_fraction": 0.738562091503268,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": 0.636545685404653,
+            "median": 0.7383777755790365
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": -0.30723267581046904,
+            "median": -0.33456400189108954
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.6045751633986928,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 6.804971416206921,
+              "median": 4.696232318878174
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.06559494203504394,
+              "median": 0.05392299219965935
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 160,
+          "active_updated_episodes": 153,
+          "step1_improves": 0.7647058823529411,
+          "final_improves_vs_identity": 0.673202614379085,
+          "last_update_improves_vs_previous": 0.5163398692810458,
+          "strictly_better_earlier_step_fraction": 0.5882352941176471,
+          "loss_decrease_vs_mse_change_pearson": -0.14906618181399106,
+          "identity_mse": {
+            "n": 160,
+            "mean": 0.06761981464223936,
+            "median": 0.06279913149774075
+          },
+          "step1_mse": {
+            "n": 160,
+            "mean": 0.06663310682633891,
+            "median": 0.06087609380483627
+          },
+          "final_mse": {
+            "n": 160,
+            "mean": 0.05666736850689631,
+            "median": 0.05230235680937767
+          },
+          "offline_oracle_best_mse": {
+            "n": 160,
+            "mean": 0.050202664654352705,
+            "median": 0.04663776606321335
+          },
+          "identity_mse_active": {
+            "n": 153,
+            "mean": 0.06665300966234379,
+            "median": 0.06123670935630798
+          },
+          "step1_mse_active": {
+            "n": 153,
+            "mean": 0.06562115835159822,
+            "median": 0.0608186200261116
+          },
+          "final_mse_active": {
+            "n": 153,
+            "mean": 0.05519947122015497,
+            "median": 0.05205762758851051
+          },
+          "oracle_best_mse_active": {
+            "n": 153,
+            "mean": 0.04843899660311591,
+            "median": 0.04515567049384117
+          }
+        },
+        "final_mse": {
+          "n": 160,
+          "mean": 0.05666736850689631,
+          "median": 0.05230235680937767
+        },
+        "semantic_reduction": {
+          "n": 160,
+          "mean": 2.6445746856753725,
+          "median": 1.8493818658132222
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.04997228228021413,
+          "median": 0.03558924049139023
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.0631600306602195,
+          "median": 0.06318546459078789
+        }
+      },
+      "2_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 153,
+            "mean": 0.7092396035982779,
+            "median": 0.7972689243248985
+          },
+          "positive_fraction": 0.9477124183006536,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 153,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.11898631893258214,
+            "median": -0.20991540502999678
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.6655108324283826,
+            "median": 0.8693086495366846
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.7761437908496732,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 88.049031544355,
+              "median": 63.04961395263672
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.2516392141191009,
+              "median": 0.22018936276435852
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 153,
+              "mean": 0.6045751633986928,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 153,
+              "mean": 6.80497108156385,
+              "median": 4.696262836456299
+            },
+            "reference_abs_sum": {
+              "n": 153,
+              "mean": 0.06559495492138309,
+              "median": 0.053923092782497406
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 160,
+          "active_updated_episodes": 153,
+          "step1_improves": 0.9281045751633987,
+          "final_improves_vs_identity": 0.803921568627451,
+          "last_update_improves_vs_previous": 0.41830065359477125,
+          "strictly_better_earlier_step_fraction": 0.6928104575163399,
+          "loss_decrease_vs_mse_change_pearson": 0.2569111294778185,
+          "identity_mse": {
+            "n": 160,
+            "mean": 0.06761981464223936,
+            "median": 0.06279913149774075
+          },
+          "step1_mse": {
+            "n": 160,
+            "mean": 0.06151841414393857,
+            "median": 0.056458042934536934
+          },
+          "final_mse": {
+            "n": 160,
+            "mean": 0.04040545311872847,
+            "median": 0.029479915276169777
+          },
+          "offline_oracle_best_mse": {
+            "n": 160,
+            "mean": 0.03215049948448723,
+            "median": 0.02539931610226631
+          },
+          "identity_mse_active": {
+            "n": 153,
+            "mean": 0.06665300966234379,
+            "median": 0.06123670935630798
+          },
+          "step1_mse_active": {
+            "n": 153,
+            "mean": 0.060272460121637075,
+            "median": 0.05571078509092331
+          },
+          "final_mse_active": {
+            "n": 153,
+            "mean": 0.038193546631221285,
+            "median": 0.028242891654372215
+          },
+          "oracle_best_mse_active": {
+            "n": 153,
+            "mean": 0.029560915379727173,
+            "median": 0.023145392537117004
+          }
+        },
+        "final_mse": {
+          "n": 160,
+          "mean": 0.04040545311872847,
+          "median": 0.029479915276169777
+        },
+        "semantic_reduction": {
+          "n": 160,
+          "mean": 6.999198224504405,
+          "median": 5.939302296356329
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.07161871860153042,
+          "median": 0.05151340551674366
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.04187587603810243,
+          "median": 0.021733694709837437
+        }
+      }
+    },
+    "heterogeneous": {
+      "1_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 79,
+            "mean": 0.7974683544303798,
+            "median": 1.0
+          },
+          "positive_fraction": 0.8987341772151899,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 79,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.7468354430379747,
+            "median": -1.0
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.7468354430379747,
+            "median": 1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 79,
+              "mean": 0.8987341772151899,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 79,
+              "mean": 82.40632328202453,
+              "median": 63.04924392700195
+            },
+            "reference_abs_sum": {
+              "n": 79,
+              "mean": 0.1046839883385957,
+              "median": 0.10458102822303772
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 80,
+          "active_updated_episodes": 79,
+          "step1_improves": 0.8481012658227848,
+          "final_improves_vs_identity": 0.6329113924050633,
+          "last_update_improves_vs_previous": 0.4810126582278481,
+          "strictly_better_earlier_step_fraction": 1,
+          "loss_decrease_vs_mse_change_pearson": 0.6119358726856079,
+          "identity_mse": {
+            "n": 80,
+            "mean": 0.06731505715288222,
+            "median": 0.06662598624825478
+          },
+          "step1_mse": {
+            "n": 80,
+            "mean": 0.06504987902007997,
+            "median": 0.06531181558966637
+          },
+          "final_mse": {
+            "n": 80,
+            "mean": 0.07364055463112891,
+            "median": 0.06891290470957756
+          },
+          "offline_oracle_best_mse": {
+            "n": 80,
+            "mean": 0.0620829421794042,
+            "median": 0.062499670311808586
+          },
+          "identity_mse_active": {
+            "n": 79,
+            "mean": 0.06754842282661909,
+            "median": 0.0666930228471756
+          },
+          "step1_mse_active": {
+            "n": 79,
+            "mean": 0.0652545715528953,
+            "median": 0.0653194785118103
+          },
+          "final_mse_active": {
+            "n": 79,
+            "mean": 0.07395398989319801,
+            "median": 0.06897514313459396
+          },
+          "oracle_best_mse_active": {
+            "n": 79,
+            "mean": 0.06225007854967932,
+            "median": 0.06320956349372864
+          }
+        },
+        "final_mse": {
+          "n": 80,
+          "mean": 0.07364055463112891,
+          "median": 0.06891290470957756
+        },
+        "semantic_reduction": {
+          "n": 80,
+          "mean": 4.821689116014214,
+          "median": 3.651217733174342
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.10804985045369904,
+          "median": 0.10464561358094215
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.039244782531750386,
+          "median": 0.021766025573015213
+        }
+      },
+      "1_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 79,
+            "mean": 0.8734177215189873,
+            "median": 1.0
+          },
+          "positive_fraction": 0.9367088607594937,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 79,
+          "dark_cosine": {
+            "n": 79,
+            "mean": 0.8734177215189873,
+            "median": 1.0
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": -0.8734177215189873,
+            "median": -1.0
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 79,
+              "mean": 0.9367088607594937,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 79,
+              "mean": 6.378250231141154,
+              "median": 4.5840373039245605
+            },
+            "reference_abs_sum": {
+              "n": 79,
+              "mean": 0.04186445163176808,
+              "median": 0.04141637310385704
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 80,
+          "active_updated_episodes": 79,
+          "step1_improves": 0.9240506329113924,
+          "final_improves_vs_identity": 0.7974683544303798,
+          "last_update_improves_vs_previous": 0.45569620253164556,
+          "strictly_better_earlier_step_fraction": 0.6708860759493671,
+          "loss_decrease_vs_mse_change_pearson": 0.09279029672188532,
+          "identity_mse": {
+            "n": 80,
+            "mean": 0.06731505715288222,
+            "median": 0.06662598624825478
+          },
+          "step1_mse": {
+            "n": 80,
+            "mean": 0.0663252079160884,
+            "median": 0.06527351215481758
+          },
+          "final_mse": {
+            "n": 80,
+            "mean": 0.057088035019114615,
+            "median": 0.053627634420990944
+          },
+          "offline_oracle_best_mse": {
+            "n": 80,
+            "mean": 0.053539157984778284,
+            "median": 0.053455252200365067
+          },
+          "identity_mse_active": {
+            "n": 79,
+            "mean": 0.06754842282661909,
+            "median": 0.0666930228471756
+          },
+          "step1_mse_active": {
+            "n": 79,
+            "mean": 0.06654604385265067,
+            "median": 0.06539185345172882
+          },
+          "final_mse_active": {
+            "n": 79,
+            "mean": 0.05719194471647468,
+            "median": 0.05376829952001572
+          },
+          "oracle_best_mse_active": {
+            "n": 79,
+            "mean": 0.053598145188032825,
+            "median": 0.05348696932196617
+          }
+        },
+        "final_mse": {
+          "n": 80,
+          "mean": 0.057088035019114615,
+          "median": 0.053627634420990944
+        },
+        "semantic_reduction": {
+          "n": 80,
+          "mean": 2.474513669526989,
+          "median": 1.5931971228157507
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.042536124179605395,
+          "median": 0.029234860092401505
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.07162870219908654,
+          "median": 0.07364246249198914
+        }
+      },
+      "1_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 79,
+            "mean": 0.7160697774852256,
+            "median": 0.8986540568766518
+          },
+          "positive_fraction": 0.8987341772151899,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 79,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.5311227118933955,
+            "median": -0.8019262397779793
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.7068211338733763,
+            "median": 0.98526184336257
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 79,
+              "mean": 0.8987341772151899,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 79,
+              "mean": 82.40633315074292,
+              "median": 63.04874801635742
+            },
+            "reference_abs_sum": {
+              "n": 79,
+              "mean": 0.10468397305429547,
+              "median": 0.10458167642354965
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 79,
+              "mean": 0.9367088607594937,
+              "median": 1.0
+            },
+            "semantic_abs_sum": {
+              "n": 79,
+              "mean": 6.378239852246605,
+              "median": 4.584045886993408
+            },
+            "reference_abs_sum": {
+              "n": 79,
+              "mean": 0.04186443264722895,
+              "median": 0.04141644760966301
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 80,
+          "active_updated_episodes": 79,
+          "step1_improves": 0.8860759493670886,
+          "final_improves_vs_identity": 0.7721518987341772,
+          "last_update_improves_vs_previous": 0.5443037974683544,
+          "strictly_better_earlier_step_fraction": 0.6582278481012658,
+          "loss_decrease_vs_mse_change_pearson": 0.27631295030503444,
+          "identity_mse": {
+            "n": 80,
+            "mean": 0.06731505715288222,
+            "median": 0.06662598624825478
+          },
+          "step1_mse": {
+            "n": 80,
+            "mean": 0.06404761059675365,
+            "median": 0.06388189271092415
+          },
+          "final_mse": {
+            "n": 80,
+            "mean": 0.05743829375132918,
+            "median": 0.049186766147613525
+          },
+          "offline_oracle_best_mse": {
+            "n": 80,
+            "mean": 0.047962965280748907,
+            "median": 0.046256838366389275
+          },
+          "identity_mse_active": {
+            "n": 79,
+            "mean": 0.06754842282661909,
+            "median": 0.0666930228471756
+          },
+          "step1_mse_active": {
+            "n": 79,
+            "mean": 0.06423961618750156,
+            "median": 0.06398241221904755
+          },
+          "final_mse_active": {
+            "n": 79,
+            "mean": 0.05754663710352741,
+            "median": 0.049494363367557526
+          },
+          "oracle_best_mse_active": {
+            "n": 79,
+            "mean": 0.04795136776623092,
+            "median": 0.04617130756378174
+          }
+        },
+        "final_mse": {
+          "n": 80,
+          "mean": 0.05743829375132918,
+          "median": 0.049186766147613525
+        },
+        "semantic_reduction": {
+          "n": 80,
+          "mean": 6.4092773124055995,
+          "median": 5.39676796110202
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.06326699465425918,
+          "median": 0.04293106682598591
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.051606278953840956,
+          "median": 0.03757459670305252
+        }
+      },
+      "2_ev_only": {
+        "alignment": {
+          "cosine": {
+            "n": 79,
+            "mean": 0.6244702113604591,
+            "median": 0.7551952714684274
+          },
+          "positive_fraction": 0.9113924050632911,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 79,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.1900659603183276,
+            "median": -0.26861863916286677
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.6779983464070339,
+            "median": 0.8903799399491563
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 79,
+              "mean": 0.6075949367088608,
+              "median": 0.5
+            },
+            "semantic_abs_sum": {
+              "n": 79,
+              "mean": 87.39529284948036,
+              "median": 64.24813842773438
+            },
+            "reference_abs_sum": {
+              "n": 79,
+              "mean": 0.19960029508116878,
+              "median": 0.20316597819328308
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 80,
+          "active_updated_episodes": 79,
+          "step1_improves": 0.8734177215189873,
+          "final_improves_vs_identity": 0.6962025316455697,
+          "last_update_improves_vs_previous": 0.4177215189873418,
+          "strictly_better_earlier_step_fraction": 0.7215189873417721,
+          "loss_decrease_vs_mse_change_pearson": 0.37423380284708435,
+          "identity_mse": {
+            "n": 80,
+            "mean": 0.06731505715288222,
+            "median": 0.06662598624825478
+          },
+          "step1_mse": {
+            "n": 80,
+            "mean": 0.06456567328423261,
+            "median": 0.06442056968808174
+          },
+          "final_mse": {
+            "n": 80,
+            "mean": 0.058282195136416706,
+            "median": 0.05029202438890934
+          },
+          "offline_oracle_best_mse": {
+            "n": 80,
+            "mean": 0.04781691260868683,
+            "median": 0.04721515811979771
+          },
+          "identity_mse_active": {
+            "n": 79,
+            "mean": 0.06754842282661909,
+            "median": 0.0666930228471756
+          },
+          "step1_mse_active": {
+            "n": 79,
+            "mean": 0.06476423663051822,
+            "median": 0.06530415266752243
+          },
+          "final_mse_active": {
+            "n": 79,
+            "mean": 0.05840122078462869,
+            "median": 0.05036196485161781
+          },
+          "oracle_best_mse_active": {
+            "n": 79,
+            "mean": 0.04780346632616807,
+            "median": 0.046568699181079865
+          }
+        },
+        "final_mse": {
+          "n": 80,
+          "mean": 0.058282195136416706,
+          "median": 0.05029202438890934
+        },
+        "semantic_reduction": {
+          "n": 80,
+          "mean": 6.907692643743183,
+          "median": 6.297656032994176
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.07639132855883872,
+          "median": 0.07118765264749527
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.04018276011338458,
+          "median": 0.019090562127530575
+        }
+      },
+      "2_gamma_only": {
+        "alignment": {
+          "cosine": {
+            "n": 79,
+            "mean": 0.564910022632443,
+            "median": 0.6429923332676214
+          },
+          "positive_fraction": 0.9240506329113924,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 79,
+          "dark_cosine": {
+            "n": 79,
+            "mean": 0.636545685404653,
+            "median": 0.7383777755790365
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": -0.30723267581046904,
+            "median": -0.33456400189108954
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "semantic_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            },
+            "reference_abs_sum": {
+              "n": 0,
+              "mean": null,
+              "median": null
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 79,
+              "mean": 0.6329113924050633,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 79,
+              "mean": 7.0164837278897245,
+              "median": 4.874573707580566
+            },
+            "reference_abs_sum": {
+              "n": 79,
+              "mean": 0.0563162278525437,
+              "median": 0.05395333841443062
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 80,
+          "active_updated_episodes": 79,
+          "step1_improves": 0.9240506329113924,
+          "final_improves_vs_identity": 0.7974683544303798,
+          "last_update_improves_vs_previous": 0.4810126582278481,
+          "strictly_better_earlier_step_fraction": 0.5949367088607594,
+          "loss_decrease_vs_mse_change_pearson": 0.12864354704187272,
+          "identity_mse": {
+            "n": 80,
+            "mean": 0.06731505715288222,
+            "median": 0.06662598624825478
+          },
+          "step1_mse": {
+            "n": 80,
+            "mean": 0.06633921517059208,
+            "median": 0.06520866975188255
+          },
+          "final_mse": {
+            "n": 80,
+            "mean": 0.05657105890568346,
+            "median": 0.0544130839407444
+          },
+          "offline_oracle_best_mse": {
+            "n": 80,
+            "mean": 0.05262200389988721,
+            "median": 0.050223203375935555
+          },
+          "identity_mse_active": {
+            "n": 79,
+            "mean": 0.06754842282661909,
+            "median": 0.0666930228471756
+          },
+          "step1_mse_active": {
+            "n": 79,
+            "mean": 0.06656022841417336,
+            "median": 0.06539185345172882
+          },
+          "final_mse_active": {
+            "n": 79,
+            "mean": 0.05666842460160768,
+            "median": 0.0545479878783226
+          },
+          "oracle_best_mse_active": {
+            "n": 79,
+            "mean": 0.05266938155776338,
+            "median": 0.050595033913850784
+          }
+        },
+        "final_mse": {
+          "n": 80,
+          "mean": 0.05657105890568346,
+          "median": 0.0544130839407444
+        },
+        "semantic_reduction": {
+          "n": 80,
+          "mean": 2.826212142197823,
+          "median": 2.09723901108892
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.04997228228021413,
+          "median": 0.03558924049139023
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.0631600306602195,
+          "median": 0.06318546459078789
+        }
+      },
+      "2_ev_gamma": {
+        "alignment": {
+          "cosine": {
+            "n": 79,
+            "mean": 0.6160064774906086,
+            "median": 0.7199320658652283
+          },
+          "positive_fraction": 0.9113924050632911,
+          "undefined_cosine_count": 0,
+          "active_alignment_count": 79,
+          "dark_cosine": {
+            "n": 79,
+            "mean": -0.11898631893258214,
+            "median": -0.20991540502999678
+          },
+          "bright_cosine": {
+            "n": 79,
+            "mean": 0.6655108324283826,
+            "median": 0.8693086495366846
+          },
+          "ev": {
+            "sign_agreement": {
+              "n": 79,
+              "mean": 0.6075949367088608,
+              "median": 0.5
+            },
+            "semantic_abs_sum": {
+              "n": 79,
+              "mean": 87.39533116545859,
+              "median": 64.24800872802734
+            },
+            "reference_abs_sum": {
+              "n": 79,
+              "mean": 0.19960033186251605,
+              "median": 0.20316600799560547
+            }
+          },
+          "gamma": {
+            "sign_agreement": {
+              "n": 79,
+              "mean": 0.6329113924050633,
+              "median": 0.75
+            },
+            "semantic_abs_sum": {
+              "n": 79,
+              "mean": 7.016475274593016,
+              "median": 4.874567031860352
+            },
+            "reference_abs_sum": {
+              "n": 79,
+              "mean": 0.05631622733383239,
+              "median": 0.053953349590301514
+            }
+          }
+        },
+        "trajectory": {
+          "episodes": 80,
+          "active_updated_episodes": 79,
+          "step1_improves": 0.8987341772151899,
+          "final_improves_vs_identity": 0.6835443037974683,
+          "last_update_improves_vs_previous": 0.34177215189873417,
+          "strictly_better_earlier_step_fraction": 0.759493670886076,
+          "loss_decrease_vs_mse_change_pearson": 0.28285586057587175,
+          "identity_mse": {
+            "n": 80,
+            "mean": 0.06731505715288222,
+            "median": 0.06662598624825478
+          },
+          "step1_mse": {
+            "n": 80,
+            "mean": 0.06359755112789571,
+            "median": 0.06340861320495605
+          },
+          "final_mse": {
+            "n": 80,
+            "mean": 0.05674498981097713,
+            "median": 0.047743767499923706
+          },
+          "offline_oracle_best_mse": {
+            "n": 80,
+            "mean": 0.04441126093151979,
+            "median": 0.04308646731078625
+          },
+          "identity_mse_active": {
+            "n": 79,
+            "mean": 0.06754842282661909,
+            "median": 0.0666930228471756
+          },
+          "step1_mse_active": {
+            "n": 79,
+            "mean": 0.06378385976334161,
+            "median": 0.06378137320280075
+          },
+          "final_mse_active": {
+            "n": 79,
+            "mean": 0.056844557163930394,
+            "median": 0.0477280467748642
+          },
+          "oracle_best_mse_active": {
+            "n": 79,
+            "mean": 0.04435470513410018,
+            "median": 0.04285275563597679
+          }
+        },
+        "final_mse": {
+          "n": 80,
+          "mean": 0.05674498981097713,
+          "median": 0.047743767499923706
+        },
+        "semantic_reduction": {
+          "n": 80,
+          "mean": 7.3730739868646555,
+          "median": 6.404427811711059
+        },
+        "dark_mse": {
+          "n": 80,
+          "mean": 0.07161871860153042,
+          "median": 0.05151340551674366
+        },
+        "bright_mse": {
+          "n": 80,
+          "mean": 0.04187587603810243,
+          "median": 0.021733694709837437
+        }
+      }
+    }
+  },
+  "surfaces": {
+    "homogeneous_dark": {
+      "all": {
+        "n": 40,
+        "spearman": {
+          "n": 35,
+          "mean": 0.9584740390850792,
+          "median": 0.974467643326262
+        },
+        "ev_distance": {
+          "n": 40,
+          "mean": 0.51875,
+          "median": 0.5
+        },
+        "gamma_distance": {
+          "n": 40,
+          "mean": 0.18250000000000005,
+          "median": 0.1499999999999999
+        },
+        "semantic_argmin_worse_than_direct_fraction": 0.125,
+        "crossing_counts": {
+          "before": 19,
+          "near": 7,
+          "beyond": 0,
+          "none": 14
+        }
+      },
+      "active": {
+        "n": 35,
+        "spearman": {
+          "n": 35,
+          "mean": 0.9584740390850792,
+          "median": 0.974467643326262
+        },
+        "ev_distance": {
+          "n": 35,
+          "mean": 0.4142857142857143,
+          "median": 0.5
+        },
+        "gamma_distance": {
+          "n": 35,
+          "mean": 0.19000000000000006,
+          "median": 0.1499999999999999
+        },
+        "semantic_argmin_worse_than_direct_fraction": 0,
+        "crossing_counts": {
+          "before": 14,
+          "near": 7,
+          "beyond": 0,
+          "none": 14
+        }
+      }
+    },
+    "homogeneous_bright": {
+      "all": {
+        "n": 40,
+        "spearman": {
+          "n": 39,
+          "mean": 0.8175390225777056,
+          "median": 0.8917027417027418
+        },
+        "ev_distance": {
+          "n": 40,
+          "mean": 0.2,
+          "median": 0.25
+        },
+        "gamma_distance": {
+          "n": 40,
+          "mean": 0.20249999999999999,
+          "median": 0.1499999999999999
+        },
+        "semantic_argmin_worse_than_direct_fraction": 0.875,
+        "crossing_counts": {
+          "before": 2,
+          "near": 5,
+          "beyond": 0,
+          "none": 33
+        }
+      },
+      "active": {
+        "n": 39,
+        "spearman": {
+          "n": 39,
+          "mean": 0.8175390225777056,
+          "median": 0.8917027417027418
+        },
+        "ev_distance": {
+          "n": 39,
+          "mean": 0.19230769230769232,
+          "median": 0.25
+        },
+        "gamma_distance": {
+          "n": 39,
+          "mean": 0.20512820512820512,
+          "median": 0.1499999999999999
+        },
+        "semantic_argmin_worse_than_direct_fraction": 0.8717948717948718,
+        "crossing_counts": {
+          "before": 1,
+          "near": 5,
+          "beyond": 0,
+          "none": 33
+        }
+      }
+    }
+  },
+  "renderers": {
+    "left_right": {
+      "direct_bilinear2": {
+        "mse": {
+          "n": 40,
+          "mean": 0.043836341542191806,
+          "median": 0.03985773213207722
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.06837659587617964,
+          "median": 0.060351209715008736
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.0193238626641687,
+          "median": 0.015676220878958702
+        }
+      },
+      "direct_piecewise2": {
+        "mse": {
+          "n": 40,
+          "mean": 0.038542948535177854,
+          "median": 0.03156983107328415
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.05984254039358348,
+          "median": 0.047488536685705185
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.017267796816304325,
+          "median": 0.014348481316119432
+        }
+      },
+      "oracle_bilinear2": {
+        "mse": {
+          "n": 40,
+          "mean": 0.010727031470742077,
+          "median": 0.01109007466584444
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.00880883910576813,
+          "median": 0.008744143415242434
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.012643260427284985,
+          "median": 0.012526750098913908
+        }
+      },
+      "oracle_piecewise2": {
+        "mse": {
+          "n": 40,
+          "mean": 0.002018158586906793,
+          "median": 0.0017338446341454983
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.00043219083363510435,
+          "median": 0.0004261587018845603
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.0036020611437834306,
+          "median": 0.0031687495065853
+        }
+      }
+    },
+    "quadrants": {
+      "direct_bilinear2": {
+        "mse": {
+          "n": 40,
+          "mean": 0.05057632327079773,
+          "median": 0.04782211035490036
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.07849350431933999,
+          "median": 0.07759321480989456
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.02265914105810225,
+          "median": 0.01780552975833416
+        }
+      },
+      "direct_piecewise2": {
+        "mse": {
+          "n": 40,
+          "mean": 0.03965402860194445,
+          "median": 0.03446912206709385
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.06327372731175274,
+          "median": 0.055229395627975464
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.016034330605180003,
+          "median": 0.012718012556433678
+        }
+      },
+      "oracle_bilinear2": {
+        "mse": {
+          "n": 40,
+          "mean": 0.01568680756026879,
+          "median": 0.016230342909693718
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.015020147198811173,
+          "median": 0.014688006602227688
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.016353467688895763,
+          "median": 0.015431989450007677
+        }
+      },
+      "oracle_piecewise2": {
+        "mse": {
+          "n": 40,
+          "mean": 0.001889283520722529,
+          "median": 0.0015686637489125133
+        },
+        "dark_mse": {
+          "n": 40,
+          "mean": 0.0004279281251001521,
+          "median": 0.0003940493334084749
+        },
+        "bright_mse": {
+          "n": 40,
+          "mean": 0.003350638835308928,
+          "median": 0.0028018817538395524
+        }
+      }
+    }
+  },
+  "rules": {
+    "objective_gradient_failure": false,
+    "overcorrection_stopping_failure": true,
+    "gamma_failure": false,
+    "renderer_failure": true
+  },
+  "fired": [
+    "overcorrection_stopping_failure",
+    "renderer_failure"
+  ],
+  "gamma_rule_details": {
+    "1": {
+      "mse_ratio": 1.2039598293459433,
+      "semantic_reduction_retained": 0.8647243951078464,
+      "fires": false
+    },
+    "2": {
+      "mse_ratio": 0.9955146328799589,
+      "semantic_reduction_retained": 0.9489385490938805,
+      "fires": false
+    }
+  },
+  "renderer_rule_ratios": {
+    "direct": 0.7840433237826976,
+    "oracle": 0.12043773173501954
+  },
+  "primary_pool": "spatial2 ev_gamma active nonclean for A/B; all five conditions for C; quadrants for E",
+  "development_only": true
+}

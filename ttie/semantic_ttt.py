@@ -36,6 +36,19 @@ class SemanticScorer(nn.Module):
         return self.prototypes.scores(self.encoder.image_embeddings(image))[1:]
 
 
+class CoordinateISP(EVGamma):
+    """T009 labeled coordinate restriction; T008 default still uses EVGamma."""
+    def __init__(self,size,coordinates):
+        nn.Module.__init__(self)
+        self.coordinates=coordinates
+        self.raw=nn.Parameter(torch.zeros(1,1,size,size))
+
+    def physical_grid(self):
+        zero=torch.zeros_like(self.raw)
+        pair=torch.cat((self.raw,zero) if self.coordinates=='ev_only' else (zero,self.raw),dim=1)
+        return physical_parameters(torch.cat((pair,pair.new_zeros(1,4,*pair.shape[-2:])),dim=1))
+
+
 class FixedObjective:
     def __init__(self, scorer, image, receipt):
         self.scorer=scorer
@@ -71,15 +84,17 @@ def choose_candidate(candidates, losses, identity):
     return min(zip(candidates,losses),key=lambda pair:(pair[1],abs(pair[0]-identity),pair[0]))[0]
 
 
-def run_method(image, objective, method, *, max_steps=40):
+def run_method(image, objective, method, *, max_steps=40, coordinates='ev_gamma', record_states=False):
     source=image.detach()
     size=2 if method.startswith('spatial2') else 1
-    model=EVGamma(size).to(source)
+    model=(EVGamma(size) if coordinates=='ev_gamma' else CoordinateISP(size,coordinates)).to(source)
+    states=[]
     losses=[];gradients=[];ranges=[];search=[];updates=0
     with torch.no_grad():initial=float(objective.from_scores(objective.original_scores))
     reason='identity' if method=='identity' else 'no_active' if not objective.active.any() else None
     if reason is not None:
         output=source.clone();losses=[initial];ranges=[grid_ranges(model)]
+        if record_states:states.append(model.raw.detach().cpu().clone())
     elif method.endswith('_direct'):
         model.set_grid(direct_grid(objective,size))
         with torch.no_grad():output=model(source);final=float(objective(output))
@@ -105,6 +120,7 @@ def run_method(image, objective, method, *, max_steps=40):
     else:
         optimizer=torch.optim.Adam([model.raw],lr=.03)
         for step in range(max_steps+1):
+            if record_states:states.append(model.raw.detach().cpu().clone())
             output=model(source)
             loss=objective(output)
             losses.append(float(loss.detach()));ranges.append(grid_ranges(model))
@@ -118,7 +134,7 @@ def run_method(image, objective, method, *, max_steps=40):
             optimizer.step();updates+=1
     output=output.detach();grid=model.physical_grid().detach()[:,:2]
     assert torch.isfinite(output).all() and torch.isfinite(grid).all()
-    return dict(image=output,raw=model.raw.detach().clone(),grid=grid,
+    return dict(image=output,raw=model.raw.detach().clone(),grid=grid,states=states,
                 diagnostics=dict(loss_before=initial,loss_after=losses[-1],loss_trajectory=losses,gradient_norms=gradients,
                  parameter_ranges=ranges,steps=updates,stop_reason=reason,search=search,active_count=int(objective.active.sum()),
                  all_finite=True,parameter_count=model.raw.numel(),final_grid=grid.cpu().tolist(),
