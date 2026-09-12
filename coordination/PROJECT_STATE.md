@@ -6,81 +6,77 @@
 
 ## Core scientific question
 
-Can a vision system adapt a **compact spatial correction field per test image**, without test labels or clean targets, so that spatially heterogeneous nuisance degradation is corrected before a frozen downstream task model processes the image?
+Can a vision system adapt a compact spatial correction field per test image, without test labels or clean targets, so that spatially heterogeneous nuisance degradation is corrected before a frozen downstream task model processes the image?
 
 ## Current hypothesis
 
-A useful spatial TTT system requires four pieces to align: (i) a content-safe nuisance signal, (ii) a label-free inner objective whose **gradient field** generates restoration-useful states, (iii) safe action/stopping geometry, and (iv) an appropriate spatial representation. T014 establishes the first three under projected EV+gamma. T015 shows that routing among global, bilinear2 and canonical hard Region2 is not enough because that three-output set has only 1.94% oracle headroom. T016-A shows substantial development-only headroom from **image-dependent hard boundary placement** while keeping the four Region2 actions fixed. T016-B now shows that the already-frozen T014 Sobolev energy cannot safely rank those shifted boundaries. The immediate question is whether this is primarily a head/training-distribution mismatch or whether the 28-D representation itself lacks explicit geometry state.
+A useful spatial TTT system requires four aligned pieces: (i) a content-safe nuisance signal, (ii) a label-free inner objective whose gradient field produces restoration-useful states, (iii) safe projected action/stopping geometry, and (iv) a spatial representation whose geometry can be chosen safely per image. T014 establishes the first three for canonical hard Region2. T015 rules out simple routing among global/bilinear2/Region2 because that three-output set has only 1.94% oracle headroom. T016-A shows strong development-only headroom from image-dependent hard boundary placement while keeping the four Region2 actions fixed. T016-B shows the frozen T014 energy cannot rank those boundaries. T016-C now shows that two small **pointwise absolute-value** OOF probes—28-D and 28-D plus explicit boundary coordinates—also fail all five safe-selection clauses. The immediate unresolved question is whether this is a representation failure or a **training-objective mismatch**, because deployment needs within-image ranking rather than absolute cross-image restoration value.
 
-## Current validated method
+## Best fresh-validated method
 
-For a test image `x_t`:
+The best deployable result remains **T014 Sobolev Region2 TTT**:
 
-1. obtain the frozen T006 CLIP exposure readout and T007 clean-abstention gate;
-2. freeze active/dark/bright decisions from the original image;
-3. use the frozen T014 Sobolev restoration energy built from the fixed 28 test-time features;
-4. optimize a compact projected EV+gamma canonical Region2 fast state from identity using only current pixels/frozen features, never test labels or clean targets;
-5. save the full label-free trajectory and choose the minimum predicted-energy checkpoint;
-6. attach clean-reference metrics only after all trajectories/decisions are persisted.
+1. frozen T006 CLIP exposure readout and T007 clean-abstention gate;
+2. frozen T014 28-D Sobolev restoration energy;
+3. canonical hard Region2 projected EV+gamma state, identity initialization;
+4. exactly 40 label-free projected updates when active;
+5. minimum predicted-energy checkpoint, earliest tie;
+6. all label-free trajectories/decisions persisted before clean-reference evaluation.
 
-The best **fresh-validated deployable** spatial basis remains canonical hard Region2 under the T014 synthetic protocol. T016-A/B are development-only diagnostics and do not replace the deployed T014 method.
+Test-time adaptation never consumes test labels, clean targets, condition IDs, degradation masks/gains, annotations, image IDs as shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.
 
 ## Established controlled findings
 
-- **T001–T003:** spatial ISP adaptation is viable on favorable heterogeneous shifts, but spatial capacity alone is insufficient and simple absolute-statistic priors/regularization are not identity-safe.
-- **T004–T007:** zero-shot exposure signals are content-confounded; a source-trained frozen-CLIP exposure readout plus joint clean-abstention calibration yields a usable but imperfect label-free degradation signal.
-- **T008:** the signal drives real correction, but the original semantic EV+gamma TTT fails clean safety and loses to simple local direct correction.
-- **T009:** development geometry audit shows semantic gradients are usually directionally useful at identity, but over-correction/stopping and bilinear spatial coupling are major failure modes. Gamma removal is not justified.
-- **T010:** residual semantic targets improve clean safety but erase most advantage over direct correction; no predeclared residual target qualifies.
-- **T011:** projected gate-consistent Region2 TTT is strong but unqualified on a fresh split. It beats identity/global/direct materially, but misses clean p95 and the required margin over matched discrete. Projection is strongly active and hard Region2 does not win boundary-offset stress.
-- **T012:** learned checkpoint selection cannot rescue the frozen T011 trajectory; even the reference-only checkpoint oracle misses the required margins over fixed16/discrete.
-- **T013:** scalar source-trained restoration energy is a controlled development negative. Scalar value fit does not sufficiently constrain `∇_phi E`; gradient alignment and reachable trajectory quality remain weak.
-- **T014:** source-supervised Sobolev restoration energy is the first fully qualified learned-inner-objective result. Stage A passed **8/8** development clauses and immutable Stage B passed **12/12** fresh clauses on 40 unseen images. Fresh heterogeneous MSE is `0.03385803`, 19.17% below the same-source value-only energy, 11.72% below matched projected discrete and 8.31% below frozen semantic step16. Unseen-calibration gradient alignment is `73/74` positive with median cosine `0.93606`, versus `59/74` and `0.42464` for value-only.
-- **T015:** frozen raw-energy routing among global, bilinear2 and Region2 is a **controlled fresh negative**. Only **4/10** clauses pass. Routed spatial-pool MSE is `0.03780638`, versus evaluation-only best fixed Region2 `0.03504357` (routing 7.88% worse). Reference-only oracle among the same three selected outputs is `0.03436452`, only **1.94%** better than the best fixed basis. A smarter router over the same three outputs is therefore not justified.
-- **T016-A:** fixed-action renderer-transfer is a **positive development-only headroom diagnostic**. On the same 120 previously inspected T015 spatial episodes, exactly 27 predeclared shiftable/soft four-region renderers reuse the identical saved selected Region2 EV/gamma corners. The per-input reference oracle reaches `0.03250770` spatial MSE: `0.92764×` canonical Region2 and `0.94597×` the T015 three-basis oracle. The best single fixed renderer remains canonical Region2. Oracle selections are hard (`tau=0`) in `113/120` episodes, so the demonstrated capacity is primarily adaptive boundary placement rather than sigmoid smoothing.
-- **T016-B:** unchanged frozen T014 Sobolev energy is a **controlled development negative for cross-boundary selection**. All **0/5** predeclared clauses pass. Frozen-energy selection gives spatial MSE `0.03785726`, `1.08029×` canonical Region2 and `1.16257×` the nine-hard oracle. Left/right is `1.07706×` Region2, quadrants `1.23780×`, and offset is only `0.96318×` Region2, missing the required 5% gain. Selector/oracle disagreement is 72.5% and mean Spearman is only `0.2398` over nonconstant episodes. Crucially, the nine-hard oracle is only `1.00172×` the full 27-candidate oracle, so almost all T016-A capacity remains available; the failure is ranking/representation, not candidate capacity.
+- **T001–T003:** spatial ISP adaptation can outperform global correction on favorable heterogeneous shifts, but capacity alone and simple absolute-statistic priors are insufficient.
+- **T004–T007:** zero-shot exposure signals are content-confounded; a source-trained frozen-CLIP exposure readout plus clean-abstention calibration yields a usable nuisance signal.
+- **T008–T011:** semantic EV+gamma TTT has useful directions but suffers clean drift, over-correction, stopping and spatial-coupling issues; projected Region2 becomes strong but does not freshly qualify.
+- **T012:** learned checkpoint selection cannot rescue the T011 trajectory; even the reference-only checkpoint oracle lacks required headroom.
+- **T013:** scalar source-trained restoration energy is a controlled negative; fitting restoration value does not sufficiently constrain the test-time derivative field.
+- **T014:** source-supervised Sobolev restoration energy is the first fully qualified learned-inner-objective result. Stage A passes **8/8** development clauses and frozen Stage B passes **12/12** fresh clauses on 40 unseen images. Fresh heterogeneous MSE is `0.03385803`, 19.17% below matched value-only, 11.72% below projected discrete, and 8.31% below semantic fixed16. Unseen-calibration gradient alignment is `73/74` positive with median cosine `0.93606`, versus `59/74` and `0.42464` for value-only.
+- **T015:** frozen routing among global/bilinear2/Region2 is a controlled fresh negative (**4/10**). Routed spatial MSE `0.03780638`; best fixed Region2 `0.03504357`; oracle among the same three outputs `0.03436452`, only **1.94%** better than Region2. A smarter selector over the same three outputs is not justified.
+- **T016-A:** fixed-action renderer-transfer is a positive development-only capacity diagnostic. Twenty-seven predeclared shiftable/soft renderers reuse the same selected four Region2 EV/gamma corners. Per-image reference oracle spatial MSE `0.03250770 = 0.92764×` Region2 and `0.94597×` the T015 three-basis oracle. `113/120` oracle selections use hard (`tau=0`) boundaries, so the main capacity is adaptive boundary placement, not smoothing.
+- **T016-B:** frozen T014 energy is a controlled development negative for nine-hard cross-boundary selection (**0/5**). Spatial MSE `0.03785726 = 1.08029×` Region2 and `1.16257×` the nine-hard oracle; selector/oracle disagreement 72.5%, mean Spearman `0.2398`. The nine-hard oracle is only `1.00172×` the full T016-A oracle, so candidate capacity is sufficient; ranking is the bottleneck.
+- **T016-C:** two deterministic image-grouped five-fold OOF **pointwise value** probes are controlled development negatives (**0/5 each**). `probe28` spatial MSE `0.03580669 = 1.02178×` Region2 and `1.09959×` hard oracle. Adding only boundary coordinates gives `probe30 = 0.03545103 = 1.01163×` Region2 and `1.08867×` oracle. `probe30` improves pooled MSE only 0.99% over `probe28`; offset nearly reaches the 5% target (`0.95132×` Region2) but left/right (`1.02438×`) and quadrants (`1.07720×`) remain unsafe. Coordinates alone therefore do not restore safe rankability under absolute-value Huber training.
 
-## Interpretation of the strongest results
+## Interpretation of the strongest evidence
 
-T014 supports the narrow causal claim that **derivative supervision matters**. The Sobolev head fits scalar source restoration values worse than the matched value-only head yet transfers much better derivative geometry and produces better fresh restoration. The positive mechanism remains **Sobolev inner objective + frozen projected action geometry**: projection is heavily active, so this is not an unconstrained-energy claim.
+T014 supports the narrow causal claim that **derivative supervision matters more than scalar value fit for gradient-based TTT**. The supported method is still Sobolev objective plus projected action geometry, not unconstrained learned energy.
 
-T015–T016 now isolate the remaining spatial problem more sharply. T015 rules out spending effort on a smarter selector over only global/bilinear2/canonical-Region2 outputs because that candidate set has too little oracle headroom. T016-A reveals substantial headroom from moving the hard split while holding the already-selected four actions fixed. T016-B shows that the accepted T014 energy does not automatically transfer from **within-basis state optimization** to **cross-geometry ranking**. The fixed T014 28-D vector has no explicit boundary coordinates; across T016-B candidates the boundary is represented only indirectly through candidate-dependent CLIP evidence. Whether that representation is already sufficient for a separately trained ranker is unresolved and is the purpose of T016-C.
+T015–T016 isolate the remaining spatial problem. There is real capacity in moving the hard Region2 boundary, especially under boundary-offset degradation, but neither the frozen T014 energy nor a small absolute-value OOF ranker can safely exploit it. T016-C does **not** establish universal feature insufficiency: its heads regress absolute `log(MSE)` across images even though selection only requires within-episode candidate ordering. Moderate OOF rank correlation and the near-threshold offset result make a direct rank-aligned supervision test the minimal next diagnostic before any feature/model expansion.
 
-The small T016-B inference-only numerical drift from saved gradient-enabled T015 scoring is recorded but does not explain the large 0/5 failure. No bitwise-equivalence claim is made for that scorer path.
+The best fresh-validated spatial basis remains canonical Region2. T016-A/B/C are development diagnostics only and do not replace T014.
 
 ## Non-negotiable design principles
 
 - Test-time adaptation/selection must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, image IDs as shortcuts, source-only Jacobians/reference gradients, or evaluation metrics.
-- Source/development clean references are permitted only for explicitly labeled training/diagnostic stages whose outputs are frozen before any later held-out evaluation.
-- Label-free outputs/trajectories/decisions must be finalized and persisted before clean-reference metrics or oracles are attached.
-- Keep identity, global, direct and matched discrete controls in every major spatial/TTT claim.
-- Do not infer useful gradients from low self-supervised loss or scalar value-regression accuracy; derivative quality must be checked explicitly.
-- A gradient-based TTT claim must beat matched non-gradient direct/discrete and strong frozen semantic controls.
-- A selector/routing claim must be checked against a reference-only oracle; if oracle headroom is weak, do not train the selector.
-- Fresh/development splits become permanently unavailable for corrective tuning after inspection.
-- Hard Region2 remains limited by boundary-misaligned evidence; any general spatial claim must address this directly.
-- Fresh-run launchers must fail closed by binding declared source SHAs to the actual runtime scientific files; retrospective evidence does not substitute for future pre-launch enforcement.
-- Development-only oracle or cross-validation diagnostics may decide whether a direction is worth pursuing, but they are not deployable methods and must never be described as fresh qualification.
+- Source/development clean references may be used only in explicitly declared training/diagnostic stages; outputs must be frozen before held-out reference evaluation.
+- Label-free outputs/trajectories/decisions must be finalized and persisted before clean-reference metrics/oracles are attached.
+- Fresh/development IDs become permanently unavailable for corrective tuning after inspection.
+- A selector claim must be compared against a reference-only oracle; weak oracle headroom does not justify learning the selector.
+- Do not infer rankability from train loss or average correlation alone; deployment-facing selected MSE and safety clauses remain decisive.
+- Fresh-run launchers must fail closed by binding declared source SHAs to actual runtime scientific files.
+- Development-only oracle/OOF diagnostics guide research direction but are not deployable or fresh qualification.
 
 ## Milestones
 
 - **M0 / T001:** completed — mechanism scaffold.
 - **M1 / T002:** completed — spatiality/capacity controls.
 - **M2 / T003:** completed — simple-prior rescue negative.
-- **M3 / T004–T008:** completed — frozen nuisance readout qualified; original semantic TTT unqualified.
+- **M3 / T004–T008:** completed — nuisance readout qualified; original semantic TTT unqualified.
 - **M4 / T009:** completed — objective/action geometry diagnosis.
 - **M5 / T010:** completed — residual-target repair negative.
-- **M6 / T011:** completed — projected action geometry strong but fresh qualification negative.
-- **M7 / T012:** completed — learned stopping/selection negative; oracle-limited.
-- **M8 / T013:** completed — scalar learned inner objective negative; gradient/trajectory limited.
+- **M6 / T011:** completed — projected Region2 strong but fresh qualification negative.
+- **M7 / T012:** completed — learned stopping negative; oracle-limited.
+- **M8 / T013:** completed — scalar learned inner objective negative.
 - **M9 / T014:** **COMPLETED — SOBOLEV INNER OBJECTIVE PASSED 8/8 DEVELOPMENT AND 12/12 FRESH QUALIFICATION.**
-- **M10 / T015:** **COMPLETED — FROZEN CROSS-BASIS ROUTING NEGATIVE (4/10); THREE-BASIS ORACLE HEADROOM ONLY 1.94%.**
-- **M11 / T016-A:** **COMPLETED — DEVELOPMENT-ONLY SHIFTABLE-BOUNDARY ORACLE HEADROOM POSITIVE; 7.24% BELOW REGION2, WITH HARD BOUNDARY PLACEMENT DOMINANT.**
-- **M11 / T016-B:** **COMPLETED — FROZEN SOBOLEV HARD-BOUNDARY SELECTOR NEGATIVE (0/5); NINE-HARD ORACLE RETAINS ~99.8% OF FULL T016-A HEADROOM.**
-- **M11 / T016-C:** **ACTIVE — GROUPED OOF FEATURE-SUFFICIENCY PROBE FOR BOUNDARY RANKING.**
+- **M10 / T015:** **COMPLETED — CROSS-BASIS ROUTING NEGATIVE (4/10); ORACLE HEADROOM 1.94%.**
+- **M11 / T016-A:** **COMPLETED — SHIFTABLE-BOUNDARY CAPACITY POSITIVE; 7.24% BELOW REGION2 ORACLE MSE.**
+- **M11 / T016-B:** **COMPLETED — FROZEN ENERGY BOUNDARY SELECTOR NEGATIVE (0/5).**
+- **M11 / T016-C:** **COMPLETED — 28-D AND 30-D POINTWISE OOF VALUE PROBES BOTH NEGATIVE (0/5).**
+- **M11 / T016-D:** **ACTIVE — GROUPED OOF PAIRWISE RANK-SUPERVISION DIAGNOSTIC.**
 
 ## Current open task
 
-`T016-C — grouped OOF boundary-ranking feature-sufficiency probe` in `coordination/CHATGPT_TO_CODEX.md`.
+`T016-D — grouped OOF pairwise boundary-ranking probe` in `coordination/CHATGPT_TO_CODEX.md`.
 
-T016-C is CPU-only and uses no new images or rendering. It trains two fixed-recipe development probes under deterministic image-grouped five-fold cross-validation: one on the saved 28-D T016-B candidate features and one adding only explicit `(b_x,b_y)` coordinates. The purpose is to distinguish a T014-head/training-distribution mismatch from a missing-geometry-state problem before any deployable boundary predictor, learned basis, feature expansion, detector coupling, meta-initialization, prompt retraining, or ViT3-style fast model is authorized.
+T016-D is CPU-only, uses the same already-inspected 40 development IDs and fixed folds/candidates, changes only the training objective from absolute value regression to within-episode pairwise logistic ranking, and compares the same 28-D and 30-D feature sets. No new data, renderer, CLIP, TTT, larger model, confidence gate, fresh run, detector, meta-learning, prompt retraining, or ViT3 work is authorized in this cycle.
