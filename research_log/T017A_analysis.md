@@ -1,0 +1,113 @@
+# T017-A: reference-only local geometry landscape
+
+Result: **coarse_soft_cross_does_not_yet_justify_continuous_geometry_optimization**, **4/5**.
+
+This rule uses reference MSE, not a label-free or deployable signal. It queries only five pre-rendered tau=.05 cross values and evaluates the selected pre-rendered hard candidate. No training, images or rendering.
+
+Literalclauses: {'spatial_improves_region2_3pct': True, 'spatial_within_hard_oracle_3pct': True, 'offset_improves_region2_5pct': True, 'left_right_no_more_than_1pct_worse': True, 'quadrants_no_more_than_1pct_worse': False}
+
+| Group | Selected MSE | Region2 | Hard oracle | /Region2 | /Oracle | Oracle gap | Oracle gain captured | Beneficial/Harmful/Zero |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| spatial_pool | 0.0333179102473 | 0.0350435737482 | 0.0325635645189 | 0.950756634776 | 1.02316533032 | 0.000754345728395 | 0.695829467285 | {'beneficial': 61, 'harmful': 20, 'zero': 39} |
+| left_right | 0.0329902476864 | 0.0333970155101 | 0.0321709857788 | 0.987820234308 | 1.02546586273 | 0.0008192619076 | 0.331776476 | {'beneficial': 26, 'harmful': 9, 'zero': 5} |
+| quadrants | 0.0320072673145 | 0.0309838496498 | 0.0309821883566 | 1.03303068135 | 1.03308607339 | 0.0010250789579 | -616.036747393 | {'beneficial': 0, 'harmful': 11, 'zero': 29} |
+| offset_left_right_40 | 0.0349562157411 | 0.0407498560846 | 0.0345375194214 | 0.85782427473 | 1.01212294127 | 0.000418696319684 | 0.932602442143 | {'beneficial': 35, 'harmful': 0, 'zero': 5} |
+
+Boundary counts use lexicographic bx/by on the nine hard candidates. Oracle exact ties use first lexicographic; the local axis rule prefers canonical, then the lower coordinate.
+
+| Group | Local / Oracle counts | Disagreement / Outside ties / Inside ties | Zero oracle gain / Tied oracle episodes |
+|---|---|---|---|
+| spatial_pool | [18, 5, 10, 18, 39, 13, 7, 4, 6] / [27, 2, 12, 23, 41, 14, 0, 1, 0] | 0.4166666666666667 / 0.325 / 0.675 | 51 / 12 |
+| left_right | [2, 1, 0, 15, 5, 10, 4, 0, 3] / [2, 0, 0, 23, 2, 13, 0, 0, 0] | 0.45 / 0.35 / 0.65 | 7 / 5 |
+| quadrants | [0, 2, 1, 0, 29, 0, 2, 4, 2] / [0, 0, 0, 0, 39, 0, 0, 1, 0] | 0.275 / 0.275 / 0.725 | 39 / 0 |
+| offset_left_right_40 | [16, 2, 9, 3, 5, 3, 1, 0, 1] / [25, 2, 12, 0, 0, 1, 0, 0, 0] | 0.525 / 0.35 / 0.65 | 5 / 7 |
+
+## spatial_pool distributions
+
+gx: {'negative': 51, 'zero': 7, 'positive': 62, 'distribution': {'count': 120, 'null_count': 0, 'mean': 0.005938434818138679, 'median': 0.0008760159835219383, 'quantiles': {'0': -0.058259498327970505, '5': -0.0369613841176033, '25': -0.009978124871850014, '50': 0.0008760159835219383, '75': 0.01983996480703354, '95': 0.056567099411040545, '100': 0.11242068372666836}}}
+
+gy: {'negative': 50, 'zero': 12, 'positive': 58, 'distribution': {'count': 120, 'null_count': 0, 'mean': 0.0004091294249519706, 'median': 0.0, 'quantiles': {'0': -0.046944282948970795, '5': -0.037081437185406685, '25': -0.006427820771932602, '50': 0.0, '75': 0.008098329417407513, '95': 0.031969896517693996, '100': 0.045635709539055824}}}
+
+absolute_gain: {'count': 120, 'null_count': 0, 'mean': 0.0017256635008379817, 'median': 6.293412297964096e-06, 'quantiles': {'0': -0.0056453123688697815, '5': -0.004624876193702221, '25': 0.0, '50': 6.293412297964096e-06, '75': 0.003299744799733162, '95': 0.01119945915415883, '100': 0.018831221386790276}}
+
+relative_gain: {'count': 120, 'null_count': 0, 'mean': 0.05590026855938995, 'median': 0.00033946373615995073, 'quantiles': {'0': -0.18148066349202235, '5': -0.10574889810955383, '25': 0.0, '50': 0.00033946373615995073, '75': 0.09449589569635702, '95': 0.33554802696181624, '100': 0.5498142816325634}}
+
+oracle_gap: {'count': 120, 'null_count': 0, 'mean': 0.0007543457283948859, 'median': 0.0, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.0, '50': 0.0, '75': 0.00036135781556367874, '95': 0.004624876193702221, '100': 0.006040539592504501}}
+
+oracle_available_gain: {'count': 120, 'null_count': 0, 'mean': 0.0024800092292328675, 'median': 0.00010979035869240761, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.0, '50': 0.00010979035869240761, '75': 0.0037383195012807846, '95': 0.011200406868010758, '100': 0.018831221386790276}}
+
+oracle_gain_captured: {'count': 120, 'null_count': 51, 'mean': -0.8846814148330339, 'median': 1.0, 'quantiles': {'0': -78.3528076412387, '5': -1.3872135154407506, '25': 0.6069996123246623, '50': 1.0, '75': 1.0, '95': 1.0, '100': 1.0}}
+
+## left_right distributions
+
+gx: {'negative': 23, 'zero': 2, 'positive': 15, 'distribution': {'count': 40, 'null_count': 0, 'mean': -0.006741668679751456, 'median': -0.0071463268250226974, 'quantiles': {'0': -0.04297932609915733, '5': -0.04092911072075367, '25': -0.01976239262148738, '50': -0.0071463268250226974, '75': 0.004248428158462048, '95': 0.02923724520951504, '100': 0.05049875006079674}}}
+
+gy: {'negative': 13, 'zero': 5, 'positive': 22, 'distribution': {'count': 40, 'null_count': 0, 'mean': 0.003097150009125471, 'median': 0.0003345124423503876, 'quantiles': {'0': -0.04214947111904621, '5': -0.03170506842434406, '25': -0.0003226008266210556, '50': 0.0003345124423503876, '75': 0.010898734908550978, '95': 0.031978415325284004, '100': 0.045635709539055824}}}
+
+absolute_gain: {'count': 40, 'null_count': 0, 'mean': 0.0004067678237333894, 'median': 0.00010773399844765663, 'quantiles': {'0': -0.0056453123688697815, '5': -0.0034681937657296655, '25': 0.0, '50': 0.00010773399844765663, '75': 0.0012326473370194435, '95': 0.003713614959269761, '100': 0.004971185699105263}}
+
+relative_gain: {'count': 40, 'null_count': 0, 'mean': 0.020045628542775668, 'median': 0.007407028253478134, 'quantiles': {'0': -0.1461032235466593, '5': -0.10919418935156289, '25': 0.0, '50': 0.007407028253478134, '75': 0.037489061179380966, '95': 0.1410850602434486, '100': 0.23935815280974213}}
+
+oracle_gap: {'count': 40, 'null_count': 0, 'mean': 0.0008192619075998664, 'median': 0.0, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.0, '50': 0.0, '75': 0.00024723378010094166, '95': 0.004247457161545752, '100': 0.006040539592504501}}
+
+oracle_available_gain: {'count': 40, 'null_count': 0, 'mean': 0.0012260297313332557, 'median': 0.00038450397551059723, 'quantiles': {'0': 0.0, '5': 0.0, '25': 4.297727718949318e-05, '50': 0.00038450397551059723, '75': 0.00223941239528358, '95': 0.0038956836797296992, '100': 0.004971185699105263}}
+
+oracle_gain_captured: {'count': 40, 'null_count': 7, 'mean': -2.1930724229810266, 'median': 1.0, 'quantiles': {'0': -78.3528076412387, '5': -6.7452850441762395, '25': 0.18033609639164672, '50': 1.0, '75': 1.0, '95': 1.0, '100': 1.0}}
+
+## quadrants distributions
+
+gx: {'negative': 24, 'zero': 0, 'positive': 16, 'distribution': {'count': 40, 'null_count': 0, 'mean': -0.002653270959854126, 'median': -0.0028307829052209854, 'quantiles': {'0': -0.058259498327970505, '5': -0.036992503330111504, '25': -0.016148178838193417, '50': -0.0028307829052209854, '75': 0.012116036377847195, '95': 0.030023199971765266, '100': 0.06906064227223396}}}
+
+gy: {'negative': 24, 'zero': 0, 'positive': 16, 'distribution': {'count': 40, 'null_count': 0, 'mean': -0.0044512980384752154, 'median': -0.005525751039385796, 'quantiles': {'0': -0.046936264261603355, '5': -0.03722250368446112, '25': -0.012578433379530907, '50': -0.005525751039385796, '75': 0.005167587660253048, '95': 0.01979864295572041, '100': 0.03145109862089157}}}
+
+absolute_gain: {'count': 40, 'null_count': 0, 'mean': -0.001023417664691806, 'median': 0.0, 'quantiles': {'0': -0.005287043750286102, '5': -0.005125318467617035, '25': -0.001315038651227951, '50': 0.0, '75': 0.0, '95': 0.0, '100': 0.0}}
+
+relative_gain: {'count': 40, 'null_count': 0, 'mean': -0.02558747712907731, 'median': 0.0, 'quantiles': {'0': -0.18148066349202235, '5': -0.13119859141304457, '25': -0.021455534591600336, '50': 0.0, '75': 0.0, '95': 0.0, '100': 0.0}}
+
+oracle_gap: {'count': 40, 'null_count': 0, 'mean': 0.0010250789579004048, 'median': 0.0, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.0, '50': 0.0, '75': 0.0013648774474859238, '95': 0.005125318467617035, '100': 0.005287043750286102}}
+
+oracle_available_gain: {'count': 40, 'null_count': 0, 'mean': 1.6612932085990905e-06, 'median': 0.0, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.0, '50': 0.0, '75': 0.0, '95': 0.0, '100': 6.645172834396362e-05}}
+
+oracle_gain_captured: {'count': 40, 'null_count': 39, 'mean': -19.14093508240834, 'median': -19.14093508240834, 'quantiles': {'0': -19.14093508240834, '5': -19.14093508240834, '25': -19.14093508240834, '50': -19.14093508240834, '75': -19.14093508240834, '95': -19.14093508240834, '100': -19.14093508240834}}
+
+## offset_left_right_40 distributions
+
+gx: {'negative': 4, 'zero': 5, 'positive': 31, 'distribution': {'count': 40, 'null_count': 0, 'mean': 0.02721024409402162, 'median': 0.020044599659740925, 'quantiles': {'0': -0.011749565601348877, '5': -0.003911491483449936, '25': 0.0017051491886377335, '50': 0.020044599659740925, '75': 0.04835523199290037, '95': 0.07551572844386095, '100': 0.11242068372666836}}}
+
+gy: {'negative': 13, 'zero': 7, 'positive': 20, 'distribution': {'count': 40, 'null_count': 0, 'mean': 0.002581536304205656, 'median': 2.9713846743106842e-05, 'quantiles': {'0': -0.046944282948970795, '5': -0.03277507983148098, '25': -0.00126721803098917, '50': 2.9713846743106842e-05, '75': 0.009322864934802055, '95': 0.03950638929381966, '100': 0.04292067140340805}}}
+
+absolute_gain: {'count': 40, 'null_count': 0, 'mean': 0.005793640343472362, 'median': 0.0048964302986860275, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.0025461455807089806, '50': 0.0048964302986860275, '75': 0.008124538697302341, '95': 0.013368677441030733, '100': 0.018831221386790276}}
+
+relative_gain: {'count': 40, 'null_count': 0, 'mean': 0.1732426542644715, 'median': 0.10950364408592997, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.045685481207865856, '50': 0.10950364408592997, '75': 0.2688221616699858, '95': 0.4920888397543115, '100': 0.5498142816325634}}
+
+oracle_gap: {'count': 40, 'null_count': 0, 'mean': 0.00041869631968438625, 'median': 0.0, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.0, '50': 0.0, '75': 0.00016266992315649986, '95': 0.0025162640959024416, '100': 0.00346258282661438}}
+
+oracle_available_gain: {'count': 40, 'null_count': 0, 'mean': 0.006212336663156748, 'median': 0.0056290701031684875, 'quantiles': {'0': 0.0, '5': 0.0, '25': 0.002974923700094223, '50': 0.0056290701031684875, '75': 0.00876940879970789, '95': 0.013368677441030733, '100': 0.018831221386790276}}
+
+oracle_gain_captured: {'count': 40, 'null_count': 5, 'mean': 0.870551640494368, 'median': 1.0, 'quantiles': {'0': 0.0610124434053512, '5': 0.43019182547120505, '25': 0.8770613551972164, '50': 1.0, '75': 1.0, '95': 1.0, '100': 1.0}}
+
+Group captured gain is a ratio of aggregate gains; per-episode captured-gain distribution is reported separately, with zero denominator as null (never clipped or forced to zero). Quantiles are linear0/5/25/50/75/95/100percent. Exactzero gains/oracle ties remain explicit.
+
+All120choices are frozen before family labels are attached. gx/gy are diagnostic finite differences only; they do not change the axis-minimum rule. The finite cross is not a proof of continuous differentiability or learned-objective feasibility. Stop after this reference-only development audit; no source objective or fresh experiment.
+
+## Execution and verification
+
+Frozen scientific source **5247690887078540fd5bfe74c90052efe0f4fb93**; branch codex/T017A-local-geometry-landscape. Issued inboxc49b06a7/researchstate61dd70c2. Four runtime scientific files bind to their exact Gitblob bytes. Six immutable input artifacts are hash-bound: Aee5d8fdaf3ab48ee7ad3654d45bdc65419be8367 candidate_metrics/config/summary/sanity/localverification and B4062e01cb93de731c394015c5ac741d6c08e04d8 accepted evaluation for hard-oracle reproduction only. No image,pixel,clean-file,large-pack,CLIPfeature,TTTtrajectory or model reads. B energies/features are not used by any rule or metric.
+
+Candidate-table SHA2566091a0c928f115940997a647693b6571d8608131e7f9567a75882f0233b9c41e. Precheck verified exactly120x27tuples, canonicalhardMSE equality120/120, and all1080tau0candidate values exactly matching B. Nine-hard pooledoracle0.032563564518932255 reproduces exactly before the newdiagnostic. Full27oracle and pooledRegion2 reproduce acceptedA aggregates. Baseline precheck does not use family labels; local choices consume exactlyindices[13,4,22,10,16] (center,left,right,down,up). Row ordinals bind decisions without image/condition identifiers.
+
+Kernel3testsPASS0.000s; final6focusedtestsPASS0.062s;py_compilePASS. Tests cover exactaxis/center/lower-coordinate ties,finite differences,readguard onexactfivecrossvalues,metadata/noncrossmutationinvariance,immutableartifact andcandidatecontract,strict1.03oracleclause,zero-denominatornulls/tiedoracles,andall120decisionshash-frozenbeforefamilyreporting. Incrementchecks overlap, not9unique tests. No unrelated suite/training rerun. No test or formal-run failures, repairs or outcome-driven changes.
+
+Independent array-based auditPASS:4source/6inputhashes,120x27table,canonical120 andhard1080exactmatches,120localchoices,240finite differences,allMSEratios/oraclegaps/capturedgains/boundarycounts/ties/signs/linearquantiles and fiveclauses. It computes choices from a3x3x3array with independent center-firstaxislogic, not by calling the implementation. All51zero-oracle-headroom episodes and12tied-oracle episodes are preserved; captured ratios are null exactly at zero denominator and never clipped. No training/rendering duringverification.
+
+Command: `D:/anaconda3/python.exe -m ttie.local_geometry --source-sha 5247690887078540fd5bfe74c90052efe0f4fb93 --output research_log/T017A_run`. Python3.12.7,CPU,standardlibraryanalysis. One runexit0at2026-09-12T22:29:25.9205182Z. Choicesfrozen22:29:25.882587Z; familyreportingbegan22:29:25.889597Z. DecisionsSHA2568aefe5e88aa823e6d415bb1580a00765aaf507e4a106766fef5495e238a1bc26; freezeSHA256b452ea83955af9a578f0c7cdf5e66ef5438a30d7bf9005e8440c36685ed03a7e. Hashes unchanged afterreporting. No alternative tau/rule evaluated.
+
+## Literal interpretation and limits
+
+The fixedvector is **[true,true,true,true,false]**. SpatialMSE is4.9243%belowRegion2 and2.3165%abovehardoracle, capturing69.5829%ofpooledhard-oracleheadroom. Left/right improves1.2180%; offset improves14.2176%andcaptures93.2602%ofitshard-oraclegain. However,quadrants worsen3.3031%, with11harmful and29zero-gain episodes; no quadrant episode benefits. Thus all-family localviability fails despite favorable pooled/offset results.
+
+Quadrants have only1.6612932085990905e-6mean hard-oracle headroom (39/40episodes have zeroheadroom), while this rule loses.0010234176647meanMSErelative tocanonical. Consequently its aggregate captured-gainratio is approximately-616.04. This large negative finite ratio reflects a tiny positive denominator, not division-by-zero, a clipped percentage, or a useful summary of safe performance. The absoluteMSE, harmfulcounts and zero-denominatorcases are reported alongside it. Per-episode ratios and aggregate ratio-of-means are separate quantities.
+
+The required conclusion is negative/inconclusive: **this coarse tau=.05local-axis diagnostic does not yet justify continuous geometry optimization**. It does not establish that all learnedspatialbases are impossible. Even a5/5reference-only result would not supply a label-free deployablegradient; here the family-safetyfailure additionally blocks the proposed nextinference. No learnedgeometryobjective, continuousoptimizer orfreshqualification is launched. Stop forresearchreview.
+
+Artifacts: T017A_run baseline/config/decisions/decisions_frozen/evaluation/summary/receipt andgeneratedreport; exactspec,test/runlogs/command; independentverify_t017a.py andverificationJSON/log; HANDOFF andfinaldeliveryJSON. Fullinputcommit/path/SHA manifest inconfig. No scientificdeviation,modeltraining,OOF/CV,thresholdcalibration,newdata,rendering,A6000experiment orpost-resultrulechange. Final evidence/PR/mainoutbox andserverrecoveryhashes are recorded inT017A_delivery.json.
