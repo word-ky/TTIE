@@ -42,11 +42,12 @@ def persist_then_evaluate(results,gate,clean,*,directory,image_id,condition):
     outputs=directory/'outputs.pt';state_file=directory/'states.pt'
     torch.save(pack,outputs);torch.save(states,state_file)
     write(directory/'decisions.json',dict(gate=gate,methods={name:r['diagnostics'] for name,r in results.items()}))
-    # All methods and semantic decisions now exist on disk; only now read clean.
+    receipt={name:dict(file=path.name,bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+             for name,path in (('outputs',outputs),('states',state_file),('decisions',directory/'decisions.json'))}
+    write(directory/'label_free_receipt.json',receipt)
+    # All methods, decisions, states and hashes now exist; only now read clean.
     rows=evaluate_outputs(results,clean,image_id=image_id,condition=condition)
     write(directory/'metrics.json',rows)
-    receipt={name:dict(file=path.name,bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest())
-             for name,path in (('outputs',outputs),('states',state_file))}
     return rows,receipt
 
 

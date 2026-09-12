@@ -46,18 +46,19 @@ def stage_a(rows):
                 feasible_count=len(feasible),passes=bool(feasible),selection='min heterogeneous MSE; within 1e-6 prefer mean rho, bright rho, dark rho descending')
 
 
-def stage_b(rows):
-    groups=aggregate(rows);primary='region2_ttt_rho';clean=groups['clean'][primary]['mse']
+def stage_b(rows,*,primary='region2_ttt_rho',global_method='global_ttt_rho',
+            discrete='region2_discrete_rho',bilinear='bilinear2_ttt_rho'):
+    groups=aggregate(rows);clean=groups['clean'][primary]['mse']
     mse=lambda c,m:groups[c][m]['mse']['mean']
     ratio=lambda baseline:mse('heterogeneous',primary)/mse('heterogeneous',baseline)
     h=groups['heterogeneous']
     values=dict(clean_mean=clean['mean'],clean_p95=clean['p95'],
         dark_ratio=mse('homogeneous_dark',primary)/mse('homogeneous_dark','identity'),
         bright_ratio=mse('homogeneous_bright',primary)/mse('homogeneous_bright','identity'),
-        global_ratio=ratio('global_ttt_rho'),direct_ratio=ratio('region2_direct'),discrete_ratio=ratio('region2_discrete_rho'),
+        global_ratio=ratio(global_method),direct_ratio=ratio('region2_direct'),discrete_ratio=ratio(discrete),
         dark_region_ratio=h[primary]['dark_region_mse']['mean']/h['identity']['dark_region_mse']['mean'],
         bright_region_ratio=h[primary]['bright_region_mse']['mean']/h['identity']['bright_region_mse']['mean'],
-        quadrant_bilinear_ratio=mse('quadrants',primary)/mse('quadrants','bilinear2_ttt_rho'))
+        quadrant_bilinear_ratio=mse('quadrants',primary)/mse('quadrants',bilinear))
     criteria=dict(clean_mean=values['clean_mean']<=.003,clean_p95=values['clean_p95']<=.005,
         homogeneous_dark=values['dark_ratio']<=.6,homogeneous_bright=values['bright_ratio']<=.6,
         spatial_value=values['global_ratio']<=.85,beyond_direct=values['direct_ratio']<=.95,
