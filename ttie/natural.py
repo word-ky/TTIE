@@ -57,6 +57,8 @@ def degrade(clean, condition):
         gain = torch.full_like(x, 1.55, dtype=clean.dtype)
     elif condition == 'left_right':
         gain = torch.where(x < w//2, .45, 1.55)
+    elif condition == 'offset_left_right_40':
+        gain = torch.where(x < int(.4*w), .45, 1.55)
     elif condition == 'quadrants':
         gain = torch.where(((x >= w//2).int() + (y >= h//2).int()) % 2 == 0, .45, 1.55)
     elif condition == 'smooth_gradient':

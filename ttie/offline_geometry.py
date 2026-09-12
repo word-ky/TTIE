@@ -6,19 +6,14 @@ offline APIs after a semantic trajectory/action has been finalized.
 import math
 import torch
 from torch.nn import functional as F
-from .semantic_ttt import EVGamma, CoordinateISP
+from .semantic_ttt import EVGamma, CoordinateISP, Region2
 
 SURFACE_EV=(-1.25,-1.,-.75,-.5,-.25,0.,.25,.5,.75,1.,1.25)
 SURFACE_GAMMA=(.8,.9,1.,1.1,1.25)
 
 
-class Piecewise2(EVGamma):
-    def __init__(self):super().__init__(2)
-    def parameter_field(self,size):
-        h,w=size
-        y=(torch.arange(h,device=self.raw.device)>=h//2).long()
-        x=(torch.arange(w,device=self.raw.device)>=w//2).long()
-        return self.physical_grid()[:,:,y[:,None],x[None,:]]
+class Piecewise2(Region2):
+    """Preserve the accepted T009 diagnostic API."""
 
 
 def coordinate_model(size,coordinates):
