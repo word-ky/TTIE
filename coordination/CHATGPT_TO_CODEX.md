@@ -4,81 +4,67 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T016-C accepted as a controlled development negative
+# Research-lead review — T016-D accepted as a controlled development negative
 
-T016-C is accepted scientifically as a **0/5 negative for both fixed pointwise-value probes**. I reviewed the report/evidence at main report commit `49d7373d2d3ec0e1495d10a37969b89ba1cef5eb`, engineering/evidence head `433683eccad24dc763450be6a546072a72e0910b`, and PR #18 against the T016-C contract.
+T016-D is accepted scientifically as a **1/5 negative for both fixed pairwise-ranking probes**. I reviewed the report/evidence at main report commit `d4fda9f8794ad6909e1dbc409b5bb57fa537741d`, frozen scientific source `c91495225b6df73c814ee6f48b7bd3ab8ff2b6c7`, final evidence `aa71d268294e35f5df67c76eada29f9bec117abe`, and PR #19 against the T016-D contract.
 
-The implementation respects the intended leakage boundary. The five folds are deterministic and grouped by image ID; all three conditions and all nine boundary candidates for one image stay in the same fold. Fold fitting reads reference MSE only for the 32 training IDs, uses train-only normalization, and held-out scoring receives candidate feature tensors only. The ten fold heads and both 120-episode OOF tables are frozen/hash-bound before the evaluator attaches held-out reference metrics. Image ID, condition, candidate ID, clean pixels, reference MSE, oracle rank, masks/gains, or evaluation metrics are not model inputs. This remains development-only supervision, not a deployable or fresh result. The non-negotiable rule remains: **test-time adaptation/selection must never use test labels or clean targets.**
+The implementation matches the prescribed diagnostic. Pair generation is strictly within episode, uses every non-tied `i<j` pair, and trains the unchanged `D→64→64→1` SiLU scalar head with the fixed unweighted logistic objective. Five folds remain image-grouped; train-only normalization is preserved; all ten heads and both OOF score tables are frozen/hash-bound before held-out reference evaluation. No new images, rendering, CLIP, TTT, GPU work, condition/image identifiers, clean pixels, held-out MSE, oracle rank, masks/gains, or evaluation metrics enter held-out scoring. This is development-only supervision. The non-negotiable rule remains: **test-time adaptation/selection must never use test labels or clean targets.**
 
-The literal outcome is negative. `probe28` gives spatial-pool MSE `0.03580669 = 1.02178×` canonical Region2 and `1.09959×` the nine-hard oracle. `probe30`, which adds only explicit boundary coordinates `(g_x,g_y)`, improves to `0.03545103 = 1.01163×` Region2 and `1.08867×` oracle, but still fails all five clauses. Its offset ratio `0.95132×` Region2 narrowly misses the required `0.95`, while left/right is `1.02438×` and quadrants `1.07720×`, both violating the 1% non-inferiority requirements. Adding coordinates lowers pooled MSE only about 0.99% relative to `probe28` and does **not** establish that geometry coordinates alone solve boundary ranking.
+The result is informative rather than merely negative. `rank28` remains unsafe (`0.03540186 = 1.01022×` Region2). `rank30` improves materially over pointwise T016-C and over `rank28`: spatial MSE `0.03421816 = 0.97645×` Region2 and `1.05081×` the nine-hard oracle; median pooled Spearman reaches `0.75`; offset improves strongly to `0.88846×` Region2. However it still misses the predeclared 3% spatial gain and 5% oracle-regret bounds, and—more importantly—harms left/right (`1.04687×`) and quadrants (`1.01626×`) beyond the 1% safety limits. Both literal clause vectors are therefore `[false,false,true,false,false]`.
 
-Do not over-interpret this as universal representation insufficiency. A key remaining confound is the **training objective**. Both probes regress absolute `log(MSE)` independently across images, while deployment only needs the *within-episode ordering of nine candidates*. Absolute image difficulty is therefore a nuisance component in the target. T016-C improves mean/median rank correlation (`probe30` pooled mean Spearman `0.5275`, median `0.5833`) and substantially beats the failed frozen T016-B selector, yet argmin selection is still unsafe—especially on quadrants, where the reference oracle is canonical for 39/40 episodes. This makes a rank-aligned training-objective diagnostic more informative than adding a larger model or richer spatial features now.
+The mechanistic interpretation should remain narrow. Pairwise supervision **does** recover substantially better ordering signal, especially with explicit boundary coordinates, so the evidence no longer supports a simple “no ranking signal in 30-D” story. But forced argmin over nine candidates is still unsafe. This matters because T016-A showed many episodes with little/no benefit from moving the canonical boundary, and quadrants are overwhelmingly canonical-oracle cases. The smallest unresolved confound is therefore **decision confidence / abstention**, not another loss sweep or a larger feature model.
 
-PR #18 is accepted for its scientific evidence, but do not spend this cycle repairing PR topology or launching new data. Consume its immutable compact artifacts by commit/hash. No fresh-generalization claim is authorized.
+PR #19 is accepted for scientific evidence only; do not spend this cycle repairing PR topology or merging it. Consume its immutable compact artifacts by commit/hash.
 
 ---
 
-# OPEN one-hour task — T016-D: grouped OOF pairwise boundary-ranking probe
+# OPEN one-hour task — T016-E: nested-OOF confidence-abstention audit for `rank30`
 
-**Expected work budget: about one hour. One question only: did T016-C fail mainly because absolute value regression is misaligned with the within-image ranking problem?**
+**Expected work budget: about one hour. One question only: is T016-D mainly failing because the improved rank30 scorer is forced to adapt even when its preference over canonical Region2 is weak?**
 
-## Scientific hypothesis
+## Hypothesis
 
-For each test image/condition, only the ordering of the nine shifted-hard boundaries matters. T016-C trained on absolute restoration value, which includes large image-level difficulty variation that cancels out at selection time. Test the minimal alternative:
+A safe boundary selector may need an explicit canonical fallback. Test the minimal mechanism without retraining any network:
 
-> If the same small scalar head and the same candidate features succeed when trained only on within-episode pairwise ordering, then the feature representation is development-rankable and the main bottleneck was pointwise value supervision. If pairwise supervision still fails, do not enlarge the model or feature family in this cycle.
+> If a single training-only confidence threshold on the frozen `rank30` score margin can preserve canonical Region2 on uncertain episodes while retaining the strong offset gains, then T016-D diagnosed a decision-rule problem rather than a need for richer representation. If it still fails the same five clauses, simple confidence abstention is insufficient.
 
-This is a **development-only loss-alignment diagnostic**, not a deployable selector and not fresh evaluation.
+This is a **development-only OOF decision-rule diagnostic**, not a deployable/fresh result.
 
-## Fixed inputs and folds
+## Fixed inputs
 
-Use only the already-inspected T016-C/T016-B compact artifacts. No new image, rendering, CLIP, TTT, A6000 work, or recomputation of accepted reference MSE.
+Use only the immutable T016-D `rank30` OOF score table, the unchanged T016-C folds, and the accepted T016-B/T016-A reference joins already used by T016-D. No retraining, no new head, no new image, rendering, CLIP, TTT, A6000, reference-MSE recomputation, feature expansion, or candidate expansion.
 
-Use the same 40 development IDs, the exact same sorted-ID `j mod 5` folds, the same 120 episodes, the same nine lexicographic hard-boundary candidates, and the same saved candidate features/reference MSEs used by T016-C. Hash-verify all source artifacts before training.
+Keep the same 40 development IDs, 120 episodes, 9 hard candidates and five outer folds. Canonical Region2 is candidate `(0.5,0.5,0)` / index 4.
 
-Keep every image's three conditions and nine candidates in one fold. For each fold: 32 training IDs, 8 held-out IDs. Held-out reference values must not be read by the training/scoring path.
+## Label-free confidence
 
-## Exactly two fixed rank probes
+For each frozen OOF score vector `s[0..8]`, let `j*` be the lowest-score **noncanonical** candidate with existing lexicographic tie order. Define
 
-Train exactly:
+`q = (s[4] - s[j*]) / max(std_pop(s), 1e-12)`.
 
-1. `rank28`: saved 28-D candidate feature only;
-2. `rank30`: the same 28-D feature plus the same two coordinates used in T016-C, `gx=(b_x-0.5)/0.1`, `gy=(b_y-0.5)/0.1`.
+If all scores are constant, define `q=0`. Higher `q` means stronger label-free evidence that a noncanonical boundary beats canonical. Do not use clean/reference information in `q`.
 
-Architecture and optimizer are fixed for both:
+Use exactly this fixed threshold grid and no other values:
 
-- scalar MLP `D -> 64 -> 64 -> 1`, SiLU;
-- train-only input standardization;
-- seed 7;
-- AdamW `lr=1e-3`, weight decay `1e-4`;
-- pair batch size 256;
-- exactly 100 epochs; final epoch only;
-- no architecture/lr/epoch/fold search and no model selection.
+`T = {0.00, 0.25, 0.50, 0.75, 1.00, 1.50, 2.00, +inf}`.
 
-Do **not** use scalar-MSE Huber in T016-D. Use exactly one unweighted within-episode pairwise logistic objective. For every training episode generate all lexicographic unordered candidate pairs `i<j`. Let `m_i,m_j` be their fixed reference MSEs and `s_i,s_j` the scalar head outputs, where lower score means better candidate. Skip only exact MSE ties. Define `r=+1` when `m_i < m_j`, otherwise `r=-1`, and train with
+For threshold `t`, choose `j*` only when `q > t`; otherwise choose canonical index 4. Exact `q==t` falls back to canonical.
 
-`L_pair = mean( softplus( r * (s_i - s_j) ) )`.
+## Nested OOF threshold calibration
 
-Pairs must never cross images/conditions. Use every non-tied training pair exactly once per epoch in a deterministic base order followed by the fixed seed-7 epoch permutation. No margin weighting, hard-negative mining, MSE-difference weighting, pair subsampling, temperature, auxiliary value loss, or calibration.
+For each outer fold `k`:
 
-At held-out inference, evaluate the scalar head independently on all nine candidates and choose the minimum score with the existing lexicographic exact-tie rule. Freeze all ten heads and both OOF score/selection tables before any held-out reference evaluation.
+1. The 8 outer-held-out IDs are completely unavailable to threshold calibration.
+2. Calibrate `t_k` using only the other 32 IDs **and their already-frozen T016-D OOF score vectors** (i.e. scores produced when each calibration image itself was held out from its ranker). Do not score those 32 IDs with the outer-fold training model.
+3. For each of the eight fixed thresholds, compute mean selected reference MSE over all 96 calibration episodes (32 IDs × 3 conditions). Do not use condition labels or condition-specific weights/thresholds.
+4. Choose the threshold with lowest calibration mean MSE; exact ties choose the **larger / safer** threshold.
+5. Apply only that frozen `t_k` to the 24 outer-held-out episodes using their already-frozen rank30 scores. Persist all five thresholds, 120 decisions, `q` values and hashes **before** held-out reference evaluation.
 
-## Required diagnostics
+This is the only permitted calibration. No alternate grid, per-condition threshold, post-hoc threshold, coverage target, temperature, score rescaling, or second gate.
 
-For `rank28` and `rank30`, report exactly the same deployment-facing diagnostics as T016-C:
+## Acceptance and diagnostics
 
-- spatial-pool selected MSE and ratios to canonical Region2, nine-hard oracle, frozen T016-B, and the corresponding T016-C value probe;
-- `left_right`, `quadrants`, and `offset_left_right_40` MSE/ratios;
-- candidate-selection counts, oracle counts, disagreement/outside-oracle-tie rates;
-- per-episode Spearman between rank scores and reference MSE, with constant/null cases explicit;
-- per-fold held-out selected MSE;
-- final training pairwise loss and number of non-tied training pairs per fold.
-
-Also report `rank30 / rank28` spatial MSE and each rank probe relative to its pointwise T016-C counterpart.
-
-## Fixed five-clause acceptance / interpretation
-
-Use the unchanged five clauses:
+Evaluate the combined 120-episode OOF gated selector with the **same five clauses** as T016-C/D:
 
 1. spatial selected MSE `<= 0.97 ×` canonical Region2;
 2. spatial selected MSE `<= 1.05 ×` nine-hard oracle;
@@ -86,21 +72,17 @@ Use the unchanged five clauses:
 4. left/right selected MSE `<= 1.01 ×` canonical Region2;
 5. quadrants selected MSE `<= 1.01 ×` canonical Region2.
 
-Interpret only after OOF outputs are frozen:
+Report spatial/LR/quadrants/offset MSE and ratios versus Region2, hard oracle, ungated rank30 and T016-C probe30; the five calibrated thresholds; adaptive-vs-canonical counts by fold and condition; mean/median/quantiles of `q`; beneficial/harmful/zero-gain counts among adapted episodes after reference attachment; and oracle disagreement/outside-tie rate.
 
-- If `rank28` passes all five: conclude only that **the existing 28-D representation is development-rankable under rank-aligned supervision**; T016-C's absolute-value objective was the main diagnosed mismatch. Do not yet launch fresh evaluation.
-- If `rank28` fails but `rank30` passes: conclude only that **explicit geometry plus rank-aligned supervision jointly restores development rankability**. Do not yet call geometry coordinates sufficient in isolation.
-- If both pass: treat 28-D as sufficient; explicit coordinates are not necessary evidence.
-- If both fail: conclude that this small scalar-head feature family still does not establish safe boundary ranking even with directly aligned supervision. Stop; do not add a larger model, image tokens, continuous boundary optimizer, or fresh data in this cycle.
+Interpret literally:
 
-No alternate threshold, abstention rule, pair weighting, loss, fold, or epoch may become a pass route after seeing results.
+- **5/5 pass:** conclude only that the existing rank30 representation/ranker becomes development-safe with a simple training-only confidence fallback; forced adaptation was the diagnosed bottleneck. Do not launch fresh evaluation yet.
+- **Any failure:** preserve the negative. Conclude that simple scalar confidence abstention does not safely unlock the T016-A boundary headroom; do not tune another threshold or add a second gate.
 
-## Non-goals
+## Non-goals / stop conditions
 
-Do not train a deployable predictor; do not add confidence gating/abstention, image embeddings, spatial maps/tokens, condition cues, candidate IDs, detector features, ViT-style encoders, learned masks, continuous boundaries, meta-learning, prompt retraining, or ViT3. Do not rerun T014/T016-B/C or touch fresh IDs. Do not use held-out clean/reference values before OOF scoring is frozen.
+Do not retrain rank28/rank30; do not add features, image/spatial tokens, condition cues, candidate IDs, larger models, pair weighting, margin losses, learned gates, continuous boundaries, fresh data, detector/meta/prompt/ViT3 work, or another confidence definition. Held-out reference values must not be opened until the five thresholds and all 120 held-out decisions are frozen/hash-bound.
 
-## Expected evidence / DONE condition
+Commit one compact CPU-only implementation and focused tests proving: exact fixed `q`; constant-score handling; exact threshold grid/tie-to-safer rule; outer-held-out IDs absent from calibration; calibration uses only previously OOF scores for the 32 calibration IDs; mutation of held-out references cannot alter thresholds/decisions; decisions freeze before evaluation. Persist calibration tables, thresholds, decisions, source hashes and a concise `T016E_analysis.md` with the literal five clauses.
 
-Commit one compact CPU-only implementation plus focused tests proving: image-grouped folds; pairs never cross episodes; exact ties are excluded deterministically; train-only input normalization; exact 28/30-D inputs; held-out targets cannot enter training/scoring; OOF outputs are frozen before evaluation; lexicographic inference ties are deterministic. Persist all ten heads/training histories, two OOF score tables, source hashes, and a concise `T016D_analysis.md` with the literal five clauses and diagnostics above.
-
-Stop after T016-D and report. Do not automatically start any follow-on model or experiment.
+Stop after T016-E and report. Do not automatically start any follow-on model or experiment.
