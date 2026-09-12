@@ -1,0 +1,28 @@
+test_648_exclusions_and_frozen_old_code_inventory (test_routing_pilot.RoutingPilotTests.test_648_exclusions_and_frozen_old_code_inventory) ... ok
+T015 finalized 1 1 clean basis global_ttt_energy_sobolev seconds 4.08
+T015 finalized 2 1 homogeneous_dark basis region2_ttt_energy_sobolev seconds 0.78
+T015 finalized 3 1 homogeneous_bright basis region2_ttt_energy_sobolev seconds 0.94
+T015 finalized 4 1 left_right basis region2_ttt_energy_sobolev seconds 1.94
+T015 finalized 5 1 quadrants basis global_ttt_energy_sobolev seconds 1.84
+T015 finalized 6 1 offset_left_right_40 basis region2_ttt_energy_sobolev seconds 1.92
+test_fresh_six_conditions_no_training_and_persisted_route (test_routing_pilot.RoutingPilotTests.test_fresh_six_conditions_no_training_and_persisted_route) ... ERROR
+
+======================================================================
+ERROR: test_fresh_six_conditions_no_training_and_persisted_route (test_routing_pilot.RoutingPilotTests.test_fresh_six_conditions_no_training_and_persisted_route)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\tests\test_routing_pilot.py", line 24, in test_fresh_six_conditions_no_training_and_persisted_route
+    report,entries=evaluate(manifest,images,root/'audit',scorer(),RECEIPT,head,'cpu',max_steps=2)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\ttie\routing\pilot.py", line 43, in evaluate
+    report=summarize(rows);report['trajectory_distributions']=summarize_trajectories(entries)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\ttie\sobolev_metrics.py", line 61, in summarize_trajectories
+    ds=[e['trajectory_diagnostics'][method] for e in entries if condition=='all' or e['condition']==condition]
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'region2_ttt_energy_value_only'
+
+----------------------------------------------------------------------
+Ran 2 tests in 12.195s
+
+FAILED (errors=1)
