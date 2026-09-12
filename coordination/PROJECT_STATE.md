@@ -19,12 +19,12 @@ For a test image `x_t`:
 1. extract fixed local quadrant views;
 2. obtain a frozen source-trained exposure readout in CLIP feature space;
 3. apply the frozen T007 joint clean-abstention gate to decide which quadrants are active and whether they look dark or bright;
-4. adapt only a compact bounded EV+gamma fast state from current pixels;
-5. stop against a source-calibrated **residual semantic-evidence target** rather than forcing every active view to the zero-evidence clean envelope;
-6. compare a global state, bilinear 2x2 field, and a fixed quadrant-aligned 2x2 region field;
+4. optimize a compact EV+gamma fast state from current pixels only;
+5. use the original zero-envelope semantic objective, but constrain the fast state to a **gate-consistent direct-scale trust box**: inactive regions remain identity, dark regions may only increase EV up to +0.5, bright regions may only decrease EV down to -0.5, and gamma stays in [0.8,1.25];
+6. compare global, bilinear 2x2, and fixed quadrant-aligned `region2` spatial controls, including direct/discrete non-gradient baselines;
 7. attach clean-reference metrics only after every label-free decision/output is finalized.
 
-The residual target and region-aligned renderer are the T010 candidate repair, not yet a qualified result. Learned fast networks, meta-initialization, detector coupling and ViT3-style fast weights remain later targets.
+This projected action geometry is the T011 candidate mechanism. Learned fast networks, meta-initialization, detector coupling and ViT3-style fast weights remain later targets.
 
 ## Established controlled findings
 
@@ -36,7 +36,8 @@ The residual target and region-aligned renderer are the T010 candidate repair, n
 - **T006:** source-trained three-prototype readout on frozen CLIP features yields strong exposure ranking and mixed-region localization, but its first independent gate has excessive clean false activation. The learned vectors are a discriminative frozen-CLIP readout, not preserved text semantics.
 - **T007:** a predeclared image-level joint clean-abstention envelope fixes much of that safety issue: clean all-view FPR falls to **6%**, clean image-any activation to **20%**, while retaining usable dark/bright recall. The recall cost is material.
 - **T008:** the first frozen-signal EV+gamma correction pilot shows that the readout can drive real correction, but the current TTT objective is not qualified. Spatial TTT improves homogeneous dark/bright MSE by **61.26% / 58.70%** and pooled heterogeneous MSE by **16.18%** versus identity, yet fails clean-tail safety, beats global TTT by only **4.45%**, is **14.73% worse** than a fixed local ±0.5 EV action, and worsens heterogeneous bright-region MSE by **13.65%**. Lower semantic loss alone is therefore not a sufficient restoration proxy.
-- **T009:** development-only geometry audit separates the T008 failure. The pooled spatial EV+gamma semantic gradient is positively aligned with reference restoration at identity in **94.77%** of active non-clean episodes with median cosine **0.7973**, so a blanket objective-direction failure is not supported. However, **92.81%** improve after the first update while **69.28%** have a strictly better earlier MSE step than the final semantic stop: over-correction/stopping is a dominant failure. Gamma removal does **not** meet its predeclared criterion (EV-only pooled MSE gain only **0.45%**, with 94.89% semantic reduction retained). The spatial renderer rule does fire: on exact quadrant shifts, a quadrant-constant field improves MSE by **21.60%** over bilinear under identical direct actions and by **87.96%** under the fixed development-only reference oracle. Left/right shows the same direction. Important limitation: heterogeneous dark-region gradient median is **-0.2099** despite positive whole-image alignment, and the hard piecewise field is geometrically matched to the synthetic quadrant boundaries.
+- **T009:** development-only geometry audit separates the T008 failure. The pooled spatial EV+gamma semantic gradient is positively aligned with reference restoration at identity in **94.77%** of active non-clean episodes with median cosine **0.7973**, so a blanket objective-direction failure is not supported. However, **92.81%** improve after the first update while **69.28%** have a strictly better earlier MSE step than the final semantic stop: over-correction/stopping is a dominant failure. Gamma removal does **not** meet its predeclared criterion (EV-only pooled MSE gain only **0.45%**, with 94.89% semantic reduction retained). The renderer rule does fire: on exact quadrant shifts, a quadrant-constant field improves MSE by **21.60%** over bilinear under identical direct actions and by **87.96%** under the fixed development-only reference oracle. Important limitation: heterogeneous dark-region gradient median is **-0.2099** despite positive whole-image alignment, and the hard piecewise field is geometrically matched to the synthetic quadrant boundaries.
+- **T010:** the source-calibrated two-scalar residual target is a **controlled negative result**. PR #10 is squash-merged as `86c41bd0ff144dcb990f52b4094cea99d40ff7c6`. Zero of 16 predeclared `(rho_dark,rho_bright)` pairs is feasible. All satisfy clean mean/p95 safety, but none achieves the required 5% heterogeneous gain over `region2_direct`. The descriptive minimum `(.25,.25)` has clean p95 **0.00307146**, improves homogeneous dark/bright by **41.35% / 43.81%** vs identity, but improves pooled heterogeneous MSE over direct by only **1.8164%** (`0.03838832` vs `0.03909849`). The original `rho=0` `region2` envelope control is stronger on heterogeneous restoration (`0.03410695`, about **12.8%** better than direct) but narrowly fails clean-tail safety (`p95=0.00541823 > 0.005`). Stage B was correctly not run; no fresh T010 evaluation data was touched. The result establishes a safety–utility frontier for this residual-target family, not a general failure of stopping or spatial TTT.
 
 ## Non-negotiable design principles
 
@@ -73,38 +74,32 @@ T004/T005 are negative signal diagnostics; T006 establishes a strong source-trai
 
 Status: **COMPLETED / T009 ACCEPTED AS DEVELOPMENT-ONLY DIAGNOSTIC**
 
-PR #9 squash-merged as `669e258af2f197b2be93302890d976e7d79d62f0`.
+T009 identifies over-correction/stopping and bilinear renderer coupling as real failure modes, while not supporting a blanket objective-gradient failure or gamma-removal claim.
 
-T009 fires two predeclared categories:
+## Milestone M5 — residual-target stopping repair
 
-1. **over-correction / stopping failure** — early gradients are usually useful, but the zero-evidence semantic stop is too aggressive;
-2. **renderer failure** — bilinear 2x2 coupling materially hurts exact quadrant correction relative to a quadrant-constant field.
+Status: **COMPLETED / T010 ACCEPTED — NEGATIVE DEVELOPMENT GATE**
 
-The objective-gradient failure and gamma-removal rules do not fire. These findings motivate a targeted repair rather than optimizer retuning or wholesale objective replacement.
+The fixed residual-evidence target makes the clean tail safer but removes too much heterogeneous correction utility. No predeclared source-side configuration beats `region2_direct` by the required margin, so T010 correctly stops before held-out evaluation. Do not refine the rho grid on the same development data.
 
-## Milestone M5 — corrected label-free spatial TTT
+## Milestone M6 — gate-consistent projected action geometry
 
-Status: **ACTIVE / T010 OPEN**
+Status: **ACTIVE / T011 OPEN**
 
-T010 tests exactly two repairs:
+T011 keeps the stronger original zero-envelope semantic objective and tests a different repair: constrain the action space itself to the gate-consistent direct-scale range. The primary `region2` method must keep inactive quadrants at exact identity, restrict dark/bright EV direction and magnitude to ±0.5, and restrict gamma to [0.8,1.25]. A fresh 40-image evaluation split is used with no new calibration sweep.
 
-- a source-calibrated residual-evidence semantic target that stops before zero-evidence over-correction;
-- a fixed quadrant-aligned `region2` renderer whose support matches the fixed local semantic views.
+T011 must compare projected spatial TTT against identity, matched global TTT, fixed direct correction, gate-consistent discrete search, the unconstrained envelope control, a bilinear renderer ablation, and an exact one-step projected TTT diagnostic. Qualification still requires clean-tail safety, homogeneous utility, spatial value over global, regional safety, renderer value, and at least 5% improvement over both direct and matched discrete non-gradient baselines.
 
-Stage A uses only T009 development images and may use clean references to choose `rho_dark/rho_bright` from a predeclared finite grid. If no configuration is simultaneously identity-safe, useful on homogeneous exposure, and better than fixed region-wise direct correction on heterogeneous development data, T010 stops without touching fresh evaluation outcomes.
-
-If Stage A passes, the selected constants are frozen before a new T010 held-out split is scored. Stage B must compare identity, global TTT, bilinear spatial TTT, region-aligned spatial TTT, fixed direct correction, and discrete search. A gradient-based claim requires the corrected spatial TTT to beat both global TTT and the direct/discrete non-gradient baselines while satisfying clean and regional safety. A boundary-misaligned stress condition is report-only to expose hard-quadrant brittleness.
-
-No detector work, meta-learning, or ViT3-style fast model is authorized until a corrected label-free restoration mechanism qualifies on a fresh split.
+No detector work, meta-learning, or ViT3-style fast model is authorized until this action-geometry question is resolved.
 
 ## Open task
 
-`T010 — Source-Calibrated Residual-Evidence Target + Region-Aligned Spatial TTT` in `coordination/CHATGPT_TO_CODEX.md`.
+`T011 — Gate-Consistent Projected Spatial TTT` in `coordination/CHATGPT_TO_CODEX.md`.
 
 ## Candidate later components (not approved unless an OPEN task says otherwise)
 
-- Soft/learned region basis or low-rank spatial basis if hard `region2` is brittle under boundary misalignment.
-- Source-trained/task-aligned inner objective if the residual-target repair still leaves systematic regional gradient misalignment.
+- Source-trained/task-aligned inner objective or learned stopping controller if T011 still cannot make gradient adaptation beat matched direct/discrete actions.
+- Soft/learned region basis or low-rank spatial basis after a boundary-misaligned stress result justifies replacing hard `region2`.
 - EV-only simplification only if future fresh evidence, not T009 pooled averages alone, shows gamma consistently harmful.
 - Frozen detector/object-feature consistency only after a corrected restoration mechanism qualifies.
 - True CLIP-LIT/CoOp-style learned prompt tokens or a non-CLIP degradation encoder if the current frozen-feature readout becomes limiting again.
