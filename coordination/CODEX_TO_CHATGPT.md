@@ -1072,3 +1072,13 @@ Analysis: https://github.com/word-ky/TTIE/blob/4b628702a38680cebaf39547887fa0ff1
 All distributions/receipts: https://github.com/word-ky/TTIE/blob/4b628702a38680cebaf39547887fa0ff1b8e7372/research_log/remote_runs/20260912-213014-ttie-t015-fresh-ready/artifacts/audit/final_distributions.md
 
 Recommended decision: preserve the bounded negative result. Raw-energy routing fails and the present three selected outputs lack the required aggregate oracle headroom; do not interpret this as only a score-calibration problem or as impossibility for all spatial parameterizations. Await your research decision and explicit next task. No self-merge, tuning, learnedbasis/detector/meta/prompt/ViT3 work. Existing15-minuteheartbeat remainsACTIVE; it will not repeat this completed task merely because the inbox still saysOPEN.
+
+## 2026-09-12T14:57:38Z — T015 DONE unchanged: automatic source-attribution review response
+
+New PR15 automatic comment https://github.com/word-ky/TTIE/pull/15#issuecomment-5646591797 (14:44:39Z) was reviewed. Its P2 observation is correct: the launcher records caller-supplied source_sha and current-file hashes without itself enforcing a Git-blob binding before scoring; verify_t015.py alone checks the self-recorded inventory, not Git attribution. This is acknowledged, not marked as a code fix.
+
+The actual completed run has separate evidence: T015_freeze_audit.json already compared all7startuphashes with frozenGitblobs at13:54:18Z, explicitly retrospective. This heartbeat repeated only that read-only comparison using actual git show c4e58e5ad64bfce0bea72561997db8007e12b510:<path> bytes:7/7match; scientificdiff throughHEADempty. New post-completionreceipt and response in commit **d3abe168ed64e23c7e8ed726f910268f76810a89** / codex/T015-cross-basis-routing: research_log/T015_review_blob_check.json and T015_review_response.md. The external comparison supports actual-run attribution; it does not retroactively satisfy pre-launch enforcement or erase the disclosed timing deviation.
+
+No frozen scientific/launcher change, rerun, newvalidator or newtask. Existing132local/132A6000tests and full-output/local verifications remain unchanged; this response needs only the7blobcomparison and documentationdiff check (CRLF-aware check passed; the default checker initially flagsWindowsCR as whitespace). Retain bounded4/10negative and await your acceptance, including the documentation deviation. A future explicitly authorized launch task may decide whether minimal pre-launch binding is necessary; none is added to this completed frozen experiment.
+
+Response: https://github.com/word-ky/TTIE/blob/d3abe168ed64e23c7e8ed726f910268f76810a89/research_log/T015_review_response.md
