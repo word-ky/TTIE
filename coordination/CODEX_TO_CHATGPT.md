@@ -522,3 +522,48 @@ No scientific/runtime failure. Delivery-only issue: default SFTP-based SCP stall
 Full receipt: research_log/remote_runs/20260912-071126-ttie-t006-a6000/. Includes meta/run/train/environment/tests; artifacts/audit contains config,source_features.pt,training_history.json,prototypes.pt/prototype_identity.json,calibration.json,calibration_scores.json,pre_evaluation_checks.json,scores_before_localization.json,scores.csv/json,summary.json/md and audit_receipt.json. T006.md contains exact predeclaration/provenance/interpretation; T006_manifest.json and T006_tests_cpu.txt support recovery. No raw image dataset or checkpoint committed; derived source features and learned prototype tensor are experiment artifacts. Assets remain TTIE/shared/t006/images and shared/t004/model. Recovery notes mirrored under remote project root research_log. No active TTIE job remains.
 
 Recommend research-lead review of PR #6 and the mixed result: source-trained readout substantially improves ranking/localization, but the fixed clean-content activation criterion still fails and must not be waived. No identity-safe restoration or qualified TTT objective is established. Await the next explicitly scoped research decision; no T007, ISP adaptation, prompt-token learning or threshold repair started. Heartbeat remains active15min and will not rerun completed T006 merely because the inbox remains OPEN.
+
+---
+
+## 2026-09-12T00:19:20Z — T007 DONE: fixed joint rule passes; recall cost retained
+
+**Status: DONE.** PR https://github.com/word-ky/TTIE/pull/7 awaits research-lead review. Branch codex/T007-joint-clean-abstention. Predeclared/tested source **1ad7bacc905840c3eecbf9f551faedb3e0391cf9**; evidence **57c7eeea4fceceb09c20fde659bc5c80460d1cc9**. Received T006 acceptance/merge and T007 from main3ea3d35. No T008 or ISP adaptation started.
+
+### Implementation, frozen inputs and commands
+
+Added ttie/joint_gate.py and joint_audit.py, two focused test files, metadata-only scripts/prepare_t007.py, scripts/run_t007_a6000.sh, README command, protocol/manifest/threshold/test/run receipts. No changes to T001–T006 code or tests. Reuse FrozenCLIP, Prototypes(raw), learned_scores(), raw-winner decisions(), image synthesis/views and existing homogeneous/localization metrics.
+
+Exact prototype SHA256 **b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7** and original learned tau/scale unchanged. Calibration uses only original20T006 clean source-calibration IDs and exactly5views each: winner rawargmax; e=(d_winner-tau_winner)/scale_winner; per-image max; linear95th percentile across20images. **q_joint=1.053775168916056**. Only activation changes: e>q_joint. float32 scores/baseline decisions unchanged; normalization/quantile arithmetic float64, predeclared before scoring. No sweeps, new source data, retraining or evaluation-driven selection.
+
+Manifest excludes all148T004–T006IDs, ascending numeric eligible original min-side>=320.48unused eligible images found, take first40 exactly as requested, no size deviation.8remain. Original200-image source-pool selection provenance incomplete; no annotations accessed. Metadata-only manifest, complete threshold receipt and tests committed/pushed before any T007 outcome scoring.
+
+Commands: local Python D:/anaconda3/python.exe -m unittest discover -s tests -v and focused test_joint_gate.py/test_joint_audit.py. Existing AutoDL scripts with project .autodl/config.json: deploy -Tag ttie-t007 -Source project; run -Name ttie-t007-a6000 -Cmd 'bash scripts/run_t007_a6000.sh'; explicit-run logs and Copy-FromAutodl. Release20260912-081545-ttie-t007; successful run20260912-081629-ttie-t007-a6000, exit0 at2026-09-12T00:16:50Z. Same A6000/Python3.12.12/torch2.4.0+cu121/OpenCLIP2.26.1 environment, no dependencies added.
+
+### Tests and genuine held-out results
+
+Baseline46tests pass10.556s. New4joint-rule/hash/manifest tests pass.064s; new2persistence/denominator tests pass.033s. Full **52local tests pass8.884s;52remote tests pass5.310s**, including all46prior regressions. Actual CUDA recomputation of original calibration image scores is **bitwise identical, maxdifference0**. CLIP/prototypes frozen and gradient-free.1200unique finite rows (40x6x5); one score vector/type feeds both gates, protected rows persisted before all condition/ID/view/region metadata. Offline receipt verifies exact score/decision preservation, gate/summary recomputation, and exact q reproduction from original calibration. All6AUC comparisons (all/full/quadrants x dark/bright) equal across gates.
+
+**All predeclared T007 criteria PASS.**
+
+| All-view metric | Frozen T006 independent gate | Primary joint gate |
+|---|---:|---:|
+| Clean FPR |43/200=21.5%|12/200=6%|
+| Clean image-any |18/40=45%|8/40=20%|
+| Dark/bright AUC |.983650/.930125|.983650/.930125|
+| Dark/bright any-activation TPR |93.5%/87%|63.5%/74.5%|
+| Dark/bright correct-type TPR |91.5%/86%|62.5%/74.5%|
+| Combined active homogeneous type precision |355/361=98.33795%|274/276=99.27536%|
+| Mixed dark/bright correct recall |90.625%/87.5%|61.875%/75.625%|
+| Mixed dark/bright wrong activation |1.25%/1.25%|1.25%/0%|
+
+Mixed denominators160views per true type, combined LR/quadrants quadrant views only. Full-view cleanFPR27.5%->7.5%, cleanquadrant20%->5.625%; full correctTPRdark/bright90%/87.5%->67.5%/77.5%, quadrant91.875%/85.625%->61.25%/73.75%. Joint mixedLRcorrect61.25%/73.75%, mixedquadrants62.5%/77.5%; wrong1.25%/0% in each. Full all/full/quadrant and mixed condition-specific AUC/anyTPR/precision/margins in summary.json/md.
+
+Tradeoff counts: **31clean view activations removed,0added;58dark/23bright homogeneous correct activations lost;46dark/19bright mixed correct activations lost.**10fewer clean images activate. Passing the conjunction comes with a substantial dark-recall loss. It does not establish restoration quality, downstream utility, universal identity safety or a formal finite-sample coverage guarantee.40heldoutimages and correlated synthetic views from a partially documented pool limit generalization.
+
+### Observed failure, artifacts and recommendation
+
+First run20260912-081549-ttie-t007-a6000 exited1 during tests before ANY fresh scoring: default deployment excludes *.pt, so the T006 prototype was absent. Copied immutable T006 audit artifacts from remote T006 run into the same release using the existing SSH helper; source/weights/config unchanged. Second run above passed and is the only fresh outcome audit. Both run receipts preserved. Future deployment must supply the T006 .pt assets after default exclusions. No other runtime/scientific failure or outcome-driven rerun.
+
+Artifacts: research_log/T007.md, T007_manifest.json, T007_joint_calibration.json, T007_baseline_tests.txt/T007_tests_cpu.txt, and research_log/remote_runs/20260912-081629-ttie-t007-a6000/. The run contains environment/tests/log/meta/run commands; artifacts/audit contains config, pre_evaluation_identity, scores_before_metadata, labeled scores.csv/json, side-by-side summary.json/md and audit_receipt.json. Failed receipt under corresponding081549run. Raw images/checkpoint remain only remote shared assets; no new raw dataset/model committed. Recovery notes mirrored in remote TTIE/research_log. No active TTIE job remains.
+
+Recommend review of PR7 and a separately scoped first learned-signal global-vs-spatial EV+Gamma pilot with direct/discrete-action controls if accepted. Do not extrapolate that pilot's outcome from this audit. Only8eligible unused images remain in current cache; a later >=20fresh-image audit needs a new authorized image pool. No unrequested scope added. Heartbeat remains ACTIVE15min; do not repeat completed T007 while inbox still OPEN.
