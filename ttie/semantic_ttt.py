@@ -25,6 +25,17 @@ class EVGamma(ISP):
         with torch.no_grad():self.raw.copy_(raw)
 
 
+class Region2(EVGamma):
+    """T010 fixed coordinate quadrants, promoted unchanged from T009 Piecewise2."""
+    def __init__(self):super().__init__(2)
+
+    def parameter_field(self,size):
+        h,w=size
+        y=(torch.arange(h,device=self.raw.device)>=h//2).long()
+        x=(torch.arange(w,device=self.raw.device)>=w//2).long()
+        return self.physical_grid()[:,:,y[:,None],x[None,:]]
+
+
 class SemanticScorer(nn.Module):
     def __init__(self, encoder, prototypes):
         super().__init__()
@@ -84,10 +95,11 @@ def choose_candidate(candidates, losses, identity):
     return min(zip(candidates,losses),key=lambda pair:(pair[1],abs(pair[0]-identity),pair[0]))[0]
 
 
-def run_method(image, objective, method, *, max_steps=40, coordinates='ev_gamma', record_states=False):
+def run_method(image, objective, method, *, max_steps=40, coordinates='ev_gamma', record_states=False, renderer='bilinear2'):
     source=image.detach()
     size=2 if method.startswith('spatial2') else 1
     model=(EVGamma(size) if coordinates=='ev_gamma' else CoordinateISP(size,coordinates)).to(source)
+    if renderer=='region2':model=Region2().to(source)
     states=[]
     losses=[];gradients=[];ranges=[];search=[];updates=0
     with torch.no_grad():initial=float(objective.from_scores(objective.original_scores))

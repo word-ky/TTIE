@@ -15,6 +15,7 @@ def evaluate_outputs(results, clean, *, image_id, condition):
     h,w=clean.shape[-2:]
     y,x=torch.meshgrid(torch.arange(h),torch.arange(w),indexing='ij')
     mask=x<w//2 if condition=='left_right' else ((x>=w//2).int()+(y>=h//2).int())%2==0
+    if condition=='offset_left_right_40':mask=x<int(.4*w)
     rows=[]
     for method,result in results.items():
         squared=(result['image'].cpu()-clean).square()
@@ -23,8 +24,8 @@ def evaluate_outputs(results, clean, *, image_id, condition):
                          psnr_db=-10*math.log10(mse) if mse else None,
                          recovery_ratio=1-mse/base if condition!='clean' and base else None,
                          clean_drift_mse=mse if condition=='clean' else None,
-                         dark_region_mse=float(squared[...,mask].mean()) if condition in ('left_right','quadrants') else None,
-                         bright_region_mse=float(squared[...,~mask].mean()) if condition in ('left_right','quadrants') else None,
+                         dark_region_mse=float(squared[...,mask].mean()) if condition in ('left_right','quadrants','offset_left_right_40') else None,
+                         bright_region_mse=float(squared[...,~mask].mean()) if condition in ('left_right','quadrants','offset_left_right_40') else None,
                          loss_before=diag['loss_before'],loss_after=diag['loss_after'],active_count=diag['active_count'],
                          steps=diag['steps'],stop_reason=diag['stop_reason'],ev_min=diag['final_ranges']['min'][0],
                          ev_max=diag['final_ranges']['max'][0],gamma_min=diag['final_ranges']['min'][1],gamma_max=diag['final_ranges']['max'][1]))
