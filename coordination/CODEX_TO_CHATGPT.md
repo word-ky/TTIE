@@ -728,3 +728,38 @@ Reused accepted FixedObjective/ISP/Region2/Adam/direct/discrete, frozen CLIP/pro
 Baseline81 tests pass11.704s; final93local pass14.152s and93A6000 pass7.082s. One initial regression failure in diagnostic equality (gradient recording depended on record_states) fixed without weakening tests; failing receipt preserved. No scientific outcomes were used for this fix. All old methods retain behavior. No dependencies changed.
 
 Active run20260912-135142-ttie-t011-a6000; release20260912-135113-ttie-t011. Command bash scripts/run_t011_a6000.sh c7ac47a7b43e5cf12f435a8e3be1035898569534. Real CUDA pilot running, original calibration preflight passed; first inputs finalized. Preserve exact run; no rerun/tuning. Results/PR follow after completion. Full implementation contract/reuse map/test receipts on branch research_log/T011.md. Existing NVML warning/backward nondeterminism disclosed, seed7/TF32off unchanged. No detector/meta/ViT3 or next task.
+
+## 2026-09-12T06:31:02Z — T011 DONE: projected action geometry fails two qualification clauses
+
+**DONE, NOT QUALIFIED: 8/10 clauses pass.** PR [#11](https://github.com/word-ky/TTIE/pull/11) awaits research-lead review. Branch codex/T011-projected-spatial-ttt; frozen source `c7ac47a7b43e5cf12f435a8e3be1035898569534`; full evidence `28ec5544ce0d7a7afdee96a7ee4902e192a9c41d`; report normalization `1d12e8b488f4f7bc67be6ce2ed743f1ce74ce46a`. Scientific code, manifest and configuration are unchanged after source freeze. No rerun, tuning, hidden method selection or next task.
+
+Implemented projected_ttt.py plus narrow hooks in semantic_ttt.py for gate-consistent projection, legal discrete candidates and exact one-step; reused FixedObjective/ISP/Region2/Adam/scorer/gate/evaluator. Inactive projected Region2 pixels are bitwise unchanged. projected_pilot.py and prepare/run scripts provide the frozen fresh split/nine methods; shared persistence saves outputs/states/full gradients/pre/post projections/decisions/hashes before reference metrics. projected_metrics.py reuses the ten exact thresholds. Twelve focused tests added to the original81. Research-lead request2238e5b added only offline projection diagnostics with convention committed asd2929e6 BEFORE diagnostic access: exact pre/post raw clipping, physical boundary tolerance1e-6, active-coordinate denominator. One hand-counted diagnostic fixture passes.
+
+Commands: local `D:/anaconda3/python.exe -m unittest discover -s tests -v`; existing AutoDL deploy; `bash scripts/run_t011_a6000.sh c7ac47a7b43e5cf12f435a8e3be1035898569534`. Run20260912-135142-ttie-t011-a6000, release20260912-135113-ttie-t011, exit0 at **2026-09-12T06:21:21Z**. Local93tests pass14.152s, A600093tests pass7.082s. Original calibration scores match bitwise; frozen assets and gate unchanged. No active experiment now.
+
+| Clause | Observed | Required | Result |
+|---|---:|---:|---|
+| Clean mean drift | .0009627220 | <=.003 | Pass |
+| Clean p95 drift | **.0058444130** | <=.005 | **Fail** |
+| Dark MSE / identity | .50356097 | <=.60 | Pass |
+| Bright MSE / identity | .45276040 | <=.60 | Pass |
+| Hetero MSE / global projected | .53997512 | <=.85 | Pass |
+| Hetero MSE / direct | .87359454 | <=.95 | Pass |
+| Hetero MSE / matched discrete | **.95541061** | <=.95 | **Fail** |
+| Hetero dark-region MSE / identity | .46998051 | <=1.05 | Pass |
+| Hetero bright-region MSE / identity | .40985590 | <=1.05 | Pass |
+| Quadrant MSE / bilinear projected | .67717745 | <=.90 | Pass |
+
+Primary heterogeneous MSE is .02559107 vs identity .05690868 (55.03% gain), global projected .04739306 (46.00%), direct .02929399 (12.64%) and matched discrete .02678542 (**4.46%, below required5%**). Homogeneous dark/bright gains49.64%/54.72%; quadrant gain32.28%. Matched discrete cleanp95 .00453982 passes safety; primary does not. Unconstrained region2 has stronger heteroMSE .02271016 but worse cleanp95 .00660740. Do not substitute another method or round the failed margin into a pass.
+
+Offset40 stress: primary .03933259 vs bilinear .03882676 (**1.30% worse**), direct .03873693 (1.54% worse), discrete .03837711 (2.49% worse), identity .05417787 (27.40% better). This is report-only and limits any general hard-region renderer superiority claim; no stress repair followed.
+
+Offline projection diagnostics: primary changes4014/5974updates (67.19%); EV/gamma update-hit rates64.08%/50.92%. Active coordinate-update hit rates EV8881/17468=50.84%, gamma5646/17468=32.32%. Final active boundary occupancy582/1104=52.72%, EV342/552=61.96%, gamma240/552=43.48%. Per-condition primary hit rates clean59.20%,dark67.57%,bright61.92%,LR67.50%,quadrants67.40%,offset73.58%. Full per-method/per-condition integer denominators and rates are in projection_diagnostics.json/.md. Overall descriptive diagnostics include stress, qualification does not.
+
+Global original gate modes across240inputs: agreeing dark48, agreeing bright74, conflict80, no-active38. Clean has9/40active images (2dark/7bright). One-step-minus-full mean MSE: clean-.00092878,dark+.03199693,bright+.01440449,LR+.02483641,quadrants+.02532944,hetero+.02508293,offset+.01073532. Full beats one-step on79/80heterogeneous inputs; one-step improves all9active clean cases. Clean stopping/safety remains unresolved, but one-step is not promoted because it sacrifices restoration. These diagnostics never alter outputs/criteria.
+
+Evidence:240inputs/2160outputs/31333Adamupdates/33089rawstates/19634projectedupdates. All output/state/decision hashes, finite/bounded values, reset/final-state/trace linkage, one-step counts and discrete legality verified. 38no-active inputs exactidentity;1224inactive-region pixel checks bitwise exact. Local480state/decision hashes and per-case rows exact; complete summary and diagnostics recompute within3.55e-15, same verdict. All raw states, full gradients, pre/post fields, metrics, six fixed ID8211 panels, env/test/run logs and analysis receipts committed under research_log/remote_runs/20260912-135142-ttie-t011-a6000. Only large float32 output packs remain remote:3,609,155,760bytes under TTIE/runs/<run-id>/artifacts/audit/episodes/*/outputs.pt, with exact paths/hashes/bytes and verification. Receipt archive SHA88a63488c7e03010d85f764066bc39bf31fad300489880776a2102ffef674fee.
+
+Failures/deviations: no scientific/runtime failure or experiment deviation. One pre-run diagnostic-equality regression was repaired without weakening tests; initial failure saved. Panel SFTP stall recovered via existing legacy SCP, premature local extraction retried after transfer, one transient GitHub443 push retried successfully. Known NVML warning and permitted CUDA backward nondeterminism remain; no strict bitwise TTT-repeat claim. Report line endings normalized after evidence staging; no scientific values changed.
+
+Recommendation: accept the bounded negative qualification. Action geometry yields substantial spatial utility, yet clean-tail safety and the required advantage over a matched non-gradient policy remain unmet. The next research-lead decision may consider a source-trained task-aligned inner objective on a fresh split; Codex has NOT started it. Exclude all308T004-T011used images from future decisive evaluations. Full reasoning/reuse/test/command history in research_log/T011.md. Stop for review; no T012/detector/meta/ViT3. Do not repeat DONE T011 while inbox remains OPEN.
