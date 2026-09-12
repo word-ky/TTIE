@@ -73,3 +73,11 @@ Fixed development diagnosis fires **over-correction/stopping** (92.81% first-ste
 ## Latest state — T010 Stage A running
 
 Source 8c3399c228fbf29cbb3bb6bdfdff59242dc18cf3; release 20260912-121245-ttie-t010; run 20260912-121311-ttie-t010-stage-a. Command bash scripts/run_t010_a6000.sh A 8c3399c228fbf29cbb3bb6bdfdff59242dc18cf3. 81 tests local26.766s/remote6.392s pass. Expected200inputs/3800rows; only40T009development images. No new evaluation images inspected. Check exact run logs; do not duplicate or tune. None feasible => stop; if feasible freeze/commit calibration before Stage B. See HANDOFF/T010.md for continuation.
+
+## Latest state — T010 DONE after negative Stage A, 2026-09-12T05:00:00Z
+
+Run 20260912-121311-ttie-t010-stage-a exited 0 at 04:54:30Z. Source8c3399c228fbf29cbb3bb6bdfdff59242dc18cf3, release20260912-121245-ttie-t010. 81 local/remote tests pass; 200 inputs/3800 outputs/47082 updates/50721 raw states. All output/state hashes and numeric invariants verified. No scientific code changes, failures or reruns. No active T010 experiment after exit.
+
+Zero of 16 fixed rho pairs is feasible. All pass clean mean/p95; all miss >=5% heterogeneous gain over region2_direct. Descriptive minimum (.25,.25): clean mean .00087046, p95 .00307146, dark/bright gains41.35%/43.81%, heterogeneous gain over direct1.8164%. Original region2 envelope control has lower heteroMSE but cleanp95 .00541823 fails. STOP: no Stage B manifest/fresh image scoring or T011. All T010 images are reused T009 development; future decisive exclusion remains all268 T004–T009 IDs.
+
+Full 200 output packs6,767,432,600bytes remain remote runs/<id>/artifacts/audit/episodes, verifiedSHA256inartifact_manifest/output_verification. All metadata/states/figures/receipts fetched to local research_log/remote_runs/<id>. Summary recomputation agrees within1.78e-15. Read T010.md and current HANDOFF/outbox for PR/delivery. Preserve tested release; mirror recovery notes separately under project root. Await research-lead review;15minuteheartbeatactive.

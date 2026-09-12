@@ -1,0 +1,1489 @@
+{
+  "gate": {
+    "scores": [
+      [
+        -0.0777159333229065,
+        -0.00254674069583416
+      ],
+      [
+        -0.09674705564975739,
+        -0.008753515779972076
+      ],
+      [
+        -0.12154091894626617,
+        0.07103605568408966
+      ],
+      [
+        -0.0968976765871048,
+        0.10324373096227646
+      ]
+    ],
+    "winner": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "active": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "e0": [
+      0.0,
+      0.0,
+      1.437851908252932,
+      3.08316204234861
+    ]
+  },
+  "methods": {
+    "identity": {
+      "loss_before": 2.260506975300771,
+      "loss_after": 2.260506975300771,
+      "loss_trajectory": [
+        2.260506975300771
+      ],
+      "gradient_norms": [],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 0,
+      "stop_reason": "identity",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 2,
+      "final_grid": [
+        [
+          [
+            [
+              0.0
+            ]
+          ],
+          [
+            [
+              1.0
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          0.0,
+          1.0
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode"
+    },
+    "region2_direct": {
+      "loss_before": 2.260506975300771,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        2.260506975300771,
+        0.0
+      ],
+      "gradient_norms": [],
+      "parameter_ranges": [
+        {
+          "min": [
+            -0.5,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 0,
+      "stop_reason": "fixed_direct",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.5,
+              -0.5
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.5,
+          1.0
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode"
+    },
+    "region2_ttt_envelope": {
+      "loss_before": 2.260506975300771,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        2.2604970628559964,
+        0.2622107944677392,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766815185547,
+        24.537612915039062
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.11444549262523651,
+            0.9658119082450867
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 2,
+      "stop_reason": "clean_envelope",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.10734295845031738,
+              -0.11444549262523651
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.9658119082450867,
+              0.9675562977790833
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.11444549262523651,
+          0.9658119082450867
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode"
+    },
+    "rho_d025_b025": {
+      "loss_before": 1.6953802314755784,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        1.6953703190308038,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766815185547
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200550675392
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.25,
+        "bright": 0.25
+      }
+    },
+    "rho_d025_b050": {
+      "loss_before": 1.1302534876503856,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        1.130243575205611,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766052246094
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200178146362,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200178146362,
+              -0.05998200178146362
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200178146362,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.25,
+        "bright": 0.5
+      }
+    },
+    "rho_d025_b075": {
+      "loss_before": 0.5651267438251927,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        0.5651168313804181,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766052246094
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200178146362,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200178146362,
+              -0.05998200178146362
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200178146362,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.25,
+        "bright": 0.75
+      }
+    },
+    "rho_d025_b090": {
+      "loss_before": 0.22605069753007712,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        0.22604078508530256,
+        0.0
+      ],
+      "gradient_norms": [
+        66.1176528930664
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200923204422,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200923204422
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200923204422,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.25,
+        "bright": 0.9
+      }
+    },
+    "rho_d050_b025": {
+      "loss_before": 1.6953802314755784,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        1.6953703190308038,
+        0.0
+      ],
+      "gradient_norms": [
+        66.1176528930664
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200550675392
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.5,
+        "bright": 0.25
+      }
+    },
+    "rho_d050_b050": {
+      "loss_before": 1.1302534876503856,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        1.130243575205611,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766052246094
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200178146362
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.5,
+        "bright": 0.5
+      }
+    },
+    "rho_d050_b075": {
+      "loss_before": 0.5651267438251927,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        0.5651168313804181,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766815185547
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200178146362,
+              -0.05998200550675392
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.5,
+        "bright": 0.75
+      }
+    },
+    "rho_d050_b090": {
+      "loss_before": 0.22605069753007712,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        0.22604078508530256,
+        0.0
+      ],
+      "gradient_norms": [
+        66.1176528930664
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200550675392
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.5,
+        "bright": 0.9
+      }
+    },
+    "rho_d075_b025": {
+      "loss_before": 1.6953802314755784,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        1.6953703190308038,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766052246094
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200178146362
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.75,
+        "bright": 0.25
+      }
+    },
+    "rho_d075_b050": {
+      "loss_before": 1.1302534876503856,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        1.130243575205611,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766052246094
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200178146362,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200178146362,
+              -0.05998200178146362
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200178146362,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.75,
+        "bright": 0.5
+      }
+    },
+    "rho_d075_b075": {
+      "loss_before": 0.5651267438251927,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        0.5651168313804181,
+        0.0
+      ],
+      "gradient_norms": [
+        66.1176528930664
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200550675392
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.75,
+        "bright": 0.75
+      }
+    },
+    "rho_d075_b090": {
+      "loss_before": 0.22605069753007712,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        0.22604078508530256,
+        0.0
+      ],
+      "gradient_norms": [
+        66.1176528930664
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200550675392
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.75,
+        "bright": 0.9
+      }
+    },
+    "rho_d090_b025": {
+      "loss_before": 1.6953802314755784,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        1.6953703190308038,
+        0.0
+      ],
+      "gradient_norms": [
+        66.1176528930664
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200923204422,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200923204422
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200923204422,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.9,
+        "bright": 0.25
+      }
+    },
+    "rho_d090_b050": {
+      "loss_before": 1.1302534876503856,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        1.130243575205611,
+        0.0
+      ],
+      "gradient_norms": [
+        66.1176528930664
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200178146362,
+              -0.05998200550675392
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.9,
+        "bright": 0.5
+      }
+    },
+    "rho_d090_b075": {
+      "loss_before": 0.5651267438251927,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        0.5651168313804181,
+        0.0
+      ],
+      "gradient_norms": [
+        66.11766052246094
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200550675392,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200178146362
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200550675392,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.9,
+        "bright": 0.75
+      }
+    },
+    "rho_d090_b090": {
+      "loss_before": 0.22605069753007712,
+      "loss_after": 0.0,
+      "loss_trajectory": [
+        0.22604078508530256,
+        0.0
+      ],
+      "gradient_norms": [
+        66.1176528930664
+      ],
+      "parameter_ranges": [
+        {
+          "min": [
+            0.0,
+            1.0
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "min": [
+            -0.05998200923204422,
+            0.979426383972168
+          ],
+          "max": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "steps": 1,
+      "stop_reason": "residual_target",
+      "search": [],
+      "active_count": 2,
+      "all_finite": true,
+      "parameter_count": 8,
+      "final_grid": [
+        [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.05998200550675392,
+              -0.05998200923204422
+            ]
+          ],
+          [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.979426383972168,
+              0.979426383972168
+            ]
+          ]
+        ]
+      ],
+      "final_ranges": {
+        "min": [
+          -0.05998200923204422,
+          0.979426383972168
+        ],
+        "max": [
+          0.0,
+          1.0
+        ]
+      },
+      "reset": "identity and fresh optimizer per episode",
+      "rhos": {
+        "dark": 0.9,
+        "bright": 0.9
+      }
+    }
+  }
+}
