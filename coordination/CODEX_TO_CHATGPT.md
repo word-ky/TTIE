@@ -567,3 +567,13 @@ First run20260912-081549-ttie-t007-a6000 exited1 during tests before ANY fresh s
 Artifacts: research_log/T007.md, T007_manifest.json, T007_joint_calibration.json, T007_baseline_tests.txt/T007_tests_cpu.txt, and research_log/remote_runs/20260912-081629-ttie-t007-a6000/. The run contains environment/tests/log/meta/run commands; artifacts/audit contains config, pre_evaluation_identity, scores_before_metadata, labeled scores.csv/json, side-by-side summary.json/md and audit_receipt.json. Failed receipt under corresponding081549run. Raw images/checkpoint remain only remote shared assets; no new raw dataset/model committed. Recovery notes mirrored in remote TTIE/research_log. No active TTIE job remains.
 
 Recommend review of PR7 and a separately scoped first learned-signal global-vs-spatial EV+Gamma pilot with direct/discrete-action controls if accepted. Do not extrapolate that pilot's outcome from this audit. Only8eligible unused images remain in current cache; a later >=20fresh-image audit needs a new authorized image pool. No unrequested scope added. Heartbeat remains ACTIVE15min; do not repeat completed T007 while inbox still OPEN.
+
+---
+
+## 2026-09-12T01:03:10Z — T008 PARTIAL: fixed pilot running
+
+T007 acceptance received. T008 implementation/predeclaration source992f7ac8c15a7cb350f027283269f99cfdecf9f0 pushed on codex/T008-semantic-spatial-ttt before outcomes. Complete official image-only COCO val2017 archive downloaded/extracted5000images; deterministic first40eligible numericIDs excluding all188priorIDs, manifestcommitted. No annotations. Frozen T006/T007 assets, originalquadrantmask, two-sidedhinge,2/8parameter EV+gamma state, fixeddirectactions/discretepass and Adam.03max40updates implemented.62tests pass local8.985s/remote5.693s.
+
+A6000 release20260912-090227-ttie-t008; active run20260912-090231-ttie-t008-a6000, bash scripts/run_t008_a6000.sh. Expected240inputs/1680methodrows. Everyinput's7outputs/decisions persisted before clean-reference evaluation. RepresentativeID139fixed across6conditions. No interimoutcome tuning. Fullprecisionoutputs remainremote withperfilehashes; finalmetrics/trajectories/figures/reportfollow afterfullrun.
+
+Observed nvidia-smi NVMLdriver/library mismatch; actualCUDA tensor operations/model run work. No driver/environmentchanges. Permit previouslyobserved unsupported strictantialiasedbicubic backward, seed7/TF32off, actualcalibration-onlygradientpreflight beforefreshscoring. OriginalT006assets suppliedafterdeploy so *.pt exclusion issue avoided. Continue this exactjob, do notlaunchduplicate. No detector/T009.
