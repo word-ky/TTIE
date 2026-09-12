@@ -1,0 +1,34 @@
+{
+  "task": "T015",
+  "recorded_at_utc": "2026-09-12T13:54:18.767335+00:00",
+  "verification_timing": "Retrospective during the unchanged active fresh run; the requested diff-name record was not separately saved before launch.",
+  "frozen_scientific_commit": "c4e58e5ad64bfce0bea72561997db8007e12b510",
+  "launch_bookkeeping_commit": "09546bfba2a1546dfab76391963c04e02003b3fc",
+  "git_diff_command": "git diff --name-only c4e58e5ad64bfce0bea72561997db8007e12b510..09546bfba2a1546dfab76391963c04e02003b3fc",
+  "changed_files": [
+    "coordination/CODEX_TO_CHATGPT.md",
+    "research_log/T015.md",
+    "research_log/T015_manifest.json"
+  ],
+  "scientific_files_changed_since_freeze": [],
+  "startup_config_hashes_match_frozen_git_blobs": {
+    "ttie/routing/__init__.py": "3c825a354237ba074f14c152d6aeba5a68324497cffce0f91ce4d9d5f243bc5b",
+    "ttie/routing/core.py": "25fce10eacb5cadae671ebbfda848ee0f6ec31f2160b68a93be38dc0460a9b31",
+    "ttie/routing/io.py": "bfa5df72de1805b22d81654c2d025bd8bb861ff6e25eabd3c331c8f760faf96f",
+    "ttie/routing/metrics.py": "2c7a726dd275ba332213b18fcbd1e5d2c0cdc92b3c5a3157c94ba67549e69a8c",
+    "ttie/routing/pilot.py": "493d3132d81130e6b760257dbacfa2f4ff5897786583140b6562a515262fb231",
+    "scripts/prepare_t015.py": "186267b6ce3854ff4ef2d838c6c8a89aad547077f8b223e95a54f0091a02b3c7",
+    "scripts/run_t015_a6000.sh": "204ab95042d349671ef7dc0737205351c6547405c078d5d32a65f06363fb9d4c"
+  },
+  "original_t014_receipt_code_inventory_matches": true,
+  "manifest_git_blob_matches_startup_config": true,
+  "manifest_sha256": "77f405417324fc4e2d50ccd4606caa06725416c9b0f5182daac5dbdc067a4a09",
+  "startup_config_was_written_before_first_fresh_scoring": true,
+  "raw_meta_releaseId": "20260912-212421-taisp-t012-full",
+  "actual_process_pid": 729338,
+  "actual_process_cwd": "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260912-212427-ttie-t015-fresh",
+  "actual_project_current_target": "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260912-212427-ttie-t015-fresh",
+  "metadata_discrepancy": "autodl-run reads workflow-root .autodl/last-release shared across projects; run.sh uses the correct TTIE/current and actual process cwd confirms TTIE release. Preserve raw meta.json; no scientific/deployment change or rerun.",
+  "formal_fresh_runs": 1,
+  "prior_attempt": "Startup fixture failure before any fresh output; preserved separately."
+}
