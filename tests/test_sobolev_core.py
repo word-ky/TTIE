@@ -59,5 +59,14 @@ class SobolevCoreTests(unittest.TestCase):
         for key in ('clean','labels','condition','mask','gain','annotations','image_id','jacobian','reference_gradient','source_labels'):
             with self.assertRaises(TypeError):trajectory(image,scorer(),RECEIPT,head,**{key:None})
 
+    def test_cached_features_use_same_grad_forward_path_as_derivatives(self):
+        class ModeSensitiveScorer(torch.nn.Module):
+            def __init__(self):super().__init__();self.base=scorer()
+            def forward(self,image):
+                return self.base(image)+(1e-3 if torch.is_grad_enabled() and image.requires_grad else 0.)
+        image=pixels();s=ModeSensitiveScorer();bank=source_bank(image,s,RECEIPT,semantic_steps=1)
+        records=source_derivatives(image,torch.full_like(image,.5),s,RECEIPT,bank)
+        self.assertTrue(torch.equal(records['features'],bank['features']))
+
 
 if __name__=='__main__':unittest.main()

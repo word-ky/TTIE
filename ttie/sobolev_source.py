@@ -6,6 +6,7 @@ from .energy_model import features
 
 JACOBIAN=dict(shape='rows,28,8',coordinates='raw EV TL TR BL BR; raw gamma TL TR BL BR',
     renderer='T011 Region2(original active mask), re-render fixed bank raw states',
+    forward_mode='active rows use grad-enabled CLIP for both cached features and Jacobians',
     projection='not differentiated',constants='first12 feature rows zero',
     method='exact reverse-mode autograd; eight CLIP evidence VJPs plus physical-grid derivatives',
     no_active='identity, value only; zero J and reference gradient',
@@ -16,13 +17,13 @@ def source_bank(image,scorer,receipt,*,semantic_steps=40):
     bank=state_bank(image,scorer,receipt,semantic_steps=semantic_steps)
     obj=FixedObjective(scorer,image,receipt);model=Region2(obj.active).to(image)
     differences=[]
-    with torch.no_grad():
-        for i,raw in enumerate(bank['states']):
-            model.raw.copy_(raw.to(image));output=model(image) if obj.active.any() else image
-            scores=scorer(output);grid=model.physical_grid()[:,:2]
-            differences.append(float((output.cpu()-bank['images'][i]).abs().max()))
-            for key,value in dict(images=output,scores=scores,grids=grid,features=features(obj,scores,grid)).items():
-                bank[key][i].copy_(value.cpu())
+    for i,raw in enumerate(bank['states']):
+        with torch.no_grad():model.raw.copy_(raw.to(image))
+        output=model(image) if obj.active.any() else image
+        scores=scorer(output);grid=model.physical_grid()[:,:2]
+        differences.append(float((output.detach().cpu()-bank['images'][i]).abs().max()))
+        for key,value in dict(images=output,scores=scores,grids=grid,features=features(obj,scores,grid)).items():
+            bank[key][i].copy_(value.detach().cpu())
     bank['inherited_pixel_max_abs_differences']=differences
     return bank
 
