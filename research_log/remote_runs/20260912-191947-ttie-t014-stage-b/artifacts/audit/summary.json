@@ -1,0 +1,4865 @@
+{
+  "stage": "B",
+  "groups": {
+    "clean": {
+      "identity": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "psnr_db": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 0.2377885783842858,
+          "median": -0.0,
+          "p95": 0.0666796948014306
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.2377885783842858,
+          "median": -0.0,
+          "p95": 0.0666796948014306
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "region2_direct": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0005988126213196665,
+          "median": 0.0,
+          "p95": 0.0001407128875143746
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 21.12783579397442,
+          "median": 21.12783579397442,
+          "p95": 25.06850874235743
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 0.0005988126213196665,
+          "median": 0.0,
+          "p95": 0.0001407128875143746
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 0.2377885783842858,
+          "median": -0.0,
+          "p95": 0.0666796948014306
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.16914736962950755,
+          "median": -0.0,
+          "p95": 0.12684793894242746
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "region2_discrete_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0002689122367883101,
+          "median": 0.0,
+          "p95": 6.460359436459472e-05
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 24.563097144829364,
+          "median": 24.563097144829364,
+          "p95": 28.454729619050337
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 0.0002689122367883101,
+          "median": 0.0,
+          "p95": 6.460359436459472e-05
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 0.2377885783842858,
+          "median": -0.0,
+          "p95": 0.0666796948014306
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.11796716582941322,
+          "median": -0.0,
+          "p95": 0.06562872423600229
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "region2_ttt_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0002302443368535023,
+          "median": 0.0,
+          "p95": 2.891662006731912e-06
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 31.381546500636084,
+          "median": 31.381546500636084,
+          "p95": 41.27855692921223
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 0.0002302443368535023,
+          "median": 0.0,
+          "p95": 2.891662006731912e-06
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 0.2377885783842858,
+          "median": -0.0,
+          "p95": 0.0666796948014306
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.11202870785699652,
+          "median": -0.0,
+          "p95": 0.05458529522528754
+        },
+        "steps": {
+          "count": 40,
+          "mean": 2,
+          "median": 0.0,
+          "p95": 1.9999999999998863
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "fixed_step_source": {
+        "mse": {
+          "count": 40,
+          "mean": 0.00028473800884967206,
+          "median": 0.0,
+          "p95": 9.530613169772008e-06
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 28.353367406232227,
+          "median": 28.353367406232227,
+          "p95": 36.31397919550376
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 0.00028473800884967206,
+          "median": 0.0,
+          "p95": 9.530613169772008e-06
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 0.2377885783842858,
+          "median": -0.0,
+          "p95": 0.0666796948014306
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.11559381964358367,
+          "median": -0.0,
+          "p95": 0.05520612879700646
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0.8,
+          "median": 0.0,
+          "p95": 0.7999999999999545
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "region2_ttt_energy_value_only": {
+        "mse": {
+          "count": 40,
+          "mean": 7.38820903393389e-05,
+          "median": 0.0,
+          "p95": 7.873716185712973e-08
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 41.66211280422978,
+          "median": 41.66211280422978,
+          "p95": 56.39132351319263
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 7.38820903393389e-05,
+          "median": 0.0,
+          "p95": 7.873716185712973e-08
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -12.50716507434845,
+          "median": -13.424907207489014,
+          "p95": -6.9366854667663596
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -12.543894994258881,
+          "median": -13.424907207489014,
+          "p95": -7.199730730056763
+        },
+        "steps": {
+          "count": 40,
+          "mean": 1.125,
+          "median": 0.0,
+          "p95": 0.5999999999999659
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "global_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 1.8478112360753583e-05,
+          "median": 0.0,
+          "p95": 6.080442472011437e-06
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 35.62193427673622,
+          "median": 35.62193427673622,
+          "p95": 38.79750681155731
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 1.8478112360753583e-05,
+          "median": 0.0,
+          "p95": 6.080442472011437e-06
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -12.015503346920013,
+          "median": -12.735872268676758,
+          "p95": -6.963917946815498
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -12.017099702358246,
+          "median": -12.735872268676758,
+          "p95": -6.966022062301644
+        },
+        "steps": {
+          "count": 40,
+          "mean": 1.725,
+          "median": 0.0,
+          "p95": 1.6499999999999062
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "bilinear2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0002789075311738998,
+          "median": 0.0,
+          "p95": 0.00013052463764324043
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 23.2576217589116,
+          "median": 23.2576217589116,
+          "p95": 25.57525974897846
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 0.0002789075311738998,
+          "median": 0.0,
+          "p95": 0.00013052463764324043
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -12.015503346920013,
+          "median": -12.735872268676758,
+          "p95": -6.963917946815498
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -12.052004539966584,
+          "median": -12.735872268676758,
+          "p95": -7.010734724998479
+        },
+        "steps": {
+          "count": 40,
+          "mean": 1.6,
+          "median": 0.0,
+          "p95": 1.4499999999999176
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "region2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0002532600949052721,
+          "median": 0.0,
+          "p95": 0.00012560087488963485
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 23.59057174769574,
+          "median": 23.59057174769574,
+          "p95": 25.75885323286321
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 0.0002532600949052721,
+          "median": 0.0,
+          "p95": 0.00012560087488963485
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -12.01550314426422,
+          "median": -12.735872268676758,
+          "p95": -6.963917899131783
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -12.02895587682724,
+          "median": -12.735872268676758,
+          "p95": -6.982851672172553
+        },
+        "steps": {
+          "count": 40,
+          "mean": 2,
+          "median": 0.0,
+          "p95": 1.9999999999998863
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      },
+      "oracle_best_sobolev_checkpoint": {
+        "mse": {
+          "count": 40,
+          "mean": 9.664549995900026e-18,
+          "median": 0.0,
+          "p95": 4.518312382260903e-19
+        },
+        "psnr_db": {
+          "count": 2,
+          "mean": 162.3351229819661,
+          "median": 162.3351229819661,
+          "p95": 169.62945605652263
+        },
+        "clean_drift_mse": {
+          "count": 40,
+          "mean": 9.664549995900026e-18,
+          "median": 0.0,
+          "p95": 4.518312382260903e-19
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -12.01550314426422,
+          "median": -12.735872268676758,
+          "p95": -6.963917899131783
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -12.01550314426422,
+          "median": -12.735872268676758,
+          "p95": -6.963917899131783
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      }
+    },
+    "homogeneous_dark": {
+      "identity": {
+        "mse": {
+          "count": 40,
+          "mean": 0.091629683598876,
+          "median": 0.08488596975803375,
+          "p95": 0.14700770974159239
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 10.724842168523546,
+          "median": 10.711766015443718,
+          "p95": 13.34272572258677
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 4.181650182400896,
+          "median": 4.180144493603323,
+          "p95": 9.552839089869307
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 4.181650182400896,
+          "median": 4.180144493603323,
+          "p95": 9.552839089869307
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "region2_direct": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0617922983597964,
+          "median": 0.05471903644502163,
+          "p95": 0.13025738149881363
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 12.671935289948708,
+          "median": 12.618657968026458,
+          "p95": 16.552201933764266
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 4.181650182400896,
+          "median": 4.180144493603323,
+          "p95": 9.552839089869307
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.8026273817428804,
+          "median": 0.3240873041922029,
+          "p95": 2.8165242656240577
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.3338949912975066,
+          "median": 0.3308916825430834,
+          "p95": 0.5629494467588722
+        }
+      },
+      "region2_discrete_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.054969237057957795,
+          "median": 0.04862216114997864,
+          "p95": 0.13025738149881363
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.752932699728275,
+          "median": 13.131791638288785,
+          "p95": 20.256715617162893
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 4.181650182400896,
+          "median": 4.180144493603323,
+          "p95": 9.552839089869307
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.3574406136012372,
+          "median": 0.023645037926646247,
+          "p95": 1.4125514470084515
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4280394861405698,
+          "median": 0.38471717803893624,
+          "p95": 0.81582672651896
+        }
+      },
+      "region2_ttt_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.05330164966871962,
+          "median": 0.045678913593292236,
+          "p95": 0.1302855871617794
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.988865881110451,
+          "median": 13.403086902790573,
+          "p95": 20.256715617162893
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 4.181650182400896,
+          "median": 4.180144493603323,
+          "p95": 9.552839089869307
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.35297669157349637,
+          "median": 0.023645194661461835,
+          "p95": 1.4125504974697405
+        },
+        "steps": {
+          "count": 40,
+          "mean": 25.55,
+          "median": 40.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4454425444232623,
+          "median": 0.4407426507411277,
+          "p95": 0.8223793936427571
+        }
+      },
+      "fixed_step_source": {
+        "mse": {
+          "count": 40,
+          "mean": 0.05328872568206862,
+          "median": 0.04586506634950638,
+          "p95": 0.1302855871617794
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.975855528298487,
+          "median": 13.385367935754772,
+          "p95": 20.075047160483344
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 4.181650182400896,
+          "median": 4.180144493603323,
+          "p95": 9.552839089869307
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.3557161257364852,
+          "median": 0.023645194661461835,
+          "p95": 1.4125504974697405
+        },
+        "steps": {
+          "count": 40,
+          "mean": 11.75,
+          "median": 16.0,
+          "p95": 16.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4448585678807057,
+          "median": 0.4404171887236081,
+          "p95": 0.8110457433624282
+        }
+      },
+      "region2_ttt_energy_value_only": {
+        "mse": {
+          "count": 40,
+          "mean": 0.06421726839616895,
+          "median": 0.06497514620423317,
+          "p95": 0.13047504201531407
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.16470017124942,
+          "median": 11.872578320097453,
+          "p95": 20.21406076136704
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.167859384417534,
+          "median": -2.9933074712753296,
+          "p95": -2.21849901676178
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -4.0493504166603085,
+          "median": -3.8651784658432007,
+          "p95": -2.9303404927253722
+        },
+        "steps": {
+          "count": 40,
+          "mean": 24.125,
+          "median": 26.5,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.31427211315599346,
+          "median": 0.2153826592475629,
+          "p95": 0.8223793936427571
+        }
+      },
+      "global_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.034884116484317926,
+          "median": 0.020840857177972794,
+          "p95": 0.09546529874205589
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 16.014102747871057,
+          "median": 16.811166463140047,
+          "p95": 21.227281253228973
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.0192369520664215,
+          "median": -2.815506339073181,
+          "p95": -2.1206550478935244
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -4.070733368396759,
+          "median": -3.982053756713867,
+          "p95": -3.026385056972504
+        },
+        "steps": {
+          "count": 40,
+          "mean": 14.8,
+          "median": 12.0,
+          "p95": 37.14999999999999
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.6294248633738126,
+          "median": 0.7786639570912264,
+          "p95": 0.8460689979930027
+        }
+      },
+      "bilinear2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.051690185896586624,
+          "median": 0.04872732609510422,
+          "p95": 0.12170449569821357
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.112294775737798,
+          "median": 13.125894769219242,
+          "p95": 20.256715617162893
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.0192369520664215,
+          "median": -2.815506339073181,
+          "p95": -2.1206550478935244
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.978432685136795,
+          "median": -3.832847833633423,
+          "p95": -2.996459472179413
+        },
+        "steps": {
+          "count": 40,
+          "mean": 15.475,
+          "median": 12.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4520155275655344,
+          "median": 0.49460948190006426,
+          "p95": 0.8223793936427571
+        }
+      },
+      "region2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.052315993525553495,
+          "median": 0.05085526965558529,
+          "p95": 0.11410546004772183
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.033311156643064,
+          "median": 12.93729430290544,
+          "p95": 20.256715617162893
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.019236868619919,
+          "median": -2.815506339073181,
+          "p95": -2.120654845237732
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.9903060495853424,
+          "median": -3.866074562072754,
+          "p95": -3.0672365903854373
+        },
+        "steps": {
+          "count": 40,
+          "mean": 14.7,
+          "median": 12.0,
+          "p95": 33.34999999999998
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.44321610344163276,
+          "median": 0.4473776390499814,
+          "p95": 0.8223793936427571
+        }
+      },
+      "oracle_best_sobolev_checkpoint": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0518210934358649,
+          "median": 0.05036829598248005,
+          "p95": 0.11410546004772183
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.083878969131213,
+          "median": 12.97856128567877,
+          "p95": 20.256715617162893
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.019236868619919,
+          "median": -2.815506339073181,
+          "p95": -2.120654845237732
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.986577445268631,
+          "median": -3.8474695682525635,
+          "p95": -3.0672216415405273
+        },
+        "steps": {
+          "count": 40,
+          "mean": 10.95,
+          "median": 12.0,
+          "p95": 15.049999999999997
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4491794191326429,
+          "median": 0.4473776390499814,
+          "p95": 0.8223793936427571
+        }
+      }
+    },
+    "homogeneous_bright": {
+      "identity": {
+        "mse": {
+          "count": 40,
+          "mean": 0.043315969430841504,
+          "median": 0.039348915219306946,
+          "p95": 0.07246358878910542
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.966647396102932,
+          "median": 14.050677145831196,
+          "p95": 16.27122662611354
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 8.374631451743285,
+          "median": 7.398042228164772,
+          "p95": 16.490596661295886
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 8.374631451743285,
+          "median": 7.398042228164772,
+          "p95": 16.490596661295886
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "region2_direct": {
+        "mse": {
+          "count": 40,
+          "mean": 0.019500478205736728,
+          "median": 0.013868294190615416,
+          "p95": 0.05271657966077327
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 18.530798416348844,
+          "median": 18.58006255451034,
+          "p95": 24.442171244389314
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 8.374631451743285,
+          "median": 7.398042228164772,
+          "p95": 16.490596661295886
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.7384398847521243,
+          "median": 0.3648157424940386,
+          "p95": 2.687158069833057
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.40367128817533626,
+          "median": 0.6115228358161189,
+          "p95": 0.9301513132784004
+        }
+      },
+      "region2_discrete_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0212184090167284,
+          "median": 0.016332030296325684,
+          "p95": 0.052695918083190914
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 17.63538550575274,
+          "median": 17.87002029168149,
+          "p95": 22.4144452937142
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 8.374631451743285,
+          "median": 7.398042228164772,
+          "p95": 16.490596661295886
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.4953370995075303,
+          "median": 0.24673534490142435,
+          "p95": 1.6943099872537326
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4204611298099679,
+          "median": 0.5318537503917058,
+          "p95": 0.9135948863641165
+        }
+      },
+      "region2_ttt_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.020838113711215557,
+          "median": 0.01687309890985489,
+          "p95": 0.055121100321412084
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 17.90563668020452,
+          "median": 17.728308614662623,
+          "p95": 23.750158320315567
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 8.374631451743285,
+          "median": 7.398042228164772,
+          "p95": 16.490596661295886
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.5693478155632898,
+          "median": 0.23664822987247094,
+          "p95": 2.5586347504085354
+        },
+        "steps": {
+          "count": 40,
+          "mean": 35.875,
+          "median": 40.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4179422044533678,
+          "median": 0.5415847039670043,
+          "p95": 0.9162022545991599
+        }
+      },
+      "fixed_step_source": {
+        "mse": {
+          "count": 40,
+          "mean": 0.02126160135376267,
+          "median": 0.01694000232964754,
+          "p95": 0.05507532302290201
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 17.791254909273455,
+          "median": 17.713137378779813,
+          "p95": 23.109316789780888
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 8.374631451743285,
+          "median": 7.398042228164772,
+          "p95": 16.490596661295886
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.685828256814816,
+          "median": 0.2688720778836251,
+          "p95": 2.9321126672698856
+        },
+        "steps": {
+          "count": 40,
+          "mean": 14.875,
+          "median": 16.0,
+          "p95": 16.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.3982170179559252,
+          "median": 0.5207199175178644,
+          "p95": 0.9137122327021933
+        }
+      },
+      "region2_ttt_energy_value_only": {
+        "mse": {
+          "count": 40,
+          "mean": 0.02607486901106313,
+          "median": 0.021734513342380524,
+          "p95": 0.06091352328658104
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 16.994951681668162,
+          "median": 16.631149896887443,
+          "p95": 22.464517277856018
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.5396879494190214,
+          "median": -3.2882578372955322,
+          "p95": -2.7327506422996524
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -5.161859881877899,
+          "median": -5.411001920700073,
+          "p95": -3.580819880962372
+        },
+        "steps": {
+          "count": 40,
+          "mean": 30.675,
+          "median": 36.5,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.34532450556565997,
+          "median": 0.4048265129688987,
+          "p95": 0.9002993200548127
+        }
+      },
+      "global_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.012560551916249097,
+          "median": 0.008158056531101465,
+          "p95": 0.03811164777725933
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 20.826845055294143,
+          "median": 20.890070010693428,
+          "p95": 26.79416944249139
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.166052260994911,
+          "median": -3.0916718244552612,
+          "p95": -2.2152334332466133
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -4.581889963150024,
+          "median": -4.827561855316162,
+          "p95": -3.058965599536896
+        },
+        "steps": {
+          "count": 40,
+          "mean": 31.075,
+          "median": 36.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.6385627916088027,
+          "median": 0.7922912025362965,
+          "p95": 0.9574336534734783
+        }
+      },
+      "bilinear2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.017013818403938785,
+          "median": 0.011458725202828646,
+          "p95": 0.04890906922519206
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 19.125957140455956,
+          "median": 19.40930082570757,
+          "p95": 24.665465778595852
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.166052260994911,
+          "median": -3.0916718244552612,
+          "p95": -2.2152334332466133
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -4.666787248849869,
+          "median": -4.894507884979248,
+          "p95": -3.284376323223114
+        },
+        "steps": {
+          "count": 40,
+          "mean": 35.875,
+          "median": 38.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.5931046457926645,
+          "median": 0.6802394974587072,
+          "p95": 0.9309817772760113
+        }
+      },
+      "region2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.01821087922435254,
+          "median": 0.013724107295274734,
+          "p95": 0.05141463540494441
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 18.76899111161582,
+          "median": 18.625160536340225,
+          "p95": 24.57953848274962
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.1660522341728212,
+          "median": -3.0916720628738403,
+          "p95": -2.2152327358722697
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -4.68193027973175,
+          "median": -4.941004753112793,
+          "p95": -3.3712934136390693
+        },
+        "steps": {
+          "count": 40,
+          "mean": 37.1,
+          "median": 38.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.549325801631397,
+          "median": 0.6199410520304102,
+          "p95": 0.9291610046512947
+        }
+      },
+      "oracle_best_sobolev_checkpoint": {
+        "mse": {
+          "count": 40,
+          "mean": 0.016386300724116155,
+          "median": 0.01102949446067214,
+          "p95": 0.05124522875994444
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 19.585840360213748,
+          "median": 19.57620674093425,
+          "p95": 26.29532354280465
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "bright_region_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -3.1660522341728212,
+          "median": -3.0916720628738403,
+          "p95": -2.2152327358722697
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -4.576579856872558,
+          "median": -4.8510401248931885,
+          "p95": -3.289338612556458
+        },
+        "steps": {
+          "count": 40,
+          "mean": 9.85,
+          "median": 8.0,
+          "p95": 32.14999999999999
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.6163868927478577,
+          "median": 0.6782261665908422,
+          "p95": 0.9584087708095825
+        }
+      }
+    },
+    "left_right": {
+      "identity": {
+        "mse": {
+          "count": 40,
+          "mean": 0.06753394138067961,
+          "median": 0.0661158487200737,
+          "p95": 0.10818451792001722
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 11.998043223459467,
+          "median": 11.79734384341415,
+          "p95": 14.649215897541808
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.0912328845821321,
+          "median": 0.09124993160367012,
+          "p95": 0.16157423108816146
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.04386738990433514,
+          "median": 0.04005401208996773,
+          "p95": 0.07125754617154598
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.555953264698752,
+          "median": 6.213982739082988,
+          "p95": 16.03032746023338
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 7.555953264698752,
+          "median": 6.213982739082988,
+          "p95": 16.03032746023338
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "region2_direct": {
+        "mse": {
+          "count": 40,
+          "mean": 0.040932805719785394,
+          "median": 0.0398623701184988,
+          "p95": 0.08257512785494324
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.717753435102484,
+          "median": 13.994485897935292,
+          "p95": 20.287691348801665
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.061108813434839246,
+          "median": 0.04841741919517517,
+          "p95": 0.13906378820538515
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.020781954075209795,
+          "median": 0.014044068288058043,
+          "p95": 0.06605897210538386
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.555953264698752,
+          "median": 6.213982739082988,
+          "p95": 16.03032746023338
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.937174575665293,
+          "median": 0.5515986005750798,
+          "p95": 2.933701504165958
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4308042412169969,
+          "median": 0.42304919401373353,
+          "p95": 0.764619809853261
+        }
+      },
+      "region2_discrete_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.03931737586390227,
+          "median": 0.033744603395462036,
+          "p95": 0.08270459510385986
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.048831190941472,
+          "median": 14.718171101748876,
+          "p95": 21.000153954385745
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.05570201784139499,
+          "median": 0.03969905339181423,
+          "p95": 0.13906378820538515
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.022957964945817366,
+          "median": 0.01846733596175909,
+          "p95": 0.05731770303100344
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.555953264698752,
+          "median": 6.213982739082988,
+          "p95": 16.03032746023338
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.5968235926924073,
+          "median": 0.28452374781243317,
+          "p95": 2.2517776987166465
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.45860946600562374,
+          "median": 0.46606466464040147,
+          "p95": 0.8022716237287637
+        }
+      },
+      "region2_ttt_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.03750016952399164,
+          "median": 0.033880941569805145,
+          "p95": 0.08301623240113253
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.573464271519281,
+          "median": 14.700937516183007,
+          "p95": 23.169186214553033
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.05248018593993038,
+          "median": 0.03637421689927578,
+          "p95": 0.13906378820538515
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.022540981171187014,
+          "median": 0.018583799712359905,
+          "p95": 0.05731770303100344
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.555953264698752,
+          "median": 6.213982739082988,
+          "p95": 16.03032746023338
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.5929865292254013,
+          "median": 0.29383247449763344,
+          "p95": 2.2524927371289163
+        },
+        "steps": {
+          "count": 40,
+          "mean": 33.275,
+          "median": 40.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.49195633133924205,
+          "median": 0.5056051691021817,
+          "p95": 0.8858167048834907
+        }
+      },
+      "fixed_step_source": {
+        "mse": {
+          "count": 40,
+          "mean": 0.03811920225853101,
+          "median": 0.03430085815489292,
+          "p95": 0.08301623240113253
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.482043387343953,
+          "median": 14.649036775745715,
+          "p95": 23.081468954923597
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.052648351853713395,
+          "median": 0.036869265139102936,
+          "p95": 0.13906378820538515
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.023609981482150034,
+          "median": 0.018179012462496758,
+          "p95": 0.05765641964972015
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.555953264698752,
+          "median": 6.213982739082988,
+          "p95": 16.03032746023338
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.6980861179483734,
+          "median": 0.36100390648061365,
+          "p95": 2.7926243248849216
+        },
+        "steps": {
+          "count": 40,
+          "mean": 14.075,
+          "median": 16.0,
+          "p95": 16.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4839901361649735,
+          "median": 0.5033809997695753,
+          "p95": 0.89806671102027
+        }
+      },
+      "region2_ttt_energy_value_only": {
+        "mse": {
+          "count": 40,
+          "mean": 0.04502150845946744,
+          "median": 0.04460946284234524,
+          "p95": 0.08330984041094772
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.209410545837855,
+          "median": 13.505821200506253,
+          "p95": 18.528107104396543
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.055666789889801296,
+          "median": 0.040894465520977974,
+          "p95": 0.13906378820538515
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.03439207741466817,
+          "median": 0.03166266903281212,
+          "p95": 0.07006124220788479
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.9138024538755416,
+          "median": -2.8012139797210693,
+          "p95": -1.759662050008774
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.8300345987081528,
+          "median": -3.6627657413482666,
+          "p95": -2.789062869548798
+        },
+        "steps": {
+          "count": 40,
+          "mean": 27.15,
+          "median": 29.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.34640699120708096,
+          "median": 0.39394166499044625,
+          "p95": 0.7000251972003575
+        }
+      },
+      "global_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.06225704015232623,
+          "median": 0.06209145486354828,
+          "p95": 0.11025521270930759
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 12.629502021021434,
+          "median": 12.07209019441943,
+          "p95": 16.634486929287537
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.07552138543687761,
+          "median": 0.055472686886787415,
+          "p95": 0.21050427779555317
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.049004763257107696,
+          "median": 0.02368077915161848,
+          "p95": 0.15545370206236836
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.6430944234132765,
+          "median": -2.5432028770446777,
+          "p95": -1.6570843398571014
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.2322820842266085,
+          "median": -3.135861873626709,
+          "p95": -2.602452743053437
+        },
+        "steps": {
+          "count": 40,
+          "mean": 28.275,
+          "median": 31.0,
+          "p95": 39.05
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.11150822247251678,
+          "median": 0.1505436051452566,
+          "p95": 0.3302252020632191
+        }
+      },
+      "bilinear2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.0414314683759585,
+          "median": 0.04316823557019234,
+          "p95": 0.08257947638630864
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.505993391831083,
+          "median": 13.649094686087857,
+          "p95": 19.113455573173233
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.057396948849782345,
+          "median": 0.03779281862080097,
+          "p95": 0.1425786301493644
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.025483931897906587,
+          "median": 0.016483362764120102,
+          "p95": 0.06900438964366909
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.6430944234132765,
+          "median": -2.5432028770446777,
+          "p95": -1.6570843398571014
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.824321502447128,
+          "median": -3.5893752574920654,
+          "p95": -2.8551092863082888
+        },
+        "steps": {
+          "count": 40,
+          "mean": 31.9,
+          "median": 38.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.41300201346287646,
+          "median": 0.42225483573657574,
+          "p95": 0.6772776073607125
+        }
+      },
+      "region2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.035123097524046895,
+          "median": 0.03604961931705475,
+          "p95": 0.08257162161171433
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.668880266930952,
+          "median": 14.433288170293206,
+          "p95": 22.262959010374406
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.04897471568547189,
+          "median": 0.028775244019925594,
+          "p95": 0.13861882686614985
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.021286554812104442,
+          "median": 0.013334737159311771,
+          "p95": 0.0694506548345089
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.6430942326784135,
+          "median": -2.5432029962539673,
+          "p95": -1.6570837497711182
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.8282116770744326,
+          "median": -3.5426613092422485,
+          "p95": -2.8818301200866703
+        },
+        "steps": {
+          "count": 40,
+          "mean": 31.825,
+          "median": 38.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.5192008012312752,
+          "median": 0.5203448562641718,
+          "p95": 0.8616286345682754
+        }
+      },
+      "oracle_best_sobolev_checkpoint": {
+        "mse": {
+          "count": 40,
+          "mean": 0.03440616762964055,
+          "median": 0.03386155143380165,
+          "p95": 0.08251282982528206
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.921069296604047,
+          "median": 14.70387373767246,
+          "p95": 23.770611908062726
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.04899301421828568,
+          "median": 0.028775244019925594,
+          "p95": 0.13861882686614985
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.019835305136803073,
+          "median": 0.0107290162704885,
+          "p95": 0.06923087425529957
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.6430942326784135,
+          "median": -2.5432029962539673,
+          "p95": -1.6570837497711182
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.8121304869651795,
+          "median": -3.529479146003723,
+          "p95": -2.838722169399262
+        },
+        "steps": {
+          "count": 40,
+          "mean": 21.95,
+          "median": 21.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.5311357264963964,
+          "median": 0.5221550191139896,
+          "p95": 0.910442827817621
+        }
+      }
+    },
+    "quadrants": {
+      "identity": {
+        "mse": {
+          "count": 40,
+          "mean": 0.06672581182792783,
+          "median": 0.06403659284114838,
+          "p95": 0.09589747041463847
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 12.009439314410718,
+          "median": 11.93640469098238,
+          "p95": 14.437394535296807
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.09025670103728771,
+          "median": 0.08033417165279388,
+          "p95": 0.15089811086654661
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.04319492287468165,
+          "median": 0.03961367532610893,
+          "p95": 0.07126153372228144
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.175729128395327,
+          "median": 6.571659385917643,
+          "p95": 11.869503987720615
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 7.175729128395327,
+          "median": 6.571659385917643,
+          "p95": 11.869503987720615
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "region2_direct": {
+        "mse": {
+          "count": 40,
+          "mean": 0.03901922646909952,
+          "median": 0.03512244671583176,
+          "p95": 0.08095841445028781
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.64844401565275,
+          "median": 14.544219938789743,
+          "p95": 18.99262507920415
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.05962781384587288,
+          "median": 0.052913304418325424,
+          "p95": 0.13365832492709154
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.018410639229114168,
+          "median": 0.013733286876231432,
+          "p95": 0.03842954877763981
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.175729128395327,
+          "median": 6.571659385917643,
+          "p95": 11.869503987720615
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.9309219003932141,
+          "median": 0.6039227502160507,
+          "p95": 2.7957371043771775
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.424971782901168,
+          "median": 0.4555576196569114,
+          "p95": 0.7259443622974178
+        }
+      },
+      "region2_discrete_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.037392629543319345,
+          "median": 0.031177195720374584,
+          "p95": 0.08201898038387298
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.03866525704757,
+          "median": 15.061629607066525,
+          "p95": 20.54523028855046
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.054587218537926675,
+          "median": 0.044747402891516685,
+          "p95": 0.15089811086654661
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.02019804112496786,
+          "median": 0.01759945321828127,
+          "p95": 0.039883025921881185
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.175729128395327,
+          "median": 6.571659385917643,
+          "p95": 11.869503987720615
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.5373248928595827,
+          "median": 0.22835725588249106,
+          "p95": 2.088251638956823
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4551618645549069,
+          "median": 0.4799398972923108,
+          "p95": 0.7837198477777152
+        }
+      },
+      "region2_ttt_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.035308276617433874,
+          "median": 0.029604224488139153,
+          "p95": 0.08159404583275318
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.449912087863467,
+          "median": 15.28646507779194,
+          "p95": 20.518374875574914
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.05087654234375805,
+          "median": 0.043538857251405716,
+          "p95": 0.15089811086654661
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.019740012168767862,
+          "median": 0.018973255529999733,
+          "p95": 0.03986868951469659
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.175729128395327,
+          "median": 6.571659385917643,
+          "p95": 11.869503987720615
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.6369874879174735,
+          "median": 0.2862789302693265,
+          "p95": 2.635002096099916
+        },
+        "steps": {
+          "count": 40,
+          "mean": 35.55,
+          "median": 40.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.48893057181346017,
+          "median": 0.5746649958915309,
+          "p95": 0.8346089319288884
+        }
+      },
+      "fixed_step_source": {
+        "mse": {
+          "count": 40,
+          "mean": 0.035735964879859236,
+          "median": 0.02973236795514822,
+          "p95": 0.0819137267768383
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.365930745329836,
+          "median": 15.267772144487068,
+          "p95": 20.510114080103502
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.05112506453879177,
+          "median": 0.04423020966351032,
+          "p95": 0.15089811086654661
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.020346865424653516,
+          "median": 0.019105704501271248,
+          "p95": 0.04368062112480402
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.175729128395327,
+          "median": 6.571659385917643,
+          "p95": 11.869503987720615
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.7411648422603788,
+          "median": 0.30566362377273526,
+          "p95": 2.929231784835723
+        },
+        "steps": {
+          "count": 40,
+          "mean": 15.15,
+          "median": 16.0,
+          "p95": 16.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.4825266608191038,
+          "median": 0.5741216189042082,
+          "p95": 0.8111154478872424
+        }
+      },
+      "region2_ttt_energy_value_only": {
+        "mse": {
+          "count": 40,
+          "mean": 0.038754419179167596,
+          "median": 0.02990052942186594,
+          "p95": 0.08230904340744016
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.987396006083825,
+          "median": 15.243622615770878,
+          "p95": 19.352221752226452
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.05103719008620829,
+          "median": 0.044747402891516685,
+          "p95": 0.13365832492709154
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.026471649337327107,
+          "median": 0.02510601468384266,
+          "p95": 0.061143692955374716
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.9137603998184205,
+          "median": -2.9210339784622192,
+          "p95": -2.381674814224243
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.951442414522171,
+          "median": -3.8968063592910767,
+          "p95": -2.850608742237091
+        },
+        "steps": {
+          "count": 40,
+          "mean": 32.5,
+          "median": 36.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.43244924519344874,
+          "median": 0.5321358919621759,
+          "p95": 0.7524766280847102
+        }
+      },
+      "global_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.058128100074827674,
+          "median": 0.056805381551384926,
+          "p95": 0.09230485744774339
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 12.692811303901014,
+          "median": 12.456107570811794,
+          "p95": 16.008624790008483
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.06996668381616473,
+          "median": 0.05933045409619808,
+          "p95": 0.1543500155210495
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.04628951695049181,
+          "median": 0.033468544483184814,
+          "p95": 0.1402993194758892
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.695895290374756,
+          "median": -2.7138887643814087,
+          "p95": -2.145829820632935
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.0389825463294984,
+          "median": -3.0034408569335938,
+          "p95": -2.6170122385025025
+        },
+        "steps": {
+          "count": 40,
+          "mean": 29.275,
+          "median": 30.5,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.1284314620145462,
+          "median": 0.18724404693078506,
+          "p95": 0.3553041376373745
+        }
+      },
+      "bilinear2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.04562489856034517,
+          "median": 0.042483456432819366,
+          "p95": 0.08552211672067642
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.819873058449945,
+          "median": 13.71793463760487,
+          "p95": 16.765674029423764
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.06399403153918684,
+          "median": 0.055593689903616905,
+          "p95": 0.1514189220964908
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.027255766605958343,
+          "median": 0.021928980015218258,
+          "p95": 0.0576662916690111
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.695895290374756,
+          "median": -2.7138887643814087,
+          "p95": -2.145829820632935
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.7269532561302183,
+          "median": -3.7736144065856934,
+          "p95": -2.8700421452522282
+        },
+        "steps": {
+          "count": 40,
+          "mean": 31.625,
+          "median": 33.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.31976718727784,
+          "median": 0.37661601462261557,
+          "p95": 0.5581734257749021
+        }
+      },
+      "region2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.03259296180913225,
+          "median": 0.028026508167386055,
+          "p95": 0.07764885276556013
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.766910050819597,
+          "median": 15.525788463671526,
+          "p95": 22.017428740442103
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.047499680728651586,
+          "median": 0.038497257977724075,
+          "p95": 0.13365832492709154
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.017686243914067746,
+          "median": 0.012889156583696604,
+          "p95": 0.03637403696775434
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.695895364880562,
+          "median": -2.7138893604278564,
+          "p95": -2.145829594135285
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.7909537315368653,
+          "median": -3.7082844972610474,
+          "p95": -2.840934896469116
+        },
+        "steps": {
+          "count": 40,
+          "mean": 32.35,
+          "median": 34.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.5187899539276517,
+          "median": 0.6123591352735184,
+          "p95": 0.8513058028650258
+        }
+      },
+      "oracle_best_sobolev_checkpoint": {
+        "mse": {
+          "count": 40,
+          "mean": 0.03146290333243087,
+          "median": 0.026718481443822384,
+          "p95": 0.0772258847951889
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 15.92775809479609,
+          "median": 15.73211230525991,
+          "p95": 22.41465429118138
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.04752926186192781,
+          "median": 0.038497257977724075,
+          "p95": 0.13365832492709154
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.015396546717965975,
+          "median": 0.011085823643952608,
+          "p95": 0.035999040678143496
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.695895364880562,
+          "median": -2.7138893604278564,
+          "p95": -2.145829594135285
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.759438270330429,
+          "median": -3.7013357877731323,
+          "p95": -2.807895052433014
+        },
+        "steps": {
+          "count": 40,
+          "mean": 20.925,
+          "median": 17.0,
+          "p95": 39.05
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.5371959316447654,
+          "median": 0.6199126758057565,
+          "p95": 0.8537666798367453
+        }
+      }
+    },
+    "offset_left_right_40": {
+      "identity": {
+        "mse": {
+          "count": 40,
+          "mean": 0.06283630770631135,
+          "median": 0.06047208048403263,
+          "p95": 0.10211546383798122
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 12.301282526572711,
+          "median": 12.184730483990904,
+          "p95": 14.99218282855057
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.09168547242879868,
+          "median": 0.0907461829483509,
+          "p95": 0.169542371481657
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.04365278270561248,
+          "median": 0.04101662337779999,
+          "p95": 0.06955668069422244
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.403733235547233,
+          "median": 5.675642242681356,
+          "p95": 16.4633310556374
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 7.403733235547233,
+          "median": 5.675642242681356,
+          "p95": 16.4633310556374
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "region2_direct": {
+        "mse": {
+          "count": 40,
+          "mean": 0.046929470356553794,
+          "median": 0.04556719586253166,
+          "p95": 0.08038016520440576
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.862850557824588,
+          "median": 13.413494767729174,
+          "p95": 17.507730679368656
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.0743646192131564,
+          "median": 0.06781202927231789,
+          "p95": 0.15209272354841225
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.02867766041890718,
+          "median": 0.025103509426116943,
+          "p95": 0.06323125101625918
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.403733235547233,
+          "median": 5.675642242681356,
+          "p95": 16.4633310556374
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 1.1726905458219488,
+          "median": 0.7069043355951307,
+          "p95": 3.658910265499168
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.2726140276091405,
+          "median": 0.2771228565256755,
+          "p95": 0.5927268991808606
+        }
+      },
+      "region2_discrete_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.04583390238694847,
+          "median": 0.03994389809668064,
+          "p95": 0.08267526924610134
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.956584606080776,
+          "median": 13.988620700701224,
+          "p95": 17.36174545995586
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.06787362936884164,
+          "median": 0.055720338597893715,
+          "p95": 0.15209272354841225
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.031174310413189233,
+          "median": 0.028765556402504444,
+          "p95": 0.06340796388685702
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.403733235547233,
+          "median": 5.675642242681356,
+          "p95": 16.4633310556374
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.7545171401486305,
+          "median": 0.370292800693131,
+          "p95": 2.5039934015449568
+        },
+        "steps": {
+          "count": 40,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.2838691350382374,
+          "median": 0.2901680743056922,
+          "p95": 0.6015664290719857
+        }
+      },
+      "region2_ttt_projected": {
+        "mse": {
+          "count": 40,
+          "mean": 0.044985021185129884,
+          "median": 0.0375466775149107,
+          "p95": 0.08246439024806018
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.139228775331953,
+          "median": 14.254288011627164,
+          "p95": 18.258022619361547
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.06706224941299296,
+          "median": 0.050053151324391365,
+          "p95": 0.15209272354841225
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.030298342753667384,
+          "median": 0.026832692325115204,
+          "p95": 0.0632137682288885
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.403733235547233,
+          "median": 5.675642242681356,
+          "p95": 16.4633310556374
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.7595376696301676,
+          "median": 0.3974525073662426,
+          "p95": 2.496276824058422
+        },
+        "steps": {
+          "count": 40,
+          "mean": 35.425,
+          "median": 40.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.30448901187050914,
+          "median": 0.30466492790465566,
+          "p95": 0.6434369465454263
+        }
+      },
+      "fixed_step_source": {
+        "mse": {
+          "count": 40,
+          "mean": 0.045594654278829694,
+          "median": 0.03793115168809891,
+          "p95": 0.08247267864644522
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.08160632362433,
+          "median": 14.210120051045422,
+          "p95": 18.0374606817501
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.06714775455766357,
+          "median": 0.051881175488233566,
+          "p95": 0.15209272354841225
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.03125620089704171,
+          "median": 0.029550575651228428,
+          "p95": 0.06391064487397669
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": 7.403733235547233,
+          "median": 5.675642242681356,
+          "p95": 16.4633310556374
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": 0.9172931906028066,
+          "median": 0.43212610288090425,
+          "p95": 3.6028067491098947
+        },
+        "steps": {
+          "count": 40,
+          "mean": 14.425,
+          "median": 16.0,
+          "p95": 16.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.29581857443707865,
+          "median": 0.29414243083416425,
+          "p95": 0.6414739665110617
+        }
+      },
+      "region2_ttt_energy_value_only": {
+        "mse": {
+          "count": 40,
+          "mean": 0.052624920709058644,
+          "median": 0.047729071229696274,
+          "p95": 0.09368670806288716
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 13.279760727025034,
+          "median": 13.212170845496628,
+          "p95": 17.565101151385655
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.07046370538882911,
+          "median": 0.055140964686870575,
+          "p95": 0.15209272354841225
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.040757568064145745,
+          "median": 0.03663713485002518,
+          "p95": 0.08133811689913273
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.993968680500984,
+          "median": -2.6496710777282715,
+          "p95": -2.099756181240082
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.78334122300148,
+          "median": -3.6275668144226074,
+          "p95": -2.7366492986679076
+        },
+        "steps": {
+          "count": 40,
+          "mean": 27.75,
+          "median": 31.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.16436178159687603,
+          "median": 0.15476565400878456,
+          "p95": 0.5221621490669129
+        }
+      },
+      "global_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.06021506625693292,
+          "median": 0.054691288620233536,
+          "p95": 0.11142079681158061
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 12.900422859911249,
+          "median": 12.620885445563875,
+          "p95": 17.552400979991745
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.09465343742631376,
+          "median": 0.08257792890071869,
+          "p95": 0.25280851572752
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.03730084277340211,
+          "median": 0.021415111608803272,
+          "p95": 0.11263514608144756
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.8027419209480287,
+          "median": -2.4918919801712036,
+          "p95": -1.9226875424385077
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.3831028044223785,
+          "median": -3.1851680278778076,
+          "p95": -2.684808349609375
+        },
+        "steps": {
+          "count": 40,
+          "mean": 28.125,
+          "median": 31.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.08717788300687208,
+          "median": 0.1410426959402254,
+          "p95": 0.5275625526005565
+        }
+      },
+      "bilinear2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.04450655325781554,
+          "median": 0.04215081222355366,
+          "p95": 0.07975632473826402
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.097749024681633,
+          "median": 13.752271216529714,
+          "p95": 18.049504263873413
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.06944813536247238,
+          "median": 0.05218469351530075,
+          "p95": 0.15690999031066888
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.027910886117024348,
+          "median": 0.022506448440253735,
+          "p95": 0.06652422957122325
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.8027419209480287,
+          "median": -2.4918919801712036,
+          "p95": -1.9226875424385077
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.767840713262558,
+          "median": -3.588827133178711,
+          "p95": -3.0079827666282655
+        },
+        "steps": {
+          "count": 40,
+          "mean": 31.025,
+          "median": 37.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.31119678956665725,
+          "median": 0.3110999943203105,
+          "p95": 0.5920415581587832
+        }
+      },
+      "region2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 40,
+          "mean": 0.044768725894391535,
+          "median": 0.042147502303123474,
+          "p95": 0.0793345537036657
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.051035508684356,
+          "median": 13.752945865313878,
+          "p95": 17.701099600623376
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.06678130528889596,
+          "median": 0.050276750698685646,
+          "p95": 0.15209272354841225
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.030119995365384965,
+          "median": 0.02729863952845335,
+          "p95": 0.06406308487057684
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.8027418553829193,
+          "median": -2.4918911457061768,
+          "p95": -1.922688418626786
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.8135197281837465,
+          "median": -3.6534295082092285,
+          "p95": -3.0526591300964356
+        },
+        "steps": {
+          "count": 40,
+          "mean": 30.8,
+          "median": 37.5,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.3030616215129732,
+          "median": 0.31337039143644807,
+          "p95": 0.5787084691615247
+        }
+      },
+      "oracle_best_sobolev_checkpoint": {
+        "mse": {
+          "count": 40,
+          "mean": 0.04294313988648355,
+          "median": 0.040463246405124664,
+          "p95": 0.07920592129230496
+        },
+        "psnr_db": {
+          "count": 40,
+          "mean": 14.278319639643401,
+          "median": 13.930138544654667,
+          "p95": 17.9905114799867
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 40,
+          "mean": 0.06689653918147087,
+          "median": 0.05012156069278717,
+          "p95": 0.15209272354841225
+        },
+        "bright_region_mse": {
+          "count": 40,
+          "mean": 0.02700527712004259,
+          "median": 0.020542150363326073,
+          "p95": 0.06406308487057684
+        },
+        "loss_before": {
+          "count": 40,
+          "mean": -2.8027418553829193,
+          "median": -2.4918911457061768,
+          "p95": -1.922688418626786
+        },
+        "loss_after": {
+          "count": 40,
+          "mean": -3.7384750127792357,
+          "median": -3.5538179874420166,
+          "p95": -3.005409145355225
+        },
+        "steps": {
+          "count": 40,
+          "mean": 15.075,
+          "median": 12.0,
+          "p95": 39.05
+        },
+        "recovery_ratio": {
+          "count": 40,
+          "mean": 0.33331358007515527,
+          "median": 0.32529480785109294,
+          "p95": 0.6544304531559774
+        }
+      }
+    },
+    "heterogeneous": {
+      "identity": {
+        "mse": {
+          "count": 80,
+          "mean": 0.06712987660430372,
+          "median": 0.0651971884071827,
+          "p95": 0.10798974819481373
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 12.003741268935093,
+          "median": 11.857711568282506,
+          "p95": 14.480250965252512
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.0907447928097099,
+          "median": 0.0838242769241333,
+          "p95": 0.16130104437470436
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.0435311563895084,
+          "median": 0.03984439745545387,
+          "p95": 0.07125754617154598
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": 7.36584119654704,
+          "median": 6.509867964312724,
+          "p95": 15.701063910346925
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": 7.36584119654704,
+          "median": 6.509867964312724,
+          "p95": 15.701063910346925
+        },
+        "steps": {
+          "count": 80,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "region2_direct": {
+        "mse": {
+          "count": 80,
+          "mean": 0.03997601609444246,
+          "median": 0.03762221150100231,
+          "p95": 0.08192691840231418
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 14.683098725377617,
+          "median": 14.245577549303853,
+          "p95": 20.04810508081623
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.06036831364035607,
+          "median": 0.05085373856127262,
+          "p95": 0.13851597756147382
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.019596296652161983,
+          "median": 0.0138275190256536,
+          "p95": 0.057598576694726934
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": 7.36584119654704,
+          "median": 6.509867964312724,
+          "p95": 15.701063910346925
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": 0.9340482380292535,
+          "median": 0.5515986005750798,
+          "p95": 2.9206746010509144
+        },
+        "steps": {
+          "count": 80,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.42788801205908245,
+          "median": 0.44053763070916097,
+          "p95": 0.7441336586915921
+        }
+      },
+      "region2_discrete_projected": {
+        "mse": {
+          "count": 80,
+          "mean": 0.03835500270361081,
+          "median": 0.03274737298488617,
+          "p95": 0.08204649277031421
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 15.043748223994521,
+          "median": 14.848237641142806,
+          "p95": 20.813262960816157
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.055144618189660835,
+          "median": 0.04288037307560444,
+          "p95": 0.15089811086654661
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.02157800303539261,
+          "median": 0.017826925963163376,
+          "p95": 0.05298152286559342
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": 7.36584119654704,
+          "median": 6.509867964312724,
+          "p95": 15.701063910346925
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": 0.5670742427759949,
+          "median": 0.25059022274931264,
+          "p95": 2.2466655033409575
+        },
+        "steps": {
+          "count": 80,
+          "mean": 0,
+          "median": 0.0,
+          "p95": 0.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.4568856652802653,
+          "median": 0.47370716031449583,
+          "p95": 0.8022716237287637
+        }
+      },
+      "region2_ttt_projected": {
+        "mse": {
+          "count": 80,
+          "mean": 0.03640422307071276,
+          "median": 0.03030773438513279,
+          "p95": 0.08199661001563072
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 15.511688179691374,
+          "median": 15.184515190825751,
+          "p95": 22.815286080995136
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.051678364141844214,
+          "median": 0.03917269594967365,
+          "p95": 0.15089811086654661
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.021140496669977436,
+          "median": 0.018583799712359905,
+          "p95": 0.05298152286559342
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": 7.36584119654704,
+          "median": 6.509867964312724,
+          "p95": 15.701063910346925
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": 0.6149870085714374,
+          "median": 0.2862789302693265,
+          "p95": 2.629987843323595
+        },
+        "steps": {
+          "count": 80,
+          "mean": 34.4125,
+          "median": 40.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.4904434515763511,
+          "median": 0.5490605451887012,
+          "p95": 0.8847802221685098
+        }
+      },
+      "fixed_step_source": {
+        "mse": {
+          "count": 80,
+          "mean": 0.03692758356919512,
+          "median": 0.030528473667800426,
+          "p95": 0.0819137267768383
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 15.423987066336895,
+          "median": 15.152987802841494,
+          "p95": 22.654784283796722
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.05188670819625259,
+          "median": 0.039499128237366676,
+          "p95": 0.15089811086654661
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.021978423453401775,
+          "median": 0.018179012462496758,
+          "p95": 0.05666799265891313
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": 7.36584119654704,
+          "median": 6.509867964312724,
+          "p95": 15.701063910346925
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": 0.7196254801043761,
+          "median": 0.32925963182246276,
+          "p95": 2.8908800257278284
+        },
+        "steps": {
+          "count": 80,
+          "mean": 14.6125,
+          "median": 16.0,
+          "p95": 16.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.48325839849203867,
+          "median": 0.5454758022111543,
+          "p95": 0.882781982003645
+        }
+      },
+      "region2_ttt_energy_value_only": {
+        "mse": {
+          "count": 80,
+          "mean": 0.04188796381931752,
+          "median": 0.039376161992549896,
+          "p95": 0.08231937028467652
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 14.59840327596084,
+          "median": 14.04766618645554,
+          "p95": 19.343143808970105
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.05335198998800479,
+          "median": 0.04464886337518692,
+          "p95": 0.13851597756147382
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.030431863375997636,
+          "median": 0.02689267974346876,
+          "p95": 0.06766981706023216
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": -2.913781426846981,
+          "median": -2.862634539604187,
+          "p95": -2.170784986019135
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": -3.890738506615162,
+          "median": -3.762426018714905,
+          "p95": -2.825434446334839
+        },
+        "steps": {
+          "count": 80,
+          "mean": 29.825,
+          "median": 33.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.38942811820026485,
+          "median": 0.4367542816440882,
+          "p95": 0.7484302087459129
+        }
+      },
+      "global_ttt_energy_sobolev": {
+        "mse": {
+          "count": 80,
+          "mean": 0.06019257011357695,
+          "median": 0.057375457137823105,
+          "p95": 0.10429271720349788
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 12.661156662461224,
+          "median": 12.41287885000887,
+          "p95": 16.095065984929658
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.07274403462652117,
+          "median": 0.05682620778679848,
+          "p95": 0.15787748023867593
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.04764714010379976,
+          "median": 0.027226928621530533,
+          "p95": 0.14842860847711561
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": -2.6694948568940164,
+          "median": -2.657481551170349,
+          "p95": -1.8810699343681339
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": -3.135632315278053,
+          "median": -3.0500413179397583,
+          "p95": -2.6107251167297365
+        },
+        "steps": {
+          "count": 80,
+          "mean": 28.775,
+          "median": 31.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.1199698422435315,
+          "median": 0.1629796153276435,
+          "p95": 0.3553041376373745
+        }
+      },
+      "bilinear2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 80,
+          "mean": 0.043528183468151835,
+          "median": 0.042594343423843384,
+          "p95": 0.08552211672067642
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 14.162933225140513,
+          "median": 13.70653953691053,
+          "p95": 18.587170758941756
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.06069549019448459,
+          "median": 0.047324882820248604,
+          "p95": 0.15137334987521167
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.026369849251932465,
+          "median": 0.020005018450319767,
+          "p95": 0.06758413724601268
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": -2.6694948568940164,
+          "median": -2.657481551170349,
+          "p95": -1.8810699343681339
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": -3.7756373792886735,
+          "median": -3.6424535512924194,
+          "p95": -2.8551092863082888
+        },
+        "steps": {
+          "count": 80,
+          "mean": 31.7625,
+          "median": 37.0,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.36638460037035825,
+          "median": 0.39695844784221523,
+          "p95": 0.6459512527138145
+        }
+      },
+      "region2_ttt_energy_sobolev": {
+        "mse": {
+          "count": 80,
+          "mean": 0.03385802966658957,
+          "median": 0.02994761150330305,
+          "p95": 0.08189259767532349
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 15.717895158875274,
+          "median": 15.236378179088732,
+          "p95": 22.216345988057054
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.04823719820706174,
+          "median": 0.03313807211816311,
+          "p95": 0.13851597756147382
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.019486399363086094,
+          "median": 0.012941472232341766,
+          "p95": 0.056872822530567635
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": -2.6694947987794877,
+          "median": -2.657482624053955,
+          "p95": -1.8810685217380527
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": -3.8095827043056487,
+          "median": -3.663883924484253,
+          "p95": -2.840934896469116
+        },
+        "steps": {
+          "count": 80,
+          "mean": 32.0875,
+          "median": 35.5,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.5189953775794635,
+          "median": 0.5565410539630582,
+          "p95": 0.8608005237037654
+        }
+      },
+      "oracle_best_sobolev_checkpoint": {
+        "mse": {
+          "count": 80,
+          "mean": 0.03293453548103571,
+          "median": 0.029291296377778053,
+          "p95": 0.08164861649274827
+        },
+        "psnr_db": {
+          "count": 80,
+          "mean": 15.924413695700068,
+          "median": 15.332665752778187,
+          "p95": 23.36366006020971
+        },
+        "clean_drift_mse": {
+          "count": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "dark_region_mse": {
+          "count": 80,
+          "mean": 0.048261138040106746,
+          "median": 0.03313807211816311,
+          "p95": 0.13851597756147382
+        },
+        "bright_region_mse": {
+          "count": 80,
+          "mean": 0.017615925927384524,
+          "median": 0.010892960708588362,
+          "p95": 0.056872822530567635
+        },
+        "loss_before": {
+          "count": 80,
+          "mean": -2.6694947987794877,
+          "median": -2.657482624053955,
+          "p95": -1.8810685217380527
+        },
+        "loss_after": {
+          "count": 80,
+          "mean": -3.7857843786478043,
+          "median": -3.662509322166443,
+          "p95": -2.807895052433014
+        },
+        "steps": {
+          "count": 80,
+          "mean": 21.4375,
+          "median": 19.5,
+          "p95": 40.0
+        },
+        "recovery_ratio": {
+          "count": 80,
+          "mean": 0.5341658290705809,
+          "median": 0.5675901586130933,
+          "p95": 0.8795471161563659
+        }
+      }
+    }
+  },
+  "values": {
+    "clean_mean": 0.0002532600949052721,
+    "clean_p95": 0.00012560087488963485,
+    "dark_ratio": 0.570950280201505,
+    "bright_ratio": 0.4204195234145255,
+    "global_ratio": 0.5624951651458492,
+    "direct_ratio": 0.846958576027204,
+    "discrete_ratio": 0.8827539376865203,
+    "dark_region_ratio": 0.5315698754000598,
+    "bright_region_ratio": 0.4476425847437993,
+    "quadrant_bilinear_ratio": 0.7143678745065832,
+    "fixed_step_ratio": 0.9168763941227348,
+    "value_only_ratio": 0.8082997257311235
+  },
+  "criteria": {
+    "clean_mean": true,
+    "clean_p95": true,
+    "homogeneous_dark": true,
+    "homogeneous_bright": true,
+    "spatial_value": true,
+    "beyond_direct": true,
+    "beyond_discrete": true,
+    "dark_region_safety": true,
+    "bright_region_safety": true,
+    "renderer_support": true,
+    "beyond_fixed_step": true,
+    "beyond_value_only": true
+  },
+  "qualified": true,
+  "failed": [],
+  "stress_report_only": "offset_left_right_40",
+  "oracle": {
+    "oracle_regret_ratio": 1.0280402978838314,
+    "oracle_over_discrete": 0.858676395763497,
+    "oracle_over_fixed16": 0.8918681456457281,
+    "oracle_beats_discrete_5pct": true,
+    "oracle_beats_fixed16_5pct": true
+  },
+  "trajectory_distributions": {
+    "region2_ttt_energy_value_only": {
+      "all": {
+        "count": 240,
+        "selected_steps": {
+          "0": 45,
+          "8": 1,
+          "12": 19,
+          "13": 6,
+          "14": 1,
+          "15": 5,
+          "16": 1,
+          "17": 2,
+          "18": 3,
+          "19": 3,
+          "20": 1,
+          "21": 4,
+          "22": 1,
+          "23": 3,
+          "24": 2,
+          "25": 6,
+          "26": 9,
+          "27": 5,
+          "28": 9,
+          "29": 7,
+          "30": 5,
+          "31": 5,
+          "32": 4,
+          "33": 8,
+          "34": 2,
+          "35": 9,
+          "36": 11,
+          "37": 9,
+          "38": 5,
+          "39": 7,
+          "40": 42
+        },
+        "no_active": 45,
+        "updates": 7800,
+        "projected_updates": 7604,
+        "final_boundary_coordinates": 1680,
+        "final_coordinates": 1920,
+        "movable_boundary_coordinates": 814,
+        "movable_coordinates": 1054,
+        "projected_update_fraction": 0.9748717948717949,
+        "final_boundary_fraction": 0.875,
+        "movable_boundary_fraction": 0.7722960151802657
+      },
+      "clean": {
+        "count": 40,
+        "selected_steps": {
+          "0": 38,
+          "12": 1,
+          "33": 1
+        },
+        "no_active": 38,
+        "updates": 80,
+        "projected_updates": 80,
+        "final_boundary_coordinates": 318,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 2,
+        "movable_coordinates": 4,
+        "projected_update_fraction": 1.0,
+        "final_boundary_fraction": 0.99375,
+        "movable_boundary_fraction": 0.5
+      },
+      "homogeneous_dark": {
+        "count": 40,
+        "selected_steps": {
+          "0": 4,
+          "12": 2,
+          "13": 2,
+          "15": 1,
+          "17": 1,
+          "18": 1,
+          "20": 1,
+          "21": 2,
+          "22": 1,
+          "23": 1,
+          "24": 1,
+          "25": 2,
+          "26": 1,
+          "27": 2,
+          "28": 3,
+          "29": 2,
+          "30": 2,
+          "33": 1,
+          "35": 3,
+          "36": 4,
+          "40": 3
+        },
+        "no_active": 4,
+        "updates": 1440,
+        "projected_updates": 1384,
+        "final_boundary_coordinates": 287,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 161,
+        "movable_coordinates": 194,
+        "projected_update_fraction": 0.9611111111111111,
+        "final_boundary_fraction": 0.896875,
+        "movable_boundary_fraction": 0.8298969072164949
+      },
+      "homogeneous_bright": {
+        "count": 40,
+        "selected_steps": {
+          "8": 1,
+          "12": 4,
+          "13": 1,
+          "15": 1,
+          "16": 1,
+          "24": 1,
+          "25": 1,
+          "26": 4,
+          "27": 1,
+          "28": 1,
+          "29": 1,
+          "33": 2,
+          "36": 1,
+          "37": 2,
+          "38": 2,
+          "39": 2,
+          "40": 14
+        },
+        "no_active": 0,
+        "updates": 1600,
+        "projected_updates": 1533,
+        "final_boundary_coordinates": 261,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 171,
+        "movable_coordinates": 230,
+        "projected_update_fraction": 0.958125,
+        "final_boundary_fraction": 0.815625,
+        "movable_boundary_fraction": 0.7434782608695653
+      },
+      "left_right": {
+        "count": 40,
+        "selected_steps": {
+          "0": 1,
+          "12": 6,
+          "13": 1,
+          "15": 1,
+          "18": 1,
+          "19": 2,
+          "21": 1,
+          "23": 2,
+          "25": 1,
+          "26": 1,
+          "28": 2,
+          "29": 2,
+          "30": 1,
+          "31": 1,
+          "33": 2,
+          "34": 1,
+          "36": 2,
+          "37": 4,
+          "38": 1,
+          "39": 1,
+          "40": 6
+        },
+        "no_active": 1,
+        "updates": 1560,
+        "projected_updates": 1520,
+        "final_boundary_coordinates": 270,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 166,
+        "movable_coordinates": 216,
+        "projected_update_fraction": 0.9743589743589743,
+        "final_boundary_fraction": 0.84375,
+        "movable_boundary_fraction": 0.7685185185185185
+      },
+      "quadrants": {
+        "count": 40,
+        "selected_steps": {
+          "12": 3,
+          "14": 1,
+          "17": 1,
+          "21": 1,
+          "26": 2,
+          "27": 2,
+          "28": 2,
+          "31": 1,
+          "32": 2,
+          "33": 1,
+          "35": 3,
+          "36": 4,
+          "37": 1,
+          "38": 1,
+          "39": 2,
+          "40": 13
+        },
+        "no_active": 0,
+        "updates": 1600,
+        "projected_updates": 1567,
+        "final_boundary_coordinates": 275,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 175,
+        "movable_coordinates": 220,
+        "projected_update_fraction": 0.979375,
+        "final_boundary_fraction": 0.859375,
+        "movable_boundary_fraction": 0.7954545454545454
+      },
+      "offset_left_right_40": {
+        "count": 40,
+        "selected_steps": {
+          "0": 2,
+          "12": 3,
+          "13": 2,
+          "15": 2,
+          "18": 1,
+          "19": 1,
+          "25": 2,
+          "26": 1,
+          "28": 1,
+          "29": 2,
+          "30": 2,
+          "31": 3,
+          "32": 2,
+          "33": 1,
+          "34": 1,
+          "35": 3,
+          "37": 2,
+          "38": 1,
+          "39": 2,
+          "40": 6
+        },
+        "no_active": 2,
+        "updates": 1520,
+        "projected_updates": 1520,
+        "final_boundary_coordinates": 269,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 139,
+        "movable_coordinates": 190,
+        "projected_update_fraction": 1.0,
+        "final_boundary_fraction": 0.840625,
+        "movable_boundary_fraction": 0.7315789473684211
+      }
+    },
+    "global_ttt_energy_sobolev": {
+      "all": {
+        "count": 240,
+        "selected_steps": {
+          "0": 45,
+          "2": 1,
+          "5": 1,
+          "8": 1,
+          "9": 1,
+          "10": 1,
+          "11": 4,
+          "12": 21,
+          "13": 12,
+          "14": 2,
+          "15": 3,
+          "18": 3,
+          "19": 1,
+          "20": 3,
+          "21": 3,
+          "22": 6,
+          "23": 5,
+          "24": 3,
+          "25": 5,
+          "26": 3,
+          "27": 3,
+          "28": 5,
+          "29": 2,
+          "30": 11,
+          "31": 8,
+          "32": 11,
+          "33": 4,
+          "34": 6,
+          "35": 8,
+          "36": 10,
+          "37": 8,
+          "38": 7,
+          "39": 13,
+          "40": 20
+        },
+        "no_active": 45,
+        "updates": 7800,
+        "projected_updates": 4146,
+        "final_boundary_coordinates": 274,
+        "final_coordinates": 480,
+        "movable_boundary_coordinates": 184,
+        "movable_coordinates": 390,
+        "projected_update_fraction": 0.5315384615384615,
+        "final_boundary_fraction": 0.5708333333333333,
+        "movable_boundary_fraction": 0.4717948717948718
+      },
+      "clean": {
+        "count": 40,
+        "selected_steps": {
+          "0": 38,
+          "33": 1,
+          "36": 1
+        },
+        "no_active": 38,
+        "updates": 80,
+        "projected_updates": 66,
+        "final_boundary_coordinates": 77,
+        "final_coordinates": 80,
+        "movable_boundary_coordinates": 1,
+        "movable_coordinates": 4,
+        "projected_update_fraction": 0.825,
+        "final_boundary_fraction": 0.9625,
+        "movable_boundary_fraction": 0.25
+      },
+      "homogeneous_dark": {
+        "count": 40,
+        "selected_steps": {
+          "0": 4,
+          "9": 1,
+          "11": 4,
+          "12": 18,
+          "13": 5,
+          "15": 1,
+          "25": 1,
+          "30": 1,
+          "35": 1,
+          "36": 1,
+          "37": 1,
+          "40": 2
+        },
+        "no_active": 4,
+        "updates": 1440,
+        "projected_updates": 1121,
+        "final_boundary_coordinates": 70,
+        "final_coordinates": 80,
+        "movable_boundary_coordinates": 62,
+        "movable_coordinates": 72,
+        "projected_update_fraction": 0.7784722222222222,
+        "final_boundary_fraction": 0.875,
+        "movable_boundary_fraction": 0.8611111111111112
+      },
+      "homogeneous_bright": {
+        "count": 40,
+        "selected_steps": {
+          "2": 1,
+          "5": 1,
+          "8": 1,
+          "15": 1,
+          "21": 1,
+          "22": 4,
+          "23": 2,
+          "25": 1,
+          "28": 2,
+          "29": 1,
+          "32": 1,
+          "34": 3,
+          "36": 2,
+          "37": 1,
+          "38": 5,
+          "39": 5,
+          "40": 8
+        },
+        "no_active": 0,
+        "updates": 1600,
+        "projected_updates": 409,
+        "final_boundary_coordinates": 19,
+        "final_coordinates": 80,
+        "movable_boundary_coordinates": 19,
+        "movable_coordinates": 80,
+        "projected_update_fraction": 0.255625,
+        "final_boundary_fraction": 0.2375,
+        "movable_boundary_fraction": 0.2375
+      },
+      "left_right": {
+        "count": 40,
+        "selected_steps": {
+          "0": 1,
+          "12": 2,
+          "13": 3,
+          "14": 1,
+          "15": 1,
+          "20": 1,
+          "23": 1,
+          "24": 1,
+          "26": 2,
+          "28": 1,
+          "29": 1,
+          "30": 3,
+          "31": 4,
+          "32": 3,
+          "34": 1,
+          "35": 4,
+          "36": 2,
+          "37": 3,
+          "38": 1,
+          "39": 2,
+          "40": 2
+        },
+        "no_active": 1,
+        "updates": 1560,
+        "projected_updates": 959,
+        "final_boundary_coordinates": 44,
+        "final_coordinates": 80,
+        "movable_boundary_coordinates": 42,
+        "movable_coordinates": 78,
+        "projected_update_fraction": 0.6147435897435898,
+        "final_boundary_fraction": 0.55,
+        "movable_boundary_fraction": 0.5384615384615384
+      },
+      "quadrants": {
+        "count": 40,
+        "selected_steps": {
+          "10": 1,
+          "12": 1,
+          "13": 1,
+          "18": 2,
+          "20": 2,
+          "22": 1,
+          "23": 2,
+          "24": 1,
+          "25": 1,
+          "27": 1,
+          "28": 2,
+          "30": 5,
+          "31": 1,
+          "32": 5,
+          "33": 1,
+          "34": 2,
+          "35": 1,
+          "36": 2,
+          "37": 2,
+          "39": 3,
+          "40": 3
+        },
+        "no_active": 0,
+        "updates": 1600,
+        "projected_updates": 815,
+        "final_boundary_coordinates": 30,
+        "final_coordinates": 80,
+        "movable_boundary_coordinates": 30,
+        "movable_coordinates": 80,
+        "projected_update_fraction": 0.509375,
+        "final_boundary_fraction": 0.375,
+        "movable_boundary_fraction": 0.375
+      },
+      "offset_left_right_40": {
+        "count": 40,
+        "selected_steps": {
+          "0": 2,
+          "13": 3,
+          "14": 1,
+          "18": 1,
+          "19": 1,
+          "21": 2,
+          "22": 1,
+          "24": 1,
+          "25": 2,
+          "26": 1,
+          "27": 2,
+          "30": 2,
+          "31": 3,
+          "32": 2,
+          "33": 2,
+          "35": 2,
+          "36": 2,
+          "37": 1,
+          "38": 1,
+          "39": 3,
+          "40": 5
+        },
+        "no_active": 2,
+        "updates": 1520,
+        "projected_updates": 776,
+        "final_boundary_coordinates": 34,
+        "final_coordinates": 80,
+        "movable_boundary_coordinates": 30,
+        "movable_coordinates": 76,
+        "projected_update_fraction": 0.5105263157894737,
+        "final_boundary_fraction": 0.425,
+        "movable_boundary_fraction": 0.39473684210526316
+      }
+    },
+    "bilinear2_ttt_energy_sobolev": {
+      "all": {
+        "count": 240,
+        "selected_steps": {
+          "0": 45,
+          "8": 1,
+          "12": 36,
+          "13": 5,
+          "14": 1,
+          "15": 1,
+          "18": 2,
+          "19": 1,
+          "20": 1,
+          "21": 1,
+          "22": 1,
+          "24": 2,
+          "25": 3,
+          "26": 2,
+          "27": 4,
+          "28": 3,
+          "29": 2,
+          "30": 6,
+          "31": 8,
+          "32": 4,
+          "33": 5,
+          "34": 3,
+          "35": 4,
+          "36": 9,
+          "37": 12,
+          "38": 8,
+          "39": 12,
+          "40": 58
+        },
+        "no_active": 45,
+        "updates": 7800,
+        "projected_updates": 7322,
+        "final_boundary_coordinates": 1506,
+        "final_coordinates": 1920,
+        "movable_boundary_coordinates": 640,
+        "movable_coordinates": 1054,
+        "projected_update_fraction": 0.9387179487179487,
+        "final_boundary_fraction": 0.784375,
+        "movable_boundary_fraction": 0.6072106261859582
+      },
+      "clean": {
+        "count": 40,
+        "selected_steps": {
+          "0": 38,
+          "29": 1,
+          "35": 1
+        },
+        "no_active": 38,
+        "updates": 80,
+        "projected_updates": 80,
+        "final_boundary_coordinates": 317,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 1,
+        "movable_coordinates": 4,
+        "projected_update_fraction": 1.0,
+        "final_boundary_fraction": 0.990625,
+        "movable_boundary_fraction": 0.25
+      },
+      "homogeneous_dark": {
+        "count": 40,
+        "selected_steps": {
+          "0": 4,
+          "12": 25,
+          "13": 2,
+          "14": 1,
+          "24": 1,
+          "30": 1,
+          "34": 1,
+          "35": 1,
+          "36": 1,
+          "40": 3
+        },
+        "no_active": 4,
+        "updates": 1440,
+        "projected_updates": 1344,
+        "final_boundary_coordinates": 307,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 181,
+        "movable_coordinates": 194,
+        "projected_update_fraction": 0.9333333333333333,
+        "final_boundary_fraction": 0.959375,
+        "movable_boundary_fraction": 0.9329896907216495
+      },
+      "homogeneous_bright": {
+        "count": 40,
+        "selected_steps": {
+          "12": 1,
+          "25": 1,
+          "27": 1,
+          "29": 1,
+          "30": 3,
+          "32": 1,
+          "33": 2,
+          "34": 1,
+          "36": 5,
+          "37": 3,
+          "38": 2,
+          "39": 7,
+          "40": 12
+        },
+        "no_active": 0,
+        "updates": 1600,
+        "projected_updates": 1367,
+        "final_boundary_coordinates": 164,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 74,
+        "movable_coordinates": 230,
+        "projected_update_fraction": 0.854375,
+        "final_boundary_fraction": 0.5125,
+        "movable_boundary_fraction": 0.3217391304347826
+      },
+      "left_right": {
+        "count": 40,
+        "selected_steps": {
+          "0": 1,
+          "12": 4,
+          "13": 1,
+          "18": 2,
+          "21": 1,
+          "26": 1,
+          "27": 1,
+          "30": 1,
+          "33": 3,
+          "35": 1,
+          "36": 1,
+          "37": 2,
+          "38": 4,
+          "39": 1,
+          "40": 16
+        },
+        "no_active": 1,
+        "updates": 1560,
+        "projected_updates": 1504,
+        "final_boundary_coordinates": 239,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 135,
+        "movable_coordinates": 216,
+        "projected_update_fraction": 0.9641025641025641,
+        "final_boundary_fraction": 0.746875,
+        "movable_boundary_fraction": 0.625
+      },
+      "quadrants": {
+        "count": 40,
+        "selected_steps": {
+          "8": 1,
+          "12": 2,
+          "13": 1,
+          "20": 1,
+          "22": 1,
+          "24": 1,
+          "25": 1,
+          "26": 1,
+          "27": 2,
+          "28": 2,
+          "31": 4,
+          "32": 3,
+          "34": 1,
+          "35": 1,
+          "37": 4,
+          "38": 1,
+          "39": 2,
+          "40": 11
+        },
+        "no_active": 0,
+        "updates": 1600,
+        "projected_updates": 1538,
+        "final_boundary_coordinates": 250,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 150,
+        "movable_coordinates": 220,
+        "projected_update_fraction": 0.96125,
+        "final_boundary_fraction": 0.78125,
+        "movable_boundary_fraction": 0.6818181818181818
+      },
+      "offset_left_right_40": {
+        "count": 40,
+        "selected_steps": {
+          "0": 2,
+          "12": 4,
+          "13": 1,
+          "15": 1,
+          "19": 1,
+          "25": 1,
+          "28": 1,
+          "30": 1,
+          "31": 4,
+          "36": 2,
+          "37": 3,
+          "38": 1,
+          "39": 2,
+          "40": 16
+        },
+        "no_active": 2,
+        "updates": 1520,
+        "projected_updates": 1489,
+        "final_boundary_coordinates": 229,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 99,
+        "movable_coordinates": 190,
+        "projected_update_fraction": 0.9796052631578948,
+        "final_boundary_fraction": 0.715625,
+        "movable_boundary_fraction": 0.5210526315789473
+      }
+    },
+    "region2_ttt_energy_sobolev": {
+      "all": {
+        "count": 240,
+        "selected_steps": {
+          "0": 45,
+          "6": 1,
+          "9": 1,
+          "11": 1,
+          "12": 35,
+          "13": 1,
+          "14": 1,
+          "15": 3,
+          "16": 2,
+          "19": 1,
+          "20": 1,
+          "21": 1,
+          "22": 2,
+          "24": 2,
+          "25": 2,
+          "26": 2,
+          "27": 1,
+          "28": 2,
+          "29": 4,
+          "30": 5,
+          "31": 6,
+          "32": 4,
+          "33": 6,
+          "34": 7,
+          "35": 6,
+          "36": 9,
+          "37": 7,
+          "38": 8,
+          "39": 9,
+          "40": 65
+        },
+        "no_active": 45,
+        "updates": 7800,
+        "projected_updates": 7395,
+        "final_boundary_coordinates": 1508,
+        "final_coordinates": 1920,
+        "movable_boundary_coordinates": 642,
+        "movable_coordinates": 1054,
+        "projected_update_fraction": 0.948076923076923,
+        "final_boundary_fraction": 0.7854166666666667,
+        "movable_boundary_fraction": 0.6091081593927894
+      },
+      "clean": {
+        "count": 40,
+        "selected_steps": {
+          "0": 38,
+          "40": 2
+        },
+        "no_active": 38,
+        "updates": 80,
+        "projected_updates": 80,
+        "final_boundary_coordinates": 317,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 1,
+        "movable_coordinates": 4,
+        "projected_update_fraction": 1.0,
+        "final_boundary_fraction": 0.990625,
+        "movable_boundary_fraction": 0.25
+      },
+      "homogeneous_dark": {
+        "count": 40,
+        "selected_steps": {
+          "0": 4,
+          "11": 1,
+          "12": 23,
+          "13": 1,
+          "15": 3,
+          "16": 1,
+          "24": 1,
+          "28": 1,
+          "31": 2,
+          "33": 1,
+          "40": 2
+        },
+        "no_active": 4,
+        "updates": 1440,
+        "projected_updates": 1344,
+        "final_boundary_coordinates": 308,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 182,
+        "movable_coordinates": 194,
+        "projected_update_fraction": 0.9333333333333333,
+        "final_boundary_fraction": 0.9625,
+        "movable_boundary_fraction": 0.9381443298969072
+      },
+      "homogeneous_bright": {
+        "count": 40,
+        "selected_steps": {
+          "26": 1,
+          "27": 1,
+          "29": 1,
+          "32": 1,
+          "33": 1,
+          "34": 2,
+          "35": 1,
+          "36": 6,
+          "37": 3,
+          "38": 5,
+          "39": 3,
+          "40": 15
+        },
+        "no_active": 0,
+        "updates": 1600,
+        "projected_updates": 1434,
+        "final_boundary_coordinates": 161,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 71,
+        "movable_coordinates": 230,
+        "projected_update_fraction": 0.89625,
+        "final_boundary_fraction": 0.503125,
+        "movable_boundary_fraction": 0.30869565217391304
+      },
+      "left_right": {
+        "count": 40,
+        "selected_steps": {
+          "0": 1,
+          "12": 6,
+          "16": 1,
+          "22": 1,
+          "24": 1,
+          "30": 1,
+          "31": 2,
+          "34": 1,
+          "35": 2,
+          "36": 2,
+          "37": 2,
+          "39": 3,
+          "40": 17
+        },
+        "no_active": 1,
+        "updates": 1560,
+        "projected_updates": 1506,
+        "final_boundary_coordinates": 243,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 139,
+        "movable_coordinates": 216,
+        "projected_update_fraction": 0.9653846153846154,
+        "final_boundary_fraction": 0.759375,
+        "movable_boundary_fraction": 0.6435185185185185
+      },
+      "quadrants": {
+        "count": 40,
+        "selected_steps": {
+          "9": 1,
+          "12": 2,
+          "20": 1,
+          "21": 1,
+          "25": 2,
+          "26": 1,
+          "29": 3,
+          "30": 3,
+          "31": 2,
+          "32": 2,
+          "33": 1,
+          "34": 2,
+          "35": 3,
+          "36": 1,
+          "39": 1,
+          "40": 14
+        },
+        "no_active": 0,
+        "updates": 1600,
+        "projected_updates": 1536,
+        "final_boundary_coordinates": 249,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 149,
+        "movable_coordinates": 220,
+        "projected_update_fraction": 0.96,
+        "final_boundary_fraction": 0.778125,
+        "movable_boundary_fraction": 0.6772727272727272
+      },
+      "offset_left_right_40": {
+        "count": 40,
+        "selected_steps": {
+          "0": 2,
+          "6": 1,
+          "12": 4,
+          "14": 1,
+          "19": 1,
+          "22": 1,
+          "28": 1,
+          "30": 1,
+          "32": 1,
+          "33": 3,
+          "34": 2,
+          "37": 2,
+          "38": 3,
+          "39": 2,
+          "40": 15
+        },
+        "no_active": 2,
+        "updates": 1520,
+        "projected_updates": 1495,
+        "final_boundary_coordinates": 230,
+        "final_coordinates": 320,
+        "movable_boundary_coordinates": 100,
+        "movable_coordinates": 190,
+        "projected_update_fraction": 0.9835526315789473,
+        "final_boundary_fraction": 0.71875,
+        "movable_boundary_fraction": 0.5263157894736842
+      }
+    }
+  }
+}

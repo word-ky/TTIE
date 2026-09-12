@@ -1,4 +1,6 @@
-# T014 Stage A — derivative supervision passes the source-calibration contract
+# T014 — derivative-supervised restoration energy
+
+The Stage-A development analysis below is preserved chronologically. The fresh Stage-B result and final verification are recorded in the appended Stage-B section and its complete run receipts.
 
 The repaired, frozen experiment passes all eight Stage-A clauses on the20 source-calibration images. Relative to the same-source value-only control, Sobolev supervision improves calibration identity-gradient alignment and reduces heterogeneous restoration MSE by16.58%. The new trajectory's reference-only oracle also clears the discrete/fixed16 margins. This supports the derivative-supervision hypothesis on this predeclared development split; it is not yet a fresh-evaluation qualification.
 
@@ -42,7 +44,7 @@ All four learned-energy geometries/control paths save complete trajectories. The
 - Initial run `20260912-180228-ttie-t014-stage-a` failed before fitting/calibration because no-grad CLIP feature caching differed from the grad-enabled derivative forward. The repaired cache uses the same differentiable forward, preserving the original1e-6 check and all scientific settings. Failed evidence is retained; research lead accepted this repair in `0c971a56b72ec8bdaeee7f71bf8a3f433d72252f`.
 - The same fixed raw bank states are rendered with the frozen masked Region2 function so feature/value/derivative records describe one function.517source rows differ from inherited bank pixels by at most5.960464477539063e-08. Calibration direct control is unchanged. CUDA backward nondeterminism remains disclosed; no strict repeated-CUDA-trajectory bitwise claim.
 
-## Next authorized action
+## Stage-A handoff at completion (historical)
 
 Commit the immutable receipt and both model files, verify their actual Git blobs, then create/commit the deterministic40-image fresh manifest before scoring. The twelve Stage-B clauses and report-only offset stress remain unchanged. No retuning or new task is authorized.
 
@@ -73,3 +75,29 @@ The existing/home partition has only about36GB free after Stage A, while fresh c
 Local downloaded evidence verifies3100small hashes,1000calibration method rows and148alignment records. Calibration summary recomputation is exact (maxabsolute difference0). Final archive SHA2017ce30df9f851b142cb7e668ab26d30d03665ca11558a3e4cd9eb8404f0156 matches server.
 
 Sobolev checkpoint SHA256c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521; value-only checkpoint SHA256df6c5af2610e741cf03a59239135a82204550fab3bcbf9e408e553521ce7b69c. Frozen receipt also verifies against the actual original release code/manifest/schema/Jacobian/loss/normalization/asset identities.
+
+## 2026-09-12 fresh Stage B — verified twelve-clause PASS
+
+The immutable T014 run completed all 240 inputs at 2026-09-12T12:00:42Z with exit0 and reports all twelve predeclared clauses passing. The evaluation uses 40 new images: 200 inputs across five primary conditions and 40 report-only offset inputs. Heterogeneous qualification pools left_right and quadrants only (80 inputs). The reporting-only full saved-pixel audit and local verification both passed; exact receipts and counts follow below.
+
+The fresh heterogeneous MSE is 0.03385802966658957, versus identity 0.067129876604, global Sobolev 0.06019257011357695, direct 0.039976016094, projected discrete 0.038355002704, frozen semantic16 0.03692758356919512, and matched value-only 0.04188796381931752. The primary improves MSE by 49.56% over identity, 43.75% over global, 15.30% over direct, 11.72% over discrete, 8.31% over fixed16, and 19.17% over value-only. Full-precision source values remain in summary.json. Earlier tasks use different splits; only the matched T014 value-only control supports the supervision comparison.
+
+The source-fit, held-out source-calibration, and fresh-evaluation evidence are distinct: scalar source Huber becomes worse under Sobolev supervision, calibration gradient alignment improves substantially, and the frozen head then improves fresh heterogeneous correction. Stage B adds no clean-reference gradient alignment or fitting. Its test-time energy inputs remain the fixed 28 features, with no reference, condition, image identifier, mask, Jacobian, or source gradient. All trajectories and output selections are saved before reference metrics/oracles.
+
+The reference-only oracle over the actual primary trajectory has heterogeneous MSE 0.03293453548103571. Primary/oracle regret is 1.0280402978838314; oracle/discrete 0.858676395763497; oracle/fixed16 0.8918681456457281. The saved trajectory contains enough headroom to clear both strong controls, and the unchanged label-free minimum-energy selector realizes the required gains. The oracle is diagnostic, not an available inference method.
+
+Limits remain material. Across all 240 inputs, 7395/7800 primary updates are projected (0.948076923076923), and 642/1054 movable final coordinates are at the action boundary (0.6091081593927894). The supported result is Sobolev supervision **inside the frozen projected T011 action geometry**. It does not establish an unconstrained energy mechanism. Global Sobolev is better on homogeneous dark and bright MSE (0.034884116484 and 0.012560551916 versus primary 0.052315993526 and 0.018210879224). Spatial value is conditional on heterogeneous degradation.
+
+The offset stress MSE is primary 0.044768725894 versus bilinear Sobolev 0.044506553258: ratio 1.0058906524407158, or 0.59% worse. It improves only 2.32% over discrete and 1.81% over fixed16 there (ratios 0.9767600741572411 and 0.9818854118426412). Thus the hard Region2 boundary limitation remains despite primary qualification. This group is report-only and caused no correction, geometry change, or new experiment.
+
+All six fixed representative panels use the first manifest image 50844 and contain clean plus all ten methods; inspected on 2026-09-12. They show unchanged clean appearance, incomplete dark restoration, residual clipped bright detail, and visible hard-region/offset boundaries. These illustrative panels were not chosen based on outcomes and do not replace quantitative evaluation. Full clean mean and p95 gates are distinct from a worst-case guarantee: 38/40 clean inputs bypass adaptation, two are active; complete individual rows remain available.
+
+The method, source SHA f861b2c6ffde6d017cb174ef8e00cb75701bf5e1, source recipe, both frozen heads, manifest, optimizer, gates and selector were unchanged throughout Stage B. The earlier accepted no-grad/grad cache repair and initial failed run remain documented above. The only Stage-B location change is the existing artifact-directory environment setting to the persistent F mount. No rerun, refit, extra split, or T015 has been started. Await research-lead review after verification and evidence delivery.
+
+## Completed local verification and final reporting
+
+The completed archive download exited0 and its SHA256 matches the remote archive exactly. Local verification passes 2640 small-file hashes and all 2400 method rows; both frozen head hashes match. The recomputed summary differs by at most 5.551115123125783e-17 (floating-point rounding), with all twelve clauses unchanged. Reporting script summarize_t014_b.py completed from those verified records, producing full method tables, all/per-condition histograms, projection and movable-boundary counts, oracle and offset ratios. It changes no scientific output or gate.
+
+Primary-only (200 inputs, excluding stress): 5900/6280 projected updates =0.9394904458598726; 542/864 movable final boundary coordinates =0.6273148148148148; 43 all-inactive inputs. Heterogeneous-only (80): 3042/3160 projected =0.9626582278481013; 288/436 movable final boundary =0.6605504587155964; one all-inactive input. All/all-condition/full-primary selected-step distributions are retained in final_distributions.json/.md. These denominators are reported separately from all240 including stress.
+
+Local evidence root: research_log/remote_runs/20260912-191947-ttie-t014-stage-b/. Remote reporting-only audit log is T014_stage_b_verification.log in the same run. The source scientific code remains f861b2c; only reporting scripts/documents/evidence have been added since the final tested code. Full experiment and all requested verification/reporting are complete. Await research-lead review; no further task started.
