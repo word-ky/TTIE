@@ -1,0 +1,222 @@
+{
+  "task": "T017-A",
+  "status": "DONE",
+  "delivered_utc": "2026-09-12T22:37:07.689911+00:00",
+  "source_sha": "5247690887078540fd5bfe74c90052efe0f4fb93",
+  "evidence_sha": "bb45bd71dbaf512ce957f041cbcee1bcde6c9138",
+  "main_done_sha": "717bbf1546dfb5de56ee057f322a254d6a3c48ae",
+  "branch": "codex/T017A-local-geometry-landscape",
+  "pr": "https://github.com/word-ky/TTIE/pull/22",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": null,
+  "github_mergeable_state": "unknown",
+  "mergeability_observed_head": "bb45bd71dbaf512ce957f041cbcee1bcde6c9138",
+  "local_merge_tree_passed": true,
+  "recovery": {
+    "task": "T017-A",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T017A_recovery.tar.gz",
+    "bytes": 247661,
+    "sha256": "58aae56e6e0d060b81a3b0fa355ca9e5d2ac39008aabc704e1478de98b2154a0",
+    "entries": 40,
+    "analysis_sha256": "926a17a2af981838a5f854ab6b6ecaf1ffcaf483dcc556cfe7c21bf9faa819b4",
+    "main_sha": "717bbf1546dfb5de56ee057f322a254d6a3c48ae"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "58aae56e6e0d060b81a3b0fa355ca9e5d2ac39008aabc704e1478de98b2154a0",
+      "analysis_sha256": "926a17a2af981838a5f854ab6b6ecaf1ffcaf483dcc556cfe7c21bf9faa819b4",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "58aae56e6e0d060b81a3b0fa355ca9e5d2ac39008aabc704e1478de98b2154a0",
+      "analysis_sha256": "926a17a2af981838a5f854ab6b6ecaf1ffcaf483dcc556cfe7c21bf9faa819b4",
+      "verified": true
+    }
+  ],
+  "decision_receipt": {
+    "family_reporting_started_utc": "2026-09-12T22:29:25.889597+00:00",
+    "decisions_sha256": "8aefe5e88aa823e6d415bb1580a00765aaf507e4a106766fef5495e238a1bc26",
+    "decisions_frozen_sha256": "b452ea83955af9a578f0c7cdf5e66ef5438a30d7bf9005e8440c36685ed03a7e"
+  },
+  "literal_clauses_passed": 4,
+  "clauses": {
+    "spatial_improves_region2_3pct": true,
+    "spatial_within_hard_oracle_3pct": true,
+    "offset_improves_region2_5pct": true,
+    "left_right_no_more_than_1pct_worse": true,
+    "quadrants_no_more_than_1pct_worse": false
+  },
+  "spatial": {
+    "count": 120,
+    "selected_mse": 0.03331791024732714,
+    "region2_mse": 0.03504357374816512,
+    "hard_oracle_mse": 0.032563564518932255,
+    "ratios": {
+      "selected_over_region2": 0.950756634775917,
+      "selected_over_hard_oracle": 1.0231653303174568
+    },
+    "oracle_gap": 0.0007543457283948826,
+    "oracle_gain_captured": 0.6958294672845948,
+    "gain_distributions": {
+      "absolute_gain": {
+        "count": 120,
+        "null_count": 0,
+        "mean": 0.0017256635008379817,
+        "median": 6.293412297964096e-06,
+        "quantiles": {
+          "0": -0.0056453123688697815,
+          "5": -0.004624876193702221,
+          "25": 0.0,
+          "50": 6.293412297964096e-06,
+          "75": 0.003299744799733162,
+          "95": 0.01119945915415883,
+          "100": 0.018831221386790276
+        }
+      },
+      "relative_gain": {
+        "count": 120,
+        "null_count": 0,
+        "mean": 0.05590026855938995,
+        "median": 0.00033946373615995073,
+        "quantiles": {
+          "0": -0.18148066349202235,
+          "5": -0.10574889810955383,
+          "25": 0.0,
+          "50": 0.00033946373615995073,
+          "75": 0.09449589569635702,
+          "95": 0.33554802696181624,
+          "100": 0.5498142816325634
+        }
+      },
+      "oracle_gap": {
+        "count": 120,
+        "null_count": 0,
+        "mean": 0.0007543457283948859,
+        "median": 0.0,
+        "quantiles": {
+          "0": 0.0,
+          "5": 0.0,
+          "25": 0.0,
+          "50": 0.0,
+          "75": 0.00036135781556367874,
+          "95": 0.004624876193702221,
+          "100": 0.006040539592504501
+        }
+      },
+      "oracle_available_gain": {
+        "count": 120,
+        "null_count": 0,
+        "mean": 0.0024800092292328675,
+        "median": 0.00010979035869240761,
+        "quantiles": {
+          "0": 0.0,
+          "5": 0.0,
+          "25": 0.0,
+          "50": 0.00010979035869240761,
+          "75": 0.0037383195012807846,
+          "95": 0.011200406868010758,
+          "100": 0.018831221386790276
+        }
+      },
+      "oracle_gain_captured": {
+        "count": 120,
+        "null_count": 51,
+        "mean": -0.8846814148330339,
+        "median": 1.0,
+        "quantiles": {
+          "0": -78.3528076412387,
+          "5": -1.3872135154407506,
+          "25": 0.6069996123246623,
+          "50": 1.0,
+          "75": 1.0,
+          "95": 1.0,
+          "100": 1.0
+        }
+      }
+    },
+    "gains": {
+      "beneficial": 61,
+      "harmful": 20,
+      "zero": 39
+    },
+    "zero_oracle_gain_episodes": 51,
+    "tied_oracle_episodes": 12,
+    "local_counts": [
+      18,
+      5,
+      10,
+      18,
+      39,
+      13,
+      7,
+      4,
+      6
+    ],
+    "oracle_counts": [
+      27,
+      2,
+      12,
+      23,
+      41,
+      14,
+      0,
+      1,
+      0
+    ],
+    "disagreement_rate": 0.4166666666666667,
+    "outside_oracle_tie_set_rate": 0.325,
+    "inside_oracle_tie_set_rate": 0.675,
+    "gx": {
+      "negative": 51,
+      "zero": 7,
+      "positive": 62,
+      "distribution": {
+        "count": 120,
+        "null_count": 0,
+        "mean": 0.005938434818138679,
+        "median": 0.0008760159835219383,
+        "quantiles": {
+          "0": -0.058259498327970505,
+          "5": -0.0369613841176033,
+          "25": -0.009978124871850014,
+          "50": 0.0008760159835219383,
+          "75": 0.01983996480703354,
+          "95": 0.056567099411040545,
+          "100": 0.11242068372666836
+        }
+      }
+    },
+    "gy": {
+      "negative": 50,
+      "zero": 12,
+      "positive": 58,
+      "distribution": {
+        "count": 120,
+        "null_count": 0,
+        "mean": 0.0004091294249519706,
+        "median": 0.0,
+        "quantiles": {
+          "0": -0.046944282948970795,
+          "5": -0.037081437185406685,
+          "25": -0.006427820771932602,
+          "50": 0.0,
+          "75": 0.008098329417407513,
+          "95": 0.031969896517693996,
+          "100": 0.045635709539055824
+        }
+      }
+    }
+  },
+  "interpretation": "coarse_soft_cross_does_not_yet_justify_continuous_geometry_optimization",
+  "reference_only": true,
+  "not_label_free_or_deployable": true,
+  "focused_tests_passed": true,
+  "independent_verification_passed": true,
+  "no_training_pixels_rendering_or_gpu_experiment": true,
+  "heartbeat": "existing ttie-chatgpt every15minutes; unchanged state quiet",
+  "next_action": "await research review/newtask; no learned derivative geometry objective, continuous optimizer, retuning, selfmerge or fresh evaluation"
+}
