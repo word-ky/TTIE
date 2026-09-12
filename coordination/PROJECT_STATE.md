@@ -10,7 +10,9 @@ Can a vision system adapt a compact spatial correction field per test image, wit
 
 ## Current hypothesis
 
-A useful spatial TTT system requires four aligned pieces: (i) a content-safe nuisance signal, (ii) a label-free inner objective whose gradient field produces restoration-useful states, (iii) safe projected action/stopping geometry, and (iv) a spatial representation whose geometry can adapt safely per image. T014 establishes the first three for canonical hard Region2. T015 rules out simple routing among global/bilinear2/Region2. T016-A establishes real development-only headroom in moving the Region2 boundary with fixed actions, while T016-B–F show that treating boundary geometry as a discrete scalar-ranking plus abstention problem is not robust enough. The immediate question is now whether that boundary headroom is **locally accessible through a smooth geometry landscape**, which would justify extending the T014 derivative-supervision idea to spatial geometry itself.
+A useful spatial TTT system requires four aligned pieces: (i) a content-safe nuisance signal, (ii) a label-free inner objective whose derivative field produces restoration-useful states, (iii) safe projected action/stopping geometry, and (iv) a spatial representation whose geometry can adapt safely per image. T014 establishes the first three for canonical hard Region2. T015 rules out simple routing among global/bilinear2/Region2. T016-A establishes real development-only headroom in moving the Region2 boundary with fixed actions, while T016-B–F show that discrete scalar ranking plus abstention is not robust enough.
+
+T017-A now adds a more specific result: a fixed reference-only `tau=0.05` local cross around the canonical boundary recovers substantial pooled and offset hard-boundary headroom, but fails quadrants safety. The immediate unresolved mechanism is whether that failure comes mainly from **soft→hard renderer-transfer mismatch** or from **non-separable x/y geometry interactions**. That attribution must be resolved before any derivative-supervised geometry objective is justified.
 
 ## Best fresh-validated method
 
@@ -35,25 +37,28 @@ Test-time adaptation never consumes test labels, clean targets, condition IDs, d
 - **T014:** source-supervised Sobolev restoration energy is the first fully qualified learned-inner-objective result. Stage A passes **8/8** development clauses and frozen Stage B passes **12/12** fresh clauses on 40 unseen images. Fresh heterogeneous MSE is `0.03385803`, 19.17% below matched value-only, 11.72% below projected discrete, and 8.31% below semantic fixed16. Unseen-calibration gradient alignment is `73/74` positive with median cosine `0.93606`, versus `59/74` and `0.42464` for value-only.
 - **T015:** frozen routing among global/bilinear2/Region2 is a controlled fresh negative (**4/10**). Routed spatial MSE `0.03780638`; best fixed Region2 `0.03504357`; oracle among the same three outputs `0.03436452`, only **1.94%** better than Region2. A smarter selector over the same three outputs is not justified.
 - **T016-A:** fixed-action renderer transfer is a positive development-only capacity diagnostic. Twenty-seven predeclared shiftable/soft renderers reuse the same selected four Region2 EV/gamma corners. Per-image reference oracle spatial MSE `0.03250770 = 0.92764×` Region2. `113/120` oracle selections use hard (`tau=0`) boundaries, so the main capacity is adaptive boundary placement, not smoothing.
-- **T016-B:** frozen T014 energy is a controlled development negative for nine-hard cross-boundary selection (**0/5**). Spatial MSE `0.03785726 = 1.08029×` Region2 and `1.16257×` the nine-hard oracle. The nine-hard oracle captures essentially all T016-A headroom, so candidate capacity is sufficient while ranking is the bottleneck.
+- **T016-B:** frozen T014 energy is a controlled development negative for nine-hard cross-boundary selection (**0/5**). Spatial MSE `0.03785726 = 1.08029×` Region2 and `1.16257×` the nine-hard oracle. Candidate capacity is sufficient while ranking is the bottleneck.
 - **T016-C:** image-grouped pointwise-value probes are controlled development negatives (**0/5**). Adding explicit `(bx,by)` coordinates is not sufficient under absolute-value regression.
 - **T016-D:** pairwise OOF ranking improves signal but remains unsafe (**1/5**). `rank30` reaches `0.97645×` Region2 with strong offset gain, but forced selection harms left/right and quadrants.
-- **T016-E:** a canonical confidence fallback gives a literal **5/5** on reused OOF scores, but the score reuse creates inherited outer-fold dependence, so this result is methodologically non-decisive.
-- **T016-F:** proper fully nested `rank30 + single confidence fallback` is a controlled development negative (**4/5**). Spatial pooled MSE is `0.03396188 = 0.96913×` Region2 and `1.04294×` the nine-hard oracle; offset is `0.90521×` Region2 and quadrants `1.00000×`, but left/right is `1.01850×`, violating the predeclared `1.01` safety limit. All six harmful adaptive episodes are left/right. The fixed scalar-head/single-confidence cycle is closed without retuning.
+- **T016-E:** a canonical confidence fallback gives a literal **5/5** on reused OOF scores, but inherited outer-fold dependence makes the result methodologically non-decisive.
+- **T016-F:** proper fully nested `rank30 + single confidence fallback` is a controlled development negative (**4/5**). Spatial pooled MSE is `0.03396188 = 0.96913×` Region2 and `1.04294×` the nine-hard oracle; offset is `0.90521×`, quadrants `1.00000×`, but left/right is `1.01850×`, violating the predeclared `1.01` safety limit. The fixed scalar-head/single-confidence cycle is closed.
+- **T017-A:** reference-only local geometry viability is a controlled development negative (**4/5**). The fixed `tau=0.05` local-cross rule selects an already-rendered hard boundary and reaches spatial MSE `0.03331791 = 0.95076×` Region2 and `1.02317×` the nine-hard oracle, capturing `69.58%` of pooled oracle headroom. Left/right improves to `0.98782×` and offset to `0.85782×`, but quadrants degrade to `1.03303×`, failing the `1.01` safety limit. Quadrants are especially diagnostic: `39/40` episodes have zero hard-oracle boundary gain, yet the local rule makes 11 harmful and zero beneficial moves. This coarse soft-neighborhood signal therefore does not yet justify continuous/derivative-supervised geometry optimization.
 
 ## Interpretation of the strongest evidence
 
 T014 supports the narrow causal claim that **derivative supervision matters more than scalar value fit for gradient-based TTT**. The supported method is Sobolev objective plus projected action geometry, not unconstrained learned energy.
 
-T015–T016 isolate the remaining spatial problem. Adaptive boundary placement has real oracle headroom, and nine hard candidates capture essentially all of it. Frozen-energy ranking, pointwise value fitting, pairwise scalar ranking, and a single confidence fallback do not provide robust development-safe boundary selection. The next justified question is not another selector tweak; it is whether the reference boundary landscape has enough local smooth structure that geometry could itself become a fast variable trained with derivative supervision.
+T015–T017 isolate the remaining spatial problem. Adaptive boundary placement has real oracle headroom, and nine hard candidates capture essentially all of it. Frozen-energy ranking, pointwise value fitting, pairwise scalar ranking, and a single confidence fallback do not provide robust development-safe selection. T017-A shows that a local reference neighborhood contains meaningful geometry information in aggregate, but unsafe canonical departures occur precisely where boundary headroom is absent.
+
+The next justified question is mechanistic rather than another selector tweak: **does the `tau=0.05` local signal fail because soft geometry is an unfaithful surrogate for hard deployment, or because x/y coordinate decisions are non-separable?** No derivative-supervised geometry model should be trained until that attribution is resolved.
 
 The best fresh-validated spatial basis remains canonical Region2. T016/T017 diagnostics are development-only and do not replace T014 until a later independently frozen fresh qualification exists.
 
 ## Non-negotiable design principles
 
-- Test-time adaptation/selection must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, image IDs as shortcuts, source-only Jacobians/reference gradients, or evaluation metrics.
+- Test-time adaptation/selection must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, image IDs as shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.
 - Source/development clean references may be used only in explicitly declared training/calibration/diagnostic stages; a held-out image's deployment decision path must exclude that image's reference.
-- Label-free outputs/trajectories/decisions must be finalized and persisted before their held-out clean-reference metrics/oracles are attached.
+- Label-free outputs/trajectories/decisions must be finalized and persisted before held-out clean-reference metrics/oracles are attached.
 - Fresh/development IDs become permanently unavailable for corrective fresh tuning after inspection.
 - A selector claim must be compared against a reference-only oracle; weak oracle headroom does not justify learning the selector.
 - Do not infer deployable rankability from training loss/correlation alone; selected MSE and family safety remain decisive.
@@ -80,10 +85,11 @@ The best fresh-validated spatial basis remains canonical Region2. T016/T017 diag
 - **M11 / T016-D:** **COMPLETED — PAIRWISE OOF RANK PROBES NEGATIVE (1/5).**
 - **M11 / T016-E:** **COMPLETED — LITERAL CONFIDENCE 5/5, NOT FULLY NESTED; NON-DECISIVE.**
 - **M11 / T016-F:** **COMPLETED — FULLY NESTED CONFIDENCE NEGATIVE (4/5); LEFT/RIGHT SAFETY FAILS.**
-- **M12 / T017-A:** **ACTIVE — REFERENCE-ONLY LOCAL GEOMETRY-LANDSCAPE VIABILITY AUDIT.**
+- **M12 / T017-A:** **COMPLETED — REFERENCE LOCAL-GEOMETRY VIABILITY NEGATIVE (4/5); QUADRANT SAFETY FAILS.**
+- **M12 / T017-B:** **ACTIVE — SOFT→HARD LOCAL-GEOMETRY FAILURE-ATTRIBUTION AUDIT.**
 
 ## Current open task
 
-`T017-A — reference-only local geometry-landscape viability audit` in `coordination/CHATGPT_TO_CODEX.md`.
+`T017-B — soft→hard local-geometry failure-attribution audit` in `coordination/CHATGPT_TO_CODEX.md`.
 
-T017-A uses only the accepted T016-A 120 × 27 precomputed candidate-MSE table. It performs no model training, rendering, CLIP, TTT, new data or fresh evaluation. Its sole purpose is to test whether a fixed `tau=0.05` local cross around canonical contains enough reference-direction information to recover the nine-hard boundary headroom safely. A positive result would justify considering derivative-supervised fast geometry in a later cycle; a negative result would stop that inference without ruling out all richer spatial representations.
+T017-B uses only already-merged T016-A/T017-A tables and frozen decisions. It performs no model training, rendering, CLIP, TTT, new data or fresh evaluation. It attributes the existing T017-A harmful moves to either soft→hard renderer-transfer mismatch or x/y non-separability, using a predeclared exclusive classification and a fixed two-thirds dominance rule. The outcome will determine what kind of geometry mechanism is scientifically worth testing next; it will not itself create a deployable selector.
