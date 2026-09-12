@@ -1,0 +1,19 @@
+[autodl] run_id=20260913-000502-ttie-t016a-screen
+[autodl] started_at=2026-09-13T00:05:06+08:00
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+T016-A sanity 20
+T016-A sanity 40
+T016-A sanity 60
+T016-A sanity 80
+T016-A sanity 100
+T016-A sanity 120
+T016-A rendered 20
+T016-A rendered 40
+T016-A rendered 60
+T016-A rendered 80
+T016-A rendered 100
+T016-A rendered 120
+{"verdict": "strong_adaptive_basis_evidence", "clauses": {"oracle_improves_region2_5pct": true, "oracle_improves_old_oracle_3pct": true, "oracle_improves_best_fixed_3pct": true, "fixed_improves_region2_5pct": false}, "best_fixed": [0.5, 0.5, 0.0], "ratios": {"best_fixed_over_region2": 1.0, "oracle_over_region2": 0.9276365401666568, "oracle_over_best_fixed": 0.9276365401666568, "oracle_over_t015_oracle": 0.9459669457475923}, "sanity": {"inputs": 120, "max_pixel_abs": 0.0, "max_mse_diff": 0.0, "identity_checks": 3240, "saved_corner_checks": 120, "passed": true}}
+[autodl] finished_at=2026-09-13T00:05:23+08:00
+[autodl] exit_code=0
