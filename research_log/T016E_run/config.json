@@ -1,0 +1,84 @@
+{
+  "task": "T016-E",
+  "source_sha": "c98e6d119b89b8ffb755ed5b1e0d064973684675",
+  "source_code_sha256": {
+    "ttie/__init__.py": "4de7703189366591a75bc1f59f8d0a02da9cf1ba06999293141560c0949512c6",
+    "ttie/routing/__init__.py": "3c825a354237ba074f14c152d6aeba5a68324497cffce0f91ce4d9d5f243bc5b",
+    "ttie/routing/provenance.py": "5f5e81984ad2b7f9751c609ee849eb91382b95fd5e6be86583a481224e6b590b",
+    "ttie/boundary_probe_metrics.py": "e745a80d5b7ead4a5c012aa492e1205bba51f6d8889fd4dd57bd88dd32c20fc2",
+    "ttie/boundary_confidence.py": "dc3d05c71c6c962915a9d357cc7460dc3e83481e673155a054949eacfee3d01b",
+    "ttie/boundary_confidence_run.py": "a131beecc2c3b648855384e9f18cc9cd12bd5aa4b3794dd72433cd0d5d9ae67c"
+  },
+  "input_artifact_hashes": {
+    "scores": {
+      "commit": "aa71d268294e35f5df67c76eada29f9bec117abe",
+      "path": "research_log/T016D_run/rank30/oof.json",
+      "sha256": "a7860cc345489e27084c1dd0049e83986fdcdfe1b4bd65d0d0ad6db4876f177a"
+    },
+    "folds": {
+      "commit": "aa71d268294e35f5df67c76eada29f9bec117abe",
+      "path": "research_log/T016D_run/folds.json",
+      "sha256": "8fdb03cdac63af5d6e58b557c96679bc15c1e2e921e525916eb9d21ad22cd2c1"
+    },
+    "d_config": {
+      "commit": "aa71d268294e35f5df67c76eada29f9bec117abe",
+      "path": "research_log/T016D_run/config.json",
+      "sha256": "46953afbd9afc4ba570db0dfca04c6eff84d56ce229aae8a9288d99a5e153dbd"
+    },
+    "d_frozen": {
+      "commit": "aa71d268294e35f5df67c76eada29f9bec117abe",
+      "path": "research_log/T016D_run/OOF_frozen.json",
+      "sha256": "804cc575c2cf8a61899c2c3c7cada48618a07b51b4692ff075d4ddfeca7bc05d"
+    },
+    "d_evaluation": {
+      "commit": "aa71d268294e35f5df67c76eada29f9bec117abe",
+      "path": "research_log/T016D_run/evaluation.json",
+      "sha256": "d8487e4caab77776e00cbb7a31495a94bdd0f02b8f24fc2d2c1f3a9af7cb2e18"
+    },
+    "c_folds": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/folds.json",
+      "sha256": "8fdb03cdac63af5d6e58b557c96679bc15c1e2e921e525916eb9d21ad22cd2c1"
+    },
+    "c_evaluation": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/evaluation.json",
+      "sha256": "50598604e2a0f4bf0cfa515cf3fe60e193ae110e10226e60eeb98059ec26785d"
+    },
+    "reference": {
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8",
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/evaluation/evaluation.json",
+      "sha256": "8a2204fc481da3559b337ec634ef9c87cf890d63bd7edf2cf5ae947aaea0e22e"
+    }
+  },
+  "thresholds": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0,
+    "inf"
+  ],
+  "canonical_index": 4,
+  "q": "(s[4]-min_noncanonical(s))/max(population_std(s),1e-12); constant=0",
+  "comparator": "strict greater",
+  "calibration_tie": "larger threshold",
+  "calibration_objective": "unweighted mean MSE over96episodes",
+  "runtime": {
+    "python": "3.12.7",
+    "device": "cpu",
+    "torch_imported": false
+  },
+  "retraining": false,
+  "development_only": true,
+  "q_quantiles": [
+    0,
+    25,
+    50,
+    75,
+    100
+  ],
+  "quantile_interpolation": "linear"
+}
