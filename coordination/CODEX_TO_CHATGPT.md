@@ -655,3 +655,32 @@ Active run20260912-103501-ttie-t009-a6000; release20260912-103455-ttie-t009; com
 Predeclared pooling/ambiguity resolutions in T009.md: A/B primary active nonclean spatial2 ev_gamma; C primary all5conditions spatial2, withglobal/nonclean secondary reports; E fixedquadrantsrule. Undefined cosine countednonpositive; mediandefinedonly. B reports final-vsidentity and lastupdate-vspenultimate separately, earlierstrictlybetter excludes equalplateaus. D envelope crossing uses fixedgamma1expected-directionEVray, nearwithin.25EV, and both2Dargmins remainreported. Primarygamma rule usesratioofmeanMSE andmeanabsolutesemanticlossreduction. No outcomes used to choose these definitions.
 
 Continue exactjob; no duplicate/retraining/tuning/T010. Data metadata transfer initially needed the existing legacySCP retry; scientificrun has no failure so far. Earlier cosine test used exact floating equality and was repaired to14decimalplaces before outcomes. Same recorded NVMLwarning/actualCUDAworks and nondeterministicbackward allowance as T008. Finaldiagnosis/plots/receipts/PR will follow completion.
+
+## 2026-09-12T03:27:00Z — T009 DONE: stopping geometry and renderer coupling
+
+**DONE.** PR [#9](https://github.com/word-ky/TTIE/pull/9) is open for research-lead review. Branch `codex/T009-geometry-audit`; pre-outcome tested source `f911eef036d4de60e5fb9ed410fcec5c132ebc0a`; complete evidence `06c41a6ecece0735e2bf9798357c793f99eb034a`. No experiment source changed after launch. Do not repeat this reported task while the inbox still says OPEN.
+
+Files: additive trajectory/coordinate hooks in `ttie/semantic_ttt.py`; isolated `offline_geometry.py`; `geometry_audit.py` / `geometry_summary.py`; `tests/test_geometry.py`; preparation/run/plot scripts; precommitted development manifest/protocol; `research_log/T009.md`; complete run receipts under `research_log/remote_runs/20260912-103501-ttie-t009-a6000/`. Inbox and PROJECT_STATE were not edited.
+
+Commands: local `D:\anaconda3\python.exe -m unittest discover -s tests -v`; project-configured AutoDL deploy/run workflow; remote `bash scripts/run_t009_a6000.sh`; local `D:\anaconda3\python.exe scripts/plot_t009.py research_log/remote_runs/20260912-103501-ttie-t009-a6000/artifacts/audit`. Release `20260912-103455-ttie-t009`; single run `20260912-103501-ttie-t009-a6000` exited **0 at 2026-09-12T03:15:20Z**.
+
+70 local tests pass (14.950 s), 70 A6000 tests pass (6.039 s). Evidence: 200 inputs, 1,200 trajectories, 34,476 semantic updates, 35,676 saved states, 80 surfaces / 4,400 points, 320 renderer rows and 160 fixed-100-update reference oracles. All 200 raw state hashes, initialization/final states, and trajectory lengths match. Summary recomputation agrees within 1.11e-16. Original calibration scores remain bitwise equal; frozen assets unchanged. Six fixed-ID 4395 PNG/PDF pairs were visually inspected. All raw state packs are committed.
+
+| Fixed rule | Measurement | Fires |
+|---|---|---|
+| Objective-gradient failure | Spatial EV+gamma, 153 active nonclean inputs: 145/153 positive = 94.7712%; median cosine 0.797269 | No |
+| Over-correction / stopping | Step 1 improves 142/153 = 92.8105%; earlier strictly better than final in 106/153 = 69.2810% | **Yes** |
+| Gamma failure | Spatial EV-only MSE ratio 0.995515; semantic reduction retained 94.8939% | No: only 0.4485% MSE gain |
+| Renderer failure | Quadrant piecewise/bilinear ratios: direct 0.784043; fixed oracle 0.120438 | **Yes**: 21.5957% / 87.9562% gains |
+
+Spatial EV+gamma nonclean mean MSE: identity **0.06761981**, step 1 **0.06151841**, final **0.04040545**, offline best step **0.03215050**. Final beats identity in 80.3922% of active cases; only 41.8301% improve on the preceding step. Semantic-decrease versus signed MSE-change Pearson is +0.256911. Offline best steps never selected or regenerated outputs.
+
+Important limits: heterogeneous dark-region gradient median is **-0.209915**, bright-region median **0.869309**; whole-image alignment is not regional alignment. Clean gate activates 8/40 images; spatial EV+gamma mean drift **0.00746717**, median 0. All-condition MSE is 0.03381780 spatial EV+gamma vs 0.03366611 EV-only. Global EV-only is worse than EV+gamma (ratio 1.203960). Full condition/coordinate/sign/region measurements are in `summary.json` and raw records.
+
+Active homogeneous surface mean Spearman: dark 0.958474, bright 0.817539. Semantic argmin loses to fixed direct in **34/39 active bright cases**, versus 0/35 dark. Gamma-1 expected-direction crossing counts before/near/beyond/none: dark 14/7/0/14; bright 1/5/0/33. Most bright rays never cross the envelope on this literal grid. The stopping diagnosis comes from trajectories, not frequent beyond-optimum crossings.
+
+Quadrant direct MSE bilinear→piecewise **0.05057632→0.03965403**; fixed oracle **0.01568681→0.00188928**. Left/right direct **0.04383634→0.03854295** (12.0754% gain), oracle **0.01072703→0.00201816** (81.1862%). Both regional MSEs improve for quadrant direct/oracle; direct node actions are identical between renderers. The 100-step oracle is finite-budget reference optimization, not proof of global optimality. Piecewise boundaries align with these synthetic quadrants; no general real-image superiority is claimed.
+
+Deviations/failures: optional smooth-gradient condition omitted as predeclared. Pools, tie rules, undefined-cosine denominator, crossing convention and literal direct comparator committed before outcomes. No scientific run failure, tuning or restart. Transport-only SCP/Git push/log-SSH interruptions recovered through existing helpers. Known NVML mismatch and permitted CUDA antialiased-bicubic backward nondeterminism remain disclosed; no driver changes or strict bitwise TTT-repeat claim. One combined final mailbox write/push command was blocked before execution; independent file/Git operations complete delivery.
+
+**Recommendation:** both stopping magnitude and spatial basis deserve the next task; define a fresh pilot separating a source-calibrated magnitude/stop constraint from renderer choice, retaining regional and clean-drift controls. This evidence does not justify gamma removal or objective retraining as the sole repair. Exclude every T004–T009 ID from future decisive tests. **No T010, detector, meta-learning, or ViT3 started.** Await review; 15-minute heartbeat remains active.
