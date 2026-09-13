@@ -15,6 +15,15 @@ def read(path): return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 def tensor_sha(t): return hashlib.sha256(t.detach().cpu().contiguous().numpy().tobytes()).hexdigest()
 
 
+def verify_prepared(cohort, config):
+    assert 'prepared_sha256' in config, 'Missing pre-inference prepared binding; historical receipts cannot be upgraded retroactively'
+    assert sha(cohort/'prepared.json') == config['prepared_sha256'], 'Prepared metadata changed after feature freeze'
+    prepared = read(cohort/'prepared.json')
+    assert sha(cohort/'mapping.json') == prepared['mapping_sha256'], 'Row mapping differs from frozen preparation'
+    assert sha(cohort/'inputs/index.json') == prepared['inputs_sha256'] == config['input_index_sha256']
+    return prepared
+
+
 def preflight(source):
     lock = read(LOCK)
     new = [f'ttie/fresh_direction/{n}.py' for n in ('__init__','common','prepare','select','predict','evaluate')]

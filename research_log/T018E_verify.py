@@ -53,6 +53,16 @@ def replay(selected, heads, output):
 
 
 def metrics(root, cohort, selected, evaluation, replay_receipt, output):
+    # Independent check: the decision pins config, config pins preparation,
+    # and preparation pins the original mapping and opaque input index.
+    frozen=read(selected/'decisions_frozen.json')
+    assert digest(selected/'config.json')==frozen['config_sha256']
+    config=read(selected/'config.json')
+    assert 'prepared_sha256' in config, 'Missing pre-inference prepared binding; historical receipts cannot be upgraded retroactively'
+    assert digest(cohort/'prepared.json')==config['prepared_sha256']
+    prepared=read(cohort/'prepared.json')
+    assert digest(cohort/'mapping.json')==prepared['mapping_sha256']
+    assert digest(cohort/'inputs/index.json')==prepared['inputs_sha256']==config['input_index_sha256']
     prior=read(root/'research_log/T018E_exclusions.json');manifest=read(cohort/'manifest.json');mf=read(cohort/'manifest_frozen.json')
     union=set()
     for entry in prior['prior_manifest_bindings']:

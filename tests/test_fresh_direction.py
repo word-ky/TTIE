@@ -16,10 +16,27 @@ from ttie.soft_basis.selection import score_episode
 from ttie.fresh_direction.select import cross_vectors
 from ttie.fresh_direction.prepare import freeze_manifest
 from ttie.fresh_direction.evaluate import summarize, evaluate
-from ttie.fresh_direction.common import read, sha, CONDITIONS
+from ttie.fresh_direction.common import read, sha, write, CONDITIONS, verify_prepared
 
 
 class FreshDirectionTests(unittest.TestCase):
+    def test_prepared_mapping_binding_rejects_relabel_and_hash_refresh(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);(root/'inputs').mkdir()
+            write(root/'mapping.json',[dict(row_index=0,condition='left_right'),dict(row_index=1,condition='quadrants')])
+            write(root/'inputs/index.json',dict(episodes=[0,1]))
+            original=read(root/'mapping.json')
+            prepared=dict(mapping_sha256=sha(root/'mapping.json'),inputs_sha256=sha(root/'inputs/index.json'))
+            write(root/'prepared.json',prepared)
+            config=dict(prepared_sha256=sha(root/'prepared.json'),input_index_sha256=prepared['inputs_sha256'])
+            self.assertEqual(verify_prepared(root,config),prepared)
+            swapped=[dict(row_index=i,condition=r['condition']) for i,r in enumerate(reversed(original))]
+            write(root/'mapping.json',swapped)
+            with self.assertRaisesRegex(AssertionError,'Row mapping'):verify_prepared(root,config)
+            prepared['mapping_sha256']=sha(root/'mapping.json');write(root/'prepared.json',prepared)
+            with self.assertRaisesRegex(AssertionError,'Prepared metadata changed'):verify_prepared(root,config)
+            with self.assertRaisesRegex(AssertionError,'Missing pre-inference'):verify_prepared(root,dict(input_index_sha256=config['input_index_sha256']))
+
     def test_five_features_exactly_reuse_accepted_nine_candidate_pipeline(self):
         torch.manual_seed(7); torch.set_num_threads(1)
         image=torch.linspace(.02,.98,3*16*18).reshape(1,3,16,18)
