@@ -18,18 +18,11 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T022-B ruled out checkpoint selection as the main real-domain bottleneck.** Over the exact 41 frozen checkpoints from T022-A, the per-image PSNR oracle improves only `+0.1472 dB` on average and the SSIM oracle only `+0.00489`; the best global fixed step is effectively tied with the learned selector. This redirected tuning toward the trajectory/action space rather than selector design.
 
-**T022-C is now a materially positive validation-only action-range result.** The single predeclared change widens only active dark-winner Region2 EV from `[0,+0.5]` to the existing physical maximum `[0,+2.0]`; frozen gate, Sobolev energy, gamma `[0.8,1.25]`, Adam `lr=0.03`, 40 updates, renderer, and learned-energy checkpoint rule remain unchanged. On the same fixed 100-image LOL-v2 validation split:
+**T022-C is the current best LOL-v2 validation candidate and a materially positive action-range result.** Widening only active dark-winner Region2 EV from `[0,+0.5]` to `[0,+2.0]`, with all other scientific settings frozen, improved mean validation PSNR `9.2728689→10.2295540 dB` (`+0.9566851 dB`) and mean RGB-SSIM `0.2730060→0.3282315` (`+0.0552255`). All low-light inference artifacts were frozen before normal-light references were deployed. This identifies the original conservative positive-exposure range as a genuine real-domain bottleneck, but `10.23 dB / 0.328 SSIM` remains far from paper-ready competitive quality.
 
-- mean PSNR: `9.2728689→10.2295540 dB` (`+0.9566851 dB`),
-- mean RGB-SSIM: `0.2730060→0.3282315` (`+0.0552255`),
-- median PSNR gain: `+0.7767744 dB`,
-- median SSIM gain: `+0.0544302`.
+**T022-D is a leakage-safe validation-only negative and closes simple update-budget extension.** It changed only `max_steps: 40→80` from accepted T022-C. Mean PSNR changed `10.2295540→10.2157182 dB` (`-0.0138358 dB`) and mean RGB-SSIM `0.3282315→0.3265366` (`-0.0016949`). Despite this, `82/100` images selected step 80. Thus the learned energy continues preferring later states after true restoration quality has plateaued or worsened; the T022-C last-step concentration was not evidence that more update budget would improve restoration. Longer-budget tuning is closed, and T022-C remains the best current validation configuration.
 
-All low-light inference artifacts were frozen before normal-light references were deployed, and target mutation/withholding leaves inference hashes unchanged. T022-C therefore identifies the original conservative positive-exposure range as a genuine real-domain bottleneck. It is **not** an official-test or SOTA claim, and absolute benchmark quality remains far below paper-ready competitive levels.
-
-A new direct diagnostic emerges from T022-C: **88/100 validation images select the last available checkpoint, step 40.** This is stronger evidence for update-budget truncation than the aggregate bound-saturation percentages, which are partly confounded by inactive/collapsed coordinates. The immediate next experiment therefore changes only the trajectory budget from 40 to 80 while retaining the accepted T022-C action box and all other settings.
-
-The project continues on two lines: narrowly scoped truth/mechanism work only when it directly determines tuning, and higher-priority benchmark/SOTA convergence. The benchmark line now has priority; repeated low-yield geometry patching remains out of scope.
+The new highest-value benchmark hypothesis is therefore **real-domain optimization-field mismatch**. T014's Sobolev energy was source-trained on the controlled distribution, whereas LOL-v2 contains severe real low-light statistics. T023-A tests a small leakage-safe paired LOL-v2 Sobolev source recalibration before any full 589-pair training commitment. Benchmark/SOTA convergence remains the priority over further scalar hyperparameter patching.
 
 ## Best current methods
 
@@ -39,7 +32,7 @@ The project continues on two lines: narrowly scoped truth/mechanism work only wh
 
 ### Current LOL-v2 validation candidate
 
-**T022-C = T014 + dark-winner EV upper bound `+2.0`** — best current validation-only real-benchmark configuration; not yet final-test qualified.
+**T022-C = T014 + dark-winner EV upper bound `+2.0`** — best current validation-only real-benchmark configuration; not yet official-test qualified.
 
 ### Heterogeneous-only geometry extension
 
@@ -56,7 +49,8 @@ The project continues on two lines: narrowly scoped truth/mechanism work only wh
 - **T021-A:** Sobolev beats the matched value-only control in RGB-SSIM on frozen fresh outputs with cluster-bootstrap CI wholly above zero.
 - **T022-A:** untuned T014 transfers positively to real LOL-v2 validation but with a large absolute-quality gap.
 - **T022-B:** saved-trajectory oracle headroom is too small for selector tuning to be the main solution.
-- **T022-C:** widening only dark positive exposure to `+2 EV` produces a large real-validation gain (`+0.9567 dB`, `+0.05523 SSIM`), proving action-range mismatch was material.
+- **T022-C:** widening only dark positive exposure to `+2 EV` produces a large real-validation gain (`+0.9567 dB`, `+0.05523 SSIM`).
+- **T022-D:** doubling the exact trajectory budget to 80 updates does not improve PSNR/SSIM even though 82/100 cases select the terminal checkpoint; simple budget truncation is rejected as the main remaining bottleneck.
 
 ## Information-boundary rules
 
@@ -64,16 +58,16 @@ The project continues on two lines: narrowly scoped truth/mechanism work only wh
 - Source/development/validation references may be used only in explicitly declared training, calibration, tuning, or diagnostic stages; they may not enter the per-image test-time decision path.
 - Validation/test enhanced outputs and decisions must be finalized and persisted before their references or evaluation metrics are attached.
 - Final benchmark test sets must remain isolated from hyperparameter/model selection; tuning belongs only on predeclared train/validation data.
-- The official 100 LOL-v2 Real test pairs remain untouched after T022-A/B/C and must stay untouched until a final configuration is frozen.
+- The official 100 LOL-v2 Real test pairs remain untouched after T022-A/B/C/D and must stay untouched until a final configuration is frozen.
 - Fresh/test runs must fail closed on source/provenance/preparation binding mismatches.
 
 ## Interpretation
 
 The paper remains image-enhancement-first. T014 supplies the central scientific contribution: learning a reference-free test-time **optimization field** through source-side derivative supervision. T021-A shows this advantage is not specific to MSE. T022 now addresses paper-level benchmark convergence.
 
-T022-C is the first large real-domain tuning gain and shows that the controlled-study action range was too conservative for severe real low light. However `10.23 dB / 0.328 SSIM` is still far from a competitive LOL-v2 endpoint, so incremental tuning must be tightly justified. Because 88/100 T022-C episodes select step 40, T022-D tests one final cheap trajectory hypothesis before deciding whether to invest in source/domain retraining and matched strong-baseline execution.
+T022-C showed that a controlled-study action box was too conservative for severe real low light. T022-D then showed that simply following the same learned energy for longer does not improve restoration, even when the energy keeps choosing the last checkpoint. This pattern points away from checkpoint/budget mechanics and toward the learned field itself being insufficiently matched to the real domain. The next step is therefore a deliberately small paired-source Sobolev recalibration pilot, not another LR/step/bound sweep.
 
-Downstream detection is not required for the enhancement-focused paper plan. Remaining paper-level gaps are competitive real-benchmark performance, strong matched baseline/SOTA comparison, perceptual metrics, and efficiency/quality tradeoffs.
+The project continues on two lines: narrowly scoped truth/mechanism work only when it directly determines tuning, and higher-priority benchmark/SOTA convergence. Downstream detection is not required. Remaining paper-level gaps are competitive real-benchmark performance, strong matched baseline/SOTA comparison, perceptual metrics, and efficiency/quality tradeoffs.
 
 ## Milestones
 
@@ -85,10 +79,11 @@ Downstream detection is not required for the enhancement-focused paper plan. Rem
 - **T022-A: COMPLETED — leakage-safe untuned LOL-v2 validation anchor.**
 - **T022-B: COMPLETED — selector headroom limited.**
 - **T022-C: COMPLETED — materially positive dark-EV action-range probe (`+0.9567 dB`, `+0.05523 SSIM`).**
-- **T022-D: ACTIVE — exact 80-step trajectory-budget probe on the same validation split.**
+- **T022-D: COMPLETED — 80-step budget negative/insufficient (`-0.01384 dB`, `-0.001695 SSIM`).**
+- **T023-A: ACTIVE — deterministic 16-pair LOL-v2 on-trajectory Sobolev source-recalibration pilot.**
 
 ## Current open task
 
-`T022-D — LOL-v2 validation 80-step trajectory-budget probe` in `coordination/CHATGPT_TO_CODEX.md`.
+`T023-A — 16-pair LOL-v2 on-trajectory Sobolev source-recalibration pilot` in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use the accepted T022-C configuration and same 100-image validation split. Change only `max_steps: 40→80`; keep all action bounds, gate, frozen Sobolev energy, optimizer/lr, renderer, and learned-energy checkpoint selection unchanged. Run low-light-only inference and freeze all outputs/decisions before reference evaluation. The official LOL-v2 Real test set remains untouched.
+Use exactly 16 deterministic source-training pairs from the 589 non-validation LOL-v2 Real training pairs, generate/freeze accepted T022-C low-only 40-step trajectories, then use only those source pairs' normal-light images for matched EV2 value+gradient supervision. Train one unchanged 28-D Sobolev `EnergyHead`, freeze it, and replace only the energy checkpoint in T022-C for the same 100-image low-only validation run. Validation outputs/decisions must freeze before validation references. Official LOL-v2 Real test remains untouched.
