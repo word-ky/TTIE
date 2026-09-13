@@ -1,0 +1,534 @@
+{
+  "groups": {
+    "spatial_pool": {
+      "count": 120,
+      "mse": {
+        "H0": 0.03504357374816512,
+        "Hselected": 0.03316313575875635,
+        "H_star": 0.032563564518932255
+      },
+      "ratios": {
+        "selected_over_H0": 0.9463400050770442,
+        "selected_over_H_star": 1.0184123344198242
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 105,
+          "fraction": 0.875
+        },
+        "y_match": {
+          "count": 98,
+          "fraction": 0.8166666666666667
+        },
+        "joint_match": {
+          "count": 87,
+          "fraction": 0.725
+        }
+      },
+      "movements": {
+        "no_move": 52,
+        "x_only": 2,
+        "y_only": 39,
+        "both": 27
+      },
+      "gains": {
+        "beneficial": 57,
+        "equal": 52,
+        "harmful": 11
+      },
+      "harmful_examples": [
+        {
+          "row_index": 6,
+          "bx": 0.5,
+          "by": 0.6,
+          "target_bx": 0.5,
+          "target_by": 0.4,
+          "H0": 0.013605949468910694,
+          "Hselected": 0.01368333213031292,
+          "H_star": 0.013564501889050007
+        },
+        {
+          "row_index": 15,
+          "bx": 0.4,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.0473032221198082,
+          "Hselected": 0.05296427756547928,
+          "H_star": 0.04721973091363907
+        },
+        {
+          "row_index": 18,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.009775159880518913,
+          "Hselected": 0.009868083521723747,
+          "H_star": 0.009599768556654453
+        },
+        {
+          "row_index": 21,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.013479727320373058,
+          "Hselected": 0.013618257828056812,
+          "H_star": 0.013384445570409298
+        },
+        {
+          "row_index": 24,
+          "bx": 0.5,
+          "by": 0.6,
+          "target_bx": 0.5,
+          "target_by": 0.4,
+          "H0": 0.028784528374671936,
+          "Hselected": 0.030377862975001335,
+          "H_star": 0.02768074907362461
+        },
+        {
+          "row_index": 39,
+          "bx": 0.4,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.5,
+          "H0": 0.039091091603040695,
+          "Hselected": 0.04277174174785614,
+          "H_star": 0.039091091603040695
+        },
+        {
+          "row_index": 51,
+          "bx": 0.5,
+          "by": 0.6,
+          "target_bx": 0.5,
+          "target_by": 0.5,
+          "H0": 0.0541556142270565,
+          "Hselected": 0.054900187999010086,
+          "H_star": 0.0541556142270565
+        },
+        {
+          "row_index": 54,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.035737451165914536,
+          "Hselected": 0.03579024598002434,
+          "H_star": 0.035436246544122696
+        },
+        {
+          "row_index": 75,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.029162531718611717,
+          "Hselected": 0.02918751910328865,
+          "H_star": 0.029119044542312622
+        },
+        {
+          "row_index": 99,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.048148978501558304,
+          "Hselected": 0.04855191335082054,
+          "H_star": 0.047581322491168976
+        },
+        {
+          "row_index": 105,
+          "bx": 0.4,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.05189097672700882,
+          "Hselected": 0.062155842781066895,
+          "H_star": 0.0514957495033741
+        }
+      ],
+      "confusion_matrices": {
+        "x": [
+          [
+            80,
+            4,
+            0
+          ],
+          [
+            9,
+            25,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ]
+        ],
+        "y": [
+          [
+            52,
+            3,
+            2
+          ],
+          [
+            2,
+            32,
+            3
+          ],
+          [
+            0,
+            12,
+            14
+          ]
+        ]
+      }
+    },
+    "left_right": {
+      "count": 40,
+      "mse": {
+        "H0": 0.03339701551012695,
+        "Hselected": 0.03285296056419611,
+        "H_star": 0.032170985778793695
+      },
+      "ratios": {
+        "selected_over_H0": 0.9837094741065749,
+        "selected_over_H_star": 1.021198442288702
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 36,
+          "fraction": 0.9
+        },
+        "y_match": {
+          "count": 29,
+          "fraction": 0.725
+        },
+        "joint_match": {
+          "count": 28,
+          "fraction": 0.7
+        }
+      },
+      "movements": {
+        "no_move": 5,
+        "x_only": 0,
+        "y_only": 31,
+        "both": 4
+      },
+      "gains": {
+        "beneficial": 24,
+        "equal": 5,
+        "harmful": 11
+      },
+      "harmful_examples": [
+        {
+          "row_index": 6,
+          "bx": 0.5,
+          "by": 0.6,
+          "target_bx": 0.5,
+          "target_by": 0.4,
+          "H0": 0.013605949468910694,
+          "Hselected": 0.01368333213031292,
+          "H_star": 0.013564501889050007
+        },
+        {
+          "row_index": 15,
+          "bx": 0.4,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.0473032221198082,
+          "Hselected": 0.05296427756547928,
+          "H_star": 0.04721973091363907
+        },
+        {
+          "row_index": 18,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.009775159880518913,
+          "Hselected": 0.009868083521723747,
+          "H_star": 0.009599768556654453
+        },
+        {
+          "row_index": 21,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.013479727320373058,
+          "Hselected": 0.013618257828056812,
+          "H_star": 0.013384445570409298
+        },
+        {
+          "row_index": 24,
+          "bx": 0.5,
+          "by": 0.6,
+          "target_bx": 0.5,
+          "target_by": 0.4,
+          "H0": 0.028784528374671936,
+          "Hselected": 0.030377862975001335,
+          "H_star": 0.02768074907362461
+        },
+        {
+          "row_index": 39,
+          "bx": 0.4,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.5,
+          "H0": 0.039091091603040695,
+          "Hselected": 0.04277174174785614,
+          "H_star": 0.039091091603040695
+        },
+        {
+          "row_index": 51,
+          "bx": 0.5,
+          "by": 0.6,
+          "target_bx": 0.5,
+          "target_by": 0.5,
+          "H0": 0.0541556142270565,
+          "Hselected": 0.054900187999010086,
+          "H_star": 0.0541556142270565
+        },
+        {
+          "row_index": 54,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.035737451165914536,
+          "Hselected": 0.03579024598002434,
+          "H_star": 0.035436246544122696
+        },
+        {
+          "row_index": 75,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.029162531718611717,
+          "Hselected": 0.02918751910328865,
+          "H_star": 0.029119044542312622
+        },
+        {
+          "row_index": 99,
+          "bx": 0.5,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.048148978501558304,
+          "Hselected": 0.04855191335082054,
+          "H_star": 0.047581322491168976
+        },
+        {
+          "row_index": 105,
+          "bx": 0.4,
+          "by": 0.4,
+          "target_bx": 0.5,
+          "target_by": 0.6,
+          "H0": 0.05189097672700882,
+          "Hselected": 0.062155842781066895,
+          "H_star": 0.0514957495033741
+        }
+      ],
+      "confusion_matrices": {
+        "x": [
+          [
+            36,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "y": [
+          [
+            5,
+            1,
+            1
+          ],
+          [
+            0,
+            18,
+            2
+          ],
+          [
+            0,
+            7,
+            6
+          ]
+        ]
+      }
+    },
+    "quadrants": {
+      "count": 40,
+      "mse": {
+        "H0": 0.030983849649783225,
+        "Hselected": 0.030983849649783225,
+        "H_star": 0.030982188356574625
+      },
+      "ratios": {
+        "selected_over_H0": 1.0,
+        "selected_over_H_star": 1.000053620912425
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 39,
+          "fraction": 0.975
+        },
+        "y_match": {
+          "count": 40,
+          "fraction": 1
+        },
+        "joint_match": {
+          "count": 39,
+          "fraction": 0.975
+        }
+      },
+      "movements": {
+        "no_move": 40,
+        "x_only": 0,
+        "y_only": 0,
+        "both": 0
+      },
+      "gains": {
+        "beneficial": 0,
+        "equal": 40,
+        "harmful": 0
+      },
+      "harmful_examples": [],
+      "confusion_matrices": {
+        "x": [
+          [
+            39,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "y": [
+          [
+            40,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "offset_left_right_40": {
+      "count": 40,
+      "mse": {
+        "H0": 0.04074985608458519,
+        "Hselected": 0.035652597062289716,
+        "H_star": 0.03453751942142844
+      },
+      "ratios": {
+        "selected_over_H0": 0.874913447259421,
+        "selected_over_H_star": 1.0322859794085106
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 30,
+          "fraction": 0.75
+        },
+        "y_match": {
+          "count": 29,
+          "fraction": 0.725
+        },
+        "joint_match": {
+          "count": 20,
+          "fraction": 0.5
+        }
+      },
+      "movements": {
+        "no_move": 7,
+        "x_only": 2,
+        "y_only": 8,
+        "both": 23
+      },
+      "gains": {
+        "beneficial": 33,
+        "equal": 7,
+        "harmful": 0
+      },
+      "harmful_examples": [],
+      "confusion_matrices": {
+        "x": [
+          [
+            5,
+            0,
+            0
+          ],
+          [
+            9,
+            25,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "y": [
+          [
+            7,
+            2,
+            1
+          ],
+          [
+            2,
+            14,
+            1
+          ],
+          [
+            0,
+            5,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  "clauses": {
+    "pooled_3pct_better_H0": true,
+    "pooled_within_3pct_oracle": true,
+    "offset_5pct_better_H0": true,
+    "left_right_safety": true,
+    "quadrants_safety": true
+  },
+  "passed": 5,
+  "interpretation": "direct_direction_probe_viable",
+  "label_free_decision": true,
+  "development_only": true,
+  "fresh_qualified": false
+}
