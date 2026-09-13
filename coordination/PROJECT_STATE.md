@@ -10,118 +10,84 @@ Can a vision system adapt a compact spatial correction field per test image, wit
 
 ## Current scientific state
 
-T014 remains the broad fresh-qualified baseline. It combines a frozen nuisance gate, a source-supervised Sobolev restoration energy whose derivative field drives label-free projected test-time updates, and a canonical hard Region2 spatial basis. Its original qualification covers clean, homogeneous, and heterogeneous conditions.
+**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours.** It combines the frozen T006/T007 nuisance readout + clean-abstention gate, the source-supervised T014 Sobolev restoration energy, canonical hard Region2 EV+gamma adaptation, 40 projected label-free updates when active, and minimum predicted-energy checkpoint selection. T014 passed 8/8 development and 12/12 fresh clauses; fresh heterogeneous MSE is `0.03385803`, and unseen-calibration gradient alignment is `73/74` positive with median cosine `0.93606`.
 
-T016–T019 solve a narrower adaptive-geometry problem on the prescribed heterogeneous spatial protocol. Hard boundary placement has meaningful oracle headroom; the local x/y problem nearly factorizes; the frozen 28-D candidate representation contains direction information; exact-direction supervision moves too eagerly on fresh near-zero-headroom cases; and a fixed family-agnostic 1% utility deadband produces a safer movement target.
+**T019 is a heterogeneous-only fresh-qualified geometry extension, not the broad default.** T019-B changed only supervision from exact direction to a fixed 1% utility-deadband target while holding representation/folds/network/optimizer/seed/epochs fixed; it passed 7/7 grouped-OOF development clauses and reduced harmful episodes `11→5`. T019-C froze the final two-head selector. T019-D then passed 5/5 on a new 40-image / 120-episode heterogeneous fresh cohort: pooled `H1/H0=0.952464`, oracle proximity `1.027465`, offset `0.874063`, left/right `1.004090`, quadrants `1.000000`, with `43 beneficial / 73 equal / 4 harmful` and zero quadrant movement.
 
-T019-B is the clean development intervention: representation, folds, network, optimizer, seed and epochs are held fixed while only the target changes from exact direction to 1%-deadband direction. Harmful OOF episodes fall `11→5`, moving episodes `68→51`, both-axis moves `27→13`, quadrants retain zero harm, and all 7/7 predeclared development clauses pass.
+**T020-A is a valid fresh non-spatial negative (3/4).** On a second new 40-image / 120-episode cohort, the frozen T019-C selector gives pooled `0.986616×`, clean `1.046125×` **fail**, homogeneous-dark `0.994103×`, homogeneous-bright `0.963036×`. Clean outcomes are `0 beneficial / 39 equal / 1 harmful`; that fresh cohort is burned for corrective tuning.
 
-T019-C freezes exactly one final x head and one final y head. T019-D applies that immutable selector once to a new deterministic disjoint 40-image / 120-episode heterogeneous cohort and passes **5/5**: pooled `H1/H0=0.952464`, pooled `H1/H*=1.027465`, offset `0.874063`, left/right `1.004090`, quadrants `1.000000`, with `43 beneficial / 73 equal / 4 harmful`. All 40 quadrants remain canonical center with zero movement and zero harm.
+**T020-B is now a development-only non-spatial target positive (5/5).** The exact same fixed `delta=0.01` per-axis reference deadband target was audited on the accepted 40 development images under clean / homogeneous-dark / homogeneous-bright, with no selector training and no threshold search. Results:
 
-T020-A then tests the same frozen selector on a second new deterministic disjoint 40-image / 120-episode non-spatial cohort containing `clean`, `homogeneous_dark`, and `homogeneous_bright`. It is a valid one-shot fresh **negative (3/4)**. Pooled, dark, and bright safety pass, but clean fails the predeclared 1% mean criterion:
+- pooled `H_delta/H0 = 0.9008910034988411`;
+- clean `0.7215855454024681`;
+- homogeneous-dark `0.9066994112406046`;
+- homogeneous-bright `0.8895594969478190`;
+- outcomes `61 beneficial / 59 equal / 0 harmful`.
 
-- pooled `H1/H0 = 0.9866159548610750`;
-- clean `H1/H0 = 1.0461253551018836` — fail;
-- homogeneous-dark `H1/H0 = 0.9941025363625269`;
-- homogeneous-bright `H1/H0 = 0.9630361903920437`.
+Clean alone is `2/38/0`. Thus the target principle is safe on these non-spatial development cases. This narrows the current bottleneck from target design toward **learned movement generalization / training-domain coverage**, while remaining development-only evidence.
 
-Clean outcomes are `0 beneficial / 39 equal / 1 harmful`. Six clean episodes move x; five are MSE-equal and one is harmful. The result blocks promotion of T019 as a broad default. The T020-A fresh cohort is burned for corrective tuning.
-
-The immediate scientific question is now **target versus predictor**. T019-A proved the 1% deadband target on heterogeneous development episodes only. T020-B therefore audits the exact same fixed target, without training, on clean and homogeneous development cases. This will determine whether the target principle itself is broadly safe or whether the learned selector is the remaining failure point.
+The immediate active task is **T020-C**, a strict image-grouped OOF probe on only the T020-B non-spatial development episodes. It keeps the frozen 28-D representation and the exact T019-B `84→64→64→3` learner fixed, and asks whether the same learner can predict the conservative target in-domain before any heterogeneous+non-spatial combined training is attempted.
 
 ## Best current methods
 
 ### Broad fresh-qualified baseline
 
-**T014 Sobolev Region2 TTT** remains the broad deployable Ours:
+**T014 Sobolev Region2 TTT** — broad deployable Ours.
 
-1. frozen T006 CLIP exposure readout and T007 clean-abstention gate;
-2. frozen T014 28-D Sobolev restoration energy;
-3. canonical hard Region2 projected EV+gamma state from identity;
-4. exactly 40 label-free projected updates when active;
-5. minimum predicted-energy checkpoint, earliest tie;
-6. all label-free trajectories/decisions persisted before clean-reference evaluation.
+### Heterogeneous-only fresh-qualified extension
 
-T014 Stage A passes 8/8 development clauses and frozen Stage B passes 12/12 fresh clauses on 40 unseen images. Fresh heterogeneous MSE is `0.03385803`; unseen-calibration gradient alignment is `73/74` positive with median cosine `0.93606`.
+**T019 = T014 + frozen 1%-deadband hard-boundary selector** — fresh-qualified only on the prescribed heterogeneous spatial protocol. T020-A prevents promotion to a universal default.
 
-### Heterogeneous-only fresh-qualified geometry extension
+## Strongest controlled findings
 
-**T019 = T014 + frozen 1%-deadband hard-boundary selector** is fresh-qualified on the three prescribed heterogeneous spatial conditions via T019-D. It uses the unchanged T014 trajectory, five hard-cross `tau=0` candidates, frozen 28-D candidate features, and immutable T019-C x/y heads.
+- T001–T003: spatial ISP capacity helps heterogeneous shifts; capacity/simple priors alone are insufficient.
+- T004–T007: zero-shot exposure signals are content-confounded; frozen source-trained nuisance readout + clean abstention is usable.
+- T008–T012: semantic TTT has useful directions but drift/stopping/coupling problems; learned checkpointing cannot rescue oracle-limited trajectories.
+- T013: scalar restoration-value fitting does not sufficiently constrain the TTT derivative field.
+- **T014:** Sobolev derivative supervision is the first fully qualified learned inner objective; the learned optimization field matters more than scalar value fit.
+- T015: cross-basis routing negative; oracle headroom only 1.94%.
+- T016: hard-boundary headroom exists; scalar energy/value/ranking/confidence selectors are not robust enough.
+- T017: soft geometry is diagnostically useful but unsafe as transfer/deployment route.
+- T018-A: hard local x/y reference target positive, near nine-hard oracle with zero harmful development moves.
+- T018-B: frozen T014 scalar energy fails for local geometry direction.
+- T018-C: unchanged frozen representation supports grouped-OOF direct direction prediction.
+- T018-E: exact-direction frozen selector fresh negative 4/5 due unnecessary quadrant moves.
+- T019-A: fixed 1% utility-deadband target positive on heterogeneous development with zero harm.
+- T019-B: deadband-label OOF selector positive 7/7, fewer harmful moves.
+- T019-D: one-shot heterogeneous fresh geometry positive 5/5.
+- T020-A: one-shot non-spatial fresh safety negative 3/4; clean mean `1.046125×` fails.
+- **T020-B: development-only non-spatial fixed-1% target positive 5/5 with zero harmful moves.**
 
-T020-A shows this extension is **not broadly clean-safe under the predeclared criterion**, so T019 must remain a heterogeneous-only extension rather than replacing T014 globally.
+## Information-boundary rules
 
-## Established controlled findings
+- Test-time adaptation/selection must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, semantic image IDs, reference gradients/Jacobians, oracle values, or evaluation metrics.
+- Source/development references may be used only in explicitly declared training/calibration/diagnostic stages.
+- Held-out/fresh decisions must be finalized and persisted before their reference metrics, labels, families, or oracles are attached.
+- Inspected fresh IDs are permanently excluded from corrective fresh cohorts.
+- Failed fresh cohorts may motivate a development-only hypothesis but their per-row references/logits/features/outcomes may not tune that hypothesis.
+- OOF claims must be image-grouped; held-out decisions must not depend on held-out labels/reference values.
+- Development-only target/oracle/OOF evidence is not fresh qualification.
+- Fresh runs must fail closed on source/provenance/preparation binding mismatches.
 
-- **T001–T003:** spatial ISP capacity can outperform global correction on favorable heterogeneous shifts; capacity and simple absolute-statistic priors alone are insufficient.
-- **T004–T007:** zero-shot exposure signals are content-confounded; a source-trained frozen-CLIP exposure readout plus clean-abstention calibration provides a usable nuisance signal.
-- **T008–T012:** semantic EV+gamma TTT contains useful directions but suffers drift, over-correction, stopping and coupling issues; learned checkpoint selection cannot rescue an oracle-limited trajectory.
-- **T013:** scalar restoration-value fitting is insufficient for a good TTT derivative field.
-- **T014:** Sobolev/derivative supervision is the first fully qualified learned-inner-objective result; it supports the claim that for gradient-based TTT the learned optimization field matters more than scalar value fit.
-- **T015:** routing among global/bilinear2/Region2 is negative; oracle headroom is only 1.94%.
-- **T016-A:** shiftable hard-boundary capacity is positive; 27-candidate oracle is `0.92764×` canonical Region2.
-- **T016-B–F:** scalar energy/value/ranking/confidence approaches are not robust enough for hard-boundary selection.
-- **T017:** `tau=0.05` soft geometry carries diagnostic signal but soft→hard transfer and matched-soft deployment are unsafe; the soft-renderer route is closed.
-- **T018-A:** hard local x/y reference target is positive (5/5), pooled `0.930464×` Region2 and `1.001327×` nine-hard oracle, with zero harmful development moves.
-- **T018-B:** frozen T014 scalar Sobolev energy fails even under the correct local decision geometry (0/5).
-- **T018-C:** direct axis-direction classification on the unchanged frozen representation passes 5/5 grouped OOF, establishing representation-level direction sufficiency.
-- **T018-E:** frozen exact-direction selector is a one-shot fresh negative (4/5): pooled/offset/left-right transfer, but quadrants reach `1.011785×` Region2 because three unnecessary x moves occur. That cohort is burned for corrective tuning.
-- **T019-A:** fixed 1% utility-deadband reference target passes 5/5 heterogeneous development plus zero harmful moves; it retains 97.6018% of pooled nine-hard oracle headroom.
-- **T019-B:** label-only grouped-OOF intervention passes 7/7; harmful episodes fall `11→5` and quadrants remain zero-harm.
-- **T019-C:** final all-development 1% deadband selector frozen; engineering barrier only.
-- **T019-D:** **one-shot fresh heterogeneous geometry qualification positive (5/5)**. Pooled `0.952464×`, oracle proximity `1.027465×`, offset `0.874063×`, left/right `1.004090×`, quadrants `1.000000×`; `43/73/4` beneficial/equal/harmful; quadrants have zero movement.
-- **T020-A:** **one-shot fresh non-spatial safety negative (3/4)**. Pooled `0.986616×`, clean `1.046125×` fail, dark `0.994103×`, bright `0.963036×`. Clean has `0/39/1` beneficial/equal/harmful. PR #36 merged as `e59c89badfcc785678b1e88c9c46d30e481d9b66`.
+## Interpretation
 
-## Information-boundary status
+The method story has two levels. T014 establishes the **objective-field principle**: useful test-time energies need restoration-useful derivatives, not merely accurate scalar values. T018–T019 establish a **utility-aware geometry principle** for heterogeneous shifts: direction information exists in the frozen representation, but movement should be supervised only when expected utility is material.
 
-T019-D and T020-A use the repaired fail-closed provenance chain: exclusion, manifest, manifest-frozen, mapping, input index, preparation metadata, scientific source/assets, feature rows, and selector decisions are contemporaneously hash-bound. All decisions are independently replayed before clean/reference evaluation opens.
-
-Non-negotiable rules remain:
-
-- test-time adaptation/selection must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, image IDs as semantic shortcuts, source-only reference gradients/Jacobians, or evaluation metrics;
-- source/development clean references may be used only in explicitly declared training/calibration/diagnostic stages;
-- fresh image decisions must be finalized and persisted before reference metrics, family labels, or oracles are attached;
-- inspected fresh IDs are permanently excluded from future corrective fresh cohorts;
-- a failed fresh cohort may motivate a development-only hypothesis but its references/logits/outcomes may not be used to tune that hypothesis;
-- development-only oracle/OOF/reference diagnostics are not fresh qualification;
-- fresh qualification must fail closed on source/provenance/preparation binding mismatches.
-
-## Interpretation of strongest evidence
-
-The method story has two distinct levels.
-
-First, T014 establishes an **objective-field principle**: a useful test-time energy should learn restoration-useful derivatives, not merely scalar restoration values. Sobolev derivative supervision strongly improves unseen gradient alignment and fresh adaptation.
-
-Second, T018–T019 establish a **utility-aware geometry principle on heterogeneous shifts**: adaptive hard-boundary direction information exists in the frozen representation, but movement should be supervised only when expected utility is material. A fixed 1% deadband removes the prior fresh quadrant failure and yields a new-cohort 5/5 heterogeneous geometry qualification.
-
-T020-A adds the necessary limitation: **heterogeneous geometry qualification is not equivalent to broad clean safety**. The frozen selector can still make a rare unnecessary clean movement large enough to violate the mean safety clause. We must therefore determine whether this is a target-domain problem or a learned-selector generalization problem before adding another model component.
-
-The larger paper-level gaps remain downstream detector/task metrics, real adverse-image distributions, and test-time computational cost. They should be addressed after the current target-vs-predictor diagnostic rather than mixed into it.
+T020-A/T020-B sharpen the limitation. The heterogeneous-trained predictor is not broad clean-safe, while the ideal fixed deadband target is safe on non-spatial development cases. The current question is therefore whether the unchanged representation/learner is sufficient **in-domain** on non-spatial cases. T020-C answers only that question. Larger paper-level gaps—downstream detector metrics, real adverse-image distributions, and test-time cost—remain deferred until this selector-safety branch is closed.
 
 ## Milestones
 
-- **M0 / T001:** completed — mechanism scaffold.
-- **M1 / T002:** completed — spatiality/capacity controls.
-- **M2 / T003:** completed — simple-prior rescue negative.
-- **M3 / T004–T008:** completed — nuisance readout qualified; original semantic TTT unqualified.
-- **M4 / T009:** completed — objective/action geometry diagnosis.
-- **M5 / T010:** completed — residual-target repair negative.
-- **M6 / T011:** completed — projected Region2 strong but fresh qualification negative.
-- **M7 / T012:** completed — learned stopping negative; oracle-limited.
-- **M8 / T013:** completed — scalar learned inner objective negative.
-- **M9 / T014:** **COMPLETED — SOBOLEV INNER OBJECTIVE PASSED 8/8 DEVELOPMENT AND 12/12 FRESH QUALIFICATION.**
-- **M10 / T015:** completed — cross-basis routing negative.
-- **M11 / T016:** completed — hard-boundary headroom established; scalar/ranking/confidence selectors closed.
-- **M12 / T017:** completed — soft diagnostic signal identified; soft-transfer/deployment route closed.
-- **M13 / T018:** completed — direct hard-axis direction representation established; exact-direction frozen selector fresh negative 4/5.
-- **M14 / T019-A:** completed — 1% utility-deadband target positive on heterogeneous development.
-- **M14 / T019-B:** completed — grouped-OOF deadband selector positive 7/7.
-- **M14 / T019-C:** completed — immutable all-development deadband selector frozen.
-- **M14 / T019-D:** **COMPLETED — ONE-SHOT FRESH HETEROGENEOUS GEOMETRY QUALIFICATION POSITIVE 5/5.**
-- **M15 / T020-A:** **COMPLETED — ONE-SHOT FRESH NON-SPATIAL SAFETY NEGATIVE 3/4; CLEAN MEAN FAILS AT 1.046125×.**
-- **M15 / T020-B:** **ACTIVE — DEVELOPMENT-ONLY NON-SPATIAL 1% DEADBAND TARGET VIABILITY AUDIT.**
+- T001–T013: completed mechanism/diagnostic sequence.
+- **T014: COMPLETED — Sobolev inner objective passed 8/8 development and 12/12 fresh qualification.**
+- T015–T018: completed routing/geometry diagnostics; exact-direction selector fresh negative.
+- T019-A/B/C: completed deadband target, OOF selector, and final freeze.
+- **T019-D: COMPLETED — one-shot fresh heterogeneous geometry qualification positive 5/5.**
+- **T020-A: COMPLETED — one-shot fresh non-spatial safety negative 3/4; clean `1.046125×`.**
+- **T020-B: COMPLETED — development-only non-spatial fixed-1% target positive 5/5, zero harmful.**
+- **T020-C: ACTIVE — non-spatial image-grouped OOF deadband-direction sufficiency probe.**
 
 ## Current open task
 
-`T020-B — development-only non-spatial 1% utility-deadband target viability audit` in `coordination/CHATGPT_TO_CODEX.md`.
+`T020-C — non-spatial grouped-OOF deadband-direction sufficiency probe` in `coordination/CHATGPT_TO_CODEX.md`.
 
-T020-B uses only the accepted T018/T019 development image IDs and the original T014 clean/homogeneous-dark/homogeneous-bright settings. It applies the literal fixed `delta=0.01` reference deadband rule with no training and no threshold search. The target is considered viable only if pooled plus all three non-spatial condition means remain within 1% of canonical T014 **and** the combined target produces zero harmful development episodes. No selector retraining or fresh cohort is authorized in this cycle.
+Use only the accepted T020-B 40-image / 120-episode non-spatial development set, the unchanged frozen T019 28-D representation, the exact historical five image-grouped folds, and the unchanged T019-B learner. Freeze all held-out predictions before held-out reference evaluation. No combined-domain final selector, fresh cohort, confidence gate, threshold search, architecture/feature change, detector experiment, or real low-light benchmark is authorized in this cycle.
