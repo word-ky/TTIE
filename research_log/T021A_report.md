@@ -1,5 +1,3 @@
-# T021-A DONE — positive
-
 # T021-A frozen fresh RGB-SSIM audit
 
 UTC: 2026-09-13T17:25:40.286880+00:00
@@ -37,5 +35,3 @@ First independent replay stopped on numeric JSON image IDs versus CSV strings af
 Stop after T021-A and await research-lead review of existing PR41. No further metric or method expansion.
 
 positive
-
-Delivery: PR41 ready; main DONE report 1542b2399f95c452075b7d8c378c1ec447ef0dd5. Await review, no duplicate evaluation.
