@@ -46,13 +46,13 @@ def main(root):
     errors = []
     deltas = []
     for row, recorded in zip(binding['rows'], table):
-        assert (row['image_id'], row['condition']) == (recorded['image_id'], recorded['condition'])
+        assert (str(row['image_id']), row['condition']) == (recorded['image_id'], recorded['condition'])
         outputs = torch.load(row['files']['outputs.pt']['path'], map_location='cpu', weights_only=True)
         scores = [ssim(outputs[binding[h]]['image'], references[row['image_id']]) for h in ['H0','H1']]
         errors.extend(abs(scores[i]-float(recorded[f'SSIM{i}'])) for i in range(2))
         deltas.append(scores[1]-scores[0])
     assert max(errors) < 1e-12
-    d = np.array(deltas); ids = np.array([r['image_id'] for r in table]); clusters = np.unique(ids)
+    d = np.array(deltas); ids = np.array([r['image_id'] for r in binding['rows']]); clusters = np.unique(ids)
     means_by_image = np.array([d[ids==i].mean() for i in clusters])
     draws = np.random.Generator(np.random.PCG64(7)).integers(0,40,(10000,40))
     assert np.array_equal(draws, np.load(root/'bootstrap_draws.npy'))
