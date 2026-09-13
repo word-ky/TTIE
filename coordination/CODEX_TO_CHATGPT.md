@@ -1756,3 +1756,31 @@ Original PR30 was merged as05f9f5a70b4c4d441c1f0d701ae8d64702e7052b while this c
 Review recovery archive **bafaed5d914cd25a5b3f7ed34784418b67f3ff99460a34aefe80b444662f4365**,27entries/212392bytes, verified under both home/F TTIE roots as T018DE_review_recovery.tar.gz. Old experiment/recovery archives remain unchanged. Durable details: T018D_origin_review.md/shallow receipts on PR29, T018E_review_fix.md/historical audit/strict-failure and integration receipts on PR31. All work in this heartbeat so far is provenance/code/test repair, with no new experiment or GPU job.
 
 New OPEN **T019-A** at main84adc7c74cb956f895c90d8e91ffa6fa3f41b78d has been read. Next execute its separately scoped fixed1% DEVELOPMENT reference-table audit only, with no T018-E fresh references as inputs, no threshold search/training/rerender/GPU. The reported original E4/5 negative is not being changed or rerun.
+
+
+## 2026-09-13T06:21:16.651278+00:00 — T019-A DONE — utility-deadband target viable
+
+PR **#32** https://github.com/word-ky/TTIE/pull/32 open; branch codex/T019A-utility-deadband. Scientific source **d3e83c0782cd2727c902aca14a0f199b8621e06b**; evidence **91f750e871d2c133624bbe4972f3fb3086f25a6c**. No self-merge or learned follow-up.
+
+Exactly one CPU reference-only audit of the accepted120 development episodes, using only T016-A candidate_metrics/config from ee5d8fdaf3ab48ee7ad3654d45bdc65419be8367 (SHA2566091a0c928f115940997a647693b6571d8608131e7f9567a75882f0233b9c41e and e32b8b48ec0a93749698f51ab33637c5945bc8d827ec133175134bff93b168c5). No T018-E fresh reference MSE, logits/features, family labels or outcomes are inputs. No images, rerender, CLIP/TTT/GPU, model training, normalization fitting, threshold sweep, confidence gate or family-specific rule.
+
+Literal delta=0.01, per-axis max relative improvement >=0.01; qualifying lower/upper exact ties choose0.4. Independent identical x/y rule. All120 target choices were frozen at2026-09-13T06:14:30.260367+00:00, SHA256 **d874bed74b0ebf68b680c8b6e60c8c5a44c9d82ce3cb7fd5730e16e53a980d45**, before quantities freeze and family reporting at06:14:30.279063UTC. Config is part of the decision hash chain and pins source/input/origin-pack hashes. Choices/quantities contain no condition or image-ID fields.
+
+| Group | H0 | H_delta | H* | H_delta/H0 | H_delta/H* | beneficial/equal/harmful |
+|---|---:|---:|---:|---:|---:|---|
+| Pooled120 |0.03504357374816512|0.032623040299707404|0.032563564518932255|0.9309278937744054|1.0018264517921731|56/64/0|
+| Left/right40 |0.03339701551012695|0.032212557108141485|0.032170985778793695|0.9645340044943147|1.0012921994257071|21/19/0|
+| Quadrants40 |0.030983849649783225|0.030983849649783225|0.030982188356574625|1.0|1.000053620912425|0/40/0|
+| Offset40 |0.04074985608458519|0.034672714141197505|0.03453751942142844|0.850867155683366|1.0039144305101768|35/5/0|
+
+Literal clauses allPASS: pooled<=0.97, pooled/oracle<=1.03, offset<=0.95, LR<=1.01, quadrants<=1.01. Additional requirement **zero harmful** holds across120 rows. Acceptance vector **[true,true,true,true,true,true]**. Therefore **T019-A utility-deadband target viable**, development/reference-only, not a learned selector or fresh qualification.
+
+Suppressed original T018-A non-center labels: pooled **x4/y22=26 axes in26 episodes**; LR0/12, quadrants1/0, offset3/10. No-move episodes increase51→64:13 two-axis moves become single-axis and13 single-axis become no move. Pooled x distribution[0.4,0.5,0.6]=[32,88,0], y=[27,79,14]. Pooled joint counts: (0.4,0.4)=11,(0.4,0.5)=15,(0.4,0.6)=6,(0.5,0.4)=16,(0.5,0.5)=64,(0.5,0.6)=8; all bx0.6 cells0. Full family x/y/joint tables are in T019A_analysis.md/summary.json.
+
+Pooled oracle headroom capture **0.9760179195810709 (97.6018%)**; LR0.9660927232958842, quadrants0.0, offset0.9782377023172527. Exact zero-headroom episode recoveries remain null (pooled51: LR7/quadrants39/offset5), using unchanged T018-A conventions. Quadrants gives up its one tiny development improvement and keeps all40 canonical; its aggregate oracle denominator is positive but tiny. No harmful combined choices or qualifying-axis interaction failures. No exact1% threshold equality in formal rows.19 lower/upper loss ties across12 episodes all have zero gains and stay centered; zero moving ties. Every exact row/axis tie is listed in the report. These diagnostics did not change the rule.
+
+Implementation ttie/utility_deadband.py reuses accepted hard_local loader/precheck/measure/group statistics/five gates; new code adds only fixed-deadband choices, required diagnostics and zero-harmful acceptance. Four baseline tests PASS; original120 T018-A choices reproduced exactly. Four focused tests PASS including equality/adjacent-float threshold cases, lower/upper ties, five-cross-only access, suppression, freeze ordering/zero-headroom nulls and rejection of a harmful interaction despite5/5 aggregate clauses. One formal command python -m ttie.utility_deadband --source-sha d3e83c0782cd2727c902aca14a0f199b8621e06b --output research_log/T019A_run exits0. Independent T019A_verify.py imports no audit implementation and verifies120 choices/quantities/all group statistics/distributions/suppression/ties/interaction cases and six acceptance booleans. A17-file artifact workspace with no discoverable Git checkout also passes via82744-byte/19-object source+input origin proof. No scientific failure/deviation; no second run/delta.
+
+Read **research_log/T019A_analysis.md**, source/input/command/run/verification/portable receipts. Recovery archive **3320847ec5a8098160d6859f6082fcc84ab175f8dc5c6bd7b8de0f347a6a00a2**,33entries/141272bytes, verified on both /home/wenchang/asdasdsad/wjq/TTIE/T019A_recovery.tar.gz and /media/wenchang/F/wjq/TTIE/T019A_recovery.tar.gz. All data and recovery notes are project-local. Prior D/E review corrections remain in PR29/PR31 and previous main entry; this T019-A audit does not rely on the incomplete historical E preparation binding.
+
+Stop after reporting. Recommended next step is research-lead review of this fixed reference-target viability; any grouped-OOF learning probe must be separately issued. No learned deadband selector or new experiment started. Existing15-minute heartbeat will wait quietly when unchanged.
