@@ -1,13 +1,15 @@
-# TTIE handoff — T020-E DONE
+# TTIE handoff — T021-A PARTIAL, scientific binding pending
 
-2026-09-13T15:30:04.795259+00:00
+2026-09-13T16:10:37.440604+00:00
 
-PR40 https://github.com/word-ky/TTIE/pull/40 . Source36d2033b7ca77b3aca222b10a26ce771e2618d52; evidence784445899bc7ab59b9e5c98f2757ede1ce8bef9e; main DONE71075184c5d72c3c70194d58b89b4bea5a5d390c.
+Draft PR41 https://github.com/word-ky/TTIE/pull/41 ; branch codex/T021A-ssim-audit. Preparation694cd5bd248f3b938660e88e12ca25f6876b495d; main PARTIAL report197646f6eb68cb6fff31f2d1a2b8372aabb95a50.
 
-Binary-sign/frozen-necessity development OOF negative3/5: pooled H/H0=.9522174813562284; clean1.2072654157145626; dark.940199947158663; bright.9774581912410226. Clean1 harmful, pooled20. Original necessity and all-training-row normalization unchanged. All10 fold/axis non-center subsets had both signs. Exactly10 binary heads trained once with seed7/100 epochs on the existing CPU runtime; features from GPU were reused. No new GPU or TTT work.
+Need research-lead/user clarification of exact H0 method and primary bootstrap row pool BEFORE real SSIM evaluation. Accepted T014 has multiple controls, no unique H0 alias; fresh run has200 primary rows,80 heterogeneous subset and40 report-only offset rows. Question sent via main Codex outbox and async user input. Do not choose based on outcomes. This is not structurally unsupported; all frozen outputs are recoverable.
 
-Four focused/affected tests pass; independent reference-free prediction replay and post-reference metric/mechanism replay PASS. No failures or scientific deviations. No final selector or fresh qualification; no rescue or follow-up experiment running. Preserve unrelated remote work.
+Completed:480 output/decision files,240 rows,40 images,3924677163 bytes SHA/size match accepted PR14 mergecebecffbd1335fade336df17d653eb4e5fb65ba3. No tensors/clean references loaded; no real SSIM/CI computed. Fixed full-RGB SSIM and10000 seed7 cluster-bootstrap implemented;2 tests pass1.01s. Full-map mean cross-check against skimage honors no-crop instruction; float64,11x11,sigma1.5,population,K1.01/K2.03,symmetric reflection. Bootstrap PCG64 and linear percentile CI fixed. Code/source: research_log/T021A_preparation.md, T021A_inputs/, T021A_outputs_verified.json, T021A_progress.md, ttie/ssim_transfer.py.
 
-Source of truth: research_log/T020E_analysis.md, T020E_delivery.json, T020E_progress.md, T020E_run/, T020E_origins/. All120 combined predictions frozen at15:25:50.045424Z, hash dcad1a6f62b0402fb989993bf19595331c925bfe06193b18596b6af2e3eaa0ce. Donor C OOF hash731258100e6a71ec439935a06349c7c40851e35842bee0d72df3a45de67e01e8.
+Original frozen images: /media/wenchang/F/wjq/TTIE/runs/20260912-191947-ttie-t014-stage-b/artifacts/audit/episodes/NNN/outputs.pt. Each has all controls/primary; exact clean reference can use identity image in same source's clean-condition episode (original unit gain/clamp). No new degrade/resize/render needed. First verify chosen outputs/receipt bindings before reading reference tensors. Prepare row triples and independent artifact-level SSIM replay after scope clarified. T014 sourcef861b2c6ffde6d017cb174ef8e00cb75701bf5e1.
 
-Research accepted D merge8a9919caf97ece9678258f632c3363c18abd3c52 and opened E at main12f86fe3. Next15-minute heartbeat: read this log, fetch main, inspect protocol/state/both mailboxes and PR40/relevant comments. Do not rerun completed E merely because inbox remains OPEN. No new necessity head, combined training, feature/architecture/threshold change, final model or fresh cohort without a new authorized task. Never use T020-A fresh per-row artifacts for tuning. Do not self-merge or edit research-owned files; quiet when unchanged.
+Storage migration T012/T013/T014 Stage-A completed separately15:49:39Z; paths now symlink toF and all hashes preserved. This Stage-B output root was already onF and is unaffected. Preserve other remote jobs. No current job from this task.
+
+Next heartbeat: read local handoff, fetch main, inspect protocol/state/both mailboxes and PR41 feedback. If baseline/pool newly specified, continue this existing task/PR; otherwise wait quietly, no duplicate recovery/report. Research-owned files untouched; no self-merge. No additional training, geometry repair or fresh cohorts.
