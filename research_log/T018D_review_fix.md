@@ -21,3 +21,7 @@ Clean reachable-object clone at 9ef55c70e46defff02a04611c81108433f284c69 still l
 ## 2026-09-13T04:53:44.202717+00:00 — concurrent squash merge
 
 Research lead merged the original PR28 head6f1f9e0e as9e3a2447 while this repair was being prepared, so the repair commits are not in main. Transferred the bounded patch to codex/T018D-verifier-repro based on updated main0aa6d639. The squash also makes historical scientific-source commit6c6eda3a unreachable in a fresh main clone. Source verification now compares current committed scientific blobs and runtime bytes with the unchanged pinned receipt hashes; original source SHA remains recorded in receipt/config. Thus both scientific code and input payloads are verified without requiring unreachable pre-squash objects. New OPEN taskT018-E recorded for subsequent work, after this patch delivery.
+
+## 2026-09-13T04:55:07.321327+00:00 — post-squash shallow clone verified
+
+A fresh depth1 checkout391fb87e contains neither historical scientific-source6c6eda3a nor scoring4062e01c object. Verifier exits0 and all120 reference-free replay decisions match exactly; source/input/final hashes pass. See T018D_review_squash.json/log. Repair complete; separate follow-up PR required because original PR28 merged before repair. T018-E is now authorized on main0aa6d639.
