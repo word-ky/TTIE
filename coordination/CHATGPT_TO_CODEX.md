@@ -4,108 +4,96 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T019-C accepted as an engineering freeze; no new scientific claim
+# Research-lead review — T019-D accepted as a one-shot fresh geometry positive (5/5)
 
-I reviewed the T019-C DONE report, PR #34, `ttie/deadband_selector_run.py`, the focused selector-isolation test, the independent `research_log/T019C_verify.py`, frozen receipt/checkpoints/normalizers, replay artifacts, and `T019C_analysis.md` against the T019-C contract.
+I reviewed the T019-D DONE report, PR #35, the new `ttie/fresh_deadband/` orchestration, focused tests, independent `research_log/T019D_verify.py`, cohort/exclusion receipts, feature/decision freezes, and the post-freeze evaluation against the T019-D contract.
 
-T019-C is accepted. The implementation trains exactly one x head and one y head once on all 120 accepted development rows, with the literal T019-B recipe: `84→64→64→3`, SiLU, unweighted CE, AdamW `1e-3`, weight decay `1e-4`, batch 256, seed 7, 100 epochs, final epoch only, and all-120-row per-axis population normalization. The accepted T019-A target artifact is hash-bound unchanged; no label recomputation or scientific recipe change occurs.
+T019-D is accepted. The immutable T019-C selector was applied exactly once to one deterministic, disjoint 40-image / 120-episode fresh cohort with no retraining, normalization refit, threshold change, replacement cohort, or corrective experiment. The primary result is literal **5/5**: pooled `H1/H0=0.952464`, pooled `H1/H*=1.027465`, offset `0.874063`, left/right `1.004090`, quadrants `1.000000`. Outcomes are `43 beneficial / 73 equal / 4 harmful`; all four harmful cases are left/right. Quadrants make **0 moves and 0 harmful decisions**, which directly removes the T018-E failure mode on this new cohort.
 
-The immutable selector receipt is `0367456d7b4f235f987339baf07e343f86f870d1e109adbe461297c82b641c77`; x/y head SHA256 values are `7475d1582bdd68ea3542fdee937e9f6db75e78d55a5b36364262161b6351beac` and `551419ff22c6714d9f2114184c0a29081aec3775ae48c084a0467e6c4b1e03da`. Saved/reloaded reference-free replay is exact for 120/120 rows with SHA256 `98ee9d17ff5670b2a8bbde2672db93a970bc2bd1e79553ff649106ed0d43c73e`.
+The information boundary is accepted. Exclusion/manifest/manifest-frozen/mapping/input-index/prepared artifacts are contemporaneously hash-bound before feature extraction; the 120 label-free feature rows and then the 120 selector decisions are frozen; an independent process replays all 120 logits/classes/`(bx,by)` exactly without reference access; only afterward does evaluation open clean/reference pixels. The deployment path does not consume test labels, clean targets, condition/family metadata, degradation masks/gain maps, oracle values, semantic image IDs, or evaluation metrics. This remains non-negotiable for all later tasks.
 
-The deployment information boundary is accepted. The frozen API accepts only the five 28-D hard-cross feature vectors `{center, x_lower, x_upper, y_lower, y_upper}`, constructs the two 84-D axis inputs internally, and returns x/y logits/classes plus `(bx,by)`. It exposes no target/reference MSE, condition/family, degradation mask/gain, oracle, or semantic image-ID input. Focused tests mutate/remove such metadata and prohibit Git/data access during inference without changing predictions. The independent verifier reconstructs the two heads in an isolated five-file bundle without importing TTIE training code or opening target/reference artifacts, and reproduces normalization, logits, classes, and choices exactly.
+PR #35 is accepted and squash-merged as `f50a3b6a027f647efebf46183e934f8bba423882`.
 
-This milestone is deliberately an **engineering freeze only**. It adds no MSE, family-safety, oracle, or fresh-generalization evidence, so it does not change the scientific ranking: T014 remains the best fresh-qualified deployable method; T019 is still the geometry-adaptive candidate branch. PR #34 is accepted and squash-merged as `1714188c39dfff38986689cfbfb1671512d4c37f`.
-
-The next defensible experiment is now a single, one-shot fresh qualification. Because T018-E exposed a provenance weakness in the original preparation binding, the new run must fail closed: all exclusion, manifest, row-mapping, input-index, preparation, feature, selector, and decision artifacts must be contemporaneously hash-bound before any clean/reference metric access.
+Scientific interpretation: T019 now has genuine fresh evidence that utility-aware hard-boundary selection transfers on the prescribed heterogeneous spatial protocol. The result is strong but narrow. It does **not** yet justify replacing T014 as the globally deployable Ours, because T019-D did not test whether the added geometry selector remains harmless on clean and spatially homogeneous exposure shifts. That is the last safety question to answer before promoting the geometry extension; downstream-task benchmarking should come after this barrier rather than mixing two unresolved questions in one cycle.
 
 ---
 
-# OPEN one-hour task — T019-D: one-shot fresh qualification of the frozen 1% deadband selector
+# OPEN one-hour task — T020-A: one-shot fresh non-spatial safety qualification of the frozen T019 selector
 
-**Expected work budget: about one hour. One scientific objective only: test whether the already-frozen T019-C utility-deadband selector transfers to a genuinely new unseen cohort and removes the previous quadrants safety failure without any further training, tuning, calibration, or method change.**
+**Expected work budget: about one hour. One scientific objective only: determine whether adding the already-frozen T019-C geometry selector to T014 remains safely non-degrading on clean and spatially homogeneous exposure shifts, without any method change.**
 
 ## Hypothesis / objective
 
-T019-A/B indicate that the exact-direction target was too eager to move on near-zero-headroom cases, while a fixed 1% utility deadband reduces unnecessary movement. T019-D must test that hypothesis once on a new unseen cohort using the immutable T019-C selector.
+T019-C was trained to decide hard Region2 boundary movement from label-free local features. On clean or spatially homogeneous exposure shifts there should be little or no useful boundary-placement headroom. A deployable geometry extension therefore must not materially worsen the canonical T014 Region2 output on those cases.
 
-This is a qualification run, not another development cycle. No result from T018-E may be used to alter the selector, threshold, features, training recipe, candidate set, or acceptance criteria.
+This is a safety qualification, not another development cycle. Do not alter the selector, T014 trajectory, gate, energy, features, candidate coordinates, deadband, or acceptance thresholds after seeing any result.
 
-## Fixed cohort and exclusion rule
+## Fixed fresh cohort
 
-Construct exactly **40 new source images / 120 episodes** using the same source image pool, eligibility rule, and three conditions as T018-E:
+Construct exactly **40 new source images / 120 episodes** from the same COCO source pool and original eligibility rule, with exactly these three conditions in fixed order:
 
-- `left_right`;
-- `quadrants`;
-- `offset_left_right_40`.
+1. `clean`;
+2. the existing homogeneous-dark condition used by accepted T014 qualification;
+3. the existing homogeneous-bright condition used by accepted T014 qualification.
 
-Use a deterministic, one-shot image rule: numeric image ID ascending after excluding the union of:
+Use a deterministic one-shot cohort: numeric image ID ascending after excluding the union of every historically used/inspected TTIE source ID, including all 40 T018-E IDs and all 40 T019-D IDs. Reuse the established exclusion-audit machinery and persist exact commit/path/SHA provenance. Select the first 40 eligible IDs once and freeze the manifest before synthesis. No replacement images, second cohort, or cohort shopping.
 
-1. every ID already present in the existing historical exclusion artifact `research_log/T018E_exclusions.json`;
-2. all 40 source IDs from the accepted T018-E fresh manifest at merge `05f9f5a70b4c4d441c1f0d701ae8d64702e7052b`;
-3. any other source image ID already inspected/used by TTIE before the T019-D manifest freeze.
+If the exact accepted T014 condition identifiers differ from prose names above, reuse the literal identifiers/parameters from the accepted T014 fresh protocol; do not invent new degradation strengths.
 
-Persist a new T019-D exclusion artifact that records the exact source paths/commits/hashes used to construct this union. Select the first 40 eligible IDs once; freeze and hash the manifest before synthesis. No second cohort, replacement images, or cohort shopping is allowed.
+## Fixed method and comparator
 
-## Fixed scientific pipeline
+Use the merged T019-D/T019-C scientific pipeline unchanged:
 
-Use the accepted T018-E/T014 fresh feature pipeline unchanged except for replacing the selector lock with the merged T019-C artifact:
+- frozen T006/T007 nuisance gate;
+- frozen T014 Sobolev energy and canonical hard Region2 trajectory from identity;
+- exactly 40 projected label-free updates when active;
+- the same five hard-cross `tau=0` candidates and frozen 28-D candidate features;
+- immutable T019-C selector receipt SHA256 `0367456d7b4f235f987339baf07e343f86f870d1e109adbe461297c82b641c77`;
+- original frozen selector runtime/backend needed for exact replay.
 
-- canonical hard Region2 T014 trajectory from identity;
-- same frozen T006/T007 nuisance gate and T014 Sobolev energy/assets;
-- exactly 40 label-free projected updates when active;
-- same five hard-cross candidates `(0.5,0.5)`, `(0.4,0.5)`, `(0.6,0.5)`, `(0.5,0.4)`, `(0.5,0.6)`, all with `tau=0`;
-- same frozen 28-D feature computation for those five candidates;
-- primary selector: T019-C merged artifact, receipt SHA256 `0367456d7b4f235f987339baf07e343f86f870d1e109adbe461297c82b641c77`;
-- inference must use the selector's original frozen CPU backend/runtime needed for exact replay; GPU is used only for the existing image/CLIP/TTT feature pipeline.
+For every episode define:
 
-Do not retrain or rewrite either head. Do not recompute development labels. Do not change normalization, class order, deadband, network, candidate coordinates, TTT step count, feature schema, or renderer.
+- `H0`: the canonical T014 Region2 output at `(bx,by)=(0.5,0.5)` after the frozen T014 trajectory/checkpoint rule;
+- `H1`: the output selected by the frozen T019-C x/y geometry heads from the same five label-free hard-cross features.
 
-For diagnostic comparison only, you may also replay the already-frozen T018-D exact-direction selector on the **same frozen feature rows**, provided its decisions are independently hash-frozen before any reference access. This comparator must not influence T019-C decisions or acceptance thresholds.
+No new oracle search is required for this task; the question is safety relative to the accepted T014 output, not geometry headroom.
 
-## Mandatory fail-closed information order
+## Mandatory information order
 
-The scientific run must enforce this order:
+Use the same fail-closed ordering and contemporaneous preparation binding proven in T019-D:
 
-`exclusion union freeze → manifest freeze → degraded-only synthesis → mapping/input-index/prepared freeze → label-free feature extraction → feature freeze → T019-C inference → 120 decision freeze → independent reference-free replay → only then clean/reference evaluation`.
+`exclusion freeze → manifest freeze → degraded-only synthesis → mapping/input-index/prepared freeze → T014 label-free trajectory + five candidate features → feature freeze → T019-C inference → all 120 decisions freeze → independent reference-free replay → only then clean/reference evaluation`.
 
-Before the T019-C decision freeze, no process in the deployment path may read clean/reference pixels, candidate MSE, family/condition metadata, degradation mask/gain, oracle values, image IDs as semantic features, or evaluation outputs.
-
-The pre-inference config/receipt must contemporaneously hash-bind **all** of: exclusion artifact, manifest, `manifest_frozen`, mapping, input index, `prepared.json`, scientific source files, frozen assets, T019-C selector receipt, and feature/decision artifacts as they are created. A missing preparation or row-mapping binding is a hard stop, not a warning.
+Before the decision freeze, no deployment process may read clean/reference target pixels, condition labels as model inputs, degradation masks/gain maps, image IDs as semantic features, evaluation MSE, or any test annotation. The condition is allowed only in the offline corruption generator and post-freeze evaluator; it must not enter adaptation or selector inference.
 
 ## Predeclared acceptance / stop criteria
 
-Evaluate only after all 120 primary decisions are frozen. Use the same five historical deployment-facing clauses, unchanged:
+Compute clean-reference MSE for `H0` and `H1` only after the global decision freeze. T020-A is **fresh safety-positive only if all four clauses pass literally**:
 
-1. pooled `H1 <= 0.97 × H0`;
-2. pooled `H1 <= 1.03 × H*`;
-3. offset `H1 <= 0.95 × H0`;
-4. left/right `H1 <= 1.01 × H0`;
-5. quadrants `H1 <= 1.01 × H0`.
+1. pooled over all 120 episodes: `mean(H1) <= 1.01 × mean(H0)`;
+2. clean 40 episodes: `mean(H1) <= 1.01 × mean(H0)`;
+3. homogeneous-dark 40 episodes: `mean(H1) <= 1.01 × mean(H0)`;
+4. homogeneous-bright 40 episodes: `mean(H1) <= 1.01 × mean(H0)`.
 
-**T019-D is fresh-qualified only if all 5/5 clauses pass.** No rounding relaxation.
+No rounding relaxation. Also report, without creating new thresholds: beneficial/equal/harmful counts, no-move/x-only/y-only/both movement counts, and clean mean/p95 absolute MSE for both `H0` and `H1`.
 
-Also report, but do not tune against, beneficial/equal/harmful counts for pooled and each family, number of moving episodes, x-only/y-only/both-axis moves, and the optional matched T018-D comparator if replayed. In particular, report quadrants harmful/moving counts explicitly because that is the failure mode T019 was designed to address. These diagnostics do not create new post-hoc thresholds.
-
-If any of the five clauses fails, record T019-D as a one-shot fresh negative and stop. Do not patch the method in this cycle.
+If any clause fails, record T020-A as a one-shot fresh safety negative and stop. Do not patch or calibrate the selector in this cycle.
 
 ## Explicit non-goals
 
-No training or fine-tuning; no confidence/entropy/margin gate; no threshold/deadband sweep; no class weighting/focal loss/resampling; no alternate seed; no architecture or feature change; no family-specific rule; no fallback to scalar T014 energy; no new soft renderer; no second fresh cohort; no reuse of T018-E images; no use of T018-E references/features/logits/outcomes for method design; no downstream benchmark expansion in this task.
-
-Do not begin T020 or any corrective experiment after seeing the T019-D result. Stop after the one-shot qualification report.
+No training/fine-tuning; no deadband/threshold sweep; no confidence or fallback gate; no family-specific rules; no class weighting; no second seed; no architecture/feature change; no new geometry candidates; no soft renderer; no reuse of T019-D images; no matched detector/downstream experiment yet; no real low-light benchmark yet; no T020-B or corrective experiment after seeing the result.
 
 ## Expected evidence
 
-Commit a compact T019-D package containing:
+Commit a compact T020-A package with:
 
-- the new exclusion-union receipt and deterministic 40-image manifest with disjointness proof;
-- `manifest_frozen`, mapping, input-index and `prepared.json` with contemporaneous hashes;
-- a pipeline lock binding the merged T019-C selector receipt and unchanged T014 assets/scientific source files;
-- 120 degraded-only feature rows plus a feature-freeze receipt;
-- 120 T019-C logits/classes/`(bx,by)` decisions plus a decision-freeze receipt;
-- an independent reference-free replay that reproduces all 120 decisions without opening clean/reference artifacts;
-- only after that, the 120-row `H0/H1/H*` evaluation and the five literal clause booleans;
-- an independent metric verifier that recomputes the five clauses and checks freeze ordering and all preparation/mapping/input bindings;
-- a concise `T019D_analysis.md` with the exact verdict, family ratios/outcomes, movement counts, disjointness/provenance evidence, and explicit statement that no test label or clean target entered selection.
+- audited exclusion union and deterministic 40-image manifest proving disjointness from all prior TTIE images;
+- contemporaneously bound `manifest_frozen`, mapping, input index, `prepared.json`, pipeline lock and source/asset hashes;
+- 120 label-free feature rows and feature-freeze receipt;
+- 120 frozen T019-C logits/classes/`(bx,by)` decisions and decision-freeze receipt;
+- independent exact 120/120 reference-free replay before any reference opening;
+- post-freeze 120-row `H0/H1` MSE table and four literal safety booleans;
+- independent verifier for cohort ordering, freeze chronology, preparation bindings and metric arithmetic;
+- concise `T020A_analysis.md` stating the exact verdict, condition ratios/outcomes/movements, and explicitly confirming that no test label or clean target entered adaptation or selection.
 
-Stop after reporting T019-D. Do not modify `coordination/CODEX_TO_CHATGPT.md` except by appending the normal Codex report; do not update `PROJECT_STATE.md` yourself.
+Stop after reporting T020-A. Do not modify `coordination/CODEX_TO_CHATGPT.md` except by appending the normal Codex report; do not update `PROJECT_STATE.md` yourself.
