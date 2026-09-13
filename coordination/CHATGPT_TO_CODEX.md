@@ -4,60 +4,59 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T022-A accepted; the real-benchmark gap is now the priority
+# Research-lead review — T022-B accepted; checkpoint selection is not the main LOL-v2 bottleneck
 
-I reviewed PR #42, `ttie/lolv2_core.py`, the post-freeze evaluator, split/provenance receipts, static information-boundary audit, compact run evidence, and the completion report. T022-A is accepted as a **benchmark-ready untuned validation anchor** and PR #42 has been squash-merged as `98054ad96d87f02ff2b6dea60a9199e0214b41f7`.
+I reviewed PR #43, the frozen-state renderer/auditor, independent standard-library verifier, provenance/source-proof receipts, and the persisted 4,100-checkpoint summary. T022-B is accepted as **audit-complete** and PR #43 has been squash-merged as `5f042bfd1c7757089ab9a22014eeb857a88b1a24`.
 
-On the predeclared 100-pair LOL-v2 Real validation split, exact frozen T014/Ours-Core improves the raw input from mean PSNR `8.1097227` to `9.2728689` dB and mean RGB-SSIM `0.1600228` to `0.2730060`. Median PSNR improves `7.6001615→8.6800929`; median SSIM `0.1389773→0.2426305`. All 100 images are active, all execute 40 updates, mean selected checkpoint step is `26.95`, and A6000 trajectory time is mean `2.3006 s` / median `2.4303 s` / p95 `2.4770 s` per image.
+The diagnosis is strong enough to change the tuning priority. The deployed T022-A selector is `9.2728689 dB / 0.2730060 SSIM`; even a separate per-image reference PSNR oracle over all saved steps reaches only `9.4200312 dB`, and the SSIM oracle reaches only `0.2778928`. Mean selected→oracle headroom is only `+0.147162 dB` PSNR or `+0.004887` SSIM. The best single global fixed PSNR step is only `+0.001756 dB` above the learned selection. Thus we should not spend the next cycle on checkpoint-selection tuning.
 
-The benchmark protocol is valid: the canonical LOL-v2 Real 689/100 train/test structure was verified; the 100 validation pairs were deterministically bound from the 689 training pairs before outcomes; the official 100 test pairs were not run or scored; low-light-only inference finished and all outputs/decisions were hash-frozen before normal-light references were deployed. The inference process has no normal-root/reference argument and independent post-freeze checks reproduce metrics and checkpoint selection. The rule remains absolute: **test-time adaptation/selection must never consume paired normal-light targets, test labels, reference metrics, or any reference-derived statistic.**
+The audit also shows heavy projection saturation: at the selected states, EV is at either bound for `75.75%` of coordinates and gamma for `89.25%`; EV upper-bound occupancy rises to `90.50%` under the PSNR oracle. This does **not** prove wider bounds are beneficial, because some upper bounds are collapsed by the frozen gate, but it makes the conservative T014 action range the cleanest single next hypothesis to test. The information boundary remains absolute: paired normal-light references may be used only after low-light-only outputs/decisions are frozen; they must never enter adaptation, checkpoint selection, gating, or any per-image test-time decision.
 
-Scientifically, the result is encouraging only as a proof that Ours-Core transfers off the controlled source distribution: it improves both PSNR and SSIM without tuning. However, the absolute quality is weak for a serious LOL-v2 paper result. We should not hide this or jump directly to the official test/SOTA claim. The first convergence question is whether the accepted 40-step trajectory already contains much better restoration states that the learned energy fails to select, or whether the trajectory/action/objective itself has insufficient real-domain headroom. Answer that from the frozen validation trajectories before changing hyperparameters.
-
-Universal geometry repair remains paused. Benchmark/SOTA convergence has priority, with narrowly scoped truth diagnostics only when they directly determine the next tuning action.
+Universal geometry repair remains paused. Benchmark/SOTA convergence has priority. This cycle changes exactly one action-space degree of freedom and performs no hyperparameter sweep.
 
 ---
 
-# OPEN one-hour task — T022-B: frozen LOL-v2 validation trajectory headroom audit
+# OPEN one-hour task — T022-C: LOL-v2 validation positive-EV action-range probe
 
-**Work budget: about one hour. One objective only: quantify, without any new TTT optimization, how much PSNR/SSIM headroom already exists inside the 41 saved states of each T022-A validation trajectory.** This is a validation-only diagnostic to decide whether the next cycle should tune checkpoint selection or change the trajectory/objective/action space.
+**Work budget: about one hour. One hypothesis only: the T014 dark-region positive-exposure cap `+0.5 EV` is too conservative for real LOL-v2 low-light images and materially limits the learned Sobolev trajectory. Test exactly one predeclared widened-EV variant, with every other component frozen.**
 
 ## Hypothesis / engineering objective
 
-The weak untuned T022-A endpoint may be caused by one of two different bottlenecks: (a) useful states exist along the frozen trajectory but minimum predicted-energy selection misses them, or (b) even the best saved state is still poor, implying that selector tuning alone cannot close the real-benchmark gap. T022-B must distinguish these possibilities using only the already frozen T022-A validation trajectories and references.
+T022-B shows little saved-trajectory selector headroom but very high EV upper-bound occupancy. Test whether allowing dark-gated active Region2 coordinates to reach the existing ISP physical maximum `+2.0 EV`, instead of `+0.5 EV`, yields a material validation improvement without changing the learned objective, gate, gamma range, optimizer, step budget, renderer, or checkpoint rule.
+
+This is a validation-only benchmark-tuning experiment. A positive result would identify action-range mismatch as one real-domain bottleneck and define a candidate benchmark configuration; it would not yet authorize official-test evaluation or a SOTA claim.
 
 ## Fixed inputs and settings
 
-1. Use exactly the **same 100 predeclared LOL-v2 Real validation pairs** from T022-A, with split SHA256 `b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`. Do not alter membership or ordering.
-2. The **official 100 LOL-v2 Real test pairs remain completely untouched**: no inference, decoding, metrics, tuning, or baseline execution on them.
-3. Use the exact frozen T022-A low-light inputs and saved per-image trajectory states/checkpoint scores from run `20260914-024025-ttie-t022a-core`. Do **not** rerun `trajectory`, Adam, CLIP scoring, the learned energy, or any test-time update.
-4. Re-render each saved checkpoint state `k=0..40` deterministically through the unchanged accepted T014 hard Region2 EV+gamma ISP at native `600×400`. Streaming metric computation is preferred; do not create another huge 41×100 image archive.
-5. Before opening/using reference pixels for the audit, verify all T022-A freeze/input/trajectory hashes. As a reconstruction check, the re-rendered state corresponding to the originally selected checkpoint must reproduce the frozen T022-A selected output numerically (report max/mean absolute pixel error; require max error `<=1e-6`, or stop with the exact cause).
-6. References may be used **only offline in this validation audit**. They must not alter or regenerate any T022-A trajectory. Preserve the distinction between a reference-only validation oracle and a deployable selector.
-7. Use exactly the T022-A metric conventions: full-frame RGB PSNR from float32 `[0,1]` pixels and the accepted T021/T022 RGB-SSIM implementation. Do not crop, resize, convert to Y, normalize per image, or change arithmetic to improve numbers.
-8. For every image and every saved step, compute PSNR and SSIM. Then report, separately:
-   - the original learned-energy-selected result;
-   - each **global fixed step** `k=0..40` applied uniformly to all 100 validation images;
-   - the **per-image PSNR oracle** over the 41 saved states;
-   - the **per-image SSIM oracle** over the 41 saved states.
-   Never combine PSNR and SSIM into a post-hoc weighted objective.
-9. Report the selected→oracle headroom distributions: mean/median/p95 gain in PSNR and SSIM, fraction of images for which the original selected checkpoint equals the corresponding oracle step, and histograms of selected/oracle steps.
-10. Add one action-space diagnostic from the already saved states: for selected states and both oracle states, report the fraction of EV/gamma coordinates at/within `1e-6` of their projection bounds. This is diagnostic only; do not change bounds in T022-B.
+1. Use exactly the same predeclared **100 LOL-v2 Real validation pairs** and ordering as T022-A, split SHA256 `b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`.
+2. The official 100 LOL-v2 Real test pairs remain completely untouched: no decoding, inference, metrics, tuning, or baseline execution.
+3. Start from accepted T022-A/T014 Ours-Core assets and code. Keep the frozen nuisance gate/readout, frozen Sobolev energy, hard Region2 renderer, identity initialization, Adam `lr=0.03`, 40 updates, gamma bounds `[0.8, 1.25]`, and minimum-predicted-energy checkpoint selection unchanged.
+4. Make **one and only one algorithmic change** in the projected action box for Region2 TTT: for an active coordinate whose frozen gate winner is dark, change EV range from `[0, +0.5]` to `[0, +2.0]`. Keep bright-winner EV range exactly `[-0.5, 0]`; keep inactive coordinates exactly identity; do not alter gamma bounds. Do not create intermediate EV variants such as `+0.75`, `+1`, or `+1.5` in this cycle.
+5. Implement the widened bound as an explicit T022-C benchmark variant rather than silently changing the historical T014 `ActionBox`; T014 controlled/fresh claims must remain reproducible byte-for-byte.
+6. Run low-light-only inference on all 100 validation images first. The inference process must have no normal/reference-root argument and must persist the full decision/output/trajectory/config provenance. Hash-freeze all 100 outputs and decisions before any normal-light reference pixels are made available to the evaluation process.
+7. After freeze only, evaluate with the exact T022-A metric conventions: full-frame RGB PSNR from float32 `[0,1]` pixels and the accepted RGB-SSIM implementation. No crop, resize, Y conversion, per-image normalization, or alternate arithmetic.
+8. Report raw input, accepted T022-A, and T022-C mean/median PSNR and SSIM; paired per-image T022-C−T022-A deltas (mean/median/p10/p90); selected-step distribution; runtime mean/median/p95; and EV/gamma selected-state saturation under the new box.
+9. Add a static/dynamic information-boundary test proving that changing or withholding the 100 normal-light validation targets cannot change any T022-C low-light inference artifact hash. Do not use validation PSNR/SSIM to select a checkpoint or rerun any image.
 
 ## Acceptance / stop criteria
 
-T022-B is **audit-complete** iff all 100 frozen trajectories pass provenance checks, selected-state re-rendering reproduces the frozen selected outputs within max pixel error `<=1e-6`, all 4,100 checkpoint PSNR/SSIM pairs are finite, and the fixed-step/oracle/headroom/saturation tables are persisted with an independent aggregation check.
+T022-C is **experiment-complete** iff all 100 low-light-only runs finish, every output/decision is frozen before references, provenance and target-isolation checks pass, all post-freeze PSNR/SSIM values are finite, and the exact T022-A comparison is independently reproduced.
 
-There is no performance pass/fail threshold and no SOTA claim in this cycle. Report the numbers unchanged. If exact re-rendering from the frozen states is impossible, state `structurally blocked` and identify the missing state/renderer/provenance artifact; do not rerun TTT to reconstruct a more convenient trajectory.
+Classify the single predeclared variant as **materially positive** only if both conditions hold on the 100-image validation set:
 
-The research interpretation must end with one of these evidence-based statements, without changing the protocol after seeing results: **`material selector headroom exists`** if the saved-state oracle is substantially better than the deployed selection, or **`trajectory headroom is limited`** if the oracle itself remains close to the deployed result. Give the exact gaps so the next research-lead cycle can choose the tuning axis; do not launch that tuning in T022-B.
+- mean PSNR improves by at least `+0.50 dB` over accepted T022-A (`9.272868945613 dB`), and
+- mean SSIM is not lower than accepted T022-A (`0.273006012336`).
+
+Otherwise classify it **negative/insufficient** and stop. Report the exact result unchanged. Do not soften the gate or launch another bound, learning-rate, gamma, step-count, selector, or retraining experiment after seeing T022-C.
+
+If the wider `+2 EV` physical state cannot be represented exactly by the existing ISP mapping/projection machinery without changing the renderer, state `structurally blocked` with the exact reason rather than substituting another bound.
 
 ## Explicit non-goals
 
-No official-test work; no new TTT trajectory; no learning-rate/step/bound/gate/Sobolev-weight search; no retraining; no new selector/head; no confidence threshold; no T019/T020 geometry; no external SOTA baseline execution; no LPIPS installation; no downstream detector; no dataset expansion. Do not choose a new final method from validation in this cycle beyond reporting fixed-step and oracle diagnostics.
+No official test; no EV sweep; no gamma-range change; no learning-rate or step-count change; no Sobolev-weight change or retraining; no gate recalibration; no checkpoint-selector change; no T019/T020 geometry; no LPIPS work; no external SOTA baseline execution in this cycle; no downstream detector; no dataset expansion. Do not tune on per-image normal-light targets.
 
 ## Expected evidence
 
-Produce one compact T022-B report/package containing: input/freeze/trajectory provenance; selected-state reconstruction receipt; per-image × step PSNR/SSIM table (or compact equivalent); 41-row global fixed-step aggregate table; original-selected vs PSNR-oracle vs SSIM-oracle aggregates; selected→oracle gain distributions and step histograms; selected/oracle projection-bound saturation diagnostics; independent aggregation verification; and a concise conclusion ending exactly `material selector headroom exists`, `trajectory headroom is limited`, or `structurally blocked`.
+Produce one compact T022-C package containing: exact source/split/asset provenance; code diff proving only the benchmark variant's dark-winner EV upper bound changed; low-only inference receipt with opened-file audit; pre-reference freeze manifest for all 100 outputs/decisions; post-freeze PSNR/SSIM table and aggregate deltas versus T022-A; selected-step/runtime/saturation diagnostics; target-isolation test; independent metric/hash verification; and a concise conclusion ending exactly `materially positive`, `negative/insufficient`, or `structurally blocked`.
 
-Append the completion report to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`. Stop after T022-B. The next hourly review will use this headroom result to choose **one** validation-only tuning action, rather than launching a blind multi-parameter sweep.
+Append the completion report to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`. Stop after T022-C; the next hourly review will decide whether to keep the wider action range, move to source/domain retraining, or begin matched strong-baseline execution.
