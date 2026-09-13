@@ -1,0 +1,375 @@
+{
+  "task": "T018-C",
+  "status": "DONE",
+  "delivered_utc": "2026-09-13T03:12:56.398369+00:00",
+  "source_sha": "8fc63deeb825c87257c46546bc34e2ab3b4bffd8",
+  "evidence_sha": "68f4333bf582258e3daf27d4f7d98ba482693d8b",
+  "main_done_sha": "33197ebaf7247d13398e75747b2ba0667cee197f",
+  "branch": "codex/T018C-direct-direction-oof",
+  "pr": "https://github.com/word-ky/TTIE/pull/27",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": null,
+  "github_mergeable_state": "unknown",
+  "local_merge_tree_passed": true,
+  "recovery": {
+    "task": "T018-C",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T018C_recovery.tar.gz",
+    "bytes": 841546,
+    "sha256": "bb9ccfe855f692e1e37f407e4986a1e8bfaf13c692eac3abe72f01bee041df77",
+    "entries": 106,
+    "analysis_sha256": "16a9eb9f90cedf24971e58f8d94cb70987afb5429fed2b70d11e12c653d7ce54",
+    "main_sha": "33197ebaf7247d13398e75747b2ba0667cee197f"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "bb9ccfe855f692e1e37f407e4986a1e8bfaf13c692eac3abe72f01bee041df77",
+      "analysis_sha256": "16a9eb9f90cedf24971e58f8d94cb70987afb5429fed2b70d11e12c653d7ce54",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "bb9ccfe855f692e1e37f407e4986a1e8bfaf13c692eac3abe72f01bee041df77",
+      "analysis_sha256": "16a9eb9f90cedf24971e58f8d94cb70987afb5429fed2b70d11e12c653d7ce54",
+      "verified": true
+    }
+  ],
+  "summary": {
+    "clauses": {
+      "pooled_3pct_better_H0": true,
+      "pooled_within_3pct_oracle": true,
+      "offset_5pct_better_H0": true,
+      "left_right_safety": true,
+      "quadrants_safety": true
+    },
+    "passed": 5,
+    "interpretation": "direct_direction_probe_viable",
+    "label_free_decision": true,
+    "development_only": true,
+    "fresh_qualified": false
+  },
+  "groups": {
+    "spatial_pool": {
+      "count": 120,
+      "mse": {
+        "H0": 0.03504357374816512,
+        "Hselected": 0.03316313575875635,
+        "H_star": 0.032563564518932255
+      },
+      "ratios": {
+        "selected_over_H0": 0.9463400050770442,
+        "selected_over_H_star": 1.0184123344198242
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 105,
+          "fraction": 0.875
+        },
+        "y_match": {
+          "count": 98,
+          "fraction": 0.8166666666666667
+        },
+        "joint_match": {
+          "count": 87,
+          "fraction": 0.725
+        }
+      },
+      "movements": {
+        "no_move": 52,
+        "x_only": 2,
+        "y_only": 39,
+        "both": 27
+      },
+      "gains": {
+        "beneficial": 57,
+        "equal": 52,
+        "harmful": 11
+      },
+      "confusion_matrices": {
+        "x": [
+          [
+            80,
+            4,
+            0
+          ],
+          [
+            9,
+            25,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ]
+        ],
+        "y": [
+          [
+            52,
+            3,
+            2
+          ],
+          [
+            2,
+            32,
+            3
+          ],
+          [
+            0,
+            12,
+            14
+          ]
+        ]
+      }
+    },
+    "left_right": {
+      "count": 40,
+      "mse": {
+        "H0": 0.03339701551012695,
+        "Hselected": 0.03285296056419611,
+        "H_star": 0.032170985778793695
+      },
+      "ratios": {
+        "selected_over_H0": 0.9837094741065749,
+        "selected_over_H_star": 1.021198442288702
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 36,
+          "fraction": 0.9
+        },
+        "y_match": {
+          "count": 29,
+          "fraction": 0.725
+        },
+        "joint_match": {
+          "count": 28,
+          "fraction": 0.7
+        }
+      },
+      "movements": {
+        "no_move": 5,
+        "x_only": 0,
+        "y_only": 31,
+        "both": 4
+      },
+      "gains": {
+        "beneficial": 24,
+        "equal": 5,
+        "harmful": 11
+      },
+      "confusion_matrices": {
+        "x": [
+          [
+            36,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "y": [
+          [
+            5,
+            1,
+            1
+          ],
+          [
+            0,
+            18,
+            2
+          ],
+          [
+            0,
+            7,
+            6
+          ]
+        ]
+      }
+    },
+    "quadrants": {
+      "count": 40,
+      "mse": {
+        "H0": 0.030983849649783225,
+        "Hselected": 0.030983849649783225,
+        "H_star": 0.030982188356574625
+      },
+      "ratios": {
+        "selected_over_H0": 1.0,
+        "selected_over_H_star": 1.000053620912425
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 39,
+          "fraction": 0.975
+        },
+        "y_match": {
+          "count": 40,
+          "fraction": 1
+        },
+        "joint_match": {
+          "count": 39,
+          "fraction": 0.975
+        }
+      },
+      "movements": {
+        "no_move": 40,
+        "x_only": 0,
+        "y_only": 0,
+        "both": 0
+      },
+      "gains": {
+        "beneficial": 0,
+        "equal": 40,
+        "harmful": 0
+      },
+      "confusion_matrices": {
+        "x": [
+          [
+            39,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "y": [
+          [
+            40,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "offset_left_right_40": {
+      "count": 40,
+      "mse": {
+        "H0": 0.04074985608458519,
+        "Hselected": 0.035652597062289716,
+        "H_star": 0.03453751942142844
+      },
+      "ratios": {
+        "selected_over_H0": 0.874913447259421,
+        "selected_over_H_star": 1.0322859794085106
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 30,
+          "fraction": 0.75
+        },
+        "y_match": {
+          "count": 29,
+          "fraction": 0.725
+        },
+        "joint_match": {
+          "count": 20,
+          "fraction": 0.5
+        }
+      },
+      "movements": {
+        "no_move": 7,
+        "x_only": 2,
+        "y_only": 8,
+        "both": 23
+      },
+      "gains": {
+        "beneficial": 33,
+        "equal": 7,
+        "harmful": 0
+      },
+      "confusion_matrices": {
+        "x": [
+          [
+            5,
+            0,
+            0
+          ],
+          [
+            9,
+            25,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "y": [
+          [
+            7,
+            2,
+            1
+          ],
+          [
+            2,
+            14,
+            1
+          ],
+          [
+            0,
+            5,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  "decision_receipt": {
+    "finalized_utc": "2026-09-13T03:04:44.810894+00:00",
+    "decisions_sha256": "03a97e0c3fe34925c4de0aa878393766cc7203dab8315128ea49c14568c22893",
+    "config_sha256": "19a437820477edb465d9afa3da79a2642331bc0bc6016d018bd840eaa6ff8de6",
+    "folds_sha256": "8fdb03cdac63af5d6e58b557c96679bc15c1e2e921e525916eb9d21ad22cd2c1",
+    "fold_frozen_hashes": {
+      "0": "7446f445f68b0f7f14b858b87a5ad7c70a0b39c250ac6c9fa74d810d7b592b0f",
+      "1": "6dc6605e6d20f6aae240d2d47e378f45d02d3c89349410c52552e1088e95b55f",
+      "2": "f98e16591396a0f1330deae96eaa8cfe3be4489c391ac7545b2977f96e36b010",
+      "3": "7517eff593d73af30ef3ef81037fc16bd69d3d3dbd9f495fca15e26fc20a7530",
+      "4": "d40779d91bfa3d7857fa844b710f261d883ca7bbaa2fc52b4693dcb67a521501"
+    },
+    "head_count": 10,
+    "heldout_reference_evaluated": false
+  },
+  "focused_tests_passed": 8,
+  "independent_verification_passed": true,
+  "formal_head_count": 10,
+  "formal_training_runs": 1,
+  "formal_evaluation_runs": 1,
+  "development_only": true,
+  "fresh_qualified": false,
+  "formal_failures": [],
+  "scientific_recipe_deviations": [],
+  "verification_note": "Initial historical metadata-dictionary comparison included a new commit field; original path/hash matched. Corrected only verifier comparison; no formal rerun or source/results change. Failed log preserved.",
+  "identity_check_timing": "Score/schema/ordinal/fold provenance before fitting; exact reference-table identity/corner/actual-ID mapping after OOF freeze before metrics.",
+  "heartbeat": "Existing ttie-chatgpt every 15 minutes; no change means quiet; completed OPEN tasks not repeated.",
+  "next_action": "Stop after T018-C and await research review/new task; no all-ID training, gating, feature redesign, larger model or fresh qualification."
+}
