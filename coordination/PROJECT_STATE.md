@@ -18,17 +18,19 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T021-A is a positive frozen-fresh structural-metric transfer result for the central T014 causal comparison.** On the exact accepted T014 Stage-B frozen outputs, with `H0 = region2_ttt_energy_value_only` and `H1 = region2_ttt_energy_sobolev` bound before scoring, the 200 primary rows / 40 source images give mean paired RGB-SSIM delta `+0.0225770368`, median `+0.0075782518`, and source-image-cluster bootstrap 95% CI `[0.0175655974, 0.0281076831]`. The lower bound is strictly positive. This supports transfer of the Sobolev optimization-field advantage beyond MSE, while the small clean-condition decrease remains visible and no external SOTA claim is made.
 
-**T022-A is now the first real paired-benchmark anchor and reveals a major benchmark-convergence gap.** On a deterministic 100-pair validation split drawn from the 689 LOL-v2 Real training pairs, the exact untuned T014/Ours-Core improves raw mean PSNR `8.1097227→9.2728689` dB and mean RGB-SSIM `0.1600228→0.2730060`; medians improve PSNR `7.6001615→8.6800929` and SSIM `0.1389773→0.2426305`. All 100 images are active and execute 40 updates; mean selected checkpoint step is `26.95`. A6000 trajectory runtime is mean `2.3006 s`, median `2.4303 s`, p95 `2.4770 s` per image. The canonical 689/100 train/test structure and pairing were verified, the validation split was filename-hash-bound before outcomes, all low-light-only decisions/outputs were frozen before normal-light deployment, and the official 100 test pairs remain untouched. PR #42 was accepted and squash-merged as `98054ad96d87f02ff2b6dea60a9199e0214b41f7`.
+**T022-A is the first real paired-benchmark anchor and reveals a major benchmark-convergence gap.** On a deterministic 100-pair validation split drawn from the 689 LOL-v2 Real training pairs, exact untuned T014/Ours-Core improves raw mean PSNR `8.1097227→9.2728689` dB and mean RGB-SSIM `0.1600228→0.2730060`; medians improve PSNR `7.6001615→8.6800929` and SSIM `0.1389773→0.2426305`. All 100 images are active and execute 40 updates; mean selected checkpoint step is `26.95`. A6000 trajectory runtime is mean `2.3006 s`, median `2.4303 s`, p95 `2.4770 s` per image. The official 100 LOL-v2 Real test pairs remain untouched.
 
-T022-A is scientifically encouraging as a transfer sanity check because both PSNR and SSIM improve with zero LOL-v2 tuning, but its **absolute restoration quality is weak for a competitive low-light enhancement benchmark**. Therefore the current priority is not an official-test run or a SOTA claim. The immediate question is whether much better validation states already exist inside the frozen 40-step trajectories and are missed by learned-energy checkpoint selection, or whether the trajectory/objective/action space itself lacks real-domain headroom.
+**T022-B is now a completed validation-only trajectory-headroom diagnosis: checkpoint selection is not the primary cause of the weak LOL-v2 endpoint.** Exact frozen-state reconstruction gives zero pixel error and all 4,100 saved-state PSNR/SSIM evaluations are finite. The deployed selection is `9.2728689 dB / 0.2730060 SSIM`; the per-image PSNR oracle over steps `0..40` reaches only `9.4200312 dB`, a mean gain of `+0.1471622 dB`, while the SSIM oracle reaches only `0.2778928`, a mean gain of `+0.0048868`. The best global mean-PSNR fixed step is step 35 at `9.2746249 dB`, only `+0.0017560 dB` above learned selection. Thus selector-only tuning cannot plausibly close the real-benchmark gap.
 
-The project is now operating on two lines: (1) narrowly scoped truth/mechanism work only when it directly determines a tuning decision, and (2) higher-priority benchmark/SOTA convergence with validation-only tuning, strong external baselines, and strict one-shot final-test isolation.
+T022-B also exposes substantial action-box saturation without proving causality: at selected states, EV coordinates are at either projection bound `75.75%` of the time and gamma coordinates `89.25%`; under the PSNR oracle, EV either-bound saturation is `90.50%`. Because collapsed gate-consistent bounds contribute to these rates, saturation alone is not evidence that widening bounds will help. It does, however, motivate one controlled action-range probe before retraining or multi-parameter tuning.
+
+The project is operating on two lines: (1) narrowly scoped truth/mechanism work only when it directly determines a tuning decision, and (2) higher-priority benchmark/SOTA convergence with validation-only tuning, strong external baselines, and strict one-shot final-test isolation.
 
 ## Best current methods
 
 ### Broad fresh-qualified Ours-Core
 
-**T014 Sobolev Region2 TTT** — broad deployable image-enhancement method under the accepted controlled/fresh protocol; currently the benchmark method being transferred to LOL-v2 Real.
+**T014 Sobolev Region2 TTT** — broad deployable image-enhancement method under the accepted controlled/fresh protocol; currently the benchmark method being transferred and tuned on LOL-v2 Real validation.
 
 ### Heterogeneous-only fresh-qualified extension
 
@@ -44,7 +46,8 @@ The project is now operating on two lines: (1) narrowly scoped truth/mechanism w
 - T018–T019: utility-aware hard geometry is viable and fresh-qualified for heterogeneous shifts.
 - T020: the adaptive-geometry extension is not universally safe; simple direction-classifier repairs do not close the gap.
 - **T021-A:** Sobolev beats the matched value-only control by mean RGB-SSIM `+0.02258`, with a 95% source-image-cluster CI wholly above zero on frozen fresh outputs.
-- **T022-A:** exact untuned Ours-Core transfers to LOL-v2 Real validation with `+1.1631 dB` mean PSNR and `+0.1130` mean SSIM over raw input, but the absolute benchmark quality remains weak and now becomes the main convergence problem.
+- **T022-A:** exact untuned Ours-Core transfers to LOL-v2 Real validation with `+1.1631 dB` mean PSNR and `+0.1130` mean SSIM over raw input, but absolute benchmark quality is weak.
+- **T022-B:** frozen-trajectory PSNR/SSIM oracle headroom is small (`+0.1472 dB` / `+0.00489` mean), ruling out checkpoint selection as the main convergence bottleneck; projection saturation is high and becomes the next controlled action-space hypothesis.
 
 ## Information-boundary rules
 
@@ -53,16 +56,16 @@ The project is now operating on two lines: (1) narrowly scoped truth/mechanism w
 - Held-out/fresh/test decisions and enhanced outputs must be finalized and persisted before their reference metrics, labels, families, or oracles are attached.
 - Inspected fresh/test IDs are permanently excluded from corrective tuning unless the protocol explicitly designated them as development/validation before outcomes were seen.
 - Final benchmark test sets must remain isolated from hyperparameter/model selection; tuning belongs on predeclared train/validation data only.
-- The 100 official LOL-v2 Real test pairs are still isolated after T022-A and must remain untouched until a final method/configuration is frozen.
+- The 100 official LOL-v2 Real test pairs are still isolated after T022-A/B and must remain untouched until a final method/configuration is frozen.
 - Fresh/test runs must fail closed on source/provenance/preparation binding mismatches.
 
 ## Interpretation
 
 The main paper-level method story remains image-enhancement-first. T014 establishes the **optimization-field principle**: a reference-free test-time energy is useful when its derivatives are restoration-useful, not merely when its scalar values fit a reference loss. T021-A shows that this matched Sobolev-over-value-only advantage transfers from MSE to SSIM on frozen fresh outputs. T018–T019 remain a secondary utility-aware geometry principle for heterogeneous spatial degradation.
 
-The project has now entered benchmark convergence. T022-A is the first honest real paired benchmark anchor: untuned Ours-Core helps substantially relative to the dark input, but the resulting `9.27 dB / 0.273 SSIM` validation anchor is not yet a competitive endpoint. Before spending validation budget on learning rate, bounds, step count, checkpointing, or retraining, T022-B will audit the already frozen trajectory to separate checkpoint-selection error from trajectory/action-space limitation. That diagnosis will determine the single tuning axis for the following cycle.
+The project has entered benchmark convergence. T022-A proves untuned real-domain transfer but also shows a large absolute quality deficit. T022-B now removes checkpoint selection as the leading explanation: even reference oracles over the existing 41 saved states remain near the deployed result. The next test therefore changes one trajectory/action-space factor only. Because the original dark-winner Region2 EV cap is `+0.5 EV` and EV upper saturation is common, T022-C will test a single fixed widening to the existing ISP physical maximum `+2.0 EV`, while keeping the frozen Sobolev energy, gate, gamma bounds, optimizer, 40-step budget, renderer, and learned-energy checkpoint rule unchanged. This is a validation-only tuning probe, not a final-test or SOTA claim.
 
-Downstream detection is not required for the current enhancement-focused paper plan. The remaining paper-level gaps are real-benchmark performance, strong baseline/SOTA comparison under matched protocol, LPIPS/perceptual evidence where feasible, and efficiency/quality tradeoffs.
+Downstream detection is not required for the enhancement-focused paper plan. Remaining paper-level gaps are competitive real-benchmark performance, strong matched baseline/SOTA comparison, LPIPS/perceptual evidence where feasible, and efficiency/quality tradeoffs.
 
 ## Milestones
 
@@ -73,10 +76,11 @@ Downstream detection is not required for the current enhancement-focused paper p
 - **T020-A–E: COMPLETED — universal geometry safety boundary diagnosed; simple repair route paused.**
 - **T021-A: COMPLETED — frozen fresh RGB-SSIM metric-transfer positive.**
 - **T022-A: COMPLETED — leakage-safe untuned LOL-v2 Real validation anchor; improves raw input but absolute benchmark quality is weak.**
-- **T022-B: ACTIVE — frozen LOL-v2 validation trajectory headroom audit.**
+- **T022-B: COMPLETED — frozen LOL-v2 trajectory headroom is limited; selector tuning is deprioritized.**
+- **T022-C: ACTIVE — single-variant dark-winner positive-EV action-range probe on the fixed LOL-v2 validation split.**
 
 ## Current open task
 
-`T022-B — frozen LOL-v2 validation trajectory headroom audit` in `coordination/CHATGPT_TO_CODEX.md`.
+`T022-C — LOL-v2 validation positive-EV action-range probe` in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use only the frozen T022-A 100-image validation trajectories and validation references, with no new TTT and no official-test work. Re-render all saved states, verify selected-state reconstruction, report global fixed-step and per-image PSNR/SSIM oracle headroom plus projection-bound saturation. The goal is to decide whether the next convergence cycle should tune checkpoint selection or the trajectory/objective/action space; no tuning is launched in T022-B itself.
+Use exactly the same 100-image validation split. Change only the dark-winner active Region2 EV upper bound from `+0.5` to `+2.0`; keep bright EV bounds, gamma range, gate, frozen Sobolev energy, optimizer/lr, 40 updates, renderer, and learned-energy checkpoint selection unchanged. Run low-light-only inference and freeze all outputs/decisions before reference evaluation. The official 100-image LOL-v2 Real test set remains untouched.
