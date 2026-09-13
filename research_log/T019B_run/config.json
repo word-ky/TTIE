@@ -1,0 +1,125 @@
+{
+  "task": "T019-B",
+  "source_sha": "c66a8a0f5f16d64bf160c74e6217a652d0950dc4",
+  "source_code_sha256": {
+    "ttie/__init__.py": "4de7703189366591a75bc1f59f8d0a02da9cf1ba06999293141560c0949512c6",
+    "ttie/routing/__init__.py": "3c825a354237ba074f14c152d6aeba5a68324497cffce0f91ce4d9d5f243bc5b",
+    "ttie/routing/provenance.py": "5f5e81984ad2b7f9751c609ee849eb91382b95fd5e6be86583a481224e6b590b",
+    "ttie/local_geometry.py": "3be81fdfbb4941a3e1d04fcf2d2331fa0eecfe39c245e524797f45bb7d767e09",
+    "ttie/hard_local.py": "cc120afd973ec67d409bdd78d50df33844f0c10ceb23fc12d548586bb1a670a7",
+    "ttie/energy_local.py": "91bf54d6d2e9fb5cfd8e9f993acb75db2a7cb5cc6730ccef99d3081f543313b5",
+    "ttie/direction_probe.py": "0c47852a48d78b5f61da1097f66037abae992c1c57f31f180332658f84d672d9",
+    "ttie/direction_probe_run.py": "94fa1dfadd6d183c85b1948f6eb81c953d3e9b544ab30c4386e6eec5120216d4",
+    "ttie/deadband_probe.py": "231ff38880bbf95e27845cc93c2a5dc06e3d120965ffa7fcc05da7c0b03abe67"
+  },
+  "input_artifact_hashes": {
+    "score_selection_receipt": {
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8",
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/scoring/selection_receipt.json",
+      "sha256": "1fd17da1fd52db1ffe86749542908cf81b5b441c2a6b6ca0a85819e440c5c3ac"
+    },
+    "score_config": {
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8",
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/scoring/config.json",
+      "sha256": "e4c8d8ddfe16333fa4c766f6e1ecca2388e89a7f2ce9ba36c3537017cd666e64"
+    },
+    "score_selection": {
+      "commit": "4062e01cb93de731c394015c5ac741d6c08e04d8",
+      "path": "research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/scoring/selection.json",
+      "sha256": "99dbb10260e5045d5c5deb1d53b5f68d42567a02d5a1b898b234e6b5d113b866"
+    },
+    "folds": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/folds.json",
+      "sha256": "8fdb03cdac63af5d6e58b557c96679bc15c1e2e921e525916eb9d21ad22cd2c1"
+    },
+    "fold_provenance": {
+      "commit": "433683eccad24dc763450be6a546072a72e0910b",
+      "path": "research_log/T016C_run/config.json",
+      "sha256": "588292038c6e23b2d7c8fcf69a32cfe7cbb76ec0f6ca8b63e27a7a96126e081b"
+    },
+    "targets": {
+      "commit": "91f750e871d2c133624bbe4972f3fb3086f25a6c",
+      "path": "research_log/T019A_run/decisions.json",
+      "sha256": "d874bed74b0ebf68b680c8b6e60c8c5a44c9d82ce3cb7fd5730e16e53a980d45"
+    },
+    "donor_config": {
+      "commit": "b45bf9563e7c3f7e8aa27c923a35f1aabb95a5cb",
+      "path": "research_log/T018C_run/config.json",
+      "sha256": "19a437820477edb465d9afa3da79a2642331bc0bc6016d018bd840eaa6ff8de6"
+    }
+  },
+  "feature_schema": {
+    "version": "T013-28-v1",
+    "names": [
+      "active_TL",
+      "active_TR",
+      "active_BL",
+      "active_BR",
+      "signed_winner_TL",
+      "signed_winner_TR",
+      "signed_winner_BL",
+      "signed_winner_BR",
+      "original_winning_evidence_TL",
+      "original_winning_evidence_TR",
+      "original_winning_evidence_BL",
+      "original_winning_evidence_BR",
+      "z_dark_TL",
+      "z_dark_TR",
+      "z_dark_BL",
+      "z_dark_BR",
+      "z_bright_TL",
+      "z_bright_TR",
+      "z_bright_BL",
+      "z_bright_BR",
+      "ev_TL",
+      "ev_TR",
+      "ev_BL",
+      "ev_BR",
+      "gamma_TL",
+      "gamma_TR",
+      "gamma_BL",
+      "gamma_BR"
+    ],
+    "dimension": 28
+  },
+  "feature_construction": "concat(f0,fminus-f0,fplus-f0)",
+  "recipe": {
+    "input_dim": 84,
+    "hidden": [
+      64,
+      64
+    ],
+    "output_dim": 3,
+    "activation": "SiLU",
+    "loss": "unweighted_cross_entropy",
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "optimizer_eps": 1e-08,
+    "batch_size": 256,
+    "epochs": 100,
+    "seed": 7,
+    "checkpoint": "final_epoch",
+    "device": "cpu",
+    "normalization": "training rows only; population std clamped at 1e-12",
+    "normalization_epsilon": 1e-12,
+    "class_order": [
+      0.5,
+      0.4,
+      0.6
+    ],
+    "training_order": "seed7 randperm per epoch; original training row order"
+  },
+  "runtime": {
+    "python": "3.12.7",
+    "torch": "2.13.0+cpu",
+    "device": "cpu"
+  },
+  "development_only": true,
+  "target_origin": "accepted PR32 head; not merged into main"
+}
