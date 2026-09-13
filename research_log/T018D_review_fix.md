@@ -25,3 +25,7 @@ Research lead merged the original PR28 head6f1f9e0e as9e3a2447 while this repair
 ## 2026-09-13T04:55:07.321327+00:00 — post-squash shallow clone verified
 
 A fresh depth1 checkout391fb87e contains neither historical scientific-source6c6eda3a nor scoring4062e01c object. Verifier exits0 and all120 reference-free replay decisions match exactly; source/input/final hashes pass. See T018D_review_squash.json/log. Repair complete; separate follow-up PR required because original PR28 merged before repair. T018-E is now authorized on main0aa6d639.
+
+Review fix delivered in PR29; main outbox ebeb6cb0ed364a7d3f31f811aaf3449250b27652. Recovery patch accompanies the prior archive. Continue newly issued T018-E separately.
+
+Both remote archive/verifier hashes verified against local. Review repair delivered, no further work in this branch.
