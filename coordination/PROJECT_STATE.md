@@ -2,11 +2,11 @@
 
 ## Research branch
 
-**Spatially Varying Test-Time ISP / Image Processing for Task-Oriented Vision**
+**Spatially Varying Test-Time ISP / Image Enhancement**
 
 ## Core scientific question
 
-Can a vision system adapt a compact spatial correction field per test image, without test labels or clean targets, so that spatially heterogeneous nuisance degradation is corrected before a frozen downstream task model processes the image?
+Can a vision system adapt a compact spatial image-processing state per test image, without test labels or clean targets, so that unknown and spatially heterogeneous degradation is corrected by a reference-free test-time optimization field?
 
 ## Current scientific state
 
@@ -16,30 +16,25 @@ Can a vision system adapt a compact spatial correction field per test image, wit
 
 **T020-A is a valid fresh non-spatial negative (3/4).** On a second new 40-image / 120-episode cohort, the frozen T019-C selector gives pooled `0.986616×`, clean `1.046125×` **fail**, homogeneous-dark `0.994103×`, homogeneous-bright `0.963036×`. Clean outcomes are `0 beneficial / 39 equal / 1 harmful`; that fresh cohort is burned for corrective tuning.
 
-**T020-B is a development-only non-spatial target positive (5/5).** The unchanged fixed `delta=0.01` per-axis reference deadband target, audited on the accepted 40 development images under clean / homogeneous-dark / homogeneous-bright, gives pooled `0.900891×`, clean `0.721586×`, dark `0.906699×`, bright `0.889559×`, with `61 beneficial / 59 equal / 0 harmful`. Thus the target principle itself is viable on these development cases.
+**T020-B is a development-only non-spatial target positive (5/5).** The unchanged fixed `delta=0.01` per-axis reference deadband target on accepted development images gives pooled `0.900891×`, clean `0.721586×`, dark `0.906699×`, bright `0.889559×`, with `61 beneficial / 59 equal / 0 harmful`. Thus the target principle itself is viable on these development cases.
 
-**T020-C is a development-only non-spatial OOF negative (3/5).** It kept the frozen T019 28-D representation, historical five image-grouped folds, and the exact T019-B `84→64→64→3` unweighted-CE learner fixed. Results are pooled `0.947906×` pass, clean `1.207265×` fail, dark `0.937079×` pass, bright `0.970188×` pass, and clean harmful count `1` fail. Pooled outcomes are `37 beneficial / 63 equal / 20 harmful`. This shows that simply adding non-spatial in-domain labels to the unchanged three-way direct-direction learner does not recover broad safety.
+**T020-C is a development-only non-spatial OOF negative (3/5).** It kept the frozen T019 28-D representation, historical five image-grouped folds, and exact T019-B `84→64→64→3` unweighted-CE learner fixed. Results are pooled `0.947906×` pass, clean `1.207265×` fail, dark `0.937079×` pass, bright `0.970188×` pass, and clean harmful count `1` fail. Pooled outcomes are `37 beneficial / 63 equal / 20 harmful`.
 
-**T020-D is now a development-only mechanistic positive diagnosis: the T020-C failure is direction-dominant under the predeclared oracle test.** Using only frozen T020-C OOF predictions and accepted T020-B targets/nine-hard reference values, with no training or feature recomputation:
+**T020-D is a development-only mechanistic diagnosis: the T020-C failure is direction-dominant under the predeclared oracle test.** Necessity-oracle / frozen predicted-sign passes `3/5`, while frozen-necessity / direction-oracle passes `5/5`. Among the 20 harmful T020-C episodes, `19` contain at least one wrong-direction axis. This identifies sign prediction as a first-order bottleneck but does not provide a deployable repair.
 
-- necessity-oracle / frozen predicted-sign A passes `3/5`: pooled `0.934817×`, clean `1.229472×` fail, dark `0.927146×`, bright `0.948885×`, clean harmful `2`;
-- frozen-necessity / direction-oracle B passes `5/5`: pooled `0.916320×`, clean `0.754146×`, dark `0.915794×`, bright `0.920111×`, clean harmful `0`.
+**T020-E is now a controlled development-only negative (3/5): simple binary sign factorization does not repair the non-spatial safety failure.** With every T020-C move/no-move decision frozen, exact cached features/folds/normalizers reused, and only fixed `84→64→64→2` lower-vs-upper heads learned from fold-training non-center targets, the result is pooled `0.952217×` pass, clean `1.207265×` fail, dark `0.940200×` pass, bright `0.977458×` pass, and clean harmful count `1` fail. Pooled harmful episodes remain `20→20`; wrong-direction moved axes improve only `31→29`; homogeneous-bright harmful episodes worsen `15→16`. Therefore the hypothesis that unsafe non-spatial behavior is mainly a consequence of using a single symmetric three-way CE head is rejected. PR #40 was accepted and merged as `e6874f7f8d0b05a507af0d12eecc1e08f39200ff`.
 
-Among the 20 harmful T020-C episodes, `19` contain a wrong-direction axis, `5` a false-move axis, and `6` a missed-move axis; exact overlaps are `9` wrong-direction only, `6` missed+wrong, `4` false+wrong, and `1` false-only. The original clean harmful row contains a missed x move plus a wrong y direction, not a false move. Therefore the earlier false-movement-dominance hypothesis is rejected: under this fixed reference diagnostic, correcting direction sign while preserving the original movement decisions is individually sufficient to satisfy all five non-spatial clauses, whereas perfect movement necessity with the frozen sign signal is not.
-
-This does **not** establish a deployable repair. Counterfactual B is reference-only and still contains two harmful homogeneous-bright episodes; it only identifies direction sign as the next mechanism to test. Combined heterogeneous+non-spatial final training remains blocked until a learned sign probe succeeds without held-out reference information.
-
-The immediate active task is **T020-E**, a development-only grouped-OOF probe that freezes T020-C move/no-move decisions and trains only a binary lower-vs-upper sign head on the unchanged 84-D representation and fold-training non-center targets.
+The universal adaptive-geometry repair branch is **paused**. T014 remains the broad default and T019 remains a heterogeneous-only extension. No confidence threshold, class weighting, larger MLP, extra seed, or combined-domain selector training is currently justified by the controlled evidence.
 
 ## Best current methods
 
-### Broad fresh-qualified baseline
+### Broad fresh-qualified Ours
 
-**T014 Sobolev Region2 TTT** — broad deployable Ours.
+**T014 Sobolev Region2 TTT** — broad deployable image-enhancement method under the accepted protocol.
 
 ### Heterogeneous-only fresh-qualified extension
 
-**T019 = T014 + frozen 1%-deadband hard-boundary selector** — fresh-qualified only on the prescribed heterogeneous spatial protocol. T020-A prevents promotion to a universal default.
+**T019 = T014 + frozen 1%-deadband hard-boundary selector** — fresh-qualified only on the prescribed heterogeneous spatial protocol. T020-A/T020-C/T020-E prevent promotion to a universal default.
 
 ## Strongest controlled findings
 
@@ -48,26 +43,19 @@ The immediate active task is **T020-E**, a development-only grouped-OOF probe th
 - T008–T012: semantic TTT has useful directions but drift/stopping/coupling problems; learned checkpointing cannot rescue oracle-limited trajectories.
 - T013: scalar restoration-value fitting does not sufficiently constrain the TTT derivative field.
 - **T014:** Sobolev derivative supervision is the first fully qualified learned inner objective; the learned optimization field matters more than scalar value fit.
-- T015: cross-basis routing negative; oracle headroom only 1.94%.
-- T016: hard-boundary headroom exists; scalar energy/value/ranking/confidence selectors are not robust enough.
-- T017: soft geometry is diagnostically useful but unsafe as transfer/deployment route.
-- T018-A: hard local x/y reference target positive, near nine-hard oracle with zero harmful development moves.
-- T018-B: frozen T014 scalar energy fails for local geometry direction.
-- T018-C: unchanged frozen representation supports grouped-OOF direct direction prediction on heterogeneous development data.
-- T018-E: exact-direction frozen selector fresh negative 4/5 due unnecessary quadrant moves.
-- T019-A: fixed 1% utility-deadband target positive on heterogeneous development with zero harm.
-- T019-B: deadband-label OOF selector positive 7/7, fewer harmful moves.
-- T019-D: one-shot heterogeneous fresh geometry positive 5/5.
-- T020-A: one-shot non-spatial fresh safety negative 3/4; clean mean `1.046125×` fails.
-- T020-B: development-only non-spatial fixed-1% target positive 5/5 with zero harmful moves.
-- T020-C: unchanged non-spatial in-domain OOF learner negative 3/5; pooled/dark/bright means pass, but clean safety and zero-harmful fail.
-- **T020-D: frozen oracle attribution is direction-dominant — necessity oracle 3/5, direction oracle 5/5; 19/20 harmful episodes contain wrong-direction error.**
+- T015–T017: routing/soft-geometry alternatives expose limited or unsafe transfer paths.
+- T018–T019: utility-aware hard geometry is viable and fresh-qualified for heterogeneous shifts.
+- T020-A: the heterogeneous geometry selector is not broadly safe on a fresh non-spatial cohort.
+- T020-B: the ideal 1% non-spatial deadband target itself is development-safe with zero harmful moves.
+- T020-C: unchanged in-domain three-way direction learning remains unsafe.
+- T020-D: oracle attribution is direction-dominant.
+- **T020-E: binary lower-vs-upper factorization does not materially close the direction gap; the simple classifier-repair route is closed for now.**
 
 ## Information-boundary rules
 
 - Test-time adaptation/selection must never consume test labels, clean targets, degradation masks/gain maps, condition IDs, annotations, semantic image IDs, reference gradients/Jacobians, oracle values, or evaluation metrics.
 - Source/development references may be used only in explicitly declared training/calibration/diagnostic stages.
-- Held-out/fresh decisions must be finalized and persisted before their reference metrics, labels, families, or oracles are attached.
+- Held-out/fresh decisions and enhanced outputs must be finalized and persisted before their reference metrics, labels, families, or oracles are attached.
 - Inspected fresh IDs are permanently excluded from corrective fresh cohorts.
 - Failed fresh cohorts may motivate a development-only hypothesis but their per-row references/logits/features/outcomes may not tune that hypothesis.
 - OOF claims must be image-grouped; held-out decisions must not depend on held-out labels/reference values.
@@ -76,9 +64,11 @@ The immediate active task is **T020-E**, a development-only grouped-OOF probe th
 
 ## Interpretation
 
-The method story has two established levels. T014 establishes the **objective-field principle**: useful test-time energies need restoration-useful derivatives, not merely accurate scalar values. T018–T019 establish a **utility-aware geometry principle** for heterogeneous shifts: direction information exists in the frozen representation, but movement should be supervised only when expected utility is material.
+The main paper-level method story is now image-enhancement-first. T014 establishes the **optimization-field principle**: a reference-free test-time energy is useful when its derivatives are restoration-useful, not merely when its scalar values fit a reference loss. T018–T019 add a secondary **utility-aware geometry principle** for heterogeneous spatial degradation.
 
-T020 sharpens the limit of that geometry extension. The ideal 1% target is safe on non-spatial development cases (T020-B), yet the unchanged symmetric three-way classifier is unsafe even in-domain (T020-C). T020-D resolves the first-order failure attribution: under the fixed oracle counterfactuals, **direction sign is the dominant bottleneck**, not false movement. The next question is therefore whether the same 84-D representation supports a clean binary lower-vs-upper readout when movement necessity is held fixed. Larger paper-level gaps—downstream detector metrics, real adverse-image distributions, and test-time cost—remain deferred until this selector-safety branch is closed.
+T020 defines the boundary of that extension. The ideal non-spatial target is safe, and a direction oracle shows headroom, but both the original three-way learner and the simplest binary sign decomposition fail the same clean-safety contract. Continuing with small classifier patches would risk development overfitting without addressing the paper's larger evidence gaps.
+
+The active validation priority therefore shifts from geometry rescue to **image-enhancement evidence**. The first question is whether T014's already accepted fresh gain transfers beyond MSE to a standard structural metric on the exact frozen outputs. Real-world enhancement data and test-time efficiency remain later paper-level gaps, to be handled in separate scoped cycles. Downstream detection is not an active requirement for the current enhancement-focused validation plan.
 
 ## Milestones
 
@@ -87,14 +77,15 @@ T020 sharpens the limit of that geometry extension. The ideal 1% target is safe 
 - T015–T018: completed routing/geometry diagnostics; exact-direction selector fresh negative.
 - T019-A/B/C: completed deadband target, OOF selector, and final freeze.
 - **T019-D: COMPLETED — one-shot fresh heterogeneous geometry qualification positive 5/5.**
-- **T020-A: COMPLETED — one-shot fresh non-spatial safety negative 3/4; clean `1.046125×`.**
+- **T020-A: COMPLETED — one-shot fresh non-spatial safety negative 3/4.**
 - **T020-B: COMPLETED — development-only non-spatial fixed-1% target positive 5/5, zero harmful.**
 - **T020-C: COMPLETED — development-only non-spatial grouped-OOF negative 3/5.**
-- **T020-D: COMPLETED — frozen OOF attribution is direction-dominant (A 3/5, B 5/5).**
-- **T020-E: ACTIVE — frozen-necessity + binary-direction grouped-OOF sufficiency probe.**
+- **T020-D: COMPLETED — frozen OOF attribution is direction-dominant.**
+- **T020-E: COMPLETED — frozen-necessity binary-sign repair negative 3/5.**
+- **T021-A: ACTIVE — frozen-fresh SSIM transfer audit for T014.**
 
 ## Current open task
 
-`T020-E — frozen-necessity + binary-direction grouped-OOF probe` in `coordination/CHATGPT_TO_CODEX.md`.
+`T021-A — frozen-fresh SSIM transfer audit for T014` in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use the exact frozen T020-C non-spatial features, historical image-grouped folds and training-only normalization; train only `84→64→64→2` lower/upper heads on fold-training rows whose axis target is non-center. Held-out movement necessity must remain exactly the already frozen T020-C center-vs-move decision. Freeze all 120 combined decisions before opening held-out references. No new necessity head, no thresholds, no heterogeneous combined training, no fresh data, and no T020-A per-row artifacts.
+Use only exact accepted T014 fresh frozen outputs and provenance; do not rerun TTT. Compute fixed full-RGB Gaussian-window SSIM and an image-clustered 10,000-resample paired bootstrap. Positive iff the two-sided 95% cluster-bootstrap CI for pooled mean `ΔSSIM = SSIM(T014)-SSIM(baseline)` has lower bound above zero. If exact frozen artifact triples cannot be recovered without rerunning TTT, stop as structurally unsupported.
