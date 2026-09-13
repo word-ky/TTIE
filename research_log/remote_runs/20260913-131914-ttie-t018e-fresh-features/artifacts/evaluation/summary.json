@@ -1,0 +1,116 @@
+{
+  "groups": {
+    "spatial_pool": {
+      "count": 120,
+      "mse": {
+        "H0": 0.032644963526399805,
+        "H1": 0.030434589117066934,
+        "H_star": 0.02984076495243547
+      },
+      "ratios": {
+        "H1_over_H0": 0.9322904922976755,
+        "H1_over_H_star": 1.019899763480527
+      },
+      "outcomes": {
+        "beneficial": 61,
+        "equal": 46,
+        "harmful": 13
+      },
+      "harmful_rows": [
+        3,
+        6,
+        7,
+        14,
+        19,
+        23,
+        30,
+        36,
+        42,
+        87,
+        99,
+        105,
+        106
+      ]
+    },
+    "left_right": {
+      "count": 40,
+      "mse": {
+        "H0": 0.030260979582089932,
+        "H1": 0.02920097572496161,
+        "H_star": 0.02848928513703868
+      },
+      "ratios": {
+        "H1_over_H0": 0.9649712642562407,
+        "H1_over_H_star": 1.0249809914323778
+      },
+      "outcomes": {
+        "beneficial": 26,
+        "equal": 6,
+        "harmful": 8
+      },
+      "harmful_rows": [
+        3,
+        6,
+        30,
+        36,
+        42,
+        87,
+        99,
+        105
+      ]
+    },
+    "quadrants": {
+      "count": 40,
+      "mse": {
+        "H0": 0.02911204905831255,
+        "H1": 0.029455147736007346,
+        "H_star": 0.029108032450312748
+      },
+      "ratios": {
+        "H1_over_H0": 1.0117854527177925,
+        "H1_over_H_star": 1.011925068665741
+      },
+      "outcomes": {
+        "beneficial": 0,
+        "equal": 37,
+        "harmful": 3
+      },
+      "harmful_rows": [
+        7,
+        19,
+        106
+      ]
+    },
+    "offset_left_right_40": {
+      "count": 40,
+      "mse": {
+        "H0": 0.03856186193879694,
+        "H1": 0.03264764389023185,
+        "H_star": 0.03192497726995498
+      },
+      "ratios": {
+        "H1_over_H0": 0.8466303816462032,
+        "H1_over_H_star": 1.0226364020298608
+      },
+      "outcomes": {
+        "beneficial": 35,
+        "equal": 3,
+        "harmful": 2
+      },
+      "harmful_rows": [
+        14,
+        23
+      ]
+    }
+  },
+  "clauses": {
+    "pooled_gain": true,
+    "pooled_oracle": true,
+    "offset_gain": true,
+    "left_right_safety": true,
+    "quadrants_safety": false
+  },
+  "passed": 4,
+  "fresh_qualified": false,
+  "verdict": "T018-E fresh qualification negative"
+}
