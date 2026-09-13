@@ -1,4 +1,12 @@
-# T022-A DONE — ready for review
+
+
+---
+
+## T022-A — DONE — benchmark-ready
+
+UTC: 2026-09-13T18:56:35.073379+00:00
+
+Evidence commit `193bc278f8f6890e0193d6ec380c67d3855d0c68`; branch `codex/T022A-lolv2-benchmark`; PR https://github.com/word-ky/TTIE/pull/42 ready for review.
 
 # T022-A untuned LOL-v2 Real validation anchor
 
@@ -46,5 +54,3 @@ Output serialization retains underlying PyTorch trajectory storage (11808423700 
 Recommended next step: research lead reviews this weak but valid untuned real-benchmark anchor and scopes the next validation-only tuning or baseline-comparison task. Stop here; no corrective tuning or official-test evaluation in T022-A.
 
 benchmark-ready
-
-Delivery complete: main report c76f31096b832b4329868bdf5476317a41e1b56f; PR42 ready. Stop T022-A; await review. Original archive extra server copy is still running in local session81472, destination /media/wenchang/F/wjq/TTIE/shared/t022a/LOL-v2.zip; scientific data and all outputs already durably preserved and verified.
