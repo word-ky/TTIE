@@ -1,0 +1,44 @@
+{
+  "rows": 100,
+  "ssim": {
+    "data_range": 1.0,
+    "window": 11,
+    "sigma": 1.5,
+    "K1": 0.01,
+    "K2": 0.03,
+    "covariance": "population",
+    "channels": "RGB mean",
+    "crop": 0,
+    "padding": "reflect (half-sample symmetric)",
+    "dtype": "float64"
+  },
+  "psnr": "Per-image -10log10 RGB MSE, float64 arithmetic over float32 [0,1] pixels, no crop/resize",
+  "metrics": {
+    "raw_psnr": {
+      "mean": 8.109722671657906,
+      "median": 7.600161540858166
+    },
+    "ours_psnr": {
+      "mean": 10.215718205807452,
+      "median": 9.7207020079187
+    },
+    "raw_ssim": {
+      "mean": 0.1600228434803769,
+      "median": 0.13897726549987016
+    },
+    "ours_ssim": {
+      "mean": 0.3265366068841143,
+      "median": 0.29904259290902413
+    }
+  },
+  "runtime_seconds": {
+    "mean": 4.554767821141286,
+    "median": 4.68278713800828,
+    "p95": 4.786519789206795
+  },
+  "active": 100,
+  "abstained": 0,
+  "total_updates": 8000,
+  "official_test_evaluated": false,
+  "verdict": "benchmark-ready"
+}
