@@ -1,0 +1,100 @@
+{
+  "task": "T018-D",
+  "status": "DONE",
+  "delivered_utc": "2026-09-13T04:31:10.909526+00:00",
+  "source_sha": "6c6eda3a2adb22a7921b787ef57dadae2aff0cfd",
+  "evidence_sha": "d75461f6aef71a80502cdc5ef75338bf59db2170",
+  "main_done_sha": "0b0ef7b3663d9faffbcafec7e8eaf3d35c7ae649",
+  "branch": "codex/T018D-final-direction-selector",
+  "pr": "https://github.com/word-ky/TTIE/pull/28",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": null,
+  "github_mergeable_state": "unknown",
+  "local_merge_tree_passed": true,
+  "selector_receipt_sha256": "db194f4caa897094655a36523fa074772d8cd7302ffda250a72e8b81cc2f9d94",
+  "recovery": {
+    "task": "T018-D",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T018D_recovery.tar.gz",
+    "bytes": 457821,
+    "sha256": "013272c369e006095edcea35ef609e21c672f91ca342cd6067695e4ed063a849",
+    "entries": 53,
+    "analysis_sha256": "2f7c876c05d6817a78946d8fdc2c141ba57605c582eecd01c1a660eb2c344a7d",
+    "selector_receipt_sha256": "db194f4caa897094655a36523fa074772d8cd7302ffda250a72e8b81cc2f9d94",
+    "main_sha": "0b0ef7b3663d9faffbcafec7e8eaf3d35c7ae649"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "013272c369e006095edcea35ef609e21c672f91ca342cd6067695e4ed063a849",
+      "analysis_sha256": "2f7c876c05d6817a78946d8fdc2c141ba57605c582eecd01c1a660eb2c344a7d",
+      "selector_receipt_sha256": "db194f4caa897094655a36523fa074772d8cd7302ffda250a72e8b81cc2f9d94",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "013272c369e006095edcea35ef609e21c672f91ca342cd6067695e4ed063a849",
+      "analysis_sha256": "2f7c876c05d6817a78946d8fdc2c141ba57605c582eecd01c1a660eb2c344a7d",
+      "selector_receipt_sha256": "db194f4caa897094655a36523fa074772d8cd7302ffda250a72e8b81cc2f9d94",
+      "verified": true
+    }
+  ],
+  "engineering_acceptance": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "focused_tests_passed": 12,
+  "independent_verification": {
+    "passed": true,
+    "completed_utc": "2026-09-13T04:25:53.000907+00:00",
+    "selector_receipt_sha256": "db194f4caa897094655a36523fa074772d8cd7302ffda250a72e8b81cc2f9d94",
+    "source_hashes": 9,
+    "training_input_hashes": 6,
+    "final_file_hashes": 8,
+    "exact_heads": 2,
+    "formal_train_commands": 1,
+    "formal_fit_calls": {
+      "x": 1,
+      "y": 1
+    },
+    "epochs": 100,
+    "accepted_training_rows": 120,
+    "target_bytes_hashed_only_in_provenance_phase": true,
+    "target_values_decoded": false,
+    "independent_reference_free_replay": {
+      "passed": true,
+      "exact_logits_classes_decisions": 120,
+      "normalization_all_120_exact": {
+        "x": true,
+        "y": true
+      },
+      "opened_artifacts": [
+        "selector_frozen.json",
+        "replay_features.json",
+        "replay_expected.json",
+        "head_x.pt",
+        "head_y.pt"
+      ],
+      "target_or_reference_artifact_reads": false,
+      "ttie_imports": false,
+      "training": false
+    },
+    "exact_recipe_and_schema": true,
+    "receipt_unchanged": true,
+    "fresh_qualification": false
+  },
+  "formal_training_invocations": 1,
+  "final_heads": 2,
+  "development_rows": 120,
+  "fresh_qualification": false,
+  "formal_failures": [],
+  "scientific_deviations": [],
+  "pre_formal_test_failure": "Direct versus loaded selector CPU thread count caused last-bit float mismatch; unified constructor one-thread setting and exact replay passed.",
+  "operational_note": "First source push had transient network connection failure; retry succeeded. Local committed source remained frozen throughout.",
+  "user_compute_preference": "Prefer A6000 GPU for subsequent substantive training/inference wherever practical. User message arrived after this two-head CPU fit completed; no retraining.",
+  "next_action": "Stop after T018-D; await research review/new task. No new fresh cohort, qualification or T018-E."
+}
