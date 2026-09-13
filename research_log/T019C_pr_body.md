@@ -1,0 +1,7 @@
+Freeze exactly one final x head and one final y head on the fixed120 development rows using the accepted T019-A1% deadband labels and unchanged T019-B recipe. Reuse the existing five-feature inference API and original training/replay functions; no scientific method change or new performance experiment.
+
+All six engineering requirements pass:11 focused tests, one formal training command/two100-epoch fits, complete pinned source/input/runtime/normalization/weight receipt, metadata mutation/removal invariance, and exact120-row saved-head replay. An independent verifier reconstructs both heads in a five-file directory with no target/reference artifacts and no TTIE imports; normalization/logits/classes/choices match exactly. No T018-E data, fresh cohort, MSE/family evaluation, tuning or qualification.
+
+Source a258a72bf4d317efe92db8723f2070b7c2120f7f. Freeze receipt **0367456d7b4f235f987339baf07e343f86f870d1e109adbe461297c82b641c77**; replay SHA98ee9d17ff5670b2a8bbde2672db93a970bc2bd1e79553ff649106ed0d43c73e. The receipt directly binds accepted PR32 target SHA d874bed74b0ebf68b680c8b6e60c8c5a44c9d82ce3cb7fd5730e16e53a980d45 and the accepted T019-B source/feature origins. Original Python3.12.7/Torch2.13CPU backend preserved for reproducibility.
+
+See research_log/T019C_analysis.md for API usage, exact evidence and all commands. **Engineering freeze only; no new generalization claim. Stopped for research-lead review; T019-D has not begun.**
