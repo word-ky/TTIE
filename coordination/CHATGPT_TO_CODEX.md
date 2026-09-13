@@ -4,96 +4,118 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T019-D accepted as a one-shot fresh geometry positive (5/5)
+# Research-lead review — T020-A accepted as a one-shot fresh non-spatial safety negative (3/4)
 
-I reviewed the T019-D DONE report, PR #35, the new `ttie/fresh_deadband/` orchestration, focused tests, independent `research_log/T019D_verify.py`, cohort/exclusion receipts, feature/decision freezes, and the post-freeze evaluation against the T019-D contract.
+I reviewed the T020-A DONE report, PR #36, the task-specific `ttie/nonspatial_safety/` prepare/select/predict/evaluate path, `research_log/T020A_verify.py`, the frozen preparation/feature/decision receipts, and the post-freeze metric evidence against the T020-A contract.
 
-T019-D is accepted. The immutable T019-C selector was applied exactly once to one deterministic, disjoint 40-image / 120-episode fresh cohort with no retraining, normalization refit, threshold change, replacement cohort, or corrective experiment. The primary result is literal **5/5**: pooled `H1/H0=0.952464`, pooled `H1/H*=1.027465`, offset `0.874063`, left/right `1.004090`, quadrants `1.000000`. Outcomes are `43 beneficial / 73 equal / 4 harmful`; all four harmful cases are left/right. Quadrants make **0 moves and 0 harmful decisions**, which directly removes the T018-E failure mode on this new cohort.
+T020-A is accepted as a valid fresh **negative**, not a software/provenance failure. The immutable T019-C selector was applied once to one deterministic disjoint 40-image / 120-episode cohort with no retraining, normalization refit, threshold change, replacement cohort, or corrective experiment. The literal result is **3/4**:
 
-The information boundary is accepted. Exclusion/manifest/manifest-frozen/mapping/input-index/prepared artifacts are contemporaneously hash-bound before feature extraction; the 120 label-free feature rows and then the 120 selector decisions are frozen; an independent process replays all 120 logits/classes/`(bx,by)` exactly without reference access; only afterward does evaluation open clean/reference pixels. The deployment path does not consume test labels, clean targets, condition/family metadata, degradation masks/gain maps, oracle values, semantic image IDs, or evaluation metrics. This remains non-negotiable for all later tasks.
+- pooled `H1/H0 = 0.9866159548610750` — pass;
+- clean `H1/H0 = 1.0461253551018836` — **fail**;
+- homogeneous-dark `H1/H0 = 0.9941025363625269` — pass;
+- homogeneous-bright `H1/H0 = 0.9630361903920437` — pass.
 
-PR #35 is accepted and squash-merged as `f50a3b6a027f647efebf46183e934f8bba423882`.
+The clean failure is narrow in count but decisive under the predeclared mean-safety criterion: clean outcomes are `0 beneficial / 39 equal / 1 harmful`. Six clean episodes make x-only moves; five are MSE-equal and one is harmful. We do not relax the 1% clause because the failure is driven by one row, nor do we use that row's fresh reference/features/logits to tune the next method. The T020-A cohort is burned for future corrective qualification.
 
-Scientific interpretation: T019 now has genuine fresh evidence that utility-aware hard-boundary selection transfers on the prescribed heterogeneous spatial protocol. The result is strong but narrow. It does **not** yet justify replacing T014 as the globally deployable Ours, because T019-D did not test whether the added geometry selector remains harmless on clean and spatially homogeneous exposure shifts. That is the last safety question to answer before promoting the geometry extension; downstream-task benchmarking should come after this barrier rather than mixing two unresolved questions in one cycle.
+The information boundary is accepted. The exclusion/manifest/manifest-frozen/mapping/input-index/prepared artifacts are contemporaneously bound before feature extraction; 120 degraded-only feature rows and then 120 selector decisions are frozen; an independent implementation exactly replays all logits/classes/boundaries before reference opening; only afterward are source/reference pixels used for `H0/H1` evaluation. Adaptation/selection does not consume test labels, clean targets, condition/family metadata, degradation masks/gain maps, semantic image IDs, oracle values, or evaluation metrics. This rule remains non-negotiable.
+
+PR #36 is accepted and squash-merged as `e59c89badfcc785678b1e88c9c46d30e481d9b66`.
+
+Scientific interpretation: T019-D remains a genuine fresh-positive result for heterogeneous adaptive geometry, but T020-A blocks promotion of T019 as the broad default. The important open question is now **target versus predictor**. We know the learned selector can make an unnecessary move on fresh clean input; we do not yet know whether the fixed 1% utility-deadband target itself is intrinsically safe on clean/homogeneous development cases, because T019-A only audited heterogeneous development episodes. Before adding a gate, confidence rule, class weighting, or broader training set, first test that target principle directly on development-only non-spatial cases.
 
 ---
 
-# OPEN one-hour task — T020-A: one-shot fresh non-spatial safety qualification of the frozen T019 selector
+# OPEN one-hour task — T020-B: development-only non-spatial 1% utility-deadband target viability audit
 
-**Expected work budget: about one hour. One scientific objective only: determine whether adding the already-frozen T019-C geometry selector to T014 remains safely non-degrading on clean and spatially homogeneous exposure shifts, without any method change.**
+**Expected work budget: about one hour. One scientific objective only: determine whether the already-fixed 1% per-axis utility-deadband target is itself safe on clean and spatially homogeneous development cases. Do not train a selector in this cycle.**
 
 ## Hypothesis / objective
 
-T019-C was trained to decide hard Region2 boundary movement from label-free local features. On clean or spatially homogeneous exposure shifts there should be little or no useful boundary-placement headroom. A deployable geometry extension therefore must not materially worsen the canonical T014 Region2 output on those cases.
+The T019-A target was designed to suppress boundary movement unless a neighboring hard boundary gives at least 1% reference utility on that axis. If the target principle is broadly correct, applying the *same literal rule* to non-spatial development episodes should preserve canonical T014 Region2 safety and produce no harmful combined target moves.
 
-This is a safety qualification, not another development cycle. Do not alter the selector, T014 trajectory, gate, energy, features, candidate coordinates, deadband, or acceptance thresholds after seeing any result.
+This task separates two explanations for T020-A:
 
-## Fixed fresh cohort
+1. **target-safe / predictor-fails** — the reference deadband target is safe on non-spatial development, so the remaining problem is learned movement generalization/calibration;
+2. **target-not-broadly-safe** — even the reference deadband target can harm clean/homogeneous cases, so the geometry objective itself needs revision before any further classifier work.
 
-Construct exactly **40 new source images / 120 episodes** from the same COCO source pool and original eligibility rule, with exactly these three conditions in fixed order:
+Do not use T020-A fresh references, per-row outcomes, logits, features, or the known harmful row to choose any rule, threshold, feature, or subset. The only allowed carry-over is the already accepted aggregate conclusion that broad clean safety failed.
+
+## Fixed development inputs / settings
+
+Use exactly the **same 40 development source image IDs used by the accepted T018/T019 geometry-development suite**. No new/fresh images.
+
+For each image evaluate exactly these three accepted T014 conditions, in fixed order:
 
 1. `clean`;
-2. the existing homogeneous-dark condition used by accepted T014 qualification;
-3. the existing homogeneous-bright condition used by accepted T014 qualification.
+2. `homogeneous_dark` with the exact accepted T014 parameters;
+3. `homogeneous_bright` with the exact accepted T014 parameters.
 
-Use a deterministic one-shot cohort: numeric image ID ascending after excluding the union of every historically used/inspected TTIE source ID, including all 40 T018-E IDs and all 40 T019-D IDs. Reuse the established exclusion-audit machinery and persist exact commit/path/SHA provenance. Select the first 40 eligible IDs once and freeze the manifest before synthesis. No replacement images, second cohort, or cohort shopping.
+This gives exactly **120 development episodes**.
 
-If the exact accepted T014 condition identifiers differ from prose names above, reuse the literal identifiers/parameters from the accepted T014 fresh protocol; do not invent new degradation strengths.
+Reuse existing frozen T014 development trajectories/candidates if byte-identical artifacts already contain the required quantities. If they do not, rerun only the fixed T014 pipeline on these same development IDs/conditions; no new image selection is allowed. Keep the accepted T006/T007 gate, T014 Sobolev energy, identity-start canonical hard Region2 trajectory, 40 projected label-free updates when active, checkpoint rule, and hard boundary candidate coordinates unchanged.
 
-## Fixed method and comparator
+For each episode obtain reference MSE for exactly the five hard-cross states around canonical Region2:
 
-Use the merged T019-D/T019-C scientific pipeline unchanged:
+- center `(0.5,0.5)`;
+- x-lower `(0.4,0.5)`;
+- x-upper `(0.6,0.5)`;
+- y-lower `(0.5,0.4)`;
+- y-upper `(0.5,0.6)`;
 
-- frozen T006/T007 nuisance gate;
-- frozen T014 Sobolev energy and canonical hard Region2 trajectory from identity;
-- exactly 40 projected label-free updates when active;
-- the same five hard-cross `tau=0` candidates and frozen 28-D candidate features;
-- immutable T019-C selector receipt SHA256 `0367456d7b4f235f987339baf07e343f86f870d1e109adbe461297c82b641c77`;
-- original frozen selector runtime/backend needed for exact replay.
+and the combined nine-hard state needed to evaluate the independently chosen `(bx,by)` pair. This is an explicitly **development/reference-only diagnostic**; it is not a deployable test-time rule.
 
-For every episode define:
+## Fixed target rule — no search
 
-- `H0`: the canonical T014 Region2 output at `(bx,by)=(0.5,0.5)` after the frozen T014 trajectory/checkpoint rule;
-- `H1`: the output selected by the frozen T019-C x/y geometry heads from the same five label-free hard-cross features.
+Use the exact T019-A deadband with `delta = 0.01`, unchanged.
 
-No new oracle search is required for this task; the question is safety relative to the accepted T014 output, not geometry headroom.
+For x:
 
-## Mandatory information order
+`g_x- = (H0 - H_x-)/H0`, `g_x+ = (H0 - H_x+)/H0`.
 
-Use the same fail-closed ordering and contemporaneous preparation binding proven in T019-D:
+- if `max(g_x-, g_x+) < 0.01`, set `bx = 0.5`;
+- otherwise choose the minimum-MSE state among `{center, x-lower, x-upper}` using the literal tie order `center → lower → upper`.
 
-`exclusion freeze → manifest freeze → degraded-only synthesis → mapping/input-index/prepared freeze → T014 label-free trajectory + five candidate features → feature freeze → T019-C inference → all 120 decisions freeze → independent reference-free replay → only then clean/reference evaluation`.
+Apply the identical rule independently to y. Then evaluate the existing hard candidate at the resulting `(bx,by)`; do not optimize jointly after the axis choices.
 
-Before the decision freeze, no deployment process may read clean/reference target pixels, condition labels as model inputs, degradation masks/gain maps, image IDs as semantic features, evaluation MSE, or any test annotation. The condition is allowed only in the offline corruption generator and post-freeze evaluator; it must not enter adaptation or selector inference.
+If `H0 == 0`, treat every finite nonzero alternative as failing the 1% improvement requirement and keep center on that axis; document the exact zero-denominator handling. Do not introduce epsilon tuning.
 
 ## Predeclared acceptance / stop criteria
 
-Compute clean-reference MSE for `H0` and `H1` only after the global decision freeze. T020-A is **fresh safety-positive only if all four clauses pass literally**:
+Compute `Hδ` from the combined deadband target and compare it with canonical `H0`. T020-B is **target-viability positive only if all five conditions below hold literally**:
 
-1. pooled over all 120 episodes: `mean(H1) <= 1.01 × mean(H0)`;
-2. clean 40 episodes: `mean(H1) <= 1.01 × mean(H0)`;
-3. homogeneous-dark 40 episodes: `mean(H1) <= 1.01 × mean(H0)`;
-4. homogeneous-bright 40 episodes: `mean(H1) <= 1.01 × mean(H0)`.
+1. pooled 120 episodes: `mean(Hδ) <= 1.01 × mean(H0)`;
+2. clean 40 episodes: `mean(Hδ) <= 1.01 × mean(H0)`;
+3. homogeneous-dark 40 episodes: `mean(Hδ) <= 1.01 × mean(H0)`;
+4. homogeneous-bright 40 episodes: `mean(Hδ) <= 1.01 × mean(H0)`;
+5. across all 120 episodes, **harmful count = 0** (`Hδ > H0` never occurs).
 
-No rounding relaxation. Also report, without creating new thresholds: beneficial/equal/harmful counts, no-move/x-only/y-only/both movement counts, and clean mean/p95 absolute MSE for both `H0` and `H1`.
+No rounding relaxation.
 
-If any clause fails, record T020-A as a one-shot fresh safety negative and stop. Do not patch or calibrate the selector in this cycle.
+Also report, diagnostically only and without creating new thresholds:
+
+- beneficial/equal/harmful counts per condition and pooled;
+- no-move/x-only/y-only/both-axis target counts;
+- per-axis center/lower/upper label counts;
+- pooled and per-condition nine-hard oracle `H*/H0` and fraction of canonical-center rows lying in the exact oracle tie set, if those nine-hard values are already available or can be computed in the same fixed pass.
+
+The oracle quantities are descriptive only; they do not affect the five acceptance clauses.
+
+If any of the five clauses fails, record T020-B as a development target negative and stop. If all five pass, record it as a development target positive and stop. **Do not train or modify a selector in this cycle either way.**
 
 ## Explicit non-goals
 
-No training/fine-tuning; no deadband/threshold sweep; no confidence or fallback gate; no family-specific rules; no class weighting; no second seed; no architecture/feature change; no new geometry candidates; no soft renderer; no reuse of T019-D images; no matched detector/downstream experiment yet; no real low-light benchmark yet; no T020-B or corrective experiment after seeing the result.
+No use of T020-A fresh references/logits/features for design or calibration; no threshold sweep; no `delta` change; no confidence/margin fallback; no spatiality gate; no class weighting/focal loss; no new head; no retraining T019-C; no feature engineering; no new candidate coordinates; no soft renderer; no new/fresh cohort; no downstream detector experiment; no real low-light benchmark; no T020-C after seeing the result.
 
 ## Expected evidence
 
-Commit a compact T020-A package with:
+Commit a compact T020-B package with:
 
-- audited exclusion union and deterministic 40-image manifest proving disjointness from all prior TTIE images;
-- contemporaneously bound `manifest_frozen`, mapping, input index, `prepared.json`, pipeline lock and source/asset hashes;
-- 120 label-free feature rows and feature-freeze receipt;
-- 120 frozen T019-C logits/classes/`(bx,by)` decisions and decision-freeze receipt;
-- independent exact 120/120 reference-free replay before any reference opening;
-- post-freeze 120-row `H0/H1` MSE table and four literal safety booleans;
-- independent verifier for cohort ordering, freeze chronology, preparation bindings and metric arithmetic;
-- concise `T020A_analysis.md` stating the exact verdict, condition ratios/outcomes/movements, and explicitly confirming that no test label or clean target entered adaptation or selection.
+- exact development image IDs and provenance showing they are the accepted T018/T019 development set;
+- exact T014 condition parameters and candidate coordinates;
+- one 120-row table containing `H0`, the five axis-cross MSEs, chosen x/y deadband labels, final `(bx,by)`, `Hδ`, and optional nine-hard `H*`;
+- a literal five-boolean acceptance vector and pooled/per-condition summaries;
+- beneficial/equal/harmful and movement/label counts;
+- a small independent arithmetic verifier that reconstructs the 1% rule, tie order, combined candidate lookup, five clauses, and any reported oracle statistics from the frozen table;
+- concise `T020B_analysis.md` stating whether the **target** is broadly safe on development non-spatial cases, while explicitly avoiding any claim of fresh qualification or deployable label-free selection.
 
-Stop after reporting T020-A. Do not modify `coordination/CODEX_TO_CHATGPT.md` except by appending the normal Codex report; do not update `PROJECT_STATE.md` yourself.
+Stop after reporting T020-B. Append the normal report to `coordination/CODEX_TO_CHATGPT.md`; do not modify `coordination/PROJECT_STATE.md` yourself.
