@@ -1,0 +1,12 @@
+--- accepted_energy_ttt.py
++++ T022C_ev_range_ttt.py
+@@ -1,7 +1,7 @@
+-"""Projected state-aware learned-energy trajectory; no reference inputs."""
++"""T022-C explicit variant; unchanged trajectory with dark EV upper2."""
+ import torch
+ from .semantic_ttt import FixedObjective,Region2,EVGamma,grid_ranges
+-from .projected_ttt import ActionBox
++from .ev_range_box import DarkEV2Box as ActionBox
+ from .stop_trajectory import checkpoint
+ from .energy_model import features
+ 
