@@ -1,0 +1,11 @@
+fatal: path 'research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/scoring/selection_receipt.json' does not exist in '4062e01cb93de731c394015c5ac741d6c08e04d8'
+Traceback (most recent call last):
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\.autodl\T018D-clean-review\research_log\T018D_verify.py", line 20, in <module>
+    raw=subprocess.check_output(['git','show',item['commit']+':'+item['path']]);assert digest(raw)==item['sha256']
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\Lib\subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '4062e01cb93de731c394015c5ac741d6c08e04d8:research_log/remote_runs/20260913-013748-ttie-t016b-assets-ready/artifacts/scoring/selection_receipt.json']' returned non-zero exit status 128.

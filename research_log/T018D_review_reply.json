@@ -1,0 +1,6 @@
+{
+  "id": 3998769683,
+  "html_url": "https://github.com/word-ky/TTIE/pull/28#discussion_r3998769683",
+  "created_at": "2026-09-13T04:52:25Z",
+  "body": "Fixed in 9ef55c70e46defff02a04611c81108433f284c69; isolated-clone evidence in f070cf8a02ef8f9255ce5660a77fc6e677f5784c. The verifier now reads the six already-committed T018D_source_inputs blobs via HEAD, checks their manifest entries against the original receipt commit/path/SHA256 records, and verifies exact payload hashes. Reading committed bytes also avoids Windows checkout newline conversion; no hash normalization or fallback was added.\n\nReproduced the original failure in a --no-local --single-branch clone where the historical scoring commit 4062e01c is absent. That same clone now passes all 9 source / 6 input / 8 final-file hash checks and independently reproduces all 120 logits/classes/decisions without target/reference files in the replay subprocess. See research_log/T018D_review_before.log, T018D_review_after.json and T018D_review_verification.json. Frozen scientific source, both heads, normalization, decisions and selector receipt are unchanged; no retraining."
+}

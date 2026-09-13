@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\.autodl\T018D-clean-review\research_log\T018D_verify.py", line 17, in <module>
+    assert digest(Path(path).read_bytes())==h==digest(subprocess.check_output(['git','show',receipt['source_sha']+':'+path]))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

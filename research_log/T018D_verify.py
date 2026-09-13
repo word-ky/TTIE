@@ -14,10 +14,12 @@ receipt=read('selector_frozen.json');pinned=(root/'selector_frozen.sha256').read
 assert digest((root/'selector_frozen.json').read_bytes())==pinned
 for name,h in receipt['files_sha256'].items():assert digest((root/name).read_bytes())==h
 for path,h in receipt['source_code_sha256'].items():
-    assert digest(Path(path).read_bytes())==h==digest(subprocess.check_output(['git','show',receipt['source_sha']+':'+path]))
-inputs={}
+    assert digest(Path(path).read_bytes())==h==digest(subprocess.check_output(['git','show','HEAD:'+path]))
+inputs={};archive=Path('research_log/T018D_source_inputs')
+manifest=json.loads((archive/'manifest.json').read_text(encoding='utf-8'))
 for key,item in receipt['input_artifact_hashes'].items():
-    raw=subprocess.check_output(['git','show',item['commit']+':'+item['path']]);assert digest(raw)==item['sha256']
+    filename=key+'.json';assert manifest[filename]==item
+    raw=subprocess.check_output(['git','show','HEAD:'+(archive/filename).as_posix()]);assert digest(raw)==item['sha256']
     # Targets are byte-hashed for provenance only, never decoded or passed to replay.
     if key not in ('targets','target_freeze'):inputs[key]=json.loads(raw)
 assert receipt['input_artifact_hashes']['targets']['sha256']=='72cd12af095bcef89e461b3e3ec38ec7edad12f86825bc27e91b6509ed3b77c3'
@@ -61,5 +63,6 @@ result=dict(passed=True,completed_utc=datetime.now(timezone.utc).isoformat(),sel
     source_hashes=len(receipt['source_code_sha256']),training_input_hashes=len(receipt['input_artifact_hashes']),final_file_hashes=len(receipt['files_sha256']),
     exact_heads=2,formal_train_commands=1,formal_fit_calls=dict(x=1,y=1),epochs=100,accepted_training_rows=120,
     target_bytes_hashed_only_in_provenance_phase=True,target_values_decoded=False,independent_reference_free_replay=independent,
-    exact_recipe_and_schema=True,receipt_unchanged=True,fresh_qualification=False)
+    exact_recipe_and_schema=True,receipt_unchanged=True,fresh_qualification=False,
+    provenance_inputs='committed T018D_source_inputs copies; original commit/path/hash retained in manifest')
 Path('research_log/T018D_verification.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');print(json.dumps(result))
