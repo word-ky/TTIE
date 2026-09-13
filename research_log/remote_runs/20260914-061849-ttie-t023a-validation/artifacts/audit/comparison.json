@@ -1,0 +1,189 @@
+{
+  "status": "experiment-complete",
+  "variant": "accepted C with source-recalibrated energy only",
+  "rows": 100,
+  "aggregates": {
+    "raw": {
+      "psnr": {
+        "mean": 8.109722671657906,
+        "median": 7.600161540858166
+      },
+      "ssim": {
+        "mean": 0.1600228434803769,
+        "median": 0.13897726549987016
+      }
+    },
+    "T022C": {
+      "psnr": {
+        "mean": 10.229554025363404,
+        "median": 9.650373829782268
+      },
+      "ssim": {
+        "mean": 0.3282314776612914,
+        "median": 0.3002515375673881
+      }
+    },
+    "T023A": {
+      "psnr": {
+        "mean": 10.516635253237624,
+        "median": 9.988665452257262
+      },
+      "ssim": {
+        "mean": 0.3144893116756116,
+        "median": 0.2752833186601146
+      }
+    }
+  },
+  "paired_deltas": {
+    "psnr": {
+      "mean": 0.2870812278742196,
+      "median": 0.4726580338175159,
+      "p10": -1.6169762293712846,
+      "p90": 1.8704829673209742
+    },
+    "ssim": {
+      "mean": -0.01374216598567974,
+      "median": -0.005937689068285887,
+      "p10": -0.09378033426264573,
+      "p90": 0.05794830019848839
+    }
+  },
+  "selected_step_histogram": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    11,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    79
+  ],
+  "selected_step40": 79,
+  "final_saturation": {
+    "ev_active": {
+      "coordinates": 392,
+      "lower": 46,
+      "upper": 83,
+      "either": 129,
+      "lower_fraction": 0.11734693877551021,
+      "upper_fraction": 0.21173469387755103,
+      "either_fraction": 0.32908163265306123
+    },
+    "ev_inactive": {
+      "coordinates": 8,
+      "lower": 8,
+      "upper": 8,
+      "either": 8,
+      "lower_fraction": 1.0,
+      "upper_fraction": 1.0,
+      "either_fraction": 1.0
+    },
+    "ev_collapsed": {
+      "coordinates": 8,
+      "lower": 8,
+      "upper": 8,
+      "either": 8,
+      "lower_fraction": 1.0,
+      "upper_fraction": 1.0,
+      "either_fraction": 1.0
+    },
+    "ev_active_noncollapsed": {
+      "coordinates": 392,
+      "lower": 46,
+      "upper": 83,
+      "either": 129,
+      "lower_fraction": 0.11734693877551021,
+      "upper_fraction": 0.21173469387755103,
+      "either_fraction": 0.32908163265306123
+    },
+    "gamma_active": {
+      "coordinates": 392,
+      "lower": 307,
+      "upper": 25,
+      "either": 332,
+      "lower_fraction": 0.7831632653061225,
+      "upper_fraction": 0.06377551020408163,
+      "either_fraction": 0.8469387755102041
+    },
+    "gamma_inactive": {
+      "coordinates": 8,
+      "lower": 8,
+      "upper": 8,
+      "either": 8,
+      "lower_fraction": 1.0,
+      "upper_fraction": 1.0,
+      "either_fraction": 1.0
+    },
+    "gamma_collapsed": {
+      "coordinates": 8,
+      "lower": 8,
+      "upper": 8,
+      "either": 8,
+      "lower_fraction": 1.0,
+      "upper_fraction": 1.0,
+      "either_fraction": 1.0
+    },
+    "gamma_active_noncollapsed": {
+      "coordinates": 392,
+      "lower": 307,
+      "upper": 25,
+      "either": 332,
+      "lower_fraction": 0.7831632653061225,
+      "upper_fraction": 0.06377551020408163,
+      "either_fraction": 0.8469387755102041
+    }
+  },
+  "runtime_seconds": {
+    "mean": 2.4098959528136765,
+    "median": 2.445311989518814,
+    "p95": 2.4736445495480437
+  },
+  "saturation": {
+    "ev_lower": 0.135,
+    "ev_upper": 0.2275,
+    "ev_either": 0.3425,
+    "gamma_lower": 0.7875,
+    "gamma_upper": 0.0825,
+    "gamma_either": 0.85
+  },
+  "gate": {
+    "psnr_delta_threshold": 0.5,
+    "ssim_must_not_decrease": true,
+    "psnr_pass": false,
+    "ssim_pass": false
+  },
+  "verdict": "negative/insufficient"
+}

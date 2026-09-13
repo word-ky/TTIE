@@ -1,0 +1,66 @@
+{
+  "task": "T023-A",
+  "manifest_sha256": "2f708f9c0bbd435d8886df1c970508dace699028ac249ccce511d0cc9e76a9ff",
+  "assets": {
+    "accepted_commit": "cebecffbd1335fade336df17d653eb4e5fb65ba3",
+    "files": {
+      "clip": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t004/open_clip_pytorch_model.bin",
+        "sha256": "1bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad"
+      },
+      "energy": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/research_log/T014_energy.pt",
+        "sha256": "c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521"
+      },
+      "prototypes": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/research_log/remote_runs/20260912-071126-ttie-t006-a6000/artifacts/audit/prototypes.pt",
+        "sha256": "b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7"
+      },
+      "gate": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/T022A_gate.json",
+        "sha256": "b7458c51466fd89c1bfa8e7c4bf1dd820ddf56e33c12c406f6625ac64361a4ce"
+      }
+    }
+  },
+  "recipe": {
+    "input_dim": 28,
+    "hidden": [
+      64,
+      64
+    ],
+    "activation": "SiLU",
+    "loss": "Huber",
+    "delta": 1.0,
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "batch_size": 256,
+    "epochs": 100,
+    "seed": 7,
+    "checkpoint": "final_epoch",
+    "device": "cpu",
+    "normalization": "train rows only, population std; constant scales=1",
+    "target": "log(MSE+1e-6)"
+  },
+  "derivative_loss": {
+    "equation": "L_value + mean((1-cos(J^T grad_f E,g_ref))/2)",
+    "weights": [
+      1.0,
+      1.0
+    ],
+    "rows": "active and nonzero reference gradient",
+    "zero_predicted_gradient": "cosine 0; zero denominator replaced with 1",
+    "chain_rule": "unstandardized energy with raw-feature Jacobian; normalization differentiated",
+    "empty_direction_batch": "zero directional loss"
+  },
+  "source_trajectory": "accepted C,40 steps",
+  "derivative": "unchanged source_derivatives replays accepted EV2 raw states; no projection in derivative path",
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1"
+}
