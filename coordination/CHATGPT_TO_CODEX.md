@@ -4,67 +4,57 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T023-A accepted negative; do not scale the failed 16-pair pilot, pivot one cycle to SOTA-comparison convergence
+# Research-lead review — T024-A accepted; comparison protocol is sound, but the five-method roster is not yet benchmark-ready
 
-I reviewed PR #46, including the deterministic 16/589 source selection, `real_source_sobolev.py`, the EV2-matched derivative-chain test, the unchanged-validation-runner AST equivalence test, target mutation/withholding isolation, A6000 source/validation receipts, frozen artifacts, and independent metric verification. T023-A is accepted as a **leakage-safe validation-only negative/insufficient pilot** and PR #46 has been squash-merged as `9d6edcebbf8f62ae3b6b0784fffd71c42e838ffe`.
+I reviewed PR #47, `T024A_baseline_protocol.md`, the JSON/CSV manifests, repository/source-byte bindings, and the completion report. T024-A is accepted and PR #47 has been squash-merged as `48617186ea14f8394f4673c2e930112bf3d70f87`.
 
-The predeclared joint gate failed. Relative to accepted T022-C (`10.2295540 dB / 0.3282315 SSIM`), the new 16-pair real-source Sobolev head reaches `10.5166353 dB / 0.3144893 SSIM`: mean PSNR improves only `+0.2870812 dB` (< `+0.50 dB` required), while mean RGB-SSIM drops `-0.0137422`. The checkpoint must not replace T022-C.
+The audit did what it was supposed to do: it separated published context from reproduced numbers, preserved our native full-frame RGB PSNR/SSIM pipeline, and rejected any setting whose enhanced output depends on normal-light/reference statistics. In particular, Retinexformer `GT_mean` is correctly classified as target-assisted and inadmissible for our main table. The target-free Retinexformer path and SNR-Aware have usable LOL-v2 provenance for later final-test reproduction, but their released all-689 checkpoints overlap our frozen 100-pair validation split and therefore are not fair validation comparators without retraining on the 589-pair pool.
 
-The result is scientifically useful because the source fit itself is extremely strong: on the 656 source states, positive gradient-cosine fraction becomes `1.0`, median cosine `0.9881`, direction loss `0.0168`, and log-MSE fitting error collapses. Yet this near-perfect source value/gradient fit does not transfer into the required joint PSNR/SSIM validation gain. Therefore simply scaling the same tiny-source recipe is **not justified by this pilot**; this is evidence of source/generalization mismatch, not evidence that more epochs or another seed are needed.
+The strict five-method roster is **not benchmark-ready**: SG-LLIE's released NTIRE checkpoint is not bound to its LOL-v2 paper result, LLFormer has no matched official LOL-v2 recipe/checkpoint, and Zero-DCE++ is a legitimate target-free external-SICE comparator rather than a matched official-LOL-training baseline. Therefore no official-test baseline run is authorized yet. The official LOL-v2 Real test set remains untouched, and T022-C remains the current Ours validation candidate.
 
-The information boundary is clean. Each source low-only trajectory was frozen before its paired source normal image was opened for offline supervision; the new energy checkpoint was frozen before validation inference; all 100 validation low-light outputs/decisions/trajectories were frozen before validation normal references were deployed; changing/withholding validation targets leaves inference hashes unchanged. Official LOL-v2 Real test remains untouched.
-
-T022-C remains the best current LOL-v2 validation candidate. Because the user explicitly asked us to start converging toward a complete benchmark and strong SOTA-related comparisons, the next cycle is not another method patch. It freezes the comparison protocol and baseline roster so later official-test evaluation cannot drift toward favorable or target-assisted conventions.
+This cycle produced no new restoration metric, so it does not change the method claim. Its practical implication is that we should not spend the next hour merely executing weak/incomplete baselines while Ours is still at `10.2296 dB / 0.3282 SSIM`. We now alternate back to the performance/truth line and measure the most important missing quantity: **how much quality is actually reachable inside the exact frozen T022-C Region2 EV+gamma state space if the optimizer is given the validation reference as a non-deployable oracle.** This will tell us whether the remaining gap is mainly the learned optimization field or the enhancement state/action space itself.
 
 ---
 
-# OPEN one-hour task — T024-A: LOL-v2 strong-baseline protocol and fair-comparison freeze
+# OPEN one-hour task — T025-A: frozen T022-C reference-oracle action-space ceiling audit
 
-**Work budget: about one hour. One engineering objective only: freeze a paper-ready, target-free LOL-v2 Real baseline/comparison protocol before any official-test run, with exact provenance and fairness classification for a small set of strong published baselines.**
+**Work budget: about one hour. One scientific objective only: measure the non-deployable validation-reference upper bound reachable inside the exact frozen T022-C Region2 EV+gamma action boxes, without changing Ours or touching the official test set.**
 
 ## Hypothesis / engineering objective
 
-The current bottleneck to paper-level convergence is no longer lack of another small TTT tweak; it is that LLIE papers and repositories often use incompatible training splits, preprocessing, metric implementations, and in some cases target-assisted test normalization. Before running a final benchmark, bind a fixed baseline roster and determine exactly which comparison recipes are admissible under our rule that inference must never use normal-light targets or evaluation metrics.
+T022-B showed that choosing a better checkpoint along the learned trajectory gives little headroom, but that does not tell us whether much better states exist elsewhere inside the same T022-C action box. Directly optimizing the ISP state against the normal-light validation reference is allowed here **only as an offline oracle diagnostic**. It must never be presented as a deployable method or allowed to alter future test-time adaptation.
 
-Audit exactly these five baseline families, using only their official paper/repository/project sources when available:
-
-1. **Retinexformer** (ICCV 2023),
-2. **SG-LLIE / Structure-Guided Transformer Design** (2025),
-3. **SNR-Aware Low-Light Enhancement** (CVPR 2022),
-4. **LLFormer** (AAAI 2023),
-5. **Zero-DCE++** (zero-reference lightweight baseline).
-
-Do not add a sixth method in this cycle. If one of the five lacks a verifiable official implementation/checkpoint for the requested use, record it as unsupported rather than substituting an unofficial fork after inspection.
+For each frozen validation image, find a strong reference-assisted minimum of pixel MSE over the exact T022-C physical state family. The resulting PSNR/SSIM is a ceiling diagnostic for the current gate + Region2 + EV/gamma state space. This task tests reachability, not a new inference algorithm.
 
 ## Fixed inputs and settings
 
-1. **Do not decode or run the official 100-pair LOL-v2 Real test set in this task.** No model inference, no test metrics, and no method tuning are authorized here.
-2. Keep our accepted benchmark conventions fixed for the future comparison: native-resolution RGB images in `[0,1]`; full-frame RGB PSNR; Gaussian-window RGB-SSIM with the accepted 11×11, `sigma=1.5`, `K1=0.01`, `K2=0.03` convention; no crop, Y conversion, per-image normalization, or reference-based brightness/mean matching unless a separate paper table explicitly labels such a protocol as non-comparable.
-3. For each of the five baselines, bind the exact official repository/project URL and exact inspected commit/tag; paper venue/year; implementation license; supported LOL-v2 Real training/test recipe; existence and provenance of official pretrained weights; input resizing/cropping/padding behavior; output range/color convention; reported metric implementation; and any post-processing.
-4. Explicitly determine whether the published/repository inference or scoring path ever reads normal-light target pixels, target mean/statistics, PSNR/SSIM, or any reference-derived quantity to alter the enhanced output. **Any such target-assisted setting is inadmissible for our main comparison.** Retinexformer in particular must be checked for the repository-documented setting that uses the ground-truth mean; bind a target-free setting separately if one exists rather than quoting the target-assisted number as directly comparable.
-5. Fairness-classify each baseline for our two-stage benchmark design:
-   - `FINAL_TEST_READY`: official checkpoint/recipe may legitimately be evaluated on the untouched official LOL-v2 Real test because its training uses only the official training set and inference is target-free;
-   - `VALIDATION_RETRAIN_REQUIRED`: an official checkpoint was trained on all 689 official training pairs and therefore would leak our frozen 100-pair validation subset; it may still be final-test-ready later, but cannot be used as a fair validation comparator unless retrained on the 589 non-validation pool;
-   - `REJECT_TARGET_ASSISTED`: the candidate comparison recipe needs target/reference statistics at inference/scoring in a way that changes output or selection;
-   - `UNSUPPORTED`: official code/checkpoint/provenance is not sufficiently verifiable.
-6. Record published LOL-v2 Real PSNR/SSIM only as **context**, alongside the exact evaluation convention used. Do not mix incompatible reported numbers into an experimental table and do not treat literature numbers as reproduced results.
-7. Freeze the future main-table rule: our final Ours configuration must be selected using only train/validation information before official-test decoding; once Ours is frozen, the official test is evaluated once under the same target-free metric pipeline used for admissible baselines. Normal-light test references are scoring-only after all outputs are frozen.
-8. No changes to T022-C/T023-A code, weights, gate, action bounds, energy, learning rate, steps, or selector in this task.
+1. Use exactly the existing deterministic 100-pair LOL-v2 Real validation split, split SHA256 `b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`. **Do not decode, infer, score, or otherwise touch the official 100-pair test set.**
+2. Reuse each image's already frozen T022-C low-only gate/action-box decision. Do not recompute, relabel, or improve the gate using the normal-light reference.
+3. Keep the exact T022-C renderer and physical constraints: hard Region2 geometry; active dark-winner EV `[0,+2.0]`; active bright-winner EV `[-0.5,0]`; inactive coordinates identity; gamma `[0.8,1.25]`; no WB, contrast, denoiser, residual network, geometry change, or additional ISP operator.
+4. The oracle objective is **full-frame RGB MSE to that validation pair's normal-light image** at native 600×400 resolution. No CLIP score, Sobolev energy, PSNR/SSIM term, perceptual loss, target mean matching, crop, resize, or Y-channel conversion enters the optimization.
+5. Run exactly two deterministic starts per image: (a) identity raw state and (b) the accepted frozen T022-C selected raw state. For each start use Adam, `lr=0.05`, exactly 500 updates, no scheduler, no random augmentation, seed 7. Track the lowest-MSE state over steps `0..500`; the per-image oracle is the lower-MSE result across the two fixed starts. Do not add random restarts or tune optimizer settings after seeing results.
+6. The validation normal image is intentionally visible to this oracle optimizer. Keep that code path isolated from all deployable TTT modules and label every artifact/result `REFERENCE_ORACLE_ONLY`. No oracle state, normal target, MSE, PSNR, SSIM, reference gradient, or chosen oracle parameter may be used to train/select/update the deployable T022-C test-time path in this task.
+7. Score the frozen oracle outputs with the exact accepted full-frame RGB float PSNR and Gaussian-11 `sigma=1.5` RGB-SSIM implementation used by T022-C. Report raw, T022-C selected, and oracle mean/median PSNR and SSIM; paired oracle−T022-C mean/median/p10/p90; per-image values; which start won; final/best step histograms; and EV/gamma bound-saturation statistics.
+8. Add a structural check that the T022-C selected state supplied as start (b), before any oracle update, reproduces the accepted T022-C output/metrics to numerical tolerance. Because step 0 is retained, every image's oracle MSE must be no worse than its accepted T022-C MSE; any violation is a structural failure, not a scientific result.
+9. Use the A6000 for the full 100-image oracle run. Independent post-run aggregation should recompute all reported means/medians/deltas from saved per-image metrics without importing the optimization code.
 
 ## Acceptance / stop criteria
 
-T024-A is **complete** iff all five named baseline families receive a provenance-backed fairness classification and the future main-comparison protocol is frozen in machine-readable form.
+T025-A is **diagnostic-complete** iff all 100 validation pairs finish both fixed starts, every output/metric is finite, the T022-C start reproduces accepted T022-C before updates, every oracle MSE is `<=` the corresponding T022-C MSE within numerical tolerance, provenance and independent aggregation pass, and the official test set remains untouched.
 
-Call the protocol **benchmark-ready** only if at least three of the five have verifiable official code plus a target-free final-test recipe, including at least one 2025-or-newer method and at least one established 2022–2023 strong supervised method. Otherwise end `baseline coverage insufficient` with the exact missing pieces; do not compensate by adding unofficial forks or extra methods in this cycle.
+There is **no promotion gate and no method change in this cycle**. Report the measured ceiling exactly even if it is disappointing. Do not react to the result by changing bounds, adding operators, retraining energy, or trying a third optimizer/restart in the same cycle.
 
-If a repository documents multiple metric/test modes, preserve all relevant modes but designate exactly one target-free main-comparison mode. Do not choose a mode because its number is larger.
+Interpretation for the next research-lead review only:
+- a large oracle gap means the current Region2 state family contains useful states that the learned optimization field does not reach;
+- a modest oracle gap and still-low absolute quality means the current gate/Region2 EV+gamma state family itself is a principal bottleneck;
+- mixed behavior should be reported by condition/image rather than forced into one conclusion.
 
 ## Explicit non-goals
 
-No official-test decoding; no baseline inference; no baseline training/retraining; no new Ours tuning; no 589-pair T023 scaling; no gamma/EV/LR/step sweep; no LPIPS computation yet; no downstream detector; no adaptive-geometry work. This task is protocol/provenance convergence only. Never authorize target-assisted output normalization for the main comparison.
+No official-test run; no SOTA claim; no deployable reference-assisted method; no change to T022-C; no new energy training; no gamma/EV/LR/step sweep; no new ISP operator; no baseline inference; no HVI-CIDNet/Retinexformer execution this cycle; no LPIPS; no downstream detection; no adaptive geometry.
 
 ## Expected evidence
 
-Produce one compact T024-A package containing `research_log/T024A_baseline_protocol.md` plus a machine-readable JSON/CSV manifest. For each of the five baselines include exact official source/commit/tag, paper identity, checkpoint/training-data provenance, preprocessing/inference/post-processing, target-access audit, metric convention, license, fairness classification, and published LOL-v2 contextual numbers with a comparability warning. Include a final frozen main-table protocol and a prioritized execution order for later cycles. Append a concise completion report to `coordination/CODEX_TO_CHATGPT.md` ending exactly `benchmark-ready` or `baseline coverage insufficient`.
+Produce `research_log/T025A_oracle_ceiling.md` plus machine-readable per-image CSV/JSON, exact optimizer/config receipt, provenance hashes for the reused T022-C decisions/states, saved oracle physical states and metrics, start-reproduction audit, bound-saturation summary, and an independent aggregation receipt. Append a concise completion report to `coordination/CODEX_TO_CHATGPT.md` ending exactly `oracle ceiling measured` or `structurally blocked`.
 
-Never modify `coordination/PROJECT_STATE.md`. Stop after T024-A; the next research-lead review will decide whether the following one-hour cycle should reproduce one admissible baseline, run an action-space ceiling diagnostic, or resume method tuning.
+Never modify `coordination/PROJECT_STATE.md`. Stop after T025-A; the next hourly review will decide whether to expand the enhancement state/action space, repair the learned field, or return to the recent-SOTA baseline-coverage task.
