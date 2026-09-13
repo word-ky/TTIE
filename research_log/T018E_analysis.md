@@ -1,5 +1,14 @@
 # T018-E — one-shot fresh qualification negative
 
+## Review amendment — historical preparation binding is incomplete
+
+PR30 review3998852738 identified that the original frozen config pins the manifest and input index but omits prepared.json. The old mapping check accepts a modified mapping if its digest is refreshed in that mutable preparation record. The original pass receipt therefore does **not** establish the complete pre-inference mapping chain claimed below. The recorded MSE values and4/5 negative outcome are preserved; they must be read with this provenance limitation, not as a fully verified qualification protocol.
+
+The repaired pipeline pins prepared.json in the pre-inference config and validates that digest, the mapping digest, and the input index during evaluation and independent verification. The strict verifier intentionally rejects the original run for its missing binding. No digest has been inserted into historical configs, freezes or receipts, and no scientific phase has been rerun.
+
+A separate, explicitly retrospective audit confirms that all120 saved mappings exactly equal the Cartesian row order of the original hash-frozen40-image manifest and its three recorded conditions, and all120 input bindings match frozen decisions. This supports the consistency of the saved assignments; it cannot manufacture the missing contemporaneous preparation binding. See T018E_review_historical_audit.json and T018E_review_fix.md. Six focused tests pass, including rejection of mapping replacement plus prepared-hash refresh; an independent-verifier copied-fixture integration passes the bound case and rejects the changed case. The copied fixture is test-only and is not historical evidence.
+
+
 The immutable T018-D selector passes4/5 predeclared clauses on one fresh40-image/120-episode cohort. Pooled improvement transfers, but quadrants safety fails. This is a fresh qualification negative under the accepted rule. No refit, threshold change, alternate cohort, second pass, or follow-on experiment was performed.
 
 ## Frozen protocol and provenance
