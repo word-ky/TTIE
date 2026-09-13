@@ -1,0 +1,314 @@
+{
+  "task": "T018-A",
+  "status": "DONE",
+  "delivered_utc": "2026-09-13T01:40:02.346646+00:00",
+  "source_sha": "c9f3a0ac763f2f0e5b3a8a67d009f2792f8fe118",
+  "evidence_sha": "8a67f0532210dbdf67be8e0f5b181ac6a7582085",
+  "main_done_sha": "d6ef07b4149889cf21e9805e21b604cedd9f30df",
+  "branch": "codex/T018A-hard-local-audit",
+  "pr": "https://github.com/word-ky/TTIE/pull/25",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": null,
+  "github_mergeable_state": "unknown",
+  "local_merge_tree_passed": true,
+  "recovery": {
+    "task": "T018-A",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T018A_recovery.tar.gz",
+    "bytes": 208508,
+    "sha256": "ffdc24ef3295e815139aca7bdcc0ae65f420dde25a2911d3d79b469009f714a7",
+    "entries": 36,
+    "analysis_sha256": "2aa86298d42316988a8ff5dc6e56b91323fad595f07b3d9cabd94f4ce91fbb2d",
+    "main_sha": "d6ef07b4149889cf21e9805e21b604cedd9f30df"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "ffdc24ef3295e815139aca7bdcc0ae65f420dde25a2911d3d79b469009f714a7",
+      "analysis_sha256": "2aa86298d42316988a8ff5dc6e56b91323fad595f07b3d9cabd94f4ce91fbb2d",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "ffdc24ef3295e815139aca7bdcc0ae65f420dde25a2911d3d79b469009f714a7",
+      "analysis_sha256": "2aa86298d42316988a8ff5dc6e56b91323fad595f07b3d9cabd94f4ce91fbb2d",
+      "verified": true
+    }
+  ],
+  "summary": {
+    "groups": {
+      "spatial_pool": {
+        "count": 120,
+        "mse": {
+          "H0": 0.03504357374816512,
+          "H1": 0.032606784894596785,
+          "H_star": 0.032563564518932255
+        },
+        "ratios": {
+          "H1_over_H0": 0.9304640311208007,
+          "H1_over_H_star": 1.00132726181249
+        },
+        "oracle_headroom": 0.002480009229232867,
+        "oracle_recovery": 0.9825724940233791,
+        "oracle_recovery_distribution": {
+          "count": 120,
+          "null_count": 51,
+          "mean": 0.9907581865225772,
+          "median": 1.0,
+          "quantiles": {
+            "0": 0.6598368773641873,
+            "5": 0.9704719188778212,
+            "25": 1.0,
+            "50": 1.0,
+            "75": 1.0,
+            "95": 1.0,
+            "100": 1.0
+          }
+        },
+        "zero_headroom_count": 51,
+        "movements": {
+          "no_move": 51,
+          "x_only": 6,
+          "y_only": 33,
+          "both": 30
+        },
+        "gains": {
+          "beneficial": 69,
+          "equal": 51,
+          "harmful": 0
+        },
+        "oracle_tie_set_match_count": 115,
+        "oracle_tie_set_match_fraction": 0.9583333333333334,
+        "tied_oracle_episodes": 12,
+        "factorization_regret": {
+          "count": 120,
+          "null_count": 0,
+          "mean": 4.3220375664532186e-05,
+          "median": 0.0,
+          "quantiles": {
+            "0": 0.0,
+            "5": 0.0,
+            "25": 0.0,
+            "50": 0.0,
+            "75": 0.0,
+            "95": 0.0,
+            "100": 0.002898089587688446
+          }
+        },
+        "pure_interaction_failures": 0,
+        "harmful_examples": []
+      },
+      "left_right": {
+        "count": 40,
+        "mse": {
+          "H0": 0.03339701551012695,
+          "H1": 0.032170985778793695,
+          "H_star": 0.032170985778793695
+        },
+        "ratios": {
+          "H1_over_H0": 0.9632892426881232,
+          "H1_over_H_star": 1.0
+        },
+        "oracle_headroom": 0.0012260297313332544,
+        "oracle_recovery": 1.0,
+        "oracle_recovery_distribution": {
+          "count": 40,
+          "null_count": 7,
+          "mean": 1.0,
+          "median": 1.0,
+          "quantiles": {
+            "0": 1.0,
+            "5": 1.0,
+            "25": 1.0,
+            "50": 1.0,
+            "75": 1.0,
+            "95": 1.0,
+            "100": 1.0
+          }
+        },
+        "zero_headroom_count": 7,
+        "movements": {
+          "no_move": 7,
+          "x_only": 0,
+          "y_only": 33,
+          "both": 0
+        },
+        "gains": {
+          "beneficial": 33,
+          "equal": 7,
+          "harmful": 0
+        },
+        "oracle_tie_set_match_count": 40,
+        "oracle_tie_set_match_fraction": 1,
+        "tied_oracle_episodes": 5,
+        "factorization_regret": {
+          "count": 40,
+          "null_count": 0,
+          "mean": 0.0,
+          "median": 0.0,
+          "quantiles": {
+            "0": 0.0,
+            "5": 0.0,
+            "25": 0.0,
+            "50": 0.0,
+            "75": 0.0,
+            "95": 0.0,
+            "100": 0.0
+          }
+        },
+        "pure_interaction_failures": 0,
+        "harmful_examples": []
+      },
+      "quadrants": {
+        "count": 40,
+        "mse": {
+          "H0": 0.030983849649783225,
+          "H1": 0.030982188356574625,
+          "H_star": 0.030982188356574625
+        },
+        "ratios": {
+          "H1_over_H0": 0.9999463819626232,
+          "H1_over_H_star": 1.0
+        },
+        "oracle_headroom": 1.6612932085997845e-06,
+        "oracle_recovery": 1.0,
+        "oracle_recovery_distribution": {
+          "count": 40,
+          "null_count": 39,
+          "mean": 1.0,
+          "median": 1.0,
+          "quantiles": {
+            "0": 1.0,
+            "5": 1.0,
+            "25": 1.0,
+            "50": 1.0,
+            "75": 1.0,
+            "95": 1.0,
+            "100": 1.0
+          }
+        },
+        "zero_headroom_count": 39,
+        "movements": {
+          "no_move": 39,
+          "x_only": 1,
+          "y_only": 0,
+          "both": 0
+        },
+        "gains": {
+          "beneficial": 1,
+          "equal": 39,
+          "harmful": 0
+        },
+        "oracle_tie_set_match_count": 40,
+        "oracle_tie_set_match_fraction": 1,
+        "tied_oracle_episodes": 0,
+        "factorization_regret": {
+          "count": 40,
+          "null_count": 0,
+          "mean": 0.0,
+          "median": 0.0,
+          "quantiles": {
+            "0": 0.0,
+            "5": 0.0,
+            "25": 0.0,
+            "50": 0.0,
+            "75": 0.0,
+            "95": 0.0,
+            "100": 0.0
+          }
+        },
+        "pure_interaction_failures": 0,
+        "harmful_examples": []
+      },
+      "offset_left_right_40": {
+        "count": 40,
+        "mse": {
+          "H0": 0.04074985608458519,
+          "H1": 0.034667180548422036,
+          "H_star": 0.03453751942142844
+        },
+        "ratios": {
+          "H1_over_H0": 0.8507313615160448,
+          "H1_over_H_star": 1.0037542107587827
+        },
+        "oracle_headroom": 0.006212336663156744,
+        "oracle_recovery": 0.9791284448953695,
+        "oracle_recovery_distribution": {
+          "count": 40,
+          "null_count": 5,
+          "mean": 0.9817804248587951,
+          "median": 1.0,
+          "quantiles": {
+            "0": 0.6598368773641873,
+            "5": 0.898870809515111,
+            "25": 1.0,
+            "50": 1.0,
+            "75": 1.0,
+            "95": 1.0,
+            "100": 1.0
+          }
+        },
+        "zero_headroom_count": 5,
+        "movements": {
+          "no_move": 5,
+          "x_only": 5,
+          "y_only": 0,
+          "both": 30
+        },
+        "gains": {
+          "beneficial": 35,
+          "equal": 5,
+          "harmful": 0
+        },
+        "oracle_tie_set_match_count": 35,
+        "oracle_tie_set_match_fraction": 0.875,
+        "tied_oracle_episodes": 7,
+        "factorization_regret": {
+          "count": 40,
+          "null_count": 0,
+          "mean": 0.00012966112699359656,
+          "median": 0.0,
+          "quantiles": {
+            "0": 0.0,
+            "5": 0.0,
+            "25": 0.0,
+            "50": 0.0,
+            "75": 0.0,
+            "95": 0.0004162876401096546,
+            "100": 0.002898089587688446
+          }
+        },
+        "pure_interaction_failures": 0,
+        "harmful_examples": []
+      }
+    },
+    "clauses": {
+      "pooled_3pct_better_H0": true,
+      "pooled_within_3pct_oracle": true,
+      "offset_5pct_better_H0": true,
+      "left_right_safety": true,
+      "quadrants_safety": true
+    },
+    "passed": 5,
+    "interpretation": "hard_local_direction_target_viable",
+    "reference_only": true,
+    "deployable": false
+  },
+  "decision_receipt": {
+    "reporting_started_utc": "2026-09-13T01:34:03.769798+00:00",
+    "decisions_sha256": "72cd12af095bcef89e461b3e3ec38ec7edad12f86825bc27e91b6509ed3b77c3",
+    "decisions_frozen_sha256": "ae235b13cd13cdb452b4f5c81298736a606eb09dbc3c28a13c7baddaa7a4da19",
+    "quantities_sha256": "c99891e778a750f035e58380845ee803df08f77e70cab9178abd9f04cdf9c40e",
+    "quantities_frozen_sha256": "4d8e232ed8af489ec89510ba8ea955fe37e136e822624bea78d7c88f94adc7af"
+  },
+  "focused_tests_passed": true,
+  "independent_verification_passed": true,
+  "reference_only": true,
+  "deployable": false,
+  "no_training_pixels_rendering_or_gpu_experiment": true,
+  "failures": [],
+  "deviations": [],
+  "heartbeat": "existing ttie-chatgpt every 15 minutes; unchanged state quiet",
+  "next_action": "await research review; no predictor/head, derivative training, fresh evaluation, self-merge or unissued T018-B"
+}
