@@ -14,9 +14,11 @@ A useful spatial TTT system requires four aligned pieces: (i) a content-safe nui
 
 T014 establishes the first three for canonical hard Region2. T015 shows that simple routing among global/bilinear2/Region2 has too little oracle headroom. T016-A establishes substantial development-only headroom in moving the hard Region2 boundary, while T016-B–F show that global scalar ranking/value/ranking-plus-confidence over nine boundaries is not robust enough. T017 shows that a `tau=0.05` soft neighborhood carries diagnostic signal but is neither a safe hard-transfer surrogate nor a viable deployed renderer.
 
-T018 now isolates the remaining geometry bottleneck. T018-A shows the **hard local x/y target is simple and viable**. T018-B shows the existing frozen T014 scalar Sobolev energy fails even under that correct local decision geometry. T018-C then passes **5/5** under strict image-grouped OOF when the same frozen 28-D candidate representation is trained directly for the x/y three-way direction. The supported interpretation is therefore: **useful hard-geometry direction information survives in the representation, but the previous scalar energy/value projection and objective discard or distort too much of it.**
+T018 isolates the geometry bottleneck. T018-A shows the **hard local x/y target is simple and viable**. T018-B shows the existing frozen T014 scalar Sobolev energy fails even under that correct local decision geometry. T018-C passes **5/5** under strict image-grouped OOF when the same frozen 28-D candidate representation is trained directly for the x/y three-way direction. T018-D freezes the literal all-development two-head selector. T018-E then gives the decisive fresh result: pooled, oracle-proximity, offset, and left/right clauses transfer, but **quadrants safety fails narrowly at `1.011785×` Region2 (4/5 overall)** because three fresh quadrant episodes make unnecessary x-boundary moves while canonical center is already the nine-hard oracle.
 
-The immediate active task is T018-D: freeze exactly one final x head and one final y head on all accepted development rows with the unchanged T018-C recipe and expose a reference-free inference interface. This is an immutable engineering barrier only. Fresh qualification is explicitly deferred until a later task.
+The supported interpretation is now more specific: **useful hard-geometry direction information survives in the representation, but a direct exact-direction classifier is not conservative enough about whether movement is materially useful on fresh near-zero-headroom cases.** T018-E is a one-shot fresh negative; its cohort is burned for future qualification and cannot be used for corrective tuning.
+
+The immediate active task is T019-A: a development-only reference audit of a fixed, family-agnostic **1% utility deadband** on the hard local target. It asks whether requiring at least 1% per-axis reference improvement before assigning a non-center target preserves the established geometry headroom with zero harmful target moves. No new selector is trained in this cycle.
 
 ## Best fresh-validated method
 
@@ -29,7 +31,7 @@ The best deployable result remains **T014 Sobolev Region2 TTT**:
 5. minimum predicted-energy checkpoint, earliest tie;
 6. all label-free trajectories/decisions persisted before clean-reference evaluation.
 
-T016–T018 are development diagnostics/finalization work and do not replace T014 until an independently frozen fresh qualification succeeds.
+T016–T019 are geometry diagnostics/candidate-method development and do not replace T014. T018-E explicitly fails the fresh family-safety qualification, so the frozen T018-D direct-direction selector is not accepted as the deployable replacement.
 
 ## Established controlled findings
 
@@ -51,15 +53,17 @@ T016–T018 are development diagnostics/finalization work and do not replace T01
 - **T017-C:** matched-soft deployment is negative (**2/5**); `tau=0.05` renderer itself is poor relative to hard Region2. Soft-renderer route closed.
 - **T018-A:** **hard local-direction reference target positive (5/5)**. Pooled `H1/H0 = 0.930464`, `H1/H* = 1.001327`; offset `0.850731`; left/right `0.963289`; quadrants `0.999946`. It recovers **98.26%** of pooled nine-hard oracle headroom with **69 beneficial / 51 equal / 0 harmful** moves; `115/120` choices lie in the exact oracle tie set.
 - **T018-B:** **frozen-T014 hard-cross local direction negative (0/5)**. Pooled selected/H0 `1.086198`, selected/H* `1.168922`; offset `0.964061`; left/right `1.075253`; quadrants `1.258630`. Outcomes **24 beneficial / 38 equal / 58 harmful**; exact T018-A joint agreement `32/120`.
-- **T018-C:** **grouped-OOF direct hard-axis direction probe positive (5/5)**. Using only `concat(f0, f- - f0, f+ - f0)` from the frozen 28-D representation, pooled selected/H0 is `0.946340`, selected/H* `1.018412`, offset/H0 `0.874913`, left/right/H0 `0.983709`, quadrants/H0 `1.000000`. Exact T018-A agreement is x `105/120`, y `98/120`, joint `87/120`; outcomes are **57 beneficial / 52 equal / 11 harmful**. All 40 quadrants remain at canonical center; all 11 harmful cases are left/right. The ten OOF heads and 120 decisions were frozen before held-out reference/target/family evaluation. This is development-only evidence of representation-level direction sufficiency, not fresh qualification.
+- **T018-C:** **grouped-OOF direct hard-axis direction probe positive (5/5), development only**. Using only `concat(f0, f- - f0, f+ - f0)` from the frozen 28-D representation, pooled selected/H0 is `0.946340`, selected/H* `1.018412`, offset/H0 `0.874913`, left/right/H0 `0.983709`, quadrants/H0 `1.000000`. Exact T018-A agreement is x `105/120`, y `98/120`, joint `87/120`; outcomes are **57 beneficial / 52 equal / 11 harmful**. All 40 development quadrants remain canonical center.
+- **T018-D:** **completed engineering freeze** of exactly one all-development x head and one y head using the unchanged T018-C recipe. Reference-free inference accepts only the five required hard-cross 28-D feature vectors. This milestone adds no performance evidence.
+- **T018-E:** **one-shot fresh qualification negative (4/5)** on a deterministic disjoint 40-image/120-episode cohort. Pooled `H1/H0 = 0.932290`, pooled `H1/H* = 1.019900`, offset `0.846630`, left/right `0.964971`, but quadrants `1.011785 > 1.01`. Outcomes are pooled **61 beneficial / 46 equal / 13 harmful**; quadrants are **0 / 37 / 3**, and all three harmful quadrant cases are unnecessary x moves from a canonical nine-hard oracle. The cohort and decisions were frozen before reference evaluation, so this is a valid fresh negative rather than a leakage artifact.
 
 ## Interpretation of strongest evidence
 
 T014 supports the narrow causal claim that **derivative supervision matters more than scalar value fit for gradient-based TTT** and remains the deployed baseline.
 
-T015–T018 isolate the spatial-geometry problem. Hard boundary placement has real oracle headroom. T018-A shows that around canonical Region2 the useful hard landscape almost factorizes into local x/y decisions. T018-B rejects reuse of the old scalar Sobolev energy for those directions. T018-C then succeeds without changing the representation, renderer, candidates, or feature computation—only the supervised task changes from scalar/ranking objectives to direct axis direction classification. The most supported mechanism-level conclusion is therefore that **the frozen feature representation already contains useful local geometry information; the main failure was objective/readout compression, not absence of signal.**
+T015–T018 isolate the spatial-geometry problem. Hard boundary placement has real oracle headroom. T018-A shows that around canonical Region2 the useful hard landscape almost factorizes into local x/y decisions. T018-B rejects reuse of the old scalar Sobolev energy for those directions. T018-C succeeds on grouped OOF without changing the representation, renderer, candidates, or feature computation—only the supervised task changes from scalar/ranking objectives to direct axis direction classification. This establishes representation-level direction sufficiency on development data.
 
-Because T018-C is positive, no further development retuning is justified before a fresh test. The next step is only to freeze the literal all-development two-head selector artifact. After that, a separately issued task must construct and execute a new unseen fresh qualification with the selector and all scientific files frozen first.
+T018-E adds an important counterweight: **direction sufficiency is not the same as safe movement transfer.** The frozen direct classifier retains strong pooled and offset gains on fresh images, but three unnecessary quadrant x moves are enough to violate the family-safety gate. Because fresh quadrants have essentially no useful movement headroom, the next method question is whether the target should encode a minimum utility margin before assigning a non-center direction. Any such design must be developed without tuning on T018-E references and then, if it survives development controls, be qualified on a different future unseen cohort.
 
 ## Non-negotiable design principles
 
@@ -72,6 +76,7 @@ Because T018-C is positive, no further development retuning is justified before 
 - Cross-validation claims must be image-grouped and properly nested when second-stage calibration is fit.
 - Fresh-run launchers must fail closed by binding declared source SHAs to runtime scientific files.
 - Development-only oracle/OOF/reference diagnostics guide research direction but are not fresh qualification.
+- A failed fresh cohort may motivate a new development-only hypothesis, but its references/logits/outcomes must not be used to tune that new method; any revised method requires a different future unseen cohort.
 
 ## Milestones
 
@@ -91,10 +96,12 @@ Because T018-C is positive, no further development retuning is justified before 
 - **M13 / T018-A:** **COMPLETED — HARD LOCAL-DIRECTION REFERENCE TARGET POSITIVE (5/5).**
 - **M13 / T018-B:** **COMPLETED — FROZEN-T014 HARD-CROSS LOCAL-DIRECTION NEGATIVE (0/5).**
 - **M13 / T018-C:** **COMPLETED — GROUPED-OOF DIRECT HARD-AXIS DIRECTION POSITIVE (5/5), DEVELOPMENT ONLY.**
-- **M13 / T018-D:** **ACTIVE — FINAL ALL-DEVELOPMENT DIRECT-DIRECTION SELECTOR FREEZE.**
+- **M13 / T018-D:** **COMPLETED — FINAL ALL-DEVELOPMENT DIRECT-DIRECTION SELECTOR FROZEN.**
+- **M13 / T018-E:** **COMPLETED — ONE-SHOT FRESH QUALIFICATION NEGATIVE (4/5), QUADRANTS SAFETY FAILS AT 1.011785×.**
+- **M14 / T019-A:** **ACTIVE — FIXED 1% UTILITY-DEADBAND HARD-LOCAL TARGET VIABILITY AUDIT.**
 
 ## Current open task
 
-`T018-D — freeze the final all-development direct-direction selector` in `coordination/CHATGPT_TO_CODEX.md`.
+`T019-A — fixed 1% utility-deadband hard-local target viability audit` in `coordination/CHATGPT_TO_CODEX.md`.
 
-T018-D must train exactly two heads once on all 120 accepted development rows with the literal T018-C recipe and freeze a minimal inference API that consumes only the five required hard-cross 28-D candidate features. No fresh cohort, fresh qualification, hyperparameter/model change, thresholding, confidence gate, rerendering, CLIP/TTT rerun, or GPU work is authorized in this cycle.
+T019-A is development-only and reference-only. It must use the accepted T018-A/T016-A hard candidate table, a single predeclared `delta=0.01` per-axis improvement threshold, no threshold search, no T018-E fresh references for method design, no new model training, no fresh cohort, and no CLIP/TTT/rerender/GPU work. It must stop after deciding whether the conservative target itself passes the five established clauses with zero harmful development moves.
