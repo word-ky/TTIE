@@ -4,90 +4,101 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T018-D accepted as an immutable engineering freeze
+# Research-lead review — T018-E accepted as a one-shot fresh qualification negative (4/5)
 
-I reviewed Codex's T018-D DONE report, PR #28, the frozen selector artifacts/receipt, `ttie/direction_selector.py`, `ttie/direction_selector_run.py`, the reused `DirectionProbeHead`, focused tests, and the independent replay verifier against the T018-D contract. PR #28 is accepted and squash-merged as `9e3a244709e64915ca30fe70335b60a42951bfa6`.
+I reviewed Codex's T018-E DONE report, PR #30, `research_log/T018E_analysis.md`, the fresh cohort/decision/evaluation receipts, `ttie/fresh_direction/{prepare,select,predict,evaluate}.py`, the focused tests, and the independent replay/metric verifier against the T018-E contract. PR #30 is accepted and squash-merged as `05f9f5a70b4c4d441c1f0d701ae8d64702e7052b`.
 
-T018-D does exactly what was needed and no more: it freezes exactly two all-development heads (x and y) using the accepted T018-C `84 -> 64 -> 64 -> 3` direction model and all-development normalization, and exposes a minimal inference surface over only five 28-D hard-cross candidate features. The API constructs the two 84-D axis inputs internally and returns deterministic logits/classes/boundaries without accepting reference MSE, clean targets, T018-A targets, condition/family metadata, image identity, or oracle quantities. The tests and independent verifier replay the frozen artifacts and decisions from the saved receipt. Development reference directions are used only as training supervision for the final frozen heads; they are absent from future inference.
+The information boundary is accepted. The 40-image fresh manifest was frozen before qualification inference; all 120 degraded-only feature rows were frozen; all 120 logits/classes/boundaries were then frozen and independently replayed; only afterward did the separate evaluator open source/reference data. The selector path consumes only the frozen T018-D artifacts and five 28-D hard-cross label-free features. No fresh clean target, reference MSE, family/condition label, mask/gain annotation, oracle quantity, or semantic image-ID shortcut enters test-time adaptation or direction selection.
 
-Therefore the information boundary remains valid: **test-time selection on a fresh image must never consume test labels, clean/reference targets, condition IDs, masks/gains, annotations, image IDs as semantic shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.** The next scientific question is now external validity of the already-frozen selector, not more development tuning.
+The literal scientific result is **4/5, therefore negative**. Fresh pooled `H1/H0 = 0.932290`, pooled `H1/H* = 1.019900`, offset `H1/H0 = 0.846630`, and left/right `H1/H0 = 0.964971` all pass. Quadrants fails the predeclared safety gate: `H1/H0 = 1.011785 > 1.01`. Quadrants has `0 beneficial / 37 equal / 3 harmful` episodes; all three failures are unnecessary x-boundary moves while canonical center is already the nine-hard oracle. No rounding relaxation is permitted.
 
-T018-D is an engineering milestone rather than new scientific performance evidence. `coordination/PROJECT_STATE.md` is intentionally left unchanged in this review; the scientific state should change only after a genuinely fresh qualification result exists.
+This matters scientifically. T018-C established that the frozen 28-D representation contains enough direction information for grouped-OOF development selection, but T018-E shows that the final direct three-way classifier is still not conservative enough under fresh transfer. The remaining failure is not lack of pooled geometry signal; it is **movement necessity / safety calibration** in near-zero-headroom cases. The fresh T018-E cohort is now burned for future qualification and must not be used to tune thresholds, class weights, confidence rules, or family patches.
+
+The next step therefore returns to development-only reference analysis and asks one narrow question: can we define a more conservative *target itself* using a fixed utility deadband tied to the already-existing 1% safety tolerance, without looking at T018-E references or searching thresholds?
 
 ---
 
-# OPEN one-hour task — T018-E: one-shot fresh qualification of the frozen direct-direction selector
+# OPEN one-hour task — T019-A: fixed 1% utility-deadband hard-local target viability audit
 
-**Expected work budget: about one hour. One hypothesis only: does the immutable T018-D selector retain the T018-C pooled gain and family safety on genuinely unseen spatial episodes, with the entire selection path frozen before any clean/reference target is opened? Run one fixed qualification cohort once; do not tune from the result.**
+**Expected work budget: about one hour. One hypothesis only: a family-agnostic 1% per-axis utility deadband can suppress low-value/spurious boundary movements while retaining enough of the accepted T018-A hard-local oracle headroom to remain a viable learning target. This is a reference-only development diagnostic; do not train a new selector in this cycle.**
 
 ## Hypothesis / objective
 
-Evaluate the exact frozen T018-D `head_x`/`head_y` artifacts on a fresh, disjoint cohort. The selector may use only the same five hard-cross candidates' frozen-style 28-D label-free features and the frozen T018-D normalization/heads. If the predeclared 5/5 gates pass on the fresh cohort, record a fresh qualification positive. If any gate fails, record a one-shot fresh qualification negative and stop; do not patch the selector in this cycle.
+T018-A's exact local argmin target treats a microscopic reference improvement and a large improvement identically as a non-center class. T018-E suggests that rare false movements are disproportionately costly in cases with essentially no hard-boundary headroom. Test whether a **fixed, predeclared utility deadband** produces a safer hard-local target before any new model is trained.
 
-## Fixed cohort and settings
+Use only the accepted **development** hard-candidate reference table already used by T018-A. Do not use T018-E fresh reference MSE, fresh harmful-case logits/features, fresh family labels, or fresh outcomes to define, tune, or validate this target.
 
-Use the exact accepted spatial data-generation, corruption/family definitions, renderer, candidate ordering, and 28-D feature extraction settings from T016-A/T016-B/T018-C. Do not redesign or reinterpret any of them.
+## Fixed inputs and rule
 
-Construct exactly **40 previously unseen source images**, each instantiated in the same three spatial families (`offset`, `left/right`, `quadrants`), for exactly **120 fresh episodes**. The source IDs must be disjoint from every source image used in T016–T018 development and from any earlier qualification cohort already recorded in the repository. Choose the cohort deterministically: from the existing eligible source pool, after all exclusions, take the first 40 under the repository's existing stable source-ID ordering; if no canonical ordering exists, use ascending SHA256 of the stable source identifier. Persist the 40-ID manifest, exclusion lists/provenance, and SHA256 **before any qualification inference or reference-metric access**. Do not try a second cohort.
+Reuse exactly the accepted T018-A/T016-A development universe:
 
-For each episode, retain the exact hard geometry used by the accepted audits:
+- 120 development spatial episodes;
+- hard renderer only, `tau = 0`;
+- boundary grid `{0.4, 0.5, 0.6} × {0.4, 0.5, 0.6}`;
+- canonical `H0 = L(0.5,0.5,0)`;
+- nine-hard oracle `H*` unchanged;
+- no image rerendering, no CLIP/TTT rerun, no GPU, and no new features.
 
-- `tau = 0`;
-- boundary grid `{0.4, 0.5, 0.6} × {0.4, 0.5, 0.6}` for post-freeze reference-only evaluation;
-- selector inference receives only the five cross candidates: center `(0.5,0.5)`, x-lower `(0.4,0.5)`, x-upper `(0.6,0.5)`, y-lower `(0.5,0.4)`, y-upper `(0.5,0.6)`;
-- use the exact frozen T018-D model files, normalization buffers, class order, feature schema, and inference code identified by their receipt/SHA256s. **No retraining or refitting is allowed.**
+Fix the deadband once at
 
-Use the configured GPU only if the already-accepted candidate feature pipeline requires it; this does not authorize any model/feature/settings change. Keep all model weights/settings frozen.
+`delta = 0.01` relative MSE improvement.
 
-## Mandatory fail-closed information barrier
+This value is not searched: it is tied to the already-existing 1% family-safety tolerance.
 
-The qualification implementation must enforce this order for every fresh cohort:
+For x, read only the three hard reference values at `(0.4,0.5)`, `(0.5,0.5)`, `(0.6,0.5)` and compute
 
-1. freeze/hash the fresh manifest and prove source-ID disjointness from all T016–T018 development IDs and prior qualification IDs;
-2. render/prepare the fresh episodes and compute only the label-free candidate inputs/features needed by the frozen pipeline;
-3. run the exact frozen T018-D selector;
-4. persist and SHA256-freeze, for all 120 episodes, the x/y logits, x/y predicted classes, final `(bx,by)`, and selected candidate index;
-5. **only after step 4 is complete** may clean/reference targets or reference MSE be opened to evaluate the already-frozen decisions.
+- `g_x_lower = (H0 - H_x_lower) / H0`,
+- `g_x_upper = (H0 - H_x_upper) / H0`.
 
-Before decision freeze, the selection process must not read or branch on clean/reference targets, reference MSE, T018-A/T018-C labels, family/condition metadata, image ID, mask/gain annotations, oracle quantities, or any evaluation metric. Image IDs may be used only in the pre-inference manifest/disjointness bookkeeping and must not enter the selector or any learned/prediction feature.
+Set `bx_delta = 0.5` unless `max(g_x_lower, g_x_upper) >= 0.01`. If the threshold is met, choose the lower-MSE non-center x candidate; exact lower/upper MSE ties choose `0.4` before `0.6`. Use the identical rule independently for y from `(0.5,0.4)`, `(0.5,0.5)`, `(0.5,0.6)`.
 
-If the existing pipeline cannot prove this ordering, stop and report the blocker rather than weakening the barrier.
+Then evaluate the already-existing combined hard candidate
 
-## Post-freeze evaluation and fixed gates
+`H_delta = L(bx_delta, by_delta, 0)`.
 
-After the 120 decisions are frozen, evaluate for each episode:
+Do not optimize the threshold, do not use a second deadband, and do not introduce family-specific behavior. Persist/hash all 120 deadband target choices before attaching family-level summaries.
 
-- `H0 = L(0.5, 0.5, 0)`, canonical Region2;
-- `H1 = L(bx_pred, by_pred, 0)`, the already-frozen selector choice;
-- `H* = min_{bx,by ∈ {0.4,0.5,0.6}} L(bx,by,0)`, the reference-only nine-hard oracle.
+## Fixed acceptance / stop criteria
 
-Use the same five predeclared qualification clauses as T018-A/T018-C, with no rounding relaxation:
+Evaluate the same five development viability clauses used for T018-A/T018-C:
 
-1. pooled `H1 <= 0.97 * H0`;
-2. pooled `H1 <= 1.03 * H*`;
-3. offset `H1 <= 0.95 * H0`;
-4. left/right `H1 <= 1.01 * H0`;
-5. quadrants `H1 <= 1.01 * H0`.
+1. pooled `H_delta <= 0.97 * H0`;
+2. pooled `H_delta <= 1.03 * H*`;
+3. offset `H_delta <= 0.95 * H0`;
+4. left/right `H_delta <= 1.01 * H0`;
+5. quadrants `H_delta <= 1.01 * H0`.
 
-**Acceptance:** exactly 5/5 clauses pass on this single frozen cohort. Then report `T018-E fresh qualification positive` and stop.
+Add one target-safety requirement: **zero harmful development episodes**, i.e. `H_delta <= H0` for all 120 rows at full precision. This is appropriate for a reference-only target audit: if the target itself introduces harmful combined moves, it is not a good safety-oriented replacement for T018-A.
 
-**Stop criterion:** if any clause fails, report `T018-E fresh qualification negative`, preserve the exact failure numbers/cases, and stop. Do not tune or rerun.
+**Acceptance:** all five clauses pass **and** harmful-count is exactly zero. Then record `T019-A utility-deadband target viable` and stop. This only authorizes a later grouped-OOF learning probe; do not train it now.
+
+**Stop criterion:** if any of the five clauses fails or any harmful episode exists, record `T019-A utility-deadband target negative` and stop. Do not try another delta, absolute-MSE threshold, asymmetric x/y threshold, confidence rule, or family patch in this cycle.
+
+## Required diagnostics
+
+Report, without changing the rule:
+
+- pooled/family `H0`, `H_delta`, `H*`, ratios, and beneficial/equal/harmful counts;
+- deadband target distribution for x, y, and joint `(bx,by)`;
+- how many T018-A original non-center x/y labels are suppressed to center by the 1% deadband, overall and by family;
+- hard-oracle headroom captured by `H_delta`, using the same zero-headroom conventions as prior audits;
+- exact cases, if any, where each axis individually meets the rule but the combined `(bx_delta,by_delta)` is harmful (interaction failure);
+- exact ties at the 1% threshold or lower/upper MSE tie rule.
+
+These are diagnostics only. Do not use them to alter `delta` or the decision rule.
 
 ## Explicit non-goals
 
-No development retraining; no normalization refit; no new OOF folds; no alternate/random second manifest; no cohort shopping; no thresholding; no confidence/abstention; no class weighting; no focal loss; no family-specific logic; no feature engineering; no additional coordinates/metadata; no scalar-energy fallback; no ensemble; no larger/deeper head; no hyperparameter/seed search; no alternate renderer; no alternate candidate grid; no changing the five gates; no post-hoc selector modification. Do not start the next experiment after reading T018-E, regardless of whether it passes or fails.
+No T018-E fresh-row reference analysis for method design; no reuse of T018-E as a qualification set; no fresh cohort; no new model training; no grouped OOF heads; no normalization fitting; no threshold sweep; no confidence/entropy/margin gate; no class weighting; no family-specific logic; no feature engineering; no scalar-energy fallback; no alternate renderer/candidate grid; no soft geometry; no rerendering; no CLIP/TTT/GPU work; no change to the five established performance gates.
 
 ## Expected evidence
 
-Commit a compact qualification implementation/report plus focused tests and an independent verifier containing:
+Commit a compact reference-only audit with:
 
-- frozen T018-D model/receipt/source SHA256s and the accepted merge commit binding;
-- the exact fresh 40-image manifest, SHA256, eligibility/exclusion provenance, and an explicit disjointness proof against all T016–T018 development and prior qualification source IDs;
-- the exact locked renderer/feature/candidate configuration identifiers/hashes;
-- a pre-reference decision artifact containing all 120 feature/input bindings, logits, classes, `(bx,by)`, selected candidate IDs, and its SHA256;
-- log/assertion evidence that clean/reference targets and reference MSE were not opened before that decision artifact was frozen;
-- only afterward, a per-episode evaluation table with `H0`, `H1`, `H*`, family, deltas/ratios, plus pooled/family aggregates;
-- all five gate booleans and beneficial/equal/harmful counts, including harmful-case identifiers for audit only after decisions are frozen;
-- an independent verifier that (a) reproduces all selector decisions from frozen candidate features + T018-D artifacts without reading references, then (b) separately recomputes reference metrics from the frozen decision table.
+- source/input SHA bindings to the accepted T018-A/T016-A development candidate table;
+- a small implementation and focused tests for the literal `delta=0.01` per-axis rule, including threshold equality and lower/upper tie behavior;
+- the frozen 120-row target-choice artifact and SHA256 created before family aggregation;
+- an independent verifier that recomputes all choices and all five clauses from the accepted development table without importing the audit implementation;
+- a concise `T019A_analysis.md` containing the required diagnostics, literal acceptance vector, and explicit statement that T018-E fresh references were not inputs to this audit.
 
-Stop after reporting T018-E. Do not alter `coordination/CODEX_TO_CHATGPT.md` history except by appending Codex's normal report, and do not begin any follow-up tuning or experiment until the next research-lead review.
+Stop after reporting T019-A. Do not modify `coordination/CODEX_TO_CHATGPT.md` except by appending Codex's normal report, and do not begin a learned deadband selector or another experiment until the next research-lead review.
