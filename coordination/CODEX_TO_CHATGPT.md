@@ -1569,3 +1569,51 @@ Commands/outcomes:
 Choice SHA256 `72cd12af095bcef89e461b3e3ec38ec7edad12f86825bc27e91b6509ed3b77c3`; quantity SHA256 `c99891e778a750f035e58380845ee803df08f77e70cab9178abd9f04cdf9c40e`. Choice and quantity bytes are frozen before family reporting starts at 2026-09-13T01:34:03.769798+00:00. The selector reads only hard-cross indices[12,3,21,9,15], literal tie order center0.5/lower0.4/upper0.6. No condition/image ID influences decisions. Inherited gx/gy descriptive hard differences never affect choices. No soft-candidate values, images, models, rendering, training, new data or GPU experiment. Failures/deviations:none. PROJECT_STATE still referenced C at launch; newer explicit T018-A inbox governed execution, research-owned files unchanged.
 
 Recommended next decision: the hard landscape supports a later question about predicting these local hard directions without reference MSE at deployment. This result does not establish learnability, deployment safety or fresh generalization. **Stop after T018-A**; no automatic T018-B, geometry predictor/head, derivative training or fresh evaluation. Existing15-minute heartbeat continues, unchanged state quiet.
+
+
+---
+
+## T018-B — DONE — 2026-09-13T02:03:55.930003+00:00
+
+**Literal result: frozen-energy local direction insufficient, 0/5**, vector `[false,false,false,false,false]`. T018-A hard-reference target viability does not transfer through the existing frozen T014 scalar energy under the fixed factorized rule. This is a label-free decision evaluated on the fixed development table, not fresh qualification.
+
+- Source: `e6ef5ab53823cbb07f8fb45e8ac22753a6d83d12`.
+- Evidence: `d0268f30fe915dce36c468a232616950f0f05c19`.
+- Branch: `codex/T018B-frozen-energy-local`.
+- Ready PR: https://github.com/word-ky/TTIE/pull/26 (open/unmerged; no self-merge).
+- Accepted target merge: `5ecf598763c499b2275994be53f9218a3757245c`.
+
+| Group | H0 | Selected | H* | Selected/H0 | Selected/H* |
+|---|---:|---:|---:|---:|---:|
+| Pooled | 0.0350435737482 | 0.0380642661398 | 0.0325635645189 | 1.08619818325 | 1.16892197467 |
+| Left/right | 0.0333970155101 | 0.0359102358809 | 0.0321709857788 | 1.07525284318 | 1.11623051055 |
+| Quadrants | 0.0309838496498 | 0.0389972068486 | 0.0309821883566 | 1.25863013439 | 1.25869762328 |
+| Offset | 0.0407498560846 | 0.0392853556899 | 0.0345375194214 | 0.964061213085 | 1.13746894242 |
+
+All five comparisons fail (0.97 pooled/H0,1.03 pooled/H*,0.95 offset/H0,1.01 LR/Q/H0). No tolerance or fallback. Offset's3.5939% gain is below its5% requirement.
+
+| Group | x/y/joint target match | No move/x only/y only/both | Beneficial/equal/harmful |
+|---|---|---|---|
+| Pooled | 61/120;55/120;32/120 | 38/23/30/29 | 24/38/58 |
+| Left/right | 24/40;19/40;14/40 | 13/7/11/9 | 8/13/19 |
+| Quadrants | 20/40;21/40;11/40 | 12/9/9/10 | 0/12/28 |
+| Offset | 17/40;15/40;7/40 | 13/7/10/10 | 16/13/11 |
+
+All58 harmful examples are in `T018B_run/summary.json` by family, with only row index, energy axes, target axes and H0/Hselected/H*. No examples altered any decision. Full fractions, tables, discussion and receipts: `research_log/T018B_analysis.md`.
+
+Decision separation: select reads T016-B committed scoring selection/config/receipt at4062e01cb93de731c394015c5ac741d6c08e04d8. It parses the original saved envelope but accesses only the five raw energies per episode at[4,1,7,3,5]; paths/features/gate/old-global-choice fields are not consulted by the decision stage. No renormalization. Ties center0.5/lower0.4/upper0.6. All120decisions frozen at2026-09-13T01:59:53.619083+00:00, SHA256 `9e1f4bc29629600760c249adb11f270833e6b4bc3f8c40bd00596020b1af0017`. Separate evaluation first validates freeze and opens reference at2026-09-13T01:59:54.410768+00:00; decision bytes remain unchanged.
+
+Exact episode/corner identity precheck occurs post-freeze, before metrics, because inspecting identifiers beforehand would violate the stricter no-ID decision requirement. All120 identities/corner hashes and nine-hard order match; reference and score row order also match, though explicit identity joins are used. Post-freeze reference inputs are six T018-A artifacts plus the original T016-A table/config; total11input hashes and6source hashes bound. No reference target/metric/family/image ID enters selection.
+
+Files: `ttie/energy_local.py`, `tests/test_energy_local.py`, spec/log/test/select/evaluate receipts, `T018B_run/`, `T018B_analysis.md`, independent `T018B_verify.py` plus verification receipts, handoff; final recovery/delivery receipt follows in this PR.
+
+Commands/results:
+- `D:/anaconda3/python.exe -m unittest tests.test_energy_local -v`:4PASS in0.048s; metadata/noncross-invariance, literal ties, reference-access separation and harmful-field tests.
+- `D:/anaconda3/python.exe -m py_compile ttie/energy_local.py tests/test_energy_local.py`:PASS.
+- `D:/anaconda3/python.exe -m ttie.energy_local select --source-sha e6ef5ab53823cbb07f8fb45e8ac22753a6d83d12 --output research_log/T018B_run`:one CPU process,exit0.
+- `D:/anaconda3/python.exe -m ttie.energy_local evaluate --output research_log/T018B_run`:separate CPU process,exit0.
+- `D:/anaconda3/python.exe research_log/T018B_verify.py`:PASS,all120decisions/identity/metrics/groupstatistics/58harmexamples/exactclauses and freeze-order verified independently.
+
+No formal-run failures or scientific deviations. Setup file search using Windows glob arguments failed, exact Git paths succeeded; no data/code affected. No training, model/CLIP/TTT rerun, rendering, images, newdata or GPU experiment.
+
+Recommended next decision: preserve the negative. T014's existing canonical-Region2 result is unchanged; this limits reuse of its scalar energy for local hard geometry. Stop after T018-B, await research review. Do not tune confidence/gates, train a dedicated predictor, launch fresh qualification or begin T018-C. Existing15-minute heartbeat continues, unchanged state quiet.
