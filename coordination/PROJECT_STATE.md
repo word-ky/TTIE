@@ -14,9 +14,9 @@ A useful spatial TTT system requires four aligned pieces: (i) a content-safe nui
 
 T014 establishes the first three for canonical hard Region2. T015 shows that simple routing among global/bilinear2/Region2 has too little oracle headroom. T016-A establishes substantial development-only headroom in moving the hard Region2 boundary with fixed actions; T016-B–F show that global scalar ranking/value/ranking-plus-confidence over nine boundaries is not robust enough. T017 shows that a `tau=0.05` soft neighborhood carries useful diagnostic signal but is neither a safe hard-transfer surrogate nor a viable deployed renderer.
 
-**T018-A now changes the geometry conclusion materially:** on the hard renderer itself, a center-local factorized reference target is viable. Independent x/y choices from the five hard-cross reference MSE values pass all 5/5 family/pooled clauses, recover 98.26% of pooled nine-hard oracle headroom, and produce zero harmful moves. Therefore the remaining bottleneck is no longer hard-target capacity or x/y factorization; it is whether a label-free signal can recover that local hard direction.
+T018-A establishes that the **hard local target itself is simple and viable**: independent x/y center-local reference choices pass all 5/5 clauses, recover 98.26% of pooled nine-hard oracle headroom, and produce zero harmful moves. T018-B now closes the most conservative reuse hypothesis: applying the already-frozen T014 scalar Sobolev energy to that same factorized hard cross still fails **0/5**, with `1.08620×` pooled Region2 MSE and severe family harm. Therefore the bottleneck is not the hard local target or merely the global nine-way decision rule; the existing scalar energy projection does not preserve enough geometry-direction information.
 
-The immediate active question is T018-B: before training any new geometry predictor, test whether the already-frozen T014 Sobolev energy has usable **local hard-direction** information when applied factorwise to the same hard cross. This is distinct from T016-B's failed global nine-way argmin.
+The immediate active question is T018-C: test, under strict grouped OOF development supervision, whether the **full frozen 28-D local candidate representation** contains usable hard-axis direction information when trained directly for the three-way x/y decision, without rerendering or adding new features.
 
 ## Best fresh-validated method
 
@@ -50,14 +50,15 @@ T016–T018 are development diagnostics and do not replace T014 until an indepen
 - **T017-B:** failure attribution is **soft→hard transfer-dominant**: 19/20 harmful hard moves are transfer flips; x/y interaction is not the main issue.
 - **T017-C:** matched-soft deployment is negative (**2/5**): adaptive soft choices are near the soft oracle, but `tau=0.05` itself is poor relative to hard Region2, especially quadrants. The matched-soft route is closed.
 - **T018-A:** **hard local-direction reference target is positive (5/5)**. Pooled `H1/H0 = 0.930464`, `H1/H* = 1.001327`; offset `0.850731`; left/right `0.963289`; quadrants `0.999946`. It recovers **98.26%** of pooled nine-hard oracle headroom. Movement counts are 51 no-move / 6 x-only / 33 y-only / 30 both; outcomes are **69 beneficial / 51 equal / 0 harmful**; `115/120` choices lie in the exact oracle tie set. No pure x/y interaction failures are observed. This is reference-only target viability, not a deployable selector.
+- **T018-B:** **frozen-T014 hard-cross local direction is negative (0/5)**. Pooled selected/H0 is `1.086198`, selected/H* `1.168922`; offset/H0 `0.964061`; left/right/H0 `1.075253`; quadrants/H0 `1.258630`. Outcomes are **24 beneficial / 38 equal / 58 harmful**, including **0 beneficial / 12 equal / 28 harmful** in quadrants. Exact T018-A direction agreement is x `61/120`, y `55/120`, joint `32/120`. The label-free decisions were frozen before reference/target/family access. This rejects the hypothesis that T016-B failed only because it used a global nine-way argmin.
 
 ## Interpretation of strongest evidence
 
 T014 supports the narrow causal claim that **derivative supervision matters more than scalar value fit for gradient-based TTT**. The supported deployed method remains Sobolev objective plus projected canonical Region2 geometry.
 
-T015–T018 isolate the remaining spatial-geometry problem. Hard boundary placement has real oracle headroom. Global boundary ranking is difficult, but T018-A shows that the useful target is much simpler than nine-way global ranking: around canonical Region2, the hard landscape factorizes almost perfectly into two local axis decisions. This suggests the scientifically relevant object may be a **local geometry direction** rather than a globally calibrated boundary value.
+T015–T018 isolate the remaining spatial-geometry problem. Hard boundary placement has real oracle headroom, and T018-A shows that the relevant reference target is much simpler than global ranking: around canonical Region2, the hard landscape almost perfectly factorizes into local x/y decisions. T018-B shows that the current scalar Sobolev energy does **not** recover those directions even under the correct local decision geometry. Thus target simplicity alone is insufficient, and the old scalar-energy readout should not be retuned again.
 
-The next justified test is therefore conservative: reuse the already-frozen T014 label-free energy and ask whether its local hard-cross direction matches enough of T018-A to pass the same deployment-facing family gates. A positive T018-B would show that T016-B's failure was partly a decision-rule mismatch (global argmin versus local direction). A negative T018-B would show that target simplicity alone is insufficient and would justify, only in a later cycle, considering a dedicated source-supervised geometry-direction learner.
+The next justified diagnostic is to preserve all rendering and feature computation and change only the supervised task: use the already-frozen 28-D local candidate features to predict the x/y three-way direction directly in strict image-grouped OOF. A positive T018-C would indicate that useful geometry information survives in the representation but was lost by scalar value compression/objective mismatch. A negative T018-C would indicate that this frozen representation/model family is itself insufficient for robust geometry direction and that later work should focus on representation design rather than more thresholds or scalar rankers.
 
 ## Non-negotiable design principles
 
@@ -94,10 +95,11 @@ The next justified test is therefore conservative: reuse the already-frozen T014
 - **M12 / T017-B:** **COMPLETED — SOFT→HARD TRANSFER-DOMINANT ATTRIBUTION.**
 - **M12 / T017-C:** **COMPLETED — MATCHED-SOFT VIABILITY NEGATIVE (2/5); SOFT RENDERER FAMILY CLOSED.**
 - **M13 / T018-A:** **COMPLETED — HARD LOCAL-DIRECTION REFERENCE TARGET POSITIVE (5/5).**
-- **M13 / T018-B:** **ACTIVE — FROZEN-T014 HARD-CROSS LOCAL-DIRECTION AUDIT.**
+- **M13 / T018-B:** **COMPLETED — FROZEN-T014 HARD-CROSS LOCAL-DIRECTION NEGATIVE (0/5).**
+- **M13 / T018-C:** **ACTIVE — GROUPED-OOF DIRECT HARD-AXIS DIRECTION PROBE.**
 
 ## Current open task
 
-`T018-B — frozen-T014 hard-cross local-direction audit` in `coordination/CHATGPT_TO_CODEX.md`.
+`T018-C — grouped-OOF direct hard-axis direction probe` in `coordination/CHATGPT_TO_CODEX.md`.
 
-T018-B must make all 120 boundary decisions using only the already-saved frozen T014 hard-cross energy scores from T016-B, with literal center→lower→upper axis tie handling. Decisions are frozen before any reference MSE, family label, image ID, T018-A target, or oracle information is attached. No training, rerendering, model rerun, threshold tuning, new data, or GPU work is authorized.
+T018-C must reuse the exact accepted grouped image-ID folds and already-saved frozen T016-B 28-D candidate features. Each held-out axis decision is produced only from `concat(f0, f- - f0, f+ - f0)` by a head trained on the other IDs; all OOF decisions are frozen before held-out reference/target/family evaluation. No rerendering, feature recomputation, confidence tuning, alternate model, fresh data, or GPU work is authorized.
