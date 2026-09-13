@@ -13,3 +13,7 @@ Next: commit the verifier fix, fast-forward the isolated clone, run its independ
 ## 2026-09-13T04:51:15.951669+00:00 — preserve committed payload bytes
 
 The first patched clone run exposed a separate Windows checkout detail: three archived score files remained CRLF-converted on disk, although their committed Git blobs exactly match the frozen SHA256. Read the committed copies directly with git show HEAD:research_log/T018D_source_inputs/<name>.json. This single path both avoids unreachable historical input objects and preserves original bytes under checkout conversion; no hash normalization or tolerance. Source and receipt checks remain unchanged. Archived-checkout failure log preserved.
+
+## 2026-09-13T04:51:53.922799+00:00 — isolated regression passed
+
+Clean reachable-object clone at 9ef55c70e46defff02a04611c81108433f284c69 still lacks scoring commit4062e01c. Revised verifier exits0; all9 source hashes,6 input hashes,8 frozen artifact hashes pass. Independent target-free subprocess exactly reproduces120 logits/classes/decisions and both normalization buffers. Pinned receipt db194f4caa897094655a36523fa074772d8cd7302ffda250a72e8b81cc2f9d94 unchanged. See T018D_review_after.json/log and T018D_review_verification.json. No retraining or broader scientific regression needed for this verifier-only change.
