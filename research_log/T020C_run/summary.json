@@ -1,0 +1,217 @@
+{
+  "groups": {
+    "nonspatial_pool": {
+      "count": 120,
+      "mse": {
+        "H0": 0.021385082408475378,
+        "H1": 0.020271049639753378,
+        "H_star": 0.019217849626572085
+      },
+      "ratios": {
+        "H1_over_H0": 0.947906080161726,
+        "H1_over_H_star": 1.054803218551833
+      },
+      "outcomes": {
+        "beneficial": 37,
+        "equal": 63,
+        "harmful": 20
+      },
+      "movements": {
+        "no_move": 62,
+        "x_only": 11,
+        "y_only": 13,
+        "both": 34
+      },
+      "classes": {
+        "x": {
+          "center": 75,
+          "lower": 28,
+          "upper": 17
+        },
+        "y": {
+          "center": 73,
+          "lower": 31,
+          "upper": 16
+        }
+      },
+      "agreement": {
+        "x": {
+          "count": 85,
+          "fraction": 0.7083333333333334
+        },
+        "y": {
+          "count": 89,
+          "fraction": 0.7416666666666667
+        },
+        "joint": {
+          "count": 73,
+          "fraction": 0.6083333333333333
+        }
+      }
+    },
+    "clean": {
+      "count": 40,
+      "mse": {
+        "H0": 0.0002885228313971311,
+        "H1": 0.0003483236359898001,
+        "H_star": 0.00020819390465476317
+      },
+      "ratios": {
+        "H1_over_H0": 1.2072654157145626,
+        "H1_over_H_star": 1.6730731697808663
+      },
+      "outcomes": {
+        "beneficial": 0,
+        "equal": 39,
+        "harmful": 1
+      },
+      "movements": {
+        "no_move": 39,
+        "x_only": 0,
+        "y_only": 1,
+        "both": 0
+      },
+      "classes": {
+        "x": {
+          "center": 40,
+          "lower": 0,
+          "upper": 0
+        },
+        "y": {
+          "center": 39,
+          "lower": 1,
+          "upper": 0
+        }
+      },
+      "agreement": {
+        "x": {
+          "count": 38,
+          "fraction": 0.95
+        },
+        "y": {
+          "count": 38,
+          "fraction": 0.95
+        },
+        "joint": {
+          "count": 38,
+          "fraction": 0.95
+        }
+      }
+    },
+    "homogeneous_dark": {
+      "count": 40,
+      "mse": {
+        "H0": 0.04524176206905395,
+        "H1": 0.042395106167532504,
+        "H_star": 0.040937563660554586
+      },
+      "ratios": {
+        "H1_over_H0": 0.9370790223162285,
+        "H1_over_H_star": 1.0356040364068448
+      },
+      "outcomes": {
+        "beneficial": 21,
+        "equal": 15,
+        "harmful": 4
+      },
+      "movements": {
+        "no_move": 15,
+        "x_only": 4,
+        "y_only": 7,
+        "both": 14
+      },
+      "classes": {
+        "x": {
+          "center": 22,
+          "lower": 12,
+          "upper": 6
+        },
+        "y": {
+          "center": 19,
+          "lower": 17,
+          "upper": 4
+        }
+      },
+      "agreement": {
+        "x": {
+          "count": 33,
+          "fraction": 0.825
+        },
+        "y": {
+          "count": 33,
+          "fraction": 0.825
+        },
+        "joint": {
+          "count": 29,
+          "fraction": 0.725
+        }
+      }
+    },
+    "homogeneous_bright": {
+      "count": 40,
+      "mse": {
+        "H0": 0.01862496232497506,
+        "H1": 0.018069719115737827,
+        "H_star": 0.016507791314506904
+      },
+      "ratios": {
+        "H1_over_H0": 0.9701882237639385,
+        "H1_over_H_star": 1.0946176124638984
+      },
+      "outcomes": {
+        "beneficial": 16,
+        "equal": 9,
+        "harmful": 15
+      },
+      "movements": {
+        "no_move": 8,
+        "x_only": 7,
+        "y_only": 5,
+        "both": 20
+      },
+      "classes": {
+        "x": {
+          "center": 13,
+          "lower": 16,
+          "upper": 11
+        },
+        "y": {
+          "center": 15,
+          "lower": 13,
+          "upper": 12
+        }
+      },
+      "agreement": {
+        "x": {
+          "count": 14,
+          "fraction": 0.35
+        },
+        "y": {
+          "count": 18,
+          "fraction": 0.45
+        },
+        "joint": {
+          "count": 6,
+          "fraction": 0.15
+        }
+      }
+    }
+  },
+  "clauses": {
+    "nonspatial_pool_safety": true,
+    "clean_safety": false,
+    "homogeneous_dark_safety": true,
+    "homogeneous_bright_safety": true,
+    "clean_zero_harmful": false
+  },
+  "acceptance_vector": [
+    true,
+    false,
+    true,
+    true,
+    false
+  ],
+  "passed": 3,
+  "verdict": "T020-C development OOF negative",
+  "fresh_qualified": false
+}
