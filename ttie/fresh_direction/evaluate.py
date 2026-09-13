@@ -5,7 +5,7 @@ import statistics
 import torch
 from ..natural import load_image
 from ..soft_basis.renderer import FixedCorners
-from .common import HARD, CONDITIONS, read, write, sha, now, tensor_sha, preflight
+from .common import HARD, CONDITIONS, read, write, sha, now, tensor_sha, preflight, verify_prepared
 
 
 def summarize(rows):
@@ -28,7 +28,7 @@ def evaluate(cohort,selected,images,output,source,device):
     _,code=preflight(source);freeze=read(selected/'decisions_frozen.json')
     assert freeze['source_sha']==source and freeze['episodes']==120 and sha(selected/'decisions.json')==freeze['decisions_sha256']
     assert sha(selected/'config.json')==freeze['config_sha256'];decisions=read(selected/'decisions.json')
-    opened=now();mapping=read(cohort/'mapping.json');prepared=read(cohort/'prepared.json');assert sha(cohort/'mapping.json')==prepared['mapping_sha256']
+    opened=now();verify_prepared(cohort,read(selected/'config.json'));mapping=read(cohort/'mapping.json')
     assert sha(cohort/'manifest.json')==freeze['manifest_sha256'];manifest=read(cohort/'manifest.json')
     assert len(manifest['images'])==40 and len(mapping)==len(decisions)==120
     inputs=read(cohort/'inputs/index.json')['episodes'];rows=[];clean_cache={}

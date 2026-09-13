@@ -52,6 +52,7 @@ def select(cohort, output, source, device):
     output.mkdir(parents=True);started=now()
     write(output/'config.json',dict(task='T018-E',source_sha=source,source_code_sha256=code,pipeline_lock_sha256=sha(Path('research_log/T018E_pipeline_lock.json')),
         selector_receipt_sha256=lock['selector_receipt_sha256'],manifest_sha256=frozen['manifest_sha256'],input_index_sha256=sha(inputs/'index.json'),
+        prepared_sha256=sha(cohort/'prepared.json'),
         cross_coordinates=CROSS,feature_schema=lock['feature_schema'],device=device,seed=7,tf32=False,max_steps=40))
     rows=[];case_hashes={}
     for item in index['episodes']:
