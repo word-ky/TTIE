@@ -4,60 +4,67 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T022-D accepted negative; stop budget tuning and test real-domain optimization-field mismatch
+# Research-lead review — T023-A accepted negative; do not scale the failed 16-pair pilot, pivot one cycle to SOTA-comparison convergence
 
-I reviewed PR #45, the `lolv2_budget_core.py` runner, AST-equivalence test against accepted T022-C, target-mutation/withholding isolation test, A6000 receipts, frozen comparison artifacts, and independent metric verification. T022-D is accepted as a **leakage-safe validation-only negative** and PR #45 has been squash-merged as `6856c4c7eacf3b658117b80ffc3f819ca2979022`.
+I reviewed PR #46, including the deterministic 16/589 source selection, `real_source_sobolev.py`, the EV2-matched derivative-chain test, the unchanged-validation-runner AST equivalence test, target mutation/withholding isolation, A6000 source/validation receipts, frozen artifacts, and independent metric verification. T023-A is accepted as a **leakage-safe validation-only negative/insufficient pilot** and PR #46 has been squash-merged as `9d6edcebbf8f62ae3b6b0784fffd71c42e838ffe`.
 
-The only scientific change was `max_steps: 40→80`. Mean validation PSNR changed `10.2295540→10.2157182 dB` (`-0.0138358 dB`) and mean RGB-SSIM `0.3282315→0.3265366` (`-0.0016949`), failing both predeclared criteria. Yet 82/100 images still select step 80. Therefore the T022-C last-step concentration was **not** evidence that more optimization budget would improve restoration; the learned energy can continue preferring later states while true restoration quality has already plateaued or worsened. Simple budget extension is closed.
+The predeclared joint gate failed. Relative to accepted T022-C (`10.2295540 dB / 0.3282315 SSIM`), the new 16-pair real-source Sobolev head reaches `10.5166353 dB / 0.3144893 SSIM`: mean PSNR improves only `+0.2870812 dB` (< `+0.50 dB` required), while mean RGB-SSIM drops `-0.0137422`. The checkpoint must not replace T022-C.
 
-The inference boundary remains clean: low-only decoding, all 100 outputs/decisions frozen before references, unchanged scientific assets, and target mutation/withholding leaves inference artifacts unchanged. The official LOL-v2 Real test set remains untouched.
+The result is scientifically useful because the source fit itself is extremely strong: on the 656 source states, positive gradient-cosine fraction becomes `1.0`, median cosine `0.9881`, direction loss `0.0168`, and log-MSE fitting error collapses. Yet this near-perfect source value/gradient fit does not transfer into the required joint PSNR/SSIM validation gain. Therefore simply scaling the same tiny-source recipe is **not justified by this pilot**; this is evidence of source/generalization mismatch, not evidence that more epochs or another seed are needed.
 
-This redirects the highest-value benchmark question from another scalar hyperparameter patch to the paper's core mechanism: the T014 Sobolev energy was trained on the controlled source distribution, while LOL-v2 is a severe real low-light domain. T022-C fixed an action-range mismatch, but T022-D now suggests a **real-domain optimization-field mismatch**. Because benchmark/SOTA convergence has priority, the next cycle tests a small, leakage-safe paired-source Sobolev recalibration before committing to full 589-pair retraining. Do not launch gamma/LR/step sweeps in parallel.
+The information boundary is clean. Each source low-only trajectory was frozen before its paired source normal image was opened for offline supervision; the new energy checkpoint was frozen before validation inference; all 100 validation low-light outputs/decisions/trajectories were frozen before validation normal references were deployed; changing/withholding validation targets leaves inference hashes unchanged. Official LOL-v2 Real test remains untouched.
+
+T022-C remains the best current LOL-v2 validation candidate. Because the user explicitly asked us to start converging toward a complete benchmark and strong SOTA-related comparisons, the next cycle is not another method patch. It freezes the comparison protocol and baseline roster so later official-test evaluation cannot drift toward favorable or target-assisted conventions.
 
 ---
 
-# OPEN one-hour task — T023-A: 16-pair LOL-v2 on-trajectory Sobolev source-recalibration pilot
+# OPEN one-hour task — T024-A: LOL-v2 strong-baseline protocol and fair-comparison freeze
 
-**Work budget: about one hour. One hypothesis only: after the T022-C action-range repair, the remaining real-benchmark gap is materially driven by source-domain mismatch in the learned Sobolev optimization field; a small paired LOL-v2 source recalibration should improve the fixed 100-image validation set without using validation targets at test time.**
+**Work budget: about one hour. One engineering objective only: freeze a paper-ready, target-free LOL-v2 Real baseline/comparison protocol before any official-test run, with exact provenance and fairness classification for a small set of strong published baselines.**
 
 ## Hypothesis / engineering objective
 
-Train exactly one new `EnergyHead` on a small deterministic subset of LOL-v2 Real **training pairs outside the frozen validation split**, using the accepted T022-C low-only trajectory to sample states and source-side normal-light references only to supervise energy values and restoration-gradient directions. Then replace only the frozen Sobolev energy checkpoint in T022-C and evaluate the exact same 100 validation low images with the unchanged 40-step reference-free test-time path.
+The current bottleneck to paper-level convergence is no longer lack of another small TTT tweak; it is that LLIE papers and repositories often use incompatible training splits, preprocessing, metric implementations, and in some cases target-assisted test normalization. Before running a final benchmark, bind a fixed baseline roster and determine exactly which comparison recipes are admissible under our rule that inference must never use normal-light targets or evaluation metrics.
 
-This is a pilot for whether full real-domain source retraining is worth the next cycle. It is not a full-data training task and not an official-test/SOTA claim.
+Audit exactly these five baseline families, using only their official paper/repository/project sources when available:
+
+1. **Retinexformer** (ICCV 2023),
+2. **SG-LLIE / Structure-Guided Transformer Design** (2025),
+3. **SNR-Aware Low-Light Enhancement** (CVPR 2022),
+4. **LLFormer** (AAAI 2023),
+5. **Zero-DCE++** (zero-reference lightweight baseline).
+
+Do not add a sixth method in this cycle. If one of the five lacks a verifiable official implementation/checkpoint for the requested use, record it as unsupported rather than substituting an unofficial fork after inspection.
 
 ## Fixed inputs and settings
 
-1. Keep the accepted LOL-v2 split unchanged: 689 official training pairs total, with the already frozen 100-pair validation subset identified by split SHA256 `b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`. The remaining **589 pairs are the only eligible source-training pool**. Official 100 test pairs remain completely untouched.
-2. Before reading any normal-light pixels or metrics, select exactly **16** source-training pairs from those 589 by ascending SHA256 of the UTF-8 relative low-light filename (tie by filename). Persist the ordered 16-pair manifest and hashes. Do not hand-pick or resample after results.
-3. For each of the 16 source pairs, first run the accepted **T022-C low-only** trajectory with the accepted frozen T014 energy, gate/readout, Region2 geometry, active dark EV `[0,+2.0]`, bright EV `[-0.5,0]`, gamma `[0.8,1.25]`, Adam `lr=0.03`, identity initialization, and exactly 40 updates. Freeze/hash all 41 states and low-only features before opening that pair's normal-light reference.
-4. After each source trajectory is frozen, use its paired normal-light image **only as source supervision** to compute the same target `log(MSE+1e-6)` and restoration-gradient direction at the frozen states. The derivative/Jacobian path must be matched to the T022-C EV2 action box and the existing 28-D feature schema; do not silently fall back to the original `+0.5 EV` T014 renderer for derivative supervision.
-5. Train exactly one new Sobolev `EnergyHead` **from scratch** with the existing T014 architecture and recipe unchanged: 28-D input, hidden `[64,64]`, SiLU, value Huber plus the existing cosine derivative loss with weights `[1,1]`, AdamW `1e-3`, weight decay `1e-4`, batch 256, seed 7, 100 epochs, final epoch only. No architecture/loss-weight/epoch/seed search.
-6. The 100 validation normal-light targets must be unavailable to source-bank construction and training. Freeze/hash the new energy checkpoint and complete training receipt before validation inference starts.
-7. Validation inference must change **only the energy checkpoint** relative to accepted T022-C. Keep gate/readout, action bounds, Region2 renderer, `lr=0.03`, 40 updates, identity initialization, and minimum predicted-energy checkpoint selection unchanged.
-8. Run all 100 validation images low-light-only first, with no normal/reference-root argument. Freeze/hash all selected outputs, decisions, and trajectories before validation normal-light references are attached for scoring.
-9. Score with the exact accepted T022-A/C full-frame RGB PSNR and Gaussian-11 `sigma=1.5` RGB-SSIM conventions. Report raw input, T022-C, and T023-A mean/median PSNR and SSIM; paired A−C mean/median/p10/p90; selected-step histogram; runtime mean/median/p95; and source-training gradient-alignment statistics for the new head versus the old T014 head on the 16-pair source bank.
-10. Add a target-isolation test showing that changing or withholding all 100 validation normal-light targets cannot change any T023-A validation inference artifact hash. Source-training normal-light pairs are allowed only in the declared offline training stage; no normal-light pixels, labels, PSNR/SSIM, reference gradients, or clean targets may enter per-image validation/test adaptation or checkpoint selection.
+1. **Do not decode or run the official 100-pair LOL-v2 Real test set in this task.** No model inference, no test metrics, and no method tuning are authorized here.
+2. Keep our accepted benchmark conventions fixed for the future comparison: native-resolution RGB images in `[0,1]`; full-frame RGB PSNR; Gaussian-window RGB-SSIM with the accepted 11×11, `sigma=1.5`, `K1=0.01`, `K2=0.03` convention; no crop, Y conversion, per-image normalization, or reference-based brightness/mean matching unless a separate paper table explicitly labels such a protocol as non-comparable.
+3. For each of the five baselines, bind the exact official repository/project URL and exact inspected commit/tag; paper venue/year; implementation license; supported LOL-v2 Real training/test recipe; existence and provenance of official pretrained weights; input resizing/cropping/padding behavior; output range/color convention; reported metric implementation; and any post-processing.
+4. Explicitly determine whether the published/repository inference or scoring path ever reads normal-light target pixels, target mean/statistics, PSNR/SSIM, or any reference-derived quantity to alter the enhanced output. **Any such target-assisted setting is inadmissible for our main comparison.** Retinexformer in particular must be checked for the repository-documented setting that uses the ground-truth mean; bind a target-free setting separately if one exists rather than quoting the target-assisted number as directly comparable.
+5. Fairness-classify each baseline for our two-stage benchmark design:
+   - `FINAL_TEST_READY`: official checkpoint/recipe may legitimately be evaluated on the untouched official LOL-v2 Real test because its training uses only the official training set and inference is target-free;
+   - `VALIDATION_RETRAIN_REQUIRED`: an official checkpoint was trained on all 689 official training pairs and therefore would leak our frozen 100-pair validation subset; it may still be final-test-ready later, but cannot be used as a fair validation comparator unless retrained on the 589 non-validation pool;
+   - `REJECT_TARGET_ASSISTED`: the candidate comparison recipe needs target/reference statistics at inference/scoring in a way that changes output or selection;
+   - `UNSUPPORTED`: official code/checkpoint/provenance is not sufficiently verifiable.
+6. Record published LOL-v2 Real PSNR/SSIM only as **context**, alongside the exact evaluation convention used. Do not mix incompatible reported numbers into an experimental table and do not treat literature numbers as reproduced results.
+7. Freeze the future main-table rule: our final Ours configuration must be selected using only train/validation information before official-test decoding; once Ours is frozen, the official test is evaluated once under the same target-free metric pipeline used for admissible baselines. Normal-light test references are scoring-only after all outputs are frozen.
+8. No changes to T022-C/T023-A code, weights, gate, action bounds, energy, learning rate, steps, or selector in this task.
 
 ## Acceptance / stop criteria
 
-T023-A is **experiment-complete** iff the deterministic 16-pair source manifest is disjoint from validation, all source trajectories are frozen before their paired references supervise the energy, the new checkpoint is frozen before validation inference, all 100 validation low-only runs finish and freeze before validation references, provenance/isolation checks pass, and post-freeze metrics are finite.
+T024-A is **complete** iff all five named baseline families receive a provenance-backed fairness classification and the future main-comparison protocol is frozen in machine-readable form.
 
-Classify this single pilot as **materially positive** only if both hold versus accepted T022-C:
+Call the protocol **benchmark-ready** only if at least three of the five have verifiable official code plus a target-free final-test recipe, including at least one 2025-or-newer method and at least one established 2022–2023 strong supervised method. Otherwise end `baseline coverage insufficient` with the exact missing pieces; do not compensate by adding unofficial forks or extra methods in this cycle.
 
-- mean validation PSNR improves by at least `+0.50 dB` over `10.229554025363 dB`, and
-- mean validation RGB-SSIM is not lower than `0.328231477661`.
-
-Otherwise classify it **negative/insufficient** and stop. Do not increase the pilot to 32/64/589 pairs, change gamma/EV/LR/steps, modify the gate, add extra loss terms, select another seed/checkpoint, or run an external baseline after seeing the result. The next research-lead cycle will decide whether to scale real-domain Sobolev training or change strategy.
-
-If matched T022-C derivative supervision cannot be implemented without broader method changes, return `structurally blocked` with the exact mismatch rather than substituting the original T014 action box.
+If a repository documents multiple metric/test modes, preserve all relevant modes but designate exactly one target-free main-comparison mode. Do not choose a mode because its number is larger.
 
 ## Explicit non-goals
 
-No official LOL-v2 test; no full-589 training yet; no synthetic-data mixing; no external SOTA baseline execution; no gamma/EV/LR/step sweep; no architecture or Sobolev-weight tuning; no validation-target training; no gate recalibration; no adaptive geometry; no LPIPS; no downstream detector. Never use validation/test normal-light targets or evaluation metrics in the per-image test-time path.
+No official-test decoding; no baseline inference; no baseline training/retraining; no new Ours tuning; no 589-pair T023 scaling; no gamma/EV/LR/step sweep; no LPIPS computation yet; no downstream detector; no adaptive-geometry work. This task is protocol/provenance convergence only. Never authorize target-assisted output normalization for the main comparison.
 
 ## Expected evidence
 
-Produce one compact T023-A package containing: deterministic 16/589 source-selection manifest with train/validation disjointness proof; exact source/split/asset hashes; code diff for matched EV2 source-bank derivative generation; pre-reference source-trajectory freeze receipts; source value/gradient supervision receipts; frozen new-energy checkpoint and unchanged training recipe; old-vs-new source-bank value/gradient-alignment diagnostics; low-only 100-validation inference receipt and opened-file audit; pre-reference freeze manifest; post-freeze PSNR/SSIM table and paired deltas versus T022-C; selected-step/runtime diagnostics; target-isolation test; independent metric/hash verification; and a concise conclusion ending exactly `materially positive`, `negative/insufficient`, or `structurally blocked`.
+Produce one compact T024-A package containing `research_log/T024A_baseline_protocol.md` plus a machine-readable JSON/CSV manifest. For each of the five baselines include exact official source/commit/tag, paper identity, checkpoint/training-data provenance, preprocessing/inference/post-processing, target-access audit, metric convention, license, fairness classification, and published LOL-v2 contextual numbers with a comparability warning. Include a final frozen main-table protocol and a prioritized execution order for later cycles. Append a concise completion report to `coordination/CODEX_TO_CHATGPT.md` ending exactly `benchmark-ready` or `baseline coverage insufficient`.
 
-Append the completion report to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`. Stop after T023-A; defer any full-data scaling or baseline execution to the next hourly review.
+Never modify `coordination/PROJECT_STATE.md`. Stop after T024-A; the next research-lead review will decide whether the following one-hour cycle should reproduce one admissible baseline, run an action-space ceiling diagnostic, or resume method tuning.
