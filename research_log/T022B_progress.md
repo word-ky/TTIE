@@ -9,3 +9,9 @@ Same100 validation split b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d
 Original remote root /home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-024025-ttie-t022a-core/artifacts/audit. Low/normal inputs under shared/t022a/low and normal. Outputs contain11.8GB backing storage; preserve all originals and stream, no new image archive. Backup F/shared/t022a/T022A_execution.tar validated100outputhashes. Source is unchanged T014 code.
 
 - 2026-09-13T19:22:21.653547+00:00: Four donor loader/metric tests pass11.16s; three reconstruction/oracle/saturation tests pass5.54s. Renderer/loader/metric Git blobs unchanged, static audit finds no TTT/Adam/CLIP/head execution calls. Ready to freeze and deploy streaming audit.
+
+- 2026-09-13T19:23:26.843349+00:00: Frozen source dd62f834245defd7f8d25657cdd9655bfbfa891e deployed. Run20260914-032239-ttie-t022b-headroom on GPU1; existing input/output hash verification followed by all100 selected reconstruction before reference scoring. No new trajectories or image archives.
+
+- 2026-09-13T19:27:07.194860+00:00: All100 selected-state reconstructions exactly match frozen pixels (max/mean0), completed19:23:08Z before reference metrics. Two Git push timeouts; requests HTTPS succeeded and a direct push retry succeeded without persistent config changes. PR43 created; audit continues without rerun.
+
+- 2026-09-13T19:30:31.809542+00:00: All4100 metrics finite and independent aggregation passes both remote/local. Selected pixels and metrics exactly reproduce originals (zero error). Oracle gaps0.1471622276994092dB and0.004886823539900826SSIM: trajectory headroom is limited. Preparing PR43 and main DONE report.

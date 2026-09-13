@@ -1,0 +1,247 @@
+{
+  "status": "audit-complete",
+  "images": 100,
+  "checkpoint_rows": 4100,
+  "metrics": {
+    "data_range": 1.0,
+    "window": 11,
+    "sigma": 1.5,
+    "K1": 0.01,
+    "K2": 0.03,
+    "covariance": "population",
+    "channels": "RGB mean",
+    "crop": 0,
+    "padding": "reflect (half-sample symmetric)",
+    "dtype": "float64"
+  },
+  "aggregates": {
+    "selected": {
+      "psnr": {
+        "mean": 9.272868945613347,
+        "median": 8.680092886100695,
+        "p95": 13.212689559635066
+      },
+      "ssim": {
+        "mean": 0.27300601233646227,
+        "median": 0.24263053936978307,
+        "p95": 0.6037546823262202
+      }
+    },
+    "psnr_oracle": {
+      "psnr": {
+        "mean": 9.420031173312756,
+        "median": 8.77283906715539,
+        "p95": 13.685738859596002
+      },
+      "ssim": {
+        "mean": 0.2770157579828128,
+        "median": 0.2460385384430781,
+        "p95": 0.6037546823262202
+      }
+    },
+    "ssim_oracle": {
+      "psnr": {
+        "mean": 9.363257137512282,
+        "median": 8.748445128720148,
+        "p95": 13.616183770698893
+      },
+      "ssim": {
+        "mean": 0.27789283587636304,
+        "median": 0.2460385384430781,
+        "p95": 0.6037546823262202
+      }
+    }
+  },
+  "headroom": {
+    "psnr_oracle": {
+      "psnr": {
+        "mean": 0.1471622276994092,
+        "median": 0.01394964408017696,
+        "p95": 0.7143656244194155
+      },
+      "ssim": {
+        "mean": 0.004009745646350545,
+        "median": 0.000956271251581764,
+        "p95": 0.015780339783204138
+      },
+      "selected_equals_oracle_fraction": 0.34
+    },
+    "ssim_oracle": {
+      "psnr": {
+        "mean": 0.09038819189893504,
+        "median": 0.00913595909297138,
+        "p95": 0.6422648732869349
+      },
+      "ssim": {
+        "mean": 0.004886823539900826,
+        "median": 0.0017411921253564326,
+        "p95": 0.01733974263417395
+      },
+      "selected_equals_oracle_fraction": 0.34
+    }
+  },
+  "step_histograms": {
+    "selected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      27,
+      1,
+      2,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      3,
+      0,
+      2,
+      0,
+      0,
+      3,
+      3,
+      1,
+      1,
+      1,
+      2,
+      1,
+      2,
+      5,
+      6,
+      3,
+      2,
+      6,
+      5,
+      18
+    ],
+    "psnr_oracle": [
+      18,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      44,
+      4,
+      2,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      0,
+      1,
+      1,
+      0,
+      4,
+      1,
+      2,
+      1,
+      3,
+      0,
+      0,
+      3,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4
+    ],
+    "ssim_oracle": [
+      12,
+      4,
+      4,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      44,
+      3,
+      2,
+      1,
+      1,
+      1,
+      2,
+      1,
+      2,
+      2,
+      0,
+      1,
+      0,
+      1,
+      3,
+      1,
+      2,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      4
+    ]
+  },
+  "saturation": {
+    "selected": {
+      "ev_lower": 0.075,
+      "ev_upper": 0.7025,
+      "ev_either": 0.7575,
+      "gamma_lower": 0.7575,
+      "gamma_upper": 0.155,
+      "gamma_either": 0.8925
+    },
+    "psnr_oracle": {
+      "ev_lower": 0.0575,
+      "ev_upper": 0.8675,
+      "ev_either": 0.905,
+      "gamma_lower": 0.725,
+      "gamma_upper": 0.04,
+      "gamma_either": 0.745
+    },
+    "ssim_oracle": {
+      "ev_lower": 0.0475,
+      "ev_upper": 0.7875,
+      "ev_either": 0.815,
+      "gamma_lower": 0.675,
+      "gamma_upper": 0.03,
+      "gamma_either": 0.685
+    }
+  },
+  "saturation_definition": "Fraction of four coordinates per channel within1e-6 of saved physical bounds; either counts union, includes collapsed inactive bounds",
+  "best_global_fixed_step": {
+    "psnr": 35,
+    "ssim": 32
+  },
+  "oracle_scope": "Offline validation-only reference oracle, not a deployable selector",
+  "official_test_used": false
+}
