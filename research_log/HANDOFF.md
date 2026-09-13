@@ -1,11 +1,13 @@
-# TTIE handoff — T020-C DONE
+# TTIE handoff — T020-D DONE
 
-2026-09-13T12:49:04.151812+00:00
+2026-09-13T13:43:16.558124+00:00
 
-T020-C development OOF negative,3/5. PR38 https://github.com/word-ky/TTIE/pull/38 . Main DONE72da9e25aa251743ce422fa909e0b9e138b907da. Scientific sourcea4f9893c4486bd7ade6138e5f44047d29e9285c0; evidence34f497758eed6c26c87c43383d3668411995a22b.
+PR39 https://github.com/word-ky/TTIE/pull/39 . Source b931f3b22ec83fbd2d395f5053f2bb174f1f61f7; evidence8f6d29eadc67f8d077cc891f827235a067ee3fd4; main DONE d7e47311c58db2bf1570d5afd3f4ded6cae4d73e.
 
-Pooled H1/H0=.947906080161726; clean1.2072654157145626 with1 harmful/39 equal; dark.9370790223162285; bright.9701882237639385. Five affected tests and independent pre-evaluation prediction replay/post-evaluation metric replay pass. Exactly10 heads and120 frozen OOF decisions. GPU1 feature run20260913-204217-ttie-t020c-features exit0. Original tiny CPU learner unchanged. No active TTIE computation from this task; unrelated TOVD and TAISP processes preserved.
+Direction-dominant under the fixed reference-only development oracle test: A necessity oracle3/5; B direction oracle5/5. Of20 harmful episodes19 contain wrong direction,5 false move,6 missed move (overlap explicit). A clean H/H0=1.2294721860512596 (2 harmful); B clean=.7541456159734198 (0 harmful). B pooled=.9163200473622485 with2 harmful bright rows, despite literal5/5. No deployable model or fresh-safety claim.
 
-Source of truth: research_log/T020C_analysis.md, T020C_delivery.json, T020C_progress.md, T020C_run/, remote_runs/20260913-204217-ttie-t020c-features/. Recovery archive and research logs verified on both /home/wenchang/asdasdsad/wjq/TTIE and /media/wenchang/F/wjq/TTIE.
+Two focused tests pass and independent full120-row/count/overlap/counterfactual/metric/interpretation replay passes. No training, GPU/feature/TTT rerun, tuning or new data. No experiment running from this task. Preserve unrelated remote work.
 
-At next15-minute heartbeat fetch main and inspect research-owned inbox/state and PR reviews. Do not rerun T020-C merely because still OPEN; wait for changed task/feedback. Keep quiet when unchanged. Do not self-merge. No combined-domain final fit, tuning, fresh data or T020-D without a new task. Do not open T020-A fresh per-row artifacts for future training/calibration. Never rewrite research-owned files.
+Source of truth: research_log/T020D_analysis.md, T020D_delivery.json, T020D_progress.md, T020D_run/, T020D_origins/. Prediction hash remains731258100e6a71ec439935a06349c7c40851e35842bee0d72df3a45de67e01e8. Main research lead accepted C via squash2b7f4d05 and published D atfec8d88c.
+
+Next15-minute heartbeat: read local handoff then fetch main, inspect coordination/PROTOCOL.md, PROJECT_STATE.md, both mailboxes and PR39/other relevant feedback. Do not rerun DONE T020-D merely because it remains OPEN. No T020-E/new model/fresh cohort unless a new task authorizes it. Do not edit research-owned state/inbox or self-merge. No T020-A fresh per-row data for tuning. Stay quiet when unchanged.
