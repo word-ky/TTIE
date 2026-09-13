@@ -94,7 +94,7 @@ def run(output,source,device):
             image=torch.load(folder/'semantic/outputs.pt',weights_only=True,map_location='cpu')['identity']['image'].to(device)
             original=torch.load(folder/METHOD/'outputs.pt',weights_only=True,map_location='cpu')[METHOD]
             trace=torch.load(folder/METHOD/'trajectory.pt',weights_only=True,map_location='cpu');decision=read(folder/METHOD/'decisions.json')
-            step=decision['selected_step'];assert torch.equal(original['grid'],trace['grids'][step])
+            step=decision['selection']['selected_step'];assert torch.equal(original['grid'],trace['grids'][step])
             corners=original['grid'].to(device)
             canonical=FixedCorners(corners,(.5,.5,0.))(image).cpu()
             assert torch.equal(canonical,original['image']), 'Cached canonical pixels must reproduce exactly'
