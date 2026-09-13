@@ -1,0 +1,19 @@
+{
+  "task": "T024-A",
+  "utc": "2026-09-13T23:32:48.288258+00:00",
+  "checks": {
+    "five_unique_baselines": "PASS",
+    "five_csv_rows": "PASS",
+    "one_designated_mode_per_family": "PASS",
+    "fairness_enum_and_main_admission": "PASS",
+    "source_file_sha256_and_bytes": "PASS 47 files",
+    "coverage_recomputed": "PASS 2 strict eligible / 0 from 2025",
+    "reproduced_metrics_all_null": "PASS"
+  },
+  "no_model_inference": true,
+  "no_training": true,
+  "no_official_test_decode": true,
+  "metric_implementation_local_sha256": "5ddc871ed3730f79d39ba8d298511f73b3ff9385ff4392a96c2baa5725dced00",
+  "metric_implementation_git_sha256": "01d227a8b4caaf8f5705d9c18a5ef685367b6ccf80588d212be92830a04f8556",
+  "note": "Metric hash in manifest binds Git blob bytes; local checkout hash separately records Windows newline conversion. No model code executed."
+}
