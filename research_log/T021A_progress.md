@@ -7,3 +7,5 @@
 - 2026-09-13T17:20Z: Research clarification d7dc7ec8 binds matched value-only H0 versus Sobolev H1, 200 primary rows excluding offset. Added evaluation-only artifact replay and independent separable-kernel verifier; accepted metric/bootstrap unchanged. GPU preference recorded; this fixed SciPy metric remains CPU. Remote skimage missing; no installation required because independent verifier uses explicit SciPy convolution and was locally cross-checked.
 
 - 2026-09-13T17:22:36.1975095Z: Run 20260914-012055-ttie-t021a-ssim completed all 200 scores and fixed bootstrap. Independent verifier stopped on JSON numeric image IDs versus CSV strings; repaired ID comparison and preserved original numeric ordering for cluster draws. Replaying verifier only; frozen scores/config unchanged. Four focused tests passed in 4.78s.
+
+- 2026-09-13T17:25:40.286880+00:00: Independent 200-row replay passed; mean +0.022577036833605277, CI [0.01756559735229715,0.028107683054429053], positive. Four tests pass4.51s. Source archive differs only in line endings; exact executed sources/proof retained. Preparing PR41 and main DONE report.
