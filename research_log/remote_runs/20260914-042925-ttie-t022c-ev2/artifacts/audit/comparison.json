@@ -1,0 +1,114 @@
+{
+  "status": "experiment-complete",
+  "variant": "active dark EV upper2 only",
+  "rows": 100,
+  "aggregates": {
+    "raw": {
+      "psnr": {
+        "mean": 8.109722671657906,
+        "median": 7.600161540858166
+      },
+      "ssim": {
+        "mean": 0.1600228434803769,
+        "median": 0.13897726549987016
+      }
+    },
+    "T022A": {
+      "psnr": {
+        "mean": 9.272868945613347,
+        "median": 8.680092886100695
+      },
+      "ssim": {
+        "mean": 0.27300601233646227,
+        "median": 0.24263053936978307
+      }
+    },
+    "T022C": {
+      "psnr": {
+        "mean": 10.229554025363404,
+        "median": 9.650373829782268
+      },
+      "ssim": {
+        "mean": 0.3282314776612914,
+        "median": 0.3002515375673881
+      }
+    }
+  },
+  "paired_deltas": {
+    "psnr": {
+      "mean": 0.9566850797500581,
+      "median": 0.776774357996247,
+      "p10": -2.7078585684847665e-08,
+      "p90": 2.8401093099062256
+    },
+    "ssim": {
+      "mean": 0.05522546532482912,
+      "median": 0.05443024892462302,
+      "p10": -1.1034073483795456e-07,
+      "p90": 0.12835192151337407
+    }
+  },
+  "selected_step_histogram": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    4,
+    1,
+    1,
+    1,
+    1,
+    88
+  ],
+  "runtime_seconds": {
+    "mean": 2.431485087046749,
+    "median": 2.4487252024991903,
+    "p95": 2.479048882916686
+  },
+  "saturation": {
+    "ev_lower": 0.0725,
+    "ev_upper": 0.045,
+    "ev_either": 0.0975,
+    "gamma_lower": 0.7175,
+    "gamma_upper": 0.1525,
+    "gamma_either": 0.85
+  },
+  "gate": {
+    "psnr_delta_threshold": 0.5,
+    "ssim_must_not_decrease": true,
+    "psnr_pass": true,
+    "ssim_pass": true
+  },
+  "verdict": "materially positive"
+}

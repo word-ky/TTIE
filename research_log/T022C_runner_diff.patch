@@ -1,0 +1,91 @@
+--- accepted_lolv2_core.py
++++ T022C_lolv2_ev_core.py
+@@ -1,4 +1,4 @@
+-"""T022-A native-resolution low-only execution of the unchanged T014 core."""
++"""T022-C single dark-EV-bound variant; low-only native-resolution execution."""
+ import argparse
+ import json
+ import time
+@@ -13,7 +13,7 @@
+ from .learned_prototypes import Prototypes
+ from .semantic_ttt import SemanticScorer
+ from .energy_model import load_energy
+-from .energy_ttt import trajectory
++from .ev_range_ttt import trajectory
+ from .stop_receipt import sha
+ 
+ 
+@@ -25,6 +25,26 @@
+     with Image.open(path) as image:
+         array = np.asarray(image.convert('RGB')).copy()
+     return torch.from_numpy(array).permute(2,0,1).unsqueeze(0).float()/255.
++
++
++def low_image_opener(allowed,opened):
++    original_open=Image.open
++    def guarded(path,*args,**kwargs):
++        if str(Path(path).resolve()) not in allowed:
++            raise PermissionError('T022-C accepts only frozen low-light images')
++        opened.append(str(Path(path).resolve()))
++        return original_open(path,*args,**kwargs)
++    return guarded
++
++
++def save_episode(directory,result,t,decision):
++    directory.mkdir()
++    # Clone selected views: identical values, without the T022-A backing-storage overhead.
++    torch.save({k:result[k].clone() for k in ['image','raw','grid']},directory/'output.pt')
++    write(directory/'decision.json',dict(selection=decision,gate=t['gate'],diagnostics=t['diagnostics']))
++    torch.save({k:t[k] for k in ['states','grids','scores','features']},directory/'trajectory.pt')
++    return {name:dict(sha256=sha(directory/name),bytes=(directory/name).stat().st_size)
++            for name in ['output.pt','decision.json','trajectory.pt']}
+ 
+ 
+ def main():
+@@ -45,18 +65,16 @@
+     args.out.mkdir(parents=True, exist_ok=True)
+     # Record every decoded image. This process receives low paths only; paired
+     # normal images are not deployed to the server until this run has finished.
+-    opened=[]; original_open=Image.open
+-    def recorded_open(path, *a, **kw):
+-        opened.append(str(Path(path).resolve()))
+-        return original_open(path,*a,**kw)
+-    Image.open=recorded_open
++    opened=[]
++    allowed={str((args.low_root/r['low']).resolve()) for r in split['selected']}
++    Image.open=low_image_opener(allowed,opened)
+     files=assets['files']
+     receipt=json.loads(Path(files['gate']['path']).read_bytes())
+     encoder=FrozenCLIP.from_checkpoint(files['clip']['path'],device)
+     saved=torch.load(files['prototypes']['path'],map_location=device,weights_only=True)
+     scorer=SemanticScorer(encoder,Prototypes(saved['raw']))
+     head=load_energy(files['energy']['path'])
+-    config=dict(task='T022-A',method='T014 Sobolev Region2',assets=assets,
++    config=dict(task='T022-C',method='T014 Region2 dark EV upper2',dark_ev_upper=2.,assets=assets,
+                 split_sha256=sha(args.split),seed=7,tf32=False,max_steps=40,
+                 native_resolution=True,optimizer='unchanged Adam lr=.03',
+                 checkpoint='minimum predicted energy, earliest tie',
+@@ -70,12 +88,8 @@
+         result,t,decision=trajectory(image,scorer,receipt,head,basis='region2',max_steps=40)
+         torch.cuda.synchronize(); seconds=time.perf_counter()-start
+         assert torch.isfinite(result['image']).all()
+-        directory=args.out/f'{i:03d}'; directory.mkdir()
+-        torch.save({k:result[k] for k in ['image','raw','grid']},directory/'output.pt')
+-        write(directory/'decision.json',dict(selection=decision,gate=t['gate'],diagnostics=t['diagnostics']))
+-        torch.save({k:t[k] for k in ['states','grids','scores','features']},directory/'trajectory.pt')
+-        files_saved={name:dict(sha256=sha(directory/name),bytes=(directory/name).stat().st_size)
+-                     for name in ['output.pt','decision.json','trajectory.pt']}
++        directory=args.out/f'{i:03d}'
++        files_saved=save_episode(directory,result,t,decision)
+         rows.append(dict(index=i,low=row['low'],seconds=seconds,shape=list(image.shape),
+                          active=bool(any(t['gate']['active'])),updates=t['diagnostics']['steps'],
+                          selected_step=decision['selected_step'],files=files_saved,
+@@ -86,7 +100,7 @@
+     assert opened==[str((args.low_root/r['low']).resolve()) for r in split['selected']]
+     assert all(sha(Path(v['path']))==v['sha256'] for v in assets['files'].values())
+     write(args.out/'freeze.json',dict(completed_utc=datetime.now(timezone.utc).isoformat(),
+-          rows=rows,opened_images=opened,normal_images_available=False,
++          rows=rows,opened_images=opened,normal_images_available=False,low_only_decoder_enforced=True,
+           split_sha256=sha(args.split),config_sha256=sha(args.out/'config.json')))
+     print('All 100 outputs frozen before reference deployment',flush=True)
+ 
