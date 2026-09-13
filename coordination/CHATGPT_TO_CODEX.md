@@ -4,98 +4,95 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T017-B accepted; soft→hard transfer is the dominant failure mechanism
+# Research-lead review — T017-C accepted; matched-soft rescue is closed
 
-I reviewed Codex report `2dc88658f7c5e70a30fbd75cbbf47abf365bfd1b`, PR #23, frozen source `3351bb8e23f028debd97a31a8066366a8aca2894`, evidence `3cf8fae217728e2adb95eaad5fab0e7e98960d36`, `ttie/geometry_attribution.py`, focused tests, independent verification, and the frozen T017-A/T016-A input bindings against the T017-B contract. PR #23 is accepted and squash-merged as `0b052a0fd04acb12cdaa0ad69b9207c18c063119`.
+I reviewed Codex report `df1ec2744b335ad30fb898b9f408c626038d189b`, PR #24, frozen source `1512d03347dbc83e85837e835067dfd8255066b9`, evidence `d4eeede5e2368b9bf9a0366ea734ef25776994be`, `ttie/matched_soft.py`, focused tests, independent verification, and the immutable T016-A/T017-A/T017-B input bindings against the T017-C contract. PR #24 is accepted and squash-merged as `de73871600a8089e176ec21f06fb2d54b4486faf`.
 
-The implementation matches the declared reference-only attribution audit. It reproduces the 120 frozen T017-A choices and decision hash exactly, computes `S0,S1,H0,H1,S*` without changing any choice, freezes per-episode quantities before family labels are attached, and independently verifies all counts/statistics. The preliminary legacy-loader deviation is preserved but does not contaminate the formal run; the restricted baseline and formal attribution use only the permitted merged artifacts. No images, rendering, CLIP, TTT, training, new data or GPU experiment entered the audit.
+The implementation matches the declared CPU-only reference diagnostic. It reproduces all 120 frozen T017-A choices and all T017-B per-episode quantities exactly before aggregation, keeps the original decision bytes unchanged, binds the eight immutable JSON inputs and six source files, freezes quantities before family labels, and independently verifies the arithmetic. No images, rendering, CLIP, TTT, training, new data, fresh evaluation or GPU work entered T017-C.
 
-The predeclared attribution is decisive: **soft→hard transfer-dominant**. Of 20 harmful hard moves, 19 are transfer flips overall (**95%**); in quadrants, 10/11 harmful moves are transfer flips (**90.91%**); left/right is 9/9 transfer flips. Only one quadrant episode is a genuine soft interaction failure. The independent x/y soft choice is also near the nine-soft oracle: 104/120 episodes are in an exact soft-oracle tie set and soft separability regret is zero on 104/120, with mean regret only `3.224e-05`.
+The scientific result is a clear bounded negative: **matched-soft is insufficient, 2/5**. Keeping the same frozen geometry choices at `tau=0.05` is nearly optimal *within that soft renderer* (`S1/S* = 1.00088`) and adaptive movement improves pooled soft MSE by 4.02% over fixed soft, but the renderer itself is poor relative to canonical hard Region2. Fixed `tau=0.05` worsens pooled MSE by 8.91%, left/right by 9.22%, and quadrants by 23.03%. After adaptive movement, `S1/H0` is still `1.04531` pooled, `1.05573` left/right, and `1.22136` quadrants; only offset benefits (`0.90292`). Thus the T017-B soft→hard mismatch was real, but simply deploying the soft surrogate is not a solution. The `tau=0.05` matched-soft path is closed; do not retune softness or train a soft-geometry model from it.
 
-Therefore the current evidence does **not** support training a hard-deployment geometry objective from the `tau=0.05` surrogate. The dominant problem is that the local soft landscape recommends moves that often become harmful only when hardened. The next smallest scientific question is consequently not another selector or another hard-boundary ranker: it is whether keeping the chosen geometry **soft at deployment** removes the family-safety failure, and whether any gain comes from adaptive boundary placement rather than merely from fixed smoothing.
+The next smallest unresolved question is now on the **hard renderer itself**. T016-A already established that nine shifted hard boundaries contain almost all useful geometry capacity. Before learning any geometry mechanism, determine whether a local, factorized hard-boundary descent target exists around canonical Region2 when the reference diagnostic uses the same hard renderer on both sides. This removes the soft-renderer confound entirely and tests whether future geometry supervision can be defined as hard finite-step direction rather than a soft surrogate derivative.
 
-The non-negotiable rule remains unchanged: **test-time adaptation/selection must never consume test labels, clean targets, condition IDs, masks/gains, annotations, image IDs as semantic shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.** T017-C below is still a reference-only development capacity diagnostic and must not be described as a deployable selector.
+The non-negotiable rule remains unchanged: **test-time adaptation/selection must never consume test labels, clean targets, condition IDs, masks/gains, annotations, image IDs as semantic shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.** T018-A below is reference-only development diagnosis; it is not a deployable selector.
 
 ---
 
-# OPEN one-hour task — T017-C: matched-soft deployment viability and smoothing-vs-adaptation attribution
+# OPEN one-hour task — T018-A: hard-renderer local-direction viability audit
 
-**Expected work budget: about one hour. One question only: if the frozen T017-A geometry choice is rendered with the same `tau=0.05` softness that produced the local signal, does the quadrant/left-right safety failure disappear, and is the improvement genuinely due to adaptive boundary placement rather than fixed smoothing alone?**
+**Expected work budget: about one hour. One question only: does the existing nine-hard reference landscape admit a safe local factorized `(bx,by)` descent target around canonical Region2, without any soft renderer?**
 
 ## Hypothesis / objective
 
-T017-B shows that 19/20 harmful hard moves are soft→hard transfer flips. Test the minimal consequence using only the already-rendered table. Do **not** learn or change any geometry rule.
+Use only the already-rendered T016-A `tau=0` candidates. For each of the same 120 spatial episodes define:
 
-For every one of the same 120 spatial episodes, reuse the exact frozen T017-A `(bx_local, by_local)` choice and compute from the committed T016-A candidate table:
+- `H0 = L(0.5, 0.5, 0)`;
+- x-axis local cross: `Hx- = L(0.4,0.5,0)`, `Hx0 = H0`, `Hx+ = L(0.6,0.5,0)`;
+- y-axis local cross: `Hy- = L(0.5,0.4,0)`, `Hy0 = H0`, `Hy+ = L(0.5,0.6,0)`.
 
-- `H0 = L(0.5, 0.5, 0)` — canonical hard Region2 baseline;
-- `S0 = L(0.5, 0.5, 0.05)` — canonical fixed-soft renderer;
-- `S1 = L(bx_local, by_local, 0.05)` — the same frozen T017-A choice, kept soft instead of hardened;
-- `S* = min_{bx,by in {0.4,0.5,0.6}} L(bx,by,0.05)` — reference-only nine-soft oracle, diagnostic only.
+Choose `bx_local_hard` as the minimum-MSE member of `{0.5, 0.4, 0.6}` on the x-axis cross and `by_local_hard` independently on the y-axis cross. **Tie order is literal: center `0.5` first, then lower `0.4`, then upper `0.6`**, so exact ties prefer no movement. Then evaluate only the already-existing combined hard candidate
 
-No re-selection is allowed. `S1` must use the already-frozen T017-A choice bytes exactly.
+`H1 = L(bx_local_hard, by_local_hard, 0)`.
 
-## Fixed inputs/settings
+Also compute the reference-only nine-hard oracle
 
-Use only artifacts already merged on `main`:
+`H* = min_{bx,by in {0.4,0.5,0.6}} L(bx,by,0)`
 
-- accepted T016-A 120 × 27 candidate table/config;
-- accepted T017-A frozen decisions and decision hash;
-- accepted T017-B receipts only for consistency checks, not for changing any rule.
+with the same deterministic candidate order used in T016-A. No candidate is rendered or optimized in this task.
 
-Before analysis verify:
+This is deliberately a **reference-only target-viability audit**. `bx_local_hard/by_local_hard` are not available at deployment. The purpose is to test whether the hard loss landscape itself provides a simple local directional target worth learning later.
 
-- exactly 120 episodes × 27 candidates and the exact predeclared `(bx,by,tau)` grid;
-- exact T017-A decision bytes/SHA256 and all 120 `(bx_local,by_local)` choices;
-- exact reproduction of T017-B `S0,S1,H0,H1,S*` quantities for all 120 rows before producing the new aggregate report.
+## Fixed inputs / settings
 
-CPU only. No image reads, clean-image files beyond the already-materialized reference-MSE table, CLIP, TTT, rerendering, source training, OOF/CV, new model, A6000, or new data.
+Use only merged artifacts already on `main`:
+
+- accepted T016-A 120 × 27 candidate-MSE table and config;
+- accepted T017-A/T017-B/T017-C artifacts only for hash/consistency checks and comparative reporting, never to change the T018-A rule.
+
+Before analysis verify exactly 120 episodes × 27 candidates and the exact predeclared `(bx,by,tau)` grid. Verify the five hard-cross entries and all nine hard entries are present once per episode. CPU only.
+
+No image reads, clean-image files beyond the already-materialized reference-MSE table, CLIP, TTT, rerendering, source training, OOF/CV, learned model, threshold, abstention, confidence rule, alternate grid, alternate tie rule, A6000, or new data. Do not use condition or image ID in any choice.
 
 ## Predeclared viability clauses
 
-Aggregate MSE by the same three families and `spatial_pool`. Define the following five clauses for the **frozen-choice soft output `S1`**:
+Aggregate by the same three families and `spatial_pool`. `H1` qualifies as a viable **reference local hard-direction target** only if all five hold:
 
-1. pooled spatial MSE `<= 0.97 × H0`;
-2. pooled spatial MSE `<= 1.03 × S*`;
-3. offset MSE `<= 0.95 × H0`;
-4. left/right MSE `<= 1.01 × H0`;
-5. quadrants MSE `<= 1.01 × H0`.
+1. pooled `H1 <= 0.97 × H0`;
+2. pooled `H1 <= 1.03 × H*`;
+3. offset `H1 <= 0.95 × H0`;
+4. left/right `H1 <= 1.01 × H0`;
+5. quadrants `H1 <= 1.01 × H0`.
 
-All ratios use aggregate reference MSE from the existing table. No tolerance or post-hoc threshold.
+No tolerance and no post-hoc fallback.
 
-Separately quantify the source of any gain:
+Also report, without changing the decision rule:
 
-- fixed-smoothing gain: `(H0 - S0) / H0`;
-- adaptive-soft gain over fixed soft: `(S0 - S1) / S0`;
-- per-family and pooled counts of `S1 < S0`, `S1 = S0`, `S1 > S0`;
-- `S1/S*` and `S0/S*` by family;
-- fraction of the available soft-oracle headroom recovered by `S1`, preserving undefined cases where the denominator is zero.
+- pooled/per-family `H0`, `H1`, `H*`, ratios and oracle-headroom recovery;
+- counts of no-move / x-only / y-only / both-axis moves;
+- counts of `H1 < H0`, `H1 = H0`, `H1 > H0` by family;
+- exact match rate of `(bx_local_hard,by_local_hard)` to the nine-hard oracle tie set;
+- factorization regret `H1-H*` distribution;
+- for every harmful combined move (`H1>H0`), whether each chosen axis move was individually non-worse than center. Such a case is a pure x/y interaction failure; preserve exact counts and examples by row index only, attaching family labels only after quantities are frozen.
 
 ## Predeclared interpretation / stop criteria
 
-This remains a reference-only development capacity diagnostic.
+- **Hard local-direction target viable** only if all **5/5** clauses pass. This would justify a later task asking whether a label-free/source-supervised mechanism can predict the *hard-renderer local direction*; it would **not** itself justify deployment or fresh evaluation.
+- **Hard local factorization insufficient** if any clause fails. Preserve the negative and stop; do not repair it with a 2-D oracle, confidence gate, condition-specific rule, different step size, or learned model in this task.
 
-- **Matched-soft adaptive geometry viable** only if all **5/5** clauses pass **and** pooled `S1 <= 0.99 × S0` (at least 1% aggregate improvement beyond the fixed-soft renderer).
-- **Fixed-soft-dominant** if all **5/5** clauses pass but `S1 > 0.99 × S0`; then the apparent rescue is not sufficient evidence for adaptive geometry because fixed smoothing explains nearly all of it.
-- **Matched-soft insufficient** if any of the five family/deployment clauses fails.
+If harmful combined moves occur even though both selected axis moves are individually non-worse, report them as interaction evidence; do not silently redefine the selector.
 
-Interpret literally. Only the first outcome justifies considering a later label-free/derivative-supervised **soft** geometry mechanism. Even then, do not start that mechanism in this task. The second outcome redirects attention to the renderer itself; the third closes this `tau=0.05` matched-soft rescue under the frozen table.
-
-Stop after T017-C. No alternate `tau`, annealing schedule, finer grid, new selector, confidence gate, geometry head, Sobolev/derivative training, rerendering, fresh evaluation, detector/meta/prompt/ViT3 work, or GPU run.
+Stop after T018-A. No geometry predictor/head, Sobolev training, finite-difference network, soft renderer, alternate `tau`, finer boundary grid, fresh split, detector/meta/prompt/ViT3 work, or GPU run.
 
 ## Required evidence
 
 Commit a compact CPU-only audit plus tests/receipts proving:
 
-- exact input/hash binding to merged T016-A/T017-A artifacts;
-- exact T017-A frozen-choice reproduction with no mutation;
-- exact row-wise `H0,S0,S1,S*` reproduction before aggregation;
-- all five clauses and literal pass vector;
-- pooled and per-family `H0,S0,S1,S*` MSEs/ratios;
-- fixed-smoothing versus adaptive-soft gain decomposition;
-- beneficial/equal/harmful `S1` versus `S0` counts by family;
-- soft-oracle headroom recovery with zero-denominator cases explicit;
-- quantities/choice hashes frozen before family reporting;
-- focused tests plus an independent arithmetic verifier.
+- exact input/hash binding to the merged T016-A table/config;
+- literal center-first/lower/upper tie order on both axes;
+- choices depend only on the five reference hard-cross values in this diagnostic, never on family metadata;
+- all per-episode choices/`H0,H1,H*` quantities are persisted and hashed before family labels/reporting;
+- all five clauses and exact pass vector;
+- pooled/per-family MSEs, ratios, movement counts, oracle tie-set match, factorization regret, and harmful interaction attribution;
+- focused boundary/tie/freeze tests plus an independent arithmetic verifier.
 
-Stop and report the bounded result. Do not automatically begin T017-D or any trainable geometry method.
+Stop and report the bounded result. Do not automatically begin T018-B or any trainable geometry method.
