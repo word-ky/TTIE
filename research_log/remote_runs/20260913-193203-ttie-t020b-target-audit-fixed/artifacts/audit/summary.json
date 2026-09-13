@@ -1,0 +1,175 @@
+{
+  "groups": {
+    "nonspatial_pool": {
+      "count": 120,
+      "mse": {
+        "H0": 0.021385082408475378,
+        "H_delta": 0.019265628350876796,
+        "H_star": 0.019217849626572085
+      },
+      "ratios": {
+        "H_delta_over_H0": 0.9008910034988411,
+        "H_star_over_H0": 0.8986567954003127
+      },
+      "outcomes": {
+        "beneficial": 61,
+        "equal": 59,
+        "harmful": 0
+      },
+      "movements": {
+        "no_move": 59,
+        "x_only": 7,
+        "y_only": 10,
+        "both": 44
+      },
+      "labels": {
+        "x": {
+          "center": 69,
+          "lower": 30,
+          "upper": 21
+        },
+        "y": {
+          "center": 66,
+          "lower": 35,
+          "upper": 19
+        }
+      },
+      "center_in_oracle_tie_count": 57,
+      "center_in_oracle_tie_fraction": 0.475,
+      "harmful_rows": []
+    },
+    "clean": {
+      "count": 40,
+      "mse": {
+        "H0": 0.0002885228313971311,
+        "H_delta": 0.00020819390465476317,
+        "H_star": 0.00020819390465476317
+      },
+      "ratios": {
+        "H_delta_over_H0": 0.7215855454024681,
+        "H_star_over_H0": 0.7215855454024681
+      },
+      "outcomes": {
+        "beneficial": 2,
+        "equal": 38,
+        "harmful": 0
+      },
+      "movements": {
+        "no_move": 38,
+        "x_only": 0,
+        "y_only": 0,
+        "both": 2
+      },
+      "labels": {
+        "x": {
+          "center": 38,
+          "lower": 0,
+          "upper": 2
+        },
+        "y": {
+          "center": 38,
+          "lower": 0,
+          "upper": 2
+        }
+      },
+      "center_in_oracle_tie_count": 38,
+      "center_in_oracle_tie_fraction": 0.95,
+      "harmful_rows": []
+    },
+    "homogeneous_dark": {
+      "count": 40,
+      "mse": {
+        "H0": 0.04524176206905395,
+        "H_delta": 0.04102067903149873,
+        "H_star": 0.040937563660554586
+      },
+      "ratios": {
+        "H_delta_over_H0": 0.9066994112406046,
+        "H_star_over_H0": 0.9048622730049788
+      },
+      "outcomes": {
+        "beneficial": 26,
+        "equal": 14,
+        "harmful": 0
+      },
+      "movements": {
+        "no_move": 14,
+        "x_only": 1,
+        "y_only": 5,
+        "both": 20
+      },
+      "labels": {
+        "x": {
+          "center": 19,
+          "lower": 14,
+          "upper": 7
+        },
+        "y": {
+          "center": 15,
+          "lower": 17,
+          "upper": 8
+        }
+      },
+      "center_in_oracle_tie_count": 14,
+      "center_in_oracle_tie_fraction": 0.35,
+      "harmful_rows": []
+    },
+    "homogeneous_bright": {
+      "count": 40,
+      "mse": {
+        "H0": 0.01862496232497506,
+        "H_delta": 0.016568012116476894,
+        "H_star": 0.016507791314506904
+      },
+      "ratios": {
+        "H_delta_over_H0": 0.889559496947819,
+        "H_star_over_H0": 0.886326158757962
+      },
+      "outcomes": {
+        "beneficial": 33,
+        "equal": 7,
+        "harmful": 0
+      },
+      "movements": {
+        "no_move": 7,
+        "x_only": 6,
+        "y_only": 5,
+        "both": 22
+      },
+      "labels": {
+        "x": {
+          "center": 12,
+          "lower": 16,
+          "upper": 12
+        },
+        "y": {
+          "center": 13,
+          "lower": 18,
+          "upper": 9
+        }
+      },
+      "center_in_oracle_tie_count": 5,
+      "center_in_oracle_tie_fraction": 0.125,
+      "harmful_rows": []
+    }
+  },
+  "clauses": {
+    "nonspatial_pool_safety": true,
+    "clean_safety": true,
+    "homogeneous_dark_safety": true,
+    "homogeneous_bright_safety": true,
+    "zero_harmful": true
+  },
+  "acceptance_vector": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "passed": 5,
+  "target_viable": true,
+  "reference_only": true,
+  "fresh_qualified": false,
+  "verdict": "T020-B development target positive"
+}
