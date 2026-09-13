@@ -17,3 +17,7 @@ The first patched clone run exposed a separate Windows checkout detail: three ar
 ## 2026-09-13T04:51:53.922799+00:00 — isolated regression passed
 
 Clean reachable-object clone at 9ef55c70e46defff02a04611c81108433f284c69 still lacks scoring commit4062e01c. Revised verifier exits0; all9 source hashes,6 input hashes,8 frozen artifact hashes pass. Independent target-free subprocess exactly reproduces120 logits/classes/decisions and both normalization buffers. Pinned receipt db194f4caa897094655a36523fa074772d8cd7302ffda250a72e8b81cc2f9d94 unchanged. See T018D_review_after.json/log and T018D_review_verification.json. No retraining or broader scientific regression needed for this verifier-only change.
+
+## 2026-09-13T04:53:44.202717+00:00 — concurrent squash merge
+
+Research lead merged the original PR28 head6f1f9e0e as9e3a2447 while this repair was being prepared, so the repair commits are not in main. Transferred the bounded patch to codex/T018D-verifier-repro based on updated main0aa6d639. The squash also makes historical scientific-source commit6c6eda3a unreachable in a fresh main clone. Source verification now compares current committed scientific blobs and runtime bytes with the unchanged pinned receipt hashes; original source SHA remains recorded in receipt/config. Thus both scientific code and input payloads are verified without requiring unreachable pre-squash objects. New OPEN taskT018-E recorded for subsequent work, after this patch delivery.

@@ -14,7 +14,7 @@ receipt=read('selector_frozen.json');pinned=(root/'selector_frozen.sha256').read
 assert digest((root/'selector_frozen.json').read_bytes())==pinned
 for name,h in receipt['files_sha256'].items():assert digest((root/name).read_bytes())==h
 for path,h in receipt['source_code_sha256'].items():
-    assert digest(Path(path).read_bytes())==h==digest(subprocess.check_output(['git','show',receipt['source_sha']+':'+path]))
+    assert digest(Path(path).read_bytes())==h==digest(subprocess.check_output(['git','show','HEAD:'+path]))
 inputs={};archive=Path('research_log/T018D_source_inputs')
 manifest=json.loads((archive/'manifest.json').read_text(encoding='utf-8'))
 for key,item in receipt['input_artifact_hashes'].items():
