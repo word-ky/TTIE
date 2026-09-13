@@ -1,0 +1,36 @@
+{
+  "source_sha": "49888ea2a8f6cb30cf292ecffb4ac715066901d2",
+  "feature_run": {
+    "runId": "20260913-183032-ttie-t020a-safety-features",
+    "releaseId": "20260913-182948-ttie-t020a-frozen",
+    "sessionName": "autodl-20260913-183032-ttie-t020a-safety-features",
+    "command": "bash scripts/run_t020a_a6000.sh 49888ea2a8f6cb30cf292ecffb4ac715066901d2"
+  },
+  "evaluation_run": {
+    "runId": "20260913-183512-ttie-t020a-postfreeze-safety",
+    "releaseId": "20260913-183253-ttfl-t006",
+    "sessionName": "autodl-20260913-183512-ttie-t020a-postfreeze-safety",
+    "command": "CUDA_VISIBLE_DEVICES=1 /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -u -m ttie.nonspatial_safety.evaluate --cohort /home/wenchang/asdasdsad/wjq/TTIE/runs/20260913-183032-ttie-t020a-safety-features/artifacts/cohort --selected /home/wenchang/asdasdsad/wjq/TTIE/runs/20260913-183032-ttie-t020a-safety-features/artifacts/selected --images /home/wenchang/asdasdsad/wjq/TTIE/shared/t008/val2017 --output \"$AUTODL_ARTIFACTS_DIR/evaluation\" --source-sha 49888ea2a8f6cb30cf292ecffb4ac715066901d2 --device cuda:0 --replay-receipt /home/wenchang/asdasdsad/wjq/TTIE/runs/20260913-183032-ttie-t020a-safety-features/artifacts/selected/T020A_replay_verification.json"
+  },
+  "local_commands": [
+    {
+      "command": "python -m pytest tests/test_nonspatial_safety.py tests/test_fresh_deadband.py tests/test_fresh_direction.py tests/test_direction_selector.py -q",
+      "exit_code": 0,
+      "result": "24 passed in36.18s"
+    },
+    {
+      "command": "python -m ttie.nonspatial_safety.predict --selected research_log/remote_runs/20260913-183032-ttie-t020a-safety-features/artifacts/selected --source-sha 49888ea2a8f6cb30cf292ecffb4ac715066901d2",
+      "exit_code": 0
+    },
+    {
+      "command": "python research_log/T020A_verify.py replay --selected research_log/remote_runs/20260913-183032-ttie-t020a-safety-features/artifacts/selected --heads research_log/T019C_run --output research_log/T020A_replay_verification.json",
+      "exit_code": 0
+    },
+    {
+      "command": "python research_log/T020A_verify.py metrics --root . --cohort research_log/remote_runs/20260913-183032-ttie-t020a-safety-features/artifacts/cohort --selected research_log/remote_runs/20260913-183032-ttie-t020a-safety-features/artifacts/selected --evaluation research_log/remote_runs/20260913-183512-ttie-t020a-postfreeze-safety/artifacts/evaluation --replay-receipt research_log/T020A_replay_verification.json --output research_log/T020A_metric_verification.json",
+      "exit_code": 0
+    }
+  ],
+  "frozen_decisions_sha256": "83b3797dafed317f94884ff16a9269f4249457534e5ac3442b489f419cca0ac0",
+  "no_more_experiments": true
+}
