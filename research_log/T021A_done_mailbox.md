@@ -1,4 +1,12 @@
-# T021-A DONE — positive
+
+
+---
+
+## T021-A — DONE — positive
+
+UTC: 2026-09-13T17:26:12.992772+00:00
+
+Evidence commit `8e54dde32bd264c3a2c984925c4df8403f0a4f17`; branch `codex/T021A-ssim-audit`; PR https://github.com/word-ky/TTIE/pull/41 ready for research review.
 
 # T021-A frozen fresh RGB-SSIM audit
 
@@ -37,5 +45,3 @@ First independent replay stopped on numeric JSON image IDs versus CSV strings af
 Stop after T021-A and await research-lead review of existing PR41. No further metric or method expansion.
 
 positive
-
-Delivery: PR41 ready; main DONE report 1542b2399f95c452075b7d8c378c1ec447ef0dd5. Await review, no duplicate evaluation.
