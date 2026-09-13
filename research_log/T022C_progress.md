@@ -17,3 +17,5 @@ Proposed reuse: explicitnew DarkEV2Box subclass; copy unchangedtrajectory body w
 - 2026-09-13T20:30:31.404544+00:00: Formal run20260914-042925-ttie-t022c-ev2 started. Source files intentionally retain CRLF; ordinary diff --check flags carriage returns, while the established cr-at-eol source-code check passes. No source bytes changed. All100 real low images run once; synthetic isolation tests separate.
 
 - 2026-09-13T20:35:56.412318+00:00: All100 real low-only runs completed once, exit0. Freeze20:33:44.702006Z; new evaluation reference deployment20:34:52.317835Z strictly later. Low-only decoder enforced. Selectedoutput storage288167700bytes, identicalvalue clones avoid prior11.8GB viewstorage. Postfreeze originalA evaluator and fixed C/A comparison running.
+
+- 2026-09-13T20:43:18.479857+00:00: DONE; positive gate passes. PR44 ready; main mailbox0887da1b published. Full execution backup and local reaggregation pass. Stop; await next OPEN task.
