@@ -14,9 +14,9 @@ A useful spatial TTT system requires four aligned pieces: (i) a content-safe nui
 
 T014 establishes the first three for canonical hard Region2 and remains the best fresh-qualified method. T016-A establishes substantial hard-boundary headroom. T016-B–F and T017 show that scalar ranking/value/confidence and soft-renderer routes are not robust enough. T018 isolates the geometry bottleneck: the hard local x/y target is nearly factorized and viable, the frozen 28-D representation contains direction information, and a direct direction classifier succeeds under grouped OOF development. However, the frozen T018-D selector fails one-shot fresh qualification at 4/5 because three fresh quadrants make unnecessary x-boundary moves.
 
-T019-A now adds a key positive result: a fixed, family-agnostic **1% per-axis utility deadband** is a viable development reference target. It preserves almost all hard-boundary headroom while eliminating harmful target moves. This supports the more specific hypothesis that the remaining problem is not direction capacity but **movement-necessity semantics**: microscopic reference improvements should not automatically create non-center supervision.
+T019-A shows that a fixed, family-agnostic **1% per-axis utility deadband** is a viable development reference target: it preserves almost all hard-boundary headroom while eliminating harmful target moves. T019-B then holds representation, folds, architecture and training recipe fixed and changes only those labels. The grouped-OOF selector passes **7/7**, reduces harmful development episodes from `11` to `5`, preserves zero quadrant harm, and makes substantially fewer moves. This is controlled evidence that the remaining geometry issue is **movement-necessity semantics / utility-aware supervision**, not missing representation capacity.
 
-The immediate active task is T019-B: keep the T018-C representation, folds, architecture, optimizer and training schedule unchanged, replace only the x/y labels with the accepted T019-A deadband targets, and test whether grouped-OOF learned selection becomes safer.
+The immediate active task is T019-C: freeze exactly one all-development x head and one y head using the accepted T019-A labels and unchanged T019-B recipe. This is an engineering barrier only; no new fresh cohort or qualification is authorized in the same cycle.
 
 ## Best fresh-validated method
 
@@ -29,7 +29,7 @@ The best deployable result remains **T014 Sobolev Region2 TTT**:
 5. minimum predicted-energy checkpoint, earliest tie;
 6. all label-free trajectories/decisions persisted before clean-reference evaluation.
 
-T016–T019 are geometry diagnostics/candidate-method development and do not replace T014. T018-E failed fresh family safety, so T018-D is not accepted as the deployable replacement.
+T016–T019 are geometry diagnostics/candidate-method development and do not replace T014. T018-E failed fresh family safety, and T019-B is development-only, so no geometry-adaptive selector is yet accepted as the deployable replacement.
 
 ## Established controlled findings
 
@@ -55,14 +55,15 @@ T016–T019 are geometry diagnostics/candidate-method development and do not rep
 - **T018-D:** completed engineering freeze of exactly one all-development x head and one y head using the unchanged T018-C recipe. This adds no performance evidence.
 - **T018-E:** **one-shot fresh qualification negative (4/5)**. Pooled `H1/H0 = 0.932290`, pooled `H1/H* = 1.019900`, offset `0.846630`, left/right `0.964971`, but quadrants `1.011785 > 1.01`. Outcomes are **61 beneficial / 46 equal / 13 harmful**; quadrants are `0 / 37 / 3`, with all three harmful cases unnecessary x moves from a canonical nine-hard oracle. The cohort is burned for future qualification and may not be used for corrective tuning.
 - **T019-A:** **fixed 1% utility-deadband reference target positive, development only**. Pooled `H_delta/H0 = 0.930928`, `H_delta/H* = 1.001826`; offset `0.850867`; left/right `0.964534`; quadrants `1.000000`. Outcomes are **56 beneficial / 64 equal / 0 harmful**. The deadband suppresses **26** original non-center axis labels and retains **97.6018%** of pooled nine-hard oracle headroom. All 40 development quadrants stay canonical center. No threshold search and no T018-E fresh references are used.
+- **T019-B:** **grouped-OOF 1% deadband-direction selector positive (7/7), development only**. With the exact T018-C features/folds/model/optimizer/seed/epochs and only the labels changed, pooled selected/H0 is `0.949628`, selected/H* `1.021951`, offset/H0 `0.884558`, left/right/H0 `0.982292`, quadrants/H0 `1.000000`. Outcomes are **46 beneficial / 69 equal / 5 harmful**, versus T018-C's `57 / 52 / 11`; moving episodes fall `68→51`, both-axis moves `27→13`, and quadrants remain `0 / 40 / 0`. The small pooled/offset regression versus T018-C is the cost of the safer movement policy, while all seven predeclared clauses pass. PR #33 is merged as `e04a96da31a1a2f359e45ba5f251e04989ab895d`.
 
 ## Interpretation of strongest evidence
 
 T014 supports the narrow causal claim that **derivative supervision matters more than scalar value fit for gradient-based TTT** and remains the deployed baseline.
 
-The geometry evidence now separates three issues. First, hard boundary placement has real headroom and the local x/y target is nearly factorized. Second, representation-level direction information exists, because T018-C succeeds without changing the frozen candidate features. Third, exact-direction supervision is not sufficiently conservative under fresh transfer: T018-E fails only because a few near-zero-headroom quadrants move unnecessarily.
+The geometry evidence now separates four issues. First, hard boundary placement has real headroom and the local x/y target is nearly factorized. Second, representation-level direction information exists, because T018-C succeeds without changing the frozen candidate features. Third, exact-direction supervision is not sufficiently conservative under fresh transfer: T018-E fails only because a few near-zero-headroom quadrants move unnecessarily. Fourth, T019-A/B show that utility-aware supervision is a credible remedy: a 1% deadband removes low-value move labels, and under a label-only OOF intervention the learned selector materially reduces harmful and unnecessary moves without losing the established development gates.
 
-T019-A shows that this is not an unavoidable capacity/utility tradeoff at the target level. A fixed 1% utility deadband removes 26 low-value move labels, gives up only a small fraction of oracle headroom, and produces zero harmful development targets. The next controlled test is therefore label-only: if T019-B improves learned safety while all other training ingredients remain fixed, the evidence will favor **utility-aware movement supervision** over confidence/post-hoc gating.
+T019-B is still development evidence. It does **not** erase the T018-E fresh negative or justify reuse of that cohort. The next defensible sequence is: freeze one literal all-development T019 selector without further tuning, then qualify that frozen artifact once on a different unseen cohort with strict pre-reference hashing/provenance.
 
 ## T018-E provenance note
 
@@ -102,10 +103,11 @@ A later review found that the original T018-E frozen config did not contemporane
 - **M13 / T018-D:** **COMPLETED — FINAL ALL-DEVELOPMENT DIRECT-DIRECTION SELECTOR FROZEN.**
 - **M13 / T018-E:** **COMPLETED — ONE-SHOT FRESH QUALIFICATION NEGATIVE (4/5), QUADRANTS SAFETY FAILS AT 1.011785×.**
 - **M14 / T019-A:** **COMPLETED — FIXED 1% UTILITY-DEADBAND TARGET POSITIVE, 5/5 + ZERO HARMFUL, DEVELOPMENT ONLY.**
-- **M14 / T019-B:** **ACTIVE — GROUPED-OOF DIRECT-DIRECTION PROBE WITH FIXED 1% UTILITY-DEADBAND TARGETS.**
+- **M14 / T019-B:** **COMPLETED — GROUPED-OOF 1% DEADBAND-DIRECTION POSITIVE, 7/7, DEVELOPMENT ONLY.**
+- **M14 / T019-C:** **ACTIVE — FINAL ALL-DEVELOPMENT 1% DEADBAND-DIRECTION SELECTOR FREEZE.**
 
 ## Current open task
 
-`T019-B — grouped-OOF direct-direction probe with fixed 1% utility-deadband targets` in `coordination/CHATGPT_TO_CODEX.md`.
+`T019-C — freeze the final all-development 1% deadband direction selector` in `coordination/CHATGPT_TO_CODEX.md`.
 
-T019-B is a controlled label-only intervention. It must keep the T018-C features, image-grouped folds, 84→64→64→3 heads, normalization, optimizer, seed and training schedule fixed; use the accepted T019-A target artifact only for training labels; freeze all held-out logits/classes/choices before opening held-out references or family metadata; and stop after the single grouped-OOF result. It must not use the burned T018-E fresh cohort for training or tuning and must not launch a fresh qualification or final all-development fit in the same cycle.
+T019-C is an engineering freeze only. It must train exactly one x head and one y head from the fixed 120 development features and accepted T019-A labels using the unchanged T019-B recipe, package a reference-free inference interface, and independently replay the frozen heads without opening target/reference artifacts. It must not launch a new cohort, fresh qualification, or any additional development tuning in the same cycle.
