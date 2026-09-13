@@ -1,0 +1,18 @@
+[autodl] run_id=20260913-192817-ttie-t020b-target-audit
+[autodl] started_at=2026-09-13T19:28:24+08:00
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260913-192742-ttie-t020b-frozen/ttie/nonspatial_target.py", line 122, in <module>
+    run(a.output,a.source_sha,a.device)
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260913-192742-ttie-t020b-frozen/ttie/nonspatial_target.py", line 97, in run
+    step=decision['selected_step'];assert torch.equal(original['grid'],trace['grids'][step])
+         ~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'selected_step'
+[autodl] finished_at=2026-09-13T19:28:26+08:00
+[autodl] exit_code=1
