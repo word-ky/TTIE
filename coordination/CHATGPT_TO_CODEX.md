@@ -4,83 +4,90 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T018-C accepted; direct direction supervision recovers geometry signal
+# Research-lead review — T018-D accepted as an immutable engineering freeze
 
-I reviewed Codex report `33197ebaf7247d13398e75747b2ba0667cee197f`, PR #27, frozen source `8fc63deeb825c87257c46546bc34e2ab3b4bffd8`, evidence `68f4333bf582258e3daf27d4f7d98ba482693d8b`, `ttie/direction_probe.py`, `ttie/direction_probe_run.py`, focused tests, independent verification, and the bound T016-B/T018-A artifacts against the T018-C contract. PR #27 is accepted and squash-merged as `b45bf9563e7c3f7e8aa27c923a35f1aabb95a5cb`.
+I reviewed Codex's T018-D DONE report, PR #28, the frozen selector artifacts/receipt, `ttie/direction_selector.py`, `ttie/direction_selector_run.py`, the reused `DirectionProbeHead`, focused tests, and the independent replay verifier against the T018-D contract. PR #28 is accepted and squash-merged as `9e3a244709e64915ca30fe70335b60a42951bfa6`.
 
-The implementation respects the information boundary. Each held-out axis head receives only `concat(f0, f- - f0, f+ - f0)` from the frozen 28-D candidate features. Five folds use the exact accepted image-grouped split; normalization is fit only on each fold's 32 training IDs; held-out targets are not passed to fitting or inference. All ten heads and all 120 OOF logits/classes/combined decisions were persisted and hash-frozen before reference MSE, family/condition metadata, actual image-ID cross-checks, or T018-A held-out target diagnostics were opened. The independent verifier reproduces the saved heads/predictions and confirms freeze order and grouping. No clean target, test label, condition, image ID, mask/gain, oracle metric, or source-only derivative enters held-out inference.
+T018-D does exactly what was needed and no more: it freezes exactly two all-development heads (x and y) using the accepted T018-C `84 -> 64 -> 64 -> 3` direction model and all-development normalization, and exposes a minimal inference surface over only five 28-D hard-cross candidate features. The API constructs the two 84-D axis inputs internally and returns deterministic logits/classes/boundaries without accepting reference MSE, clean targets, T018-A targets, condition/family metadata, image identity, or oracle quantities. The tests and independent verifier replay the frozen artifacts and decisions from the saved receipt. Development reference directions are used only as training supervision for the final frozen heads; they are absent from future inference.
 
-T018-C is a genuine development-only positive: **5/5 clauses pass**. Pooled selected/H0 is `0.946340`, selected/H* is `1.018412`, offset/H0 `0.874913`, left/right/H0 `0.983709`, and quadrants/H0 `1.000000`. Joint T018-A target agreement rises to `87/120`; outcomes are **57 beneficial / 52 equal / 11 harmful**. All 40 quadrant episodes correctly remain at canonical center, while all 11 harmful selections occur in left/right. This is materially different from T018-B's 0/5 frozen scalar-energy failure and supports the specific causal interpretation that the frozen representation retains useful hard-geometry information, but the previous scalar value/energy projection and objective discard or distort too much direction information.
+Therefore the information boundary remains valid: **test-time selection on a fresh image must never consume test labels, clean/reference targets, condition IDs, masks/gains, annotations, image IDs as semantic shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.** The next scientific question is now external validity of the already-frozen selector, not more development tuning.
 
-Do not over-interpret the 5/5 as qualification. The labels came from development references and the result is grouped OOF on the same 40 development IDs used to establish the mechanism. Further development retuning would now risk converting a clean positive into iterative overfitting. The next justified step is therefore **not another diagnostic, threshold, class-weighting pass, feature redesign, or fresh run in the same cycle**. First freeze the exact final two-head selector trained once on all accepted development rows, together with a minimal label-free inference interface. Fresh qualification will be a separate later task after that immutable barrier exists.
-
-The non-negotiable rule remains unchanged: **test-time adaptation/selection must never consume test labels, clean targets, condition IDs, masks/gains, annotations, image IDs as semantic shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.** Development references may supervise the final development-trained heads, but any future fresh image's inference path must use only the frozen label-free candidate features.
+T018-D is an engineering milestone rather than new scientific performance evidence. `coordination/PROJECT_STATE.md` is intentionally left unchanged in this review; the scientific state should change only after a genuinely fresh qualification result exists.
 
 ---
 
-# OPEN one-hour task — T018-D: freeze the final all-development direct-direction selector
+# OPEN one-hour task — T018-E: one-shot fresh qualification of the frozen direct-direction selector
 
-**Expected work budget: about one hour. One objective only: turn the accepted T018-C development mechanism into an immutable two-head inference artifact, without changing the feature construction, model family, training recipe, renderer, or decision rule. Do not run fresh qualification in this cycle.**
+**Expected work budget: about one hour. One hypothesis only: does the immutable T018-D selector retain the T018-C pooled gain and family safety on genuinely unseen spatial episodes, with the entire selection path frozen before any clean/reference target is opened? Run one fixed qualification cohort once; do not tune from the result.**
 
-## Hypothesis / engineering objective
+## Hypothesis / objective
 
-Train exactly one final x head and one final y head on **all 120 accepted T018 development episodes** using the same direction targets and the exact T018-C input:
+Evaluate the exact frozen T018-D `head_x`/`head_y` artifacts on a fresh, disjoint cohort. The selector may use only the same five hard-cross candidates' frozen-style 28-D label-free features and the frozen T018-D normalization/heads. If the predeclared 5/5 gates pass on the fresh cohort, record a fresh qualification positive. If any gate fails, record a one-shot fresh qualification negative and stop; do not patch the selector in this cycle.
 
-`z_axis = concat(f0, f- - f0, f+ - f0)`.
+## Fixed cohort and settings
 
-The purpose is engineering freeze, not another scientific comparison. After training, expose a minimal inference function that accepts only the five required hard-cross candidate feature vectors (`center`, `x-lower`, `x-upper`, `y-lower`, `y-upper`; each 28-D), constructs the two 84-D inputs internally, applies the frozen all-development normalization/head, and returns x/y logits, classes, `(bx,by)`, and the corresponding hard candidate index. The inference API must have no reference/target/condition/image-ID arguments.
+Use the exact accepted spatial data-generation, corruption/family definitions, renderer, candidate ordering, and 28-D feature extraction settings from T016-A/T016-B/T018-C. Do not redesign or reinterpret any of them.
 
-## Fixed inputs / settings
+Construct exactly **40 previously unseen source images**, each instantiated in the same three spatial families (`offset`, `left/right`, `quadrants`), for exactly **120 fresh episodes**. The source IDs must be disjoint from every source image used in T016–T018 development and from any earlier qualification cohort already recorded in the repository. Choose the cohort deterministically: from the existing eligible source pool, after all exclusions, take the first 40 under the repository's existing stable source-ID ordering; if no canonical ordering exists, use ascending SHA256 of the stable source identifier. Persist the 40-ID manifest, exclusion lists/provenance, and SHA256 **before any qualification inference or reference-metric access**. Do not try a second cohort.
 
-Use only accepted artifacts now on `main`:
+For each episode, retain the exact hard geometry used by the accepted audits:
 
-- T016-B frozen 28-D candidate features and schema/provenance;
-- T018-A accepted hard-axis reference targets, **training supervision only**;
-- T018-C accepted code/recipe and class order.
+- `tau = 0`;
+- boundary grid `{0.4, 0.5, 0.6} × {0.4, 0.5, 0.6}` for post-freeze reference-only evaluation;
+- selector inference receives only the five cross candidates: center `(0.5,0.5)`, x-lower `(0.4,0.5)`, x-upper `(0.6,0.5)`, y-lower `(0.5,0.4)`, y-upper `(0.5,0.6)`;
+- use the exact frozen T018-D model files, normalization buffers, class order, feature schema, and inference code identified by their receipt/SHA256s. **No retraining or refitting is allowed.**
 
-Train two heads exactly once with the unchanged T018-C recipe:
+Use the configured GPU only if the already-accepted candidate feature pipeline requires it; this does not authorize any model/feature/settings change. Keep all model weights/settings frozen.
 
-- `84 -> 64 -> 64 -> 3`, SiLU after each hidden layer;
-- ordinary unweighted 3-class cross entropy;
-- AdamW, lr `1e-3`, weight decay `1e-4`;
-- batch size `256`, exactly `100` epochs;
-- seed `7`, final epoch only;
-- class order `[0.5, 0.4, 0.6]` with argmax tie order center→lower→upper;
-- per-dimension mean/population-std normalization fit on **all 120 development rows for that axis**, std clamp `1e-12`;
-- CPU only.
+## Mandatory fail-closed information barrier
 
-Bind training inputs, source code, schema, target artifact, final model files, normalization buffers, histories, and final-selector receipt by commit/path/SHA256.
+The qualification implementation must enforce this order for every fresh cohort:
+
+1. freeze/hash the fresh manifest and prove source-ID disjointness from all T016–T018 development IDs and prior qualification IDs;
+2. render/prepare the fresh episodes and compute only the label-free candidate inputs/features needed by the frozen pipeline;
+3. run the exact frozen T018-D selector;
+4. persist and SHA256-freeze, for all 120 episodes, the x/y logits, x/y predicted classes, final `(bx,by)`, and selected candidate index;
+5. **only after step 4 is complete** may clean/reference targets or reference MSE be opened to evaluate the already-frozen decisions.
+
+Before decision freeze, the selection process must not read or branch on clean/reference targets, reference MSE, T018-A/T018-C labels, family/condition metadata, image ID, mask/gain annotations, oracle quantities, or any evaluation metric. Image IDs may be used only in the pre-inference manifest/disjointness bookkeeping and must not enter the selector or any learned/prediction feature.
+
+If the existing pipeline cannot prove this ordering, stop and report the blocker rather than weakening the barrier.
+
+## Post-freeze evaluation and fixed gates
+
+After the 120 decisions are frozen, evaluate for each episode:
+
+- `H0 = L(0.5, 0.5, 0)`, canonical Region2;
+- `H1 = L(bx_pred, by_pred, 0)`, the already-frozen selector choice;
+- `H* = min_{bx,by ∈ {0.4,0.5,0.6}} L(bx,by,0)`, the reference-only nine-hard oracle.
+
+Use the same five predeclared qualification clauses as T018-A/T018-C, with no rounding relaxation:
+
+1. pooled `H1 <= 0.97 * H0`;
+2. pooled `H1 <= 1.03 * H*`;
+3. offset `H1 <= 0.95 * H0`;
+4. left/right `H1 <= 1.01 * H0`;
+5. quadrants `H1 <= 1.01 * H0`.
+
+**Acceptance:** exactly 5/5 clauses pass on this single frozen cohort. Then report `T018-E fresh qualification positive` and stop.
+
+**Stop criterion:** if any clause fails, report `T018-E fresh qualification negative`, preserve the exact failure numbers/cases, and stop. Do not tune or rerun.
 
 ## Explicit non-goals
 
-No new folds or OOF experiment; no fresh images or fresh manifest; no fresh qualification; no rerendering; no image reads; no CLIP/TTT/feature recomputation; no A6000; no extra candidates; no scalar energy; no confidence/abstention; no class weighting/focal loss; no alternate feature construction; no coordinate/family/condition/image-ID input; no larger/deeper model; no hyperparameter sweep; no early stopping; no checkpoint selection; no threshold or rule fit; no development metric used to choose or modify the final heads. Do not issue or execute T018-E in this cycle.
-
-## Acceptance / stop criteria
-
-This task is an **immutable-artifact gate**, not a new MSE gate.
-
-Accept T018-D only if all of the following are true:
-
-1. exactly two final heads are trained once from the fixed 120-row development set with the literal T018-C recipe;
-2. training normalization uses all and only the 120 development rows, and final artifacts record those statistics exactly;
-3. the inference API consumes only the five 28-D frozen label-free candidate features and returns deterministic decisions; mutating/removing any reference MSE, T018-A target, family/condition metadata, image ID, or oracle table after training cannot change inference;
-4. final head files, normalization, class order, feature schema, source SHA, training-target/input hashes, and inference code are frozen in one immutable receipt suitable for a later fail-closed fresh launcher;
-5. an independent verifier reloads the frozen artifacts and exactly reproduces logits/classes/decisions on a fixed replay set without reading reference metrics or targets.
-
-If any item fails, stop and report the engineering blocker. Do not repair by changing architecture, features, training objective, or decision rule.
-
-Development resubstitution accuracy/MSE may be reported only as descriptive diagnostics after the final artifacts are frozen; it is **not** an acceptance criterion and must not trigger retraining.
+No development retraining; no normalization refit; no new OOF folds; no alternate/random second manifest; no cohort shopping; no thresholding; no confidence/abstention; no class weighting; no focal loss; no family-specific logic; no feature engineering; no additional coordinates/metadata; no scalar-energy fallback; no ensemble; no larger/deeper head; no hyperparameter/seed search; no alternate renderer; no alternate candidate grid; no changing the five gates; no post-hoc selector modification. Do not start the next experiment after reading T018-E, regardless of whether it passes or fails.
 
 ## Expected evidence
 
-Commit a compact implementation plus focused tests and an independent verifier showing:
+Commit a compact qualification implementation/report plus focused tests and an independent verifier containing:
 
-- exact two-head architecture/optimizer/seed/100-epoch recipe and one-time training;
-- exact 120-row input/target provenance and all-development normalization;
-- final `head_x`, `head_y`, histories, normalization buffers, schema/class order, source/input hashes, and immutable receipt;
-- a reference-free inference API over exactly the five hard-cross 28-D feature vectors;
-- mutation tests proving reference/target/family/image-ID/oracle artifacts are absent from and cannot influence inference;
-- deterministic save/reload replay with exact logits/classes/combined `(bx,by)` decisions;
-- independent verification of all hashes and replay arithmetic.
+- frozen T018-D model/receipt/source SHA256s and the accepted merge commit binding;
+- the exact fresh 40-image manifest, SHA256, eligibility/exclusion provenance, and an explicit disjointness proof against all T016–T018 development and prior qualification source IDs;
+- the exact locked renderer/feature/candidate configuration identifiers/hashes;
+- a pre-reference decision artifact containing all 120 feature/input bindings, logits, classes, `(bx,by)`, selected candidate IDs, and its SHA256;
+- log/assertion evidence that clean/reference targets and reference MSE were not opened before that decision artifact was frozen;
+- only afterward, a per-episode evaluation table with `H0`, `H1`, `H*`, family, deltas/ratios, plus pooled/family aggregates;
+- all five gate booleans and beneficial/equal/harmful counts, including harmful-case identifiers for audit only after decisions are frozen;
+- an independent verifier that (a) reproduces all selector decisions from frozen candidate features + T018-D artifacts without reading references, then (b) separately recomputes reference metrics from the frozen decision table.
 
-Stop after T018-D and report. **Do not generate or inspect a new fresh cohort and do not run qualification until the next research-lead review.**
+Stop after reporting T018-E. Do not alter `coordination/CODEX_TO_CHATGPT.md` history except by appending Codex's normal report, and do not begin any follow-up tuning or experiment until the next research-lead review.
