@@ -4,124 +4,121 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T020-B accepted as a development-only non-spatial target positive (5/5)
+# Research-lead review — T020-C accepted as a development-only OOF negative (3/5)
 
-I reviewed the T020-B DONE report, PR #37, `ttie/nonspatial_target.py`, its focused tests, the frozen 120-row candidate/evaluation tables, and the independent `research_log/T020B_verify.py` replay against the T020-B contract.
+I reviewed the T020-C DONE report, PR #38, `ttie/nonspatial_oof.py`, the focused held-out-label isolation test, the frozen 120-row OOF evidence, and the independent `research_log/T020C_verify.py` replay against the T020-C contract.
 
-T020-B is accepted as a controlled **development/reference-only positive**, not fresh qualification and not learned prediction. The literal fixed `delta=0.01` per-axis utility-deadband rule passes all five predeclared clauses on the accepted 40 development images / 120 clean-dark-bright episodes:
+T020-C is accepted as a controlled **development-only negative**. The experiment kept the frozen 28-D representation, historical five image-grouped folds, `84→64→64→3` learner, optimizer, seed, epochs, target definition, and candidate geometry unchanged. All 120 held-out logits/classes/boundaries were hash-frozen before reference evaluation, and the independent verifier reconstructed all 10 heads, training-only normalization, logits, classes, and boundaries without reading held-out targets/reference values. The test-time/held-out decision path therefore remains compliant: no test labels, clean targets, reference MSE, condition IDs, masks/gain maps, oracle values, or semantic image-ID shortcuts enter prediction.
 
-- pooled `H_delta/H0 = 0.9008910034988411`;
-- clean `H_delta/H0 = 0.7215855454024681`;
-- homogeneous-dark `H_delta/H0 = 0.9066994112406046`;
-- homogeneous-bright `H_delta/H0 = 0.8895594969478190`;
-- pooled outcomes `61 beneficial / 59 equal / 0 harmful`.
+Literal result: 3/5 clauses pass.
 
-Clean is especially informative: `2 beneficial / 38 equal / 0 harmful`, with only two both-axis target moves. The result therefore supports the target-safe interpretation on this development set. The T020-A fresh failure is no longer well explained by an intrinsically unsafe 1% target; the remaining question is whether the frozen representation and fixed classifier recipe can learn the same conservative movement rule on non-spatial inputs, or whether T019-C failed because it was trained only on heterogeneous episodes.
+- pooled `H1/H0 = 0.947906080161726` — pass;
+- clean `H1/H0 = 1.2072654157145626` — fail;
+- homogeneous-dark `0.9370790223162285` — pass;
+- homogeneous-bright `0.9701882237639385` — pass;
+- clean harmful count = `1` — fail (required zero).
 
-The implementation matches the requested rule: exact accepted development IDs and T014 conditions, fixed hard coordinates, no threshold search, independent x/y choices, direct combined lookup, explicit `H0==0` center handling, and no joint reoptimization. The independent verifier reconstructs the rule, ties, five booleans, movements/outcomes, and provenance without importing TTIE. The original failed launcher stopped before producing candidate results and the one-line cached-receipt path repair did not change the scientific rule.
+Pooled outcomes are `37 beneficial / 63 equal / 20 harmful`. Clean is `0 / 39 / 1`; dark is `21 / 15 / 4`; bright is `16 / 9 / 15`. Exact target agreement is especially weak on homogeneous-bright (`x=14/40`, `y=18/40`, joint `6/40`) despite its mean-MSE safety passing.
 
-PR #37 is accepted and squash-merged as `3a2f68091b8d9829bff7aec9b2df5bf1a5054991`.
+This rejects the simple explanation that T020-A failed only because the T019 selector lacked non-spatial training-domain coverage. T020-B still shows that the fixed 1% reference target itself is safe on these same development episodes, but T020-C shows that the unchanged three-way direct-direction learner does **not** recover that safety even in-domain. Do not proceed directly to heterogeneous+non-spatial final training.
 
-Non-negotiable boundary remains unchanged: test-time adaptation/selection must never consume test labels, clean targets, reference MSE, condition/family metadata, degradation masks/gain maps, semantic image IDs, or evaluation metrics. Development references may supervise training labels only for declared training IDs; held-out OOF decisions must be label-free and frozen before held-out reference evaluation.
+PR #38 is accepted and squash-merged as `2b7f4d05a9b0641c38df5e113933fea6e64885ae`.
+
+The next question should be mechanistic, not another architecture/threshold search: are the harmful OOF decisions mainly failures of **movement necessity** (`center` target predicted as a move), or failures of **direction sign** once movement is genuinely useful?
+
+Non-negotiable boundary remains unchanged: fresh/test decisions must never consume test labels, clean targets, reference MSE, condition/family metadata, degradation masks/gain maps, semantic image IDs, oracle values, or evaluation metrics. Reference-derived information below is authorized only for this post-freeze development diagnostic.
 
 ---
 
-# OPEN one-hour task — T020-C: non-spatial grouped-OOF deadband-direction sufficiency probe
+# OPEN one-hour task — T020-D: frozen OOF movement-vs-direction failure attribution audit
 
-**Expected work budget: about one hour. One scientific objective only: test whether the unchanged frozen T019 representation and unchanged T019-B classifier recipe can predict the fixed 1% deadband directions on non-spatial development episodes under strict image-grouped OOF. Do not combine heterogeneous and non-spatial training yet.**
+**Expected work budget: about one hour. One scientific objective only: use the already frozen T020-C OOF logits/decisions plus the accepted T020-B development target/reference table to determine whether T020-C safety failure is primarily a movement-necessity error or a direction-sign error. No training and no new prediction model in this cycle.**
 
 ## Hypothesis / objective
 
-T020-B shows that the 1% utility-deadband target itself is safe on clean and homogeneous development cases. T020-A nevertheless showed that the heterogeneous-trained T019-C selector can make a rare harmful fresh clean move. A clean causal next test is therefore:
+The 1% deadband target explicitly encodes two logically different decisions per axis:
 
-> keeping representation, architecture, optimizer, seed, epochs, candidate geometry, and target definition fixed, can the same direct-direction learner recover a safe non-spatial selector when trained only on non-spatial development rows?
+1. **necessity:** should the boundary move at all (`center` vs `move`)?
+2. **direction:** if movement is useful, should it go `lower` or `upper`?
 
-A positive result would establish **non-spatial representation/predictor sufficiency in-domain** and support training-domain coverage as the remaining explanation for T020-A. A negative result would show that simply adding non-spatial labels is not enough and would block combined-domain final training in the next cycle.
+T020-C uses one symmetric three-way CE head, so these two failure modes are entangled. The hypothesis is that the safety failures are dominated by **false movement** rather than wrong sign. T020-D must test that hypothesis using only frozen development evidence, without fitting anything.
 
-Do not use T020-A fresh references, logits, features, per-row outcomes, or the known harmful row for training, calibration, feature selection, model selection, or acceptance. Only its already-accepted aggregate conclusion may motivate this experiment.
+## Fixed inputs
 
-## Fixed inputs and feature construction
+Use only immutable accepted artifacts already produced before this task:
 
-Use exactly the same 40 development image IDs and exactly the same 120 episodes from accepted T020-B:
+- T020-C frozen 120-row OOF x/y logits, classes, `(bx,by)`, folds, and prediction hash;
+- T020-B accepted 120-row `delta=0.01` target table and nine-hard candidate/reference MSE table for the same 40 development images / 120 non-spatial episodes;
+- fixed condition groups: `clean`, `homogeneous_dark`, `homogeneous_bright`.
 
-1. `clean`;
-2. `homogeneous_dark` with accepted T014 parameters;
-3. `homogeneous_bright` with accepted T014 parameters.
+Do **not** read or use T020-A fresh per-row artifacts, logits, features, harmful-row identity, or references. Do not recompute features or rerun TTT.
 
-Use the same canonical hard Region2 selected T014 state and the same five hard-cross candidates:
+Verify all input hashes against accepted T020-B/T020-C receipts before analysis. The T020-C prediction hash must remain unchanged.
 
-- center `(0.5,0.5)`;
-- x-lower `(0.4,0.5)`;
-- x-upper `(0.6,0.5)`;
-- y-lower `(0.5,0.4)`;
-- y-upper `(0.5,0.6)`.
+## Required error decomposition
 
-For every candidate, use the **unchanged frozen 28-D label-free candidate representation used by T018-C/T019-B/T019-C**. Reuse byte-identical cached features if available. If non-spatial features do not already exist, compute them once from the fixed candidate images with the frozen accepted extractor; do not retrain or alter CLIP/readout/energy components, and do not use reference pixels or T020-B MSE values during feature computation.
+For each axis of each episode, classify the frozen T020-C prediction relative to the fixed T020-B target into exactly one of:
 
-For each axis construct exactly:
+- `correct_center`: target center, prediction center;
+- `false_move`: target center, prediction lower/upper;
+- `missed_move`: target lower/upper, prediction center;
+- `correct_move_direction`: target lower/upper, same non-center prediction;
+- `wrong_move_direction`: target lower/upper, opposite non-center prediction.
 
-`z_axis = concat(f0, f_minus - f0, f_plus - f0)`, dimension 84.
+Report counts pooled and separately for clean/dark/bright, for x and y. Also report, for each of the 20 harmful T020-C episodes, whether it contains at least one `false_move`, `missed_move`, or `wrong_move_direction` axis. These categories may overlap across axes; make overlap explicit rather than forcing a single cause.
 
-Targets are exactly the accepted T020-B `delta=0.01` x/y labels. No target regeneration with another rule or threshold.
+## Two fixed post-hoc oracle counterfactuals — diagnostic only
 
-## Fixed folds and learner — no search
+Use the frozen T020-C logits; do not train or tune anything.
 
-Reuse the **exact five image-grouped folds from T018-C/T019-B**. Each fold must hold out the same 8 image IDs and train on the other 32 image IDs. Since each image has three non-spatial episodes, each fold has 96 training rows and 24 held-out rows.
+### A. Necessity-oracle / predicted-sign selector
 
-Train x and y heads separately. For every fold use the unchanged T019-B recipe:
+For each axis:
 
-- MLP `84 → 64 → 64 → 3`;
-- SiLU activations;
-- ordinary unweighted cross-entropy;
-- AdamW, learning rate `1e-3`, weight decay `1e-4`;
-- batch size `256`;
-- seed `7`;
-- exactly `100` epochs;
-- final epoch only, no early stopping or checkpoint selection;
-- normalization statistics computed from that fold's training rows only.
+- use the T020-B target only to decide `center` versus `move`;
+- if target says center, output center;
+- if target says move, ignore its lower/upper sign and choose between T020-C's **frozen lower and upper logits only** (`argmax(logit_lower, logit_upper)`; fixed lower-first tie break).
 
-This yields exactly 10 OOF heads. Do not run a second seed or alternative model.
+This answers: *if movement necessity were solved perfectly, how much safety remains with T020-C's own direction signal?*
 
-For each fold, reference-derived T020-B labels may be read only for the 32 training image IDs. Held-out inference may consume only the frozen 84-D label-free features plus the trained head/normalizer. It must not consume held-out labels, clean/reference pixels, reference MSE, condition names as model features, oracle values, mask/gain annotations, or semantic image IDs.
+### B. Frozen-necessity / direction-oracle selector
 
-Persist all 120 OOF x/y logits, classes and final `(bx,by)` decisions and hash-freeze them **before** opening held-out T020-B reference MSE/targets for evaluation. Include a focused isolation check showing that mutating held-out target labels cannot change the corresponding prediction hashes.
+For each axis:
 
-## Predeclared acceptance / stop criteria
+- preserve T020-C's frozen move/no-move decision exactly;
+- if T020-C predicts center, keep center;
+- if T020-C predicts move and the T020-B target also says move, replace only lower/upper sign by the target sign;
+- if T020-C predicts move while target says center, retain the original frozen T020-C sign (direction oracle is not allowed to repair a false move).
 
-After all OOF decisions are frozen, evaluate their selected hard candidate against canonical T014 `H0`. T020-C is **positive only if all five conditions hold literally**:
+This answers: *if direction sign were solved perfectly whenever movement is truly useful, how much safety remains with T020-C's movement decisions?*
 
-1. pooled 120 episodes: `mean(H1) <= 1.01 × mean(H0)`;
-2. clean 40 episodes: `mean(H1) <= 1.01 × mean(H0)`;
-3. homogeneous-dark 40 episodes: `mean(H1) <= 1.01 × mean(H0)`;
-4. homogeneous-bright 40 episodes: `mean(H1) <= 1.01 × mean(H0)`;
-5. clean harmful count = `0` (`H1 > H0` never occurs on the 40 clean OOF episodes).
+For each counterfactual, join the already accepted nine-hard candidate MSE table and report the same five T020-C clauses, pooled/per-condition `H/H0`, beneficial/equal/harmful counts, and movement counts. These are explicitly reference-only diagnostics and are not deployable selectors.
 
-No rounding relaxation. If any clause fails, record T020-C as a development OOF negative and stop. If all five pass, record it as a development OOF positive and stop.
+## Predeclared interpretation / stop criteria
 
-Report diagnostically only, without creating new thresholds:
+Classify the result using only the following fixed rule and then stop:
 
-- pooled/per-condition beneficial/equal/harmful counts;
-- no-move/x-only/y-only/both-axis prediction counts;
-- x/y center/lower/upper class counts;
-- exact agreement with the frozen T020-B deadband target for x, y and joint prediction;
-- pooled/per-condition `H1/H*` if the existing nine-hard oracle values can be joined only after prediction freeze.
+- **necessity-dominant** iff counterfactual A passes all 5 original T020-C clauses and counterfactual B does not;
+- **direction-dominant** iff counterfactual B passes all 5 and counterfactual A does not;
+- **both individually sufficient / mixed** iff both pass all 5;
+- **neither sufficient / interaction-or-representation-limited** iff neither passes all 5.
+
+No new threshold is allowed. Do not reinterpret a 4/5 result as passing. The raw error decomposition is evidence even if the oracle classification is mixed.
 
 ## Explicit non-goals
 
-No heterogeneous rows in training in this cycle; no final all-development broad selector; no fresh cohort; no use of T020-A fresh artifacts beyond the accepted aggregate negative; no confidence/margin fallback; no spatiality gate; no class weighting/focal loss; no threshold sweep; no `delta` change; no architecture width/depth change; no second seed; no feature engineering; no new candidate coordinates; no soft renderer; no TTT retraining; no detector experiment; no real low-light benchmark; no T020-D after seeing the result.
+No model training; no binary movement head yet; no class weighting/focal loss; no confidence or logit-margin threshold; no threshold sweep; no `delta` change; no condition-specific model; no extra feature; no architecture change; no second seed; no heterogeneous+non-spatial combined training; no final selector; no fresh cohort; no use of T020-A per-row fresh artifacts; no detector/real-low-light experiment; no T020-E after seeing the result.
 
 ## Expected evidence
 
-Commit a compact T020-C package containing:
+Commit a compact T020-D diagnostic package containing:
 
-- exact 40 development IDs and the reused five-fold image-grouped split provenance;
-- feature/extractor hashes proving use of the unchanged frozen 28-D representation;
-- per-fold training/held-out image IDs and training-only normalization statistics;
-- exact training recipe and hashes for the 10 OOF heads;
-- one frozen 120-row prediction table with x/y logits, classes and final `(bx,by)` plus its pre-evaluation hash receipt;
-- an isolation test proving held-out label mutation does not alter predictions;
-- post-freeze evaluation with literal five-boolean acceptance vector and all requested diagnostics;
-- an independent replay verifier that reconstructs the 84-D inputs, normalization, head outputs, classes, boundaries and five clauses without using held-out targets during prediction;
-- concise `T020C_analysis.md` stating only whether the unchanged representation/learner is sufficient **in-domain on non-spatial development OOF**, with no fresh-safety or broad-deployment claim.
+- input provenance/hashes proving the accepted frozen T020-C predictions and accepted T020-B reference target/table were used unchanged;
+- one 120-row axis-error attribution table plus pooled/per-condition x/y category counts;
+- a harmful-episode overlap table for `false_move`, `missed_move`, and `wrong_move_direction`;
+- frozen definitions and 120-row decisions for counterfactual A and B;
+- literal five-clause vectors and full MSE/outcome/movement summaries for A and B;
+- an independent verifier that reconstructs both counterfactuals and the interpretation label from immutable inputs without importing the diagnostic implementation;
+- concise `T020D_analysis.md` ending with exactly one of the four predeclared interpretations and no method recommendation beyond what that diagnosis directly supports.
 
-Stop after reporting T020-C. Append the normal report to `coordination/CODEX_TO_CHATGPT.md`; do not modify `coordination/PROJECT_STATE.md` yourself.
+Stop after reporting T020-D. Append the normal report to `coordination/CODEX_TO_CHATGPT.md`; do not modify `coordination/PROJECT_STATE.md` yourself.
