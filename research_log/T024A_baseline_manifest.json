@@ -1,0 +1,621 @@
+{
+  "task": "T024-A",
+  "status": "DONE",
+  "created_utc": "2026-09-13T23:31:37.437875+00:00",
+  "base_main": "0f9c8f47faf452def5966efc1a4af0f409bcfe80",
+  "scope": "Protocol/static-source audit only; no inference/training/official-test decoding",
+  "baselines": [
+    {
+      "id": "retinexformer",
+      "name": "Retinexformer",
+      "official_repository": "https://github.com/caiyuanhao1998/Retinexformer",
+      "commit": "1e9a0efce4b306b6701b824768370ff26066c32a",
+      "commit_date": "2026-05-23T16:09:21Z",
+      "paper": {
+        "title": "Retinexformer: One-stage Retinex-based Transformer for Low-light Image Enhancement",
+        "venue": "ICCV",
+        "year": 2023,
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Cai_Retinexformer_One-stage_Retinex-based_Transformer_for_Low-light_Image_Enhancement_ICCV_2023_paper.pdf"
+      },
+      "license": "MIT (LICENSE.txt)",
+      "checkpoint": {
+        "filename": "pretrained_weights/LOL_v2_real.pth",
+        "official_locator": "https://drive.google.com/drive/folders/1ynK5hfQachzc8y96ZumhkPPDXzHJwaQV?usp=drive_link",
+        "existence": "Official README identifies dataset checkpoint; binary not downloaded or hashed in this task",
+        "sha256": null
+      },
+      "training": {
+        "dataset": "LOL-v2 Real official Train (689 paired images); all 100 TTIE validation pairs overlap",
+        "config": "Options/RetinexFormer_LOL_v2_real.yml",
+        "recipe": "Current YAML: 256 crops, batch 8, 150000 iterations, Adam 2e-4, L1, mixup. Paper: 128 crops, batch 8, 250000 iterations.",
+        "legacy_selection": "YAML validation paths point to official Test. Historical checkpoint selection and exact training log are not independently bound; do not claim legacy test-blind model selection."
+      },
+      "preprocessing": "RGB float32 /255; reflect-pad right/bottom to multiples of 4, unpad. Native 400x600 needs no padding. Default self-ensemble disabled; large-image split branch irrelevant here. Clamp [0,1]; original PNG export quantizes to uint8.",
+      "target_access": "Dataset test entrypoint loads target before forward for scoring. With GT_mean absent/false, target does not feed the enhancement network or output processing. --GT_mean rescales output by target-gray mean / output-gray mean and clips, hence rejected. Future low-only exporter must avoid target loading entirely until all outputs are frozen.",
+      "repository_metrics": "Default script PSNR from floating RGB MSE; SSIM uses uint8 images, Gaussian 11/sigma1.5, population covariance and valid interior [5:-5], averaged over RGB. Not identical to TTIE full-map reflect SSIM. Saved PNG is 8-bit.",
+      "modes": [
+        {
+          "id": "default_no_gt_mean",
+          "final_test_class": "FINAL_TEST_READY",
+          "validation_class": "VALIDATION_RETRAIN_REQUIRED",
+          "description": "Official LOL-v2 checkpoint, GT_mean=false, self_ensemble=false; future TTIE low-only float exporter, same native geometry.",
+          "selected_for_future_main": true
+        },
+        {
+          "id": "gt_mean",
+          "final_test_class": "REJECT_TARGET_ASSISTED",
+          "validation_class": "REJECT_TARGET_ASSISTED",
+          "description": "Reference mean changes enhancement; excluded even when reported as default paper comparison",
+          "selected_for_future_main": false
+        },
+        {
+          "id": "self_ensemble_no_gt_mean",
+          "final_test_class": "FINAL_TEST_READY",
+          "validation_class": "VALIDATION_RETRAIN_REQUIRED",
+          "description": "Optional target-free eight-way ensemble, not selected for main",
+          "selected_for_future_main": false
+        }
+      ],
+      "designated_target_free_mode": "default_no_gt_mean",
+      "published_lolv2_real_context": [
+        {
+          "psnr": 22.8,
+          "ssim": 0.84,
+          "source": "Original ICCV paper Table 1",
+          "convention": "Original paper context; not a reproduced TTIE uniform-metric result"
+        },
+        {
+          "psnr": 27.71,
+          "ssim": 0.856,
+          "source": "Inspected official README table",
+          "convention": "Repository GT-mean convention; REJECT_TARGET_ASSISTED, non-comparable"
+        }
+      ],
+      "reproduced_lolv2_real_metrics": null,
+      "notes": [
+        "Eligibility label is provenance/inference eligibility, not a completed reproduction. Exact binary hash and low-only export remain future work.",
+        "Current YAML versus paper iteration/crop mismatch and legacy official-Test validation must remain visible."
+      ],
+      "evidence": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/README.md",
+          "sha256": "63825be047e7acb45a1410e4c58a1cbfed8fece78beb24336d25af6cfdd9e6e5"
+        },
+        {
+          "path": "LICENSE.txt",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/LICENSE.txt",
+          "sha256": "8c9e6d5a7b28e0fb08c5a4d0e72f582f514a2f2f1ab87a9e4fffa30e0dd4baf3"
+        },
+        {
+          "path": "Enhancement/test_from_dataset.py",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/Enhancement/test_from_dataset.py",
+          "sha256": "1c951246a63193c10d19680137a4ad815c994ecb34f03db0692cc57afb0ff935"
+        },
+        {
+          "path": "Enhancement/utils.py",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/Enhancement/utils.py",
+          "sha256": "9641ea209fb629d45313b3cf4ec84fd939de8092beb26c3e7d3d08a5bcca20b7"
+        },
+        {
+          "path": "Options/RetinexFormer_LOL_v2_real.yml",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/Options/RetinexFormer_LOL_v2_real.yml",
+          "sha256": "95edc2f4222ff71d4837cc9f088f74ea4c2bf4658883413ceeee5115e780eff5"
+        },
+        {
+          "path": "basicsr/data/paired_image_dataset.py",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/basicsr/data/paired_image_dataset.py",
+          "sha256": "95a877ff901d26f6c81c53fa01a6f228036094001a0a0438c2799ecc28afef25"
+        },
+        {
+          "path": "basicsr/data/SMID_image_dataset.py",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/basicsr/data/SMID_image_dataset.py",
+          "sha256": "e6d99f51d2a422d84a18662adde37333a2119d850b257956cb8f4a43befc7dc8"
+        },
+        {
+          "path": "basicsr/utils/img_util.py",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/basicsr/utils/img_util.py",
+          "sha256": "3923ce0be0afa89a51346d61e1279a7b62aaac4c78636f4d0b6dc120cb550eab"
+        },
+        {
+          "path": "basicsr/metrics/psnr_ssim.py",
+          "url": "https://github.com/caiyuanhao1998/Retinexformer/blob/1e9a0efce4b306b6701b824768370ff26066c32a/basicsr/metrics/psnr_ssim.py",
+          "sha256": "08b718c908adb4e4bfeb2dd4d00765ae1e026398558c867d27e8ded32a07d6df"
+        }
+      ]
+    },
+    {
+      "id": "sg_llie",
+      "name": "SG-LLIE",
+      "official_repository": "https://github.com/minyan8/imagine",
+      "commit": "0b96263167b7511bede010537b64f8b44ba240a4",
+      "commit_date": "2025-04-23T04:51:25Z",
+      "paper": {
+        "title": "Towards Scale-Aware Low-Light Enhancement via Structure-Guided Transformer Design",
+        "venue": "CVPR Workshops / NTIRE",
+        "year": 2025,
+        "url": "https://arxiv.org/html/2504.14075v1"
+      },
+      "license": "No project-level license found at inspected commit; vendored package licenses do not license the project",
+      "checkpoint": {
+        "filename": "Enhancement/weights/model.pth",
+        "git_blob_sha1": "62a1fd15d8297443d4e5a280649dd8ccc89f9744",
+        "bytes": 51082789,
+        "official_locator": "https://mcmasteru365-my.sharepoint.com/:f:/g/personal/dongw22_mcmaster_ca/Em4rtdZsS3NKtE2K-pTXCXsBSrwmB_gPwXtd0eldBUn6Ig?e=pAZVvC",
+        "existence": "NTIRE checkpoint exists as a Git blob and README external link. No official LOL-v2 Real checkpoint binding found.",
+        "sha256": null
+      },
+      "training": {
+        "dataset": "Released configuration/checkpoint: NTIRE 2025. Paper also reports LOL-v2 Real; release does not bind that run.",
+        "config": "Enhancement/Options/Ntire25_LowLight.yml",
+        "recipe": "Paper LOL recipe: 384 patches, batch 4, adjustment layer omitted. Released YAML is NTIRE 1600-patch configuration, not LOL.",
+        "legacy_selection": "Exact LOL-v2 training log/checkpoint selection unverified; cannot substitute NTIRE checkpoint as matched LOL-v2 training."
+      },
+      "preprocessing": "Released test.py: input RGB /255 plus structure prior computed from low image only; reflect-pad both to multiple 32, eight-way self-ensemble, unpad, clamp [0,1], uint8 PNG. Actual test imports UHDM_arch.py. No LOL-specific runnable recipe bound.",
+      "target_access": "Released NTIRE forward uses low image and its prior only, no normal target or PSNR feedback. Prior normalization is input-derived, not target-mean matching. Paper adjustment module is a learned train-time mechanism; no basis to label it test-target-assisted. Released LOL variant remains unverified.",
+      "repository_metrics": "Released test.py saves images without scoring. Generic BasicSR metric functions exist but do not establish exact LOL paper quantization, border or scoring settings.",
+      "modes": [
+        {
+          "id": "lolv2_paper_variant",
+          "final_test_class": "UNSUPPORTED",
+          "validation_class": "UNSUPPORTED",
+          "description": "Designated target-free LOL variant would omit adjustment per paper; no official matched checkpoint/config bound.",
+          "selected_for_future_main": false
+        },
+        {
+          "id": "ntire_released",
+          "final_test_class": "UNSUPPORTED",
+          "validation_class": "UNSUPPORTED",
+          "description": "Target-free NTIRE inference exists; not a matched LOL-v2 checkpoint/recipe.",
+          "selected_for_future_main": false
+        }
+      ],
+      "designated_target_free_mode": "lolv2_paper_variant",
+      "published_lolv2_real_context": [
+        {
+          "psnr": 22.84,
+          "ssim": 0.859,
+          "source": "Official paper Table 2",
+          "convention": "Published LOL-v2 Real context only; exact released LOL metric/inference binding unavailable"
+        }
+      ],
+      "reproduced_lolv2_real_metrics": null,
+      "notes": [
+        "Missing 2025 method blocks readiness independently of all other choices.",
+        "Do not claim all official weights are absent: the 51 MB NTIRE Git checkpoint exists."
+      ],
+      "evidence": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/README.md",
+          "sha256": "896f5acc30335e578e178c51aa8a89819e8e83fbcb586af4f8709677514d0811"
+        },
+        {
+          "path": "Enhancement/test.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/Enhancement/test.py",
+          "sha256": "92bd293330e1e4f452bad431c868ebc0ba0f42a105dc5b29cb05f2517fefa7f0"
+        },
+        {
+          "path": "Enhancement/test/readme.md",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/Enhancement/test/readme.md",
+          "sha256": "ae5043d76630aeca4b03f09844eae79a8476717195ae344fba5bfc4fbd68c32b"
+        },
+        {
+          "path": "Enhancement/test/extract_prior.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/Enhancement/test/extract_prior.py",
+          "sha256": "3100bf41b93fd5820199b816d5cee4f50852c0ee08aea9614c3887164f625801"
+        },
+        {
+          "path": "Enhancement/test/ciconv2d0.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/Enhancement/test/ciconv2d0.py",
+          "sha256": "451b6c5643ec673de58c191d592d30d54e7003a62b96da4c923efe3efb05ff21"
+        },
+        {
+          "path": "Enhancement/Options/Ntire25_LowLight.yml",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/Enhancement/Options/Ntire25_LowLight.yml",
+          "sha256": "d3106808720edd67c63e53c5874ed9e88f59d098d3f154a59ae290070525182a"
+        },
+        {
+          "path": "basicsr/data/paired_image_dataset.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/basicsr/data/paired_image_dataset.py",
+          "sha256": "f35f93923581e7955e435214e488f945fe53eaddb01a46cda1961b51573c5e02"
+        },
+        {
+          "path": "basicsr/models/image_restoration_model.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/basicsr/models/image_restoration_model.py",
+          "sha256": "bfe6841641eb6fce751b5d935bfc2a91033d8c5ea039dff4b98f8cddba6fe73b"
+        },
+        {
+          "path": "basicsr/models/archs/RetinexFormer3_arch.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/basicsr/models/archs/RetinexFormer3_arch.py",
+          "sha256": "94786c3db33940311289fe9aeefdb61883bccdeef80e9e28322d7d4efe19479b"
+        },
+        {
+          "path": "basicsr/metrics/psnr_ssim.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/basicsr/metrics/psnr_ssim.py",
+          "sha256": "08b718c908adb4e4bfeb2dd4d00765ae1e026398558c867d27e8ded32a07d6df"
+        },
+        {
+          "path": "basicsr/models/archs/UHDM_arch.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/basicsr/models/archs/UHDM_arch.py",
+          "sha256": "91af0ad004c0655e53a554b6bef7a604aeab18f3b145b61fae1eb0dad4658dc0"
+        },
+        {
+          "path": "Enhancement/utils.py",
+          "url": "https://github.com/minyan8/imagine/blob/0b96263167b7511bede010537b64f8b44ba240a4/Enhancement/utils.py",
+          "sha256": "8f1e7ff65cfd32208bc1a3fa89e11c84ce10c20174b2ac31251b1b05bb113e52"
+        }
+      ]
+    },
+    {
+      "id": "snr",
+      "name": "SNR-Aware Low-Light Enhancement",
+      "official_repository": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance",
+      "commit": "1113144c82adc8bcc4a9ec27749ed75f196a4e4d",
+      "commit_date": "2022-11-21T06:45:49Z",
+      "paper": {
+        "title": "SNR-Aware Low-Light Image Enhancement",
+        "venue": "CVPR",
+        "year": 2022,
+        "url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Xu_SNR-Aware_Low-Light_Image_Enhancement_CVPR_2022_paper.pdf"
+      },
+      "license": "No project-level license file or grant found at inspected commit",
+      "checkpoint": {
+        "filename": "LOLv2_real.pth",
+        "official_locator": "https://drive.google.com/file/d/1g3NKmhz7WFLCm3t9qitqJqb_J7V4nzdb/view?usp=sharing",
+        "existence": "Official README names LOLv2_real.pth in pretrained archive; binary not downloaded or hashed",
+        "sha256": null
+      },
+      "training": {
+        "dataset": "LOL-v2 Real official Train 689; overlaps frozen TTIE validation",
+        "config": "options/train/LOLv2_real.yml; options/test/LOLv2_real.yml",
+        "recipe": "Training video_base3, test video_base4_m; low_light_transformer nf64. YAML batch4, 600000 iterations, Adam4e-4, Charbonnier. Dataset training path resizes to 608x400 despite GT_size128 config field.",
+        "legacy_selection": "Train config validation path points to Train; exact distributed checkpoint training/selection log not independently verified."
+      },
+      "preprocessing": "Test dataset loads native RGB float and 5x5 blurred-low features. Official test4 bilinearly resizes image/SNR mask to H400 W608, restores output to original dimensions. TTIE main instead predeclares reflection padding to multiple16, native direct test()/network forward, then unpad and clamp; this exporter is planned, not implemented or tested. Two stride2 layers plus 4x4 feature patches motivate multiple16.",
+      "target_access": "feed_data stores GT by default and script loads targets for metrics, but test()/test4 network and SNR mask use only low and blurred low. Future exporter uses need_GT=False and avoids target visuals. No target-mean rescaling found.",
+      "repository_metrics": "tensor2img clamps and rounds to uint8, with RGB/BGR conversion. test_LOLv1_v2_real.py PSNR scores uint8; SSIM calculation is commented and variable set to 0, so script SSIM is a placeholder, not a valid reproduced SSIM. Generic util Gaussian-valid SSIM is not called there.",
+      "modes": [
+        {
+          "id": "ttie_native_pad16",
+          "final_test_class": "FINAL_TEST_READY",
+          "validation_class": "VALIDATION_RETRAIN_REQUIRED",
+          "description": "Official checkpoint with predeclared target-free native pad/unpad exporter; adapter not yet implemented. Report as protocol adaptation, not exact test4 reproduction.",
+          "selected_for_future_main": true
+        },
+        {
+          "id": "official_test4_resize",
+          "final_test_class": "FINAL_TEST_READY",
+          "validation_class": "VALIDATION_RETRAIN_REQUIRED",
+          "description": "Official target-free forward but resize400x608/back; preserve for provenance, exclude from native-input main.",
+          "selected_for_future_main": false
+        },
+        {
+          "id": "official_direct_test",
+          "final_test_class": "FINAL_TEST_READY",
+          "validation_class": "VALIDATION_RETRAIN_REQUIRED",
+          "description": "Official direct forward; fixed native padding needed for patch geometry, no metric-based mode selection.",
+          "selected_for_future_main": false
+        }
+      ],
+      "designated_target_free_mode": "ttie_native_pad16",
+      "published_lolv2_real_context": [
+        {
+          "psnr": 21.48,
+          "ssim": 0.849,
+          "source": "Original CVPR paper LOL-v2 Real table",
+          "convention": "Paper context; official inspected script does not reproduce its SSIM. Not TTIE measured values."
+        }
+      ],
+      "reproduced_lolv2_real_metrics": null,
+      "notes": [
+        "Original official dvlab-research URL redirects to JIA-Lab-research canonical repository.",
+        "Native exporter needs a later non-test smoke run; no claim of bitwise equivalence to test4 resize mode."
+      ],
+      "evidence": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/README.md",
+          "sha256": "9541d167b5e6c1e0ddfad1853d72a2e60d9df0ddc88012b4fc23e0477b295f29"
+        },
+        {
+          "path": "test_LOLv1_v2_real.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/test_LOLv1_v2_real.py",
+          "sha256": "37ee1ac2385e8852b36f2a2378ff06b544e67677a243ccec5d5fbbabc2d7b933"
+        },
+        {
+          "path": "options/test/LOLv2_real.yml",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/options/test/LOLv2_real.yml",
+          "sha256": "f438cf0d3d0c2538cd17a83b4ef3c0a7b8f39ca9a4d08742bc692105e4e86830"
+        },
+        {
+          "path": "options/train/LOLv2_real.yml",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/options/train/LOLv2_real.yml",
+          "sha256": "7131e7d66075763f830fda87316a16f21dea97868c809d49d94e7d42c481f6a5"
+        },
+        {
+          "path": "data/dataset_LOLv2_real.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/data/dataset_LOLv2_real.py",
+          "sha256": "82149035f69797c8f6a440105d8bdd1e59a9aadb70beb36ef28805315a51eaf7"
+        },
+        {
+          "path": "data/util.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/data/util.py",
+          "sha256": "f03a2b4eae55f2ee6c818c011225f5b374edce91e93f543aa101ebb9f524440e"
+        },
+        {
+          "path": "models/Video_base_model4.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/models/Video_base_model4.py",
+          "sha256": "534c8b81d83736bcc321ab0da7b562effca8e635d7efc82cbb43861951b5d760"
+        },
+        {
+          "path": "models/Video_base_model4_m.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/models/Video_base_model4_m.py",
+          "sha256": "2ae3881d10e893511a2a347788169b30af9b4cd1d237661534ca8a58be4197af"
+        },
+        {
+          "path": "models/Video_base_model3.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/models/Video_base_model3.py",
+          "sha256": "1b667ff4d44ba72b772912afd8346f485d13f72cb918872e4a8605def944a255"
+        },
+        {
+          "path": "models/__init__.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/models/__init__.py",
+          "sha256": "13dc6559d8d793b7e4ee167239095e74eb96359985652d2639a2f8878a1511ec"
+        },
+        {
+          "path": "models/networks.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/models/networks.py",
+          "sha256": "9bdd0362da52eb1442103c8ec3c08184d69c84e3ed0913a36f0961f6ab25506b"
+        },
+        {
+          "path": "models/archs/low_light_transformer.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/models/archs/low_light_transformer.py",
+          "sha256": "392b549dec70b6c340c5332d70bdcc5575bdde4ea42fa8d229eb74603df7c725"
+        },
+        {
+          "path": "utils/util.py",
+          "url": "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/blob/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/utils/util.py",
+          "sha256": "6098e2444c5573beff5c3d04b8aab80e1f8de966c05132b3604bccac7f84b1cf"
+        }
+      ]
+    },
+    {
+      "id": "llformer",
+      "name": "LLFormer",
+      "official_repository": "https://github.com/TaoWangzj/LLFormer",
+      "commit": "ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302",
+      "commit_date": "2023-11-30T02:22:00Z",
+      "paper": {
+        "title": "Ultra-High-Definition Low-Light Image Enhancement: A Benchmark and Transformer-Based Method",
+        "venue": "AAAI",
+        "year": 2023,
+        "url": "https://arxiv.org/abs/2212.11548"
+      },
+      "license": "CC BY-NC-SA 4.0; academic research only (LICENSE)",
+      "checkpoint": {
+        "filename": "checkpoints/LOL/models/model_bestPSNR.pth",
+        "official_locator": "https://drive.google.com/drive/folders/1J7NvvPsCtT0j8Rd9ombJ6sVIC6v0Xweb?usp=share_link",
+        "existence": "Official LOL-v1 checkpoint; no LOL-v2 checkpoint/config found",
+        "sha256": null
+      },
+      "training": {
+        "dataset": "Official LOL recipe is LOL-v1 485 train /15 test, plus separate UHD-LOL/FiveK releases; not LOL-v2 689.",
+        "config": "configs/LOL/train/training_LOL.yaml",
+        "recipe": "LOL training128 patches, batch8,4000 epochs, learning rate1e-4 to1e-6.",
+        "legacy_selection": "LOL-v1 test used as validation; model_bestPSNR name denotes historical supervised validation selection, not inference target assistance."
+      },
+      "preprocessing": "PIL RGB tensor [0,1], reflect-pad to multiple16, network, clamp, unpad, uint8 output; target-free input-only test.py. Full-frame official LOL route, not UHD patch test.",
+      "target_access": "test.py uses no target/reference or quality metric to alter output. Separate evaluation.py scores saved files. Training validation checkpoint selection is distinct from test-time output selection.",
+      "repository_metrics": "evaluation.py uses skimage PSNR and SSIM(multichannel=True) on RGB uint8; no Gaussian options, hence legacy default uniform7/sample covariance and version-sensitive API. Not TTIE Gaussian full-map float pipeline.",
+      "modes": [
+        {
+          "id": "lolv2_matched_unavailable",
+          "final_test_class": "UNSUPPORTED",
+          "validation_class": "UNSUPPORTED",
+          "description": "No official matched LOL-v2 training/checkpoint recipe.",
+          "selected_for_future_main": false
+        },
+        {
+          "id": "lolv1_transfer",
+          "final_test_class": "UNSUPPORTED",
+          "validation_class": "UNSUPPORTED",
+          "description": "Official target-free LOL-v1 model exists; cross-dataset transfer would be separately labeled, not matched LOL-v2 main.",
+          "selected_for_future_main": false
+        }
+      ],
+      "designated_target_free_mode": "lolv2_matched_unavailable",
+      "published_lolv2_real_context": [],
+      "reproduced_lolv2_real_metrics": null,
+      "notes": [
+        "No LOL-v2 number found in original paper; do not copy later unofficial retraining tables.",
+        "LOL-v1 versus LOL-v2 scene overlap has not been verified."
+      ],
+      "evidence": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/TaoWangzj/LLFormer/blob/ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302/README.md",
+          "sha256": "ff049214c22d6621df9ef074342a5ab00d47971c64daafcecd36eace54869b29"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/TaoWangzj/LLFormer/blob/ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302/LICENSE",
+          "sha256": "2d8e27ae7853af125a18fb41459973c78df44c2b398bf45b2c502de68f273c9f"
+        },
+        {
+          "path": "test.py",
+          "url": "https://github.com/TaoWangzj/LLFormer/blob/ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302/test.py",
+          "sha256": "e400302f2a24adfb4fce4862d38052c03ae08a0851f585b2cdb0d6124fa7b80d"
+        },
+        {
+          "path": "evaluation.py",
+          "url": "https://github.com/TaoWangzj/LLFormer/blob/ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302/evaluation.py",
+          "sha256": "b5ee9a9d1793303c36eec0a372b9c13263971931a327abf0e752add70efd7bd4"
+        },
+        {
+          "path": "configs/LOL/train/training_LOL.yaml",
+          "url": "https://github.com/TaoWangzj/LLFormer/blob/ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302/configs/LOL/train/training_LOL.yaml",
+          "sha256": "8c9076ea8c59c278c1627a14f764b78ce429e57813d8ff276168bde59cbef056"
+        },
+        {
+          "path": "transform/dataset_RGB.py",
+          "url": "https://github.com/TaoWangzj/LLFormer/blob/ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302/transform/dataset_RGB.py",
+          "sha256": "66a1b0145f524fb643c601c65f03d90c44315f0a62a8bbf7f53668ea3d2d358c"
+        },
+        {
+          "path": "utils/image_utils.py",
+          "url": "https://github.com/TaoWangzj/LLFormer/blob/ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302/utils/image_utils.py",
+          "sha256": "5cf512b3046e7df70dc25c5da17cbaa9d929a350a8eec1328c3b897293af8dab"
+        },
+        {
+          "path": "model/LLFormer.py",
+          "url": "https://github.com/TaoWangzj/LLFormer/blob/ed5e7bf61d2dc64ba3b4552b90eb68a38f6c5302/model/LLFormer.py",
+          "sha256": "176f8a23481598e9bdeec5b1f3dd6a95827775ad42a4c3b5ca76680b75a01a71"
+        }
+      ]
+    },
+    {
+      "id": "zero_dcepp",
+      "name": "Zero-DCE++",
+      "official_repository": "https://github.com/Li-Chongyi/Zero-DCE_extension",
+      "commit": "09f202b690f82da939b8e6ec8535960ae97ad8bd",
+      "commit_date": "2022-06-19T14:34:54Z",
+      "paper": {
+        "title": "Learning to Enhance Low-Light Image via Zero-Reference Deep Curve Estimation",
+        "venue": "IEEE TPAMI (online 2021; print 2022)",
+        "year": 2021,
+        "url": "https://arxiv.org/abs/2103.00860"
+      },
+      "license": "CC BY-NC 4.0; academic research only (README)",
+      "checkpoint": {
+        "filename": "Zero-DCE++/snapshots_Zero_DCE++/Epoch99.pth",
+        "git_blob_sha1": "3d1a7b8f5aee769d8ae55531cd43c4cf8d45efa8",
+        "bytes": 52395,
+        "official_locator": "https://github.com/Li-Chongyi/Zero-DCE_extension/blob/09f202b690f82da939b8e6ec8535960ae97ad8bd/Zero-DCE%2B%2B/snapshots_Zero_DCE%2B%2B/Epoch99.pth",
+        "existence": "Official checkpoint is committed as Git blob; binary not downloaded",
+        "sha256": null
+      },
+      "training": {
+        "dataset": "External SICE Part1: paper 3022 images from360 exposure sequences,2422 train/600 validation; no paired normal targets used for optimization.",
+        "config": "Zero-DCE++/lowlight_train.py",
+        "recipe": "Paper512x512; code training resize512, batch8,100 epochs, Adam1e-4, scale_factor1. Exact checkpoint sample manifest unavailable.",
+        "legacy_selection": "Epoch99 official artifact, no inference-time target or quality selection; SICE external data does not meet literal LOL-v2 official-train-only main stratum."
+      },
+      "preprocessing": "Default lowlight_test.py scale_factor12 crops H,W down to multiples12 (400x600 ->396x600), with bilinear low-res curve estimation. Future separately labeled external-data mode predeclares official supported scale_factor1, no resize/crop, native full frame. Eight shared-curve updates, RGB float input; export float before torchvision image quantization.",
+      "target_access": "Zero-reference train losses and low-only inference; no target image, target mean or PSNR output selection. Input-dependent curve prediction is admissible. External data eligibility issue is not target assistance.",
+      "repository_metrics": "Official test script saves outputs without PSNR/SSIM. Original paper metrics are not a bound LOL-v2 Real uniform-metric recipe; no own-paper LOL-v2 numbers recorded.",
+      "modes": [
+        {
+          "id": "native_scale1_external_sice",
+          "final_test_class": "UNSUPPORTED",
+          "validation_class": "UNSUPPORTED",
+          "description": "Verifiable target-free external-SICE recipe; outside literal official-LOL-train-only main class. Research lead may authorize separately labeled external/zero-reference stratum later.",
+          "selected_for_future_main": false
+        },
+        {
+          "id": "default_scale12_crop",
+          "final_test_class": "UNSUPPORTED",
+          "validation_class": "UNSUPPORTED",
+          "description": "Target-free official script but crops full-frame border and uses external SICE training; not main.",
+          "selected_for_future_main": false
+        }
+      ],
+      "designated_target_free_mode": "native_scale1_external_sice",
+      "published_lolv2_real_context": [],
+      "reproduced_lolv2_real_metrics": null,
+      "notes": [
+        "UNSUPPORTED here concerns requested matched-data use, not absence of official code/checkpoint.",
+        "If external-data zero-reference comparison is approved later, retain scale1 before any metrics. It still cannot fill missing 2025 coverage."
+      ],
+      "evidence": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/Li-Chongyi/Zero-DCE_extension/blob/09f202b690f82da939b8e6ec8535960ae97ad8bd/README.md",
+          "sha256": "0e18a0584cf4ddc92bd16045f226b3c6f99cc623ff96ff931c3236b234f1faa3"
+        },
+        {
+          "path": "Zero-DCE++/lowlight_test.py",
+          "url": "https://github.com/Li-Chongyi/Zero-DCE_extension/blob/09f202b690f82da939b8e6ec8535960ae97ad8bd/Zero-DCE++/lowlight_test.py",
+          "sha256": "9b33e2fc25846226c105954de323a6fdc498549fa3de3e00fec741da92e72742"
+        },
+        {
+          "path": "Zero-DCE++/lowlight_train.py",
+          "url": "https://github.com/Li-Chongyi/Zero-DCE_extension/blob/09f202b690f82da939b8e6ec8535960ae97ad8bd/Zero-DCE++/lowlight_train.py",
+          "sha256": "af3b2ac56a2e986753c09e50af62c53474637d1e41ea9a14bd508b838fdeced0"
+        },
+        {
+          "path": "Zero-DCE++/model.py",
+          "url": "https://github.com/Li-Chongyi/Zero-DCE_extension/blob/09f202b690f82da939b8e6ec8535960ae97ad8bd/Zero-DCE++/model.py",
+          "sha256": "508ad1b0eece0b2a99503ba8b4461a9695b79ecf1b30b046be16f7aaa99c20e3"
+        },
+        {
+          "path": "Zero-DCE++/dataloader.py",
+          "url": "https://github.com/Li-Chongyi/Zero-DCE_extension/blob/09f202b690f82da939b8e6ec8535960ae97ad8bd/Zero-DCE++/dataloader.py",
+          "sha256": "9913d8cb568de8f84075fd3f22a207dd2145daec30c8bfb46d77bd435105cc6a"
+        }
+      ]
+    }
+  ],
+  "main_protocol": {
+    "dataset": "LOL-v2 Real official100-pair test; untouched in this task",
+    "validation_split_sha256": "b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b",
+    "selection": "Freeze Ours and all baseline modes/checkpoints using train/validation only before official-test decoding. T022-C remains candidate, not replaced by T023-A.",
+    "execution": "One official-test evaluation after configuration freeze; GPU preferred for model computation; no run authorized by this document alone.",
+    "reference_boundary": "Export/freeze all images, decisions and hashes for all admitted methods before loading any normal-light test reference. References score only; no reranking, mode/step/checkpoint selection, output normalization or retries selected by metrics.",
+    "input": "Native H400 W600 RGB float32 [0,1], no image resampling/crop. Architecture-required reflection padding then exact unpadding only; network internal operations retained.",
+    "output": "Native full-frame RGB float32 clipped [0,1], freeze float artifact before display PNG quantization. No gamma/brightness/mean matching or per-image output normalization.",
+    "psnr": {
+      "formula": "-10*log10(mean((output-reference)^2))",
+      "domain": "float64 evaluation of frozen RGB [0,1], all pixels/channels",
+      "perfect_match": "positive infinity",
+      "aggregation": "arithmetic mean of per-image PSNR"
+    },
+    "ssim": {
+      "implementation": "ttie/ssim_transfer.py:rgb_ssim",
+      "window": 11,
+      "sigma": 1.5,
+      "K1": 0.01,
+      "K2": 0.03,
+      "data_range": 1,
+      "covariance": "population",
+      "padding": "scipy.ndimage reflect, half-sample symmetric",
+      "crop": 0,
+      "channels": "mean over all RGB/full-frame map",
+      "dtype": "float64",
+      "aggregation": "arithmetic mean of per-image SSIM",
+      "implementation_sha256": "01d227a8b4caaf8f5705d9c18a5ef685367b6ccf80588d212be92830a04f8556",
+      "hash_basis": "Git blob at base_main, without Windows checkout newline conversion"
+    },
+    "reporting": "Only actually computed uniform-pipeline results enter experimental table. Literature numbers in separate context field, never reproduced values.",
+    "validation": "All-689 supervised checkpoints require retraining on589 non-validation pairs before any fair validation comparison; no retraining authorized this cycle.",
+    "legacy_caveat": "Historical official checkpoint validation/test monitoring must be disclosed; FINAL_TEST_READY does not assert historically test-blind checkpoint selection.",
+    "runner_status": "Planned exporters only, no baseline code changed or executed"
+  },
+  "coverage": {
+    "strict_main_eligible": [
+      "retinexformer",
+      "snr"
+    ],
+    "strict_main_count": 2,
+    "eligible_2025_count": 0,
+    "established_2022_2023_supervised_count": 2,
+    "external_target_free_available": [
+      "zero_dcepp"
+    ],
+    "rule": "At least3 official target-free eligible recipes including>=1 2025 and>=1 2022-2023 supervised",
+    "conclusion": "baseline coverage insufficient",
+    "missing": [
+      "SG-LLIE official LOL-v2 Real checkpoint and matching runnable recipe/provenance",
+      "LLFormer official LOL-v2 Real checkpoint and matching training recipe",
+      "Zero-DCE++ external SICE training requires explicit separate-stratum decision; not matched official-train-only eligibility"
+    ]
+  },
+  "future_priority": [
+    "Research-lead review missing2025 coverage and training-stratum policy; no sixth method or unofficial substitution in T024-A.",
+    "Retinexformer: bind downloaded checkpoint SHA256; implement default low-only float exporter; smoke-check using non-test data. Retrain589 only if validation comparison requested.",
+    "SNR: bind archive/checkpoint SHA256; implement predeclared native pad16 exporter and non-test geometry test; report departure from official resize mode.",
+    "Zero-DCE++: only after separate external-data stratum authorization, native scale1 low-only smoke check.",
+    "SG-LLIE/LLFormer: wait for verifiable matched official releases or research-lead scope decision. Do not synthesize missing checkpoint provenance.",
+    "Freeze final Ours and admitted recipes, then single target-free official-test run with scoring after every output is frozen."
+  ]
+}
