@@ -1,0 +1,464 @@
+{
+  "groups": {
+    "spatial_pool": {
+      "predicted_classes": {
+        "x": {
+          "0.5": 93,
+          "0.4": 27,
+          "0.6": 0
+        },
+        "y": {
+          "0.5": 83,
+          "0.4": 27,
+          "0.6": 10
+        }
+      },
+      "predicted_joint": {
+        "0.5,0.5": 69,
+        "0.5,0.4": 18,
+        "0.5,0.6": 6,
+        "0.4,0.5": 14,
+        "0.4,0.4": 9,
+        "0.4,0.6": 4,
+        "0.6,0.5": 0,
+        "0.6,0.4": 0,
+        "0.6,0.6": 0
+      },
+      "noncenter_on_center_target": {
+        "x": 3,
+        "y": 6
+      }
+    },
+    "left_right": {
+      "predicted_classes": {
+        "x": {
+          "0.5": 37,
+          "0.4": 3,
+          "0.6": 0
+        },
+        "y": {
+          "0.5": 20,
+          "0.4": 15,
+          "0.6": 5
+        }
+      },
+      "predicted_joint": {
+        "0.5,0.5": 18,
+        "0.5,0.4": 14,
+        "0.5,0.6": 5,
+        "0.4,0.5": 2,
+        "0.4,0.4": 1,
+        "0.4,0.6": 0,
+        "0.6,0.5": 0,
+        "0.6,0.4": 0,
+        "0.6,0.6": 0
+      },
+      "noncenter_on_center_target": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    "quadrants": {
+      "predicted_classes": {
+        "x": {
+          "0.5": 40,
+          "0.4": 0,
+          "0.6": 0
+        },
+        "y": {
+          "0.5": 40,
+          "0.4": 0,
+          "0.6": 0
+        }
+      },
+      "predicted_joint": {
+        "0.5,0.5": 40,
+        "0.5,0.4": 0,
+        "0.5,0.6": 0,
+        "0.4,0.5": 0,
+        "0.4,0.4": 0,
+        "0.4,0.6": 0,
+        "0.6,0.5": 0,
+        "0.6,0.4": 0,
+        "0.6,0.6": 0
+      },
+      "noncenter_on_center_target": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "offset_left_right_40": {
+      "predicted_classes": {
+        "x": {
+          "0.5": 16,
+          "0.4": 24,
+          "0.6": 0
+        },
+        "y": {
+          "0.5": 23,
+          "0.4": 12,
+          "0.6": 5
+        }
+      },
+      "predicted_joint": {
+        "0.5,0.5": 11,
+        "0.5,0.4": 4,
+        "0.5,0.6": 1,
+        "0.4,0.5": 12,
+        "0.4,0.4": 8,
+        "0.4,0.6": 4,
+        "0.6,0.5": 0,
+        "0.6,0.4": 0,
+        "0.6,0.6": 0
+      },
+      "noncenter_on_center_target": {
+        "x": 0,
+        "y": 3
+      }
+    }
+  },
+  "suppressed_axes": {
+    "total": 26,
+    "predicts_center": 20,
+    "predicts_move": 6,
+    "rows": [
+      {
+        "row_index": 6,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 14,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 15,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 17,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 21,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 33,
+        "axis": "y",
+        "prediction": 0.6,
+        "condition": "left_right",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 38,
+        "axis": "y",
+        "prediction": 0.6,
+        "condition": "offset_left_right_40",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 47,
+        "axis": "x",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 50,
+        "axis": "y",
+        "prediction": 0.4,
+        "condition": "offset_left_right_40",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 53,
+        "axis": "x",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 54,
+        "axis": "y",
+        "prediction": 0.4,
+        "condition": "left_right",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 60,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 66,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 75,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 77,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 78,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 81,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 87,
+        "axis": "y",
+        "prediction": 0.4,
+        "condition": "left_right",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 89,
+        "axis": "y",
+        "prediction": 0.4,
+        "condition": "offset_left_right_40",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 97,
+        "axis": "x",
+        "prediction": 0.5,
+        "condition": "quadrants",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 98,
+        "axis": "x",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 105,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "left_right",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 107,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 110,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.4
+      },
+      {
+        "row_index": 113,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.6
+      },
+      {
+        "row_index": 116,
+        "axis": "y",
+        "prediction": 0.5,
+        "condition": "offset_left_right_40",
+        "original_target": 0.4
+      }
+    ]
+  },
+  "quadrants_moves": [],
+  "T018C_comparison": {
+    "spatial_pool": {
+      "ratios": {
+        "T018C": {
+          "selected_over_H0": 0.9463400050770442,
+          "selected_over_H_star": 1.0184123344198242
+        },
+        "T019B": {
+          "selected_over_H0": 0.949627992153514,
+          "selected_over_H_star": 1.021950731376653
+        }
+      },
+      "gains": {
+        "T018C": {
+          "beneficial": 57,
+          "equal": 52,
+          "harmful": 11
+        },
+        "T019B": {
+          "beneficial": 46,
+          "equal": 69,
+          "harmful": 5
+        }
+      },
+      "movements": {
+        "T018C": {
+          "no_move": 52,
+          "x_only": 2,
+          "y_only": 39,
+          "both": 27
+        },
+        "T019B": {
+          "no_move": 69,
+          "x_only": 14,
+          "y_only": 24,
+          "both": 13
+        }
+      }
+    },
+    "left_right": {
+      "ratios": {
+        "T018C": {
+          "selected_over_H0": 0.9837094741065749,
+          "selected_over_H_star": 1.021198442288702
+        },
+        "T019B": {
+          "selected_over_H0": 0.982292255126377,
+          "selected_over_H_star": 1.019727213381128
+        }
+      },
+      "gains": {
+        "T018C": {
+          "beneficial": 24,
+          "equal": 5,
+          "harmful": 11
+        },
+        "T019B": {
+          "beneficial": 17,
+          "equal": 18,
+          "harmful": 5
+        }
+      },
+      "movements": {
+        "T018C": {
+          "no_move": 5,
+          "x_only": 0,
+          "y_only": 31,
+          "both": 4
+        },
+        "T019B": {
+          "no_move": 18,
+          "x_only": 2,
+          "y_only": 19,
+          "both": 1
+        }
+      }
+    },
+    "quadrants": {
+      "ratios": {
+        "T018C": {
+          "selected_over_H0": 1.0,
+          "selected_over_H_star": 1.000053620912425
+        },
+        "T019B": {
+          "selected_over_H0": 1.0,
+          "selected_over_H_star": 1.000053620912425
+        }
+      },
+      "gains": {
+        "T018C": {
+          "beneficial": 0,
+          "equal": 40,
+          "harmful": 0
+        },
+        "T019B": {
+          "beneficial": 0,
+          "equal": 40,
+          "harmful": 0
+        }
+      },
+      "movements": {
+        "T018C": {
+          "no_move": 40,
+          "x_only": 0,
+          "y_only": 0,
+          "both": 0
+        },
+        "T019B": {
+          "no_move": 40,
+          "x_only": 0,
+          "y_only": 0,
+          "both": 0
+        }
+      }
+    },
+    "offset_left_right_40": {
+      "ratios": {
+        "T018C": {
+          "selected_over_H0": 0.874913447259421,
+          "selected_over_H_star": 1.0322859794085106
+        },
+        "T019B": {
+          "selected_over_H0": 0.8845576368300302,
+          "selected_over_H_star": 1.0436648897540797
+        }
+      },
+      "gains": {
+        "T018C": {
+          "beneficial": 33,
+          "equal": 7,
+          "harmful": 0
+        },
+        "T019B": {
+          "beneficial": 29,
+          "equal": 11,
+          "harmful": 0
+        }
+      },
+      "movements": {
+        "T018C": {
+          "no_move": 7,
+          "x_only": 2,
+          "y_only": 8,
+          "both": 23
+        },
+        "T019B": {
+          "no_move": 11,
+          "x_only": 12,
+          "y_only": 5,
+          "both": 12
+        }
+      }
+    }
+  }
+}
