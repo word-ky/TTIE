@@ -1,0 +1,34 @@
+[
+  {
+    "stage": "train",
+    "command": [
+      "D:\\anaconda3\\python.exe",
+      "-m",
+      "ttie.deadband_selector_run",
+      "train",
+      "--output",
+      "research_log\\T019C_run",
+      "--source-sha",
+      "a258a72bf4d317efe92db8723f2070b7c2120f7f"
+    ],
+    "started_utc": "2026-09-13T08:33:08.284958+00:00",
+    "ended_utc": "2026-09-13T08:33:20.618234+00:00",
+    "exit_code": 0
+  },
+  {
+    "stage": "replay",
+    "command": [
+      "D:\\anaconda3\\python.exe",
+      "-m",
+      "ttie.deadband_selector_run",
+      "replay",
+      "--output",
+      "research_log\\T019C_run",
+      "--receipt-sha",
+      "0367456d7b4f235f987339baf07e343f86f870d1e109adbe461297c82b641c77"
+    ],
+    "started_utc": "2026-09-13T08:33:20.652863+00:00",
+    "ended_utc": "2026-09-13T08:33:26.263582+00:00",
+    "exit_code": 0
+  }
+]
