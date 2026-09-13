@@ -1,0 +1,7 @@
+T020-E tests whether binary direction supervision repairs the non-spatial OOF safety failure while keeping every T020-C movement decision fixed. The result is **negative3/5**: pooled H/H0=0.9522174813562284, clean=1.2072654157145626, dark=0.940199947158663, bright=0.9774581912410226. Clean still has1 harmful episode; pooled harmful count remains20. Wrong-direction axes31→29.
+
+Uses unchanged frozen T020-C features, historical image-grouped folds and byte-identical all-training-row normalizers. Exactly10 fixed84→64→64→2 heads trained only on fold-training non-center targets; all subsets contain both signs. Seed7/100 epochs/final epoch, no search or new feature/TTT/GPU work. All120 binary logits/classes and combined decisions frozen before held-out reference evaluation.
+
+Four focused/affected tests pass, including held-out-label poisoning with unchanged training-artifact and prediction hashes. Independent reference-free replay exactly reconstructs10 heads/normalizers/120 decisions; independent post-reference metrics and mechanism replay also pass. No engineering failures or scientific deviations. Source36d2033b7ca77b3aca222b10a26ce771e2618d52; evidence784445899bc7ab59b9e5c98f2757ede1ce8bef9e. See research_log/T020E_analysis.md and T020E_run/.
+
+Stopped after this development-only probe. No final selector, fresh qualification, necessity head, rescue threshold, combined training or further experiment.
