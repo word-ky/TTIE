@@ -4,95 +4,76 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T017-C accepted; matched-soft rescue is closed
+# Research-lead review — T018-A accepted; hard local target is viable
 
-I reviewed Codex report `df1ec2744b335ad30fb898b9f408c626038d189b`, PR #24, frozen source `1512d03347dbc83e85837e835067dfd8255066b9`, evidence `d4eeede5e2368b9bf9a0366ea734ef25776994be`, `ttie/matched_soft.py`, focused tests, independent verification, and the immutable T016-A/T017-A/T017-B input bindings against the T017-C contract. PR #24 is accepted and squash-merged as `de73871600a8089e176ec21f06fb2d54b4486faf`.
+I reviewed Codex report `d6ef07b4149889cf21e9805e21b604cedd9f30df`, PR #25, frozen source `c9f3a0ac763f2f0e5b3a8a67d009f2792f8fe118`, evidence `8a67f0532210dbdf67be8e0f5b181ac6a7582085`, `ttie/hard_local.py`, the focused tests, independent verifier, and the accepted T016-A table/config bindings against the T018-A contract. PR #25 is accepted and squash-merged as `5ecf598763c499b2275994be53f9218a3757245c`.
 
-The implementation matches the declared CPU-only reference diagnostic. It reproduces all 120 frozen T017-A choices and all T017-B per-episode quantities exactly before aggregation, keeps the original decision bytes unchanged, binds the eight immutable JSON inputs and six source files, freezes quantities before family labels, and independently verifies the arithmetic. No images, rendering, CLIP, TTT, training, new data, fresh evaluation or GPU work entered T017-C.
+The implementation matches the declared reference-only CPU audit. Selection reads only the five predeclared hard-cross reference values, uses the literal center→lower→upper tie order independently on x and y, and freezes both choices and `H0/H1/H*` quantities before family labels are attached. The independent verifier recomputes all 120 choices and group statistics without importing the audit implementation. No images, rendering, CLIP, TTT, training, new data, or GPU work entered the result.
 
-The scientific result is a clear bounded negative: **matched-soft is insufficient, 2/5**. Keeping the same frozen geometry choices at `tau=0.05` is nearly optimal *within that soft renderer* (`S1/S* = 1.00088`) and adaptive movement improves pooled soft MSE by 4.02% over fixed soft, but the renderer itself is poor relative to canonical hard Region2. Fixed `tau=0.05` worsens pooled MSE by 8.91%, left/right by 9.22%, and quadrants by 23.03%. After adaptive movement, `S1/H0` is still `1.04531` pooled, `1.05573` left/right, and `1.22136` quadrants; only offset benefits (`0.90292`). Thus the T017-B soft→hard mismatch was real, but simply deploying the soft surrogate is not a solution. The `tau=0.05` matched-soft path is closed; do not retune softness or train a soft-geometry model from it.
+The scientific result is a strong development-only positive: **hard local-direction target viable, 5/5**. Pooled `H1/H0 = 0.930464`, pooled `H1/H* = 1.001327`, offset `H1/H0 = 0.850731`, left/right `0.963289`, and quadrants `0.999946`. The factorized local target recovers **98.26%** of pooled nine-hard oracle headroom; `115/120` choices lie in the exact nine-hard oracle tie set. There are **69 beneficial, 51 unchanged, and 0 harmful** combined moves, with zero observed pure x/y interaction failures. This resolves the previous ambiguity: the hard renderer itself has a simple center-local factorized target; the remaining problem is not target capacity but whether a label-free signal can recover that target.
 
-The next smallest unresolved question is now on the **hard renderer itself**. T016-A already established that nine shifted hard boundaries contain almost all useful geometry capacity. Before learning any geometry mechanism, determine whether a local, factorized hard-boundary descent target exists around canonical Region2 when the reference diagnostic uses the same hard renderer on both sides. This removes the soft-renderer confound entirely and tests whether future geometry supervision can be defined as hard finite-step direction rather than a soft surrogate derivative.
+The next smallest question is therefore deliberately narrower than training a new geometry network. T016-B already saved the frozen T014 Sobolev energy on the same nine hard candidates. Before adding any new predictor, test whether that existing label-free energy contains useful **local directional** information when used in the same factorized hard-cross rule that T018-A validated. T016-B's failed global nine-way argmin does not answer this because scalar global ranking and local axis direction are different decision rules.
 
-The non-negotiable rule remains unchanged: **test-time adaptation/selection must never consume test labels, clean targets, condition IDs, masks/gains, annotations, image IDs as semantic shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.** T018-A below is reference-only development diagnosis; it is not a deployable selector.
+The non-negotiable rule remains unchanged: **test-time adaptation/selection must never consume test labels, clean targets, condition IDs, masks/gains, annotations, image IDs as semantic shortcuts, source-only reference gradients/Jacobians, or evaluation metrics.** In T018-B, the boundary decision must be finalized from already-saved label-free energy scores before any reference MSE or family metadata is read.
 
 ---
 
-# OPEN one-hour task — T018-A: hard-renderer local-direction viability audit
+# OPEN one-hour task — T018-B: frozen-T014 hard-cross local-direction audit
 
-**Expected work budget: about one hour. One question only: does the existing nine-hard reference landscape admit a safe local factorized `(bx,by)` descent target around canonical Region2, without any soft renderer?**
+**Expected work budget: about one hour. One question only: does the already-frozen T014 Sobolev energy recover the viable T018-A hard local direction when selection is factorized on the hard cross, without any reference information at decision time?**
 
-## Hypothesis / objective
+## Hypothesis / engineering objective
 
-Use only the already-rendered T016-A `tau=0` candidates. For each of the same 120 spatial episodes define:
+Reuse the accepted T016-B label-free scoring artifact for the same 120 spatial episodes and nine `tau=0` hard candidates. Do **not** rerun the model. For each episode, read only the already-saved frozen T014 scalar energy/score for:
 
-- `H0 = L(0.5, 0.5, 0)`;
-- x-axis local cross: `Hx- = L(0.4,0.5,0)`, `Hx0 = H0`, `Hx+ = L(0.6,0.5,0)`;
-- y-axis local cross: `Hy- = L(0.5,0.4,0)`, `Hy0 = H0`, `Hy+ = L(0.5,0.6,0)`.
+- canonical `E0 = E(0.5,0.5,0)`;
+- x cross `Ex- = E(0.4,0.5,0)`, `Ex0 = E0`, `Ex+ = E(0.6,0.5,0)`;
+- y cross `Ey- = E(0.5,0.4,0)`, `Ey0 = E0`, `Ey+ = E(0.5,0.6,0)`.
 
-Choose `bx_local_hard` as the minimum-MSE member of `{0.5, 0.4, 0.6}` on the x-axis cross and `by_local_hard` independently on the y-axis cross. **Tie order is literal: center `0.5` first, then lower `0.4`, then upper `0.6`**, so exact ties prefer no movement. Then evaluate only the already-existing combined hard candidate
+Choose `bx_energy` as the minimum-energy member of `{0.5,0.4,0.6}` on the x cross and `by_energy` independently on the y cross. **Tie order is literal: center `0.5`, then lower `0.4`, then upper `0.6`.** The selected output is the already-existing hard candidate `(bx_energy, by_energy, 0)`.
 
-`H1 = L(bx_local_hard, by_local_hard, 0)`.
-
-Also compute the reference-only nine-hard oracle
-
-`H* = min_{bx,by in {0.4,0.5,0.6}} L(bx,by,0)`
-
-with the same deterministic candidate order used in T016-A. No candidate is rendered or optimized in this task.
-
-This is deliberately a **reference-only target-viability audit**. `bx_local_hard/by_local_hard` are not available at deployment. The purpose is to test whether the hard loss landscape itself provides a simple local directional target worth learning later.
+This decision stage is label-free. It must not read reference MSE, T018-A target choices, condition, image ID, oracle rank, or evaluation metrics. Persist and hash all 120 decisions first. Only after that freeze may an evaluation stage join the accepted T018-A/T016-A reference table and family labels.
 
 ## Fixed inputs / settings
 
-Use only merged artifacts already on `main`:
+Use only committed accepted artifacts already on `main`:
 
-- accepted T016-A 120 × 27 candidate-MSE table and config;
-- accepted T017-A/T017-B/T017-C artifacts only for hash/consistency checks and comparative reporting, never to change the T018-A rule.
+- T016-B evidence commit `4062e01cb93de731c394015c5ac741d6c08e04d8`, specifically its frozen nine-hard candidate order and saved T014 energy/score vectors plus scoring receipt/config;
+- merged T018-A artifacts from PR #25 / merge `5ecf598763c499b2275994be53f9218a3757245c` for post-freeze reference evaluation and target-agreement diagnostics only;
+- the accepted T016-A hard-candidate reference table only as the post-freeze metric source if T018-A does not already expose the required per-candidate values.
 
-Before analysis verify exactly 120 episodes × 27 candidates and the exact predeclared `(bx,by,tau)` grid. Verify the five hard-cross entries and all nine hard entries are present once per episode. CPU only.
+Precheck exact identity of the 120 episodes and the nine hard candidate coordinates across artifacts. Bind all inputs by commit/path/SHA256. CPU only.
 
-No image reads, clean-image files beyond the already-materialized reference-MSE table, CLIP, TTT, rerendering, source training, OOF/CV, learned model, threshold, abstention, confidence rule, alternate grid, alternate tie rule, A6000, or new data. Do not use condition or image ID in any choice.
+## Non-goals
 
-## Predeclared viability clauses
+No training or fine-tuning; no new geometry head; no pointwise/pairwise loss; no confidence/abstention threshold; no condition-specific rule; no score calibration or normalization change; no alternate tie order; no alternate boundary step/grid; no soft renderer or `tau>0`; no image reads; no rerendering; no CLIP/TTT rerun; no A6000; no new/fresh images; no detector/meta/prompt/ViT3 work. Do not use T018-A reference choices to repair energy decisions.
 
-Aggregate by the same three families and `spatial_pool`. `H1` qualifies as a viable **reference local hard-direction target** only if all five hold:
+## Acceptance / stop criteria
 
-1. pooled `H1 <= 0.97 × H0`;
-2. pooled `H1 <= 1.03 × H*`;
-3. offset `H1 <= 0.95 × H0`;
-4. left/right `H1 <= 1.01 × H0`;
-5. quadrants `H1 <= 1.01 × H0`.
+After the 120 label-free decisions are frozen, evaluate the selected hard candidate against canonical Region2 `H0` and the accepted nine-hard reference oracle `H*`. Qualify **only if all five predeclared clauses pass**:
 
-No tolerance and no post-hoc fallback.
+1. pooled selected MSE `<= 0.97 × H0`;
+2. pooled selected MSE `<= 1.03 × H*`;
+3. offset selected MSE `<= 0.95 × H0`;
+4. left/right selected MSE `<= 1.01 × H0`;
+5. quadrants selected MSE `<= 1.01 × H0`.
 
-Also report, without changing the decision rule:
+No tolerance, fallback, or second rule.
 
-- pooled/per-family `H0`, `H1`, `H*`, ratios and oracle-headroom recovery;
-- counts of no-move / x-only / y-only / both-axis moves;
-- counts of `H1 < H0`, `H1 = H0`, `H1 > H0` by family;
-- exact match rate of `(bx_local_hard,by_local_hard)` to the nine-hard oracle tie set;
-- factorization regret `H1-H*` distribution;
-- for every harmful combined move (`H1>H0`), whether each chosen axis move was individually non-worse than center. Such a case is a pure x/y interaction failure; preserve exact counts and examples by row index only, attaching family labels only after quantities are frozen.
-
-## Predeclared interpretation / stop criteria
-
-- **Hard local-direction target viable** only if all **5/5** clauses pass. This would justify a later task asking whether a label-free/source-supervised mechanism can predict the *hard-renderer local direction*; it would **not** itself justify deployment or fresh evaluation.
-- **Hard local factorization insufficient** if any clause fails. Preserve the negative and stop; do not repair it with a 2-D oracle, confidence gate, condition-specific rule, different step size, or learned model in this task.
-
-If harmful combined moves occur even though both selected axis moves are individually non-worse, report them as interaction evidence; do not silently redefine the selector.
-
-Stop after T018-A. No geometry predictor/head, Sobolev training, finite-difference network, soft renderer, alternate `tau`, finer boundary grid, fresh split, detector/meta/prompt/ViT3 work, or GPU run.
+- **5/5:** conclude that the existing frozen T014 Sobolev energy contains development-level label-free local hard-geometry signal under the factorized rule. Stop; do not launch fresh qualification or integrate it into TTT in this cycle.
+- **Anything below 5/5:** preserve the negative and conclude that T018-A target viability does not transfer through the existing frozen T014 scalar energy. Stop; do not train a dedicated geometry predictor or tune a gate in this cycle.
 
 ## Required evidence
 
-Commit a compact CPU-only audit plus tests/receipts proving:
+Commit a compact CPU-only audit plus focused tests and an independent verifier proving:
 
-- exact input/hash binding to the merged T016-A table/config;
-- literal center-first/lower/upper tie order on both axes;
-- choices depend only on the five reference hard-cross values in this diagnostic, never on family metadata;
-- all per-episode choices/`H0,H1,H*` quantities are persisted and hashed before family labels/reporting;
-- all five clauses and exact pass vector;
-- pooled/per-family MSEs, ratios, movement counts, oracle tie-set match, factorization regret, and harmful interaction attribution;
-- focused boundary/tie/freeze tests plus an independent arithmetic verifier.
+- exact input/hash binding and exact nine-hard candidate identity;
+- the decision stage reads only the five saved T014 hard-cross scores per episode;
+- literal center→lower→upper tie handling on each axis;
+- all 120 `(bx_energy,by_energy)` decisions are persisted and hash-frozen before reference MSE, condition, image ID, T018-A target choices, or oracle information is attached;
+- the exact five-clause pass vector and pooled/per-family selected MSE ratios;
+- diagnostic-only agreement with T018-A after freeze: x-axis match, y-axis match, joint target match, movement counts, and counts of beneficial/equal/harmful selected outputs by family;
+- for harmful selections, report row index, energy-chosen axes, T018-A reference axes, and post-freeze `H0/Hselected/H*` only; do not use those examples to alter the rule;
+- independent arithmetic/freeze-order verification.
 
-Stop and report the bounded result. Do not automatically begin T018-B or any trainable geometry method.
+Stop after T018-B and report the bounded result. Do not automatically begin T018-C or any trainable geometry method.
