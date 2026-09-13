@@ -1,0 +1,343 @@
+{
+  "counterfactuals": {
+    "original": {
+      "groups": {
+        "nonspatial_pool": {
+          "count": 120,
+          "mse": {
+            "H0": 0.021385082408475378,
+            "H": 0.020271049639753378,
+            "H_star": 0.019217849626572085
+          },
+          "ratios": {
+            "H_over_H0": 0.947906080161726,
+            "H_over_H_star": 1.054803218551833
+          },
+          "outcomes": {
+            "beneficial": 37,
+            "equal": 63,
+            "harmful": 20
+          },
+          "movements": {
+            "no_move": 62,
+            "x_only": 11,
+            "y_only": 13,
+            "both": 34
+          }
+        },
+        "clean": {
+          "count": 40,
+          "mse": {
+            "H0": 0.0002885228313971311,
+            "H": 0.0003483236359898001,
+            "H_star": 0.00020819390465476317
+          },
+          "ratios": {
+            "H_over_H0": 1.2072654157145626,
+            "H_over_H_star": 1.6730731697808663
+          },
+          "outcomes": {
+            "beneficial": 0,
+            "equal": 39,
+            "harmful": 1
+          },
+          "movements": {
+            "no_move": 39,
+            "x_only": 0,
+            "y_only": 1,
+            "both": 0
+          }
+        },
+        "homogeneous_dark": {
+          "count": 40,
+          "mse": {
+            "H0": 0.04524176206905395,
+            "H": 0.042395106167532504,
+            "H_star": 0.040937563660554586
+          },
+          "ratios": {
+            "H_over_H0": 0.9370790223162285,
+            "H_over_H_star": 1.0356040364068448
+          },
+          "outcomes": {
+            "beneficial": 21,
+            "equal": 15,
+            "harmful": 4
+          },
+          "movements": {
+            "no_move": 15,
+            "x_only": 4,
+            "y_only": 7,
+            "both": 14
+          }
+        },
+        "homogeneous_bright": {
+          "count": 40,
+          "mse": {
+            "H0": 0.01862496232497506,
+            "H": 0.018069719115737827,
+            "H_star": 0.016507791314506904
+          },
+          "ratios": {
+            "H_over_H0": 0.9701882237639385,
+            "H_over_H_star": 1.0946176124638984
+          },
+          "outcomes": {
+            "beneficial": 16,
+            "equal": 9,
+            "harmful": 15
+          },
+          "movements": {
+            "no_move": 8,
+            "x_only": 7,
+            "y_only": 5,
+            "both": 20
+          }
+        }
+      },
+      "clauses": {
+        "nonspatial_pool_safety": true,
+        "clean_safety": false,
+        "homogeneous_dark_safety": true,
+        "homogeneous_bright_safety": true,
+        "clean_zero_harmful": false
+      },
+      "acceptance_vector": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "passed": 3,
+      "all_pass": false
+    },
+    "A": {
+      "groups": {
+        "nonspatial_pool": {
+          "count": 120,
+          "mse": {
+            "H0": 0.021385082408475378,
+            "H": 0.019991135096158057,
+            "H_star": 0.019217849626572085
+          },
+          "ratios": {
+            "H_over_H0": 0.9348168370038701,
+            "H_over_H_star": 1.0402378770055922
+          },
+          "outcomes": {
+            "beneficial": 42,
+            "equal": 59,
+            "harmful": 19
+          },
+          "movements": {
+            "no_move": 59,
+            "x_only": 7,
+            "y_only": 10,
+            "both": 44
+          }
+        },
+        "clean": {
+          "count": 40,
+          "mse": {
+            "H0": 0.0002885228313971311,
+            "H": 0.00035473079624352976,
+            "H_star": 0.00020819390465476317
+          },
+          "ratios": {
+            "H_over_H0": 1.2294721860512596,
+            "H_over_H_star": 1.7038481353801442
+          },
+          "outcomes": {
+            "beneficial": 0,
+            "equal": 38,
+            "harmful": 2
+          },
+          "movements": {
+            "no_move": 38,
+            "x_only": 0,
+            "y_only": 0,
+            "both": 2
+          }
+        },
+        "homogeneous_dark": {
+          "count": 40,
+          "mse": {
+            "H0": 0.04524176206905395,
+            "H": 0.04194573529530317,
+            "H_star": 0.040937563660554586
+          },
+          "ratios": {
+            "H_over_H0": 0.9271463660341092,
+            "H_over_H_star": 1.024627055071184
+          },
+          "outcomes": {
+            "beneficial": 23,
+            "equal": 14,
+            "harmful": 3
+          },
+          "movements": {
+            "no_move": 14,
+            "x_only": 1,
+            "y_only": 5,
+            "both": 20
+          }
+        },
+        "homogeneous_bright": {
+          "count": 40,
+          "mse": {
+            "H0": 0.01862496232497506,
+            "H": 0.017672939196927473,
+            "H_star": 0.016507791314506904
+          },
+          "ratios": {
+            "H_over_H0": 0.9488845608685621,
+            "H_over_H_star": 1.0705816944388342
+          },
+          "outcomes": {
+            "beneficial": 19,
+            "equal": 7,
+            "harmful": 14
+          },
+          "movements": {
+            "no_move": 7,
+            "x_only": 6,
+            "y_only": 5,
+            "both": 22
+          }
+        }
+      },
+      "clauses": {
+        "nonspatial_pool_safety": true,
+        "clean_safety": false,
+        "homogeneous_dark_safety": true,
+        "homogeneous_bright_safety": true,
+        "clean_zero_harmful": false
+      },
+      "acceptance_vector": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "passed": 3,
+      "all_pass": false
+    },
+    "B": {
+      "groups": {
+        "nonspatial_pool": {
+          "count": 120,
+          "mse": {
+            "H0": 0.021385082408475378,
+            "H": 0.019595579725379744,
+            "H_star": 0.019217849626572085
+          },
+          "ratios": {
+            "H_over_H0": 0.9163200473622485,
+            "H_over_H_star": 1.0196551698627812
+          },
+          "outcomes": {
+            "beneficial": 55,
+            "equal": 63,
+            "harmful": 2
+          },
+          "movements": {
+            "no_move": 62,
+            "x_only": 11,
+            "y_only": 13,
+            "both": 34
+          }
+        },
+        "clean": {
+          "count": 40,
+          "mse": {
+            "H0": 0.0002885228313971311,
+            "H": 0.00021758822840638458,
+            "H_star": 0.00020819390465476317
+          },
+          "ratios": {
+            "H_over_H0": 0.7541456159734198,
+            "H_over_H_star": 1.0451229528895167
+          },
+          "outcomes": {
+            "beneficial": 1,
+            "equal": 39,
+            "harmful": 0
+          },
+          "movements": {
+            "no_move": 39,
+            "x_only": 0,
+            "y_only": 1,
+            "both": 0
+          }
+        },
+        "homogeneous_dark": {
+          "count": 40,
+          "mse": {
+            "H0": 0.04524176206905395,
+            "H": 0.04143212719354779,
+            "H_star": 0.040937563660554586
+          },
+          "ratios": {
+            "H_over_H0": 0.9157938439777966,
+            "H_over_H_star": 1.0120809224773124
+          },
+          "outcomes": {
+            "beneficial": 25,
+            "equal": 15,
+            "harmful": 0
+          },
+          "movements": {
+            "no_move": 15,
+            "x_only": 4,
+            "y_only": 7,
+            "both": 14
+          }
+        },
+        "homogeneous_bright": {
+          "count": 40,
+          "mse": {
+            "H0": 0.01862496232497506,
+            "H": 0.017137023754185066,
+            "H_star": 0.016507791314506904
+          },
+          "ratios": {
+            "H_over_H0": 0.9201105191609033,
+            "H_over_H_star": 1.038117300351695
+          },
+          "outcomes": {
+            "beneficial": 29,
+            "equal": 9,
+            "harmful": 2
+          },
+          "movements": {
+            "no_move": 8,
+            "x_only": 7,
+            "y_only": 5,
+            "both": 20
+          }
+        }
+      },
+      "clauses": {
+        "nonspatial_pool_safety": true,
+        "clean_safety": true,
+        "homogeneous_dark_safety": true,
+        "homogeneous_bright_safety": true,
+        "clean_zero_harmful": true
+      },
+      "acceptance_vector": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": 5,
+      "all_pass": true
+    }
+  },
+  "interpretation": "direction-dominant",
+  "reference_only": true,
+  "deployable": false
+}
