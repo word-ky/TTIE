@@ -1,0 +1,7 @@
+T020-C tests whether the unchanged T019 representation and classifier recipe meet the non-spatial development OOF safety contract. The fixed five-fold run is **negative: 3/5 clauses pass**. Pooled H1/H0=0.947906080161726, clean=1.2072654157145626, dark=0.9370790223162285, bright=0.9701882237639385. Clean has0 beneficial/39 equal/1 harmful; pooled37/63/20.
+
+Reuses exactly40 development images/120 accepted T020-B episodes and historical five image-grouped folds. GPU1 computes600 frozen28-D candidate vectors once; the byte-unchanged CPU donor fits10 heads using the original84→64→64→3 recipe. No TTT rerun, no fresh artifacts, no recipe or threshold search.
+
+All120 OOF logits/classes/coordinates were hash-frozen before held-out reference evaluation. Five focused/affected tests pass, including both-axis held-out-label mutation hash isolation. An independent verifier imports no TTIE and exactly reconstructs features, training-only normalizers,10 head outputs and all post-freeze metrics/diagnostics. Both replay stages pass. Source a4f9893c4486bd7ade6138e5f44047d29e9285c0; evidence34f497758eed6c26c87c43383d3668411995a22b. GPU run20260913-204217-ttie-t020c-features exit0. Recovery archive verified on both A6000 storage roots.
+
+See research_log/T020C_analysis.md and T020C_run/. Stop here for research-lead review; no combined-domain final training or T020-D. Development OOF only; no fresh-safety claim. A CRLF transport-index issue was repaired before launching; no scientific source/settings changed.
