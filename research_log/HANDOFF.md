@@ -1,4 +1,8 @@
-# TTIE handoff — T018-E review correction; no scientific rerun
+# TTIE handoff — T019-B active (2026-09-13 UTC)
+
+Current worktree `.autodl/T019B-work`, branch codex/T019B-deadband-oof, based on main394b0621090a01963234507ab36a6d286ab9e37f. Read research_log/T019B.md and current inbox/state. T019-A accepted labels come from PR32 head91f750e871d2c133624bbe4972f3fb3086f25a6c, SHA d874bed74b0ebf68b680c8b6e60c8c5a44c9d82ce3cb7fd5730e16e53a980d45. Implementation and6 focused tests complete; scientific training not yet run. Commit source, execute exactly10 unchanged-recipe CPU heads, independent reference-free replay, post-freeze evaluation, independent metric verification, analysis, engineering PR and append main outbox. Stop on literal7-clause result; no tuning/fresh cohort/final fit. T018-E data excluded. Main mailbox outer `.autodl/main-mailbox`; append exact prior Git bytes. Existing15min heartbeat ACTIVE. Outer old T019-A blocked bookkeeping remains preserved and is not retried.
+
+## Previous handoff (historical context)
 
 Read T018E_analysis.md and T018E.md. Exactly one fresh40-image/120-episode cohort completed. All original scientific processes exited0. REVIEW CORRECTION: original frozen config lacks prepared.json digest, so prior independent PASS does not prove the full mapping chain. Current strict verifier rejects the original run. Recorded4/5 negative/metrics preserved with this limitation. Retrospective manifest-order/input checks120/120 pass; they are not a retroactive pre-inference binding. Future pipeline repair and tests are in PR30; see T018E_review_fix.md. Literal4/5 gates: pooled H1/H0=0.9322904922976755; pooled H1/H*=1.019899763480527; offset0.8466303816462032; LR0.9649712642562407; quadrants1.0117854527177925 FAIL<=1.01. This is T018-E fresh qualification negative. Never refit, retune, regenerate cohort, repeat completed task merely OPEN, or begin a follow-on until research review/new task.
 
