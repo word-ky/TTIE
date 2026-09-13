@@ -1,4 +1,6 @@
-# TTIE handoff — T019-B DONE (2026-09-13 UTC)
+# TTIE handoff — T019-C ACTIVE
+
+LATEST2026-09-13T08:26:31Z: new main37ce4531 accepts/merges T019-B PR33(e04a96da). Active T019-C worktree .autodl/T019C-work branch codex/T019C-deadband-freeze. Read current inbox/state and T019C.md. Baseline10tests passed. Implement exactlyone final x/y fit using accepted frozen120 development features and T019-A deadband labels, unchanged recipe; produce immutable2-head receipt, reference-free5-feature API, replay and independent verification. No MSE evaluation/fresh cohort/final qualification; no T018-E data. Original CPU backend allowed. Scientific fit not yet run. On completion PR/main outbox/recovery then stop for review. Older notes below are historical.
 
 RECOVERY COMPLETE:102-entry803112-byte `.autodl/T019B_recovery.tar.gz` SHAee861bce6b56d00751937b070ec5b88602d62a17ccbda422333b26ddf7c13f7b verified identically at /home/wenchang/asdasdsad/wjq/TTIE and /media/wenchang/F/wjq/TTIE. research_log extracted at both locations; current remote source release unchanged. See T019B_recovery_receipt.json. Scientific experiment and GitHub delivery complete; no further work until research review/new task. Heartbeat ACTIVE15min, unchanged state quiet.
 
