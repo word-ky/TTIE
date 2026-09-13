@@ -9,3 +9,7 @@ Reproduced using `git clone --no-local --single-branch --branch codex/T018D-fina
 Minimal repair: read the already committed six T018D_source_inputs copies, require manifest entries to equal the immutable receipt's original commit/path/hash records, and require each payload SHA256 to match. No fallback, refetch, new model, changed target values, or weakened check. Original source-byte checks and target-free independent replay are retained. No changes to scientific source files, model weights, normalization, predictions, or pinned selector receipt.
 
 Next: commit the verifier fix, fast-forward the isolated clone, run its independent verifier with the historical scoring object still absent, deliver the review reply and main outbox, and sync recovery notes to both server roots. No retraining or GPU experiment is needed for this verifier-only fix.
+
+## 2026-09-13T04:51:15.951669+00:00 — preserve committed payload bytes
+
+The first patched clone run exposed a separate Windows checkout detail: three archived score files remained CRLF-converted on disk, although their committed Git blobs exactly match the frozen SHA256. Read the committed copies directly with git show HEAD:research_log/T018D_source_inputs/<name>.json. This single path both avoids unreachable historical input objects and preserves original bytes under checkout conversion; no hash normalization or tolerance. Source and receipt checks remain unchanged. Archived-checkout failure log preserved.

@@ -19,7 +19,7 @@ inputs={};archive=Path('research_log/T018D_source_inputs')
 manifest=json.loads((archive/'manifest.json').read_text(encoding='utf-8'))
 for key,item in receipt['input_artifact_hashes'].items():
     filename=key+'.json';assert manifest[filename]==item
-    raw=(archive/filename).read_bytes();assert digest(raw)==item['sha256']
+    raw=subprocess.check_output(['git','show','HEAD:'+(archive/filename).as_posix()]);assert digest(raw)==item['sha256']
     # Targets are byte-hashed for provenance only, never decoded or passed to replay.
     if key not in ('targets','target_freeze'):inputs[key]=json.loads(raw)
 assert receipt['input_artifact_hashes']['targets']['sha256']=='72cd12af095bcef89e461b3e3ec38ec7edad12f86825bc27e91b6509ed3b77c3'
