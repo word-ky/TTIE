@@ -1,0 +1,21 @@
+{
+  "A": "Target center -> center; otherwise choose frozen lower/upper logit argmax, lower first on ties.",
+  "B": "Keep frozen center. For frozen moves use target sign only if target moves; otherwise preserve frozen false-move sign.",
+  "acceptance": "Four group means H<=1.01*H0, plus zero harmful clean episodes; all five required.",
+  "interpretation": {
+    "10": "necessity-dominant",
+    "01": "direction-dominant",
+    "11": "both individually sufficient / mixed",
+    "00": "neither sufficient / interaction-or-representation-limited"
+  },
+  "reference_only": true,
+  "deployable": false,
+  "source_sha": "b931f3b22ec83fbd2d395f5053f2bb174f1f61f7",
+  "source_code_sha256": {
+    "ttie/movement_attribution.py": "94060617e84f833576309d40e5734edc99af229855d54a278ab485671cb6b1b2",
+    "research_log/T020D_inputs.json": "31f4a8bfbf536c7f47a6da1784837a2ba32f0b34538182748f4f89abbefc6b3f",
+    "research_log/T020D_verify.py": "4db2b924460a9e043cb17661c0ce635b60ea03f9c8984dc5b44cc761ab9d9567",
+    "tests/test_movement_attribution.py": "ec87cc5036b0bf87f8f6a889e4ed02836c1b7cec3d74ba1f671587ced3d7ef43"
+  },
+  "frozen_utc": "2026-09-13T13:39:53.745288+00:00"
+}
