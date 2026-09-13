@@ -1,4 +1,6 @@
-# TTIE handoff — T019-C DONE
+# TTIE handoff — T019-D ACTIVE
+
+LATEST09:29:02Z: New main45b36742 accepts C and issues one-shot fresh T019-D; active worktree.autodl/T019D-work, branchcodex/T019D-fresh-deadband. Read T019D.md/currentinbox.745 exclusion IDs audited from33 metadata artifacts, no fresh manifest/pixels selected yet. Baseline9tests passed; original68 scientific files unchanged. Implement strict contemporaneous prep/mapping/exclusion binding plus originalC selector lock, test, sourcefreeze, one new40/120 GPU1 feature run; freezeCPU decisions and independentreplay before cleanreference evaluation. No re-training/tuning/secondcohort. No TTIE job currently active. Prior C/B notes below historical.
 
 COMPLETE2026-09-13T08:39:19.2618765Z: PR34/evidencec35ea61e and mainDONEca6a59dc delivered.44-entry214429-byte `.autodl/T019C_recovery.tar.gz` SHA9895afa5a56483d83ba72b4ee2735eae77a7414265a1c9d5a46604bbc07f93ca verified under both /home/wenchang/asdasdsad/wjq/TTIE and /media/wenchang/F/wjq/TTIE; research_log extracted both, remote source release unchanged. Read T019C_recovery_receipt.json. No active TTIE computation or further engineering work. Wait for research review/new task; current OPEN status alone does not authorize a repeat. Existing15min heartbeat continues; unchanged quiet.
 
