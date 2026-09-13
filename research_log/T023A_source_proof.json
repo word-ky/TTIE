@@ -1,0 +1,18 @@
+{
+  "unchanged_accepted_files": {
+    "ttie/ev_range_ttt.py": "164b865fadba00609aef760ce5dc6b4085c7a4207d3339496737b9651219b856",
+    "ttie/ev_range_box.py": "97f72e3f4b33ff3281439cdb65036c69a6229f823d2aab21d490a1cf2ba289cb",
+    "ttie/sobolev_source.py": "475d7c6134a15891d1c601df1b46d55d92850f05dd632b7facc08c6507c50764",
+    "ttie/sobolev_train.py": "ddffd3d998bd8ab0f9616bc6effbd8acf03fee92ba8044ca394505ebbbc5b96d",
+    "ttie/stop_quality.py": "4e6816898e6924732cf2409619c05212a412aab13da15cac5678c7bc6243c19a",
+    "ttie/energy_model.py": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4",
+    "scripts/evaluate_t022a.py": "c95fd4c8e793487c7e52e12e07e5f2750b3604ba6633ceb87ad75a104c70cc56"
+  },
+  "derivative_reuse": "source_derivatives directly on EV2 trajectory states; original source_bank never called",
+  "training_reuse": "train_head plus exact train_pair primary cosine callback, only one real-data head",
+  "validation_change": "only energy asset; runner AST identical except task label",
+  "positive_gate": {
+    "mean_paired_psnr_delta_at_least": 0.5,
+    "mean_ssim_not_lower_than_C": true
+  }
+}

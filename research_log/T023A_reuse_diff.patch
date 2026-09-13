@@ -1,0 +1,26 @@
+--- accepted-C-runner
++++ T023-A-runner
+@@ -1,4 +1,4 @@
+-"""T022-C single dark-EV-bound variant; low-only native-resolution execution."""
++"""T023-A single dark-EV-bound variant; low-only native-resolution execution."""
+ import argparse
+ import json
+ import time
+@@ -31,7 +31,7 @@
+     original_open=Image.open
+     def guarded(path,*args,**kwargs):
+         if str(Path(path).resolve()) not in allowed:
+-            raise PermissionError('T022-C accepts only frozen low-light images')
++            raise PermissionError('T023-A accepts only frozen low-light images')
+         opened.append(str(Path(path).resolve()))
+         return original_open(path,*args,**kwargs)
+     return guarded
+@@ -74,7 +74,7 @@
+     saved=torch.load(files['prototypes']['path'],map_location=device,weights_only=True)
+     scorer=SemanticScorer(encoder,Prototypes(saved['raw']))
+     head=load_energy(files['energy']['path'])
+-    config=dict(task='T022-C',method='T014 Region2 dark EV upper2',dark_ev_upper=2.,assets=assets,
++    config=dict(task='T023-A',method='T014 Region2 dark EV upper2',dark_ev_upper=2.,assets=assets,
+                 split_sha256=sha(args.split),seed=7,tf32=False,max_steps=40,
+                 native_resolution=True,optimizer='unchanged Adam lr=.03',
+                 checkpoint='minimum predicted energy, earliest tie',
