@@ -1,0 +1,120 @@
+{
+  "groups": {
+    "spatial_pool": {
+      "count": 120,
+      "mse": {
+        "H0": 0.03236870861922701,
+        "H1": 0.030830033973325045,
+        "H_star": 0.030005912009316186
+      },
+      "ratios": {
+        "H1_over_H0": 0.9524641324433933,
+        "H1_over_H_star": 1.0274653196261119
+      },
+      "outcomes": {
+        "beneficial": 43,
+        "equal": 73,
+        "harmful": 4
+      },
+      "harmful_rows": [
+        51,
+        72,
+        75,
+        78
+      ],
+      "movements": {
+        "no_move": 73,
+        "x_only": 19,
+        "y_only": 17,
+        "both": 11
+      }
+    },
+    "left_right": {
+      "count": 40,
+      "mse": {
+        "H0": 0.029433781816624104,
+        "H1": 0.029554176970850676,
+        "H_star": 0.02818427557358518
+      },
+      "ratios": {
+        "H1_over_H0": 1.0040903732648645,
+        "H1_over_H_star": 1.0486051661568834
+      },
+      "outcomes": {
+        "beneficial": 13,
+        "equal": 23,
+        "harmful": 4
+      },
+      "harmful_rows": [
+        51,
+        72,
+        75,
+        78
+      ],
+      "movements": {
+        "no_move": 23,
+        "x_only": 2,
+        "y_only": 13,
+        "both": 2
+      }
+    },
+    "quadrants": {
+      "count": 40,
+      "mse": {
+        "H0": 0.0300630520330742,
+        "H1": 0.0300630520330742,
+        "H_star": 0.0300630520330742
+      },
+      "ratios": {
+        "H1_over_H0": 1.0,
+        "H1_over_H_star": 1.0
+      },
+      "outcomes": {
+        "beneficial": 0,
+        "equal": 40,
+        "harmful": 0
+      },
+      "harmful_rows": [],
+      "movements": {
+        "no_move": 40,
+        "x_only": 0,
+        "y_only": 0,
+        "both": 0
+      }
+    },
+    "offset_left_right_40": {
+      "count": 40,
+      "mse": {
+        "H0": 0.03760929200798273,
+        "H1": 0.032872872916050254,
+        "H_star": 0.03177040842128918
+      },
+      "ratios": {
+        "H1_over_H0": 0.8740625297884589,
+        "H1_over_H_star": 1.0347009859030432
+      },
+      "outcomes": {
+        "beneficial": 30,
+        "equal": 10,
+        "harmful": 0
+      },
+      "harmful_rows": [],
+      "movements": {
+        "no_move": 10,
+        "x_only": 17,
+        "y_only": 4,
+        "both": 9
+      }
+    }
+  },
+  "clauses": {
+    "pooled_gain": true,
+    "pooled_oracle": true,
+    "offset_gain": true,
+    "left_right_safety": true,
+    "quadrants_safety": true
+  },
+  "passed": 5,
+  "fresh_qualified": true,
+  "verdict": "T019-D fresh qualification positive"
+}
