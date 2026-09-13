@@ -24,7 +24,9 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T023-A is a leakage-safe validation-only negative/insufficient real-domain Sobolev recalibration pilot.** A deterministic 16-pair subset from the 589 non-validation LOL-v2 Real training pairs produced 656 EV2-matched source states. The new head fits that source bank extremely well (positive gradient-cosine fraction `1.0`, median cosine `0.9881`, direction loss `0.0168`), but validation quality changes from T022-C `10.2295540 dB / 0.3282315 SSIM` to `10.5166353 dB / 0.3144893 SSIM`: only `+0.2870812 dB` PSNR and `-0.0137422` SSIM. It therefore fails the predeclared joint gate and is not promoted. This shows that near-perfect source value/gradient fitting on a tiny real-source bank does not guarantee joint PSNR/SSIM generalization; the pilot does not justify automatic scaling of the same recipe to all 589 pairs.
 
-Benchmark/SOTA convergence is now the immediate priority. Before any official-test run, T024-A freezes a target-free strong-baseline roster and common evaluation protocol so future comparison cannot drift across incompatible or target-assisted conventions. The official 100-pair LOL-v2 Real test set remains untouched.
+**T024-A completed the target-free strong-baseline protocol audit, but the requested five-method roster is not benchmark-ready.** Retinexformer without `GT_mean` and SNR-Aware have verifiable target-free LOL-v2 paths for later final-test reproduction; Retinexformer's `GT_mean` mode is explicitly rejected because reference statistics alter the output. SG-LLIE's released 2025 checkpoint/config is bound to NTIRE rather than its LOL-v2 paper result, LLFormer lacks a matched official LOL-v2 recipe/checkpoint, and Zero-DCE++ is a valid target-free external-SICE comparator rather than a matched official-LOL-training baseline. The common future metric/reference-boundary protocol is frozen, but recent-SOTA coverage still requires a separate approved baseline-coverage cycle. No baseline inference or official-test decoding occurred.
+
+**T025-A is now the active truth/performance diagnostic.** It measures a non-deployable validation-reference oracle ceiling inside the exact frozen T022-C gate + Region2 EV/gamma action boxes. This will distinguish unused reachable state-space headroom from a fundamentally limited enhancement state before further method tuning. The oracle is validation-only and may never enter deployable test-time adaptation.
 
 ## Best current methods
 
@@ -54,24 +56,27 @@ Benchmark/SOTA convergence is now the immediate priority. Before any official-te
 - **T022-C:** widening only dark positive exposure to `+2 EV` produces a large real-validation gain (`+0.9567 dB`, `+0.05523 SSIM`).
 - **T022-D:** doubling the exact trajectory budget to 80 updates does not improve PSNR/SSIM; simple budget truncation is rejected as the main remaining bottleneck.
 - **T023-A:** a 16-pair real-domain Sobolev head achieves near-perfect source gradient fit but only `+0.2871 dB` validation PSNR while reducing SSIM by `0.01374`; small-source field recalibration does not justify full-data scaling by itself.
+- **T024-A:** the comparison protocol is frozen and target-assisted brightness normalization is excluded, but the initial five-baseline roster has only two matched target-free LOL-v2 candidates and no adequately bound 2025 matched release; recent-SOTA coverage remains incomplete.
 
 ## Information-boundary rules
 
 - Test-time adaptation/selection must never consume test labels, clean/normal-light targets, degradation masks/gain maps, condition IDs, annotations, semantic image IDs, reference gradients/Jacobians, oracle values, or evaluation metrics.
 - Source/development/validation references may be used only in explicitly declared training, calibration, tuning, or diagnostic stages; they may not enter the per-image test-time decision path.
-- Validation/test enhanced outputs and decisions must be finalized and persisted before their references or evaluation metrics are attached.
+- Validation/test enhanced outputs and decisions must be finalized and persisted before their references or evaluation metrics are attached, except for explicitly labeled non-deployable reference-oracle diagnostics whose outputs must remain isolated from deployable TTT.
 - Final benchmark test sets must remain isolated from hyperparameter/model selection; tuning belongs only on predeclared train/validation data.
-- The official 100 LOL-v2 Real test pairs remain untouched after T022-A/B/C/D and T023-A and must stay untouched until a final configuration is frozen.
+- The official 100 LOL-v2 Real test pairs remain untouched after T022-A/B/C/D, T023-A, and T024-A and must stay untouched until a final configuration is frozen.
 - External baselines used in the main comparison must also be target-free at inference; target/reference-based brightness matching or selection is not admissible in the main table.
 - Fresh/test runs must fail closed on source/provenance/preparation binding mismatches.
 
 ## Interpretation
 
-The paper remains image-enhancement-first. T014 supplies the central scientific contribution: learning a reference-free test-time **optimization field** through source-side derivative supervision. T021-A shows this advantage is not specific to MSE. T022–T023 address paper-level benchmark convergence.
+The paper remains image-enhancement-first. T014 supplies the central scientific contribution: learning a reference-free test-time **optimization field** through source-side derivative supervision. T021-A shows this advantage is not specific to MSE. T022–T025 address paper-level benchmark convergence and the source of the remaining real-domain performance gap.
 
-T022-C showed that a controlled-study action box was too conservative for severe real low light. T022-D showed that simply following the same learned energy for longer does not improve restoration. T023-A then showed that a tiny real paired source bank can be fit almost perfectly in value/gradient space without delivering the required joint PSNR/SSIM validation transfer. That result argues against blind scaling or seed/loss tinkering and strengthens the need to quantify the competitive benchmark gap under a rigorously matched protocol before deciding the next architectural change.
+T022-C showed that a controlled-study action box was too conservative for severe real low light. T022-D showed that simply following the same learned energy for longer does not improve restoration. T023-A showed that a tiny real paired source bank can be fit almost perfectly in value/gradient space without delivering the required joint PSNR/SSIM validation transfer. T024-A then froze a fair target-free comparison protocol and exposed incomplete recent-baseline coverage rather than hiding incompatible or target-assisted settings.
 
-The project continues on two lines: narrowly scoped truth/mechanism work only when it directly determines tuning, and higher-priority benchmark/SOTA convergence. Downstream detection is not required. Remaining paper-level gaps are competitive real-benchmark performance, strong matched baseline/SOTA comparison, perceptual metrics, and efficiency/quality tradeoffs.
+The next high-value truth question is whether T022-C's exact gate + Region2 EV/gamma state space itself can reach substantially better restoration when given a non-deployable reference oracle. T025-A answers that before we decide between richer enhancement state/action space and a stronger learned optimization field. In parallel at project level, benchmark/SOTA convergence remains a priority; recent 2025 baseline coverage will resume after this one-hour diagnostic.
+
+The project continues on two lines: narrowly scoped truth/mechanism work only when it directly determines tuning, and higher-priority benchmark/SOTA convergence. Downstream detection is not required. Remaining paper-level gaps are competitive real-benchmark performance, strong matched recent-SOTA comparison, perceptual metrics, and efficiency/quality tradeoffs.
 
 ## Milestones
 
@@ -85,10 +90,11 @@ The project continues on two lines: narrowly scoped truth/mechanism work only wh
 - **T022-C: COMPLETED — materially positive dark-EV action-range probe (`+0.9567 dB`, `+0.05523 SSIM`).**
 - **T022-D: COMPLETED — 80-step budget negative/insufficient (`-0.01384 dB`, `-0.001695 SSIM`).**
 - **T023-A: COMPLETED — 16-pair real-domain Sobolev pilot negative/insufficient (`+0.2871 dB`, `-0.01374 SSIM`).**
-- **T024-A: ACTIVE — strong-baseline provenance/fair-comparison protocol freeze.**
+- **T024-A: COMPLETED — target-free baseline protocol frozen; requested five-method roster has insufficient recent matched coverage.**
+- **T025-A: ACTIVE — frozen T022-C reference-oracle action-space ceiling audit.**
 
 ## Current open task
 
-`T024-A — LOL-v2 strong-baseline protocol and fair-comparison freeze` in `coordination/CHATGPT_TO_CODEX.md`.
+`T025-A — frozen T022-C reference-oracle action-space ceiling audit` in `coordination/CHATGPT_TO_CODEX.md`.
 
-Audit exactly five named strong baseline families (Retinexformer, SG-LLIE, SNR-Aware, LLFormer, Zero-DCE++) using official sources; bind exact code/checkpoint/training/evaluation provenance; identify any target-assisted test normalization; classify validation and final-test fairness; and freeze one common target-free main-table metric protocol. Do not run the official LOL-v2 Real test, train baselines, or modify Ours in this cycle.
+On the frozen 100-image LOL-v2 Real validation split only, optimize the exact T022-C Region2 EV+gamma state directly against the normal-light reference as an explicitly non-deployable oracle, with fixed two-start/500-step settings, and measure the reachable PSNR/SSIM ceiling. Do not modify T022-C, do not feed oracle information into deployable TTT, do not run baselines, and do not touch the official LOL-v2 Real test set.
