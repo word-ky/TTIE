@@ -1,0 +1,219 @@
+{
+  "task": "T018-B",
+  "status": "DONE",
+  "delivered_utc": "2026-09-13T02:05:42.161336+00:00",
+  "source_sha": "e6ef5ab53823cbb07f8fb45e8ac22753a6d83d12",
+  "evidence_sha": "d0268f30fe915dce36c468a232616950f0f05c19",
+  "main_done_sha": "6bc1239b7c4e6d2057250447365742c48bdbd4d1",
+  "branch": "codex/T018B-frozen-energy-local",
+  "pr": "https://github.com/word-ky/TTIE/pull/26",
+  "pr_state": "open",
+  "draft": false,
+  "merged": false,
+  "github_mergeable": null,
+  "github_mergeable_state": "unknown",
+  "local_merge_tree_passed": true,
+  "recovery": {
+    "task": "T018-B",
+    "archive": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T018B_recovery.tar.gz",
+    "bytes": 351572,
+    "sha256": "a4a3e55b01d8497157bbc9062914876c5902eb2d3f174226aeab8ca952835898",
+    "entries": 44,
+    "analysis_sha256": "936470b76d46c9270dfd4bc71601b77d050084d6d1aed762ad81e05b9a567fa8",
+    "main_sha": "6bc1239b7c4e6d2057250447365742c48bdbd4d1"
+  },
+  "remote_mirrors": [
+    {
+      "project": "/home/wenchang/asdasdsad/wjq/TTIE",
+      "archive_sha256": "a4a3e55b01d8497157bbc9062914876c5902eb2d3f174226aeab8ca952835898",
+      "analysis_sha256": "936470b76d46c9270dfd4bc71601b77d050084d6d1aed762ad81e05b9a567fa8",
+      "verified": true
+    },
+    {
+      "project": "/media/wenchang/F/wjq/TTIE",
+      "archive_sha256": "a4a3e55b01d8497157bbc9062914876c5902eb2d3f174226aeab8ca952835898",
+      "analysis_sha256": "936470b76d46c9270dfd4bc71601b77d050084d6d1aed762ad81e05b9a567fa8",
+      "verified": true
+    }
+  ],
+  "summary": {
+    "clauses": {
+      "pooled_3pct_better_H0": false,
+      "pooled_within_3pct_oracle": false,
+      "offset_5pct_better_H0": false,
+      "left_right_safety": false,
+      "quadrants_safety": false
+    },
+    "passed": 0,
+    "interpretation": "frozen_energy_local_signal_insufficient",
+    "label_free_decision": true,
+    "development_only": true,
+    "fresh_qualified": false
+  },
+  "groups": {
+    "spatial_pool": {
+      "count": 120,
+      "mse": {
+        "H0": 0.03504357374816512,
+        "Hselected": 0.038064266139796625,
+        "H_star": 0.032563564518932255
+      },
+      "ratios": {
+        "selected_over_H0": 1.0861981832486383,
+        "selected_over_H_star": 1.1689219746709945
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 61,
+          "fraction": 0.5083333333333333
+        },
+        "y_match": {
+          "count": 55,
+          "fraction": 0.4583333333333333
+        },
+        "joint_match": {
+          "count": 32,
+          "fraction": 0.26666666666666666
+        }
+      },
+      "movements": {
+        "no_move": 38,
+        "x_only": 23,
+        "y_only": 30,
+        "both": 29
+      },
+      "gains": {
+        "beneficial": 24,
+        "equal": 38,
+        "harmful": 58
+      }
+    },
+    "left_right": {
+      "count": 40,
+      "mse": {
+        "H0": 0.03339701551012695,
+        "Hselected": 0.035910235880874095,
+        "H_star": 0.032170985778793695
+      },
+      "ratios": {
+        "selected_over_H0": 1.0752528431765127,
+        "selected_over_H_star": 1.1162305105535566
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 24,
+          "fraction": 0.6
+        },
+        "y_match": {
+          "count": 19,
+          "fraction": 0.475
+        },
+        "joint_match": {
+          "count": 14,
+          "fraction": 0.35
+        }
+      },
+      "movements": {
+        "no_move": 13,
+        "x_only": 7,
+        "y_only": 11,
+        "both": 9
+      },
+      "gains": {
+        "beneficial": 8,
+        "equal": 13,
+        "harmful": 19
+      }
+    },
+    "quadrants": {
+      "count": 40,
+      "mse": {
+        "H0": 0.030983849649783225,
+        "Hselected": 0.03899720684858039,
+        "H_star": 0.030982188356574625
+      },
+      "ratios": {
+        "selected_over_H0": 1.2586301343885211,
+        "selected_over_H_star": 1.2586976232847324
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 20,
+          "fraction": 0.5
+        },
+        "y_match": {
+          "count": 21,
+          "fraction": 0.525
+        },
+        "joint_match": {
+          "count": 11,
+          "fraction": 0.275
+        }
+      },
+      "movements": {
+        "no_move": 12,
+        "x_only": 9,
+        "y_only": 9,
+        "both": 10
+      },
+      "gains": {
+        "beneficial": 0,
+        "equal": 12,
+        "harmful": 28
+      }
+    },
+    "offset_left_right_40": {
+      "count": 40,
+      "mse": {
+        "H0": 0.04074985608458519,
+        "Hselected": 0.03928535568993539,
+        "H_star": 0.03453751942142844
+      },
+      "ratios": {
+        "selected_over_H0": 0.9640612130847798,
+        "selected_over_H_star": 1.1374689424151636
+      },
+      "target_agreement": {
+        "x_match": {
+          "count": 17,
+          "fraction": 0.425
+        },
+        "y_match": {
+          "count": 15,
+          "fraction": 0.375
+        },
+        "joint_match": {
+          "count": 7,
+          "fraction": 0.175
+        }
+      },
+      "movements": {
+        "no_move": 13,
+        "x_only": 7,
+        "y_only": 10,
+        "both": 10
+      },
+      "gains": {
+        "beneficial": 16,
+        "equal": 13,
+        "harmful": 11
+      }
+    }
+  },
+  "decision_receipt": {
+    "reference_opened_utc": "2026-09-13T01:59:54.410768+00:00",
+    "decisions_sha256": "9e1f4bc29629600760c249adb11f270833e6b4bc3f8c40bd00596020b1af0017",
+    "decisions_frozen_sha256": "b753261aeae81decb4b26948ac7deeec1a4007eaabc0df93e2a5e2b646a08c52",
+    "completed_utc": "2026-09-13T01:59:55.171666+00:00"
+  },
+  "focused_tests_passed": true,
+  "independent_verification_passed": true,
+  "label_free_decision": true,
+  "development_only": true,
+  "no_training_pixels_rendering_or_gpu_experiment": true,
+  "formal_failures": [],
+  "scientific_deviations": [],
+  "operational_note": "Setup rg wildcard discovery failed; exact Git path lookup succeeded.",
+  "heartbeat": "existing ttie-chatgpt every15minutes; unchanged state quiet",
+  "next_action": "await research review; no gate, predictor, training, fresh evaluation, self-merge or unissued T018-C"
+}
