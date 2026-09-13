@@ -1,0 +1,36 @@
+{
+  "task": "T022-A",
+  "method": "T014 Sobolev Region2",
+  "assets": {
+    "accepted_commit": "cebecffbd1335fade336df17d653eb4e5fb65ba3",
+    "files": {
+      "clip": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t004/open_clip_pytorch_model.bin",
+        "sha256": "1bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad"
+      },
+      "energy": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/research_log/T014_energy.pt",
+        "sha256": "c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521"
+      },
+      "prototypes": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/research_log/remote_runs/20260912-071126-ttie-t006-a6000/artifacts/audit/prototypes.pt",
+        "sha256": "b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7"
+      },
+      "gate": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/T022A_gate.json",
+        "sha256": "b7458c51466fd89c1bfa8e7c4bf1dd820ddf56e33c12c406f6625ac64361a4ce"
+      }
+    }
+  },
+  "split_sha256": "b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b",
+  "seed": 7,
+  "tf32": false,
+  "max_steps": 40,
+  "native_resolution": true,
+  "optimizer": "unchanged Adam lr=.03",
+  "checkpoint": "minimum predicted energy, earliest tie",
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "frozen_before_inference_utc": "2026-09-13T18:40:35.638544+00:00"
+}

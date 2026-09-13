@@ -1,5 +1,3 @@
-# T022-A DONE — delivery in progress
-
 # T022-A untuned LOL-v2 Real validation anchor
 
 UTC: 2026-09-13T18:49:24.077647+00:00
