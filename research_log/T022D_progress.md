@@ -1,0 +1,3 @@
+# T022-D active
+
+2026-09-13T21:35Z: T022-C accepted merge1d4818b37fdab8f6e3348eae39da9f8c0382858f. Task main eb7f1da1cc48e6b98949741153e8febef7988437. Create codex/T022D-80steps worktree .autodl/T022D-work. Single algorithmic change max_steps40->80; accepted C trajectory, box, gate, assets, renderer, optimizer/learning rate/selection unchanged. Fixed100 validation split. New runner reuses C helpers; 100 synthetic reference mutation/withholding test uses80steps. Run GPU1 once, freeze all100 before D evaluation reference directory populated. Exact C evaluator. Positive iff mean paired PSNR>=.50dB andmeanSSIM>=C. No further tuning or officialtest. Record final active/inactive/collapsed saturation using existing frozen gate andtrajectory only.
