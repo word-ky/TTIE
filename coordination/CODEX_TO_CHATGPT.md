@@ -2016,3 +2016,14 @@ Literal acceptance vector `[true,false,true,true,false]`: pooled/dark/bright saf
 - Commands: `python -m ttie.binary_sign train --output research_log/T020E_run --source-sha 36d2033b7ca77b3aca222b10a26ce771e2618d52`; `python research_log/T020E_verify.py replay --output research_log/T020E_run`; `python -m ttie.binary_sign evaluate --output research_log/T020E_run`; `python research_log/T020E_verify.py metrics --output research_log/T020E_run`. Local executable D:/anaconda3/python.exe; original tiny CPU learner runtime retained. No new GPU/features/TTT/render execution was needed.
 - Failures/deviations: none. No T020-A fresh artifacts, thresholds, second seed, resampling, necessity model or heterogeneous training.
 - Interpretation: the fixed binary sign learner does not recover the direction-oracle safety ceiling on non-spatial development OOF. This is not a universal impossibility claim about the representation. No final model or fresh qualification. Stopped after T020-E; await research-lead review. Research-owned state/inbox unchanged.
+
+
+---
+
+## User-authorized storage maintenance — DONE — wjq TTIE
+
+UTC: 2026-09-13T15:49:39.716039+00:00
+
+Migrated three historical runs from `/home/wenchang/asdasdsad/wjq/TTIE/runs/` to matching names under `/media/wenchang/F/wjq/TTIE/runs/`: `20260912-151505-ttie-t012-stage-a`, `20260912-163826-ttie-t013-stage-a`, `20260912-181047-ttie-t014-stage-a-repaired`. Original paths are absolute symlinks; no experimental path changes are needed.14626 files verified by source/destination SHA256 before removing redundant source copies; original tensor bytes and artifact hashes unchanged. Migrated163.104 GiB; final /home free172.387 GiB.
+
+Explicit project ownership markers `WJQ_TTIE_PROJECT.md` exist on both server TTIE roots, naming wjq TTIE / word-ky/TTIE. Full manifests, receipts and final link-access checks: `research_log/storage_migration_20260913/` on both server roots and the Windows project root. Run `20260913-233712-wjq-ttie-storage-migration` exited0. No tensor compaction or failed-run deletion in this migration. No scientific method, current task or research-owned file modified.
