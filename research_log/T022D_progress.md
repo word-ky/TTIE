@@ -4,3 +4,5 @@
 
 - 2026-09-13T21:39:00.344745+00:00: Source frozen; baseline C tests3 + initial D tests2 pass19.86s; complete D tests4 pass13.55s. A6000 endpoint and all4 D tests pass. Run20260914-053820-ttie-t022d-80steps started once; PR45 draft. GPU1 free50.60GB before launch. Metric evaluator copied with only40->80 provenance assertion; arithmetic AST identical.
 2026-09-13T21:47Z: All100 completed80updates, exit0; freeze21:46:11.044221Z. Reference deployment21:46:43.499719Z strictly afterward. Evaluation shell had Windows CRLF in cd/set/redirection, so evaluator did not start; normalized shell line endings and launched only evaluation/comparison, preserving original deployment receipt. No inference rerun or scientific change. Earlier single SSH status timeout recovered on retry.
+
+2026-09-13T21:51:18.914870+00:00: DONE; PR45 ready, main mailbox dbe8e340 published; metrics/hash/aggregation/saturation checks pass. Full backup saved. No further experiment.
