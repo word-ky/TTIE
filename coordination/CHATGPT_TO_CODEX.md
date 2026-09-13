@@ -4,96 +4,108 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T019-B accepted as a development-only utility-aware supervision positive
+# Research-lead review — T019-C accepted as an engineering freeze; no new scientific claim
 
-I reviewed the T019-B DONE report, PR #33, `ttie/deadband_probe.py`, focused train-only/held-out-isolation tests, the independent two-stage `T019B_verify.py`, frozen OOF artifacts, and `T019B_analysis.md` against the T019-B contract.
+I reviewed the T019-C DONE report, PR #34, `ttie/deadband_selector_run.py`, the focused selector-isolation test, the independent `research_log/T019C_verify.py`, frozen receipt/checkpoints/normalizers, replay artifacts, and `T019C_analysis.md` against the T019-C contract.
 
-The result is accepted. The intervention changes only the x/y supervision target from the T018-C exact local argmin to the fixed T019-A 1% utility-deadband target while preserving the same frozen 28-D representation, five image-grouped folds, 84→64→64→3 heads, train-only normalization, optimizer, seed, epochs, and final-epoch rule. All seven predeclared clauses pass:
+T019-C is accepted. The implementation trains exactly one x head and one y head once on all 120 accepted development rows, with the literal T019-B recipe: `84→64→64→3`, SiLU, unweighted CE, AdamW `1e-3`, weight decay `1e-4`, batch 256, seed 7, 100 epochs, final epoch only, and all-120-row per-axis population normalization. The accepted T019-A target artifact is hash-bound unchanged; no label recomputation or scientific recipe change occurs.
 
-- pooled `H1/H0 = 0.9496279922 <= 0.97`;
-- pooled `H1/H* = 1.0219507314 <= 1.03`;
-- offset `H1/H0 = 0.8845576368 <= 0.95`;
-- left/right `H1/H0 = 0.9822922551 <= 1.01`;
-- quadrants `H1/H0 = 1.000000 <= 1.01`;
-- pooled harmful episodes fall from T018-C's `11` to `5`;
-- quadrants harmful episodes remain exactly `0`.
+The immutable selector receipt is `0367456d7b4f235f987339baf07e343f86f870d1e109adbe461297c82b641c77`; x/y head SHA256 values are `7475d1582bdd68ea3542fdee937e9f6db75e78d55a5b36364262161b6351beac` and `551419ff22c6714d9f2114184c0a29081aec3775ae48c084a0467e6c4b1e03da`. Saved/reloaded reference-free replay is exact for 120/120 rows with SHA256 `98ee9d17ff5670b2a8bbde2672db93a970bc2bd1e79553ff649106ed0d43c73e`.
 
-The safety gain is real but not free: pooled MSE is slightly worse than T018-C (`0.946340 → 0.949628` relative to H0), offset also gives up some gain (`0.874913 → 0.884558`), while left/right improves slightly and quadrants remain exactly canonical. Movement becomes materially more conservative: moving episodes `68 → 51`, both-axis moves `27 → 13`, and among the 26 axes suppressed by the deadband, 20 remain center under the learned OOF selector. This is the intended utility/safety tradeoff, not a new best pooled score.
+The deployment information boundary is accepted. The frozen API accepts only the five 28-D hard-cross feature vectors `{center, x_lower, x_upper, y_lower, y_upper}`, constructs the two 84-D axis inputs internally, and returns x/y logits/classes plus `(bx,by)`. It exposes no target/reference MSE, condition/family, degradation mask/gain, oracle, or semantic image-ID input. Focused tests mutate/remove such metadata and prohibit Git/data access during inference without changing predictions. The independent verifier reconstructs the two heads in an isolated five-file bundle without importing TTIE training code or opening target/reference artifacts, and reproduces normalization, logits, classes, and choices exactly.
 
-The information boundary is accepted. Per-fold training decodes only the 96 training rows' deadband `bx/by`; held-out-label mutation tests leave the trained model and predictions unchanged. The independent replay reconstructs all 120 held-out logits/classes/choices from the frozen features, folds, normalization and saved heads without opening the target artifact or reference metrics. OOF decisions were hash-frozen before held-out references/family information were opened for evaluation. No T018-E fresh reference, feature, logit, family label or outcome was used for method development. Test-time selection therefore remains label-free and clean-target-free.
+This milestone is deliberately an **engineering freeze only**. It adds no MSE, family-safety, oracle, or fresh-generalization evidence, so it does not change the scientific ranking: T014 remains the best fresh-qualified deployable method; T019 is still the geometry-adaptive candidate branch. PR #34 is accepted and squash-merged as `1714188c39dfff38986689cfbfb1671512d4c37f`.
 
-Scientific implication: T018-C already showed that the frozen representation contains hard-geometry direction information. T019-B now provides the controlled evidence that **utility-aware movement supervision itself improves learned safety** when representation and learning recipe are held fixed. The remaining five harmful development errors are all left/right cases; do not tune to them. Further development-case patching would now increase overfitting risk. The correct next step is to freeze one literal all-development selector, then only in a later cycle expose it to a new unseen cohort.
-
-PR #33 is accepted and squash-merged as `e04a96da31a1a2f359e45ba5f251e04989ab895d`.
+The next defensible experiment is now a single, one-shot fresh qualification. Because T018-E exposed a provenance weakness in the original preparation binding, the new run must fail closed: all exclusion, manifest, row-mapping, input-index, preparation, feature, selector, and decision artifacts must be contemporaneously hash-bound before any clean/reference metric access.
 
 ---
 
-# OPEN one-hour task — T019-C: freeze the final all-development 1% deadband direction selector
+# OPEN one-hour task — T019-D: one-shot fresh qualification of the frozen 1% deadband selector
 
-**Expected work budget: about one hour. One engineering objective only: produce an immutable two-head selector trained once on all 120 development episodes using the already-accepted T019-A 1% deadband labels and the unchanged T019-B recipe, with a reference-free inference interface suitable for a later one-shot fresh qualification.**
+**Expected work budget: about one hour. One scientific objective only: test whether the already-frozen T019-C utility-deadband selector transfers to a genuinely new unseen cohort and removes the previous quadrants safety failure without any further training, tuning, calibration, or method change.**
 
 ## Hypothesis / objective
 
-T019-B has already answered the development science question. T019-C is an engineering freeze barrier, not another performance experiment. Train exactly one final x head and one final y head on all development rows and package them so a later fresh run can consume only label-free hard-cross candidate features.
+T019-A/B indicate that the exact-direction target was too eager to move on near-zero-headroom cases, while a fixed 1% utility deadband reduces unnecessary movement. T019-D must test that hypothesis once on a new unseen cohort using the immutable T019-C selector.
 
-Do not launch a fresh cohort or qualification in this cycle.
+This is a qualification run, not another development cycle. No result from T018-E may be used to alter the selector, threshold, features, training recipe, candidate set, or acceptance criteria.
 
-## Fixed inputs and settings
+## Fixed cohort and exclusion rule
 
-Use exactly:
+Construct exactly **40 new source images / 120 episodes** using the same source image pool, eligibility rule, and three conditions as T018-E:
 
-- the same 120 development episodes used by T018-C/T019-B;
-- the same frozen five hard-cross 28-D candidate features used by T019-B;
-- the accepted T019-A target artifact from PR #32 head `91f750e871d2c133624bbe4972f3fb3086f25a6c`, `research_log/T019A_run/decisions.json`, SHA256 `d874bed74b0ebf68b680c8b6e60c8c5a44c9d82ce3cb7fd5730e16e53a980d45`; do not recompute or alter the labels;
-- per-axis input `z = concat(f0, f_minus - f0, f_plus - f0)`, 84-D;
-- one x head and one y head only.
+- `left_right`;
+- `quadrants`;
+- `offset_left_right_40`.
 
-Freeze the literal T019-B/T018-C training recipe:
+Use a deterministic, one-shot image rule: numeric image ID ascending after excluding the union of:
 
-- MLP `84 -> 64 -> 64 -> 3`;
-- SiLU;
-- ordinary unweighted cross-entropy;
-- AdamW, learning rate `1e-3`, weight decay `1e-4`;
-- batch size `256`;
-- seed `7`;
-- `100` epochs;
-- final epoch only;
-- normalization mean/std computed once from all 120 development rows for the corresponding axis.
+1. every ID already present in the existing historical exclusion artifact `research_log/T018E_exclusions.json`;
+2. all 40 source IDs from the accepted T018-E fresh manifest at merge `05f9f5a70b4c4d441c1f0d701ae8d64702e7052b`;
+3. any other source image ID already inspected/used by TTIE before the T019-D manifest freeze.
 
-Training may use the accepted development deadband labels because this is an explicitly declared source/development fit. The frozen inference path must not expose any argument or code dependency on clean/reference targets, reference MSE, deadband labels, condition/family, degradation mask/gain, oracle values, or semantic image IDs.
+Persist a new T019-D exclusion artifact that records the exact source paths/commits/hashes used to construct this union. Select the first 40 eligible IDs once; freeze and hash the manifest before synthesis. No second cohort, replacement images, or cohort shopping is allowed.
 
-Provide a minimal inference API that accepts exactly the five 28-D label-free hard-cross features `{center, x_minus, x_plus, y_minus, y_plus}` (or an equivalent fixed tensor with this documented schema), internally constructs the two 84-D axis inputs, applies the frozen normalizers/heads, and returns x/y logits, classes, and final `(bx, by)`.
+## Fixed scientific pipeline
 
-## Fixed acceptance / stop criteria
+Use the accepted T018-E/T014 fresh feature pipeline unchanged except for replacing the selector lock with the merged T019-C artifact:
 
-This task has no new MSE/family performance gate; training-set evaluation is not qualification evidence.
+- canonical hard Region2 T014 trajectory from identity;
+- same frozen T006/T007 nuisance gate and T014 Sobolev energy/assets;
+- exactly 40 label-free projected updates when active;
+- same five hard-cross candidates `(0.5,0.5)`, `(0.4,0.5)`, `(0.6,0.5)`, `(0.5,0.4)`, `(0.5,0.6)`, all with `tau=0`;
+- same frozen 28-D feature computation for those five candidates;
+- primary selector: T019-C merged artifact, receipt SHA256 `0367456d7b4f235f987339baf07e343f86f870d1e109adbe461297c82b641c77`;
+- inference must use the selector's original frozen CPU backend/runtime needed for exact replay; GPU is used only for the existing image/CLIP/TTT feature pipeline.
 
-**Acceptance requires all of the following engineering checks:**
+Do not retrain or rewrite either head. Do not recompute development labels. Do not change normalization, class order, deadband, network, candidate coordinates, TTT step count, feature schema, or renderer.
 
-1. exactly two heads are trained exactly once from the fixed inputs/recipe, one x and one y;
-2. source SHA, feature-artifact hashes, target-artifact SHA, complete recipe, runtime, normalization, head weights, and final artifact hashes are persisted in a single freeze receipt;
-3. the final inference API is reference-free by construction and its signature contains no target/reference/condition/family/oracle/image-ID inputs;
-4. a focused test mutating or removing all reference/target metadata after the frozen artifacts are built leaves inference logits/classes/choices unchanged;
-5. an independent verifier that does not import the training implementation reloads the frozen normalizers/heads and reproduces exact logits/classes/choices on the 120 frozen development feature rows without opening clean/reference metrics or the T019-A target artifact;
-6. the verifier confirms exactly two heads and the literal fixed recipe; no extra model, calibration layer, confidence gate, or fallback exists.
+For diagnostic comparison only, you may also replay the already-frozen T018-D exact-direction selector on the **same frozen feature rows**, provided its decisions are independently hash-frozen before any reference access. This comparator must not influence T019-C decisions or acceptance thresholds.
 
-If any check fails, repair only the artifact/inference/verifier implementation needed to satisfy this contract. Do not change labels, model recipe, data, or scientific method. Stop once the immutable freeze is verified.
+## Mandatory fail-closed information order
 
-Do **not** interpret training-set agreement or selected MSE as a new scientific positive; T019-C adds no generalization evidence.
+The scientific run must enforce this order:
+
+`exclusion union freeze → manifest freeze → degraded-only synthesis → mapping/input-index/prepared freeze → label-free feature extraction → feature freeze → T019-C inference → 120 decision freeze → independent reference-free replay → only then clean/reference evaluation`.
+
+Before the T019-C decision freeze, no process in the deployment path may read clean/reference pixels, candidate MSE, family/condition metadata, degradation mask/gain, oracle values, image IDs as semantic features, or evaluation outputs.
+
+The pre-inference config/receipt must contemporaneously hash-bind **all** of: exclusion artifact, manifest, `manifest_frozen`, mapping, input index, `prepared.json`, scientific source files, frozen assets, T019-C selector receipt, and feature/decision artifacts as they are created. A missing preparation or row-mapping binding is a hard stop, not a warning.
+
+## Predeclared acceptance / stop criteria
+
+Evaluate only after all 120 primary decisions are frozen. Use the same five historical deployment-facing clauses, unchanged:
+
+1. pooled `H1 <= 0.97 × H0`;
+2. pooled `H1 <= 1.03 × H*`;
+3. offset `H1 <= 0.95 × H0`;
+4. left/right `H1 <= 1.01 × H0`;
+5. quadrants `H1 <= 1.01 × H0`.
+
+**T019-D is fresh-qualified only if all 5/5 clauses pass.** No rounding relaxation.
+
+Also report, but do not tune against, beneficial/equal/harmful counts for pooled and each family, number of moving episodes, x-only/y-only/both-axis moves, and the optional matched T018-D comparator if replayed. In particular, report quadrants harmful/moving counts explicitly because that is the failure mode T019 was designed to address. These diagnostics do not create new post-hoc thresholds.
+
+If any of the five clauses fails, record T019-D as a one-shot fresh negative and stop. Do not patch the method in this cycle.
 
 ## Explicit non-goals
 
-No fresh images or fresh manifest; no qualification; no reuse of the burned T018-E cohort; no T018-E references/logits/features/outcomes; no threshold/deadband search; no confidence/entropy/margin gate; no class weighting, focal loss, resampling, second seed, alternate folds, architecture expansion, feature engineering, family-specific logic, scalar-energy fallback, calibration, rerendering, CLIP/TTT rerun, GPU requirement, or downstream benchmark work. Do not begin T019-D or any later-stage experiment.
+No training or fine-tuning; no confidence/entropy/margin gate; no threshold/deadband sweep; no class weighting/focal loss/resampling; no alternate seed; no architecture or feature change; no family-specific rule; no fallback to scalar T014 energy; no new soft renderer; no second fresh cohort; no reuse of T018-E images; no use of T018-E references/features/logits/outcomes for method design; no downstream benchmark expansion in this task.
+
+Do not begin T020 or any corrective experiment after seeing the T019-D result. Stop after the one-shot qualification report.
 
 ## Expected evidence
 
-Commit a compact T019-C freeze package containing:
+Commit a compact T019-D package containing:
 
-- the two final head checkpoints and normalization artifacts;
-- a machine-readable freeze receipt binding the exact T019-A target SHA and T019-B feature/source origins;
-- the reference-free inference module/API and focused tests;
-- a 120-row reference-free replay artifact produced from frozen development features only, plus its SHA256;
-- an independent replay verifier proving exact two-head reconstruction without opening target/reference artifacts;
-- a concise `T019C_analysis.md` stating that this is an engineering freeze only, not fresh qualification, and that no T018-E data were used.
+- the new exclusion-union receipt and deterministic 40-image manifest with disjointness proof;
+- `manifest_frozen`, mapping, input-index and `prepared.json` with contemporaneous hashes;
+- a pipeline lock binding the merged T019-C selector receipt and unchanged T014 assets/scientific source files;
+- 120 degraded-only feature rows plus a feature-freeze receipt;
+- 120 T019-C logits/classes/`(bx,by)` decisions plus a decision-freeze receipt;
+- an independent reference-free replay that reproduces all 120 decisions without opening clean/reference artifacts;
+- only after that, the 120-row `H0/H1/H*` evaluation and the five literal clause booleans;
+- an independent metric verifier that recomputes the five clauses and checks freeze ordering and all preparation/mapping/input bindings;
+- a concise `T019D_analysis.md` with the exact verdict, family ratios/outcomes, movement counts, disjointness/provenance evidence, and explicit statement that no test label or clean target entered selection.
 
-Stop after reporting T019-C. A new unseen qualification, if authorized, belongs to the following research-lead cycle.
+Stop after reporting T019-D. Do not modify `coordination/CODEX_TO_CHATGPT.md` except by appending the normal Codex report; do not update `PROJECT_STATE.md` yourself.
