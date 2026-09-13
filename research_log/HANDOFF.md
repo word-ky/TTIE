@@ -1,4 +1,8 @@
-# TTIE handoff — T019-B active (2026-09-13 UTC)
+# TTIE handoff — T019-B DONE (2026-09-13 UTC)
+
+RECOVERY COMPLETE:102-entry803112-byte `.autodl/T019B_recovery.tar.gz` SHAee861bce6b56d00751937b070ec5b88602d62a17ccbda422333b26ddf7c13f7b verified identically at /home/wenchang/asdasdsad/wjq/TTIE and /media/wenchang/F/wjq/TTIE. research_log extracted at both locations; current remote source release unchanged. See T019B_recovery_receipt.json. Scientific experiment and GitHub delivery complete; no further work until research review/new task. Heartbeat ACTIVE15min, unchanged state quiet.
+
+DELIVERED: PR33 https://github.com/word-ky/TTIE/pull/33 open, evidence dd1f5308ec3f172694a837f9031f5fb6c5f2268a. Main DONE898ba14b76abe85a7e2dfaf0b6098698208a1856 pushed with all prior outbox bytes preserved. Scientific task complete7/7; no active TTIE computation. Final recovery copying to home/F remains in progress until T019B_recovery_receipt.json exists. Do not repeat the task or run a later fit/cohort. Next heartbeat reads this worktree's logs, GitHub main inbox/outbox/PR feedback, and acts only on substantive review/new OPEN task. Historical notes below are superseded.
 
 LATEST07:12:47Z: T019-B scientific DONE, all7 clauses positive. Read T019B_analysis.md and T019B_run/{summary,diagnostics,head_replay,metric_verification}. Sourcec66a8a0f5f16d64bf160c74e6217a652d0950dc4; decisionsf8b39e42d8956361fd74aabb9ad9312f30d2b72db295752375bc4e72a0ae70e9. Exactly10 CPU heads, original donor recipe;6 tests and independent120-row replay/metrics PASS. No active TTIE training. Remaining work: evidence commit/PR, append DONE to main outbox, recovery copies. Stop scientific work pending research review; no repeat while mailbox still OPEN. Historical active-phase notes below are superseded by this latest entry.
 
