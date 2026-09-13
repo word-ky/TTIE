@@ -1,4 +1,4 @@
-# T022-A DONE — delivery in progress
+# T022-A DONE — ready for review
 
 # T022-A untuned LOL-v2 Real validation anchor
 
@@ -37,9 +37,11 @@ Tests:9 baseline tests passed16.16s;2 native-loader/split tests passed6.96s; fin
 
 ## Artifacts and observed failures
 
-Run `20260914-024025-ttie-t022a-core`. Compact evidence under `research_log/remote_runs/20260914-024025-ttie-t022a-core/`; includes per-image CSV, timing, decisions, trajectories, aggregate JSON, freeze/config, logs and independent audit. Original output.pt files remain on the server under the same run path; compact Git package deliberately omits large image tensors but retains their hashes and exact index paths. Original canonical archive is project-local `.autodl/LOL-v2.zip`.
+Run `20260914-024025-ttie-t022a-core`. Compact evidence under `research_log/remote_runs/20260914-024025-ttie-t022a-core/`; includes per-image CSV, timing, decisions, trajectories, aggregate JSON, freeze/config, logs and independent audit. Original output.pt files remain on the server under the same run path; compact Git package deliberately omits large image tensors but retains their hashes and exact index paths. Original canonical archive is project-local `.autodl/LOL-v2.zip`. Complete run/input/source backup: `/media/wenchang/F/wjq/TTIE/shared/t022a/T022A_execution.tar`,11973048320 bytes, SHA256 `55baa3bce132b8dfa2b82dab7a12872e5eb6308398faa7540a30cf786ec723b9`; original100 output hashes verify within that archive.
 
 A transient SSH timeout/log disconnection and one GitHub push timeout recovered without restarting inference. One PR creation attempt returned422 because that push had failed; successful push then created PR42. Missing root-path gate JSON was handled by deploying the exact accepted Git blob before running. No scientific execution or metric failure; no outputs/settings changed after results. No unrelated jobs changed.
+
+Output serialization retains underlying PyTorch trajectory storage (11808423700 bytes across100 output.pt files). Selected tensors and their metrics are correct and independently verified; frozen files are preserved unchanged. Slow gzip backup was stopped and its partial archive retained; the uncompressed F-drive backup is complete and all100 original output hashes were independently checked inside it. This is a storage overhead issue, not an inference or metric failure.
 
 Recommended next step: research lead reviews this weak but valid untuned real-benchmark anchor and scopes the next validation-only tuning or baseline-comparison task. Stop here; no corrective tuning or official-test evaluation in T022-A.
 
