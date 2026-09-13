@@ -1,0 +1,27 @@
+[autodl] run_id=20260914-061503-ttie-t023a-source
+[autodl] started_at=2026-09-14T06:15:07+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+source 1/16 frozen41, supervised41, seconds=9.72
+source 2/16 frozen41, supervised41, seconds=10.27
+source 3/16 frozen41, supervised41, seconds=10.14
+source 4/16 frozen41, supervised41, seconds=9.88
+source 5/16 frozen41, supervised41, seconds=9.94
+source 6/16 frozen41, supervised41, seconds=10.38
+source 7/16 frozen41, supervised41, seconds=10.52
+source 8/16 frozen41, supervised41, seconds=8.88
+source 9/16 frozen41, supervised41, seconds=10.12
+source 10/16 frozen41, supervised41, seconds=10.19
+source 11/16 frozen41, supervised41, seconds=10.11
+source 12/16 frozen41, supervised41, seconds=10.26
+source 13/16 frozen41, supervised41, seconds=9.24
+source 14/16 frozen41, supervised41, seconds=10.44
+source 15/16 frozen41, supervised41, seconds=10.46
+source 16/16 frozen41, supervised41, seconds=10.44
+TRAINING_FROZEN {"rows": 656, "energy_sha256": "e9f894a3c211f529bc2015375198f376fea4c7125086ec2de0a058e7c81f1770", "completed_utc": "2026-09-13T22:17:55.658000+00:00"}
+[autodl] finished_at=2026-09-14T06:17:56+08:00
+[autodl] exit_code=0
