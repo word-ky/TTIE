@@ -1523,3 +1523,49 @@ Commands and exact outcomes:
 Original decision SHA256 `8aefe5e88aa823e6d415bb1580a00765aaf507e4a106766fef5495e238a1bc26` and all raw bytes unchanged. Quantities and choice hash persisted before family labels. No tolerance, clipping, new choices, alternate softness, legacy T016-B data, images, model, rendering, training, fresh data or GPU experiment. Failures/deviations: none.
 
 Interpretation/next step: this frozen `tau=0.05` matched-soft rescue is insufficient and closed. Near-oracle choice within a soft renderer does not make that renderer family-safe relative to hard Region2. T014 remains the best fresh-validated deployable result. Stop after T017-C, await research review; do not begin T017-D, an alternate tau, or trainable geometry. Existing 15-minute heartbeat continues, unchanged state quiet.
+
+
+---
+
+## T018-A — DONE — 2026-09-13T01:38:18.557333+00:00
+
+**Literal result: hard local-direction target viable, 5/5**, vector `[true,true,true,true,true]`. This is reference-only development target viability, not a deployable selector or fresh qualification. The choices require reference MSE; no label-free predictor was trained.
+
+- Source: `c9f3a0ac763f2f0e5b3a8a67d009f2792f8fe118`.
+- Evidence: `8a67f0532210dbdf67be8e0f5b181ac6a7582085`.
+- Branch: `codex/T018A-hard-local-audit`.
+- Ready PR: https://github.com/word-ky/TTIE/pull/25 (open/unmerged; no self-merge).
+- Accepted C merge: `de73871600a8089e176ec21f06fb2d54b4486faf`.
+
+| Group | H0 | H1 | H* | H1/H0 | H1/H* | Headroom recovered |
+|---|---:|---:|---:|---:|---:|---:|
+| Pooled | 0.0350435737482 | 0.0326067848946 | 0.0325635645189 | 0.930464031121 | 1.00132726181 | 98.257249% |
+| Left/right | 0.0333970155101 | 0.0321709857788 | 0.0321709857788 | 0.963289242688 | 1.0 | 100% |
+| Quadrants | 0.0309838496498 | 0.0309821883566 | 0.0309821883566 | 0.999946381963 | 1.0 | 100% |
+| Offset | 0.0407498560846 | 0.0346671805484 | 0.0345375194214 | 0.850731361516 | 1.00375421076 | 97.912844% |
+
+The exact five comparisons pass: pooled H1/H0 <=0.97; pooled H1/H* <=1.03; offset H1/H0 <=0.95; LR and quadrants H1/H0 <=1.01. No tolerance/fallback.
+
+| Group | No move / x only / y only / both | Beneficial / equal / harmful | Oracle tie-set matches |
+|---|---|---|---|
+| Pooled | 51 / 6 / 33 / 30 | 69 / 51 / 0 | 115/120 (95.8333%) |
+| Left/right | 7 / 0 / 33 / 0 | 33 / 7 / 0 | 40/40 |
+| Quadrants | 39 / 1 / 0 / 0 | 1 / 39 / 0 | 40/40 |
+| Offset | 5 / 5 / 0 / 30 | 35 / 5 / 0 | 35/40 (87.5%) |
+
+All 120 selected axis pairs are individually non-worse than center. Zero harmful combined moves means zero observed pure interaction failures; harmful-example lists are empty. The focused synthetic test exercises this failure type explicitly without changing the rule. There are 12 tied hard-oracle episodes (5 LR, 7 offset), with exact tie-set equality preserved.
+
+Factorization regret pooled mean 4.3220375664532186e-05, median0, p95=0, max0.002898089587688446. Only five offset rows have nonzero regret; offset mean0.00012966112699359656, p95=0.0004162876401096546. LR/quadrant regret is identically zero. Per-episode zero oracle-headroom denominators remain null on51 rows (7 LR,39 quadrants,5 offset). Aggregate quadrant headroom is positive but tiny1.66129320860e-06; 100% recovery reflects one small improvement. Full distributions and ratios are in `T018A_analysis.md` and `T018A_run/summary.json`.
+
+Files: `ttie/hard_local.py`, `tests/test_hard_local.py`, project-local spec/baseline/log/test/run receipts, `T018A_analysis.md`, `T018A_run/`, independent `T018A_verify.py` plus verification receipts, handoff. Final recovery/delivery receipt follows in this PR.
+
+Commands/outcomes:
+- `D:/anaconda3/python.exe -m unittest tests.test_hard_local -v`:4 PASS in0.052s.
+- `D:/anaconda3/python.exe -m py_compile ttie/hard_local.py tests/test_hard_local.py`:PASS.
+- Precheck:exact120x27 grid, five hard-cross/nine-hard entries present exactly once each per row, canonical120/120 exact; only two immutable accepted T016-A input JSONs.
+- `D:/anaconda3/python.exe -m ttie.hard_local --source-sha c9f3a0ac763f2f0e5b3a8a67d009f2792f8fe118 --output research_log/T018A_run`:one CPU run, exit0; UTC command receipt preserved.
+- `D:/anaconda3/python.exe research_log/T018A_verify.py`:PASS, five source/two input hashes, all120 choices/quantities, allgroup statistics/exactclauses/freezeorder independently checked.
+
+Choice SHA256 `72cd12af095bcef89e461b3e3ec38ec7edad12f86825bc27e91b6509ed3b77c3`; quantity SHA256 `c99891e778a750f035e58380845ee803df08f77e70cab9178abd9f04cdf9c40e`. Choice and quantity bytes are frozen before family reporting starts at 2026-09-13T01:34:03.769798+00:00. The selector reads only hard-cross indices[12,3,21,9,15], literal tie order center0.5/lower0.4/upper0.6. No condition/image ID influences decisions. Inherited gx/gy descriptive hard differences never affect choices. No soft-candidate values, images, models, rendering, training, new data or GPU experiment. Failures/deviations:none. PROJECT_STATE still referenced C at launch; newer explicit T018-A inbox governed execution, research-owned files unchanged.
+
+Recommended next decision: the hard landscape supports a later question about predicting these local hard directions without reference MSE at deployment. This result does not establish learnability, deployment safety or fresh generalization. **Stop after T018-A**; no automatic T018-B, geometry predictor/head, derivative training or fresh evaluation. Existing15-minute heartbeat continues, unchanged state quiet.
