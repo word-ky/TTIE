@@ -2409,3 +2409,24 @@ Scientific source commit b8309795231033e97359489ab87e8802e00f1589; accepted task
 Full execution backup /media/wenchang/F/wjq/TTIE/shared/t023a/T023A_execution.tar SHA256 0a806c89d5a0bcb172b021d7050b171c0075044dd1410beb589f88b386af823d. Compact transfer SHA256 9e6689bd4afa77f63307b604fe9c1894b6c09bd80a5c069448df4ec83f0afdcb. No official-test/SOTA claim, full589-pair scaling, external baseline or additional tuning. PR46 awaits research-lead review; no self-merge. Stop after this pilot.
 
 negative/insufficient
+
+
+## T024-A — DONE — baseline protocol audit
+
+UTC: 2026-09-13T23:34:44.737954+00:00
+Engineering commit: `e192523f93f5105547475f1b1ccd111bbbd5bed2` on `codex/T024A-baseline-protocol`.
+Review PR: https://github.com/word-ky/TTIE/pull/47 (open, ready; not self-merged).
+
+Files: `research_log/T024A_baseline_protocol.md`, `T024A_baseline_manifest.json/.csv`, `T024A_source_files.json`, `T024A_repository_snapshots.json`, `T024A_evidence.md`, `T024A_audit_receipt.json`, `T024A_progress.md`.
+
+Exactly five official families audited. Retinexformer default without GT_mean and SNR-Aware have official LOL-v2 checkpoint/target-free-forward provenance; all-689 weights require 589-pool retraining for fair TTIE validation. Retinexformer's optional GT_mean changes output using reference statistics and is REJECT_TARGET_ASSISTED. FINAL_TEST_READY here denotes provenance/inference eligibility, not executed TTIE exporters or a claim that historical checkpoint selection never monitored official Test; the Retinex YAML explicitly uses Test for validation.
+
+Missing coverage: SG-LLIE's actual official Git release contains an NTIRE checkpoint but lacks the LOL-v2 Real checkpoint/config binding needed for its 2025 paper variant. LLFormer releases LOL-v1/UHD/FiveK recipes, not a verifiable matched LOL-v2 checkpoint. Zero-DCE++ has official low-only code and a committed Epoch99 checkpoint trained on external SICE; classified UNSUPPORTED for the literal official-LOL-train-only main stratum, not as absent or target-assisted. A separately labeled external-data/zero-reference stratum needs a research-lead decision. Strict eligible main count is 2; eligible 2025 count is 0. Even counting Zero-DCE++ separately cannot satisfy the 2025 requirement.
+
+The protocol freezes native full-frame RGB float outputs, accepted Gaussian11/sigma1.5 population/full-map reflect SSIM, no reference normalization, and all outputs/decisions frozen before any normal test references. SNR's official test4 resizes to400x608/back and its test script SSIM is a zero placeholder; the future main native pad16 exporter is explicitly an unimplemented protocol adaptation. Zero-DCE++ default scale12 crops400x600 to396x600; predeclared scale1 is the official supported full-frame alternative only for a later approved external-data comparison. Literature values are context only; all reproduced result cells are null.
+
+Commands/evidence: read-only official repository metadata/raw source and paper acquisition; local Python JSON/CSV/hash checks; git staged whitespace check. PASS: five unique families, five CSV rows, one designated target-free mode each, fairness/main-admission consistency, all47 source byte hashes, coverage recomputation, null experimental metrics. Source commits/checkpoint locators and available Git weight blob SHA1/size are bound; binary SHA256/download accessibility and actual exporter smoke runs remain future work. Raw audit sources/papers remain project-local, not republished as third-party code.
+
+No model inference/training, no official-test image decode, no Ours code/weights/selector/settings change, no unofficial fork or sixth method. No experimental PSNR/SSIM produced. GPU preference persists for future authorized model runs. T024-A task complete; benchmark execution is not ready. Recommended next step: research-lead review coverage/training-stratum decisions, then authorize one bounded Retinexformer default low-only reproduction preparation on non-test data. Stop here pending review; do not execute a follow-on experiment.
+
+baseline coverage insufficient
