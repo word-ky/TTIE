@@ -32,7 +32,9 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T026-B closed the simple longer-budget route on the promoted gamma-0.5 trajectory.** Changing only `40→80` updates gives `11.2419255 dB / 0.3780444 SSIM`, only **`+0.1210491 dB / +0.0042526 SSIM`** versus T026-A, failing the predeclared `+0.50 dB` PSNR materiality gate. Mean runtime roughly doubles from `2.274494` to `4.703975 s/image`; 34/100 images regress in PSNR and 41/100 in SSIM. Although 88/100 trajectories select step 80, following the same learned field longer is not a compelling quality/efficiency direction. T026-A 40-step therefore remains the promoted deployable validation candidate.
 
-**T027-A made the first strict-main baseline exporter-ready without touching evaluation data.** Retinexformer commit `1e9a0efce4b306b6701b824768370ff26066c32a` and official `LOL_v2_real.pth` (SHA256 `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`) are bound. On eight deterministic non-validation training lows, the target-disabled official-forward adapter and TTIE low-only `default_no_gt_mean` exporter are float-identical (`max abs diff = 0`) at native `400×600`, with no paired normal, frozen validation, or official-test decoding. This is integration/provenance evidence only; no Retinexformer PSNR/SSIM or Ours comparison has been produced.
+**T027-A made Retinexformer exporter-ready without touching evaluation data.** Retinexformer commit `1e9a0efce4b306b6701b824768370ff26066c32a` and official `LOL_v2_real.pth` (SHA256 `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`) are bound. On eight deterministic non-validation training lows, the target-disabled official-forward adapter and TTIE low-only `default_no_gt_mean` exporter are float-identical (`max abs diff = 0`) at native `400×600`, with no paired normal, frozen validation, or official-test decoding. This is integration/provenance evidence only; no Retinexformer PSNR/SSIM or Ours comparison has been produced.
+
+**T027-B made SNR-Aware exporter-ready without touching evaluation data.** Canonical SNR-Aware commit `1113144c82adc8bcc4a9ec27749ed75f196a4e4d` and the official `LOLv2_real.pth` member (156523164 bytes; SHA256 `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781`) are bound. On eight deterministic non-validation training lows, an independent pinned-source native-pad16 adapter and TTIE `ttie_native_pad16` exporter are exactly float-identical (`max abs diff = 0`) at native `400×600`, with strict low-only image-access audits and invariant parameter hashes. This mode is explicitly a predeclared native-padding protocol adaptation, not the official resize-based `test4` reproduction. No paired normal, frozen validation, or official-test image was decoded, and no quality metric was produced.
 
 ## Best current methods
 
@@ -66,7 +68,8 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - **T025-A:** reference oracle reveals `+3.3164 dB` reachable PSNR headroom inside the old T022-C family and strong bound pressure.
 - **T026-A:** widening active gamma lower `0.8→0.5` is materially positive (`+0.8913 dB / +0.04556 SSIM`).
 - **T026-B:** doubling the promoted gamma-0.5 trajectory to 80 updates yields only `+0.1210 dB`, fails materiality, and roughly doubles runtime.
-- **T027-A:** Retinexformer `default_no_gt_mean` is now checkpoint-bound and exactly reproduced by a strict low-only TTIE float exporter on non-evaluation smoke inputs; no quality metric has yet been run.
+- **T027-A:** Retinexformer `default_no_gt_mean` is checkpoint-bound and exactly reproduced by a strict low-only TTIE float exporter on non-evaluation smoke inputs; no quality metric has yet been run.
+- **T027-B:** SNR-Aware `ttie_native_pad16` is checkpoint-bound and exactly reproduced by a strict low-only TTIE float exporter on non-evaluation smoke inputs; no quality metric has yet been run.
 
 ## Information-boundary rules
 
@@ -75,7 +78,7 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - Validation/test enhanced outputs and decisions must be finalized and persisted before references or metrics are attached, except explicitly isolated non-deployable reference-oracle diagnostics.
 - Oracle diagnostics may motivate a **global validation-tuned hyperparameter choice**, but no per-image oracle state, target statistic, oracle step, reference gradient, or oracle score may be consumed by deployable inference/training unless a later task explicitly redefines a source-training split and preserves a separate holdout.
 - Final benchmark test sets must remain isolated from hyperparameter/model selection; tuning belongs only on predeclared train/validation data.
-- The official 100 LOL-v2 Real test pairs remain untouched through T027-A and must stay untouched until the final Ours configuration and admitted baseline execution protocols are frozen.
+- The official 100 LOL-v2 Real test pairs remain untouched through T027-B and must stay untouched until the final Ours configuration and admitted baseline execution protocols are frozen.
 - External baselines admitted to the main comparison must also be target-free at inference; target/reference-based brightness matching or selection is inadmissible.
 - Fresh/test runs must fail closed on source/provenance/preparation binding mismatches.
 
@@ -83,7 +86,9 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 The paper remains image-enhancement-first. T014 supplies the central scientific contribution: learning a reference-free test-time **optimization field** through source-side derivative supervision. T021-A shows this is not MSE-specific. T022–T026 are convergence work: diagnose real-domain bottlenecks and make evidence-driven validation changes.
 
-T026-A remains the best deployable validation configuration. T026-B shows that simply extending its trajectory is not worth the quality/latency cost. T027-A now removes target-access ambiguity for one strong baseline without consuming evaluation data, but it does not reduce the absolute Ours quality gap or establish a competitive result. Priority remains **strong target-free baseline integration and benchmark convergence** while the official test stays sealed; SNR-Aware is the remaining strict-main eligible baseline from T024-A that still needs exporter/checkpoint binding.
+T026-A remains the best deployable validation configuration. T026-B shows that simply extending its trajectory is not worth the quality/latency cost. T027-A and T027-B now remove target-access/checkpoint ambiguity for both strict-main matched baselines identified in T024-A without consuming evaluation data. This materially improves benchmark readiness, but it does not reduce the absolute Ours quality gap or establish competitiveness.
+
+Because the official test must remain a final, non-tuning evaluation, it is still sealed. Before any final-test execution, T028-A will quantify the reference-oracle ceiling of the exact promoted T026-A gamma-0.5 action family. That one diagnostic decides whether substantial within-family reachability remains after the action-bound fixes, without changing deployable inference.
 
 Downstream detection is not required. Remaining paper-level gaps are competitive real-benchmark performance, recent matched target-free SOTA comparison, perceptual metrics, and efficiency/quality tradeoffs.
 
@@ -104,10 +109,11 @@ Downstream detection is not required. Remaining paper-level gaps are competitive
 - **T026-A: COMPLETED — active gamma lower `0.8→0.5` materially positive.**
 - **T026-B: COMPLETED — promoted gamma-0.5 80-step budget negative/insufficient.**
 - **T027-A: COMPLETED — Retinexformer target-free exporter/checkpoint binding smoke is exporter-ready.**
-- **T027-B: ACTIVE — SNR-Aware target-free native-pad16 exporter/checkpoint smoke.**
+- **T027-B: COMPLETED — SNR-Aware target-free native-pad16 exporter/checkpoint smoke is exporter-ready.**
+- **T028-A: ACTIVE — T026-A-family reference-oracle ceiling audit.**
 
 ## Current open task
 
-`T027-B — SNR-Aware target-free native-pad16 exporter/checkpoint smoke` in `coordination/CHATGPT_TO_CODEX.md`.
+`T028-A — T026-A-family reference-oracle ceiling audit` in `coordination/CHATGPT_TO_CODEX.md`.
 
-Bind the exact official SNR-Aware LOL-v2 Real checkpoint and implement the predeclared strict low-only `ttie_native_pad16` exporter. Verify an independent pinned-source native-pad16 direct-forward adapter against the TTIE exporter on exactly eight deterministic non-validation training lows, without decoding paired normal images, the frozen 100-image validation split, or the official test. Do not score PSNR/SSIM and do not change Ours.
+On the frozen 100-pair LOL-v2 Real validation split, run one isolated `REFERENCE_ORACLE_ONLY` reachability audit inside the exact accepted T026-A gate + Region2 EV/gamma family: dark EV `[0,+2]`, bright EV `[-0.5,0]`, gamma `[0.5,1.25]`, inactive identity. Use exactly two starts (identity and frozen T026-A selected state), Adam `lr=0.05`, 500 updates per start against full-frame RGB reference MSE, then report the oracle-minus-T026-A gap. Oracle quantities must remain quarantined from all deployable TTT/training/selection. Do not touch the official test, broaden the action space, change Ours, or run baselines in this cycle.
