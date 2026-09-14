@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-035138-ttie-t036a-preflight",
+  "releaseId": "20260915-035113-ttie-t036a-common",
+  "sessionName": "autodl-20260915-035138-ttie-t036a-preflight",
+  "command": "export CUDA_VISIBLE_DEVICES=1\nexport PYTHONPATH=\"$PWD\"\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest -q tests/test_gamma_range.py tests/test_common_gain_ttt.py &&\n$PY scripts/preflight_t036a.py --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-113853-ttie-t026a-gamma05/artifacts/audit --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --split research_log/T022A_data/split.json --assets research_log/T036A_assets.json --binding research_log/T036A_source_binding.json --out \"$AUTODL_ARTIFACTS_DIR/preflight.json\""
+}
