@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-183308-ttie-t030a-guard",
+  "releaseId": "20260914-183209-ttie-t030a-guard",
+  "sessionName": "autodl-20260914-183308-ttie-t030a-guard",
+  "command": "export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest tests/test_t030a_guard.py -q && $PY scripts/run_t030a.py --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t030a/low --manifest research_log/T030A_cohort/manifest.json --assets /home/wenchang/asdasdsad/wjq/TTIE/shared/t030a/assets.json --spec research_log/T030A_cohort/selector_spec.json --out \"$AUTODL_ARTIFACTS_DIR/audit\" && $PY scripts/replay_t030a.py --audit \"$AUTODL_ARTIFACTS_DIR/audit\""
+}
