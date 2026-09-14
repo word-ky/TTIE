@@ -2655,3 +2655,32 @@ Validation: five focused tests pass locally16.25s/server1.53s. Actual compact re
 No GPU rerun, new image/reference evaluation, metric recomputation, parameter change or new experiment. Original negative metrics, cohort, frozen outputs and full execution backup remain unchanged. Await research-lead review; do not repeat the completed task.
 
 negative/insufficient
+
+## T031-A — DONE — 2026-09-14T12:05:07.175113+00:00
+
+Source `65c56a2b6d18a6b0874d823175482bdd9d05a4bc`; evidence `4da6b1fb99a621221de9746f78909db6c0f61c32`; branch `codex/T031A-source-support`; PR https://github.com/word-ky/TTIE/pull/56. Full report: `research_log/T031A_report.md`; scripts, focused tests, exact source manifest, frozen scores/tensors, isolated reference gradients, runtime logs and independent checks are in the T031A-prefixed files/directories. No deployable code or research-owned coordination file changed.
+
+Exactly 7,346 accepted T014 source-training rows / 80 IDs / 400 hash-bound bank.pt files versus the accepted T030 100 × 41 frozen low-only features. T014 mean/population standard deviation reconstruct frozen head buffers exactly. Checkpoint SHA256 `c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521`; source manifest `92fd60d01ca0780880d724464c4d0a76ba1721ab5b8a2d054d4035a141673125`; T030 cohort `ec67f0a6af5682c8e1e929db56e1d771dfd3183f75cb4b365052cde024f55f2d`. Per-bank and trajectory hashes are in the freeze receipt. No calibration/recalibration rows, source targets, T029 reference artifacts or T030 normal-derived data enter the score.
+
+Fixed float64 standardized nearest Euclidean distance / sqrt(28), no threshold or sweep. All 4,100 scores and independent SciPy replay froze at `2026-09-14T11:42:14.049761Z`, zero image/normal decodes. Freeze SHA256 `3b84948baed0c84e257365a2c9ed8be18148b853327778dc78dc96e9a4037756`; score-table SHA256 `1cebced374400a359142cc088aa5f6a5e7b886f86a20cbd43f74c37e828bda2d`. First normal decode in the separate reference-gradient diagnostic was `2026-09-14T11:43:42.815090Z`. All state features exactly match, all values finite, head/scorer/assets and raw states during differentiation unchanged; zero optimizer updates and zero selection decisions.
+
+AUROC predicting invalid = **0.7204698309323111**; Spearman distance versus reference cosine = **-0.48229925365892745**. Valid 2406: median/Q25/Q75/IQR = 0.8210241936964588 / 0.6297751546820336 / 1.05217420302468 / 0.4223990483426463. Invalid 1694: 1.1048132565555435 / 0.8915356378636976 / 1.2783672477251944 / 0.3868316098614968. Degenerate pairs 0.
+
+| Subset | Median distance | Invalid fraction | Median cosine |
+|---|---:|---:|---:|
+| Step 0 | 0.556907896199011 | 0.22 | 0.6380396697370678 |
+| Step 10 | 0.7095573529348761 | 0.02 | 0.6967643396498862 |
+| Step 20 | 0.9597094422039243 | 0.34 | 0.22100401517332668 |
+| Step 30 | 1.193899971111255 | 0.76 | -0.25093367028099395 |
+| Step 40 | 1.3021635596953227 | 0.76 | -0.23403530275005796 |
+| Original T026-A selected | 1.3021635596953227 | 0.77 | -0.2730950144596993 |
+
+Each subset has 100 states. All three predeclared strong conditions pass. This is a development diagnostic association; common trajectory time and within-image dependence preclude a causal or deployment qualification claim.
+
+A6000 physical GPU 1, Torch 2.4.0+cu121 / CUDA 12.1. Support run `20260914-194203-ttie-t031a-support` and reference run `20260914-194331-ttie-t031a-reference` both exit 0. Actual command/log files are preserved. GPU distance 0.265912935s; support/replay 1.951723357s excluding imports/tests; reference 302.939233591s. `python -m pytest -q tests/test_t031a_support.py`: local 2 passed / 23.52s, remote 2 passed / 1.98s. Independent all-row distance replay maximum absolute error 4.440892098500626e-16 (required <=1e-9). Independent local gradient scalar replay maximum error 4.440892098500626e-16; all validity labels match; AUROC, rho, quantiles and requested subgroup summaries exact. Source/artifact hashes and reference ordering verified.
+
+Observed failure: initial local verifier hit duplicate OpenMP runtimes; separate Torch export and NumPy/SciPy replay processes fixed it without unsafe overrides or GPU reruns. Existing NVML warning was nonblocking. No scientific deviations or unresolved blockers. Full F backup `/media/wenchang/F/wjq/TTIE/shared/t031a/T031A_execution.tar`, 4,526,080 bytes, SHA256 `0caa752d7844d6633250a1df3e0a8429c9e1cf4e34eddfeb598014b6da3bfaf3`; compact 1,091,553 bytes SHA256 `5522e97b5c7c41c2592c0880abb793ffd87a055579911f63376ebfaeb76a3e9d` retained on both roots and locally extracted.
+
+Stopped after this diagnostic. No threshold, stopping simulation, selector/output change, retraining, new cohort, baseline run or official test. Recommend research-lead review before issuing any next engineering task; no self-merge.
+
+promising source-support proxy
