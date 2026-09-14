@@ -2684,3 +2684,13 @@ Observed failure: initial local verifier hit duplicate OpenMP runtimes; separate
 Stopped after this diagnostic. No threshold, stopping simulation, selector/output change, retraining, new cohort, baseline run or official test. Recommend research-lead review before issuing any next engineering task; no self-merge.
 
 promising source-support proxy
+
+## T031-A — DONE review follow-up — 2026-09-14T12:25:43.744073+00:00
+
+PR #56 P2 comments addressed in `f2c73a33c4bc283b0bb1c2a26cc2e3ea27299e35` on `codex/T031A-source-support`. See `research_log/T031A_review.md`.
+
+The reference executable now requires `--deployment research_log/T031A_deployment.json` and checks the separately persisted expected support-freeze hash before tensors/models/image-opener installation; the receipt records the checked hash and deployment hash. Existing deployment and frozen evidence agree on `3b84948baed0c84e257365a2c9ed8be18148b853327778dc78dc96e9a4037756`. This is a code repair and saved-evidence check, not a retrospective claim that the original GPU run executed the new guard. Original commands and receipts remain unchanged.
+
+The exporter creates its destination parent. The documented export and independent replay succeeded from a previously absent output directory. Focused tests: 4 passed in 27.63s, including mismatched external-freeze rejection before reference opening. All 4,100 saved states replay PASS; maximum distance error 4.440892098500626e-16; AUROC 0.7204698309323111 and rho -0.48229925365892745 unchanged. No new failure/blocker, GPU rerun, image evaluation, optimizer update, selector or scientific setting change. Stop and await research-lead review; no self-merge.
+
+promising source-support proxy
