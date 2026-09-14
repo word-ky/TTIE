@@ -2723,3 +2723,30 @@ Full F backup `/media/wenchang/F/wjq/TTIE/shared/t032a/T032A_execution.tar`,5928
 Stop. This exact source-derived radius/controller is not qualified; T031 association remains diagnostic evidence. Recommend research-lead review and its predeclared return to benchmark/field-redesign planning rather than percentile sweeps. No new cohort, retraining, baseline quality run, official test, promotion or self-merge.
 
 negative/insufficient
+
+## T033-A — DONE — 2026-09-14T17:00:18.500902+00:00
+
+Source `96daa548da625666d9aa52aac606e79cba217c18`; evidence `8f92b2ce1aedd07cc6b451fd32b288508f2248e0`; branch `codex/T033A-retinex-benchmark`; PR https://github.com/word-ky/TTIE/pull/58 ready for review. Full report `research_log/T033A_report.md`; T033A binding, inference/evaluation wrappers, focused tests, compact receipts/metrics, local verification and backup manifests delivered. No research-owned coordination file changed.
+
+Unchanged accepted T027-A exporter main/load/forward, upstream `1e9a0efce4b306b6701b824768370ff26066c32a`, official LOL_v2_real.pth6478393bytes SHA256 `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`. Six official source/config/license/README files and archive bound before/after; architecture SHA256 `1567c89d55285a3c1a4d4ca33f288b1fd98dc6b6bbdf971eda02d745f9087631`. Original native RGBfloat32/255, factor4pad/unpad, clamp[0,1], strict checkpoint params, DataParallel, GT_mean=false/self-ensemble=false unchanged. Original target-loading CLI never called. Inference API only low paths/checkpoint/config/output; audit wrapper has low root/split/binding/output only, exact cv2 low allowlist and PIL decoder denial. No target/metric-dependent adjustment or selection.
+
+Exact frozen validation100 split SHA256 `b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`. Sole A6000GPU1 pass produces100finite native400x600x3 float32 clamped outputs, individual input/array/file hashes and runtime receipts. All outputs freeze at2026-09-14T16:53:28.656322Z, SHA256 `30a4e132b6bb064a54f9346c7bcc08dd96a08101b9e42482b31732cde3ec2722`,100low/0normal decodes. Separate output-hash-verified evaluation authorization at16:53:54.194512Z binds that freeze; first normal decode16:54:31.464648Z. Existing server normals were outside inference allowlist, not globally absent. No official-test member accessed.
+
+Exact T026 metric convention: full-frame RGB float32[0,1] pixels promoted tofloat64, including reference float32 rounding; no crop/resize/Y/brightness matching/PNG quantization. Unchanged rgb_ssim Gaussian11sigma1.5/population/reflect/K1.01K2.03. Accepted T026 CSV from run20260914-113853 read-only, SHA256 `ad704fca9dbc393a0e30737eae60d212d41bb797e630e6599d39059380e5a397`; all100 low/normal/order identities match. Ours not rerun.
+
+| Metric | Retinexformer mean | Accepted T026-A mean | Paired mean delta | Paired median delta | Win/equal/loss |
+|---|---:|---:|---:|---:|---:|
+| PSNR dB | 21.478786404431204 | 11.120876417349557 | 10.357909987081648 | 10.706507585058114 | 99/0/1 |
+| RGB-SSIM | 0.7900612090545553 | 0.3737918251517076 | 0.4162693839028476 | 0.4544842685020235 | 98/0/2 |
+
+Per-image CSV and full JSON summaries delivered. No promotion gate. Mean/median/p95 inference seconds .06874116765276994/.05904646898852661/.060601643240079286; peak allocated627518464bytes. Timing CUDA input-ready through CPUfloat output, excludes decode/model load and includes first call; not end-to-end speed comparison.
+
+Release20260915-005241; inference `20260915-005309-ttie-t033a-retinex` and evaluation `20260915-005425-ttie-t033a-eval`, both exit0. Exact commands/config/logs retained. Torch2.4.0+cu121/CUDA12.1/Python3.12.12, A6000physical1. Baseline3tests14.67s; final focused4local9.18s/4server1.47s. Geometry/clamp/API and replaced-freeze rejection pass. Independent PSNR/SSIM maxerror1.4210854715202004e-14. Local compact replay:100exact pairs/deltas and all metrics/runtime aggregates, maxerror0; freeze/order and deployed-source/compact hashes pass. Full100output hashes verified server-side; compact does not include image arrays. No failure, rerun, scientific deviation or unresolved blocker; known NVML warning nonblocking.
+
+Interpretation limitation: this requested validation split is carved from official LOL-v2 training pairs. The accepted official Retinexformer YAML trains on Real_captured/Train/Low and Train/Normal. Therefore it is a development quality anchor with external supervised-training exposure, not an independent held-out generalization comparison for that checkpoint. Target-free inference remains valid; do not infer SOTA or official-test performance from this result.
+
+Full F backup `/media/wenchang/F/wjq/TTIE/shared/t033a/T033A_execution.tar`,300431360bytes SHA256 `e2c28081e7c4c87b7cfd861bc204b73be68b0bc82c38c4168d2f8d6b0a0520f7`; compact41302bytes SHA256 `70b2f738b9ffb5efa04f39093916d38d6acc8bf9532be38b190c759791578591`, both server roots and local extraction. Full backup includes100float outputs and bound source/checkpoint.
+
+Stop and return measured gap plus training-exposure limitation to research lead. No Ours tuning/rerun, SNR quality run, support sweep, new split, perceptual metrics, official test, SOTA claim or self-merge.
+
+benchmark complete
