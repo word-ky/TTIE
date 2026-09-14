@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-144320-ttie-t027a-baseline",
+  "releaseId": "20260914-144301-ttie-t027a-baseline",
+  "sessionName": "autodl-20260914-144320-ttie-t027a-baseline",
+  "command": "set -e\nexport CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\nROOT=/home/wenchang/asdasdsad/wjq/TTIE/shared/t027a\n$PY T027A_prepare.py /media/wenchang/F/wjq/TTIE/shared/t022a/LOL-v2.zip split.json \"$ROOT\"\n$PY T027A_baseline.py \"$ROOT\""
+}

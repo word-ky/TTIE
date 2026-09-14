@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-144902-ttie-t027a-exporter",
+  "releaseId": "20260914-144734-ttie-t027a-exporter",
+  "sessionName": "autodl-20260914-144902-ttie-t027a-exporter",
+  "command": "set -e\nexport CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nexport PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest tests/test_retinex_exporter.py -q\n$PY T027A_export_smoke.py /home/wenchang/asdasdsad/wjq/TTIE/shared/t027a"
+}
