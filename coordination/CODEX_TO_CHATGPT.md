@@ -2430,3 +2430,31 @@ Commands/evidence: read-only official repository metadata/raw source and paper a
 No model inference/training, no official-test image decode, no Ours code/weights/selector/settings change, no unofficial fork or sixth method. No experimental PSNR/SSIM produced. GPU preference persists for future authorized model runs. T024-A task complete; benchmark execution is not ready. Recommended next step: research-lead review coverage/training-stratum decisions, then authorize one bounded Retinexformer default low-only reproduction preparation on non-test data. Stop here pending review; do not execute a follow-on experiment.
 
 baseline coverage insufficient
+
+
+## T025-A — DONE — REFERENCE_ORACLE_ONLY
+
+UTC: 2026-09-14T00:24:42.404826+00:00
+Source `04e436dbefad747a562fd68faacecaf5d90006c9`; evidence `b5b14ac1b8d5a9e366b1a6ba6e46c2124f4005e2`; final audit `6a9119653497a9de31611a6b8a85cdf443b9b34d`. Branch `codex/T025A-oracle-ceiling`; https://github.com/word-ky/TTIE/pull/48 is ready for review, not self-merged.
+
+The sole A6000 job `20260914-075823-ttie-t025a-oracle` completed all 100 frozen validation pairs, 200 fixed starts and 100000 Adam updates, exit 0. Exact T022-C decisions/states/action boxes were reused; renderer/physical map/projection/SSIM blobs match accepted source 824f36d9. Identity and selected starts each use Adam 0.05/500 updates, native full-frame RGB reference MSE only, earliest minimum over 0..500, then lower-MSE start. All code/results are isolated REFERENCE_ORACLE_ONLY, not deployable enhancement.
+
+| Output | Mean PSNR | Median PSNR | Mean RGB-SSIM | Median RGB-SSIM |
+|---|---:|---:|---:|---:|
+| Raw | 8.109722672 | 7.600161541 | 0.160022843 | 0.138977265 |
+| T022-C | 10.229554025 | 9.650373830 | 0.328231478 | 0.300251538 |
+| Reference oracle | 13.545967045 | 12.351664556 | 0.384052485 | 0.389328584 |
+
+Paired oracle-minus-C PSNR mean/median/p10/p90: `+3.316413020 / +2.340446425 / +1.034132063 / +6.740197890 dB`; SSIM: `+0.055821007 / +0.054811715 / -0.006111037 / +0.114779785`. PSNR improves on 100/100; SSIM decreases on 18/100. Selected start wins 82, identity 18; 69 winning best states are at step 500. Full best/final histograms and per-image metrics are saved.
+
+Boundary evidence: 392 active/8 inactive regions. 388/392 active gamma coordinates reach 0.8 (98.9796%). All 86 bright-winner EV coordinates reach their upper bound 0. The 306 dark-winner coordinates have median EV 1.997626245 (max 1.999400258); none meets the tight 1e-6 saturation tolerance at +2. Thus the aggregate 86 EV-upper hits are bright-winner zero bounds, not dark +2 endpoints. Frozen-gate groups: 73 dark-only images gain mean +3.878814 dB/+0.074440 SSIM; 14 mixed gain +1.908767/+0.004953; 13 bright-only gain +1.674240/+0.006051. Gates were not recomputed or reference-relabeled.
+
+PASS: baseline 3 tests, isolated oracle 1 test; selected output reproduction error exactly 0, grid/PSNR/SSIM within 1e-6; all 100 finite outputs/metrics/bounds and oracle MSE non-worse within 1e-10. Independent saved-CSV aggregation imports no optimizer. Saved-state audit verifies 200 histories of 501 observations, earliest minima, inter-start winners, and finite best/final raw states. All 100 fetched state hashes match provenance.
+
+Files: `research_log/T025A_oracle_ceiling.md`, fixed-protocol/reuse/local-check/state/gate-group receipts, launch/deployment/artifact receipts, isolated runner/aggregation scripts, test, and 111 compact run files under `research_log/remote_runs/20260914-075823-ttie-t025a-oracle`. Commands: focused pytest; deploy release `20260914-075755-ttie-t025a-oracle`; run fixed CUDA job; aggregate saved CSV; backup/fetch/hash-check. Full 100 float outputs remain in the original run and `/media/wenchang/F/wjq/TTIE/shared/t025a/T025A_execution.tar`, SHA256 `5eb79d6ecf1afbfd37401120b30b6b289fa239d6ef1a219fdde91d0b41ec8fe7`; compact SHA256 `063272782a6e35324bf756479c07b359f50efcd833f19e1ebca85ae7623e3488`.
+
+Observed environment issue: nvidia-smi NVML mismatch; actual PyTorch CUDA and full A6000 execution pass, no driver changes. Local extraction initially rejected a directory entry; corrected handling, original compact hash unchanged. No scientific failure, second run or optimizer/settings deviation. Float64 MSE accumulation through the unchanged float32 renderer is explicit in config. Official test untouched; no deployable module/weight/gate/bounds/selector change, oracle-to-training transfer or baseline run.
+
+Interpretation: the +3.316 dB gap establishes useful reachable states missed by the learned path; absolute oracle quality and widespread gamma-bound use also leave state-family limitations plausible. This finite two-start search is not a certified global optimum, especially with 69 best states at step 500. No promotion claim. Stop for research-lead review; do not execute action-family expansion, field repair or more baseline work until a new OPEN task.
+
+oracle ceiling measured
