@@ -1,0 +1,6 @@
+T030-A 2026-09-14T10:31:47.790848+00:00
+Fresh100 from573 after excludingvalidation100 and exactT02316 decodednormal sources. Fixedanchor10/threshold0/prefixminenergy/earliestties/failclosedvisited-gradientdegeneracy. One accepted40steptrajectory supplies original+guarded selections; no references until alloutputs freeze. No T029 reference artifacts or oracle values staged. Existing no-active T026A bypass retained if encountered, with original selection fallback. Only directed tests and exact independent saved-gradient selector replay; no historical stochastic gradient equality gate. Full GPUtrajectory+gradient computation; CPU metrics.
+
+Cohort reconstruction recipe: read only first689 committed dataset_manifest.records (prepare_t022a writes train+test in this order); remove old split.selected low paths and exact16 T023A_source_manifest.selected low paths, whose actual source_receipts normal_open_started_utc were checked. Sort573 eligible rows by (sha256(low.encode()).hexdigest(),low) and take100. Plain canonical Train/Low/... path, no seed prefix. No new pixels read while constructing cohort. Freshnormal deployment remains withheld.
+
+Delivery only: D: filled during git add. Made completed T023A/T022A duplicate checkouts sparse, retaining their task artifacts, untracked recovery material and all Git history. No experiment/evaluation rerun.
