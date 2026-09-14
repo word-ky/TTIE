@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-232650-ttie-t032a-radius",
+  "releaseId": "20260914-232618-ttie-t032a-support",
+  "sessionName": "autodl-20260914-232650-ttie-t032a-radius",
+  "command": "export CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nexport PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest -q tests/test_t032a_support.py && $PY scripts/prepare_t032a_radius.py --bank-root /home/wenchang/asdasdsad/wjq/TTIE/runs/20260912-181047-ttie-t014-stage-a-repaired/artifacts/audit --receipt research_log/T014_energy_receipt.json --checkpoint /home/wenchang/asdasdsad/wjq/TTIE/research_log/T014_energy.pt --out \"$AUTODL_ARTIFACTS_DIR/radius\""
+}
