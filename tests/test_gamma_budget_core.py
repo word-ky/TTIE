@@ -48,5 +48,3 @@ def test_metric_arithmetic_unchanged():
     base=Path('scripts/evaluate_t026a.py').read_text()
     new=Path('scripts/evaluate_t026b.py').read_text().replace("(80 if any(d['gate']['active']) else 0)","(40 if any(d['gate']['active']) else 0)")
     assert ast.dump(ast.parse(base))==ast.dump(ast.parse(new.replace('T026B','T026A')))
-
-
