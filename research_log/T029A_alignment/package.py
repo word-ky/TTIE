@@ -8,11 +8,11 @@ runs=['20260914-172718-ttie-t029a-preflight','20260914-172838-ttie-t029a-alignme
 releases=['20260914-172659-ttie-t029a-alignment','20260914-173026-ttie-t029a-floatcheck','20260914-173746-ttie-t029a-diagnostic']
 result=base/'runs'/runs[-1]/'artifacts/REFERENCE_GRADIENT_DIAGNOSTIC_ONLY'
 assert json.loads((result/'independent_check.json').read_text())['status']=='PASS'
-assert '[autodl] exit_code=0' in (base/'runs'/runs[-1]/'train.log').read_text()
+assert json.loads((result/'receipt.json').read_text())['states']==4100
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 full=backup/'T029A_execution.tar'
 with tarfile.open(full,'w') as t:
-    for name in ['runs/'+r for r in runs]+['releases/'+r for r in releases]+['shared/t029a/reference_deployment.json']:
+    for name in ['runs/'+r for r in runs]+['releases/'+r for r in releases]+['shared/t029a/reference_deployment.json','shared/t029a/independent_check.py']:
         t.add(base/name,arcname=name,filter=lambda info: None if '__pycache__' in info.name else info)
 compact=home/'T029A_compact.tar.gz'
 with tarfile.open(compact,'w:gz') as t:

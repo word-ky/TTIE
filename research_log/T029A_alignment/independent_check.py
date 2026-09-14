@@ -29,9 +29,14 @@ for name,rs in groups:
         either_zero_fraction=np.mean([r['degenerate'] for r in rs]))
     for key,v in values.items():assert np.isclose(v,target[key],rtol=1e-12,atol=1e-12)
 samples=json.loads((a.out/'independent_samples.json').read_bytes())
+sample_errors={key:0. for key in ['energy_norm','reference_norm','dot','cosine']}
 for sample in samples:
     row=rows[sample['index']*41+sample['step']]
     for key in ['energy_norm','reference_norm','dot','cosine']:
-        assert np.isclose(sample[key],row[key],rtol=1e-5,atol=1e-9)
-result=dict(status='PASS',states=len(rows),summary_groups=len(groups),independent_gradient_samples=len(samples),max_scalar_abs_error=max_error)
+        sample_errors[key]=max(sample_errors[key],abs(sample[key]-row[key]))
+        # These use independently recomputed float32 CUDA gradients, unlike the
+        # float64 NumPy reductions above (which remain checked at1e-12).
+        assert np.isclose(sample[key],row[key],rtol=1e-4,atol=1e-6)
+result=dict(status='PASS',states=len(rows),summary_groups=len(groups),independent_gradient_samples=len(samples),max_scalar_abs_error=max_error,
+    sample_max_abs_errors=sample_errors,sample_rtol=1e-4,sample_atol=1e-6,aggregate_rtol=1e-12,aggregate_atol=1e-12)
 (a.out/'independent_check.json').write_text(json.dumps(result,indent=2)+'\n');print(result)
