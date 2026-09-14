@@ -1,0 +1,11 @@
+{
+  "label": "REFERENCE_ORACLE_ONLY",
+  "utc": "2026-09-13T23:57:38.222222+00:00",
+  "baseline_command": "D:/anaconda3/python.exe -m pytest tests/test_ev_range.py -q",
+  "baseline_result": "3 passed in18.17s",
+  "focused_command": "D:/anaconda3/python.exe -m pytest tests/test_t025a_oracle.py -q",
+  "focused_result": "1 passed in13.73s",
+  "reuse_check": "5 unchanged source Git blobs identical to accepted T022-C",
+  "gpu_probe": "Torch2.4.0+cu121 cuda available, NVIDIA RTX A6000, CUDA ones.sum()==2.0",
+  "observed_environment_issue": "nvidia-smi NVML driver/library mismatch; PyTorch actual CUDA computation passes; no driver modification"
+}
