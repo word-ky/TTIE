@@ -2642,3 +2642,16 @@ Evidence: `T030A_result/audit/`, `T030A_result/runs/`, `T030A_cohort/`, `T030A_s
 Recommendation: reject this fixed guard for promotion and review the negative qualification as evidence about this specific proxy. Stop here; no second cohort, alternate rule, threshold/anchor sweep, retraining, baseline benchmark or official-test access. Await the research lead's next task.
 
 negative/insufficient
+
+## 2026-09-14T11:17:11.299515+00:00 — T030-A PR55 review follow-up DONE
+
+Both automated P2 comments on PR55 are addressed in commit `d2a271e0f5fbe59c6834759f47657ff67dedc807`, branch `codex/T030A-self-reversal`, https://github.com/word-ky/TTIE/pull/55.
+
+1. `evaluate_t030a.py` now verifies the audit freeze SHA256 against the reference-deployment receipt before any normal access. A focused replacement-freeze test demonstrates rejection despite a plausible timestamp. The actual completed run already matches its deployment hash `e94811518388868b229b0e731db207459c27e86c360c739f5979a3eb1234516b`.
+2. `replay_t030a.py --audit research_log/T030A_result/audit --compact` now runs directly on the committed/compact evidence. It checks retained decision/trajectory hashes and selector decisions, explicitly excludes omitted selected-image verification, and writes a separate `compact_replay.json`. Default full mode retains all original file/raw/grid checks and its separate original receipt.
+
+Validation: five focused tests pass locally16.25s/server1.53s. Actual compact replay matches all100 original full-replay rows exactly. Updated default full replay passes100/100 on the server, and before/after SHA256 of the original `independent_replay.json` is identical. Evidence: `research_log/T030A_review_receipt.json`, `T030A_review_logs/`, `T030A_result/audit/compact_replay.json`; documented command and scope in `T030A_report.md`.
+
+No GPU rerun, new image/reference evaluation, metric recomputation, parameter change or new experiment. Original negative metrics, cohort, frozen outputs and full execution backup remain unchanged. Await research-lead review; do not repeat the completed task.
+
+negative/insufficient
