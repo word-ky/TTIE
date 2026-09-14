@@ -1,0 +1,24 @@
+{
+  "task": "T026-A",
+  "accepted_source": "824f36d9a7614acffa88977c4d128d0aa7afc85b",
+  "unchanged_git_blob_sha256": {
+    "ttie/semantic_ttt.py": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72",
+    "ttie/isp.py": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9",
+    "ttie/ev_range_box.py": "97f72e3f4b33ff3281439cdb65036c69a6229f823d2aab21d490a1cf2ba289cb",
+    "ttie/projected_ttt.py": "f5fb68a742ee4038b903bf62ae37ae0b3011762ce3035ba09a3b9609a25a6457",
+    "ttie/energy_model.py": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4",
+    "ttie/stop_trajectory.py": "38965a15430d383b429086ec4460fff2dd3c500a7d162f39b705c40ae4b23ce7",
+    "ttie/ssim_transfer.py": "01d227a8b4caaf8f5705d9c18a5ef685367b6ccf80588d212be92830a04f8556",
+    "ttie/ev_range_ttt.py": "164b865fadba00609aef760ce5dc6b4085c7a4207d3339496737b9651219b856",
+    "ttie/lolv2_ev_core.py": "76304385a6dd69ef734d38d946c499125c65337e340da6fe4b565893811a35e5"
+  },
+  "trajectory_ast": "identical to accepted ev_range_ttt; only ActionBox import differs",
+  "runner_ast": "identical after task/method metadata, bound import and task-reference-deployment field name normalization",
+  "physical_change": "active gamma lower .8 to .5 only; atanh(log(.5)/log2)=-inf keeps existing endpoint without new cap",
+  "baseline_tests": "3 passed in33.01s",
+  "variant_tests": "3 passed in20.83s; bound/AST/reference mutation and withholding with identical artifact hashes",
+  "inference_reference_root_argument": false,
+  "oracle_artifact_inputs": false,
+  "reference_scope": "task shared/t026a/normal absent before inference, deployed post-freeze; other-task directories retained outside low-only allowlist",
+  "created_utc": "2026-09-14T03:36:40.032622+00:00"
+}
