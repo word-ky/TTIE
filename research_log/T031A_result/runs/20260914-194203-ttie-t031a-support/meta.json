@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-194203-ttie-t031a-support",
+  "releaseId": "20260914-194158-ttie-t031a-support",
+  "sessionName": "autodl-20260914-194203-ttie-t031a-support",
+  "command": "export CUDA_VISIBLE_DEVICES=1 PYTHONPATH=\"$PWD\" CUBLAS_WORKSPACE_CONFIG=:4096:8\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest tests/test_t031a_support.py -q && $PY research_log/T031A_support/prepare.py --bank-root /home/wenchang/asdasdsad/wjq/TTIE/runs/20260912-181047-ttie-t014-stage-a-repaired/artifacts/audit --receipt research_log/T014_energy_receipt.json --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-183308-ttie-t030a-guard/artifacts/audit --manifest research_log/T030A_cohort/manifest.json --checkpoint /home/wenchang/asdasdsad/wjq/TTIE/research_log/T014_energy.pt --out \"$AUTODL_ARTIFACTS_DIR/support\""
+}

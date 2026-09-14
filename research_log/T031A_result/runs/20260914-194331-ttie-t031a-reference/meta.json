@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-194331-ttie-t031a-reference",
+  "releaseId": "20260914-194319-ttfl-t022-matched",
+  "sessionName": "autodl-20260914-194331-ttie-t031a-reference",
+  "command": "export CUDA_VISIBLE_DEVICES=1 PYTHONPATH=\"$PWD\" CUBLAS_WORKSPACE_CONFIG=:4096:8\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY research_log/T031A_support/reference.py --support /home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-194203-ttie-t031a-support/artifacts/support --manifest research_log/T030A_cohort/manifest.json --assets /home/wenchang/asdasdsad/wjq/TTIE/shared/t030a/assets.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t030a/low --normal-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t030a/normal --out \"$AUTODL_ARTIFACTS_DIR/REFERENCE_GRADIENT_DIAGNOSTIC_ONLY\" && $PY research_log/T031A_support/analyze.py --support /home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-194203-ttie-t031a-support/artifacts/support --reference \"$AUTODL_ARTIFACTS_DIR/REFERENCE_GRADIENT_DIAGNOSTIC_ONLY\""
+}

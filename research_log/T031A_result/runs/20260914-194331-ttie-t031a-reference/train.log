@@ -1,0 +1,111 @@
+[autodl] run_id=20260914-194331-ttie-t031a-reference
+[autodl] started_at=2026-09-14T19:43:36+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+1/100 post-freeze diagnostic
+2/100 post-freeze diagnostic
+3/100 post-freeze diagnostic
+4/100 post-freeze diagnostic
+5/100 post-freeze diagnostic
+6/100 post-freeze diagnostic
+7/100 post-freeze diagnostic
+8/100 post-freeze diagnostic
+9/100 post-freeze diagnostic
+10/100 post-freeze diagnostic
+11/100 post-freeze diagnostic
+12/100 post-freeze diagnostic
+13/100 post-freeze diagnostic
+14/100 post-freeze diagnostic
+15/100 post-freeze diagnostic
+16/100 post-freeze diagnostic
+17/100 post-freeze diagnostic
+18/100 post-freeze diagnostic
+19/100 post-freeze diagnostic
+20/100 post-freeze diagnostic
+21/100 post-freeze diagnostic
+22/100 post-freeze diagnostic
+23/100 post-freeze diagnostic
+24/100 post-freeze diagnostic
+25/100 post-freeze diagnostic
+26/100 post-freeze diagnostic
+27/100 post-freeze diagnostic
+28/100 post-freeze diagnostic
+29/100 post-freeze diagnostic
+30/100 post-freeze diagnostic
+31/100 post-freeze diagnostic
+32/100 post-freeze diagnostic
+33/100 post-freeze diagnostic
+34/100 post-freeze diagnostic
+35/100 post-freeze diagnostic
+36/100 post-freeze diagnostic
+37/100 post-freeze diagnostic
+38/100 post-freeze diagnostic
+39/100 post-freeze diagnostic
+40/100 post-freeze diagnostic
+41/100 post-freeze diagnostic
+42/100 post-freeze diagnostic
+43/100 post-freeze diagnostic
+44/100 post-freeze diagnostic
+45/100 post-freeze diagnostic
+46/100 post-freeze diagnostic
+47/100 post-freeze diagnostic
+48/100 post-freeze diagnostic
+49/100 post-freeze diagnostic
+50/100 post-freeze diagnostic
+51/100 post-freeze diagnostic
+52/100 post-freeze diagnostic
+53/100 post-freeze diagnostic
+54/100 post-freeze diagnostic
+55/100 post-freeze diagnostic
+56/100 post-freeze diagnostic
+57/100 post-freeze diagnostic
+58/100 post-freeze diagnostic
+59/100 post-freeze diagnostic
+60/100 post-freeze diagnostic
+61/100 post-freeze diagnostic
+62/100 post-freeze diagnostic
+63/100 post-freeze diagnostic
+64/100 post-freeze diagnostic
+65/100 post-freeze diagnostic
+66/100 post-freeze diagnostic
+67/100 post-freeze diagnostic
+68/100 post-freeze diagnostic
+69/100 post-freeze diagnostic
+70/100 post-freeze diagnostic
+71/100 post-freeze diagnostic
+72/100 post-freeze diagnostic
+73/100 post-freeze diagnostic
+74/100 post-freeze diagnostic
+75/100 post-freeze diagnostic
+76/100 post-freeze diagnostic
+77/100 post-freeze diagnostic
+78/100 post-freeze diagnostic
+79/100 post-freeze diagnostic
+80/100 post-freeze diagnostic
+81/100 post-freeze diagnostic
+82/100 post-freeze diagnostic
+83/100 post-freeze diagnostic
+84/100 post-freeze diagnostic
+85/100 post-freeze diagnostic
+86/100 post-freeze diagnostic
+87/100 post-freeze diagnostic
+88/100 post-freeze diagnostic
+89/100 post-freeze diagnostic
+90/100 post-freeze diagnostic
+91/100 post-freeze diagnostic
+92/100 post-freeze diagnostic
+93/100 post-freeze diagnostic
+94/100 post-freeze diagnostic
+95/100 post-freeze diagnostic
+96/100 post-freeze diagnostic
+97/100 post-freeze diagnostic
+98/100 post-freeze diagnostic
+99/100 post-freeze diagnostic
+100/100 post-freeze diagnostic
+{"auc_invalid": 0.7204698309323111, "spearman_rho": -0.48229925365892745, "valid": {"count": 2406, "median": 0.8210241936964588, "q25": 0.6297751546820336, "q75": 1.05217420302468, "iqr": 0.4223990483426463}, "invalid": {"count": 1694, "median": 1.1048132565555435, "q25": 0.8915356378636976, "q75": 1.2783672477251944, "iqr": 0.3868316098614968}, "degenerate_pairs": 0, "degenerate_fraction": 0.0, "by_step": {"0": {"count": 100, "distance_median": 0.556907896199011, "invalid_fraction": 0.22, "cosine_median": 0.6380396697370678}, "10": {"count": 100, "distance_median": 0.7095573529348761, "invalid_fraction": 0.02, "cosine_median": 0.6967643396498862}, "20": {"count": 100, "distance_median": 0.9597094422039243, "invalid_fraction": 0.34, "cosine_median": 0.22100401517332668}, "30": {"count": 100, "distance_median": 1.193899971111255, "invalid_fraction": 0.76, "cosine_median": -0.25093367028099395}, "40": {"count": 100, "distance_median": 1.3021635596953227, "invalid_fraction": 0.76, "cosine_median": -0.23403530275005796}}, "original_selected": {"count": 100, "distance_median": 1.3021635596953227, "invalid_fraction": 0.77, "cosine_median": -0.2730950144596993}, "classification": "promising source-support proxy", "independent_auc_abs_error": 0.0, "independent_rho_abs_error": 0.0}
+[autodl] finished_at=2026-09-14T19:48:42+08:00
+[autodl] exit_code=0
