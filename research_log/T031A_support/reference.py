@@ -10,14 +10,16 @@ from ttie.learned_prototypes import Prototypes
 from ttie.semantic_ttt import SemanticScorer,FixedObjective,Region2
 from ttie.energy_model import load_energy
 from ttie.gamma_range_ttt import evaluate_energy
+from barrier import verify_freeze
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,d):Path(p).write_text(json.dumps(d,indent=2)+'\n')
 def state_hash(m):return {n:hashlib.sha256(t.detach().cpu().contiguous().numpy().tobytes()).hexdigest() for n,t in m.state_dict().items()}
 def main():
     p=argparse.ArgumentParser()
-    for k in ['support','manifest','assets','low-root','normal-root','out']:p.add_argument('--'+k,type=Path,required=True)
+    for k in ['support','deployment','manifest','assets','low-root','normal-root','out']:p.add_argument('--'+k,type=Path,required=True)
     a=p.parse_args();torch.manual_seed(7);torch.set_num_threads(1);torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
-    start=time.perf_counter();f=json.loads((a.support/'freeze.json').read_bytes())
+    start=time.perf_counter();freeze_hash=verify_freeze(a.support,a.deployment)
+    f=json.loads((a.support/'freeze.json').read_bytes())
     assert sha(a.support/'scores.json')==f['scores_sha256'] and sha(a.support/'bound_features.pt')==f['bound_features_sha256']
     assert sha(a.manifest)==f['cohort_sha256'];manifest=json.loads(a.manifest.read_bytes())['selected']
     bound=torch.load(a.support/'bound_features.pt',weights_only=True,map_location='cpu')
@@ -58,7 +60,7 @@ def main():
     assert sha(a.support/'scores.json')==f['scores_sha256']
     write(a.out/'validity.json',rows);torch.save(torch.stack(all_gradients),a.out/'gradients.pt')
     write(a.out/'receipt.json',dict(label='REFERENCE_GRADIENT_DIAGNOSTIC_ONLY',completed_utc=datetime.now(timezone.utc).isoformat(),
-        support_freeze_sha256=sha(a.support/'freeze.json'),support_completed_utc=f['completed_utc'],opened=opened,states=4100,
+        support_freeze_sha256=freeze_hash,deployment_sha256=sha(a.deployment),support_completed_utc=f['completed_utc'],opened=opened,states=4100,
         optimizer_updates=0,selection_decisions=0,model_unchanged=True,raw_unchanged_during_gradients=True,features_exact=True,all_finite=True,
         seconds=time.perf_counter()-start,torch=torch.__version__,cuda=torch.version.cuda,gpu=torch.cuda.get_device_name(),
         validity_sha256=sha(a.out/'validity.json'),gradients_sha256=sha(a.out/'gradients.pt')))
