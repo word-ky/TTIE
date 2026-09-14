@@ -1,0 +1,42 @@
+{
+  "task": "T032-A",
+  "assets": {
+    "accepted_commit": "cebecffbd1335fade336df17d653eb4e5fb65ba3",
+    "files": {
+      "clip": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t004/open_clip_pytorch_model.bin",
+        "sha256": "1bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad"
+      },
+      "energy": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/research_log/T014_energy.pt",
+        "sha256": "c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521"
+      },
+      "prototypes": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/research_log/remote_runs/20260912-071126-ttie-t006-a6000/artifacts/audit/prototypes.pt",
+        "sha256": "b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7"
+      },
+      "gate": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/T022A_gate.json",
+        "sha256": "b7458c51466fd89c1bfa8e7c4bf1dd820ddf56e33c12c406f6625ac64361a4ce"
+      }
+    }
+  },
+  "spec": {
+    "radius_freeze_sha256": "9b2b96be12194453dc49405f2201a489b39a2fbe9be5b12e74efa5bcbd1ee17d",
+    "r_support": 0.646940052237215,
+    "percentile": 0.95,
+    "quantile_method": "linear",
+    "rule": "first d_NN > radius; step0 exit selects identity; otherwise prefix before exit; minimum energy earliest tie"
+  },
+  "spec_sha256": "4a5abb4f1a74a7a88d6f76bfb4561dc4a0560d84c2916e75fdacab61ff60e911",
+  "manifest_sha256": "2ee8bb79533868f541fa385144e5588337861db86bf1e1f44c8cf9d02d65fed0",
+  "frozen_before_inference_utc": "2026-09-14T15:28:43.337336+00:00",
+  "seed": 7,
+  "tf32": false,
+  "accepted_source": "b2359721c89db732d17e03be273e0bdb71bb377a",
+  "max_steps": 40,
+  "optimizer": "Adam lr=.03",
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1"
+}

@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-232831-ttie-t032a-trust",
+  "releaseId": "20260914-232618-ttie-t032a-support",
+  "sessionName": "autodl-20260914-232831-ttie-t032a-trust",
+  "command": "export CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nexport PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\nRAD=/home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-232650-ttie-t032a-radius/artifacts/radius\n$PY scripts/run_t032a.py --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t032a/low --manifest research_log/T032A_cohort/manifest.json --assets /home/wenchang/asdasdsad/wjq/TTIE/shared/t032a/assets.json --radius \"$RAD\" --spec \"$RAD/spec.json\" --out \"$AUTODL_ARTIFACTS_DIR/audit\" && $PY scripts/replay_t032a.py --audit \"$AUTODL_ARTIFACTS_DIR/audit\" --radius \"$RAD\" --spec \"$RAD/spec.json\""
+}
