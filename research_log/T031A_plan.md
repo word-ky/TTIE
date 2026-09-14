@@ -1,0 +1,2 @@
+T031-A 2026-09-14T11:41:34.344359+00:00
+Only source7346trainingfeatures from400bank.pt files/80IDs, proven via frozenT014receipt and training normalization; no calibration/source supervision tensors. Distancefloat64 fixedRMS nearestsource with frozenmean/scale; GPU cdist and independentSciPy allrows <=1e-9. Freezebefore taskreferencegradient decode; reuseT030lowstates noTTT orselection. Source-support threshold-free AUROC/rho gates exactlyinbox. NoT029reference artifacts.
