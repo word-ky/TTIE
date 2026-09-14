@@ -38,15 +38,20 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 The T032 information boundary is valid: source geometry sets the radius; 100 low-only trajectories, support distances, 200 decisions, and both output sets were frozen before successful normal deployment. A failed initial deployment attempt caused a CPU evaluator to stop on a missing receipt before normal decode/metrics and did not change settings or rerun GPU inference. Official test remains untouched.
 
-### Scientific consequence through T032-A
+**T033-A establishes the first strong target-free quality anchor on the frozen development validation split.** Using the unchanged accepted T027-A Retinexformer exporter with `GT_mean=false` and self-ensemble disabled, the exact 100 validation lows produce **`21.478786404 dB / 0.790061209 RGB-SSIM`** versus accepted T026-A **`11.120876417 / 0.373791825`**. The paired Retinexformer-minus-T026-A mean gap is **`+10.357909987 dB / +0.416269384 SSIM`**; Retinexformer wins PSNR on `99/100` and SSIM on `98/100`. All 100 float outputs were frozen before any normal decode and metrics exactly replay the T026 convention.
+
+**Critical T033 limitation:** this 100-pair split is carved from the official LOL-v2 training set, and the released Retinexformer checkpoint was trained supervised on that same training set. Therefore T033 is a descriptive development capacity anchor, **not** an independent held-out generalization or SOTA comparison. Even so, the exposed supervised anchor is about `4.02 dB` above the T028-A reference-oracle ceiling of the exact EV+gamma family, so action-space/image-formation capacity can no longer be assumed sufficient for competitive restoration.
+
+### Scientific consequence through T033-A
 
 The strongest current mechanism interpretation is:
 
 1. The T014 learned optimization field is restoration-useful in controlled/fresh settings and often directionally useful early on real trajectories.
-2. The promoted T026 action family has large reachable real-domain headroom, so action-space capacity alone is not the main current explanation.
+2. The promoted T026 EV+gamma action family has large reachable real-domain headroom relative to the current deployable selector, so field/trajectory failure is genuine.
 3. Late real-domain states frequently exhibit field-direction failure.
-4. Source-support distance is correlated with that failure, but a global source-only support radius is too restrictive/mismatched for real LOL-v2 and is **not** a qualified controller; 33% step-0 exits make this especially clear.
-5. Therefore, do **not** sweep support thresholds or declare support-aware stopping solved. The project should first establish the actual strong-baseline gap, then choose between optimization-field redesign and broader image-formation/action redesign based on competitive evidence.
+4. Source-support distance is correlated with that failure, but a global source-only support radius is too restrictive/mismatched for real LOL-v2 and is **not** a qualified controller.
+5. T033 shows a very large descriptive gap to a strong supervised Retinexformer anchor, and that anchor remains about `4.02 dB` above the T028 EV+gamma reference oracle. Because the anchor has training exposure, this is not a fair held-out ranking, but it is enough to reopen action-family capacity as a serious bottleneck hypothesis.
+6. Therefore the next diagnostic should isolate one missing operator family rather than resume stopping-threshold sweeps. T034-A tests whether region-wise RGB white balance materially raises the reference-oracle ceiling before any deployable redesign is attempted.
 
 ## Benchmark readiness
 
@@ -56,12 +61,16 @@ The strongest current mechanism interpretation is:
 
 **T027-B made SNR-Aware exporter-ready without evaluation-data access.** Canonical commit `1113144c82adc8bcc4a9ec27749ed75f196a4e4d` and official `LOLv2_real.pth` SHA256 `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781` are bound. The pinned-source native-pad16 adapter and TTIE exporter are float-identical on eight non-evaluation smoke lows. This native-pad16 mode is a predeclared protocol adaptation, not the original resize-based `test4` reproduction.
 
-Neither strong baseline has yet been run for quality metrics on the frozen validation or official test. Benchmark execution is now the immediate priority. Official test stays sealed until final Ours and baseline protocols are frozen.
+**T033-A completed the Retinexformer target-free frozen-development benchmark.** It gives `21.478786404 dB / 0.790061209` on the exact frozen 100 development-validation images under the T026 metric convention, with pre-reference output freeze and no target-dependent inference. Because those images belong to the official supervised training set used by the released checkpoint, treat this only as a development capacity anchor.
+
+SNR-Aware remains exporter-ready but has not yet been run for quality metrics. The official LOL-v2 Real test remains sealed until final Ours and baseline protocols are frozen; do not consume official-test metrics to guide further tuning.
 
 ## Best current methods
 
 - **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
-- **Current LOL-v2 validation candidate:** T026-A = T014 + dark-winner EV upper `+2.0` + active gamma lower `0.5`; **`11.1208764 dB / 0.3737918 SSIM`** on the fixed validation split. Not official-test qualified.
+- **Current LOL-v2 deployable validation candidate:** T026-A = T014 + dark-winner EV upper `+2.0` + active gamma lower `0.5`; **`11.1208764 dB / 0.3737918 SSIM`** on the fixed validation split. Not official-test qualified.
+- **Non-deployable exact-family ceiling:** T028-A reference oracle = **`17.4599918 dB / 0.4317158 SSIM`**.
+- **Descriptive strong supervised anchor with training exposure:** T033-A Retinexformer = **`21.4787864 dB / 0.7900612 SSIM`** on the same development split.
 - **Heterogeneous-only geometry extension:** T019 = T014 + frozen utility-aware hard-boundary selector.
 
 ## Information-boundary rules
@@ -70,7 +79,7 @@ Neither strong baseline has yet been run for quality metrics on the frozen valid
 - Validation/test enhanced outputs and decisions must be finalized and persisted before references or metrics are attached, except explicitly isolated non-deployable reference diagnostics.
 - Oracle/reference-gradient diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - External baselines admitted to the main comparison must be target-free at inference; reference-based brightness matching or selection is inadmissible.
-- Final benchmark test sets must remain isolated from model/hyperparameter selection. The official 100 LOL-v2 Real test pairs remain untouched through T032-A.
+- Final benchmark test sets must remain isolated from model/hyperparameter selection. The official 100 LOL-v2 Real test pairs remain untouched through T033-A.
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Milestones
@@ -92,10 +101,11 @@ Neither strong baseline has yet been run for quality metrics on the frozen valid
 - **T030-A: COMPLETED — fixed low-only self-reversal guard negative/insufficient.**
 - **T031-A: COMPLETED — source-support distance is a promising diagnostic proxy.**
 - **T032-A: COMPLETED — fixed source-only first-exit trust-region rule negative/insufficient (`-1.7589 dB / -0.1161 SSIM`).**
-- **T033-A: ACTIVE — Retinexformer target-free frozen-validation benchmark.**
+- **T033-A: COMPLETED — Retinexformer target-free development anchor (`21.4788 dB / 0.7901 SSIM`), with explicit training-exposure limitation.**
+- **T034-A: ACTIVE — WB-only expanded-family reference-oracle ceiling audit.**
 
 ## Current open task
 
-`T033-A — Retinexformer target-free frozen-validation benchmark` in `coordination/CHATGPT_TO_CODEX.md`.
+`T034-A — WB-only expanded-family reference-oracle ceiling audit` in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use the already accepted T027-A exporter and pinned official checkpoint on exactly the frozen 100-image LOL-v2 Real validation split. Freeze all 100 target-free outputs before normals/metrics are opened, then evaluate with exactly the T026 metric convention and report the paired gap versus accepted T026-A. No tuning, no SNR-Aware in this cycle, and no official test.
+Reuse the exact T028-A two-start/500-update reference-oracle harness on the original frozen 100 validation pairs, preserve the full T026-A Region2 EV+gamma family, and add only per-region RGB white-balance gains `[0.5,2.0]` initialized at identity. First prove identity-WB renderer regression against the accepted EV+gamma renderer. This is `REFERENCE_ORACLE_ONLY`: it may use normals solely inside the isolated capacity diagnostic and must never feed reference information into deployable TTT. No contrast/tone/detail additions, no sweeps, no SNR-Aware run, and no official test.
