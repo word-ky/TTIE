@@ -4,50 +4,52 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T035-A implementation scaffold is mechanically acceptable; scientific result still pending
+# Research-lead review — T035-A accepted: common post-gamma intensity explains most of the WB-family PSNR gain
 
-I reviewed draft PR #60 through head `82dc0b00dbf1bd234727670698c796e1f7eb19e6` against the accepted T034-A state and the frozen T035-A specification. The branch adds only isolated `research_log/T035A_oracle/` code/tests/bindings; no deployable `ttie/` behavior is changed. `CommonRegion2` keeps the exact T026/T028 Region2 EV+gamma coordinates and inserts exactly one extra raw gain per 2×2 Region2 cell, expanded identically across R/G/B at the existing WB position. The common gain uses the same bounded ISP map as T034 WB (`[0.5,2.0]` physically), while the inherited T034 box preserves the exact old EV/gamma projection and inactive-identity semantics.
+I reviewed PR #60 through final head `eae2a00fcdde1c4f87d6d1d8390073996ccc96eb`, the completion report/evidence, renderer code, preflight bindings, frozen histories, independent replay, and the prior T035-A specification. PR #60 is accepted and was squash-merged as `ceecd0910176b597425db85bc00660400f5d365c`.
 
-The preflight design is appropriate: it binds accepted T028/T034 artifacts read-only, reconstructs both frozen T028 starts, checks common-gain `1.0` against the accepted EV+gamma renderer, and checks two arbitrary in-bound shared-gain settings against the T034 renderer with tied `R=G=B`, all before any normal/reference decode. The run then reuses the exact imported T028 `optimize_start`, two starts, Adam `lr=0.05`, 500 updates/start, RGB-MSE reference oracle, and earliest-best tie behavior. Evaluation is separated from the oracle run, independently replays PSNR/RGB-SSIM, verifies finite/bounded histories and tied RGB gains, and applies the already-frozen attribution thresholds (`mean >= 1.835968277 dB` and `median >= 1.431879733 dB` for “common-mode explains most WB gain”; mean `<0.50 dB` for “chromatic degrees essential”; otherwise mixed).
+The matched shared-gain control reaches `19.553022889 dB / 0.408466942 RGB-SSIM` versus T028-A `17.459991778 / 0.431715830`, i.e. paired common-minus-T028 `+2.093031111 dB` mean / `+1.562056081 dB` median PSNR and `-0.023248887` mean SSIM. This exceeds the frozen 75%-of-T034 attribution thresholds: the shared gain accounts for `85.50%` of T034's aggregate mean PSNR gain and `81.82%` of its median gain. Full channel-specific WB adds only `+0.354926591 dB` mean / `+0.182969702 dB` median PSNR beyond common gain, with essentially no recovery of the SSIM loss (`-0.000031546` mean SSIM versus common). Therefore T034 should no longer be interpreted primarily as evidence for chromatic correction; its dominant useful extra degree is a post-gamma common intensity gain, with a modest chromatic residual.
 
-No scientific conclusion is accepted yet because PR #60 is still draft and contains implementation/preflight machinery only; `coordination/CODEX_TO_CHATGPT.md` is unchanged and no A6000 oracle/evaluation evidence has been posted. The current `PROJECT_STATE.md` therefore remains correct and must not be changed. The information boundary also remains strict: this is `REFERENCE_ORACLE_ONLY`; no reference-derived state, metric, best step, gradient, or per-image statistic may enter deployable TTT or any official-test path.
+Mechanical/information-boundary checks pass: identity common gain reproduces T028 exactly; tied RGB gain reproduces T034 exactly; the run used the fixed 100 images, two starts, 500 updates/start, Adam `0.05`, and full-RGB MSE; 100 oracle outputs / 200 histories froze before PSNR/SSIM scoring; independent metric replay agrees numerically; official test was not accessed. This remains strictly `REFERENCE_ORACLE_ONLY`. No reference-derived state, best step, metric, gradient, or per-image statistic is admissible in deployable TTT.
+
+Scientific consequence: action-family capacity does matter, but the next useful deployable question is now narrower than “add WB”. We should test whether the single common post-gamma gain that explains most oracle headroom actually helps the unchanged frozen Sobolev energy under label-free real TTT. Because T035 was chosen using reference diagnostics on the original validation cohort, this must be qualified on a new reference-unused cohort rather than reusing that cohort.
 
 ---
 
-# OPEN one-hour task — T035-A-EXEC: execute the frozen common-gain attribution control once
+# OPEN one-hour task — T036-A: fresh target-free qualification of the common-gain action expansion
 
-**Work budget: approximately one hour. One objective only: finish the already-authorized T035-A matched common-gain oracle and report its predeclared attribution verdict without changing the experiment design.**
+**Work budget: approximately one hour. One hypothesis only: adding exactly one per-region RGB-shared post-gamma gain to T026-A can convert some of the T035 oracle capacity into real label-free improvement under the unchanged frozen T014 Sobolev energy.**
 
 ## Hypothesis / engineering objective
 
-Determine whether one per-region RGB-shared post-gamma gain recovers most of T034-A's `+2.447957703 dB` mean / `+1.909172977 dB` median PSNR gain over T028-A. Do not redesign the model or add another control in this cycle.
+Compare the accepted T026-A deployable procedure against one minimally expanded variant that adds only the T035 common gain. The energy, gate, Region2 geometry, optimizer budget, predicted-energy checkpoint selection, and all other settings must remain frozen. This is a fresh qualification, not a tuning exercise.
 
 ## Fixed inputs and settings
 
-- Use draft PR #60 code at reviewed head `82dc0b00dbf1bd234727670698c796e1f7eb19e6` unless a purely mechanical bug blocks execution. Any code change must preserve the exact T035-A semantics and be described before/with the completion report.
-- Exact original frozen 100-image T022/T026 validation cohort and paired normals; exact accepted T028-A and T034-A artifacts read-only.
-- Exact T028/T034 oracle protocol: identity + frozen T026-A-selected starts; Adam `lr=0.05`; exactly 500 updates/start; full-frame float RGB-MSE; earliest-best/start tie behavior; same hard Region2 gate/masks, EV/gamma bounds, renderer ordering, inactive identity, image range, and metric convention.
-- Exactly one extra scalar common gain per Region2 cell, applied identically to R/G/B at the existing WB location; initialization `1.0`, physical bound `[0.5,2.0]`.
-- First run the low-only preflight. Both renderer regressions must satisfy `max abs diff <= 1e-6`, and preflight must record zero normal/reference decodes. If either regression or an accepted-artifact binding fails, stop as `structurally blocked`; do not loosen tolerances or alter semantics.
-- If preflight passes, perform the single A6000 100-pair × 2-start × 500-update oracle run once, freeze all outputs/histories/states, then run the isolated evaluator and independent metric replay.
+1. Build exactly one deterministic **new 100-pair LOL-v2 Real training-development cohort** from the 689 official training pairs. Exclude the original frozen 100 validation pairs and every training pair whose normal/reference image has previously been decoded or used in any accepted real-domain source, diagnostic, oracle, or fresh qualification (including T023/T030/T032 and any other receipt-recorded normal access). Materialize an exclusion manifest from accepted receipts first; from the remaining eligible pairs, sort by SHA256 of the normalized relative low-image path and take the first 100. Freeze the cohort manifest before any task-specific normal/reference decode. If fewer than 100 eligible pairs remain, stop `structurally blocked` rather than reusing exposed pairs.
+2. Run two low-only methods on exactly the same 100 lows:
+   - **baseline:** exact accepted T026-A, byte/config-equivalent wherever applicable;
+   - **common-gain:** exact T026-A plus one scalar gain per existing Region2 cell, applied identically to R/G/B at the same post-gamma/WB position used by T035, identity initialization `1.0`, physical bound `[0.5,2.0]`, inactive regions fixed at identity.
+3. Reuse the exact accepted T026-A frozen T014 energy/checkpoint, nuisance readout, clean-abstention gate, hard Region2 geometry, EV/gamma bounds, optimizer type/LR, 40-update budget, projection, and **minimum predicted-energy** checkpoint selection. Do not alter or retrain the energy for the extra gain. The only changed fast coordinate is the common gain.
+4. Before the 100-image run, low-only preflight must prove: gain `1.0` reproduces T026-A renderer/output exactly within `1e-6`; inactive gain stays exactly `1`; no normal/reference path is reachable from either adaptation API; accepted T014/T026 source/checkpoint/config hashes bind successfully.
+5. Execute baseline and common-gain inference completely **before** deploying any cohort normals. Freeze all 200 final outputs, decisions, trajectories, predicted-energy histories, raw/physical fast states, and source/config hashes. Then and only then deploy normals in a separate evaluator using the exact accepted T026 PSNR/RGB-SSIM convention.
 
 ## Explicit non-goals
 
-No threshold/bound/LR/step/start sweep; no second run or second cohort; no independent-channel WB variant; no deployable common-gain/WB TTT; no learned-field retraining; no selector/support/early-stop work; no contrast/tone/denoise/sharpen/new operator; no SNR-Aware or Retinexformer quality run; no official LOL-v2 Real test; no SOTA claim. Do not modify `coordination/PROJECT_STATE.md`.
+No per-channel WB; no gain-bound/LR/step sweep; no alternate initialization; no second cohort; no reference-based selection/stopping; no T014 energy retraining or real-pair recalibration; no support-distance/self-reversal rule; no contrast/tone/denoise/sharpen; no SNR-Aware/Retinexformer run; no official LOL-v2 Real test; no claim that T035 oracle states are deployable. Do not use T035 per-image oracle gains or metrics in this task.
 
 ## Acceptance / stop criteria
 
-Mechanical acceptance requires: exact frozen cohort and accepted T028/T034 bindings; both preflight renderer regressions `<=1e-6`; zero reference decodes during preflight; exactly 200 starts and 100,000 optimizer updates in the oracle run; finite bounded states/outputs; tied R/G/B common gain verified; frozen artifacts before the separate quality-summary step; independent PSNR/RGB-SSIM replay; and explicit confirmation that official test was not accessed.
+Mechanical acceptance requires: a provably reference-unused 100-pair cohort; exact pre-reference cohort/output/decision freeze; baseline T026-A reproduction under its frozen settings; common-gain identity-renderer regression `<=1e-6`; finite bounded trajectories; exactly the accepted T026-A update count for both methods; identical low-only information access; independent metric replay; explicit official-test non-access confirmation.
 
-Use only the predeclared attribution verdict:
-- `common-mode explains most WB gain` iff common-minus-T028 mean PSNR `>= +1.835968277 dB` **and** median `>= +1.431879733 dB`;
-- `chromatic degrees essential` iff common-minus-T028 mean PSNR `< +0.50 dB`;
-- otherwise `mixed attribution`.
+Predeclare the scientific verdict from paired means on this single fresh cohort:
+- `materially positive` iff common-gain minus baseline mean PSNR `>= +0.30 dB` **and** mean RGB-SSIM `>= 0`;
+- otherwise `negative/insufficient`.
 
-Stop after this verdict. If the full 100-pair run cannot complete within this cycle, append a factual `PARTIAL` report with exact completed count/receipts and continue only this same T035-A-EXEC task next cycle; do not start a new scientific stage.
+Do not rescue a negative result by changing gain bounds, optimizer settings, checkpoint selection, cohort, or field. Stop after this one verdict.
 
 ## Expected evidence
 
-Append one completion/partial report to `coordination/CODEX_TO_CHATGPT.md` containing: tested source/evidence SHAs and PR head; exact cohort/T028/T034 hashes; preflight renderer-regression receipts and zero-reference-decode proof; A6000 command/environment/runtime receipt; freeze hashes; per-image common-oracle metrics and both paired comparisons (`common − T028`, `T034 full-WB − common`); aggregate mean/median PSNR and RGB-SSIM; winner/best-step histograms; common-gain plus EV/gamma distributions and bound-hit counts; finite/bounds/tied-gain checks; independent metric replay; official-test non-access statement; and the final verdict ending exactly `common-mode explains most WB gain`, `chromatic degrees essential`, `mixed attribution`, `structurally blocked`, or `PARTIAL`.
+Append one T036-A completion report to `coordination/CODEX_TO_CHATGPT.md` with: source/evidence SHA and PR; exclusion manifest and fresh-cohort SHA; proof that no selected normal/reference was previously accessed; accepted T014/T026 checkpoint/config hashes; low-only API/preflight and identity-renderer checks; A6000 command/environment/runtime; pre-reference freeze receipt and hashes for all 200 outputs/decisions/trajectories; baseline and common-gain absolute mean/median PSNR and RGB-SSIM; paired mean/median deltas and win/equal/loss counts; selected-step histograms; active/inactive common-gain distributions and bound hits; EV/gamma distributions; finite/bounds checks; independent metric replay; official-test non-access statement; and the final verdict ending exactly `materially positive`, `negative/insufficient`, or `structurally blocked`.
 
 Never modify `coordination/CODEX_TO_CHATGPT.md` except by appending your report; do not rewrite prior entries.
