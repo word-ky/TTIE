@@ -2594,3 +2594,27 @@ Files: `research_log/T028A_report.md`, protocol/source binding, isolated `T028A_
 The promoted family contains substantially better reference-assisted reachable states; this does not identify a deployable mechanism to find them. Keep T026-A as promoted deployable candidate and official test sealed. Oracle states/gradients/steps/reference metrics remain isolated and never feed a deployable head/gate/selector/TTT/training path. Stop pending research-lead decision; no method promotion or follow-on experiment.
 
 substantial within-family headroom
+
+## 2026-09-14T09:50:23.510965+00:00 — T029-A DONE: frozen learned-field/reference-gradient diagnostic
+
+Branch `codex/T029A-field-alignment`; PR https://github.com/word-ky/TTIE/pull/54. Complete GPU audit source `da4ce46d376a77c9b41217724e4304787f4dc807`; repaired CPU postprocessor `9f4e53d2ae593dce1f931cc194f0c97ff1a69514`; evidence commit `f4673090af97c04964e6867f9b94f73ab9cb4f48`. Full report `research_log/T029A_report.md`; no deployable code or research-owned state changed.
+
+Accepted T026-A source `b2359721c89db732d17e03be273e0bdb71bb377a`, run `20260914-113853-ttie-t026a-gamma05`, exact100-image split SHA256 `b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`, T014 energy SHA256 `c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521`. Fourteen transitive accepted renderer/gate/feature/energy source blobs and all asset hashes are bound. No checkpoint, feature, box, dtype, seed or numerical-setting change.
+
+Preflight bound all4100 raw states/output hashes and exactly reconstructed100 selected outputs before reference access: completed09:27:53.169590 UTC, SHA256 `b382c60b1fb78cb50c88b362b8af504dc108cd29d9f302f174b6a06641d36f8f`. Task-only100 reference deployment began09:28:23.150197 UTC. Source normal directories from earlier tasks were outside the decoder allowlist. No official-test enumeration/decode/scoring; no oracle/baseline/training.
+
+All4100 active-coordinate pairs are nondegenerate. Overall cosine mean/median/p10/p90 = `0.16558729594540847 / 0.17186526251064319 / -0.521997293930117 / 0.8053718601760221`; positive-dot fraction `0.5834146341463414`. Energy/reference/either norm<=1e-12 fractions all0. This meets the predeclared weak/mixed rule, not the strong-mismatch rule.
+
+At the100 already-frozen selected steps: cosine mean/median/p10/p90 = `-0.2016639048029352 / -0.2784693682761487 / -0.5683913478819167 / 0.2458620739474372`; positive fraction24%. Step0/10/20/30/40 positive fractions80%/97%/67%/22%/24%, respective median cosines0.694133810/0.726601211/0.210545900/-0.220573222/-0.245285485. All41 step summaries and per-state norms/dot/cosines are saved. These are diagnostic subsets, not new reference-based selections.
+
+Complete A6000 physicalGPU1 audit `20260914-173750-ttie-t029a-alignment` finished4100 states in333.684406563s, mean3.239222579s/image. Python3.12.12, Torch2.4.0+cu121/CUDA12.1, TF32off, seed7, accepted nondeterministic CUDA setting. Zero optimizer updates; zero reference-driven decisions. All states/outputs/gradients finite; raw unchanged during differentiation; head/scorer parameters/buffers and checkpoints unchanged. Feature reconstruction difference0.
+
+Focused tests: local2 passed23.82s, server2 passed1.53s. Independent NumPy reduction reproduces4100 rows and43 summaries at1e-12, maxabsolute error2.220446049250313e-16; passes on Windows/server. Thirty predeclared fresh-leaf independent gradient samples pass float32 rtol1e-4/atol1e-6; maxgradient difference6.556510925292969e-7, maxcosine difference1.5965176736187914e-6; reference gradients exact. Historical4000 energy-gradient comparison maxabsolute drift5.245208740234375e-6 is recorded, not hidden.
+
+Execution deviations: one complete audit plus **two aborted GPU attempts**, violating the literal single-process-run constraint. Initial172838 attempt stopped within firstimage on an added historical-gradient tolerance;173030 stopped after95completeimages on the same unnecessary gate. Removed that extra gate, preserved errors/logs and saved per-image progress; no scientific settings or outcomes chosen across attempts. Complete173750 GPU pass then had wrapperexit1 from an inconsistent CPU sample-scalar tolerance. Correcting that postprocessor and rerunning it on saved tensors only passed with exit0; no further GPU/image execution. Original failure logs remain. Local disk-full during evidence fetch was repaired by sparsifying duplicate Git working copies, preserving project artifacts/history. NVML warning did not block CUDA. These deviations require research-lead review; no claim of perfect single-run compliance.
+
+Evidence: `T029A_preflight/`, `T029A_result/evidence/`, all execution logs/commands in `T029A_result/runs/`, and `T029A_backup.json`. Full F backup `shared/t029a/T029A_execution.tar`,3911680bytes SHA256 `9c3b9f6747d6392201a66208144a67bfd213db1ed5e67ac9dcc5a43cf9cd39da`; compact935418bytes SHA256 `9bda693c6bd2a8145c2ce2aacf682483b45e31058afa72ba86e1290e96118c95`. All local archive/receipt/deployed-source hashes verified.
+
+Recommendation: review the diagnosed late-trajectory directional mismatch and the disclosed execution deviations. Stop here: no early-stop rule, energy retraining, new source pairs, operator/bound/step changes, benchmark, official test or promotion. Await the next research-lead task.
+
+weak/mixed field alignment
