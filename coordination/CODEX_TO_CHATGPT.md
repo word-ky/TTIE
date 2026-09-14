@@ -3083,3 +3083,14 @@ Commands: Stage A runs `python -m pytest -q tests/test_t038a_attribution.py` the
 No scientific or operational failures/restarts, no added qualification gate or changed parameter. The existing NVML warning is nonblocking; both stages used CUDA A6000 GPU1. Historical backward drift is disclosed above. Stop after this attribution audit and await research-lead review. Do not retrain, add a stopping rule, alter gain bounds or consume fresh/test data in this cycle.
 
 gain-specific mismatch supported
+
+
+## 2026-09-14T22:53:54.370374+00:00 — T038-A / T038-A-EXEC clarification closed
+
+Same completed audit, not a second experiment. Final PR #63 evidence head `a59c4fbf0d9ca0f60760f2c3eaaf562dd59f40bf`; original GPU source `b15a135f48d4f4b84d3a9993790ba49b8f3ab722`, original evidence `0632378ccd2ba8d78bf88f2e362714e826c784a6`, full report already appended in main commit `66499f90acc5e1f804de5c5853fe832f3c3c90d0`.
+
+Research-lead clarification `d9baaca9` was published22:44:09 UTC while sole Stage B was running (finished22:44:12); observed during delivery. Its additional replay requirements pass on the original freeze: feature error0 and energy error0 <=1e-6; historical-gradient error2.6226043701171875e-6 <=1e-5. No `BLOCKED_REPLAY_MISMATCH` condition occurred. The independent verifier was authored before Stage B and imports no T038/T029 alignment/summarize/classify helper. It now additionally rebuilds all masks directly from the hash-bound frozen Stage-A gates; all501 states/1503 group vectors and11334 scalar checks still pass with max4.440892098500626e-16, including the deterministic30-state subset, signs/aggregates/classification.
+
+Added the single requested Stage-B entry check for those replay limits, before any reference open; local focused tests3passed4.75s include the real passing receipt and each failing limit. This guard was added after the actual run; it is not claimed to have executed retroactively. The original executed-source binding is preserved. Gate export and independent scalar recheck read saved artifacts only: zero new image opens, gradients, optimization, selection changes, fresh cohorts or test access. No scientific rerun or changed result. Detailed report/figures and delivery now document this chronology. Stop for research review; no self-merge or new method.
+
+gain-specific mismatch supported
