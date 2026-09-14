@@ -2563,3 +2563,34 @@ Files: `research_log/T027B_report.md`, fixed protocol, source/checkpoint binding
 Observed setup failure: venv gdown launcher absent, module invocation then showed server Drive network unreachable. Used official HTTP206 member extraction locally, verified size/CRC and SHA, uploaded via workflow; no mirror or substitute. Existing NVML warning did not prevent actualCUDA. No method/padding/weight change, tolerance relaxation, real-forward rerun, test4 run, retraining, other baseline comparison, Ours change, validation/test inference or follow-on experiment. Recommend accepting the native-pad16 binding; any later benchmark execution needs a new research-lead task. Stop pending review.
 
 exporter-ready
+
+## T028-A — DONE — T026-A-family reference-oracle audit
+
+UTC: 2026-09-14T08:58:32.946692+00:00
+Scientific source `80006657e9b270644f8e0ad9fdf1cb6309966807`; final evidence `ca551a7c15f725461ec8bc53f6a907eea12ca8d5`; branch `codex/T028A-oracle-gamma05`; PR https://github.com/word-ky/TTIE/pull/53 ready for review, no self-merge.
+
+The sole A6000physicalGPU1 run `20260914-163238-ttie-t028a-oracle` completed100images/200starts/100000updates, exactly501saved raw states and MSE values per start, exit0. Exact accepted T026-A gate/Region2/renderer/projection: darkEV[0,2], brightEV[-.5,0], gamma[.5,1.25], inactiveidentity. Two starts only: identity and frozen T026-A selected raw state; Adam.05x500updates, full-frame reference RGB MSE. No learned energy/CLIP, extra operator, retraining, baseline, official-test path or deployable state change.
+
+Accepted source `b2359721c89db732d17e03be273e0bdb71bb377a`, merge `51f84a9d96880bca8e908c9b3cdff496d7277e39`, run `20260914-113853-ttie-t026a-gamma05`; split SHA`b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`. Seven accepted renderer/bounds/metric source blobs are unchanged. Preflight binds accepted freeze/config/metrics and all100decision/output/trajectory/low hashes; every selected output/grid reconstructs exactly, max error0. Both starts bound at `2026-09-14T08:31:39.695754+00:00`, before task references deployed at`08:32:39.325379+00:00`. Preflight SHA`84212f1b19950db7b51fd746d4f546af35330cc565f1376c76bfe284bd2e6f16`. No reference-root argument or normal open in preflight; subsequent named validation reference access is quarantined REFERENCE_ORACLE_ONLY. Other-task reference files outside the preflight allowlist are not claimed globally absent.
+
+All100oracle outputs/200histories froze at`08:51:24.878347+00:00`; PSNR/SSIM evaluation only afterward, completed`08:52:08.400219+00:00`.
+
+| Output | Mean PSNR | Median PSNR | Mean RGB-SSIM | Median RGB-SSIM |
+|---|---:|---:|---:|---:|
+| Raw | 8.109722672 | 7.600161541 | 0.160022843 | 0.138977265 |
+| T026-A | 11.120876417 | 10.607319299 | 0.373791825 | 0.367924983 |
+| REFERENCE_ORACLE_ONLY | 17.459991778 | 16.342409074 | 0.431715830 | 0.480401006 |
+
+Paired oracle-minus-T026-A mean/median/p10/p90: PSNR `+6.339115361 / +5.771085393 / +2.393411790 / +11.658975864dB`; SSIM `+0.057924005 / +0.050326644 / -0.020611525 / +0.144611667`. MeanPSNR>=2 and median>=1 pass the fixed substantial-headroom rule. All100PSNR improve, smallest+0.722664899dB/largest+16.124403256dB. **18SSIM regressions**, worst-0.104871433; no hiding MSE-vs-SSIM tradeoffs.
+
+Winning starts:87T026A_selected/13identity. Winner-step histogram208:1,298:1,362:1,461:1,499:2,500:94. Both individual-start best-step histograms and all501states/start are preserved. Oracle-winner active392coordinates: EVlower7/upper75/either82; gammalower0/upper0. Inactive8coordinates allremainidentity and hit coincident lower/upper bounds. Boundary tolerance1e-6. Since94winners select500, this finite two-start search is demonstrated reachability, not a convergence/global-optimum certificate; no follow-on budget is run.
+
+PASS: baseline4tests24.75s, localfocused1test17.85s, remotefocused1test2.56s; exact100pre-reference reconstructions; every state/output/gradient finite and in bounds; all200histories501states; winning minimumMSE/earliest-step tie/raw-state checks; all oracleMSE nonworse than selected; accepted/raw metrics reproduce within1e-11. Independent separableSSIM/TorchPSNR max error`7.105427357601002e-15`; Python statistics/quantiles and NumPy agree within1e-12. All300frozen output/state/history hashes verified remotely; all200fetched state/history hashes and deployed oracle source bytes verify locally. No official-test filename enumeration/decode/inference/scoring.
+
+PyTorch2.4.0+cu121/CUDA12.1/A6000GPU1, seed7, TF32off. Runtime mean/median/p95 per image`11.177044569 / 11.343406965 / 11.671832463s`, total1117.704456916s; includes per-image hashing/load/two optimizations/save, excludes preflight and later scoring. Initial baseline test collection failed because sparse checkout omitted tracked older oracle code; including it restored tests (also corrected unsupported sparse-add flag). Existing NVML/Python warnings did not block CUDA. No scientific run failure/repeat, tolerance relaxation or setting deviation.
+
+Files: `research_log/T028A_report.md`, protocol/source binding, isolated `T028A_oracle/` code, `T028A_preflight/` starts/reconstruction/deployment, `T028A_evidence/` full compact state histories, winning states, per-image metrics/deltas, boundary/start/step histograms, independent receipts, config/freeze hashes and commands/logs. Full output/source/preflight/run backup `/media/wenchang/F/wjq/TTIE/shared/t028a/T028A_execution.tar`,295137280bytes, SHA`be8ed83c85788fd1bed381d2f308fa8ac9557c7a0bbe3fc2e5997dd7805eb8a2`; compact SHA`e089d85b848a58f89c1035e9af5edd5a93de61e8fe4a376d036cf0358d89a9b6`.
+
+The promoted family contains substantially better reference-assisted reachable states; this does not identify a deployable mechanism to find them. Keep T026-A as promoted deployable candidate and official test sealed. Oracle states/gradients/steps/reference metrics remain isolated and never feed a deployable head/gate/selector/TTT/training path. Stop pending research-lead decision; no method promotion or follow-on experiment.
+
+substantial within-family headroom
