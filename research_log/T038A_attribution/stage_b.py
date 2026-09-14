@@ -10,6 +10,7 @@ for k in ['stage-a','manifest','accepted','low-root','normal-root','out']:p.add_
 a=p.parse_args();initialize();start=time.perf_counter();began=utc()
 assert sha(a.manifest)==COHORT and sha(a.accepted/'metrics.csv')==PRIOR_METRICS
 f=json.loads((a.stage_a/'freeze.json').read_bytes());cohort=json.loads(a.manifest.read_bytes())['selected']
+check_replay_errors(f)
 assert f['cohort_sha256']==COHORT and f['normal_decodes']==f['optimizer_updates']==f['selection_changes']==0
 for name,h in f['source_binding'].items():assert sha(name)==h
 for row in f['rows']:assert sha(a.stage_a/row['file'])==row['sha256']

@@ -34,7 +34,9 @@
     "all_scalar_checks": 11334,
     "all_max_abs_error": 4.440892098500626e-16,
     "classification": "gain-specific mismatch supported",
-    "stage_a_before_all_references": true
+    "stage_a_before_all_references": true,
+    "masks_rebuilt_from_frozen_stage_a_gates": true,
+    "exec_replay_thresholds_pass": true
   },
   "summary": {
     "label": "REFERENCE_GRADIENT_DIAGNOSTIC_ONLY",
@@ -475,5 +477,7 @@
   "deviations": [
     "Historical accepted CUDA energy-gradient drift max2.6226043701171875e-6 is auxiliary and disclosed; forward features/energies and selected outputs exact."
   ],
-  "next": "Stop after reference-only attribution; await research review, no deployable fix/new cohort/test."
+  "next": "Stop after reference-only attribution; await research review, no deployable fix/new cohort/test.",
+  "exec_clarification": "d9baaca9 was issued during sole StageB and observed during delivery. Original receipt passes new feature/energy1e-6 and gradient1e-5 limits. Independent no-helper verifier additionally rebuilds masks from hash-bound StageA gates. Entry check added prospectively; no scientific rerun.",
+  "followup_tests": "3 passed in4.75s locally"
 }

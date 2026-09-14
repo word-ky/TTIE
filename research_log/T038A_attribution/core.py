@@ -8,6 +8,8 @@ COHORT='279c74b335999d6631d436c79ea80e9e2cccfc4b97cb7c0b992829d04cfaf40b'
 PRIOR_FREEZE='46e667ded785e4f3f8ba341d40d00a7e02ca652e2778fcc7ead1750665161be4'
 PRIOR_METRICS='cdbd7fec76194153db645133d5d35dd43f6f9d852ebbd6674756d77d1ad7aee0'
 STEPS=[0,10,20,30,40]
+def check_replay_errors(freeze):
+    assert freeze['max_feature_abs_error']<=1e-6 and freeze['max_energy_abs_error']<=1e-6 and freeze['max_historical_gradient_abs_error']<=1e-5,'BLOCKED_REPLAY_MISMATCH'
 def masks(active):
     total=active.reshape(1,1,2,2).expand(1,3,2,2).clone()
     legacy=total.clone();legacy[:,2]=False

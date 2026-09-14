@@ -5,6 +5,7 @@ from collections import Counter
 root=Path(sys.argv[1]);rows=json.loads((root/'stage_b/states.json').read_bytes());summary=json.loads((root/'stage_b/summary.json').read_bytes())
 freeze=json.loads((root/'stage_a/freeze.json').read_bytes());receipt=json.loads((root/'stage_b/receipt.json').read_bytes())
 prior=list(csv.DictReader(Path(sys.argv[2]).open()));loss={r['low'] for r in prior if float(r['delta_psnr'])<0}
+gates=json.loads((root/'stage_a_gates.json').read_bytes())
 assert len(loss)==29 and len(rows)==501
 assert hashlib.sha256((root/'stage_a/freeze.json').read_bytes()).hexdigest()==receipt['stage_a_freeze_sha256']
 assert freeze['completed_utc']<receipt['started_utc']<min(r['utc'] for r in receipt['opened_images'] if r['kind']=='normal')
@@ -26,6 +27,8 @@ for row in rows:
     accepted=prior[row['index']];assert row['low']==accepted['low'] and row['selected']==(row['step']==int(accepted['common_step']))
     e=flat(row['g_e']);r=flat(row['g_r']);assert len(e)==len(r)==12 and all(math.isfinite(v) for v in e+r)
     masks={k:flat(v) for k,v in row['masks'].items()}
+    gate=gates[row['index']];assert gate['stage_a_file_sha256']==freeze['rows'][row['index']]['sha256']
+    assert masks['total']==flat(gate['gate']['active'])*3
     assert masks['legacy']==[v and i<8 for i,v in enumerate(masks['total'])]
     assert masks['gain']==[v and i>=8 for i,v in enumerate(masks['total'])]
     for group,mask in masks.items():
@@ -52,5 +55,6 @@ for name,data in sets.items():
 g=summary['aggregates']['loss_selected'];good=g['gain']['cosine_median'] is not None and g['gain']['cosine_median']<=-.25 and g['gain']['positive_dot_fraction']<=.35 and g['legacy']['positive_dot_fraction']-g['gain']['positive_dot_fraction']>=.2
 verdict='gain-specific mismatch supported' if good else 'gain-specific mismatch not supported / shared-or-mixed field failure'
 assert verdict==summary['classification'] and samples==30
-result=dict(status='PASS',all_states=501,group_vectors=1503,deterministic_subset='indices0,10,...90 at steps0,20,40',subset_states=samples,subset_max_abs_error=max(sample_errors),all_scalar_checks=len(errors),all_max_abs_error=max(errors),classification=verdict,stage_a_before_all_references=True)
+assert freeze['max_feature_abs_error']<=1e-6 and freeze['max_energy_abs_error']<=1e-6 and freeze['max_historical_gradient_abs_error']<=1e-5
+result=dict(status='PASS',all_states=501,group_vectors=1503,deterministic_subset='indices0,10,...90 at steps0,20,40',subset_states=samples,subset_max_abs_error=max(sample_errors),all_scalar_checks=len(errors),all_max_abs_error=max(errors),classification=verdict,stage_a_before_all_references=True,masks_rebuilt_from_frozen_stage_a_gates=True,exec_replay_thresholds_pass=True)
 (root/'independent_replay.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))

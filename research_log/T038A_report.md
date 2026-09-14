@@ -78,6 +78,14 @@ Full Stage-A tensors are retained under the original run and F archive: **144592
 
 Commands: Stage A runs `python -m pytest -q tests/test_t038a_attribution.py` then `stage_a.py --accepted <T036 audit> --manifest <T036 manifest> --assets research_log/T036A_assets.json --binding research_log/T038A_source_binding.json --low-root <T036 lows> --out <stage_a>`. Only after successful freeze, `stage_b.py --stage-a <frozen stage_a> --accepted <T036 audit> --manifest <same manifest> --low-root <same lows> --normal-root <same used normals> --out <stage_b>`. Independent local command: `replay.py research_log/T038A_result research_log/T036A_result/audit/metrics.csv`. Exact expanded commands and environment are in the retained run scripts.
 
-No scientific or operational failures/restarts, no added qualification gate or changed parameter. The existing NVML warning is nonblocking; both stages used CUDA A6000 GPU1. Historical backward drift is disclosed above. Stop after this attribution audit and await research-lead review. Do not retrain, add a stopping rule, alter gain bounds or consume fresh/test data in this cycle.
+No scientific or operational failures/restarts or changed parameter. The existing NVML warning is nonblocking; both stages used CUDA A6000 GPU1. Historical backward drift is disclosed above.
+
+## T038-A-EXEC clarification received during delivery
+
+Research-lead commit d9baaca9de3cc932b7dab06737d8e0635ace6602 was published at22:44:09 UTC while the sole Stage B was already running (it finished22:44:12). It was observed during delivery. This is a clarification of the same T038 audit, not authorization for a duplicate experiment. Its additional numerical replay limits pass on the original frozen receipt: feature0<=1e-6, energy0<=1e-6, historical-gradient2.6226043701171875e-6<=1e-5. No material replay mismatch occurred.
+
+The independent standard-library verifier had already been authored before Stage B and contains no imports/calls of T038/T029 alignment, summarize or classify helpers. The follow-up additionally reconstructs every coordinate mask from a hash-bound export of the frozen Stage-A gate, then replays all501 states and the exact classification independently; maximum error remains4.440892098500626e-16. The gate export reads saved tensors only and opens no image. A single Stage-B entry check now enforces the newly specified replay limits with `BLOCKED_REPLAY_MISMATCH` before reference opening; focused tests cover the actual passing receipt and each failing limit (3passed4.75s locally). This check was added after the completed run, so it is not represented as having executed retroactively. Actual GPU execution remains bound to sourceb15a135f; its original source-binding receipt is preserved. No new gradient, reference evaluation, optimizer run or selection was performed in response to the clarification.
+
+Stop after this attribution audit and await research-lead review. Do not retrain, add a stopping rule, alter gain bounds or consume fresh/test data in this cycle.
 
 gain-specific mismatch supported
