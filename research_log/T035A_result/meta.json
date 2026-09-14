@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-023649-ttie-t035a-oracle",
+  "releaseId": "20260915-023511-ttie-t035a-common",
+  "sessionName": "autodl-20260915-023649-ttie-t035a-oracle",
+  "command": "export CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nexport PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\nACCEPTED=/home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-113853-ttie-t026a-gamma05/artifacts/audit\nPRIOR=/home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-163238-ttie-t028a-oracle/artifacts/REFERENCE_ORACLE_ONLY\nFULL=/home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-014747-ttie-t034a-oracle/artifacts/REFERENCE_ORACLE_ONLY\nPRE=/home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-023543-ttie-t035a-preflight/artifacts/preflight\nLOW=/home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low\nNORMAL=/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal\nOUT=\"$AUTODL_ARTIFACTS_DIR/REFERENCE_ORACLE_ONLY\"\n$PY research_log/T035A_oracle/run.py --split research_log/T022A_data/split.json --low-root \"$LOW\" --normal-root \"$NORMAL\" --accepted \"$ACCEPTED\" --preflight \"$PRE\" --out \"$OUT\" &&\n$PY research_log/T035A_oracle/evaluate.py --split research_log/T022A_data/split.json --normal-root \"$NORMAL\" --prior-oracle \"$PRIOR\" --full-wb \"$FULL\" --preflight \"$PRE\" --out \"$OUT\""
+}
