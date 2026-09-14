@@ -1,0 +1,188 @@
+{
+  "status": "DONE",
+  "classification": "limited/mixed late-selection headroom",
+  "source_sha": "009823f96f987d341d16314e924d0e3cd24b3b9e",
+  "branch": "codex/T037A-late-selection",
+  "pr": "https://github.com/word-ky/TTIE/pull/62",
+  "release": "20260915-055124-ttie-t037a-diagnostic",
+  "reconstruction_run": "20260915-055148-ttie-t037a-reconstruct",
+  "evaluation_run": "20260915-055515-ttie-t037a-evaluate",
+  "archives": {
+    "completed_utc": "2026-09-14T22:00:04.808933+00:00",
+    "post_evaluation_trajectory_hashes": 200,
+    "archives": {
+      "full": {
+        "path": "/media/wenchang/F/wjq/TTIE/shared/t037a/T037A_full.tar",
+        "bytes": 23618150400,
+        "sha256": "e8368a619ee41a66a29c4a93fab6576ebeeaa6a52a899e8c37319b3196766705"
+      },
+      "compact": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t037a/T037A_compact.tar.gz",
+        "bytes": 422014,
+        "sha256": "846509cccfe85698c4ecbcf36c7981725a5b34e31bdb13b366750db2ca39dcc0"
+      }
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t037a/T037A_compact.tar.gz"
+  },
+  "summary": {
+    "label": "REFERENCE_DIAGNOSTIC_ONLY",
+    "classification": "limited/mixed late-selection headroom",
+    "headroom": {
+      "psnr": {
+        "count": 100,
+        "mean": 0.6832336551194359,
+        "median": 0.09178522188343852,
+        "p05": 0.0,
+        "p95": 4.434495353723233,
+        "min": 0.0,
+        "max": 7.658747234158579
+      },
+      "ssim": {
+        "count": 100,
+        "mean": 0.01603695209102728,
+        "median": 0.00830416073222607,
+        "p05": 0.0,
+        "p95": 0.04667807838931063,
+        "min": 0.0,
+        "max": 0.19032038825771025
+      }
+    },
+    "positive_headroom": {
+      "psnr": 72,
+      "ssim": 81
+    },
+    "best_step_histograms": {
+      "psnr": {
+        "9": 1,
+        "0": 16,
+        "40": 28,
+        "4": 2,
+        "33": 4,
+        "26": 2,
+        "34": 5,
+        "38": 3,
+        "29": 4,
+        "28": 3,
+        "32": 3,
+        "23": 2,
+        "30": 2,
+        "27": 2,
+        "25": 3,
+        "19": 1,
+        "37": 4,
+        "20": 1,
+        "35": 1,
+        "31": 5,
+        "24": 2,
+        "11": 1,
+        "15": 1,
+        "21": 2,
+        "12": 1,
+        "36": 1
+      },
+      "ssim": {
+        "1": 4,
+        "40": 19,
+        "8": 1,
+        "9": 1,
+        "0": 13,
+        "26": 6,
+        "21": 3,
+        "34": 3,
+        "31": 3,
+        "2": 3,
+        "30": 2,
+        "27": 3,
+        "23": 4,
+        "20": 2,
+        "28": 4,
+        "32": 2,
+        "14": 1,
+        "25": 1,
+        "19": 2,
+        "36": 2,
+        "24": 2,
+        "5": 3,
+        "3": 3,
+        "35": 2,
+        "39": 1,
+        "29": 4,
+        "22": 1,
+        "12": 1,
+        "10": 1,
+        "33": 2,
+        "18": 1
+      }
+    },
+    "prior_loss_counts": {
+      "psnr": 29,
+      "ssim": 40
+    },
+    "earlier_rescued_loss_counts": {
+      "psnr": 18,
+      "ssim": 28
+    },
+    "earlier_reaches_baseline_all": {
+      "psnr": 89,
+      "ssim": 88
+    },
+    "selected_metric_max_abs_error": 0.0,
+    "worst_case": {
+      "index": 33,
+      "low": "Train/Low/low00559.png",
+      "baseline_selected_step": 40,
+      "common_selected_step": 40,
+      "baseline_selected_psnr": 20.13575291332962,
+      "common_selected_psnr": 14.521284323945387,
+      "common_reference_best_psnr_step": 19,
+      "common_reference_best_psnr": 20.87022850089575,
+      "psnr_headroom": 6.348944176950361,
+      "prior_psnr_loss": true,
+      "earlier_psnr_reaches_baseline": true,
+      "earliest_psnr_rescue_step": 17,
+      "baseline_selected_ssim": 0.7221431833208637,
+      "common_selected_ssim": 0.6036042709511432,
+      "common_reference_best_ssim_step": 14,
+      "common_reference_best_ssim": 0.7151258270786576,
+      "ssim_headroom": 0.11152155612751435,
+      "prior_ssim_loss": true,
+      "earlier_ssim_reaches_baseline": false,
+      "earliest_ssim_rescue_step": null
+    }
+  },
+  "reconstruction": {
+    "freeze_sha256": "29af8c077cdbfb94b9afda83d026a6fe7d99b7b25076d8eb7704d8f8a2fdcd0a",
+    "completed_utc": "2026-09-14T21:53:51.391806+00:00",
+    "pairs": 100,
+    "states": 8200,
+    "gpu": "NVIDIA RTX A6000",
+    "seconds": 116.6837240930181,
+    "selected_bit_exact": 200,
+    "selected_max_abs": 0.0,
+    "physical_field_max_abs": 2.384185791015625e-07,
+    "identity_max_abs": 5.960464477539063e-08,
+    "normal_decodes": 0,
+    "optimizer_updates": 0
+  },
+  "local_replay": {
+    "status": "PASS",
+    "per_step_rows": 8200,
+    "per_image_rows": 100,
+    "scalar_checks": 10736,
+    "max_abs_error": 3.552713678800501e-15,
+    "prior_loss_counts": {
+      "psnr": 29,
+      "ssim": 40
+    },
+    "rescues": {
+      "psnr": 18,
+      "ssim": 28
+    },
+    "classification": "limited/mixed late-selection headroom",
+    "freeze_before_every_reference": true
+  },
+  "failures": [
+    "Evaluation launch055422 SSH connection timeout before any remote directory/session existed; confirmed absent then launched sole evaluation055515."
+  ],
+  "next": "Stop after diagnostic and await research review; no deployable stopping rule, new cohort or test."
+}

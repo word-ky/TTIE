@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-055148-ttie-t037a-reconstruct",
+  "releaseId": "20260915-055124-ttie-t037a-diagnostic",
+  "sessionName": "autodl-20260915-055148-ttie-t037a-reconstruct",
+  "command": "export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest -q tests/test_t037a_diagnostic.py && $PY research_log/T037A_diagnostic/reconstruct.py --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-035341-ttie-t036a-common/artifacts/audit --manifest research_log/T036A_cohort/manifest.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t036a/low --binding research_log/T037A_source_binding.json --out \"$AUTODL_RUN_DIR/artifacts/REFERENCE_DIAGNOSTIC_ONLY\""
+}
