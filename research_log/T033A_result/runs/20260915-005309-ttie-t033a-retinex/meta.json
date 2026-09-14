@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-005309-ttie-t033a-retinex",
+  "releaseId": "20260915-005241-ttie-t033a-retinex",
+  "sessionName": "autodl-20260915-005309-ttie-t033a-retinex",
+  "command": "export CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nexport PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest -q tests/test_retinex_exporter.py tests/test_t033a_binding.py && $PY scripts/run_t033a.py --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --split research_log/T022A_data/split.json --binding research_log/T033A/binding.json --out \"$AUTODL_ARTIFACTS_DIR/audit\""
+}
