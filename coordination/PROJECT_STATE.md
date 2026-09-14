@@ -30,7 +30,8 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - **T030-A:** fixed learned-gradient self-reversal guard is negative on a fresh cohort: `10.1223728 / 0.3150107` versus baseline `10.3286568 / 0.3228188`.
 - **T031-A:** nearest T014 source-support distance predicts reference-gradient invalidity (AUROC `0.720469831`, Spearman to cosine `-0.482299254`), but is diagnostic association rather than causal proof.
 - **T032-A:** a source-only global 95th-percentile support radius fails badly on a new cohort: `8.444270861 / 0.206756358` versus T026-A `10.203176520 / 0.322824726`. Do not rescue this rule by threshold sweep.
-- **T036-A:** common-gain selected step is 40 on `99/100` images (baseline `86/100`). Together with T029's late-field collapse and the severe T036 loss tail, this raises a specific unresolved question: whether a material part of the remaining error is late-trajectory/checkpoint-selection overshoot despite better earlier states already being reachable.
+- **T036-A:** common-gain selected step is 40 on `99/100` images (baseline `86/100`), so late overshoot was a plausible explanation for the unsafe tail.
+- **T037-A:** the exact frozen T036 trajectories show only **limited/mixed late-selection headroom**. Common reference-best minus selected PSNR is `+0.683233655 dB` mean but only `+0.091785222 dB` median; `18/29` prior PSNR-loss images can be rescued to at least the T026 baseline by a strictly earlier common state, while `11/29` cannot. p95 headroom is `4.434495354 dB`, and `low00559.png` has `+6.348944177 dB` recoverable PSNR by step 19, so severe overshoot is real in a subset. But 28/100 images are genuinely reference-best at step 40, so a universal early-stop explanation/controller is not supported.
 
 ### Strong development anchor and action-capacity diagnosis
 
@@ -40,9 +41,9 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T035-A resolves the T034 attribution: common post-gamma intensity explains most of the WB-family PSNR gain.** A matched oracle with exactly one RGB-shared gain per Region2 reaches **`19.553022889 dB / 0.408466942`**. Common-minus-T028 is **`+2.093031111 dB` mean / `+1.562056081 dB` median PSNR**, satisfying the frozen 75%-recovery thresholds and accounting for **85.50% of T034's aggregate mean PSNR gain and 81.82% of its median gain**. Full channel-specific WB adds only **`+0.354926591 dB` mean / `+0.182969702 dB` median PSNR** beyond common gain and does not recover the SSIM tradeoff (`-0.000031546` mean SSIM versus common). Therefore the dominant extra capacity in T034 is a **post-gamma common intensity degree**, with only a modest chromatic residual.
 
-T034/T035 are strictly `REFERENCE_ORACLE_ONLY`: validation normals are allowed only inside isolated capacity audits; no oracle state, best step, gradient, target statistic, or metric may enter deployable TTT. T036 is different: its adaptation is target-free and its fresh outputs/decisions/trajectories were frozen before a separate normal evaluator, so its aggregate gain is deployable evidence rather than oracle evidence.
+T034/T035 are strictly `REFERENCE_ORACLE_ONLY`: validation normals are allowed only inside isolated capacity audits; no oracle state, best step, gradient, target statistic, or metric may enter deployable TTT. T036 is different: its adaptation is target-free and its fresh outputs/decisions/trajectories were frozen before a separate normal evaluator, so its aggregate gain is deployable evidence rather than oracle evidence. T037 is `REFERENCE_DIAGNOSTIC_ONLY` and changes no deployable state.
 
-### Scientific consequence through T036-A
+### Scientific consequence through T037-A
 
 The strongest current mechanism interpretation is:
 
@@ -52,7 +53,7 @@ The strongest current mechanism interpretation is:
 4. A strong supervised development anchor exposes a large absolute-quality gap, though its training exposure prevents fair held-out ranking.
 5. Expanding the action family with post-gamma gain materially raises PSNR capacity. T035 shows most of that gain is common intensity rather than chromatic WB.
 6. **T036 converts that common-gain capacity into a real fresh target-free aggregate improvement without retraining the energy.** This is a substantive positive result: the compact action model was indeed limiting deployable performance.
-7. The remaining common-gain method is not per-image safe, and its `99/100` terminal-step selections make late selection/trajectory overshoot the next mechanistically sharp question. Diagnose the already-frozen T036 trajectories before designing another controller or consuming another fresh cohort.
+7. **T037 rules out a simple universal late-checkpoint explanation.** Earlier common states rescue many of the severe loss cases, but aggregate headroom is tail-heavy and 11/29 PSNR-loss cases have no earlier common state reaching baseline. The next sharp question is coordinate attribution: because common gain was added without T014 Sobolev training over that tangent direction, determine whether gradient mismatch is specifically worse in the new gain coordinate or shared with legacy EV+gamma.
 
 ## Benchmark readiness
 
@@ -80,15 +81,15 @@ The strongest current mechanism interpretation is:
 - Validation/test enhanced outputs and decisions must be finalized and persisted before references or metrics are attached, except explicitly isolated non-deployable reference diagnostics.
 - Oracle/reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - External baselines admitted to the main comparison must be target-free at inference; reference-based brightness matching or selection is inadmissible.
-- Final benchmark test sets must remain isolated from model/hyperparameter selection. The official 100 LOL-v2 Real test pairs remain untouched through T036-A.
+- Final benchmark test sets must remain isolated from model/hyperparameter selection. The official 100 LOL-v2 Real test pairs remain untouched through T037-A.
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Milestones
 
-T001–T013 completed mechanism/diagnostic sequence. T014 broad controlled/fresh Sobolev Ours-Core completed. T019 heterogeneous adaptive geometry fresh positive. T020 universal-geometry repair route paused. T021 RGB-SSIM transfer positive. T022 real validation/action-range sequence completed. T023 tiny real recalibration negative. T024 baseline protocol frozen. T025/T028 oracle reachability diagnosed. T026-A promoted fixed-validation deployable candidate; T026-B longer budget negative. T027-A/B baseline exporters ready. T029 late-field mismatch diagnosed. T030 self-reversal guard negative. T031 support-distance diagnostic positive association. T032 support-radius controller negative. T033 Retinexformer development anchor completed. T034 WB-family capacity positive with SSIM tradeoff. T035 common-mode attribution positive. **T036-A completed — common post-gamma gain is materially positive on a fresh target-free cohort, with a substantial unsafe per-image tail.**
+T001–T013 completed mechanism/diagnostic sequence. T014 broad controlled/fresh Sobolev Ours-Core completed. T019 heterogeneous adaptive geometry fresh positive. T020 universal-geometry repair route paused. T021 RGB-SSIM transfer positive. T022 real validation/action-range sequence completed. T023 tiny real recalibration negative. T024 baseline protocol frozen. T025/T028 oracle reachability diagnosed. T026-A promoted fixed-validation deployable candidate; T026-B longer budget negative. T027-A/B baseline exporters ready. T029 late-field mismatch diagnosed. T030 self-reversal guard negative. T031 support-distance diagnostic positive association. T032 support-radius controller negative. T033 Retinexformer development anchor completed. T034 WB-family capacity positive with SSIM tradeoff. T035 common-mode attribution positive. T036-A common post-gamma gain materially positive on a fresh target-free cohort with an unsafe tail. **T037-A completed — late-selection headroom is real but limited/mixed and does not explain the whole tail.**
 
 ## Current open task
 
-**T037-A — frozen-trajectory audit of late-selection headroom in T036 common-gain TTT** in `coordination/CHATGPT_TO_CODEX.md`.
+**T038-A — coordinate-group gradient attribution on frozen T036 common-gain trajectories** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use only the already-frozen T036 cohort/trajectories and the same already-used references. Do not rerun adaptation or consume a new cohort. Score every fixed trajectory step under the exact T026/T036 metrics and test the predeclared diagnostic hypothesis that materially better earlier common-gain states already exist despite the learned-energy selector choosing step 40 on 99/100 images. This task is `REFERENCE_DIAGNOSTIC_ONLY`: it may guide the next global research choice but must not create or test a deployable stopping rule in the same cycle.
+Use only the accepted T036 cohort/trajectories and the same already-used references. Freeze all learned-energy gradients before task reference opens, then isolate RGB-MSE reference gradients and compare alignment separately for legacy EV+gamma and the new common-gain coordinate. This task is `REFERENCE_GRADIENT_DIAGNOSTIC_ONLY`: no optimizer updates, deployable selection changes, new cohort, retraining, or official-test access are permitted.
