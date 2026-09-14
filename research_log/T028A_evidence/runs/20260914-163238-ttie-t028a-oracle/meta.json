@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-163238-ttie-t028a-oracle",
+  "releaseId": "20260914-163059-ttie-t028a-oracle",
+  "sessionName": "autodl-20260914-163238-ttie-t028a-oracle",
+  "command": "set -e\nexport CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nexport PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\nROOT=/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY\nACCEPTED=/home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-113853-ttie-t026a-gamma05/artifacts/audit\nOUT=\"$AUTODL_ARTIFACTS_DIR/REFERENCE_ORACLE_ONLY\"\n$PY research_log/T028A_oracle/run.py --split research_log/T022A_data/split.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --normal-root \"$ROOT/normal\" --accepted \"$ACCEPTED\" --preflight \"$ROOT/preflight\" --out \"$OUT\"\n$PY research_log/T028A_oracle/evaluate.py --split research_log/T022A_data/split.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --normal-root \"$ROOT/normal\" --accepted \"$ACCEPTED\" --preflight \"$ROOT/preflight\" --out \"$OUT\"\n$PY research_log/T028A_oracle/aggregate.py \"$OUT\""
+}

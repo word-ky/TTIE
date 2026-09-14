@@ -1,0 +1,29 @@
+{
+  "label": "REFERENCE_ORACLE_ONLY",
+  "task": "T028-A",
+  "seed": 7,
+  "optimizer": "Adam",
+  "lr": 0.05,
+  "updates_per_start": 500,
+  "starts": [
+    "identity",
+    "T026A_selected"
+  ],
+  "selection": "minimum reference MSE, earliest step, identity on remaining tie",
+  "objective": "full-frame RGB MSE float64 accumulation through float32 renderer",
+  "bounds": "exact T026A:darkEV0..2 brightEV-.5..0 gamma.5..1.25 inactiveidentity",
+  "created_utc": "2026-09-14T08:32:46.629339+00:00",
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "preflight_sha256": "84212f1b19950db7b51fd746d4f546af35330cc565f1376c76bfe284bd2e6f16",
+  "reference_deployment_sha256": "5bab973dee3b584259ed66a789ae5d4f6b00bf2ff38f13cac8b2aa1d5a08198c",
+  "split_sha256": "b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b",
+  "code_sha256": {
+    "research_log/T028A_oracle/run.py": "ba3d3925ee7a56b8012740aeb148dfeb6c9b9b7bd56418f7a5c9f0ed59f35515",
+    "research_log/T028A_oracle/prepare.py": "e018d11b7d874732c97edede3b752064d88f2bde1e6cad38573bcceda5cc36af",
+    "research_log/T028A_oracle/evaluate.py": "d830313be31014b92568f1fa281f64586d7afee3385fb3adf8a953f20cb5052c",
+    "research_log/T028A_oracle/aggregate.py": "b97daf5a6bda689f7bb0f5e29aa3ebd3a11b627fbf067962e770e4023e1e5b9e",
+    "research_log/T028A_oracle/core.py": "0d2dcd09618791ca09adeab906ef6ee6c5163002586cf61d9ec8553620842336"
+  }
+}
