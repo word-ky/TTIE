@@ -1,0 +1,3 @@
+T029-A active 2026-09-14T09:26:48.004446+00:00
+
+One A6000 physical GPU1 audit, frozen100x41 T026-A states. Zero updates/reference-based selections. Bind states/outputs/gates/boxes/assets before reference deployment. Active EV+gamma raw coordinates only. Reference RGB MSE float64 accumulation on unchanged float32 images, matching diagnostic convention. Independent sample: indices0,10,...90 x steps0,20,40. Classification thresholds exactly inbox; no deployable changes. Localfocused2tests PASS23.82s. Exact transitive accepted source blobs staged; initial whole-package comparison stopped at unrelated boundary_probe line ending difference, no experiment executed or source change retained.
