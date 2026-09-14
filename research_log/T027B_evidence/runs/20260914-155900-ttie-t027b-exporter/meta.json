@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-155900-ttie-t027b-exporter",
+  "releaseId": "20260914-155837-taisp-t030a3-reference",
+  "sessionName": "autodl-20260914-155900-ttie-t027b-exporter",
+  "command": "set -e\nexport CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nexport PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest tests/test_snr_exporter.py -q\n$PY T027B_export_smoke.py /home/wenchang/asdasdsad/wjq/TTIE/shared/t027b"
+}

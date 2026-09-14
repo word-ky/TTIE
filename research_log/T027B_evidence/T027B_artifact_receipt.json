@@ -1,0 +1,201 @@
+{
+  "utc": "2026-09-14T08:00:11.256429+00:00",
+  "source": "d6ff3a2157f8d33d7ac508488f78ad1d6f03f0dd",
+  "runs": [
+    "20260914-155420-ttie-t027b-baseline",
+    "20260914-155900-ttie-t027b-exporter"
+  ],
+  "releases": [
+    "20260914-155401-ttie-t027b-baseline",
+    "20260914-155831-ttie-t027b-exporter"
+  ],
+  "official_source_postrun_sha256": {
+    "README.md": "9541d167b5e6c1e0ddfad1853d72a2e60d9df0ddc88012b4fc23e0477b295f29",
+    "data/__init__.py": "dc857ccbaf4f0b905eb36e208f5a6c0a4f6c6896296ee192e37c7459e590d578",
+    "data/data_sampler.py": "5582584def20e270aeafa1669e1b1baf09ac2d4a299a255cdbec7a12a9cef1ed",
+    "data/dataset_LOLv1.py": "69f0f9bbf3b2a2dab353c280975be25bf72521b7e412d64adf9a6d56a4013ec2",
+    "data/dataset_LOLv2_real.py": "82149035f69797c8f6a440105d8bdd1e59a9aadb70beb36ef28805315a51eaf7",
+    "data/dataset_LOLv2_synthetic.py": "dea07e553d0904b29d8e4fd80cff0d6b9f677228fcbb5ebf45734f207201ffa5",
+    "data/dataset_SDSD_test.py": "94cf190f8b5d1205a7fae1b57ac6de8303a8b1d3d0b4fd44d446d6db0c261473",
+    "data/dataset_SDSD_train.py": "8f9982376102024973c51d270987b8abf041fd53c0864c12d84f3560f506066f",
+    "data/dataset_SID.py": "3de765f111fbedb5522a9a033e1944cf3584e78d06ca4bd8425091786a97ac91",
+    "data/dataset_SMID_test.py": "bd65ab89083fc6d6491f2b1d09d8764f1e8c5a37aaeb1419aff35379a7aa21a4",
+    "data/dataset_SMID_train.py": "6e60a6515cd6c7262975f45e004253533b9e2bdf3180765ed7c0b4bfd4d2a7bf",
+    "data/util.py": "f03a2b4eae55f2ee6c818c011225f5b374edce91e93f543aa101ebb9f524440e",
+    "models/Video_base_model3.py": "1b667ff4d44ba72b772912afd8346f485d13f72cb918872e4a8605def944a255",
+    "models/Video_base_model4.py": "534c8b81d83736bcc321ab0da7b562effca8e635d7efc82cbb43861951b5d760",
+    "models/Video_base_model4_m.py": "2ae3881d10e893511a2a347788169b30af9b4cd1d237661534ca8a58be4197af",
+    "models/__init__.py": "13dc6559d8d793b7e4ee167239095e74eb96359985652d2639a2f8878a1511ec",
+    "models/archs/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "models/archs/arch_util.py": "7939420cd8105cf430b3e4a92333435ce1a015e1afd0644610dca94627d13bd8",
+    "models/archs/low_light_transformer.py": "392b549dec70b6c340c5332d70bdcc5575bdde4ea42fa8d229eb74603df7c725",
+    "models/archs/transformer/Constants.py": "e281e03f8a71ea325b73e659ca5c12206e3feee59f63658e3d13d2efd35ec748",
+    "models/archs/transformer/Layers.py": "0815abc0f6d2c0584812e83e8101cec71b0cf37a32522f777e820d87a5597059",
+    "models/archs/transformer/Models.py": "3bdab5dea51c2281ef0b86cb248fb51c171d82de852e1db4914df2ccb6dfba4b",
+    "models/archs/transformer/Modules.py": "133a98da73d33bd9b88deaa4f01334ae55588199bdd117fc7b96b86a5cb53b5d",
+    "models/archs/transformer/Optim.py": "be33557cbb550aed1c2b11c28b6d897ea79b600462ea1edc40e215d06affacdc",
+    "models/archs/transformer/SubLayers.py": "50123dc35cde0dbb7a570646ca6eee99ae3204ae00973e51130a4fdfc9dc58a4",
+    "models/archs/transformer/Translator.py": "4a93b3a84dfcc9351c46fc8bb3f219ca1564dd9e14ff018f8e9bed1b675ee99e",
+    "models/archs/transformer/__init__.py": "69422b800162dd21db9c68eeeee386db715fc9bac3bbb8332415ee8112593628",
+    "models/base_model.py": "e357666e23054da7853281e3e22c29f7f254d51222843f81a1cda017865235fa",
+    "models/loss.py": "3e4fe42282be5434014f08a25116abb4e82a1c4715f0df27cb7f9a096ed2c9f4",
+    "models/lr_scheduler.py": "829c675284754c1de1991479cc409b20af8272b3c2f3dbfc415a65be30e8fc9b",
+    "models/networks.py": "9bdd0362da52eb1442103c8ec3c08184d69c84e3ed0913a36f0961f6ab25506b",
+    "options/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options/options.py": "8b03fd41c1876b6922095f7d3da6d6544d85a8e672a369088d3f8a262dbcd1f9",
+    "options/test/LOLv1.yml": "9ec7d881c148ea76370997d62487fb676b8e7814f89ce1cad6b124163b59a3a4",
+    "options/test/LOLv2_real.yml": "f438cf0d3d0c2538cd17a83b4ef3c0a7b8f39ca9a4d08742bc692105e4e86830",
+    "options/test/LOLv2_synthetic.yml": "a20aa0e747213ee3dbe05daf55f69cf42f229fc5a7c5546b9d6da9ad167f1e02",
+    "options/test/SDSD_indoor.yml": "6140d3037a2de3b105be3e9f8e112738e35fb6adba7f0e160f7a86c764564e9e",
+    "options/test/SDSD_outdoor.yml": "3176e4df357649889d8d28ad8ca67183954bbbdd61ddd9e680eb172d0f6b88d4",
+    "options/test/SID.yml": "0fe402a2787e54db7050c610ef002df19775568540ff7f3b84d9d01b2687f1b2",
+    "options/test/SMID.yml": "9f6cd40b9a29fed058476bf28cc711254d2804590f2c18c3987721e7e857fcd8",
+    "options/train/LOLv1.yml": "a87522bfcd37ce5c60989603a764ae17aa704a16796543e65513c08b21f9c35e",
+    "options/train/LOLv2_real.yml": "7131e7d66075763f830fda87316a16f21dea97868c809d49d94e7d42c481f6a5",
+    "options/train/LOLv2_synthetic.yml": "abeb0122eabfe7d16d69c662c82022ba6fba7008a420920de4917df926618914",
+    "options/train/SDSD_indoor.yml": "e0ce8e0cebdf89abf790651cd68caf4ad8a2ff6bc53cfeba84c4316d089a0378",
+    "options/train/SDSD_outdoor.yml": "5b0dfe37fdee78dd9ca6939e8f43023d60d7d0c7a0598c48312c8e2e19b430f8",
+    "options/train/SID.yml": "54bab1cdffb8a47b5af58e0a191ab19f4560fe0df481d56750b10dd4e0f048b8",
+    "options/train/SMID.yml": "66c8044894081f2c0aba741ba12ef1929767f760619c05ec9b8fa5545c66f240",
+    "test.py": "0c760da1c8f4c61023057470392ddf4242ba5754b5ad7e51492a7d24eab9d059",
+    "test_LOLv1_v2_real.py": "37ee1ac2385e8852b36f2a2378ff06b544e67677a243ccec5d5fbbabc2d7b933",
+    "test_LOLv2_synthetic.py": "55e9410dc9e9ea24a27ee569ff0a5445145770a25638b1a18adbbb4a39b39b1d",
+    "train.py": "5b6eb8f841cb7cf8209d1753b22921793b916c487d405762a9bc808e86a3bd94",
+    "utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utils/util.py": "6098e2444c5573beff5c3d04b8aab80e1f8de966c05132b3604bccac7f84b1cf"
+  },
+  "files": {
+    "baseline/receipt.json": {
+      "bytes": 3803,
+      "sha256": "7204ffd649c5f3d772927b425d8b290826fd158bf6feb5fa47ccee9f0a48fdb2"
+    },
+    "baseline/low00318.npy": {
+      "bytes": 2880128,
+      "sha256": "99af8a099c6d3f37ba8643f99bc46ec584e92152d351af74fd13a26136789f54"
+    },
+    "baseline/low00278.npy": {
+      "bytes": 2880128,
+      "sha256": "a72488cf8a49347fdba2a3ccabebb7932ce88baee153de9c7c0a17381c688bd4"
+    },
+    "baseline/low00539.npy": {
+      "bytes": 2880128,
+      "sha256": "13e988fbbfdbea07a3a2a7360e7e54392308e89e5d3ab60c1f7d32c6f71a3c67"
+    },
+    "baseline/low00585.npy": {
+      "bytes": 2880128,
+      "sha256": "4681f202150195f05ae249024ec91d31b16c98760adf55f8f65205053643cd6a"
+    },
+    "baseline/low00244.npy": {
+      "bytes": 2880128,
+      "sha256": "4e86b8d67a8ad30f2fea393e90338c397b2b7f5ef4faa00664e6dbaa58e1b2bd"
+    },
+    "baseline/low00277.npy": {
+      "bytes": 2880128,
+      "sha256": "9132b5eda2417b2d2f4ee2ab02ba13d3368472b286e442cc2f289fbf54b27abd"
+    },
+    "baseline/low00166.npy": {
+      "bytes": 2880128,
+      "sha256": "3d5fc1c16f2154db5c72f63fd32939393258e5f01bf4a7f7dc021b53cf1755d5"
+    },
+    "baseline/low00016.npy": {
+      "bytes": 2880128,
+      "sha256": "4f0c65c1d3e64f472f35c1778a3c73938cc8ac72f10010645ca8353b0944bd48"
+    },
+    "exporter/receipt.json": {
+      "bytes": 4182,
+      "sha256": "cc3fedf334302d1278d0ce42f359a6983003caad661b9b10d5a001f0b02d697a"
+    },
+    "exporter/low00318.npy": {
+      "bytes": 2880128,
+      "sha256": "99af8a099c6d3f37ba8643f99bc46ec584e92152d351af74fd13a26136789f54"
+    },
+    "exporter/low00278.npy": {
+      "bytes": 2880128,
+      "sha256": "a72488cf8a49347fdba2a3ccabebb7932ce88baee153de9c7c0a17381c688bd4"
+    },
+    "exporter/low00539.npy": {
+      "bytes": 2880128,
+      "sha256": "13e988fbbfdbea07a3a2a7360e7e54392308e89e5d3ab60c1f7d32c6f71a3c67"
+    },
+    "exporter/low00585.npy": {
+      "bytes": 2880128,
+      "sha256": "4681f202150195f05ae249024ec91d31b16c98760adf55f8f65205053643cd6a"
+    },
+    "exporter/low00244.npy": {
+      "bytes": 2880128,
+      "sha256": "4e86b8d67a8ad30f2fea393e90338c397b2b7f5ef4faa00664e6dbaa58e1b2bd"
+    },
+    "exporter/low00277.npy": {
+      "bytes": 2880128,
+      "sha256": "9132b5eda2417b2d2f4ee2ab02ba13d3368472b286e442cc2f289fbf54b27abd"
+    },
+    "exporter/low00166.npy": {
+      "bytes": 2880128,
+      "sha256": "3d5fc1c16f2154db5c72f63fd32939393258e5f01bf4a7f7dc021b53cf1755d5"
+    },
+    "exporter/low00016.npy": {
+      "bytes": 2880128,
+      "sha256": "4f0c65c1d3e64f472f35c1778a3c73938cc8ac72f10010645ca8353b0944bd48"
+    },
+    "low/Train/Low/low00539.png": {
+      "bytes": 336125,
+      "sha256": "59aef7cc813a234dd1d0418c56d0cf40f5810fa023d8eda41e9cba83616a4193"
+    },
+    "low/Train/Low/low00318.png": {
+      "bytes": 573001,
+      "sha256": "512028abf8a326e7ee4965732176030430a534502827f280955cd4f33c6af590"
+    },
+    "low/Train/Low/low00016.png": {
+      "bytes": 301444,
+      "sha256": "7abd1a62c7f3f3b07e33a34992f24e4a63e9718fb269ac71f33c511af7308435"
+    },
+    "low/Train/Low/low00277.png": {
+      "bytes": 567504,
+      "sha256": "a27d223dca572fc6292acc2d568c73c27ba393adaa6fa1f2a4263d7ef4f011f6"
+    },
+    "low/Train/Low/low00585.png": {
+      "bytes": 320647,
+      "sha256": "345007d832435148306304f87006b9328e42e6f3af1dda0b0806fe64dbd1732f"
+    },
+    "low/Train/Low/low00244.png": {
+      "bytes": 320030,
+      "sha256": "cda196a58c7465c0514161e24ff7b2171a8c924cc7cbb6261123f6aaa024d6cd"
+    },
+    "low/Train/Low/low00166.png": {
+      "bytes": 269238,
+      "sha256": "ae0e23a22d2a8e81e492197a13c5e19cacd73913804880a114dfe4a483feea30"
+    },
+    "low/Train/Low/low00278.png": {
+      "bytes": 567410,
+      "sha256": "284c2e1e360bcecea8f5191422d2e4c556a20a03328c22960d8bc45e49c6fa94"
+    },
+    "LOLv2_real.pth": {
+      "bytes": 156523164,
+      "sha256": "432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781"
+    },
+    "smoke_manifest.json": {
+      "bytes": 2541,
+      "sha256": "7629de0a279c2407c7aace68f25b2674f59f34b954d881a7bdaa60353e23c46d"
+    },
+    "export_config.json": {
+      "bytes": 808,
+      "sha256": "fcb29f50538cfd09ec425c83d7f2072477b24f7c2ab4f23507c3e1b37016b3fb"
+    },
+    "T027B_summary.json": {
+      "bytes": 6572,
+      "sha256": "10e88911c6f42b9176a4042d25a69e8bc20d1391ae1cb71d99be1c9bf164bba8"
+    }
+  },
+  "deployed_sources": {
+    "releases/20260914-155401-ttie-t027b-baseline/T027B_baseline.py": "bafda0b64b1b932b40dc4139f0b6c25f8bc90821a0acf120b5005600eca2e1e1",
+    "releases/20260914-155401-ttie-t027b-baseline/T027B_prepare.py": "c0e9644725d4e0c4dc0ca2246805e136324bd038f024fc150eac7489db1a17fc",
+    "releases/20260914-155401-ttie-t027b-baseline/T027B_access.py": "2074d1467d1241e6037603fde200ffe56bb4bce162075055d14e686ec9479723",
+    "releases/20260914-155401-ttie-t027b-baseline/T027B_adapter.py": "7c4d97fa5a8f556d7e96b484c62539b1cdade8f6c92d224e64e0a3f4363930cd",
+    "releases/20260914-155831-ttie-t027b-exporter/T027B_export_smoke.py": "97a3b5028fb1da27d2f116210721208105818f3a22a47a89940ec2dad7ec8b98",
+    "releases/20260914-155831-ttie-t027b-exporter/T027B_access.py": "2074d1467d1241e6037603fde200ffe56bb4bce162075055d14e686ec9479723",
+    "releases/20260914-155831-ttie-t027b-exporter/T027B_adapter.py": "7c4d97fa5a8f556d7e96b484c62539b1cdade8f6c92d224e64e0a3f4363930cd",
+    "releases/20260914-155831-ttie-t027b-exporter/ttie/__init__.py": "1dc67d64c1a6af84398b21da7bcd69b565f7c27a9ba0269abd8195082840acec",
+    "releases/20260914-155831-ttie-t027b-exporter/ttie/snr_exporter.py": "72a8bdec919d1c35056f549aca3c2bfcca7a1a2960999a7bfa0727434a766b61",
+    "releases/20260914-155831-ttie-t027b-exporter/tests/test_snr_exporter.py": "bd8f39ea17a4e77dac5fdfebea5713520d2ae972b5a3df3e0b4757815a3dda17"
+  }
+}

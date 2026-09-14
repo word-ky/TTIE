@@ -1,0 +1,130 @@
+{
+  "mode": "ttie_native_pad16",
+  "reference": "official VideoBaseModel.test + extracted official low-only5x5blur; not test4",
+  "decoded_paths": [
+    "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/low/Train/Low/low00585.png",
+    "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/low/Train/Low/low00318.png",
+    "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/low/Train/Low/low00278.png",
+    "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/low/Train/Low/low00244.png",
+    "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/low/Train/Low/low00539.png",
+    "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/low/Train/Low/low00166.png",
+    "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/low/Train/Low/low00277.png",
+    "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/low/Train/Low/low00016.png"
+  ],
+  "denied_reads": [],
+  "parameter_hash_before": "11d3d667821719bd51e6e608c7876774b001643a28ed85193054bb45428190d4",
+  "parameter_hash_after": "11d3d667821719bd51e6e608c7876774b001643a28ed85193054bb45428190d4",
+  "pad_lrtb": [
+    0,
+    8,
+    0,
+    0
+  ],
+  "blur": "native OpenCV5x5defaultborder, then reflect-pad low+feature",
+  "rows": [
+    {
+      "low": "Train/Low/low00585.png",
+      "shape": [
+        400,
+        600,
+        3
+      ],
+      "min": 0.0,
+      "max": 1.0,
+      "output_sha256": "9a58741b722a4e7c69af1a343019ad67101595e3a403b6207e99f3be29e1da86",
+      "runtime_s": 0.32703919702908024,
+      "peak_memory_bytes": 673210880
+    },
+    {
+      "low": "Train/Low/low00318.png",
+      "shape": [
+        400,
+        600,
+        3
+      ],
+      "min": 0.0,
+      "max": 0.9072736501693726,
+      "output_sha256": "32cd28923848490db145022ac882747a865f3f529f0d14b98852222b2f9b34ae",
+      "runtime_s": 0.02235795301385224,
+      "peak_memory_bytes": 677102080
+    },
+    {
+      "low": "Train/Low/low00278.png",
+      "shape": [
+        400,
+        600,
+        3
+      ],
+      "min": 0.0,
+      "max": 0.8831128478050232,
+      "output_sha256": "e48cc9cbf875d7ce76b2f1a8ed702aa00829c294a46552b2d51148e0a94c9958",
+      "runtime_s": 0.0209793170215562,
+      "peak_memory_bytes": 677038592
+    },
+    {
+      "low": "Train/Low/low00244.png",
+      "shape": [
+        400,
+        600,
+        3
+      ],
+      "min": 0.04015204310417175,
+      "max": 1.0,
+      "output_sha256": "108b41c3268319e06ecc1e008ede38903f319e3fac2b0f84f0b644940163e0dd",
+      "runtime_s": 0.021711076027713716,
+      "peak_memory_bytes": 677102080
+    },
+    {
+      "low": "Train/Low/low00539.png",
+      "shape": [
+        400,
+        600,
+        3
+      ],
+      "min": 0.0,
+      "max": 0.841911256313324,
+      "output_sha256": "e33f56fff971ae94380d2927e99e889e3d05bf7c6a9a6ce24baa8c84021eb3b5",
+      "runtime_s": 0.02137418102938682,
+      "peak_memory_bytes": 677038592
+    },
+    {
+      "low": "Train/Low/low00166.png",
+      "shape": [
+        400,
+        600,
+        3
+      ],
+      "min": 0.0,
+      "max": 0.9645074009895325,
+      "output_sha256": "b046b2122a6a20ac36562f3f227c9f7d7040e23c6fa00a0b02e451f276c67910",
+      "runtime_s": 0.02145434805424884,
+      "peak_memory_bytes": 678074880
+    },
+    {
+      "low": "Train/Low/low00277.png",
+      "shape": [
+        400,
+        600,
+        3
+      ],
+      "min": 0.0,
+      "max": 0.8572892546653748,
+      "output_sha256": "730884ff2cf3cb62ea9f2acd89b15d42bc77ce5f6dd042faf49eb1d53d8cfda5",
+      "runtime_s": 0.021352262003347278,
+      "peak_memory_bytes": 678074880
+    },
+    {
+      "low": "Train/Low/low00016.png",
+      "shape": [
+        400,
+        600,
+        3
+      ],
+      "min": 0.044103845953941345,
+      "max": 1.0,
+      "output_sha256": "2385443474033340e1af626f554e15b4f9d2c25d8ea1be6fe07e7f56b98d9049",
+      "runtime_s": 0.021345818997360766,
+      "peak_memory_bytes": 677102080
+    }
+  ]
+}
