@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-173030-ttie-t029a-alignment",
+  "releaseId": "20260914-173026-ttie-t029a-floatcheck",
+  "sessionName": "autodl-20260914-173030-ttie-t029a-alignment",
+  "command": "export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY research_log/T029A_alignment/audit.py --preflight /home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-172718-ttie-t029a-preflight/artifacts/preflight --split research_log/T022A_data/split.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --normal-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t029a/REFERENCE_GRADIENT_DIAGNOSTIC_ONLY/normal --out \"$AUTODL_ARTIFACTS_DIR/REFERENCE_GRADIENT_DIAGNOSTIC_ONLY\" && $PY research_log/T029A_alignment/independent_check.py --out \"$AUTODL_ARTIFACTS_DIR/REFERENCE_GRADIENT_DIAGNOSTIC_ONLY\" --preflight /home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-172718-ttie-t029a-preflight/artifacts/preflight"
+}

@@ -1,0 +1,20 @@
+[autodl] run_id=20260914-172838-ttie-t029a-alignment
+[autodl] started_at=2026-09-14T17:28:44+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+Traceback (most recent call last):
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260914-172659-ttie-t029a-alignment/research_log/T029A_alignment/audit.py", line 64, in <module>
+    torch.testing.assert_close(g_e.cpu(),old,rtol=1e-5,atol=1e-7)
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/testing/_comparison.py", line 1524, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not close!
+
+Mismatched elements: 1 / 8 (12.5%)
+Greatest absolute difference: 2.0116567611694336e-07 at index (0, 1, 0, 0) (up to 1e-07 allowed)
+Greatest relative difference: 3.45953376381658e-05 at index (0, 1, 0, 0) (up to 1e-05 allowed)
+[autodl] finished_at=2026-09-14T17:28:55+08:00
+[autodl] exit_code=1

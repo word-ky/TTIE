@@ -1,0 +1,28 @@
+{
+  "source": "da4ce46d376a77c9b41217724e4304787f4dc807",
+  "release": "20260914-173746-ttie-t029a-diagnostic",
+  "preflight_run": "20260914-172718-ttie-t029a-preflight",
+  "audit_run": "20260914-173750-ttie-t029a-alignment",
+  "preflight_completed_utc": "2026-09-14T09:27:53.169590+00:00",
+  "preflight_sha256": "b382c60b1fb78cb50c88b362b8af504dc108cd29d9f302f174b6a06641d36f8f",
+  "reference_deployment_started_utc": "2026-09-14T09:28:23.150197+00:00",
+  "status": "completed",
+  "local_tests": "2 passed in23.82s",
+  "remote_tests": "2 passed in1.53s",
+  "failed_initial_run": "20260914-172838-ttie-t029a-alignment",
+  "failure": "first image historical CUDA gradient absdiff2.0116567611694336e-7 exceeded added float32 tolerance; repaired comparator only",
+  "failed_runs": [
+    "20260914-172838-ttie-t029a-alignment",
+    "20260914-173030-ttie-t029a-alignment"
+  ],
+  "second_failure": "95 completed images before historical gradient auxiliary tolerance failure; no saved summary. Extra gate removed; no scientific settings changed.",
+  "classification": "weak/mixed field alignment",
+  "states": 4100,
+  "updates": 0,
+  "reference_selections": 0,
+  "completed_utc": "2026-09-14T09:43:32.202214+00:00",
+  "gpu_audit_completed": true,
+  "original_wrapper_exit_code": 1,
+  "repaired_cpu_check_exit_code": 0,
+  "postprocessor_source": "9f4e53d2ae593dce1f931cc194f0c97ff1a69514"
+}
