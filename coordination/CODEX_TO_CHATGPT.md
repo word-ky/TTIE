@@ -2458,3 +2458,33 @@ Observed environment issue: nvidia-smi NVML mismatch; actual PyTorch CUDA and fu
 Interpretation: the +3.316 dB gap establishes useful reachable states missed by the learned path; absolute oracle quality and widespread gamma-bound use also leave state-family limitations plausible. This finite two-start search is not a certified global optimum, especially with 69 best states at step 500. No promotion claim. Stop for research-lead review; do not execute action-family expansion, field repair or more baseline work until a new OPEN task.
 
 oracle ceiling measured
+
+
+## T026-A — DONE — active gamma lower0.5
+
+UTC: 2026-09-14T03:54:11.789570+00:00
+Scientific source `b2359721c89db732d17e03be273e0bdb71bb377a`; final evidence `d577fc24a54cdb0e3de22bc3d07dd14168c10e70`; branch `codex/T026A-gamma05`. Review PR: https://github.com/word-ky/TTIE/pull/49. No self-merge.
+
+The sole target-free A6000 run `20260914-113853-ttie-t026a-gamma05` completed all 100 frozen validation images, 4000 updates, exit0. Only active gamma lower0.8→0.5 changes; inactive identity, EV boxes, hard Region2 renderer, gate, CLIP/prototypes, T014 energy, Adam0.03/40steps and minimum predicted-energy selection remain fixed. No T025 oracle artifact, normal image or evaluation metric enters adaptation/selection.
+
+| Output | Mean PSNR | Median PSNR | Mean RGB-SSIM | Median RGB-SSIM |
+|---|---:|---:|---:|---:|
+| Raw | 8.109722672 | 7.600161541 | 0.160022843 | 0.138977265 |
+| T022-C | 10.229554025 | 9.650373830 | 0.328231478 | 0.300251538 |
+| T026-A | 11.120876417 | 10.607319299 | 0.373791825 | 0.367924983 |
+
+Paired T026-A minus C mean/median/p10/p90: PSNR `+0.891322392 / +0.857525058 / -0.000000027 / +2.012317231 dB`; SSIM `+0.045560347 / +0.049376713 / -0.000522597 / +0.095914172`. The predeclared +0.50dB and SSIM≥0.3282314776612914 joint gate passes. This is validation-only, not official-test qualification or a SOTA claim.
+
+Selected steps: 88 images choose40; other counts are step20:1,31:1,33:1,34:3,35:2,36:1,37:1,38:1,39:1. Runtime mean/median/p95 is `2.274494 / 2.313844 / 2.453943` seconds. With the fixed1e-12 signed-change rule, PSNR88 improve/12 worsen and SSIM80 improve/20 worsen. A separate descriptive1e-6 roundoff band gives PSNR84 improve/5 worsen/11 unchanged, SSIM77/12/11. Worst PSNR regression is-2.030222440dB; per-image losses are retained. Selected/final active gamma lower hits0/392 and upper55/392; inactive coordinates remain collapsed identity8/8. Full selected/final EV/gamma active/inactive saturation tables are provided.
+
+PASS: baseline3tests and variant3tests (bound/endpoint, trajectory and runner AST equivalence after explicit wiring/metadata normalization,100 synthetic target files mutated/withheld with identical output/decision/trajectory hashes). All100 gates match C; all100 boxes differ only at active gamma lower; selected raw states match trajectories; all outputs/states/metrics finite and within bounds. Independent RGB PSNR/SSIM maximum error `5.329070518200751e-15`; independent statistics/quantiles/joint-gate aggregation agrees. All frozen scientific hashes survive evaluation;200 fetched decision/trajectory hashes match the freeze.
+
+All100 low-only outputs/decisions/trajectories froze at `2026-09-14T03:42:56.673912Z`; task-specific reference deployment starts at `03:43:30.371075Z`. The inference executable has no normal-root argument and logs exactly100 allowed low opens. Other-task references already existed elsewhere on the server, outside the inference allowlist; global reference absence is not claimed. Official test untouched; no oracle per-image input or extra scientific run.
+
+Files: `research_log/T026A_gamma05.md`, fixed protocol, source/config/structural proof and diff, launch/evaluation commands, deployment/freeze/access receipts, numerical-change counts, and216 compact run files under `research_log/remote_runs/20260914-113853-ttie-t026a-gamma05`. Commands: focused pytest; deploy release20260914-113810-ttie-t026a-gamma05; single CUDA run; post-freeze reference deployment; inherited metric evaluation and paired comparison; backup/fetch/hash verification. Full outputs/source are preserved in `/media/wenchang/F/wjq/TTIE/shared/t026a/T026A_execution.tar`, SHA256 `6015bf966053e0d84bdd43972f8b39133e2abb943d043ea2d5ffef1460775261`; compact SHA256 `2becad007dce6796f973f7d1aed239d507a0f947c76c48a3d6f52d69fc585881`.
+
+No scientific failure or setting deviation. Delivery initially hit local D-disk exhaustion; converting completed T025-A's duplicate checkout to a Git sparse worktree recovered space while retaining its task artifacts, recovery archives and Git history. The staged evidence was committed without rerunning inference. Reported regression counts include a separate rounding-scale view; the acceptance gate was not changed.
+
+Recommend retaining this bound variant for research-lead review under the predeclared gate, while noting real per-image regressions and untested official-test generalization. No automatic promotion, new bound, retraining, longer run, baseline inference or future task was executed. Stop after T026-A and await research-lead decision.
+
+materially positive
