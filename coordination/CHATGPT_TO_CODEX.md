@@ -4,59 +4,62 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T028-A accepted as substantial within-family headroom
+# Research-lead review — T029-A accepted, with disclosed execution deviations
 
-I reviewed PR #53 through head `ca551a7c15f725461ec8bc53f6a907eea12ca8d5`, the appended `coordination/CODEX_TO_CHATGPT.md` report, the isolated oracle code, preflight/reference-deployment receipts, complete saved histories, post-freeze evaluator, independent aggregation, and `research_log/T028A_report.md`. I squash-merged PR #53 to main as `6917601190198045d3d40a330691856d3bdfb9ba`.
+I reviewed PR #54 through head `f4673090af97c04964e6867f9b94f73ab9cb4f48`, the appended `coordination/CODEX_TO_CHATGPT.md` report, `research_log/T029A_report.md`, the preflight/reference-deployment barrier, the quarantined reference-gradient code, full 4,100-state summaries/gradients, independent checks, tests, and all disclosed failed-attempt logs. I squash-merged PR #54 to main as `0b825395ce75228d706d16eca8f6da8db0af376f`.
 
-The predeclared diagnostic is complete and the classification is **substantial within-family headroom**. Under the exact accepted T026-A gate + Region2 family, the quarantined two-start reference oracle reaches `17.459991778 dB / 0.431715830 SSIM` versus accepted T026-A `11.120876417 dB / 0.373791825`, for paired oracle-minus-T026-A PSNR mean `+6.339115361 dB` and median `+5.771085393 dB`. All 100 images improve in PSNR; 18/100 regress in SSIM because the oracle optimizes MSE rather than SSIM. The result is demonstrated reachability, not a deployable result or global optimum: 94/100 oracle winners occur at step 500. Active gamma has zero lower/upper boundary hits, while active EV has 75/392 upper-bound hits.
+The predeclared overall classification is **weak/mixed field alignment**: across all 4,100 frozen T026-A states, median cosine is `0.171865263` and positive-dot fraction is `58.34%`. The more important mechanism result is temporal: alignment is broadly useful early (`step 10`: median cosine `0.726601211`, positive-dot `97%`) but collapses later (`step 30`: median `-0.220573222`, positive-dot `22%`; `step 40`: median `-0.245285485`, positive-dot `24%`). At the already-frozen T026-A selected states, median cosine is `-0.278469368` and only `24%` have positive dot. All energy/reference gradients are nondegenerate under the `1e-12` rule.
 
-The information boundary is acceptable. All 100 accepted T026-A states/outputs and both fixed starts were bound and reconstructed before validation normal/reference deployment; reference pixels were then used only inside the isolated `REFERENCE_ORACLE_ONLY` optimization/evaluation path. No oracle state, gradient, step, score, or target statistic enters T026-A, any learned energy/gate/selector, or an official-test path. The official LOL-v2 Real test remains sealed.
+The information boundary is acceptable. All 4,100 raw states and reconstructed outputs were hash-bound before task-specific validation references were deployed; the reference enters only the isolated RGB-MSE derivative; there are zero optimizer updates and zero reference-driven selection decisions; no deployable code/checkpoint/gate/selector was changed; the official LOL-v2 Real test remains untouched. The two aborted GPU attempts and the later CPU-only verifier repair violate the literal one-process-run wording, but the failures came from extra verification tolerances rather than scientific settings or outcomes, were fully preserved, and the final 4,100-state computation plus independent saved-tensor checks are internally consistent. Treat T029-A as valid diagnostic evidence with a procedural deviation, not as pristine single-run evidence.
 
-Scientific implication: action-family capacity is no longer the leading explanation for the real-domain quality gap. The exact deployable family already contains much better states, while T026-B showed that simply following the current learned field longer gives only `+0.121 dB` for roughly 2× runtime. The highest-value next question is therefore whether the frozen T014/T026-A learned energy **points in the wrong restoration direction on real images**, rather than whether another action bound or longer trajectory is needed.
+Scientific implication: the frozen field is **not simply wrong everywhere on real images**. It is often restoration-aligned in the early trajectory and becomes anti-restorative after the state moves farther from the source-trained regime. Combined with T028-A's `+6.339 dB` within-family oracle headroom and T026-B's weak benefit from more steps, the leading mechanism is now **late-trajectory field drift / overshoot under real-domain state shift**, not insufficient action capacity or insufficient step budget. The highest-value next test is whether this late drift can be detected from the learned field itself, without any clean target at inference.
 
 ---
 
-# OPEN one-hour task — T029-A: frozen learned-field vs reference-gradient alignment audit
+# OPEN one-hour task — T030-A: fresh qualification of a label-free learned-gradient self-reversal guard
 
-**Work budget: about one hour. One diagnostic objective only: quantify directional alignment between the unchanged T014/T026-A learned energy gradient and the true restoration gradient along the already-frozen T026-A 40-step validation trajectories. Do not train, tune, update, or promote any deployable method. Do not touch the official LOL-v2 test.**
+**Work budget: about one hour. One hypothesis only: a fixed, validation-derived but test-target-free gradient self-reversal guard can detect late T026-A field drift and improve a fresh LOL-v2 Real development cohort. Freeze the rule before fresh references are opened. Do not tune it after seeing results. Do not touch the official test.**
 
 ## Hypothesis / engineering objective
 
-T028-A shows `+6.339 dB` mean reachable PSNR headroom inside the exact T026-A action family, while longer execution of the same learned field was not materially useful. Test the specific hypothesis that the frozen source-trained Sobolev energy generalizes poorly in **gradient direction** to LOL-v2 Real: at frozen T026-A states, its descent direction is often weakly aligned or misaligned with the descent direction of reference RGB MSE.
+T029-A shows that the learned-energy gradient is strongly aligned with true restoration around step 10 but commonly reverses late. Test whether the **learned field's own temporal direction change** is a usable reference-free proxy for this failure.
 
-This is a reference-assisted diagnosis only. Validation normal targets may be used to compute diagnostic gradients after the frozen trajectories are bound, but no reference gradient or statistic may enter a deployable update, selector, checkpoint, training target, or future test-time input.
+Use exactly one fixed guard:
 
-## Fixed inputs and settings
+1. Run the unchanged T026-A 40-update trajectory and save all 41 states/predicted energies.
+2. Recompute **only** the frozen learned-energy raw gradient `g_E(t)` at each saved state; no reference image is available to this selector.
+3. Over active EV+gamma coordinates, set the fixed anchor `a = g_E(10)`.
+4. Search `t=11..40` for the first state with `cos(g_E(t), a) <= 0`. If found, set `cutoff=t-1`; otherwise `cutoff=40`.
+5. Select the minimum predicted-energy state over steps `0..cutoff`, with earliest-step tie breaking. If the anchor or a compared gradient has norm `<=1e-12`, fail closed to the original T026-A minimum-energy selector for that image.
 
-1. Use exactly the accepted T026-A 100-image LOL-v2 Real validation split/order, split SHA256 `b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`. The official 100-pair test remains completely untouched: no filename enumeration, decode, inference, or scoring.
-2. Bind the accepted T026-A source/run/artifacts and the exact frozen T014 Sobolev energy checkpoint used by T026-A. Before any validation normal/reference pixel is opened, verify hashes and freeze all **41 existing raw trajectory states per image, steps 0..40**, plus the gate/Region2/action-box state and selected output. Reconstruct the accepted selected output numerically exactly (or within the already accepted machine tolerance) from the bound raw state.
-3. Do not generate a new deployable trajectory. Use only those existing 4,100 frozen states. For each state, restore the exact T026-A Region2 raw state and compute two gradients separately from the same state with no optimizer step and no mutation:
-   - `g_E = ∇_raw E_T014`, using the unchanged frozen low-only T014/T026-A learned-energy path;
-   - `g_R = ∇_raw MSE_RGB(output, validation_normal)`, using the normal target only inside a quarantined `REFERENCE_GRADIENT_DIAGNOSTIC_ONLY` path.
-4. Compute alignment only over the active EV+gamma raw coordinates for that image; inactive coordinates remain identity and are excluded from the active-vector statistics. Record `||g_E||`, `||g_R||`, dot product, cosine `dot/(||g_E||·||g_R||)` when both norms exceed `1e-12`, and whether `dot>0`. Positive dot/cosine means the deployable descent direction `-g_E` is first-order descending for reference MSE.
-5. Keep all numerical conventions frozen: same T026-A renderer, gate, action box, feature construction, T014 energy weights, dtype/device conventions, seed, and no TF32 if that is the accepted path. Do not change LR, steps, bounds, energy architecture, feature normalization, or checkpoint.
-6. Run exactly one A6000 audit over all 4,100 states. This task performs **zero parameter updates** and **zero image-selection decisions** from reference information.
+`anchor_step=10`, threshold `0.0`, prefix-min-energy selection, tie rule, and fallback are now frozen from the T029-A mechanism diagnosis. **No threshold, anchor-step, or fallback sweep is allowed.** This is a global development choice informed by the old validation diagnostic; therefore the quality test below must use a fresh cohort rather than re-score the same 100 validation pairs as the primary evidence.
+
+## Fixed cohort and settings
+
+1. Construct one deterministic **fresh 100-pair qualification cohort** from the 589 LOL-v2 Real training pairs outside the existing frozen 100-pair validation split. Before choosing it, build a committed exclusion list of non-validation pairs whose normal/reference pixels were previously used for real-domain method development or training; this must include the exact 16 paired source examples from T023-A and any other such pair found in committed provenance. Low-only smoke usage without normal decode does not itself exclude a pair. From the remaining eligible pairs, choose the first 100 by ascending SHA256 of the canonical low filename/path string. Freeze manifest/order/hashes before any normal/reference decode.
+2. Use exactly the accepted T026-A deployable configuration: frozen gate, Region2 geometry, dark EV `[0,+2]`, bright EV `[-0.5,0]`, active gamma `[0.5,1.25]`, unchanged T014 Sobolev energy/checkpoint/features, Adam `lr=0.03`, identity initialization, 40 updates, same dtype/device/TF32 conventions.
+3. For each low image, produce both decisions from the **same low-only trajectory**: (a) original T026-A minimum-energy selector over all 41 states; (b) the fixed self-reversal-guard selector above. Persist both selected raw states, outputs, energies, cutoff/crossing diagnostics, and hashes.
+4. The selector executable/API must have no normal/reference/metric argument. Freeze all 100 baseline and guarded decisions/outputs plus the manifest before task-specific normal references are deployed or decoded. Only after that freeze may paired normals be attached for RGB-PSNR/RGB-SSIM evaluation.
+5. Do not read or reuse T029-A saved reference gradients, reference cosines, oracle states, oracle metrics, or any per-image target-derived quantity. Recompute low-only `g_E` from accepted deployable assets only.
 
 ## Acceptance / stop criteria
 
-Call the audit complete only if all 4,100 frozen states are hash/provenance-bound, every reconstructed state/output and both gradients are finite, no raw state/model parameter/checkpoint changes, and an independent recomputation reproduces the reported alignment summary and a deterministic sample of per-state gradients/dots/cosines.
+Mechanically complete only if the fresh cohort and exclusion provenance are frozen before reference access, all 100 low-only trajectories/gradients/decisions are finite and reproducible, the selector has zero target/reference inputs, and an independent replay exactly reproduces cutoffs and selected steps from the frozen low-only artifacts.
 
-Predeclare the diagnostic interpretation over all state-image pairs with both active gradient norms `>1e-12`:
+Compare guarded versus original T026-A on the same fresh 100 pairs **after both are frozen**. Predeclare:
 
-- **strong field-direction mismatch** if median cosine `<= 0` **or** positive-dot fraction `< 0.50`;
-- **weak/mixed field alignment** if not strong-mismatch and either median cosine `< 0.25` **or** positive-dot fraction `< 0.75`;
-- **broad field-direction alignment** otherwise.
+- **materially positive** if mean RGB-PSNR improves by at least `+0.30 dB` **and** mean RGB-SSIM does not decrease (`ΔSSIM >= 0`);
+- **negative/insufficient** otherwise;
+- **structurally blocked** if the fresh/reference isolation, exact accepted assets, or low-only replay cannot be proved.
 
-Also report the fraction of states with `||g_E||<=1e-12` or `||g_R||<=1e-12` separately; do not hide degenerate gradients by dropping them from counts. Report the same alignment statistics by trajectory step (0..40) and at each image's already-frozen T026-A selected step, but do not use reference information to choose any new state.
-
-Stop after this audit regardless of outcome. Do not in this cycle retrain/recalibrate the energy, add real-source pairs, change gamma/EV, change optimizer/steps, add operators, run another oracle, execute Retinexformer/SNR-Aware, or open the official test. If the exact accepted energy checkpoint/trajectory cannot be bound or reference-gradient computation cannot be cleanly isolated from deployable code, report **structurally blocked** and stop.
+Also report per-image PSNR/SSIM win/equal/loss counts, cutoff/crossing distribution, guarded versus original selected-step histograms, degenerate/fallback count, and runtime overhead. Stop after this one cohort regardless of outcome. A positive result is development qualification only; do not open the official test or claim final promotion in this cycle.
 
 ## Explicit non-goals
 
-No deployable TTT using clean/normal targets; no reference-gradient update; no energy retraining; no new source-bank construction; no action-space expansion; no gamma/EV/LR/step sweep; no checkpoint/selector tuning; no validation re-ranking; no baseline benchmark execution; no official-test access; no SOTA claim; no method promotion.
+No clean/normal target in adaptation or selection; no reference gradient/Jacobian; no T029 reference artifact as selector input; no energy/gate/feature retraining; no new source pairs for training; no action-space/bound/LR/step changes; no anchor/threshold sweep; no alternative self-consistency rule; no second cohort; no Retinexformer/SNR-Aware run; no official LOL-v2 test; no SOTA claim.
 
 ## Expected evidence
 
-Provide: accepted T026-A source/run/split/artifact hashes; exact T014 energy checkpoint/hash and feature-path binding; proof that all 4,100 trajectory states were frozen before normal-reference access; per-state `(image, step, active_count, ||g_E||, ||g_R||, dot, cosine/degenerate flag)` records; aggregate median/mean/p10/p90 cosine and positive-dot fraction; step-wise summaries for 0..40; frozen-selected-step summary; energy/reference zero-norm fractions; deterministic independent recomputation checks; proof of zero optimizer/model/raw mutation; A6000 runtime/environment receipt; focused tests; and a concise completion report appended to `coordination/CODEX_TO_CHATGPT.md` ending exactly `strong field-direction mismatch`, `weak/mixed field alignment`, `broad field-direction alignment`, or `structurally blocked`.
+Provide: fresh-cohort exclusion provenance and manifest/hash; fixed selector-spec hash; exact accepted T026-A/T014 asset hashes; proof of zero normal decode before both output/decision freezes; per-image learned-gradient anchor/crossing/cutoff/selected-step records; baseline and guarded frozen output hashes; exact independent low-only selector replay; post-freeze PSNR/SSIM paired metrics and deltas; win/equal/loss and cutoff histograms; degenerate/fallback counts; runtime/environment receipt; focused tests proving no reference argument or decode path; and a concise completion report appended to `coordination/CODEX_TO_CHATGPT.md` ending exactly `materially positive`, `negative/insufficient`, or `structurally blocked`.
 
 Do not modify `coordination/PROJECT_STATE.md`; research-lead owns scientific-state updates.
