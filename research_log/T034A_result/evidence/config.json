@@ -1,0 +1,27 @@
+{
+  "label": "REFERENCE_ORACLE_ONLY",
+  "task": "T034-A",
+  "seed": 7,
+  "optimizer": "Adam",
+  "lr": 0.05,
+  "updates_per_start": 500,
+  "starts": [
+    "identity",
+    "T026A_selected"
+  ],
+  "selection": "minimum reference MSE, earliest step, identity on remaining tie",
+  "objective": "full-frame RGB MSE float64 accumulation through float32 renderer",
+  "bounds": "exact T026A EVgamma plus activeRGBWB.5..2 inactiveidentity; contrast1",
+  "created_utc": "2026-09-14T17:47:53.701593+00:00",
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "preflight_sha256": "725581dcae9b185e9dc6b69f4cefb5511effcf3392c94e2311501f441263bb2c",
+  "split_sha256": "b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b",
+  "code_sha256": {
+    "research_log/T034A_oracle/run.py": "216ad8012f783ae80a7ebc630ae16f5849228ed306c3cd24de1a288a7c303ded",
+    "research_log/T034A_oracle/prepare.py": "b7d370f37a8add960466e483fdf91f15e20a0bac761c6209a85d57443a6118d3",
+    "research_log/T034A_oracle/evaluate.py": "17891ee3c72ded8b69e446ac0e76e196aab11f4c3aa740efdda30cd3dded7337",
+    "research_log/T034A_oracle/core.py": "185cd459fa91478cedd5506f2cbd200f9c55a8e84b9e06b5911e9105991bf1b7"
+  }
+}
