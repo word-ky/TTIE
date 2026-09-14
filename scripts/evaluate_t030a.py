@@ -15,6 +15,7 @@ def main():
     for k in ['audit','manifest','normal-root','deployment']:p.add_argument('--'+k,type=Path,required=True)
     a=p.parse_args();f=json.loads((a.audit/'freeze.json').read_bytes());manifest=json.loads(a.manifest.read_bytes())
     deployment=json.loads(a.deployment.read_bytes());assert f['completed_utc']<deployment['started_utc']
+    assert sha(a.audit/'freeze.json')==deployment['freeze_sha256'], 'audit freeze does not match reference deployment'
     assert sha(a.manifest)==f['manifest_sha256'] and sha(a.audit/'config.json')==f['config_sha256']
     replay=json.loads((a.audit/'independent_replay.json').read_bytes());assert replay['status']=='PASS' and replay['count']==100
     for r,s in zip(f['rows'],manifest['selected']):

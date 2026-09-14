@@ -52,3 +52,17 @@ Stop for research-lead review. No second cohort, anchor/threshold sweep, alterna
 negative/insufficient
 
 Delivery note: a local disk-full error interrupted git add; sparsifying completed T022A/T023A duplicate worktrees freed space while preserving task artifacts and Git history. No scientific rerun.
+
+## PR55 review follow-up (2026-09-14)
+
+Addressed both automated P2 comments. Evaluation now checks the audit freeze bytes against `reference_deployment.freeze_sha256` before reference access, in addition to the existing timestamp and artifact checks. The completed run's actual freeze already matches that receipt (`e94811518388868b229b0e731db207459c27e86c360c739f5979a3eb1234516b`); no metric or experimental result changed.
+
+Committed/compact evidence can be replayed directly:
+
+```powershell
+python scripts/replay_t030a.py --audit research_log/T030A_result/audit --compact
+```
+
+This verifies retained decision/trajectory hashes and all selector decisions, writing `compact_replay.json`. It explicitly does not verify omitted selected images. Default full mode still checks all files plus selected raw/grid correspondence; its existing `independent_replay.json` remains separate. The full images remain in the original server execution/F backup.
+
+Five focused tests pass locally (16.25s) and on the server (1.53s), including replacement-freeze rejection before reference access and compact replay with no image files. Compact replay matches all100 original full-replay rows exactly. Updated default full replay passes100/100 on the server and leaves the original full-replay receipt byte-identical. No GPU trajectory, reference evaluation or metric recomputation was run. Review receipts and logs are recorded alongside the original evidence.
