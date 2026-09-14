@@ -40,9 +40,13 @@ The T032 information boundary is valid: source geometry sets the radius; 100 low
 
 **T033-A establishes the first strong target-free quality anchor on the frozen development validation split.** Using the unchanged accepted T027-A Retinexformer exporter with `GT_mean=false` and self-ensemble disabled, the exact 100 validation lows produce **`21.478786404 dB / 0.790061209 RGB-SSIM`** versus accepted T026-A **`11.120876417 / 0.373791825`**. The paired Retinexformer-minus-T026-A mean gap is **`+10.357909987 dB / +0.416269384 SSIM`**; Retinexformer wins PSNR on `99/100` and SSIM on `98/100`. All 100 float outputs were frozen before any normal decode and metrics exactly replay the T026 convention.
 
-**Critical T033 limitation:** this 100-pair split is carved from the official LOL-v2 training set, and the released Retinexformer checkpoint was trained supervised on that same training set. Therefore T033 is a descriptive development capacity anchor, **not** an independent held-out generalization or SOTA comparison. Even so, the exposed supervised anchor is about `4.02 dB` above the T028-A reference-oracle ceiling of the exact EV+gamma family, so action-space/image-formation capacity can no longer be assumed sufficient for competitive restoration.
+**Critical T033 limitation:** this 100-pair split is carved from the official LOL-v2 training set, and the released Retinexformer checkpoint was trained supervised on that same training set. Therefore T033 is a descriptive development capacity anchor, **not** an independent held-out generalization or SOTA comparison.
 
-### Scientific consequence through T033-A
+**T034-A shows that expanding the oracle action family with per-region RGB gains materially raises PSNR capacity, but the mechanism is not yet attributable specifically to chromatic correction.** The isolated WB-expanded reference oracle reaches **`19.907949481 dB / 0.408435396 RGB-SSIM`** versus T028-A **`17.459991778 / 0.431715830`**. Paired PSNR improves by **`+2.447957703 dB` mean / `+1.909172977 dB` median**, with `100/100` PSNR wins, passing the predeclared substantial-headroom gate. However RGB-SSIM decreases by **`-0.023280434` mean** and falls on `90/100` images. The active winning WB means are approximately `R=1.4300, G=1.4666, B=1.4301`; because these gains contain a strong shared intensity mode after gamma, T034 proves substantial **WB-family/post-gamma gain** PSNR capacity but does not yet prove that channel-specific chromatic correction causes the gain. The expanded oracle is still non-deployable and reference-only.
+
+Relative to the training-exposed Retinexformer descriptive anchor, T034 narrows the development PSNR gap from about `4.02 dB` (T028) to about `1.57 dB`, but this is not a fair held-out ranking and the large SSIM gap remains.
+
+### Scientific consequence through T034-A
 
 The strongest current mechanism interpretation is:
 
@@ -50,8 +54,9 @@ The strongest current mechanism interpretation is:
 2. The promoted T026 EV+gamma action family has large reachable real-domain headroom relative to the current deployable selector, so field/trajectory failure is genuine.
 3. Late real-domain states frequently exhibit field-direction failure.
 4. Source-support distance is correlated with that failure, but a global source-only support radius is too restrictive/mismatched for real LOL-v2 and is **not** a qualified controller.
-5. T033 shows a very large descriptive gap to a strong supervised Retinexformer anchor, and that anchor remains about `4.02 dB` above the T028 EV+gamma reference oracle. Because the anchor has training exposure, this is not a fair held-out ranking, but it is enough to reopen action-family capacity as a serious bottleneck hypothesis.
-6. Therefore the next diagnostic should isolate one missing operator family rather than resume stopping-threshold sweeps. T034-A tests whether region-wise RGB white balance materially raises the reference-oracle ceiling before any deployable redesign is attempted.
+5. T033 establishes a very strong, but training-exposed, supervised development anchor; it cannot be used as held-out SOTA evidence.
+6. T034 shows that action-family capacity also matters: adding post-gamma RGB gains raises the MSE/PSNR oracle ceiling by `+2.45 dB`, reducing the descriptive PSNR gap to the supervised anchor to about `1.57 dB`.
+7. The T034 gain cannot yet be called genuinely chromatic because the winning RGB gains are strongly common-mode and can act as an extra intensity degree. Therefore the next diagnostic is a single matched shared-gain oracle control before any deployable WB/field redesign.
 
 ## Benchmark readiness
 
@@ -70,6 +75,7 @@ SNR-Aware remains exporter-ready but has not yet been run for quality metrics. T
 - **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
 - **Current LOL-v2 deployable validation candidate:** T026-A = T014 + dark-winner EV upper `+2.0` + active gamma lower `0.5`; **`11.1208764 dB / 0.3737918 SSIM`** on the fixed validation split. Not official-test qualified.
 - **Non-deployable exact-family ceiling:** T028-A reference oracle = **`17.4599918 dB / 0.4317158 SSIM`**.
+- **Non-deployable WB-expanded ceiling:** T034-A reference oracle = **`19.9079495 dB / 0.4084354 SSIM`**; PSNR `+2.4480 dB` versus T028 with SSIM tradeoff and unresolved common-gain/chromatic attribution.
 - **Descriptive strong supervised anchor with training exposure:** T033-A Retinexformer = **`21.4787864 dB / 0.7900612 SSIM`** on the same development split.
 - **Heterogeneous-only geometry extension:** T019 = T014 + frozen utility-aware hard-boundary selector.
 
@@ -79,7 +85,7 @@ SNR-Aware remains exporter-ready but has not yet been run for quality metrics. T
 - Validation/test enhanced outputs and decisions must be finalized and persisted before references or metrics are attached, except explicitly isolated non-deployable reference diagnostics.
 - Oracle/reference-gradient diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - External baselines admitted to the main comparison must be target-free at inference; reference-based brightness matching or selection is inadmissible.
-- Final benchmark test sets must remain isolated from model/hyperparameter selection. The official 100 LOL-v2 Real test pairs remain untouched through T033-A.
+- Final benchmark test sets must remain isolated from model/hyperparameter selection. The official 100 LOL-v2 Real test pairs remain untouched through T034-A.
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Milestones
@@ -102,10 +108,11 @@ SNR-Aware remains exporter-ready but has not yet been run for quality metrics. T
 - **T031-A: COMPLETED — source-support distance is a promising diagnostic proxy.**
 - **T032-A: COMPLETED — fixed source-only first-exit trust-region rule negative/insufficient (`-1.7589 dB / -0.1161 SSIM`).**
 - **T033-A: COMPLETED — Retinexformer target-free development anchor (`21.4788 dB / 0.7901 SSIM`), with explicit training-exposure limitation.**
-- **T034-A: ACTIVE — WB-only expanded-family reference-oracle ceiling audit.**
+- **T034-A: COMPLETED — WB-family reference oracle adds `+2.4480 dB` PSNR versus T028, with `-0.0233` SSIM and unresolved common-mode attribution.**
+- **T035-A: ACTIVE — shared post-gamma gain attribution control.**
 
 ## Current open task
 
-`T034-A — WB-only expanded-family reference-oracle ceiling audit` in `coordination/CHATGPT_TO_CODEX.md`.
+`T035-A — common-gain control for T034 WB attribution` in `coordination/CHATGPT_TO_CODEX.md`.
 
-Reuse the exact T028-A two-start/500-update reference-oracle harness on the original frozen 100 validation pairs, preserve the full T026-A Region2 EV+gamma family, and add only per-region RGB white-balance gains `[0.5,2.0]` initialized at identity. First prove identity-WB renderer regression against the accepted EV+gamma renderer. This is `REFERENCE_ORACLE_ONLY`: it may use normals solely inside the isolated capacity diagnostic and must never feed reference information into deployable TTT. No contrast/tone/detail additions, no sweeps, no SNR-Aware run, and no official test.
+Reuse the exact T028/T034 two-start/500-update reference-oracle protocol on the original frozen 100 validation pairs, but add only one per-region scalar gain shared identically across RGB at the WB position. Compare this control read-only against both T028 and full-WB T034 to determine whether common intensity explains most of the `+2.45 dB` PSNR gain. This remains `REFERENCE_ORACLE_ONLY`; no reference quantity may enter deployable TTT, and the official LOL-v2 Real test remains sealed.
