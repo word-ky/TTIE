@@ -2488,3 +2488,31 @@ No scientific failure or setting deviation. Delivery initially hit local D-disk 
 Recommend retaining this bound variant for research-lead review under the predeclared gate, while noting real per-image regressions and untested official-test generalization. No automatic promotion, new bound, retraining, longer run, baseline inference or future task was executed. Stop after T026-A and await research-lead decision.
 
 materially positive
+
+
+## T026-B — DONE —80-step budget probe
+
+UTC: 2026-09-14T05:29:15.106941+00:00
+Scientific source `38c966c622ec00a0d276f8ee5c2651313928e48b`; final evidence `ea4e6af9a5ac82baf56ca134952b6ef48c26ce14`; branch `codex/T026B-80steps`; PR https://github.com/word-ky/TTIE/pull/50. No self-merge.
+
+The sole A6000 run `20260914-130732-ttie-t026b-80steps` completed100 images,8000 low-only updates and81 states per image, exit0. Only max_steps40→80 changes from promoted T026-A. All action boxes, gate/assets, renderer, Region2 geometry, identity initialization, Adam0.03, T014 energy and earliest minimum predicted-energy selection are unchanged. No T025 oracle artifact or reference-derived input is consumed.
+
+| Output | Mean PSNR | Median PSNR | Mean RGB-SSIM | Median RGB-SSIM |
+|---|---:|---:|---:|---:|
+| Raw | 8.109722672 | 7.600161541 | 0.160022843 | 0.138977265 |
+| T026-A40steps | 11.120876417 | 10.607319299 | 0.373791825 | 0.367924983 |
+| T026-B80steps | 11.241925539 | 10.718345442 | 0.378044410 | 0.376699587 |
+
+Paired B-minus-A mean/median/p10/p90: PSNR `+0.121049121 / +0.112722708 / -0.329288369 / +0.536034250 dB`; SSIM `+0.004252585 / +0.001489800 / -0.008615336 / +0.020725757`. PSNR gain fails the required+0.50dB; SSIM passes the specified0.373791825 floor with1e-12 tolerance. Small positive mean changes do not pass the predeclared joint materiality gate.
+
+PSNR66 improve/34 worsen; SSIM59 improve/41 worsen, unchanged with a descriptive1e-6 band. Worst PSNR regression-1.072141497dB; worst SSIM regression-0.029993824. Selected steps:72:2,73:3,75:2,76:1,77:1,79:3,80:88. Runtime mean/median/p95 is `4.703975 / 4.791697 / 4.994254` seconds; accepted40-step mean was2.274494s. Selected/final active gamma lower hits0/392, upper58/392 and57/392 respectively; inactive identity coordinates remain8/8. Full active/inactive EV/gamma selected/final saturation tables and per-image regressions are preserved.
+
+PASS: baseline3tests and focused3tests (runner only-budget AST equivalence, target mutation/withholding with identical artifact hashes and81-state trajectory check, unchanged metric arithmetic). Ten reused method-source blobs equal accepted T026-A. Actual saved configs differ only in task name, max_steps and start timestamp; assets and all other values equal. All100 gates/boxes match A, frozen hashes survive evaluation, trajectories/states/outputs/metrics are finite, selected raw matches persisted trajectory and bounds hold. Independent metric max error `3.552713678800501e-15`; independent statistics, quantiles and joint decision agree. All200 fetched decision/trajectory hashes match freeze.
+
+All100 outputs/decisions/trajectories froze at `2026-09-14T05:15:40.284354Z`; task-specific reference deployment began at `05:16:05.040592Z`. Exactly100 allowlisted low-image opens are recorded; executable has no normal-root argument. Other-task references remain outside the decoder allowlist; global reference absence is not claimed. Official test untouched.
+
+Files: `research_log/T026B_80steps.md`, fixed protocol, source/config diff and structural proof, launch/evaluation commands, preflight/freeze/reference-deployment/access receipts, numerical-change counts, and217 compact files under `research_log/remote_runs/20260914-130732-ttie-t026b-80steps`. Commands: focused pytest, deploy release20260914-130657-ttie-t026b-80steps, single CUDA run, post-freeze reference deployment, accepted metric evaluation/paired comparison, backup/fetch/hash verification. Full outputs/source backup: `/media/wenchang/F/wjq/TTIE/shared/t026b/T026B_execution.tar`, SHA256 `d3214acd07b78b5f553de36f603dbdea33b470c6a7143b1d3628e066072e48a7`; compact SHA256 `fcea0952fb9534400958284083c79c46b6725307325735f3639458302584f74f`.
+
+No scientific failure or setting deviation; a test-file trailing blank line was corrected without changing implementation or repeating the scientific run. No other budget, oracle use, retraining, baseline execution, official test or follow-on experiment. Recommend retaining promoted T026-A40steps under the agreed gate and returning to benchmark/SOTA convergence at the next research-lead decision. Stop here pending review.
+
+negative/insufficient
