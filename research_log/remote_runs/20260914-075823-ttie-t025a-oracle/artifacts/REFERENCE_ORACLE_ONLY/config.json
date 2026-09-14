@@ -1,0 +1,47 @@
+{
+  "label": "REFERENCE_ORACLE_ONLY",
+  "task": "T025-A",
+  "seed": 7,
+  "optimizer": "Adam",
+  "lr": 0.05,
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "eps": 1e-08,
+  "weight_decay": 0,
+  "updates_per_start": 500,
+  "starts": [
+    "identity",
+    "T022C_selected"
+  ],
+  "selection": "minimum full-frame RGB MSE; earliest step tie; identity start wins exact inter-start tie",
+  "objective": "full-frame RGB MSE, float64 accumulation and gradients through unchanged float32 renderer",
+  "shape": [
+    1,
+    3,
+    400,
+    600
+  ],
+  "split_sha256": "b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b",
+  "accepted_freeze_sha256": "21173f3fb1d875d54ac93b8edf892391e3e9668a9a8bd63d2b06df7dec211423",
+  "accepted_metrics_sha256": "e1fda3a1488ee78a7157cab65e0ab72ad30d5d1a94bfa931b84c160c80fd435f",
+  "code_sha256": {
+    "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260914-075755-ttie-t025a-oracle/research_log/T025A_oracle/run_oracle.py": "41417bf5c442fce85d03587a3dd057c99ed89ea72448a24f2d6ab2f4a07fe6ae",
+    "ttie/semantic_ttt.py": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72",
+    "ttie/isp.py": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9",
+    "ttie/ev_range_box.py": "97f72e3f4b33ff3281439cdb65036c69a6229f823d2aab21d490a1cf2ba289cb",
+    "ttie/projected_ttt.py": "f5fb68a742ee4038b903bf62ae37ae0b3011762ce3035ba09a3b9609a25a6457",
+    "ttie/ssim_transfer.py": "01d227a8b4caaf8f5705d9c18a5ef685367b6ccf80588d212be92830a04f8556"
+  },
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "tf32": false,
+  "created_utc": "2026-09-13T23:58:30.398333+00:00",
+  "bounds": "reuse saved T022-C gate/action box; darkEV0..2 brightEV-.5..0 gamma.8..1.25 inactiveidentity",
+  "saturation_tolerance": 1e-06,
+  "output_tolerance": 1e-06,
+  "metric_tolerance": 1e-06,
+  "mse_nonworse_tolerance": 1e-10
+}
