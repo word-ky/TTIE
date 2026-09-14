@@ -2618,3 +2618,27 @@ Evidence: `T029A_preflight/`, `T029A_result/evidence/`, all execution logs/comma
 Recommendation: review the diagnosed late-trajectory directional mismatch and the disclosed execution deviations. Stop here: no early-stop rule, energy retraining, new source pairs, operator/bound/step changes, benchmark, official test or promotion. Await the next research-lead task.
 
 weak/mixed field alignment
+
+## 2026-09-14T10:53:34.810841+00:00 — T030-A DONE: fixed self-reversal guard fails fresh qualification
+
+Source `d2afd440a11032a9676f92d562804c1831e5d80f`; evidence `78a12d75ebe22a04c993bdbd98c12631f6e0edc6`; branch `codex/T030A-self-reversal`; PR https://github.com/word-ky/TTIE/pull/55. Full report `research_log/T030A_report.md`. No change to research-owned state or accepted T026-A trajectory/assets.
+
+Fresh-cohort provenance is committed in `T030A_cohort/`: originalvalidation100 excluded, plus exact16 T023-A normal-decoded source pairs verified against actual source receipts. T022-A whole-dataset metadata used encoded hashes/IHDR only; other reference diagnostics used oldvalidation100; T027 smoke was low-only. From573 eligible training pairs, the first100 ascending SHA256(UTF-8 canonical relative low path), no seed prefix, were selected before fresh reference decoding. Manifest SHA256 `ec67f0a6af5682c8e1e929db56e1d771dfd3183f75cb4b365052cde024f55f2d`. These100 are now development-used and must not be reused as a later fresh qualification cohort.
+
+Fixed rule SHA256 `f8e9702dbe2f67ec5129344c83f8a8745bfcbf07f9d17f576162d0a47e1f290a`: anchor10, first active-coordinate cosine<=0 in11..40 gives cutoff=t-1, earliest prefix-minimum predicted energy; zero-norm anchor/visited comparison falls back to original selector. API `select(energies, gradients, active)` has no target/reference/metric/image argument or decode path. Seventeen transitive accepted source blobs bound to T026-A `b2359721c89db732d17e03be273e0bdb71bb377a`; T014 checkpoint SHA256 `c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521`. No T029 reference artifacts, oracle values, per-image target-derived inputs, tuning or retraining.
+
+One A6000 physicalGPU1 run `20260914-183308-ttie-t030a-guard`, release `20260914-183209-ttie-t030a-guard`, completed100 unchanged40-update trajectories/4000updates and4100 recomputed learned gradients. All200 original/guarded outputs frozen10:41:25.328834 UTC, SHA256 `e94811518388868b229b0e731db207459c27e86c360c739f5979a3eb1234516b`; exactly100 low decodes and zero normal decodes. Independent low-only NumPy replay exactly matched all100 cutoffs/selections before task normals were deployed10:42:23.388604 UTC. CPU evaluation `20260914-184224-ttie-t030a-eval` finished10:43:00.306770 UTC. Both jobs exit0; no scientific rerun or deviation.
+
+On the same fresh100 pairs, original PSNR/SSIM means `10.328656774672057 / 0.3228187505356958`; guarded means `10.12237280161248 / 0.31501065415150425`. Paired mean deltas **`-0.20628397305957497 dB / -0.007808096384191523`**, failing both +0.30dB and nondecreasing-SSIM conditions. Median deltas `-0.03206592662040553 / 0`; p10 `-0.6939534324731174 / -0.02881366512671941`; p90 `0 / 0.00022027210204751587`.
+
+Strict PSNR win/equal/loss5/41/54; SSIM11/41/48. Crossing59, no crossing41, changed selections59, degenerate/fallback0. Cutoff range15..40;41 cutoff40. Original selected40 count87 versus guarded39. Complete histograms, per-image anchor/norm/cosine/crossing/cutoff/selected records and metrics are saved. Mean original trajectory2.403834967s/image; added guard2.391305892s; combined4.795140859s (+99.48%). This qualification executes all40 updates; no online-stopping speedup is claimed. Torch2.4.0+cu121/CUDA12.1, float32, seed7, TF32off, native400x600 RGB.
+
+Tests: local3 passed11.98s, server3 passed1.32s; first/zero/no crossing, earliest tie, inactive exclusion, degeneracy fallback, no reference API/decode. Exact independent selector replay passes server/Windows100/100. All states/outputs/gradients finite; all400 scientific artifact hashes verified after reference evaluation,200 fetched decision/trajectory hashes and28 staged source/metadata files verified locally. Independent PSNR/SSIM maxerror7.105427357601002e-15; local independent paired aggregation/histograms maxerror3.552713678800501e-15.
+
+Failures were delivery-only: one SSH backup connection timeout succeeded on retry; a local source comparison initially included generated remote pytest cache, then correctly compared actual deployed files; D: disk-full interrupted git add and was resolved by sparsifying completed duplicate T022A/T023A checkouts while preserving task artifacts/recovery/Git history. Existing NVML warning did not block CUDA. No experiment rerun, threshold adjustment or driver change.
+
+Evidence: `T030A_result/audit/`, `T030A_result/runs/`, `T030A_cohort/`, `T030A_source_binding.json`, `T030A_local_verification.json`, `T030A_backup.json`. Full200 images/source/execution backup F:`shared/t030a/T030A_execution.tar`,590807040bytes SHA256 `9c0ffd9bde0dddf81c659b0560f31fe57ee979a2d1b9f74de21a632ca83a8779`; compact2301652bytes SHA256 `7bfd88591dc2a7d2bd01eee45c60ec7e1d5680b1ebb1e54a0027a82821b9c117`.
+
+Recommendation: reject this fixed guard for promotion and review the negative qualification as evidence about this specific proxy. Stop here; no second cohort, alternate rule, threshold/anchor sweep, retraining, baseline benchmark or official-test access. Await the research lead's next task.
+
+negative/insufficient
