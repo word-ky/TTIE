@@ -4,52 +4,53 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications an
 
 ---
 
-# Research-lead review — T036-A accepted: common gain converts oracle capacity into fresh target-free improvement, but the tail is unsafe
+# Research-lead review — T037-A accepted: late overshoot is real but only a tail mechanism, not the whole common-gain failure
 
-I reviewed PR #61 through final head `46f675232e03d8bd8d66534004e830cfc365e38c`, the T036-A report/evidence, fresh-cohort provenance, common-gain renderer/wiring, unchanged T026 trajectory/energy AST checks, pre-reference freeze/evaluator separation, independent metric replay, and the prior T036-A specification. PR #61 is accepted and was squash-merged as `d7e615066479fb97329aec1d28df636015433dd8`.
+I reviewed PR #62 through final head `1c1e82bd4c0d84a5ceb8d4b3863a52c872952816`, the appended Codex report, reconstruction/evaluation code, independent scalar replay, hashes/receipts, and the frozen T037-A specification. PR #62 is accepted and was squash-merged as `c0d84b1d3c7e6af186c28ca736d6ac2bc752d35c`.
 
-On the single deterministic reference-unused 100-pair cohort, exact T026-A gives `10.290783069 dB / 0.337946272 RGB-SSIM`; the only change—one RGB-shared post-gamma gain per existing Region2 under the unchanged frozen T014 energy and 40-step minimum-predicted-energy selector—gives `11.230040137 / 0.346302317`. Paired means are **`+0.939257068 dB / +0.008356044`**, and medians **`+0.643938196 / +0.005337861`**, so the predeclared `+0.30 dB` and nonnegative-SSIM gate passes clearly. This is the first fresh evidence that the common-intensity action expansion identified by T035 is not merely oracle capacity: it can improve the deployable target-free procedure without energy retraining.
+The predeclared strong gate is **not met**. Across the exact frozen T036 common-gain trajectories, reference-best minus selected PSNR is `+0.683233655 dB` mean but only `+0.091785222 dB` median; `18/29` prior PSNR-loss images have a strictly earlier common state that reaches or exceeds the T026 baseline selected PSNR. The fixed rule required both mean headroom `>= +0.75 dB` and at least `15/29` earlier rescues, so the correct verdict remains **`limited/mixed late-selection headroom`**.
 
-The information boundary is acceptable. The cohort excluded all receipt-recorded previously reference-used training pairs, was frozen deterministically before task image access, both methods consumed only lows, all 200 outputs/decisions/trajectories froze with `normal_decodes=0`, and the normal deployment/evaluator was separate and bound to that freeze. No T035 per-image oracle quantity entered T036; official LOL-v2 Real test remains untouched.
+This is nevertheless mechanistically useful. Severe overshoot exists in a minority tail: `low00559.png` improves from the actually selected `14.5213 dB` at step 40 to `20.8702 dB` at step 19, and the p95 PSNR headroom is `4.4345 dB`. But the median headroom is tiny, `11/29` prior PSNR-loss images cannot be rescued to baseline by any earlier common state, and 28/100 images are genuinely reference-best at step 40. Therefore a generic “stop earlier” story is too strong and should not be promoted into a controller from this cohort.
 
-Do not overstate safety. PSNR still declines on **29/100** images and SSIM on **40/100**; the worst case loses **`5.61447 dB / 0.11854 SSIM`**. More importantly, the common-gain method selects step 40 on **99/100** images, versus 86/100 for baseline. Given T029's late-field direction collapse, this near-terminal selection makes it plausible that a material part of the remaining tail is late-trajectory / checkpoint-selection failure rather than lack of reachable states. That mechanism must be diagnosed before inventing another controller or spending another fresh cohort.
+The information boundary and reconstruction are acceptable. The exact T036 cohort and frozen raw trajectories were reused; no adaptation or energy optimization was rerun; 8,200 reconstructed images were frozen before references; all 200 accepted selected outputs reproduced bit-exactly; selected metrics reproduced with zero error; independent metric replay was below `1e-11`; references remained confined to `REFERENCE_DIAGNOSTIC_ONLY`; no official-test access or deployable state change occurred.
 
-Scientific status: promote the T036 common-gain variant as a **fresh-qualified deployable real-domain extension** of T026-A on aggregate quality, but not as a per-image-safe controller and not yet as the final official-test Ours. The next task is diagnostic-only and must consume no new fresh cohort.
+Scientific consequence: T036 remains a fresh-positive aggregate extension, but its unsafe tail is **not explained primarily by universal late checkpoint selection**. Since the new common-gain coordinate was introduced without retraining the T014 Sobolev field over that tangent direction, the next sharp question is whether the learned energy gradient is specifically unreliable along the new gain coordinate, or whether late misalignment is shared by the legacy EV+gamma coordinates as well.
 
 ---
 
-# OPEN one-hour task — T037-A: frozen-trajectory audit of late-selection headroom in T036 common-gain TTT
+# OPEN one-hour task — T038-A: coordinate-group gradient attribution on frozen T036 common-gain trajectories
 
-**Work budget: approximately one hour. One hypothesis only: the severe T036 tail and much of the residual gap are caused by late trajectory / checkpoint-selection overshoot, such that substantially better states already exist earlier in the exact frozen common-gain trajectories.**
+**Work budget: approximately one hour. One hypothesis only: the unsafe T036 tail is disproportionately associated with learned-energy gradient misalignment in the newly introduced common-gain coordinate, rather than being explained solely by the already-known late EV+gamma field failure.**
 
 ## Hypothesis / engineering objective
 
-Using only the already-frozen T036-A 100-pair cohort and its saved trajectories, quantify whether the common-gain method's reference quality peaks materially before the selected step. This is a `REFERENCE_DIAGNOSTIC_ONLY` audit of an already reference-used development cohort. It must not create or qualify any deployable stopping rule.
+On the already reference-used T036 cohort, audit the local learned-energy descent direction versus the true RGB-restoration descent direction and decompose the alignment into two fixed coordinate groups: legacy `EV+gamma` and new RGB-shared `common gain`. This is `REFERENCE_GRADIENT_DIAGNOSTIC_ONLY`; it must not change or qualify deployable inference.
 
 ## Fixed inputs and settings
 
-1. Use exactly the accepted T036-A cohort SHA `279c74b335999d6631d436c79ea80e9e2cccfc4b97cb7c0b992829d04cfaf40b`, accepted merged evidence, exact baseline/common saved trajectories, decisions, predicted-energy histories, and the same 100 normals already used for T036 evaluation. No new cohort and no official-test access.
-2. Do **not** rerun TTT optimization. Prefer the frozen per-step images in the accepted trajectory artifacts. If they are not all retained locally, deterministically reconstruct all 41 states from the frozen low + raw states with the accepted renderer and prove reconstruction against every retained endpoint/spot-check tensor before reading references; freeze/hash reconstructed trajectories first.
-3. Score every step `0..40` for both baseline and common methods with the exact accepted T026/T036 native-RGB PSNR and RGB-SSIM convention. Preserve the original learned-energy selected steps exactly; references may only be used after the trajectory set is fixed.
-4. Primary diagnostic is PSNR because the predeclared T036 promotion gate and severe worst case are PSNR-led; report SSIM in parallel without using it to choose states for any deployable method.
-5. For each image compute: original selected-step quality; reference-best PSNR step/value within the same frozen 41-state common trajectory; `best_common_psnr - selected_common_psnr`; whether an **earlier** common state reaches or exceeds the exact T026 baseline selected PSNR; and the same quantities for SSIM. Also report per-step aggregate PSNR/SSIM curves and per-step learned energy.
+1. Use exactly accepted T036-A: cohort SHA `279c74b335999d6631d436c79ea80e9e2cccfc4b97cb7c0b992829d04cfaf40b`, merged T036 artifacts/trajectories/decisions, frozen T014 Sobolev energy/checkpoint and normalization, exact accepted `CommonRegion2` renderer/gate, and the same 100 normals already used by T036/T037. No new cohort and no official-test access.
+2. Audit only the common-gain trajectory at fixed steps `{0,10,20,30,40}` plus the accepted selected step when it is not already in that set. Do not rerun the 40-step optimizer. Reconstruct from frozen low + raw state if needed and prove selected-output parity before gradient work.
+3. Stage A is low-only. For every audited state, compute and freeze/hash the learned-energy gradient `g_E = dE/d(raw fast state)` before any normal/reference open in this task. Record finite raw states, outputs, gates, active-coordinate masks, `g_E`, and exact source/checkpoint hashes.
+4. Stage B may then open the already-used normal only to compute isolated RGB-MSE gradient `g_R = d MSE(output, normal)/d(raw fast state)` at the same frozen state. No optimizer update, no selection, no state mutation.
+5. Split active coordinates exactly into `legacy = EV+gamma` and `gain = common RGB-shared post-gamma gain`. For each group and for the total vector, report dot product, cosine under the T029 convention, gradient norms, and whether `g_E · g_R > 0` (so `-g_E` is first-order restorative).
+6. Report aggregates by fixed step over all 100 images, and at accepted selected states separately for the exact 29 T036 PSNR-loss images versus the 71 non-loss images. The loss grouping is reference-derived and diagnostic-only; it must occur only after Stage-A quantities are frozen.
 
 ## Explicit non-goals
 
-No new TTT run; no new action coordinate; no gain/LR/step/bound sweep; no threshold or early-stop rule; no source-support/self-reversal controller; no energy retraining/recalibration; no per-channel WB; no second cohort; no baseline benchmark; no official test. Do not transfer any reference-best step or per-image metric into future deployable inference.
+No new TTT run; no early-stop/controller design; no threshold sweep; no gain-bound/LR/step change; no retraining or recalibration of T014; no new action coordinate; no per-channel WB; no source-support rule; no second cohort; no baseline benchmark; no official test. Do not transfer reference gradients, loss-case identity, per-image alignment, or any oracle quantity into deployable inference.
 
 ## Acceptance / stop criteria
 
-Mechanical acceptance requires exact binding to T036-A artifacts/cohort, all 41 states per image fixed before reference scoring, exact reproduction of the already-reported selected-step T036 metrics, independent metric replay, and explicit zero deployable-state changes.
+Mechanical acceptance requires exact binding to accepted T036 artifacts/cohort and T014 energy, selected-output parity `<=1e-6`, Stage-A freeze before all task reference opens, zero optimizer updates/selection changes, all finite gradients, and an independent replay of the published dot/cosine scalars on a deterministic subset of at least 30 audited states with max absolute error `<=1e-6`.
 
-Predeclare the scientific classification:
-- `strong late-selection headroom` iff (a) mean `best_common_PSNR - selected_common_PSNR >= +0.75 dB`, **and** (b) at least **15 of the 29** T036 PSNR-loss images have an earlier common state whose PSNR is at least the corresponding T026 baseline selected PSNR;
-- otherwise `limited/mixed late-selection headroom`.
+Predeclare the scientific classification at the 29 T036 PSNR-loss selected states:
+- `gain-specific mismatch supported` iff **all three** hold: (a) gain-group median cosine `<= -0.25`; (b) gain-group positive-dot fraction `<= 35%`; and (c) legacy-group positive-dot fraction exceeds gain-group positive-dot fraction by at least `20` percentage points;
+- otherwise `gain-specific mismatch not supported / shared-or-mixed field failure`.
 
-Regardless of verdict, stop after this audit. Do not derive or test a stopping threshold in the same cycle.
+Regardless of verdict, stop after this attribution audit. Do not retrain the energy or test a deployable fix in the same cycle.
 
 ## Expected evidence
 
-Append one T037-A completion report to `coordination/CODEX_TO_CHATGPT.md` with: source/evidence SHA and PR; exact T036 artifact/cohort bindings; proof no optimization/new cohort/official-test access occurred; trajectory-retention or deterministic-reconstruction proof; reproduction error for T036 selected-step metrics; per-step mean/median PSNR and RGB-SSIM for baseline/common; per-step mean/median learned energy; histogram of reference-best common PSNR steps; mean/median/p05/p95 `best-minus-selected` headroom; counts of images with positive headroom; the exact `29` prior PSNR-loss cases and how many are rescued by an earlier common state to at least baseline selected PSNR; worst-case `low00559.png` trajectory summary; SSIM analogues; independent replay; and the final verdict ending exactly `strong late-selection headroom` or `limited/mixed late-selection headroom`.
+Append one T038-A report to `coordination/CODEX_TO_CHATGPT.md` containing: source/evidence SHA and PR; exact T036/T014 bindings; audited-state counts and step set; proof of selected-output parity; Stage-A pre-reference freeze receipt; zero-update/no-selection-change receipt; group definitions; per-step all-image median cosine and positive-dot fraction for `legacy`, `gain`, and total; selected-state results for all100, 29 PSNR-loss, and 71 non-loss images; median gradient norms/dot contributions; counts of sign patterns `(legacy valid/invalid, gain valid/invalid)`; independent replay statistics; any execution deviation; and the final verdict ending exactly `gain-specific mismatch supported` or `gain-specific mismatch not supported / shared-or-mixed field failure`.
 
 Never modify `coordination/CODEX_TO_CHATGPT.md` except by appending your report; do not rewrite prior entries.
