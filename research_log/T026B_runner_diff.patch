@@ -1,0 +1,37 @@
+--- accepted_T026A/lolv2_gamma_core.py
++++ T026B/lolv2_gamma_budget_core.py
+@@ -1,4 +1,4 @@
+-"""T026-A single dark-EV-bound variant; low-only native-resolution execution."""
++"""T026-B single dark-EV-bound variant; low-only native-resolution execution."""
+ import argparse
+ import json
+ import time
+@@ -31,7 +31,7 @@
+     original_open=Image.open
+     def guarded(path,*args,**kwargs):
+         if str(Path(path).resolve()) not in allowed:
+-            raise PermissionError('T026-A accepts only frozen low-light images')
++            raise PermissionError('T026-B accepts only frozen low-light images')
+         opened.append(str(Path(path).resolve()))
+         return original_open(path,*args,**kwargs)
+     return guarded
+@@ -74,8 +74,8 @@
+     saved=torch.load(files['prototypes']['path'],map_location=device,weights_only=True)
+     scorer=SemanticScorer(encoder,Prototypes(saved['raw']))
+     head=load_energy(files['energy']['path'])
+-    config=dict(task='T026-A',method='T014 Region2 dark EV upper2 active gamma lower0.5',dark_ev_upper=2.,active_gamma_lower=.5,assets=assets,
+-                split_sha256=sha(args.split),seed=7,tf32=False,max_steps=40,
++    config=dict(task='T026-B',method='T014 Region2 dark EV upper2 active gamma lower0.5',dark_ev_upper=2.,active_gamma_lower=.5,assets=assets,
++                split_sha256=sha(args.split),seed=7,tf32=False,max_steps=80,
+                 native_resolution=True,optimizer='unchanged Adam lr=.03',
+                 checkpoint='minimum predicted energy, earliest tie',
+                 gpu=torch.cuda.get_device_name(0),torch=torch.__version__,cuda=torch.version.cuda,
+@@ -85,7 +85,7 @@
+     for i,row in enumerate(split['selected']):
+         image=native_rgb(args.low_root/row['low']).to(device)
+         torch.cuda.synchronize(); start=time.perf_counter()
+-        result,t,decision=trajectory(image,scorer,receipt,head,basis='region2',max_steps=40)
++        result,t,decision=trajectory(image,scorer,receipt,head,basis='region2',max_steps=80)
+         torch.cuda.synchronize(); seconds=time.perf_counter()-start
+         assert torch.isfinite(result['image']).all()
+         directory=args.out/f'{i:03d}'

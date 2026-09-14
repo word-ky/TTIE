@@ -1,0 +1,3 @@
+2026-09-14T05:03:45.876635+00:00 T026-B ACTIVE frommaine4218b7a9798e9d6f68401761edc74faee6438bd. AcceptedT026A sourceb2359721/evidenced577fc24/merge51f84a9d, newcurrentcandidate11.120876417dB/.373791825SSIM. Sole new100validation A6000 run, only40->80updates. Samegamma.5/EV2/gate/assets/geometry/energy/Adam.03/selector. Freeze81states/outputs before task-specific refs; noT025oracle/offtest/baselines. Gate pairedPSNR>=+.5 and meanSSIM>=.373791825 tolerance1e-12. Sparseworktree.autodl/T026B-work branchcodex/T026B-80steps.
+
+2026-09-14T05:06:55.645205+00:00 Baseline3tests and new3testsPASS;10methodsourceblobs unchanged; remote acceptedassets hashchecked and tasknormal absent. Ready for sole80step100image low-only run.

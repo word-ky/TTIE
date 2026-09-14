@@ -1,0 +1,34 @@
+{
+  "task": "T026-B",
+  "accepted_T026A_merge": "51f84a9d96880bca8e908c9b3cdff496d7277e39",
+  "unchanged_git_blob_sha256": {
+    "ttie/gamma_range_box.py": "554dbcd8e8fe649191bb1640477e3fbaa9d3c49c34909b2c4ee1b3d28237b8bf",
+    "ttie/gamma_range_ttt.py": "e463cd49e1cbd1f3022817ac51eeef359df6522021f02a69aa8e639d4b4bbc32",
+    "ttie/lolv2_gamma_core.py": "fa8e2abf9d4453c9f91fecd381d69c6192aabdd91f5b6efe65215400c04d76e2",
+    "ttie/semantic_ttt.py": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72",
+    "ttie/isp.py": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9",
+    "ttie/ev_range_box.py": "97f72e3f4b33ff3281439cdb65036c69a6229f823d2aab21d490a1cf2ba289cb",
+    "ttie/projected_ttt.py": "f5fb68a742ee4038b903bf62ae37ae0b3011762ce3035ba09a3b9609a25a6457",
+    "ttie/energy_model.py": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4",
+    "ttie/stop_trajectory.py": "38965a15430d383b429086ec4460fff2dd3c500a7d162f39b705c40ae4b23ce7",
+    "ttie/ssim_transfer.py": "01d227a8b4caaf8f5705d9c18a5ef685367b6ccf80588d212be92830a04f8556"
+  },
+  "only_scientific_change": "max_steps40->80; trajectory function and all method modules reused unchanged",
+  "inference_inputs": [
+    "low-root",
+    "split",
+    "assets",
+    "out"
+  ],
+  "oracle_inputs": false,
+  "reference_scope": "shared/t026b/normal deployed only after freeze; older task references remain outside decoder allowlist",
+  "seed": 7,
+  "lr": 0.03,
+  "updates": 80,
+  "psnr_delta_gate": 0.5,
+  "ssim_floor": 0.373791825,
+  "ssim_tolerance": 1e-12,
+  "baseline_tests": "3 passed in26.47s",
+  "created_utc": "2026-09-14T05:05:47.946498+00:00",
+  "variant_tests": "3 passed in17.87s: runner AST only-budget equivalence, 100 target mutation/withholding artifact-hash equality and81-state length, evaluator arithmetic equivalence"
+}
