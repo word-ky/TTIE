@@ -1,0 +1,6 @@
+{
+  "runId": "20260914-163126-ttie-t028a-preflight",
+  "releaseId": "20260914-163059-ttie-t028a-oracle",
+  "sessionName": "autodl-20260914-163126-ttie-t028a-preflight",
+  "command": "set -e\nexport CUDA_VISIBLE_DEVICES=1\nexport CUBLAS_WORKSPACE_CONFIG=:4096:8\nexport PYTHONPATH=\"$PWD\"\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\nROOT=/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY\ntest ! -e \"$ROOT/normal\"\n$PY -m pytest tests/test_t028a_oracle.py -q\n$PY research_log/T028A_oracle/prepare.py --split research_log/T022A_data/split.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260914-113853-ttie-t026a-gamma05/artifacts/audit --out \"$ROOT/preflight\""
+}

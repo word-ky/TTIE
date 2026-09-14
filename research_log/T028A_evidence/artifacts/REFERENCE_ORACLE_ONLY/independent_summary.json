@@ -1,0 +1,199 @@
+{
+  "label": "REFERENCE_ORACLE_ONLY",
+  "status": "oracle ceiling measured",
+  "pairs": 100,
+  "aggregates": {
+    "raw": {
+      "psnr": {
+        "mean": 8.109722671657906,
+        "median": 7.600161540858166,
+        "p10": 5.614712058102572,
+        "p90": 11.325265016767327
+      },
+      "ssim": {
+        "mean": 0.1600228434803769,
+        "median": 0.13897726549987016,
+        "p10": 0.058135681528556214,
+        "p90": 0.2518230726709055
+      }
+    },
+    "selected": {
+      "psnr": {
+        "mean": 11.120876417349557,
+        "median": 10.607319298785859,
+        "p10": 6.816695624968695,
+        "p90": 15.191372106291052
+      },
+      "ssim": {
+        "mean": 0.3737918251517076,
+        "median": 0.367924983123891,
+        "p10": 0.10265065004366769,
+        "p90": 0.6617588934775271
+      }
+    },
+    "oracle": {
+      "psnr": {
+        "mean": 17.459991778211897,
+        "median": 16.342409074030474,
+        "p10": 10.270362404263528,
+        "p90": 26.202766074073427
+      },
+      "ssim": {
+        "mean": 0.4317158297906113,
+        "median": 0.4804010061075191,
+        "p10": 0.0935633975211453,
+        "p90": 0.7366347138190348
+      }
+    }
+  },
+  "paired_oracle_minus_T026A": {
+    "psnr": {
+      "mean": 6.339115360862341,
+      "median": 5.771085392614673,
+      "p10": 2.3934117900308354,
+      "p90": 11.658975863782027
+    },
+    "ssim": {
+      "mean": 0.0579240046389037,
+      "median": 0.05032664404185725,
+      "p10": -0.020611525125303225,
+      "p90": 0.1446116665643302
+    }
+  },
+  "start_wins": {
+    "T026A_selected": 87,
+    "identity": 13
+  },
+  "step_histograms": {
+    "best_step": {
+      "208": 1,
+      "298": 1,
+      "362": 1,
+      "461": 1,
+      "499": 2,
+      "500": 94
+    },
+    "identity_best_step": {
+      "192": 1,
+      "208": 1,
+      "461": 1,
+      "500": 97
+    },
+    "selected_best_step": {
+      "202": 1,
+      "298": 1,
+      "362": 1,
+      "487": 1,
+      "499": 2,
+      "500": 94
+    },
+    "final_step_all_starts": {
+      "500": 200
+    }
+  },
+  "saturation": {
+    "ev_lower_active_count": {
+      "count": 7,
+      "denominator": 392,
+      "fraction": 0.017857142857142856
+    },
+    "ev_lower_inactive_count": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "ev_lower_all_count": {
+      "count": 15,
+      "denominator": 400,
+      "fraction": 0.0375
+    },
+    "ev_upper_active_count": {
+      "count": 75,
+      "denominator": 392,
+      "fraction": 0.1913265306122449
+    },
+    "ev_upper_inactive_count": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "ev_upper_all_count": {
+      "count": 83,
+      "denominator": 400,
+      "fraction": 0.2075
+    },
+    "ev_either_active_count": {
+      "count": 82,
+      "denominator": 392,
+      "fraction": 0.20918367346938777
+    },
+    "ev_either_inactive_count": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "ev_either_all_count": {
+      "count": 90,
+      "denominator": 400,
+      "fraction": 0.225
+    },
+    "gamma_lower_active_count": {
+      "count": 0,
+      "denominator": 392,
+      "fraction": 0.0
+    },
+    "gamma_lower_inactive_count": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "gamma_lower_all_count": {
+      "count": 8,
+      "denominator": 400,
+      "fraction": 0.02
+    },
+    "gamma_upper_active_count": {
+      "count": 0,
+      "denominator": 392,
+      "fraction": 0.0
+    },
+    "gamma_upper_inactive_count": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "gamma_upper_all_count": {
+      "count": 8,
+      "denominator": 400,
+      "fraction": 0.02
+    },
+    "gamma_either_active_count": {
+      "count": 0,
+      "denominator": 392,
+      "fraction": 0.0
+    },
+    "gamma_either_inactive_count": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "gamma_either_all_count": {
+      "count": 8,
+      "denominator": 400,
+      "fraction": 0.02
+    }
+  },
+  "active_regions": 392,
+  "inactive_regions": 8,
+  "images_ssim_worse": 18,
+  "images_psnr_improved": 100,
+  "reproduction_max_abs": 0.0,
+  "runtime_seconds": {
+    "mean": 11.177044569157296,
+    "median": 11.3434069645009,
+    "p10": 10.864516698481747,
+    "p90": 11.621524873602903
+  },
+  "interpretation": "Fixed two-start local oracle search measures demonstrated reachability, not a certified global optimum or deployable enhancement result. MSE optimization need not improve SSIM on every image.",
+  "classification": "substantial within-family headroom"
+}
