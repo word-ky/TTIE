@@ -1,0 +1,881 @@
+{
+  "task": "T035-A",
+  "status": "DONE",
+  "source": "82dc0b00dbf1bd234727670698c796e1f7eb19e6",
+  "release": "20260915-023511-ttie-t035a-common",
+  "run": "20260915-023649-ttie-t035a-oracle",
+  "preflight_run": "20260915-023543-ttie-t035a-preflight",
+  "preflight_sha256": "77d6b0c4628aedf6202d2a4ec06d6141f5505fc9c8f0001abe2ad2f904b439fb",
+  "identity_renderer_max_abs": 0,
+  "shared_renderer_max_abs": 0,
+  "local_baseline_tests": "2 passed8.43s",
+  "local_focused_tests": "2 passed7.71s",
+  "remote_tests": "4 passed2.50s",
+  "failures": "One SSH log-read disconnect; retry confirmed same run continued. Existing NVML warning nonblocking. No scientific failure/restart/deviation.",
+  "utc": "2026-09-14T19:01:24.112486+00:00",
+  "classification": "common-mode explains most WB gain",
+  "run_exit_code": 0,
+  "evaluation": {
+    "label": "REFERENCE_ORACLE_ONLY",
+    "completed_utc": "2026-09-14T18:57:57.074032+00:00",
+    "freeze_sha256": "c74e911b6784dd9d201cbe10c68124e36502ab41bcdd210d21fdf881e173c89e",
+    "all200_histories_finite_bounded": true,
+    "all_earliest_winners_verified": true,
+    "independent_metric_max_abs_error": 1.7763568394002505e-14,
+    "opened_normals": [
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00653.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00651.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00443.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00327.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00601.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00509.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00001.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00608.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00351.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00261.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00177.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00542.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00592.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00184.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00080.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00501.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00133.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00455.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00206.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00314.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00097.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00520.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00424.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00535.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00336.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00554.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00564.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00440.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00584.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00529.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00213.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00019.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00004.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00449.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00040.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00465.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00293.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00563.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00515.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00476.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00219.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00084.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00100.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00561.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00510.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00562.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00247.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00326.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00385.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00295.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00331.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00124.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00196.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00627.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00057.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00165.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00364.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00406.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00586.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00643.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00505.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00119.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00299.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00683.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00110.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00214.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00417.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00354.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00603.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00260.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00628.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00493.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00298.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00398.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00659.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00464.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00405.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00650.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00621.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00596.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00378.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00058.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00092.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00266.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00180.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00679.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00408.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00623.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00646.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00104.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00399.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00638.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00533.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00142.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00182.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00477.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00036.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00594.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00192.png",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal/Train/Normal/normal00668.png"
+    ],
+    "prior_csv_sha256": "caa23530153cf45f7b70958f8eca1e1de2675da64aff7322c05eb2cc4756d3f7",
+    "full_wb_csv_sha256": "686a1497a6a52b3f3ed51e2fd5f4b6d916c3015aebd7dd95a31879c858db869b",
+    "official_test_access": false
+  },
+  "summary": {
+    "classification": "common-mode explains most WB gain",
+    "metrics": {
+      "identity_psnr": {
+        "count": 100,
+        "mean": 19.522654899809982,
+        "median": 18.870980771106474,
+        "min": 10.404071664922313,
+        "max": 31.90305701293823,
+        "p05": 11.525334765266956,
+        "p95": 29.470631874918723
+      },
+      "identity_ssim": {
+        "count": 100,
+        "mean": 0.4068574321452511,
+        "median": 0.42951466003198946,
+        "min": 0.053917950851012836,
+        "max": 0.9559075619425761,
+        "p05": 0.07284361558662816,
+        "p95": 0.7561390986436618
+      },
+      "selected_psnr": {
+        "count": 100,
+        "mean": 19.552850720711348,
+        "median": 18.898213118998374,
+        "min": 10.405794738919232,
+        "max": 31.945112116775075,
+        "p05": 11.523362331906117,
+        "p95": 29.50359072174402
+      },
+      "selected_ssim": {
+        "count": 100,
+        "mean": 0.4085666406150519,
+        "median": 0.43189577236690746,
+        "min": 0.05391025002564252,
+        "max": 0.9559071036236878,
+        "p05": 0.07282508437969847,
+        "p95": 0.7578466159133145
+      },
+      "oracle_psnr": {
+        "count": 100,
+        "mean": 19.553022889355766,
+        "median": 18.898213118998374,
+        "min": 10.405794738919232,
+        "max": 31.945112116775075,
+        "p05": 11.525445635831812,
+        "p95": 29.50359072174402
+      },
+      "oracle_ssim": {
+        "count": 100,
+        "mean": 0.4084669424068721,
+        "median": 0.43189577236690746,
+        "min": 0.053917950851012836,
+        "max": 0.9559075619425761,
+        "p05": 0.07284328812246406,
+        "p95": 0.7578466159133145
+      },
+      "t028_psnr": {
+        "count": 100,
+        "mean": 17.459991778211897,
+        "median": 16.342409074030474,
+        "min": 8.085612958061583,
+        "max": 31.938337985432973,
+        "p05": 9.473849750229599,
+        "p95": 28.44947473749683
+      },
+      "t028_ssim": {
+        "count": 100,
+        "mean": 0.43171582979061135,
+        "median": 0.4804010061075191,
+        "min": 0.0752121667646597,
+        "max": 0.9559074624095841,
+        "p05": 0.0893550452116454,
+        "p95": 0.7578797887792347
+      },
+      "delta_psnr": {
+        "count": 100,
+        "mean": 2.0930311111438713,
+        "median": 1.5620560810430515,
+        "min": -0.000341969339043402,
+        "max": 9.659105901028301,
+        "p05": 1.5167542131422356e-05,
+        "p95": 5.647296272375807
+      },
+      "delta_ssim": {
+        "count": 100,
+        "mean": -0.02324888738373933,
+        "median": -0.0190933235739697,
+        "min": -0.0989919376332627,
+        "max": 0.03172844867069882,
+        "p05": -0.06533734796804574,
+        "p95": 7.803729986124376e-05
+      },
+      "full_wb_psnr": {
+        "count": 100,
+        "mean": 19.90794948074406,
+        "median": 19.568847169740785,
+        "min": 10.405826154886466,
+        "max": 31.96853915580705,
+        "p05": 11.809676047658806,
+        "p95": 29.549425607598238
+      },
+      "full_wb_ssim": {
+        "count": 100,
+        "mean": 0.4084353961714137,
+        "median": 0.42993290901265047,
+        "min": 0.053648201729313436,
+        "max": 0.9558431035903782,
+        "p05": 0.07473337301705811,
+        "p95": 0.7577003788329593
+      },
+      "wb_minus_common_psnr": {
+        "count": 100,
+        "mean": 0.3549265913882905,
+        "median": 0.1829697017399461,
+        "min": 2.490035338453822e-05,
+        "max": 3.8528965636904466,
+        "p05": 0.0035804301578530764,
+        "p95": 1.483290781351061
+      },
+      "wb_minus_common_ssim": {
+        "count": 100,
+        "mean": -3.154623545827462e-05,
+        "median": -8.178123873392451e-05,
+        "min": -0.03246180632090778,
+        "max": 0.014742454969117413,
+        "p05": -0.007570024769582201,
+        "p95": 0.0064061587351818905
+      }
+    },
+    "histograms": {
+      "winner": {
+        "T026A_selected": 84,
+        "identity": 16
+      },
+      "best_step": {
+        "500": 85,
+        "443": 2,
+        "499": 2,
+        "484": 1,
+        "493": 2,
+        "468": 1,
+        "289": 1,
+        "465": 1,
+        "454": 1,
+        "371": 1,
+        "203": 1,
+        "421": 1,
+        "472": 1
+      },
+      "identity_best_step": {
+        "500": 94,
+        "499": 2,
+        "289": 1,
+        "474": 1,
+        "203": 1,
+        "494": 1
+      },
+      "selected_best_step": {
+        "500": 85,
+        "443": 2,
+        "499": 2,
+        "484": 1,
+        "493": 2,
+        "468": 1,
+        "444": 1,
+        "465": 1,
+        "454": 1,
+        "371": 1,
+        "286": 1,
+        "421": 1,
+        "472": 1
+      }
+    },
+    "runtime": {
+      "count": 100,
+      "mean": 12.12940927741467,
+      "median": 12.239538745983737,
+      "min": 9.376166216039564,
+      "max": 13.259075482026674,
+      "p05": 11.694257859504432,
+      "p95": 12.409419671664363
+    },
+    "bounds_and_gains": {
+      "ev": {
+        "00": {
+          "active": {
+            "count": 96,
+            "mean": 1.089115740886579,
+            "median": 1.4315861463546753,
+            "min": -0.5,
+            "max": 1.9978420734405518,
+            "p05": -0.45725949108600616,
+            "p95": 1.9925618171691895,
+            "lower_hits": 3,
+            "upper_hits": 4
+          },
+          "inactive": {
+            "count": 4,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "lower_hits": 4,
+            "upper_hits": 4
+          },
+          "all": {
+            "count": 100,
+            "mean": 1.0455511112511158,
+            "median": 1.4129258394241333,
+            "min": -0.5,
+            "max": 1.9978420734405518,
+            "p05": -0.45626608431339266,
+            "p95": 1.9920236587524414,
+            "lower_hits": 7,
+            "upper_hits": 8
+          }
+        },
+        "01": {
+          "active": {
+            "count": 100,
+            "mean": 1.2253575515002013,
+            "median": 1.7049188017845154,
+            "min": -0.5,
+            "max": 1.9973204135894775,
+            "p05": -0.39261256754398344,
+            "p95": 1.994672453403473,
+            "lower_hits": 1,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 0,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "all": {
+            "count": 100,
+            "mean": 1.2253575515002013,
+            "median": 1.7049188017845154,
+            "min": -0.5,
+            "max": 1.9973204135894775,
+            "p05": -0.39261256754398344,
+            "p95": 1.994672453403473,
+            "lower_hits": 1,
+            "upper_hits": 0
+          }
+        },
+        "10": {
+          "active": {
+            "count": 98,
+            "mean": 1.2821348279106373,
+            "median": 1.7286530137062073,
+            "min": -0.5,
+            "max": 1.9993772506713867,
+            "p05": -0.4812522381544113,
+            "p95": 1.9962989866733551,
+            "lower_hits": 3,
+            "upper_hits": 3
+          },
+          "inactive": {
+            "count": 2,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "lower_hits": 2,
+            "upper_hits": 2
+          },
+          "all": {
+            "count": 100,
+            "mean": 1.2564921313524247,
+            "median": 1.7259637713432312,
+            "min": -0.5,
+            "max": 1.9993772506713867,
+            "p05": -0.48012126982212067,
+            "p95": 1.9960756957530976,
+            "lower_hits": 5,
+            "upper_hits": 5
+          }
+        },
+        "11": {
+          "active": {
+            "count": 98,
+            "mean": 1.0905529889373147,
+            "median": 1.43015456199646,
+            "min": -0.5,
+            "max": 1.9971543550491333,
+            "p05": -0.45088600516319277,
+            "p95": 1.9911260545253753,
+            "lower_hits": 2,
+            "upper_hits": 4
+          },
+          "inactive": {
+            "count": 2,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "lower_hits": 2,
+            "upper_hits": 2
+          },
+          "all": {
+            "count": 100,
+            "mean": 1.0687419291585685,
+            "median": 1.4282481670379639,
+            "min": -0.5,
+            "max": 1.9971543550491333,
+            "p05": -0.4504833400249481,
+            "p95": 1.990991908311844,
+            "lower_hits": 4,
+            "upper_hits": 6
+          }
+        },
+        "all": {
+          "active": {
+            "count": 392,
+            "mean": 1.172485388587324,
+            "median": 1.5263959765434265,
+            "min": -0.5,
+            "max": 1.9993772506713867,
+            "p05": -0.45650187134742737,
+            "p95": 1.9942781150341033,
+            "lower_hits": 9,
+            "upper_hits": 11
+          },
+          "inactive": {
+            "count": 8,
+            "mean": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "lower_hits": 8,
+            "upper_hits": 8
+          },
+          "all": {
+            "count": 400,
+            "mean": 1.1490356808155775,
+            "median": 1.5133010149002075,
+            "min": -0.5,
+            "max": 1.9993772506713867,
+            "p05": -0.45607152581214905,
+            "p95": 1.9940586268901825,
+            "lower_hits": 17,
+            "upper_hits": 19
+          }
+        }
+      },
+      "gamma": {
+        "00": {
+          "active": {
+            "count": 96,
+            "mean": 0.5490490055332581,
+            "median": 0.5097388327121735,
+            "min": 0.5002111792564392,
+            "max": 0.9272167086601257,
+            "p05": 0.5009906440973282,
+            "p95": 0.7206873148679733,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 4,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "p05": 1.0,
+            "p95": 1.0,
+            "lower_hits": 4,
+            "upper_hits": 4
+          },
+          "all": {
+            "count": 100,
+            "mean": 0.5670870453119278,
+            "median": 0.5106413066387177,
+            "min": 0.5002111792564392,
+            "max": 1.0,
+            "p05": 0.5010099440813065,
+            "p95": 0.8466189354658125,
+            "lower_hits": 4,
+            "upper_hits": 4
+          }
+        },
+        "01": {
+          "active": {
+            "count": 100,
+            "mean": 0.5474767863750458,
+            "median": 0.5054505169391632,
+            "min": 0.5004250407218933,
+            "max": 0.8919045925140381,
+            "p05": 0.5007015436887741,
+            "p95": 0.7094294488430023,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 0,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "all": {
+            "count": 100,
+            "mean": 0.5474767863750458,
+            "median": 0.5054505169391632,
+            "min": 0.5004250407218933,
+            "max": 0.8919045925140381,
+            "p05": 0.5007015436887741,
+            "p95": 0.7094294488430023,
+            "lower_hits": 0,
+            "upper_hits": 0
+          }
+        },
+        "10": {
+          "active": {
+            "count": 98,
+            "mean": 0.5597268707898199,
+            "median": 0.5134133398532867,
+            "min": 0.5004944205284119,
+            "max": 1.032914638519287,
+            "p05": 0.5009583830833435,
+            "p95": 0.7238962560892105,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 2,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "p05": 1.0,
+            "p95": 1.0,
+            "lower_hits": 2,
+            "upper_hits": 2
+          },
+          "all": {
+            "count": 100,
+            "mean": 0.5685323333740234,
+            "median": 0.5135392248630524,
+            "min": 0.5004944205284119,
+            "max": 1.032914638519287,
+            "p05": 0.5009738802909851,
+            "p95": 0.7384104937314985,
+            "lower_hits": 2,
+            "upper_hits": 2
+          }
+        },
+        "11": {
+          "active": {
+            "count": 98,
+            "mean": 0.5641776061787898,
+            "median": 0.5113453269004822,
+            "min": 0.500253438949585,
+            "max": 1.0168335437774658,
+            "p05": 0.5005526661872863,
+            "p95": 0.7292722553014755,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 2,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "p05": 1.0,
+            "p95": 1.0,
+            "lower_hits": 2,
+            "upper_hits": 2
+          },
+          "all": {
+            "count": 100,
+            "mean": 0.5728940540552139,
+            "median": 0.5121101140975952,
+            "min": 0.500253438949585,
+            "max": 1.0168335437774658,
+            "p05": 0.5005553603172302,
+            "p95": 0.7590754210948945,
+            "lower_hits": 2,
+            "upper_hits": 2
+          }
+        },
+        "all": {
+          "active": {
+            "count": 392,
+            "mean": 0.555099545692911,
+            "median": 0.5095277428627014,
+            "min": 0.5002111792564392,
+            "max": 1.032914638519287,
+            "p05": 0.5008322298526764,
+            "p95": 0.7254070401191711,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 8,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "p05": 1.0,
+            "p95": 1.0,
+            "lower_hits": 8,
+            "upper_hits": 8
+          },
+          "all": {
+            "count": 400,
+            "mean": 0.5639975547790528,
+            "median": 0.5098926723003387,
+            "min": 0.5002111792564392,
+            "max": 1.032914638519287,
+            "p05": 0.5008362829685211,
+            "p95": 0.751980438828468,
+            "lower_hits": 8,
+            "upper_hits": 8
+          }
+        }
+      },
+      "common_gain": {
+        "00": {
+          "active": {
+            "count": 96,
+            "mean": 1.5096894322584073,
+            "median": 1.4763380885124207,
+            "min": 0.7384050488471985,
+            "max": 1.9983904361724854,
+            "p05": 1.0802881121635437,
+            "p95": 1.9951300621032715,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 4,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "p05": 1.0,
+            "p95": 1.0,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "all": {
+            "count": 100,
+            "mean": 1.489301854968071,
+            "median": 1.4650670886039734,
+            "min": 0.7384050488471985,
+            "max": 1.9983904361724854,
+            "p05": 1.0,
+            "p95": 1.9947776794433594,
+            "lower_hits": 0,
+            "upper_hits": 0
+          }
+        },
+        "01": {
+          "active": {
+            "count": 100,
+            "mean": 1.4114589655399323,
+            "median": 1.353926181793213,
+            "min": 0.6775811910629272,
+            "max": 1.9968593120574951,
+            "p05": 1.022902935743332,
+            "p95": 1.9912353157997131,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 0,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "all": {
+            "count": 100,
+            "mean": 1.4114589655399323,
+            "median": 1.353926181793213,
+            "min": 0.6775811910629272,
+            "max": 1.9968593120574951,
+            "p05": 1.022902935743332,
+            "p95": 1.9912353157997131,
+            "lower_hits": 0,
+            "upper_hits": 0
+          }
+        },
+        "10": {
+          "active": {
+            "count": 98,
+            "mean": 1.396898523277166,
+            "median": 1.310347855091095,
+            "min": 0.6885102987289429,
+            "max": 1.9984265565872192,
+            "p05": 0.7933913439512252,
+            "p95": 1.9942248165607452,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 2,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "p05": 1.0,
+            "p95": 1.0,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "all": {
+            "count": 100,
+            "mean": 1.3889605528116227,
+            "median": 1.3002821803092957,
+            "min": 0.6885102987289429,
+            "max": 1.9984265565872192,
+            "p05": 0.794326463341713,
+            "p95": 1.9940672814846039,
+            "lower_hits": 0,
+            "upper_hits": 0
+          }
+        },
+        "11": {
+          "active": {
+            "count": 98,
+            "mean": 1.4878119674264167,
+            "median": 1.467625379562378,
+            "min": 0.7827370762825012,
+            "max": 1.9975697994232178,
+            "p05": 1.0181999266147614,
+            "p95": 1.9933688640594482,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 2,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "p05": 1.0,
+            "p95": 1.0,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "all": {
+            "count": 100,
+            "mean": 1.4780557280778885,
+            "median": 1.4660869240760803,
+            "min": 0.7827370762825012,
+            "max": 1.9975697994232178,
+            "p05": 1.0,
+            "p95": 1.9933068752288818,
+            "lower_hits": 0,
+            "upper_hits": 0
+          }
+        },
+        "all": {
+          "active": {
+            "count": 392,
+            "mean": 1.450963546274876,
+            "median": 1.409147560596466,
+            "min": 0.6775811910629272,
+            "max": 1.9984265565872192,
+            "p05": 0.9970504134893418,
+            "p95": 1.9939375042915344,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "inactive": {
+            "count": 8,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "p05": 1.0,
+            "p95": 1.0,
+            "lower_hits": 0,
+            "upper_hits": 0
+          },
+          "all": {
+            "count": 400,
+            "mean": 1.4419442753493785,
+            "median": 1.3990482687950134,
+            "min": 0.6775811910629272,
+            "max": 1.9984265565872192,
+            "p05": 0.9995351642370224,
+            "p95": 1.9939004063606263,
+            "lower_hits": 0,
+            "upper_hits": 0
+          }
+        }
+      }
+    },
+    "win_equal_loss": {
+      "psnr": {
+        "win": 95,
+        "equal": 0,
+        "loss": 5
+      },
+      "ssim": {
+        "win": 9,
+        "equal": 0,
+        "loss": 91
+      }
+    }
+  },
+  "backup": {
+    "utc": "2026-09-14T18:59:01.808077+00:00",
+    "run": "20260915-023649-ttie-t035a-oracle",
+    "full": {
+      "path": "/media/wenchang/F/wjq/TTIE/shared/t035a/T035A_execution.tar",
+      "bytes": 872243200,
+      "sha256": "38bec6ab81e38a39244c460243182436eec9b7e98870768fc3658de4573a42e9"
+    },
+    "compact": {
+      "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t035a/T035A_compact.tar.gz",
+      "bytes": 149461,
+      "sha256": "d638941cfe15251ce29b30fcb1460aec490dcb52de030e26ddce9d2ef205847c"
+    },
+    "compact_backup_sha256": "d638941cfe15251ce29b30fcb1460aec490dcb52de030e26ddce9d2ef205847c"
+  },
+  "local_verification": {
+    "rows": 100,
+    "retained_artifact_hashes_verified": 100,
+    "all_summaries_recomputed": true,
+    "max_abs_error": 3.552713678800501e-15,
+    "classification": "common-mode explains most WB gain"
+  },
+  "aggregate_gain_ratios": {
+    "mean": 0.8550111421365021,
+    "median": 0.8181846797958324
+  },
+  "full_wb_minus_common_win_equal_loss": {
+    "psnr": {
+      "win": 100,
+      "equal": 0,
+      "loss": 0
+    },
+    "ssim": {
+      "win": 45,
+      "equal": 0,
+      "loss": 55
+    }
+  },
+  "deployed_staged_files_verified": 31
+}
