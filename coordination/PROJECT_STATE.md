@@ -18,7 +18,7 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T022-A established the first leakage-safe validation anchor.** On a deterministic 100-pair validation split carved from the 689 official training pairs, untuned T014 improved raw mean PSNR `8.1097227→9.2728689 dB` and mean RGB-SSIM `0.1600228→0.2730060`, but absolute quality was weak. The official 100-pair LOL-v2 Real test set has remained untouched throughout tuning.
 
-**T022-B ruled out checkpoint selection as the main real-domain bottleneck.** The 41-state saved-trajectory PSNR oracle adds only `+0.1472 dB` and the SSIM oracle only `+0.00489`.
+**T022-B ruled out checkpoint selection as the main old-family bottleneck.** The 41-state saved-trajectory PSNR oracle adds only `+0.1472 dB` and the SSIM oracle only `+0.00489`.
 
 **T022-C showed the original real-domain action range was too conservative.** Widening only active dark-winner EV from `[0,+0.5]` to `[0,+2.0]` improved validation to `10.2295540 dB / 0.3282315 SSIM`.
 
@@ -32,9 +32,11 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T026-B closed the simple longer-budget route on the promoted gamma-0.5 trajectory.** Changing only `40→80` updates gives `11.2419255 dB / 0.3780444 SSIM`, only `+0.1210491 dB / +0.0042526 SSIM` versus T026-A, failing the `+0.50 dB` materiality gate while mean runtime roughly doubles (`2.274494→4.703975 s/image`). T026-A 40-step remains promoted.
 
-**T028-A now establishes very large non-deployable within-family reachability in the exact promoted T026-A family.** The fixed two-start/500-update `REFERENCE_ORACLE_ONLY` audit reaches **`17.459991778 dB / 0.431715830 SSIM`** versus T026-A `11.120876417 dB / 0.373791825`. Paired oracle-minus-T026-A PSNR is **`+6.339115361 dB` mean / `+5.771085393 dB` median** (p10 `+2.3934`, p90 `+11.6590`), satisfying the predeclared **substantial within-family headroom** rule. All 100 images improve PSNR; 18/100 lose SSIM because the oracle optimizes MSE. `94/100` oracle winners occur at step 500, so this is demonstrated reachability rather than a global optimum or convergence certificate. Active gamma has no boundary hits; active EV has 75/392 upper-bound hits.
+**T028-A establishes very large non-deployable within-family reachability in the exact promoted T026-A family.** The fixed two-start/500-update `REFERENCE_ORACLE_ONLY` audit reaches **`17.459991778 dB / 0.431715830 SSIM`** versus T026-A `11.120876417 dB / 0.373791825`. Paired oracle-minus-T026-A PSNR is **`+6.339115361 dB` mean / `+5.771085393 dB` median**. All 100 images improve PSNR; 18/100 lose SSIM because the oracle optimizes MSE. `94/100` oracle winners occur at step 500, so this is demonstrated reachability rather than a convergence certificate. Active gamma has no boundary hits; active EV has 75/392 upper-bound hits.
 
-**Scientific consequence of T028-A:** action-family capacity is no longer the leading explanation for the real-domain gap. The exact deployable Region2 EV+gamma family already contains far better states, while T026-B shows that simply following the current learned field longer barely helps. The next priority is to diagnose whether the frozen T014/T026-A learned energy has a real-domain **gradient-direction generalization failure**.
+**T029-A diagnoses a temporal gradient-direction failure rather than a uniformly bad field.** Across all 4,100 frozen T026-A states, learned-energy versus reference-MSE gradient alignment is only weak/mixed (median cosine `0.171865263`, positive-dot `58.34%`). Early trajectory alignment is strong (`step 10`: median `0.726601211`, positive-dot `97%`) but collapses later (`step 30`: median `-0.220573222`, positive-dot `22%`; `step 40`: median `-0.245285485`, positive-dot `24%`). At the already-frozen selected states, median cosine is `-0.278469368` and only `24%` have positive dot. All active gradients are nondegenerate. The audit performed zero optimizer updates and zero reference-driven selections; all 4,100 states/outputs were bound before task-specific reference deployment. Two aborted GPU attempts and a CPU-only verifier repair are fully disclosed procedural deviations, but no scientific settings/outcomes were selected across attempts and the complete pass plus independent checks are internally consistent.
+
+**Scientific consequence of T029-A:** action-family capacity and step budget are no longer leading explanations. The field is often useful near the early real-image trajectory but appears to drift outside its source-trained validity region and become anti-restorative late. The current priority is to test whether this late drift can be detected from a strictly label-free self-consistency signal before considering broader energy retraining or action-space expansion.
 
 ### Benchmark readiness
 
@@ -69,12 +71,11 @@ Neither strong baseline has yet been run for quality metrics on the frozen valid
 - T018–T019: utility-aware hard geometry is viable on heterogeneous shifts.
 - T020: adaptive geometry is not universally safe; simple direction-factorization repairs fail.
 - **T021-A:** Sobolev beats the matched value-only control in RGB-SSIM on frozen fresh outputs.
-- **T022-A/B:** T014 transfers positively to real LOL-v2 validation, but selector tuning cannot explain the large absolute-quality gap.
-- **T022-C / T026-A:** wider physically useful action ranges materially improve real validation (`+0.9567 dB` from EV widening, then `+0.8913 dB` from gamma widening).
-- **T022-D / T026-B:** merely doubling trajectory length is not a compelling solution under either old or promoted bounds.
+- **T022-C / T026-A:** wider physically useful action ranges materially improve real validation.
+- **T022-D / T026-B:** merely doubling trajectory length is not a compelling solution.
 - **T023-A:** tiny real-source Sobolev recalibration strongly fits its bank but fails the joint validation gate.
-- **T025-A:** old-family oracle reveals `+3.3164 dB` reachable PSNR headroom.
-- **T028-A:** exact promoted-family oracle reveals **`+6.3391 dB` mean / `+5.7711 dB` median** reachable PSNR headroom, making optimization-field quality the leading unresolved mechanism question.
+- **T025-A / T028-A:** reference-only oracles reveal large within-family reachable headroom, reaching `+6.3391 dB` mean in the promoted family.
+- **T029-A:** learned-field direction is strongly restoration-aligned early but becomes weak/negative late; selected T026-A states have only `24%` positive-dot alignment.
 - **T027-A/B:** Retinexformer and SNR-Aware strict target-free exporters are checkpoint-bound and numerically verified on non-evaluation smoke inputs.
 
 ## Information-boundary rules
@@ -84,15 +85,15 @@ Neither strong baseline has yet been run for quality metrics on the frozen valid
 - Validation/test enhanced outputs and decisions must be finalized and persisted before references or metrics are attached, except explicitly isolated non-deployable reference diagnostics.
 - Oracle/reference-gradient diagnostics may motivate later **global** research choices, but no per-image oracle state, target statistic, oracle step, reference gradient, or oracle score may be consumed by deployable inference/training unless a later task explicitly redefines a source-training split and preserves a separate holdout.
 - Final benchmark test sets must remain isolated from hyperparameter/model selection; tuning belongs only on predeclared train/validation data.
-- The official 100 LOL-v2 Real test pairs remain untouched through T028-A and must stay untouched until the final Ours configuration and admitted baseline execution protocols are frozen.
+- The official 100 LOL-v2 Real test pairs remain untouched through T029-A and must stay untouched until the final Ours configuration and admitted baseline execution protocols are frozen.
 - External baselines admitted to the main comparison must also be target-free at inference; target/reference-based brightness matching or selection is inadmissible.
 - Fresh/test runs must fail closed on source/provenance/preparation binding mismatches.
 
 ## Interpretation
 
-The paper remains image-enhancement-first. T014 supplies the central scientific contribution: learning a reference-free test-time **optimization field** through source-side derivative supervision. T021-A shows this is not MSE-specific. T022–T028 are convergence/diagnostic work on real LOL-v2.
+The paper remains image-enhancement-first. T014 supplies the central scientific contribution: learning a reference-free test-time **optimization field** through source-side derivative supervision. T021-A shows this is not MSE-specific. T022–T029 are convergence/diagnostic work on real LOL-v2.
 
-T026-A remains the best deployable validation configuration. T028-A does **not** promote an oracle method; instead it sharpens the scientific diagnosis. There is enormous reachable quality inside the exact current family, so adding more operators is not yet justified as the first response. T026-B simultaneously shows that the current learned field does not exploit that headroom merely by running longer. The immediate research question is therefore whether the frozen learned field's gradient direction is misaligned with true restoration direction on the real domain.
+T026-A remains the best deployable validation configuration. T028-A demonstrates that the exact current action family contains dramatically better states, while T029-A localizes the failure: the learned field is usually useful early and then turns weak or anti-restorative late. This makes late-trajectory trust / validity detection the immediate mechanism question. Any deployable repair must remain strictly low-only; T029 reference gradients are diagnostic evidence only and may not become per-image inputs.
 
 The official test remains sealed. Downstream detection is not required. Remaining paper-level gaps are competitive real-benchmark performance, recent matched target-free SOTA comparison, perceptual metrics, and efficiency/quality tradeoffs.
 
@@ -111,10 +112,11 @@ The official test remains sealed. Downstream detection is not required. Remainin
 - **T026-B: COMPLETED — promoted gamma-0.5 80-step budget negative/insufficient.**
 - **T027-A/B: COMPLETED — Retinexformer and SNR-Aware target-free exporters ready.**
 - **T028-A: COMPLETED — substantial within-family reference-oracle headroom (`+6.3391 dB` mean).**
-- **T029-A: ACTIVE — frozen learned-field vs reference-gradient alignment audit.**
+- **T029-A: COMPLETED — weak/mixed overall alignment with strong late/selected-state directional mismatch.**
+- **T030-A: ACTIVE — fresh qualification of a fixed low-only learned-gradient self-reversal guard.**
 
 ## Current open task
 
-`T029-A — frozen learned-field vs reference-gradient alignment audit` in `coordination/CHATGPT_TO_CODEX.md`.
+`T030-A — fresh qualification of a label-free learned-gradient self-reversal guard` in `coordination/CHATGPT_TO_CODEX.md`.
 
-On the frozen 100-image T026-A validation trajectories, bind all existing 41 states/image before reference access, then in an isolated non-deployable diagnostic compute the unchanged T014 learned-energy raw gradient and the validation-reference RGB-MSE raw gradient at the same 4,100 states. Quantify active-coordinate directional cosine/dot alignment without performing any optimizer update or reference-based selection. Keep all reference gradients quarantined and the official LOL-v2 Real test sealed.
+Freeze one fixed rule before fresh reference access: anchor the learned-energy gradient at step 10, cut the eligible prefix immediately before the first later active-coordinate cosine reversal (`<=0`), then choose minimum predicted energy within that prefix. Evaluate this target-free rule once on a new deterministic 100-pair development cohort drawn from previously reference-unused non-validation LOL-v2 Real training pairs. Compare against unchanged T026-A on the same low-only trajectories only after both decision/output sets are frozen. Keep all normal targets out of adaptation/selection and keep the official LOL-v2 Real test sealed.
