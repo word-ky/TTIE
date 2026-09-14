@@ -1,0 +1,282 @@
+{
+  "status": "experiment-complete",
+  "variant": "gamma0.5 candidate max_steps40->80 only",
+  "rows": 100,
+  "aggregates": {
+    "raw": {
+      "psnr": {
+        "mean": 8.109722671657906,
+        "median": 7.600161540858166
+      },
+      "ssim": {
+        "mean": 0.1600228434803769,
+        "median": 0.13897726549987016
+      }
+    },
+    "T026A": {
+      "psnr": {
+        "mean": 11.120876417349557,
+        "median": 10.60731929878586
+      },
+      "ssim": {
+        "mean": 0.3737918251517076,
+        "median": 0.367924983123891
+      }
+    },
+    "T026B": {
+      "psnr": {
+        "mean": 11.241925538652856,
+        "median": 10.71834544189467
+      },
+      "ssim": {
+        "mean": 0.3780444098905809,
+        "median": 0.3766995869474302
+      }
+    }
+  },
+  "paired_deltas": {
+    "psnr": {
+      "mean": 0.1210491213032994,
+      "median": 0.11272270795376826,
+      "p10": -0.3292883694048351,
+      "p90": 0.5360342500302299
+    },
+    "ssim": {
+      "mean": 0.004252584738873338,
+      "median": 0.0014898000068732445,
+      "p10": -0.008615336078650108,
+      "p90": 0.020725757077910457
+    }
+  },
+  "selected_step_histogram": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    3,
+    0,
+    2,
+    1,
+    1,
+    0,
+    3,
+    88
+  ],
+  "runtime_seconds": {
+    "mean": 4.703975419368944,
+    "median": 4.791697038512211,
+    "p95": 4.994254349716357
+  },
+  "saturation": {
+    "selected_ev_active_lower": {
+      "count": 34,
+      "denominator": 392,
+      "fraction": 0.08673469387755102
+    },
+    "selected_ev_active_upper": {
+      "count": 9,
+      "denominator": 392,
+      "fraction": 0.02295918367346939
+    },
+    "selected_ev_active_either": {
+      "count": 43,
+      "denominator": 392,
+      "fraction": 0.1096938775510204
+    },
+    "selected_ev_inactive_lower": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "selected_ev_inactive_upper": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "selected_ev_inactive_either": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "selected_gamma_active_lower": {
+      "count": 0,
+      "denominator": 392,
+      "fraction": 0.0
+    },
+    "selected_gamma_active_upper": {
+      "count": 58,
+      "denominator": 392,
+      "fraction": 0.14795918367346939
+    },
+    "selected_gamma_active_either": {
+      "count": 58,
+      "denominator": 392,
+      "fraction": 0.14795918367346939
+    },
+    "selected_gamma_inactive_lower": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "selected_gamma_inactive_upper": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "selected_gamma_inactive_either": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "final_ev_active_lower": {
+      "count": 34,
+      "denominator": 392,
+      "fraction": 0.08673469387755102
+    },
+    "final_ev_active_upper": {
+      "count": 9,
+      "denominator": 392,
+      "fraction": 0.02295918367346939
+    },
+    "final_ev_active_either": {
+      "count": 43,
+      "denominator": 392,
+      "fraction": 0.1096938775510204
+    },
+    "final_ev_inactive_lower": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "final_ev_inactive_upper": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "final_ev_inactive_either": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "final_gamma_active_lower": {
+      "count": 0,
+      "denominator": 392,
+      "fraction": 0.0
+    },
+    "final_gamma_active_upper": {
+      "count": 57,
+      "denominator": 392,
+      "fraction": 0.14540816326530612
+    },
+    "final_gamma_active_either": {
+      "count": 57,
+      "denominator": 392,
+      "fraction": 0.14540816326530612
+    },
+    "final_gamma_inactive_lower": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "final_gamma_inactive_upper": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    },
+    "final_gamma_inactive_either": {
+      "count": 8,
+      "denominator": 8,
+      "fraction": 1.0
+    }
+  },
+  "image_changes": {
+    "psnr": {
+      "improved": 66,
+      "worsened": 34,
+      "unchanged": 0
+    },
+    "ssim": {
+      "improved": 59,
+      "worsened": 41,
+      "unchanged": 0
+    }
+  },
+  "gate": {
+    "psnr_delta_threshold": 0.5,
+    "ssim_must_not_decrease": true,
+    "ssim_floor": 0.373791825,
+    "ssim_tolerance": 1e-12,
+    "psnr_pass": false,
+    "ssim_pass": true
+  },
+  "verdict": "negative/insufficient"
+}
