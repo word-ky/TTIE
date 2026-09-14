@@ -36,7 +36,9 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T029-A diagnoses a temporal gradient-direction failure rather than a uniformly bad field.** Across all 4,100 frozen T026-A states, learned-energy versus reference-MSE gradient alignment is only weak/mixed (median cosine `0.171865263`, positive-dot `58.34%`). Early trajectory alignment is strong (`step 10`: median `0.726601211`, positive-dot `97%`) but collapses later (`step 30`: median `-0.220573222`, positive-dot `22%`; `step 40`: median `-0.245285485`, positive-dot `24%`). At the already-frozen selected states, median cosine is `-0.278469368` and only `24%` have positive dot. All active gradients are nondegenerate. The audit performed zero optimizer updates and zero reference-driven selections; all 4,100 states/outputs were bound before task-specific reference deployment. Two aborted GPU attempts and a CPU-only verifier repair are fully disclosed procedural deviations, but no scientific settings/outcomes were selected across attempts and the complete pass plus independent checks are internally consistent.
 
-**Scientific consequence of T029-A:** action-family capacity and step budget are no longer leading explanations. The field is often useful near the early real-image trajectory but appears to drift outside its source-trained validity region and become anti-restorative late. The current priority is to test whether this late drift can be detected from a strictly label-free self-consistency signal before considering broader energy retraining or action-space expansion.
+**T030-A rules out the fixed learned-gradient self-reversal guard as a useful deployable repair.** On a deterministic fresh 100-pair cohort drawn from previously reference-unused non-validation LOL-v2 Real training pairs, unchanged T026-A gives **`10.3286568 dB / 0.3228188 SSIM`**. The predeclared low-only guard — step-10 learned-gradient anchor, first later cosine reversal `<=0`, then minimum predicted energy over the eligible prefix — gives **`10.1223728 dB / 0.3150107`**, i.e. paired **`-0.2062840 dB / -0.0078081 SSIM`**. It changes 59/100 selections with PSNR win/equal/loss `5/41/54` and adds about `+99.48%` compute because all learned gradients are recomputed. Both selectors used the same unchanged 40-update low-only trajectory; all outputs/decisions were frozen before normal deployment, independent replay was exact, and no T029 reference artifact entered selection. These 100 pairs are now development-used and cannot serve as another fresh qualification cohort.
+
+**Scientific consequence of T030-A:** T029's late reference-gradient failure is real, but learned-gradient rotation relative to an early learned-gradient anchor is not a reliable target-free detector. Do not sweep anchor/threshold/fallback on the consumed cohort. The leading next mechanism question is whether directional failure tracks departure from the frozen T014 source-training feature support, which would provide a more causal low-only trust signal.
 
 ### Benchmark readiness
 
@@ -56,7 +58,7 @@ Neither strong baseline has yet been run for quality metrics on the frozen valid
 
 ### Current LOL-v2 validation candidate
 
-**T026-A = T014 + dark-winner EV upper `+2.0` + active gamma lower `0.5`** — best current leakage-safe deployable validation candidate: **`11.1208764 dB / 0.3737918 SSIM`** on the fixed 100-pair LOL-v2 Real validation split. Not official-test qualified.
+**T026-A = T014 + dark-winner EV upper `+2.0` + active gamma lower `0.5`** — best current leakage-safe deployable validation candidate: **`11.1208764 dB / 0.3737918 SSIM`** on the fixed 100-pair LOL-v2 Real validation split. On the separate T030-A fresh development cohort it scores **`10.3286568 dB / 0.3228188 SSIM`**. Not official-test qualified.
 
 ### Heterogeneous-only geometry extension
 
@@ -76,6 +78,7 @@ Neither strong baseline has yet been run for quality metrics on the frozen valid
 - **T023-A:** tiny real-source Sobolev recalibration strongly fits its bank but fails the joint validation gate.
 - **T025-A / T028-A:** reference-only oracles reveal large within-family reachable headroom, reaching `+6.3391 dB` mean in the promoted family.
 - **T029-A:** learned-field direction is strongly restoration-aligned early but becomes weak/negative late; selected T026-A states have only `24%` positive-dot alignment.
+- **T030-A:** a fixed learned-gradient self-reversal proxy fails on a fresh 100-pair cohort and mostly worsens changed selections; the late-drift diagnosis does not translate into this simple self-consistency guard.
 - **T027-A/B:** Retinexformer and SNR-Aware strict target-free exporters are checkpoint-bound and numerically verified on non-evaluation smoke inputs.
 
 ## Information-boundary rules
@@ -85,15 +88,15 @@ Neither strong baseline has yet been run for quality metrics on the frozen valid
 - Validation/test enhanced outputs and decisions must be finalized and persisted before references or metrics are attached, except explicitly isolated non-deployable reference diagnostics.
 - Oracle/reference-gradient diagnostics may motivate later **global** research choices, but no per-image oracle state, target statistic, oracle step, reference gradient, or oracle score may be consumed by deployable inference/training unless a later task explicitly redefines a source-training split and preserves a separate holdout.
 - Final benchmark test sets must remain isolated from hyperparameter/model selection; tuning belongs only on predeclared train/validation data.
-- The official 100 LOL-v2 Real test pairs remain untouched through T029-A and must stay untouched until the final Ours configuration and admitted baseline execution protocols are frozen.
+- The official 100 LOL-v2 Real test pairs remain untouched through T030-A and must stay untouched until the final Ours configuration and admitted baseline execution protocols are frozen.
 - External baselines admitted to the main comparison must also be target-free at inference; target/reference-based brightness matching or selection is inadmissible.
 - Fresh/test runs must fail closed on source/provenance/preparation binding mismatches.
 
 ## Interpretation
 
-The paper remains image-enhancement-first. T014 supplies the central scientific contribution: learning a reference-free test-time **optimization field** through source-side derivative supervision. T021-A shows this is not MSE-specific. T022–T029 are convergence/diagnostic work on real LOL-v2.
+The paper remains image-enhancement-first. T014 supplies the central scientific contribution: learning a reference-free test-time **optimization field** through source-side derivative supervision. T021-A shows this is not MSE-specific. T022–T030 are convergence/diagnostic work on real LOL-v2.
 
-T026-A remains the best deployable validation configuration. T028-A demonstrates that the exact current action family contains dramatically better states, while T029-A localizes the failure: the learned field is usually useful early and then turns weak or anti-restorative late. This makes late-trajectory trust / validity detection the immediate mechanism question. Any deployable repair must remain strictly low-only; T029 reference gradients are diagnostic evidence only and may not become per-image inputs.
+T026-A remains the best deployable validation configuration, but T030-A gives a second fresh development-cohort score (`10.3287/0.3228`) and shows the simple self-reversal guard is counterproductive. T028-A demonstrates that the exact current action family contains dramatically better states, while T029-A localizes a late directional failure. The immediate question is now whether this failure corresponds to leaving the T014 source-training feature support; any candidate trust signal must remain strictly low-only and must be frozen before reference diagnostics.
 
 The official test remains sealed. Downstream detection is not required. Remaining paper-level gaps are competitive real-benchmark performance, recent matched target-free SOTA comparison, perceptual metrics, and efficiency/quality tradeoffs.
 
@@ -113,10 +116,11 @@ The official test remains sealed. Downstream detection is not required. Remainin
 - **T027-A/B: COMPLETED — Retinexformer and SNR-Aware target-free exporters ready.**
 - **T028-A: COMPLETED — substantial within-family reference-oracle headroom (`+6.3391 dB` mean).**
 - **T029-A: COMPLETED — weak/mixed overall alignment with strong late/selected-state directional mismatch.**
-- **T030-A: ACTIVE — fresh qualification of a fixed low-only learned-gradient self-reversal guard.**
+- **T030-A: COMPLETED — fixed low-only self-reversal guard negative/insufficient on a fresh 100-pair cohort.**
+- **T031-A: ACTIVE — source-support distance versus reference-gradient validity audit.**
 
 ## Current open task
 
-`T030-A — fresh qualification of a label-free learned-gradient self-reversal guard` in `coordination/CHATGPT_TO_CODEX.md`.
+`T031-A — source-support distance versus reference-gradient validity audit` in `coordination/CHATGPT_TO_CODEX.md`.
 
-Freeze one fixed rule before fresh reference access: anchor the learned-energy gradient at step 10, cut the eligible prefix immediately before the first later active-coordinate cosine reversal (`<=0`), then choose minimum predicted energy within that prefix. Evaluate this target-free rule once on a new deterministic 100-pair development cohort drawn from previously reference-unused non-validation LOL-v2 Real training pairs. Compare against unchanged T026-A on the same low-only trajectories only after both decision/output sets are frozen. Keep all normal targets out of adaptation/selection and keep the official LOL-v2 Real test sealed.
+Use only the accepted T014 source-training feature bank and frozen T030-A 4,100 low-only state features to freeze a fixed nearest-source distance in the T014 standardized 28-D feature space. Only after all support scores are frozen may the already-development-used T030 normals be attached in an isolated diagnostic to compute reference-gradient validity. Do not build a selector, tune a threshold, retrain the field, select a new cohort, or open the official test.
