@@ -1,0 +1,48 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-15T07:31:21.295980+00:00",
+  "executed_source": "ba2f1b26e2d09e0eafb3f33b3ed8e078c5d3cd83",
+  "branch": "codex/T044A-legacy-drift",
+  "pr": "https://github.com/word-ky/TTIE/pull/69",
+  "stage_a_run": "20260915-152458-ttie-t044a-stage-a",
+  "stage_b_run": "20260915-152656-ttie-t044a-stage-b",
+  "classification": "legacy-extrapolation risk association not supported / mixed",
+  "roc_auc": 0.2491500728508985,
+  "spearman": 0.4838043804380438,
+  "replay": {
+    "status": "PASS",
+    "scores": 100,
+    "scalar_checks": 210,
+    "auc_pairs": 2059,
+    "max_abs_error": 8.326672684688674e-17,
+    "roc_auc": 0.2491500728508985,
+    "spearman": 0.4838043804380438,
+    "classification": "legacy-extrapolation risk association not supported / mixed",
+    "all_frozen_states_and_gates_exact": true,
+    "score_freeze_before_metrics": true,
+    "seconds": 0.2198422679794021
+  },
+  "archives": {
+    "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t044a/T044A_evidence.tar.gz",
+    "backup": "/media/wenchang/F/wjq/TTIE/shared/t044a/T044A_evidence.tar.gz",
+    "bytes": 109482,
+    "sha256": "eae5dbb57c9cb0f6974e680833e985af08f290ceb61a663449d5163c817addb8",
+    "scores_and_states_unchanged": true
+  },
+  "tests": {
+    "baseline": "1passed12.37s",
+    "local": "2passed10.41s",
+    "server": "2passed2.35s"
+  },
+  "failures": [
+    "Sparse test dependency initially absent; corrected",
+    "Two local NumPy covariance aborts; equivalent explicit rank sums pass",
+    "Two SSH launch timeouts before actual execution; resumed persisted commands once each",
+    "Report generator string syntax corrected before rendering"
+  ],
+  "scientific_deviations": [],
+  "optimizer_updates": 0,
+  "selection_changes": 0,
+  "official_test_access": false,
+  "next_step": "Stop; await research-lead review; no controller/score inversion/threshold."
+}
