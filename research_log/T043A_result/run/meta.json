@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-135922-ttie-t043a-quality",
+  "releaseId": "20260915-135847-ttie-t043a-quality",
+  "sessionName": "autodl-20260915-135922-ttie-t043a-quality",
+  "command": "export PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest -q tests/test_t043a_quality.py && $PY research_log/T043A_quality/evaluate.py --baseline /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-122826-ttie-t041a-stage-a/artifacts/stage_a --candidate /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-133013-ttie-t042a-stage-a/artifacts/stage_a --manifest research_log/T036A_cohort/manifest.json --normal-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t036a/normal --binding research_log/T043A_source_binding.json --out \"$AUTODL_RUN_DIR/artifacts/quality\" && $PY research_log/T043A_quality/replay.py \"$AUTODL_RUN_DIR/artifacts/quality\" /home/wenchang/asdasdsad/wjq/TTIE/shared/t036a/normal"
+}

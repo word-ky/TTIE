@@ -1,0 +1,185 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-15T06:08:17.514731+00:00",
+  "executed_source": "bacb3dbc7f1f465d84fb8c2ff436fff3678441f7",
+  "branch": "codex/T043A-matched-gain-quality",
+  "pr": "https://github.com/word-ky/TTIE/pull/68",
+  "run": "20260915-135922-ttie-t043a-quality",
+  "device": "CPU: unchanged accepted SciPy evaluation on A6000 server",
+  "summary": {
+    "pairs": 100,
+    "means": {
+      "baseline_psnr": 12.044154697929313,
+      "candidate_psnr": 10.179175575489364,
+      "baseline_ssim": 0.3494574643533237,
+      "candidate_ssim": 0.31311878122847503
+    },
+    "paired": {
+      "psnr": {
+        "mean": -1.864979122439953,
+        "median": -1.1739221420526587,
+        "p10": -5.288450143944402,
+        "p90": 0.9069310181941069,
+        "positive": 15,
+        "negative": 85,
+        "zero": 0,
+        "worst": [
+          {
+            "index": 26,
+            "low": "Train/Low/low00549.png",
+            "delta": -8.593399277705894
+          },
+          {
+            "index": 9,
+            "low": "Train/Low/low00232.png",
+            "delta": -8.048091149440019
+          },
+          {
+            "index": 92,
+            "low": "Train/Low/low00600.png",
+            "delta": -8.043206104970405
+          },
+          {
+            "index": 96,
+            "low": "Train/Low/low00070.png",
+            "delta": -7.857080552062374
+          },
+          {
+            "index": 77,
+            "low": "Train/Low/low00111.png",
+            "delta": -7.699568187820542
+          }
+        ],
+        "best": [
+          {
+            "index": 33,
+            "low": "Train/Low/low00559.png",
+            "delta": 7.117374976281859
+          },
+          {
+            "index": 78,
+            "low": "Train/Low/low00644.png",
+            "delta": 6.553721056259755
+          },
+          {
+            "index": 61,
+            "low": "Train/Low/low00348.png",
+            "delta": 5.1380067451392595
+          },
+          {
+            "index": 8,
+            "low": "Train/Low/low00198.png",
+            "delta": 4.991542474008378
+          },
+          {
+            "index": 57,
+            "low": "Train/Low/low00271.png",
+            "delta": 4.645428282153748
+          }
+        ]
+      },
+      "ssim": {
+        "mean": -0.036338683124848635,
+        "median": -0.032326338482461345,
+        "p10": -0.12732155647065024,
+        "p90": 0.018438951759767407,
+        "positive": 36,
+        "negative": 64,
+        "zero": 0,
+        "worst": [
+          {
+            "index": 62,
+            "low": "Train/Low/low00670.png",
+            "delta": -0.17722936126672711
+          },
+          {
+            "index": 83,
+            "low": "Train/Low/low00671.png",
+            "delta": -0.1756587464590511
+          },
+          {
+            "index": 17,
+            "low": "Train/Low/low00018.png",
+            "delta": -0.16125097885849088
+          },
+          {
+            "index": 70,
+            "low": "Train/Low/low00063.png",
+            "delta": -0.15310243366136517
+          },
+          {
+            "index": 99,
+            "low": "Train/Low/low00472.png",
+            "delta": -0.15209057035794515
+          }
+        ],
+        "best": [
+          {
+            "index": 78,
+            "low": "Train/Low/low00644.png",
+            "delta": 0.1656098257215829
+          },
+          {
+            "index": 33,
+            "low": "Train/Low/low00559.png",
+            "delta": 0.13003472067302224
+          },
+          {
+            "index": 8,
+            "low": "Train/Low/low00198.png",
+            "delta": 0.0976150371671447
+          },
+          {
+            "index": 32,
+            "low": "Train/Low/low00039.png",
+            "delta": 0.09218981345209554
+          },
+          {
+            "index": 98,
+            "low": "Train/Low/low00145.png",
+            "delta": 0.07556769245892059
+          }
+        ]
+      }
+    },
+    "classification": "matched-gain early-state quality bridge not supported / mixed",
+    "label": "REFERENCE_EVALUATION_ONLY"
+  },
+  "replay": {
+    "status": "PASS",
+    "pairs": 100,
+    "output_metric_evaluations": 400,
+    "scalar_checks": 638,
+    "max_abs_error": 7.105427357601002e-15,
+    "classification": "matched-gain early-state quality bridge not supported / mixed",
+    "independent_psnr": "torch float64 reduction/log10",
+    "independent_ssim": "explicit11tap separable convolve1d, same reflect convention",
+    "seconds": 15.713936241983902
+  },
+  "archives": {
+    "completed_utc": "2026-09-15T06:01:25.679094+00:00",
+    "archive": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t043a/T043A_evidence.tar.gz",
+    "backup": "/media/wenchang/F/wjq/TTIE/shared/t043a/T043A_evidence.tar.gz",
+    "bytes": 44615,
+    "sha256": "ba50381b7a511216943ae5ef56ccbc1bc619245ad9fd2da76ceecbe8695162ba",
+    "original_200_tensor_files_unchanged": true,
+    "original_tensor_archives": [
+      "/media/wenchang/F/wjq/TTIE/shared/t041a/T041A_full.tar",
+      "/media/wenchang/F/wjq/TTIE/shared/t042a/T042A_full.tar"
+    ]
+  },
+  "tests": {
+    "baseline": "1 passed 1.44s",
+    "local": "2 passed 0.17s",
+    "server": "2 passed 0.09s"
+  },
+  "failures": [],
+  "scientific_deviations": [],
+  "optimizer_updates": 0,
+  "selection_changes": 0,
+  "official_test_access": false,
+  "next_step": "Stop and await research-lead review; no controller or alternate step/gain.",
+  "main_mailbox_sha": "4e866aed8edcfad69fb36e61f3ba3ac391f1e5f2",
+  "main_mailbox_url": "https://github.com/word-ky/TTIE/blob/4e866aed8edcfad69fb36e61f3ba3ac391f1e5f2/coordination/CODEX_TO_CHATGPT.md",
+  "scientific_evidence_sha": "03e71e0ed2acf3fc7b7ca1d61bb00b3bed427a86"
+}
