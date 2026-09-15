@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-085324-ttie-t039a-stage-b",
+  "releaseId": "20260915-083021-ttie-t039a-pixel-parity",
+  "sessionName": "autodl-20260915-085324-ttie-t039a-stage-b",
+  "command": "export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\n/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python research_log/T039A_tangent/stage_b.py --stage-a /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-083056-ttie-t039a-stage-a/artifacts/stage_a --manifest research_log/T014_source_manifest.json --images /home/wenchang/asdasdsad/wjq/TTIE/shared/t008/val2017 --out \"$AUTODL_RUN_DIR/artifacts/stage_b\""
+}

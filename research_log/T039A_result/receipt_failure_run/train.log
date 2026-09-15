@@ -1,0 +1,11 @@
+[autodl] run_id=20260915-082440-ttie-t039a-stage-a
+[autodl] started_at=2026-09-15T08:24:44+08:00
+..                                                                       [100%]
+2 passed in 1.37s
+Traceback (most recent call last):
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260915-082406-ttie-t039a-source-tangent/research_log/T039A_tangent/stage_a.py", line 14, in <module>
+    assert sha(a.receipt)==RECEIPT and sha(a.manifest)==MANIFEST and sha(a.bank_root/'training_manifest.json')==BANK and sha(a.checkpoint)==ENERGY
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+[autodl] finished_at=2026-09-15T08:24:48+08:00
+[autodl] exit_code=1

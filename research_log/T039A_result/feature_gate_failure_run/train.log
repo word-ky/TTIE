@@ -1,0 +1,24 @@
+[autodl] run_id=20260915-082640-ttie-t039a-stage-a
+[autodl] started_at=2026-09-15T08:26:45+08:00
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+1/400 banks; 3/22038 probes frozen
+2/400 banks; 75/22038 probes frozen
+3/400 banks; 78/22038 probes frozen
+4/400 banks; 150/22038 probes frozen
+5/400 banks; 222/22038 probes frozen
+6/400 banks; 225/22038 probes frozen
+7/400 banks; 228/22038 probes frozen
+Traceback (most recent call last):
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260915-082619-ttie-t039a-bound-source/research_log/T039A_tangent/stage_a.py", line 49, in <module>
+    assert ferr<=1e-5,'SOURCE_FEATURE_RECONSTRUCTION_MISMATCH'
+           ^^^^^^^^^^
+AssertionError: SOURCE_FEATURE_RECONSTRUCTION_MISMATCH
+[autodl] finished_at=2026-09-15T08:27:18+08:00
+[autodl] exit_code=1
