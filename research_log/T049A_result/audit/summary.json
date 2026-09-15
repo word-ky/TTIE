@@ -1,0 +1,72 @@
+{
+  "label": "REFERENCE_ORACLE_ONLY",
+  "metrics": {
+    "psnr": {
+      "mean": 21.872255249768454,
+      "median": 22.6465425425704
+    },
+    "ssim": {
+      "mean": 0.5047578705434101,
+      "median": 0.5403937235737263
+    },
+    "t048_psnr": {
+      "mean": 21.064979986042434,
+      "median": 21.643626706015567
+    },
+    "t048_ssim": {
+      "mean": 0.45666381292912717,
+      "median": 0.5025621669492916
+    },
+    "delta_psnr": {
+      "mean": 0.8072752637260204,
+      "median": 0.5988926100953424
+    },
+    "delta_ssim": {
+      "mean": 0.048094057614282766,
+      "median": 0.027634449011933793
+    }
+  },
+  "best_step_histogram": {
+    "500": 91,
+    "498": 2,
+    "499": 1,
+    "474": 1,
+    "493": 1,
+    "488": 1,
+    "169": 1,
+    "497": 1,
+    "495": 1
+  },
+  "at_step500": 91,
+  "win_equal_loss": {
+    "psnr": {
+      "win": 100,
+      "equal": 0,
+      "loss": 0
+    },
+    "ssim": {
+      "win": 86,
+      "equal": 0,
+      "loss": 14
+    }
+  },
+  "runtime_seconds": 1217.7298439981532,
+  "tone_distribution": {
+    "active_curves": 392,
+    "segment_count": 3136,
+    "segment_min": 0.002351999282836914,
+    "segment_max": 0.5688010454177856,
+    "segment_mean": 0.1250000000213824,
+    "segment_median": 0.12297841906547546,
+    "zero_width_segments": 0,
+    "interior_knot_min": 0.05780346691608429,
+    "interior_knot_max": 0.9976480007171631,
+    "interior_knot_mean": 0.5212575171153677,
+    "interior_knot_median": 0.5041643381118774,
+    "fixed_endpoints": [
+      0,
+      1
+    ]
+  },
+  "classification": "SOTA-scale monotonic-tone capacity not supported under fixed probe"
+}
