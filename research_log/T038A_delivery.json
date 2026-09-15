@@ -1,0 +1,483 @@
+{
+  "status": "DONE",
+  "classification": "gain-specific mismatch supported",
+  "source_sha": "b15a135f48d4f4b84d3a9993790ba49b8f3ab722",
+  "branch": "codex/T038A-coordinate-attribution",
+  "pr": "https://github.com/word-ky/TTIE/pull/63",
+  "release": "20260915-064136-ttie-t038a-attribution",
+  "stage_a_run": "20260915-064200-ttie-t038a-stage-a",
+  "stage_b_run": "20260915-064355-ttie-t038a-stage-b",
+  "archives": {
+    "completed_utc": "2026-09-14T22:45:31.354215+00:00",
+    "stage_a_100_file_hashes_unchanged": true,
+    "archives": {
+      "full": {
+        "path": "/media/wenchang/F/wjq/TTIE/shared/t038a/T038A_full.tar",
+        "bytes": 1445928960,
+        "sha256": "b3197ce456846e7d311244161c4dc822c4477c67c6bea7f679b89b15a9bd3515"
+      },
+      "compact": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t038a/T038A_compact.tar.gz",
+        "bytes": 333557,
+        "sha256": "1510cdb492cf4f8a39160262228c9236048caa62746d3a767158d62fdecd4c69"
+      }
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t038a/T038A_compact.tar.gz"
+  },
+  "independent_replay": {
+    "status": "PASS",
+    "all_states": 501,
+    "group_vectors": 1503,
+    "deterministic_subset": "indices0,10,...90 at steps0,20,40",
+    "subset_states": 30,
+    "subset_max_abs_error": 4.440892098500626e-16,
+    "all_scalar_checks": 11334,
+    "all_max_abs_error": 4.440892098500626e-16,
+    "classification": "gain-specific mismatch supported",
+    "stage_a_before_all_references": true,
+    "masks_rebuilt_from_frozen_stage_a_gates": true,
+    "exec_replay_thresholds_pass": true
+  },
+  "summary": {
+    "label": "REFERENCE_GRADIENT_DIAGNOSTIC_ONLY",
+    "audited_states": 501,
+    "groups": "active raw coordinates only: legacy channels0:2, gain channel2, total channels0:3",
+    "cosine_convention": "T029 float64 active dot/norms; <=1e-12 norm is degenerate, cosine null; positive fraction among nondegenerate",
+    "aggregates": {
+      "all_selected": {
+        "legacy": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": -0.03684354569590584,
+          "cosine_median": -0.09702089853879577,
+          "cosine_p10": -0.47564022674952416,
+          "cosine_p90": 0.49108261714183943,
+          "positive_dot_fraction": 0.45,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.36783108233109096,
+          "reference_norm_median": 0.04615439209604853,
+          "dot_median": -0.0012331580184289834
+        },
+        "gain": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.06603539989125747,
+          "cosine_median": 0.07144977569320614,
+          "cosine_p10": -0.5116738891746344,
+          "cosine_p90": 0.6433625298295983,
+          "positive_dot_fraction": 0.54,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.11067590745310713,
+          "reference_norm_median": 0.01906615039900831,
+          "dot_median": 0.0001159110954015634
+        },
+        "total": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": -0.02923631183726676,
+          "cosine_median": -0.07164505785460844,
+          "cosine_p10": -0.4285052751932041,
+          "cosine_p90": 0.4612999840604021,
+          "positive_dot_fraction": 0.42,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.40798698506183223,
+          "reference_norm_median": 0.051872953913807696,
+          "dot_median": -0.0008695393484989534
+        }
+      },
+      "loss_selected": {
+        "legacy": {
+          "count": 29,
+          "nondegenerate": 29,
+          "cosine_mean": 0.016834220979672604,
+          "cosine_median": 0.08509063481157823,
+          "cosine_p10": -0.4479089021570684,
+          "cosine_p90": 0.6618846772100808,
+          "positive_dot_fraction": 0.5517241379310345,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.43739732416489974,
+          "reference_norm_median": 0.036491187338761596,
+          "dot_median": 0.0007631570135031695
+        },
+        "gain": {
+          "count": 29,
+          "nondegenerate": 29,
+          "cosine_mean": -0.27360184947288746,
+          "cosine_median": -0.37513422329166923,
+          "cosine_p10": -0.7353868903999579,
+          "cosine_p90": 0.361482713358526,
+          "positive_dot_fraction": 0.1724137931034483,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.07270663825862839,
+          "reference_norm_median": 0.01125124709489968,
+          "dot_median": -0.00025805946884304917
+        },
+        "total": {
+          "count": 29,
+          "nondegenerate": 29,
+          "cosine_mean": -0.0220646959986936,
+          "cosine_median": -0.004946789134612692,
+          "cosine_p10": -0.4447051679646855,
+          "cosine_p90": 0.5871276902857566,
+          "positive_dot_fraction": 0.4827586206896552,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.4652580867606305,
+          "reference_norm_median": 0.03795140615995069,
+          "dot_median": -4.914470815860694e-05
+        }
+      },
+      "nonloss_selected": {
+        "legacy": {
+          "count": 71,
+          "nondegenerate": 71,
+          "cosine_mean": -0.05876826729578998,
+          "cosine_median": -0.11563585104146179,
+          "cosine_p10": -0.4793374036720334,
+          "cosine_p90": 0.4133092986028415,
+          "positive_dot_fraction": 0.4084507042253521,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.34769494944785817,
+          "reference_norm_median": 0.05473070818054124,
+          "dot_median": -0.0013643886977720496
+        },
+        "gain": {
+          "count": 71,
+          "nondegenerate": 71,
+          "cosine_mean": 0.20476047357520394,
+          "cosine_median": 0.19846841092182863,
+          "cosine_p10": -0.23382356547986774,
+          "cosine_p90": 0.766911611735955,
+          "positive_dot_fraction": 0.6901408450704225,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.11350255836780472,
+          "reference_norm_median": 0.022507788519366835,
+          "dot_median": 0.00035836419862392277
+        },
+        "total": {
+          "count": 71,
+          "nondegenerate": 71,
+          "cosine_mean": -0.03216556337696567,
+          "cosine_median": -0.0734156008844632,
+          "cosine_p10": -0.38771447239653384,
+          "cosine_p90": 0.3400013342348286,
+          "positive_dot_fraction": 0.39436619718309857,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.3668048598211046,
+          "reference_norm_median": 0.059718185687629176,
+          "dot_median": -0.0008728062880751872
+        }
+      },
+      "step_0": {
+        "legacy": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.3636958159673317,
+          "cosine_median": 0.6478282311856759,
+          "cosine_p10": -0.7075307100249258,
+          "cosine_p90": 0.8233436479964527,
+          "positive_dot_fraction": 0.77,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 2.506022600590402,
+          "reference_norm_median": 0.05396130044805725,
+          "dot_median": 0.06517291263960848
+        },
+        "gain": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.3973691674396229,
+          "cosine_median": 0.5321224027970103,
+          "cosine_p10": -0.2717791070635578,
+          "cosine_p90": 0.8875128260799793,
+          "positive_dot_fraction": 0.81,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.13521450042119115,
+          "reference_norm_median": 0.01673660297837072,
+          "dot_median": 0.0009118201667692662
+        },
+        "total": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.3555475148151328,
+          "cosine_median": 0.6276170717100684,
+          "cosine_p10": -0.6706817185950958,
+          "cosine_p90": 0.8018285313205188,
+          "positive_dot_fraction": 0.77,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 2.509941904942494,
+          "reference_norm_median": 0.05644144173949954,
+          "dot_median": 0.06627571585595046
+        }
+      },
+      "step_10": {
+        "legacy": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.6487000847425881,
+          "cosine_median": 0.7055393026452799,
+          "cosine_p10": 0.3872171299700755,
+          "cosine_p90": 0.8557118737593993,
+          "positive_dot_fraction": 0.95,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 1.6173289114941696,
+          "reference_norm_median": 0.06121963353950969,
+          "dot_median": 0.07053786751902252
+        },
+        "gain": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.46688381614976193,
+          "cosine_median": 0.7222438720707451,
+          "cosine_p10": -0.38029955561796475,
+          "cosine_p90": 0.9019310323896245,
+          "positive_dot_fraction": 0.8,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.3329755294081105,
+          "reference_norm_median": 0.023083948962311404,
+          "dot_median": 0.00454941135020164
+        },
+        "total": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.6323360506982699,
+          "cosine_median": 0.6924169035611907,
+          "cosine_p10": 0.33917619888448736,
+          "cosine_p90": 0.8533742668844857,
+          "positive_dot_fraction": 0.95,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 1.6617179191791054,
+          "reference_norm_median": 0.06561874420923182,
+          "dot_median": 0.07499433876062256
+        }
+      },
+      "step_20": {
+        "legacy": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.011655726184235738,
+          "cosine_median": 0.027935700388956604,
+          "cosine_p10": -0.4482673048114413,
+          "cosine_p90": 0.43487172407634533,
+          "positive_dot_fraction": 0.55,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.6906654230547479,
+          "reference_norm_median": 0.0528745032546961,
+          "dot_median": 0.0012336462277393514
+        },
+        "gain": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.20988130972601748,
+          "cosine_median": 0.30678797300748417,
+          "cosine_p10": -0.6044159715536861,
+          "cosine_p90": 0.8861013242506248,
+          "positive_dot_fraction": 0.66,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.17595202339809635,
+          "reference_norm_median": 0.023268280086722062,
+          "dot_median": 0.001039885542103636
+        },
+        "total": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.04572622680447313,
+          "cosine_median": 0.07791756426438663,
+          "cosine_p10": -0.41318655693735507,
+          "cosine_p90": 0.4950127604510878,
+          "positive_dot_fraction": 0.6,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.7151103851511995,
+          "reference_norm_median": 0.057740984306294256,
+          "dot_median": 0.00291963666902589
+        }
+      },
+      "step_30": {
+        "legacy": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": -0.23006238572196797,
+          "cosine_median": -0.3043765807763603,
+          "cosine_p10": -0.5497760330162432,
+          "cosine_p90": 0.2065174439527852,
+          "positive_dot_fraction": 0.22,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.6086173030607441,
+          "reference_norm_median": 0.04740114896264865,
+          "dot_median": -0.007025501627438389
+        },
+        "gain": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.037035645517274125,
+          "cosine_median": 0.004453692748116779,
+          "cosine_p10": -0.5895376320236754,
+          "cosine_p90": 0.7065454539298973,
+          "positive_dot_fraction": 0.51,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.13052905002939338,
+          "reference_norm_median": 0.020955670585771115,
+          "dot_median": 3.6633354686082045e-05
+        },
+        "total": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": -0.194206038047509,
+          "cosine_median": -0.23314699729711044,
+          "cosine_p10": -0.4715912291705989,
+          "cosine_p90": 0.19157959344061518,
+          "positive_dot_fraction": 0.24,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.6336997486439975,
+          "reference_norm_median": 0.051528712454643445,
+          "dot_median": -0.006259313007487588
+        }
+      },
+      "step_40": {
+        "legacy": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": -0.03942028070439859,
+          "cosine_median": -0.09702089853879577,
+          "cosine_p10": -0.48047694175624556,
+          "cosine_p90": 0.49108261714183943,
+          "positive_dot_fraction": 0.45,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.3785442964825495,
+          "reference_norm_median": 0.04615439209604853,
+          "dot_median": -0.0012331580184289834
+        },
+        "gain": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": 0.06022478628677048,
+          "cosine_median": 0.05964927559426966,
+          "cosine_p10": -0.5116738891746344,
+          "cosine_p90": 0.6433625298295983,
+          "positive_dot_fraction": 0.53,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.11067590745310713,
+          "reference_norm_median": 0.01906615039900831,
+          "dot_median": 0.0001159110954015634
+        },
+        "total": {
+          "count": 100,
+          "nondegenerate": 100,
+          "cosine_mean": -0.03182384621751713,
+          "cosine_median": -0.07164505785460844,
+          "cosine_p10": -0.43683847695872285,
+          "cosine_p90": 0.4612999840604021,
+          "positive_dot_fraction": 0.42,
+          "energy_zero_fraction": 0.0,
+          "reference_zero_fraction": 0.0,
+          "either_zero_fraction": 0.0,
+          "energy_norm_median": 0.41176926571244676,
+          "reference_norm_median": 0.051872953913807696,
+          "dot_median": -0.0008695393484989534
+        }
+      }
+    },
+    "sign_patterns": {
+      "all_selected": {
+        "legacy_invalid / gain_invalid": 25,
+        "legacy_valid / gain_valid": 24,
+        "legacy_invalid / gain_valid": 30,
+        "legacy_valid / gain_invalid": 21
+      },
+      "loss_selected": {
+        "legacy_invalid / gain_invalid": 11,
+        "legacy_valid / gain_invalid": 13,
+        "legacy_valid / gain_valid": 3,
+        "legacy_invalid / gain_valid": 2
+      },
+      "nonloss_selected": {
+        "legacy_valid / gain_valid": 21,
+        "legacy_invalid / gain_invalid": 14,
+        "legacy_invalid / gain_valid": 28,
+        "legacy_valid / gain_invalid": 8
+      },
+      "step_0": {
+        "legacy_invalid / gain_valid": 14,
+        "legacy_valid / gain_valid": 67,
+        "legacy_invalid / gain_invalid": 9,
+        "legacy_valid / gain_invalid": 10
+      },
+      "step_10": {
+        "legacy_invalid / gain_invalid": 3,
+        "legacy_valid / gain_valid": 78,
+        "legacy_valid / gain_invalid": 17,
+        "legacy_invalid / gain_valid": 2
+      },
+      "step_20": {
+        "legacy_invalid / gain_invalid": 22,
+        "legacy_valid / gain_valid": 43,
+        "legacy_invalid / gain_valid": 23,
+        "legacy_valid / gain_invalid": 12
+      },
+      "step_30": {
+        "legacy_invalid / gain_invalid": 35,
+        "legacy_invalid / gain_valid": 43,
+        "legacy_valid / gain_valid": 8,
+        "legacy_valid / gain_invalid": 14
+      },
+      "step_40": {
+        "legacy_invalid / gain_invalid": 26,
+        "legacy_valid / gain_valid": 24,
+        "legacy_invalid / gain_valid": 29,
+        "legacy_valid / gain_invalid": 21
+      }
+    },
+    "classification": "gain-specific mismatch supported"
+  },
+  "failures": [],
+  "deviations": [
+    "Historical accepted CUDA energy-gradient drift max2.6226043701171875e-6 is auxiliary and disclosed; forward features/energies and selected outputs exact."
+  ],
+  "next": "Stop after reference-only attribution; await research review, no deployable fix/new cohort/test.",
+  "exec_clarification": "d9baaca9 was issued during sole StageB and observed during delivery. Original receipt passes new feature/energy1e-6 and gradient1e-5 limits. Independent no-helper verifier additionally rebuilds masks from hash-bound StageA gates. Entry check added prospectively; no scientific rerun.",
+  "followup_tests": "3 passed in4.75s locally"
+}
