@@ -13,7 +13,7 @@ def thash(x):return hashlib.sha256(x.contiguous().numpy().tobytes()).hexdigest()
 f=json.loads((a.out/'freeze.json').read_bytes());pre=json.loads((a.preflight/'preflight.json').read_bytes());receipt=json.loads((a.out/'evaluation_receipt.json').read_bytes());summary=json.loads((a.out/'summary.json').read_bytes());pairs=json.loads((a.out/'pairs.json').read_bytes())
 assert sha(a.out/'freeze.json')==receipt['freeze_sha256'] and sha(a.preflight/'preflight.json')==f['preflight_sha256']
 assert all(pre['completed_utc']<v['utc'] for v in f['opened']) and all(f['completed_utc']<v['utc'] for v in receipt['normal_opens'])
-assert sha(a.accepted/'freeze.json')==pre['prior_freeze_sha256'] and sha(a.accepted/'pairs.json')==receipt['prior_csv_sha256']=='29a33623bbcfc8d91000254344173b68556a6187ce15b1115a435b53fb2a18b48'
+assert sha(a.accepted/'freeze.json')==pre['prior_freeze_sha256'] and sha(a.accepted/'pairs.json')==receipt['prior_csv_sha256']=='3c92f22701a69591f78737b3d90a6cfb84fe3a62efe6911ad5db29189752ffd1'
 assert sha(a.split)==pre['split_sha256'];split=json.loads(a.split.read_bytes())['selected'];baseline=json.loads((a.accepted/'pairs.json').read_bytes());starts=torch.load(a.preflight/'starts.pt',weights_only=True,map_location='cpu');assert sha(a.preflight/'starts.pt')==pre['starts_sha256']
 weights=np.exp(-np.arange(-5,6,dtype=np.float64)**2/4.5);weights/=weights.sum()
 def smooth(v):return convolve1d(convolve1d(v,weights,axis=0,mode='reflect'),weights,axis=1,mode='reflect')
