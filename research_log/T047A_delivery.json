@@ -1,0 +1,183 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-15T11:26:33.619034+00:00",
+  "tested_source": "e0ae50ac57afe8b1039b25ff6de3dd5db16c6466",
+  "pr": "https://github.com/word-ky/TTIE/pull/72",
+  "summary": {
+    "label": "REFERENCE_ORACLE_ONLY",
+    "metrics": {
+      "psnr": {
+        "mean": 20.05597204016791,
+        "median": 19.294980253326496
+      },
+      "ssim": {
+        "mean": 0.414273525771119,
+        "median": 0.4420052431926137
+      },
+      "t046_psnr": {
+        "mean": 19.57322784175543,
+        "median": 18.922069433101107
+      },
+      "t046_ssim": {
+        "mean": 0.409367084615263,
+        "median": 0.4331425817229467
+      },
+      "delta_psnr": {
+        "mean": 0.4827441984124816,
+        "median": 0.13318225788387394
+      },
+      "delta_ssim": {
+        "mean": 0.0049064411558560166,
+        "median": 0.0005905966945468077
+      }
+    },
+    "best_step_histogram": {
+      "296": 1,
+      "425": 2,
+      "171": 2,
+      "272": 1,
+      "252": 2,
+      "491": 1,
+      "342": 1,
+      "451": 1,
+      "211": 1,
+      "240": 1,
+      "222": 1,
+      "247": 1,
+      "293": 1,
+      "218": 1,
+      "154": 1,
+      "178": 1,
+      "23": 1,
+      "273": 1,
+      "161": 1,
+      "237": 2,
+      "236": 1,
+      "447": 1,
+      "303": 1,
+      "156": 1,
+      "320": 1,
+      "260": 2,
+      "210": 2,
+      "456": 1,
+      "275": 3,
+      "325": 1,
+      "274": 2,
+      "163": 1,
+      "203": 1,
+      "151": 1,
+      "344": 1,
+      "168": 2,
+      "232": 1,
+      "152": 1,
+      "160": 1,
+      "308": 1,
+      "204": 1,
+      "246": 2,
+      "197": 2,
+      "346": 2,
+      "249": 3,
+      "262": 1,
+      "226": 1,
+      "330": 1,
+      "200": 1,
+      "413": 1,
+      "185": 1,
+      "490": 1,
+      "276": 2,
+      "316": 3,
+      "449": 1,
+      "220": 2,
+      "483": 1,
+      "195": 1,
+      "255": 1,
+      "248": 1,
+      "196": 1,
+      "351": 1,
+      "184": 1,
+      "150": 1,
+      "432": 1,
+      "277": 1,
+      "192": 1,
+      "493": 1,
+      "202": 1,
+      "338": 1,
+      "250": 1,
+      "254": 1,
+      "422": 1,
+      "206": 1,
+      "466": 1,
+      "312": 1,
+      "234": 1,
+      "24": 1,
+      "221": 1,
+      "368": 1,
+      "341": 1
+    },
+    "at_step500": 0,
+    "win_equal_loss": {
+      "psnr": {
+        "win": 100,
+        "equal": 0,
+        "loss": 0
+      },
+      "ssim": {
+        "win": 81,
+        "equal": 0,
+        "loss": 19
+      }
+    },
+    "runtime_seconds": 339.16105315834284,
+    "lift_distribution": {
+      "active_coordinates": 392,
+      "mean": 0.035180033791318364,
+      "median": 0.018697068095207214,
+      "min": -0.008508111350238323,
+      "max": 0.20000000298023224,
+      "lower_bound_hits": 0,
+      "upper_bound_hits": 12
+    },
+    "classification": "additive-lift material marginal capacity not supported under fixed probe"
+  },
+  "replay": {
+    "status": "PASS",
+    "images": 100,
+    "history_states": 50100,
+    "selected_output_metrics": 200,
+    "scalar_checks": 716,
+    "max_abs_error": 7.105427357601002e-15,
+    "classification": "additive-lift material marginal capacity not supported under fixed probe",
+    "independent_renderer_max_abs": 2.980232238769531e-07,
+    "legacy_raws_exact": true,
+    "all_states_finite_bounded": true,
+    "all_earliest_selected_raws_exact": true,
+    "preflight_before_normals": true,
+    "freeze_before_metrics": true,
+    "seconds": 11.000893750053365
+  },
+  "archives": {
+    "all_output_history_hashes_unchanged": true,
+    "source_bindings_unchanged": true,
+    "full": {
+      "path": "/media/wenchang/F/wjq/TTIE/shared/t047a/T047A_full.tar",
+      "bytes": 290529280,
+      "sha256": "c276e32f762cb2555699f01578300e11949a82c0208374fbe91480ea3ed1cca0"
+    },
+    "compact": {
+      "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t047a/T047A_compact.tar.gz",
+      "bytes": 765695,
+      "sha256": "8cdbc88eb813fcd3ccb851e7cdbc593b0995fb542f1d85ec0a54a9b98eef6cc7"
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t047a/T047A_compact.tar.gz"
+  },
+  "runs": {
+    "preflight_run": "20260915-191729-ttie-t047a-preflight",
+    "oracle_run": "20260915-191837-ttie-t047a-oracle",
+    "evaluation_run": "20260915-192506-ttie-t047a-eval"
+  },
+  "failures": [],
+  "scientific_deviations": [],
+  "official_test_access": false,
+  "label": "REFERENCE_ORACLE_ONLY",
+  "next_step": "Stop; await research-lead review."
+}
