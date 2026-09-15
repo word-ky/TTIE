@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -uo pipefail
+cd '/home/wenchang/asdasdsad/wjq/TTIE/current'
+export AUTODL_RUN_ID='20260915-082440-ttie-t039a-stage-a'
+export AUTODL_RUN_DIR='/home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-082440-ttie-t039a-stage-a'
+export AUTODL_ARTIFACTS_DIR='/home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-082440-ttie-t039a-stage-a/artifacts'
+mkdir -p "$AUTODL_ARTIFACTS_DIR"
+echo "[autodl] run_id=$AUTODL_RUN_ID"
+echo "[autodl] started_at=$(date -Is)"
+{
+export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH="$PWD" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+PY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python
+$PY -m pytest -q tests/test_t039a_tangent.py && $PY research_log/T039A_tangent/stage_a.py --bank-root /home/wenchang/asdasdsad/wjq/TTIE/runs/20260912-181047-ttie-t014-stage-a-repaired/artifacts/audit --receipt research_log/T014_energy_receipt.json --manifest research_log/T014_source_manifest.json --checkpoint /home/wenchang/asdasdsad/wjq/TTIE/research_log/T014_energy.pt --prototypes /home/wenchang/asdasdsad/wjq/TTIE/research_log/remote_runs/20260912-071126-ttie-t006-a6000/artifacts/audit/prototypes.pt --binding research_log/T039A_source_binding.json --out "$AUTODL_RUN_DIR/artifacts/stage_a"
+}
+status=$?
+echo "[autodl] finished_at=$(date -Is)"
+echo "[autodl] exit_code=$status"
+exit $status

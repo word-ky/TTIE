@@ -1,0 +1,44 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-15T01:04:58.271602+00:00",
+  "executed_source": "04df2ec74911f5fbf04724f5031560da730e59d1",
+  "branch": "codex/T039A-source-gain-tangent",
+  "pr": "https://github.com/word-ky/TTIE/pull/64",
+  "stage_a_run": "20260915-083056-ttie-t039a-stage-a",
+  "stage_b_run": "20260915-085324-ttie-t039a-stage-b",
+  "device": "A6000 physical GPU1",
+  "replay": {
+    "status": "PASS",
+    "canonical_states": 7346,
+    "probes": 22038,
+    "coordinate_groups": 66114,
+    "scalar_checks": 484109,
+    "max_abs_error": 3.552713678800501e-15,
+    "classification": "source gain-tangent deficit not supported / real-domain effect remains plausible",
+    "source_targets_opened_after_complete_freeze": true,
+    "independent_mask_rebuild": true
+  },
+  "archives": {
+    "completed_utc": "2026-09-15T00:59:03.749141+00:00",
+    "stage_a_400_file_hashes_unchanged": true,
+    "archives": {
+      "full": {
+        "path": "/media/wenchang/F/wjq/TTIE/shared/t039a/T039A_full.tar",
+        "bytes": 756152320,
+        "sha256": "cfb0be5a644ebd22ec5b08ec080acd6865dac63c99892418ede3c5185658da91"
+      },
+      "compact": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t039a/T039A_compact.tar.gz",
+        "bytes": 8726733,
+        "sha256": "3c578f5a3f97e0cf94d403b3a673d6fccf4d3c2bf75e0f435a9dd849a40853af"
+      }
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t039a/T039A_compact.tar.gz",
+    "incomplete_runs_preserved": true
+  },
+  "interruptions": [
+    "082440 stopped before bank access: restored exact historical CRLF receipt bytes",
+    "082640 stopped after 7 banks/228 gE probes: removed unrequested feature gate; retained pixel gate, all states, fixed scientific thresholds; zero references opened"
+  ],
+  "next_step": "Await research-lead review; no further experiments in this cycle"
+}

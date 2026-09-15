@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-082640-ttie-t039a-stage-a",
+  "releaseId": "20260915-082619-ttie-t039a-bound-source",
+  "sessionName": "autodl-20260915-082640-ttie-t039a-stage-a",
+  "command": "export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY research_log/T039A_tangent/stage_a.py --bank-root /home/wenchang/asdasdsad/wjq/TTIE/runs/20260912-181047-ttie-t014-stage-a-repaired/artifacts/audit --receipt research_log/T039A_bound_T014_receipt.json --manifest research_log/T014_source_manifest.json --checkpoint /home/wenchang/asdasdsad/wjq/TTIE/research_log/T014_energy.pt --prototypes /home/wenchang/asdasdsad/wjq/TTIE/research_log/remote_runs/20260912-071126-ttie-t006-a6000/artifacts/audit/prototypes.pt --binding research_log/T039A_source_binding.json --out \"$AUTODL_RUN_DIR/artifacts/stage_a\""
+}
