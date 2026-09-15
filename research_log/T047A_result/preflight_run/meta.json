@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-191729-ttie-t047a-preflight",
+  "releaseId": "20260915-191702-ttie-t047a-lift",
+  "sessionName": "autodl-20260915-191729-ttie-t047a-preflight",
+  "command": "CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m pytest tests/test_t035a_common_gain.py tests/test_t047a_lift.py -q && CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python research_log/T047A_oracle/preflight.py --split research_log/T022A_data/split.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-173335-ttie-t046a-oracle/artifacts/REFERENCE_ORACLE_ONLY --prior-preflight /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-173248-ttie-t046a-preflight/artifacts/preflight --binding research_log/T047A_source_binding.json --out \"$AUTODL_RUN_DIR/artifacts/preflight\""
+}
