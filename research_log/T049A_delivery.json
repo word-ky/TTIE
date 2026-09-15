@@ -1,6 +1,6 @@
 {
   "status": "DONE",
-  "completed_utc": "2026-09-15T13:47:30.167759+00:00",
+  "completed_utc": "2026-09-15T13:49:53.784455+00:00",
   "tested_source": "a93a37af1e45cd568e10d09d5a18dad3dca4554b",
   "pr": "https://github.com/word-ky/TTIE/pull/74",
   "summary": {
@@ -114,10 +114,18 @@
     "evaluation_run": "20260915-214534-ttie-t049a-eval"
   },
   "failures": [
-    "Archive-helper template absent in sparsecheckout; used existing accepted worktree before execution"
+    "Archive-helper template absent in sparsecheckout; used existing accepted worktree before execution",
+    "Main push rejected due concurrent research-lead inbox update; rebase and identical completion push succeeded"
+  ],
+  "covered_tasks": [
+    "T049-A",
+    "T049-A-EXEC"
   ],
   "scientific_deviations": [],
   "official_test_access": false,
   "label": "REFERENCE_ORACLE_ONLY",
-  "next_step": "Stop; await research-lead review."
+  "next_step": "Stop; await research-lead review.",
+  "main_mailbox_sha": "30fd98fcffff5f9458b3c2d6bfe8e5b2fdc977e8",
+  "main_mailbox_url": "https://github.com/word-ky/TTIE/blob/30fd98fcffff5f9458b3c2d6bfe8e5b2fdc977e8/coordination/CODEX_TO_CHATGPT.md",
+  "scientific_evidence_sha": "4e85d61a89e7da2aad65fef3235095da17678a03"
 }

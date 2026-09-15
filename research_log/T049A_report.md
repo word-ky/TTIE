@@ -17,6 +17,8 @@ Win/equal/loss: `{"psnr": {"win": 100, "equal": 0, "loss": 0}, "ssim": {"win": 8
 
 ## Provenance / fixed protocol
 
+T049-A-EXEC authorization ea7112c2 was observed during publication after the sole run/replay completed. It specifies the exact same tested source a93a37af and settings; this completion covers both T049-A and T049-A-EXEC without a second run.
+
 Tested source a93a37af1e45cd568e10d09d5a18dad3dca4554b; branch codex/T049A-monotonic-tone; PR https://github.com/word-ky/TTIE/pull/74. T048 accepted152ae5b757df2423a96e003d7185192720a0fd8e, freeze6ff1ad745422d8842a31bb62f17dada5d170bab9b0d9a61d2a21ce23d7f2da2b, pairs29a33623bbcfc8d9500254344173b68556a6187ce15b1115a435b53fb2a18b48. Exact100 splitb88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b. All56source bindings in T049A_source_binding.json/config/preflight. Selected raw/lift/q/knot/output hashes in freeze.json.
 
 All100low-only reconstructions completed 2026-09-15T13:23:36.449518+00:00, max error 0.0, all bit-exact True, normal decodes0. First reference decode 2026-09-15T13:24:25.146532+00:00; selected outputs frozen 2026-09-15T13:44:43.467287+00:00 before metrics.
@@ -48,6 +50,6 @@ Remaining mean SNR-Aware training-exposed anchor minus T049: 1.524074670977dB / 
 
 Reference-only marginal capacity at frozen affine state, not deployable performance or globalceiling. The SOTA-scale gate names the requested increment, not held-outSOTA. Stopawaitreview, no sweep/retraining/newoperator.
 
-Failures: archive-helper preparation initially referenced a file excluded by sparse checkout; corrected to existing accepted worktree path before helper execution. No scientific/test/run failure or deviation. Existing NVML/protobuf warnings nonblocking.
+Failures: archive-helper preparation initially referenced a file excluded by sparse checkout; corrected to existing accepted worktree path before helper execution. Main push raced research-lead inbox update and was rejected; rebased the single append onto the new main and pushed successfully, preserving both authors. No scientific/test/run failure or deviation. Existing NVML/protobuf warnings nonblocking.
 
 Archives: `{"all_output_history_hashes_unchanged": true, "source_bindings_unchanged": true, "full": {"path": "/media/wenchang/F/wjq/TTIE/shared/t049a/T049A_full.tar", "bytes": 296192000, "sha256": "2df166b9e71da3d2cac44dee2855ce4383b1f42752832069209e3151fa3e41de"}, "compact": {"path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t049a/T049A_compact.tar.gz", "bytes": 5786340, "sha256": "d6846306110b6e2e2556e4c486d42fb6cca81a7e6160f610c481c998e7757504"}, "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t049a/T049A_compact.tar.gz"}`. Fullimages server/F; compacthistory, starts, metrics, receipts, report and recovery projectlocal.
