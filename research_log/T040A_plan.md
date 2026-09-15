@@ -1,0 +1,6 @@
+# T040-A fixed high-gain source audit
+Reuse accepted T039 all7346 canonical states400banks80IDs, no resampling. Only gains1.50/1.75 =14692 new probes. All learned gradients freeze before any80 source JPG opens; no LOL, optimizer, selection, training. Gain1 reconstruction check remains <=1e-6; cached feature drift recorded under accepted T039 rule. Original bank/gate/legacy/model/normalization and T039 selection bytes bound. Frozen gain1.25 baseline copied without recomputation; only gain1.75 defines >=20pp and >=.25 joint deficit verdict. Gain1.50 descriptive only. Core reuses T039 helpers; stage loops are accepted code with probe count/selection binding/verdict scope changes; independent stdlib replay retains separate implementation. GPU1 for both stages.
+
+Before editing, accepted baseline tests2passed (two concurrent local invocations from recovery; 3026.08s/3038.61s reported wall time). Local checkout initially attempted too broad research_log and filled D; git sparse-checkout + restoration of partial checkout recovered clean working tree and1.64GB free. No experiment launched before repair. Automatic approval rejected combined process-stop/removal; no removal executed. Git sparse repair succeeded. No scientific settings changed.
+
+T040 focused tests: 2passed19.31s. No pending server tmux. Known NVML mismatch remains nonblocking; use CUDA as accepted.

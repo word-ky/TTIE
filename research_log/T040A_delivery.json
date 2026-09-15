@@ -1,0 +1,55 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-15T03:15:14.881145+00:00",
+  "executed_source": "b47ac253f6019f778dd245887ede89988b589979",
+  "branch": "codex/T040A-high-gain-tangent",
+  "pr": "https://github.com/word-ky/TTIE/pull/65",
+  "stage_a_run": "20260915-105344-ttie-t040a-stage-a",
+  "stage_b_run": "20260915-111001-ttie-t040a-stage-b",
+  "device": "A6000 physical GPU1",
+  "classification": "source high-gain tangent deficit not supported / target-domain state shift remains stronger",
+  "replay": {
+    "status": "PASS",
+    "canonical_states": 7346,
+    "probes": 14692,
+    "coordinate_groups": 44076,
+    "scalar_checks": 322753,
+    "max_abs_error": 1.7763568394002505e-15,
+    "classification": "source high-gain tangent deficit not supported / target-domain state shift remains stronger",
+    "source_targets_opened_after_complete_freeze": true,
+    "independent_mask_rebuild": true
+  },
+  "archives": {
+    "completed_utc": "2026-09-15T03:13:43.569502+00:00",
+    "stage_a_400_file_hashes_unchanged": true,
+    "archives": {
+      "full": {
+        "path": "/media/wenchang/F/wjq/TTIE/shared/t040a/T040A_full.tar",
+        "bytes": 724561920,
+        "sha256": "fd9e09ae639a8ffb9cce4ab17c7676f5ed13129ee876dfd117ba5e3644fd61fe"
+      },
+      "compact": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t040a/T040A_compact.tar.gz",
+        "bytes": 5864443,
+        "sha256": "df2006c0415d6d0f80e4343281d8c0dbcbc38665bb5c4708ce8f071c12a8d2c7"
+      }
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t040a/T040A_compact.tar.gz"
+  },
+  "tests": {
+    "baseline_local": "2passed3026.08s and2passed3038.61s during local recovery",
+    "local": "2passed19.31s",
+    "server": "2passed1.33s"
+  },
+  "failures": [
+    "Preparation: broad checkout exhausted local D; repaired via Git sparse-checkout/restore before experiments",
+    "Combined process-stop/removal denied by automatic review; no deletion executed",
+    "Preparation exceeded approximate one-hour wall-clock budget; unusual long baseline waits disclosed"
+  ],
+  "complete_stage_a_attempts": 1,
+  "complete_stage_b_attempts": 1,
+  "optimizer_updates": 0,
+  "selection_changes": 0,
+  "lolv2_access": false,
+  "next_step": "Stop; await research-lead review of same T040-A/T040-A-EXEC task, no rerun while inbox remains OPEN"
+}
