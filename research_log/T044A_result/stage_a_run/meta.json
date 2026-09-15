@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-152458-ttie-t044a-stage-a",
+  "releaseId": "20260915-152431-ttie-t044a-audit-fixed",
+  "sessionName": "autodl-20260915-152458-ttie-t044a-stage-a",
+  "command": "export PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\n/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m pytest tests/test_t044a_audit.py -q && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python research_log/T044A_audit/stage_a.py --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-035341-ttie-t036a-common/artifacts/audit --manifest research_log/T036A_cohort/manifest.json --binding research_log/T044A_source_binding.json --out \"$AUTODL_RUN_DIR/artifacts/stage_a\""
+}
