@@ -8,93 +8,89 @@
 
 Can a vision system adapt a compact spatial image-processing state per test image, without test labels or clean/normal-light targets, so that unknown and spatially heterogeneous degradation is corrected by a reference-free test-time optimization field?
 
-## Current scientific state
+## Current methods and real-domain status
 
-**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** It combines the frozen nuisance readout + clean-abstention gate, source-supervised Sobolev restoration energy, hard Region2 EV+gamma adaptation, projected label-free updates, and minimum predicted-energy checkpoint selection. T021-A showed the matched Sobolev-over-value-only advantage also transfers to frozen RGB-SSIM.
+**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** It uses the frozen nuisance readout + clean-abstention gate, source-supervised Sobolev restoration energy, hard Region2 EV+gamma adaptation, projected label-free updates, and minimum predicted-energy checkpoint selection.
 
-**T019 remains a heterogeneous-only fresh-qualified adaptive-geometry extension.** T020 showed that the geometry selector is not universally safe on non-spatial inputs; universal geometry repair remains paused.
+**T019 remains a heterogeneous-only adaptive-geometry extension.** T020 showed that the geometry selector is not universally safe on non-spatial inputs, so universal geometry repair remains paused.
 
-### LOL-v2 Real convergence state
+On LOL-v2 Real development data, the official 100-pair test remains sealed. The accepted fixed-validation deployable base is **T026-A**, which reaches `11.1208764 dB / 0.3737918 RGB-SSIM` with active gamma lower bound `0.5` and a 40-step budget. T026-B showed that doubling the budget to 80 steps adds only `+0.1210491 dB / +0.0042526`, so 40 steps remain fixed.
 
-- **T022-A:** leakage-safe 100-pair validation anchor carved from the 689 official training pairs. Untuned T014 improves raw `8.1097227→9.2728689 dB` and RGB-SSIM `0.1600228→0.2730060`. Official 100-pair LOL-v2 Real test remains untouched.
-- **T022-C:** widening only active dark-winner EV upper `[0,+0.5]→[0,+2.0]` improves validation to `10.2295540 dB / 0.3282315`.
-- **T023-A:** 16-pair real Sobolev recalibration pilot is negative/insufficient (`10.5166353 / 0.3144893`).
-- **T026-A:** best fixed-validation deployable candidate. Active gamma lower `0.8→0.5` yields **`11.1208764 dB / 0.3737918`**. All low-only outputs/decisions/trajectories froze before normal-reference evaluation.
-- **T026-B:** 40→80 updates adds only `+0.1210491 dB / +0.0042526` while roughly doubling runtime; 40-step T026-A remains the accepted base procedure.
-- **T036-A:** first fresh deployable action-space expansion that passes the joint aggregate gate. On a new deterministic reference-unused 100-pair cohort, exact T026-A scores **`10.2907831 / 0.3379463`** and adding exactly one RGB-shared post-gamma gain per Region2 under the unchanged frozen T014 energy gives **`11.2300401 / 0.3463023`**. Paired means are **`+0.9392571 dB / +0.0083560 RGB-SSIM`**, medians **`+0.6439382 / +0.0053379`**. This promotes the common-gain variant as a **fresh-qualified deployable real-domain extension on aggregate quality**, not yet as a per-image-safe or final official-test method. PSNR still declines on 29/100 images and SSIM on 40/100; the worst case loses `5.61447 dB / 0.11854 SSIM`.
+**T036-A is the first fresh deployable action-space expansion that passes the joint aggregate gate.** On one deterministic reference-unused 100-pair training-development cohort, exact T026-A scores `10.2907831 / 0.3379463`; adding exactly one RGB-shared post-gamma common gain per Region2 under the unchanged T014 energy gives `11.2300401 / 0.3463023`. Paired mean gains are `+0.9392571 dB / +0.0083560 RGB-SSIM`, medians `+0.6439382 / +0.0053379`. This promotes the common-gain variant as a **fresh-qualified deployable aggregate-quality extension**, but not yet a per-image-safe or final method: PSNR declines on 29/100 images, SSIM on 40/100, and the worst PSNR loss is `5.61447 dB`.
 
-### Reachability and optimization-field diagnosis
+## Capacity and optimization-field diagnosis
 
-- **T028-A:** exact T026-A action-family reference oracle reaches **`17.4599918 dB / 0.4317158`**, paired `+6.3391154 dB` mean / `+5.7710854 dB` median PSNR versus deployable T026-A. This proves large within-family reachable headroom.
-- **T029-A:** learned-energy/reference-MSE gradient alignment is strong early but collapses late. Step 10 median cosine `0.7266`, positive-dot `97%`; step 30 `-0.2206`, `22%`; step 40 `-0.2453`, `24%`; selected states `-0.2785`, `24%`. Reference gradients are diagnostic-only.
-- **T030-A:** fixed learned-gradient self-reversal guard is negative on a fresh cohort: `10.1223728 / 0.3150107` versus baseline `10.3286568 / 0.3228188`.
-- **T031-A:** nearest T014 source-support distance predicts reference-gradient invalidity (AUROC `0.720469831`, Spearman to cosine `-0.482299254`), but is diagnostic association rather than causal proof.
-- **T032-A:** a source-only global 95th-percentile support radius fails badly on a new cohort: `8.444270861 / 0.206756358` versus T026-A `10.203176520 / 0.322824726`. Do not rescue this rule by threshold sweep.
-- **T036-A:** common-gain selected step is 40 on `99/100` images (baseline `86/100`), so late overshoot was a plausible explanation for the unsafe tail.
-- **T037-A:** the exact frozen T036 trajectories show only **limited/mixed late-selection headroom**. Common reference-best minus selected PSNR is `+0.683233655 dB` mean but only `+0.091785222 dB` median; `18/29` prior PSNR-loss images can be rescued to at least the T026 baseline by a strictly earlier common state, while `11/29` cannot. p95 headroom is `4.434495354 dB`, and `low00559.png` has `+6.348944177 dB` recoverable PSNR by step 19, so severe overshoot is real in a subset. But 28/100 images are genuinely reference-best at step 40, so a universal early-stop explanation/controller is not supported.
-- **T038-A:** coordinate-group reference-gradient attribution on the frozen T036 states supports a **gain-specific mismatch in the 29 PSNR-loss selected states**. The new common-gain coordinate has median cosine **`-0.375134223`** and positive-dot **`5/29 = 17.24%`**, while legacy EV+gamma is positive on **`16/29 = 55.17%`**, a **`+37.93` percentage-point** gap; all three frozen gates pass. This is not evidence that gain is globally harmful: gain positive-dot is `54%` over all selected states and `49/71 = 69.01%` in non-loss cases, while legacy EV+gamma still shows the known late collapse. T038 is `REFERENCE_GRADIENT_DIAGNOSTIC_ONLY`; no deployable decision changed.
-- **T039-A:** the same missing-gain-tangent hypothesis is **not supported on the original T014 source domain over gains `{0.75,1.00,1.25}`**. Across all `7,346` accepted canonical source states / `22,038` probes, legacy positive-dot is **`93.3545%`** with median cosine **`0.955998`**, while gain is **`85.2274%`** / **`0.802533`**. The legacy-minus-gain gaps (`8.1271 pp`, `0.153465`) are below the frozen `20 pp / 0.25` deficit gates. At gain `1.25`, gain remains strong (`90.7837%` positive-dot, median cosine `0.862192`). Thus the new coordinate is not simply broken on source near identity. However, T036 selected gains have median about `1.439` and reach about `1.795`, so T039 does not yet separate target-domain state shift from high-gain coordinate-range extrapolation.
+- **T028-A:** the exact T026-A EV+gamma family has a reference-only ceiling of `17.4599918 dB / 0.4317158`, proving substantial reachable headroom inside the original action family.
+- **T029-A:** the frozen learned-energy gradient is strong early on real trajectories and collapses late. Step-10 median cosine is `0.7266` with `97%` positive-dot; step 30 is `-0.2206 / 22%`; step 40 is `-0.2453 / 24%`; selected states are `-0.2785 / 24%`. Reference gradients are diagnostic only.
+- **T030-A:** a fixed learned-gradient self-reversal guard is negative on a fresh cohort.
+- **T031-A:** source-support distance predicts gradient invalidity (AUROC `0.72047`, Spearman `-0.48230`) but is only an association.
+- **T032-A:** turning that support distance into a global trust-radius controller fails badly on a fresh cohort. Do not rescue it by threshold sweep.
+- **T033-A:** target-free Retinexformer (`GT_mean=false`, self-ensemble off) reaches `21.4787864 / 0.7900612` on the frozen development validation split. Because that split comes from the official LOL-v2 training data used by the released supervised checkpoint recipe, this is a training-exposed capacity anchor, not independent held-out SOTA evidence.
+- **T034-A:** adding per-region RGB gains to the reference oracle raises the ceiling to `19.9079495 / 0.4084354`, but with an SSIM decline.
+- **T035-A:** a matched RGB-shared common-gain oracle reaches `19.5530229 / 0.4084669`. It explains `85.50%` of T034's mean PSNR gain and `81.82%` of its median gain, showing that the dominant added capacity is a post-gamma common-intensity degree rather than independent chromatic WB.
 
-### Strong development anchor and action-capacity diagnosis
+## Unsafe-tail diagnosis through T040-A
 
-**T033-A:** target-free Retinexformer (`GT_mean=false`, self-ensemble off) scores **`21.478786404 dB / 0.790061209`** on the frozen 100-image development validation split, paired `+10.357909987 dB / +0.416269384` versus T026-A. All outputs froze before normal decode. **Critical limitation:** these validation images are from the official LOL-v2 training set used to train the released supervised Retinexformer checkpoint, so this is a descriptive capacity anchor, not held-out SOTA evidence.
+**T037-A — limited/mixed late-selection headroom.** On the exact frozen T036 trajectories, reference-best minus selected common-gain PSNR is `+0.6832337 dB` mean but only `+0.0917852 dB` median. `18/29` prior PSNR-loss cases can be rescued to at least the T026 baseline by an earlier common state, but `11/29` cannot, and `28/100` images are genuinely reference-best at step 40. Severe overshoot exists in a subset, but a universal early-stop explanation is not supported.
 
-**T034-A:** adding per-region RGB gains to the reference-only oracle raises the ceiling to **`19.907949481 dB / 0.408435396`**, paired `+2.447957703 dB` mean / `+1.909172977 dB` median PSNR versus T028, with mean SSIM `-0.023280434`. The winning RGB gains are strongly common-mode, so T034 alone does not establish that chromatic correction is the main cause.
+**T038-A — gain-specific mismatch on the real loss subset.** At the exact 29 T036 PSNR-loss selected states, the common-gain coordinate has median cosine `-0.3751342` and positive-dot `5/29 = 17.24%`; legacy EV+gamma is positive on `16/29 = 55.17%`, a `37.93` percentage-point gap. This is a real association at those already-reference-used states, not evidence that gain is globally harmful: over all 100 selected states, gain positive-dot is `54%`, and in the 71 non-loss cases it is `69.01%`. T038 is `REFERENCE_GRADIENT_DIAGNOSTIC_ONLY`.
 
-**T035-A resolves the T034 attribution: common post-gamma intensity explains most of the WB-family PSNR gain.** A matched oracle with exactly one RGB-shared gain per Region2 reaches **`19.553022889 dB / 0.408466942`**. Common-minus-T028 is **`+2.093031111 dB` mean / `+1.562056081 dB` median PSNR**, satisfying the frozen 75%-recovery thresholds and accounting for **85.50% of T034's aggregate mean PSNR gain and 81.82% of its median gain**. Full channel-specific WB adds only **`+0.354926591 dB` mean / `+0.182969702 dB` median PSNR** beyond common gain and does not recover the SSIM tradeoff (`-0.000031546` mean SSIM versus common). Therefore the dominant extra capacity in T034 is a **post-gamma common intensity degree**, with only a modest chromatic residual.
+**T039-A — no intrinsic near-identity source gain-tangent failure.** Across all `7,346` accepted T014 source states and gains `{0.75,1.00,1.25}`, legacy positive-dot is `93.3545%` with median cosine `0.955998`, while gain is `85.2274% / 0.802533`. The legacy-minus-gain gaps (`8.1271 pp`, `0.153465`) are below the frozen `20 pp / 0.25` deficit gates. At gain `1.25`, gain remains `90.7837%` positive-dot with median cosine `0.862192`.
 
-T034/T035 are strictly `REFERENCE_ORACLE_ONLY`: validation normals are allowed only inside isolated capacity audits; no oracle state, best step, gradient, target statistic, or metric may enter deployable TTT. T036 is different: its adaptation is target-free and its fresh outputs/decisions/trajectories were frozen before a separate normal evaluator, so its aggregate gain is deployable evidence rather than oracle evidence. T037 is `REFERENCE_DIAGNOSTIC_ONLY`. T038 is `REFERENCE_GRADIENT_DIAGNOSTIC_ONLY`. T039 is `SOURCE_REFERENCE_GRADIENT_DIAGNOSTIC_ONLY`. None of T037–T039 changes deployable inference.
+**T040-A — no gain-specific source failure even at the T036 high-gain range.** T040 reuses all 7,346 accepted source states and probes only common gain `1.50` and `1.75`. At gain `1.75`, legacy EV+gamma is `79.6496%` positive-dot with median cosine `0.770274`; gain is `73.0546% / 0.612039`. The same-gain legacy-minus-gain gaps are only `6.5949 pp / 0.158235`, so the frozen `20 pp / 0.25` gate is not met: **source high-gain tangent deficit is not supported**.
 
-### Scientific consequence through T039-A
+T040 also reveals a real but shared high-gain degradation. Relative to the frozen source gain=`1.25` baseline, the gain coordinate drops `17.729 pp` in positive-dot and `0.250152` in median cosine by gain=`1.75`, and legacy alignment declines as well. Therefore high gain is not harmless, but it does not uniquely break the gain coordinate on source. This materially weakens the explanation that T038 is merely coordinate-range extrapolation.
 
-The strongest current mechanism interpretation is:
+T040's information boundary is accepted: all `14,692` learned gradients were frozen before any of the 80 authorized source clean JPGs were opened; Stage B reproduced all output hashes, made zero optimizer/selection changes, and accessed no LOL-v2 data; independent replay checked `322,753` scalars with max error `1.776e-15`. T040 is `SOURCE_REFERENCE_GRADIENT_DIAGNOSTIC_ONLY` and changes no deployable inference.
 
-1. T014's learned Sobolev optimization field is genuinely useful in controlled/fresh settings and often directionally useful early on real trajectories.
-2. T026-A has both a **field/trajectory problem** and an **action-capacity problem**: its exact family has large oracle headroom, but the frozen field drifts into anti-restorative directions late.
-3. Source-support distance tracks this failure but has not yielded a safe deployable controller.
-4. A strong supervised development anchor exposes a large absolute-quality gap, though its training exposure prevents fair held-out ranking.
-5. Expanding the action family with post-gamma gain materially raises PSNR capacity. T035 shows most of that gain is common intensity rather than chromatic WB.
-6. **T036 converts that common-gain capacity into a real fresh target-free aggregate improvement without retraining the energy.** This is a substantive positive result: the compact action model was indeed limiting deployable performance.
-7. **T037 rules out a simple universal late-checkpoint explanation.** Earlier common states rescue many severe loss cases, but aggregate headroom is tail-heavy and 11/29 PSNR-loss cases have no earlier common state reaching baseline.
-8. **T038 sharpens the unsafe-tail mechanism:** within the 29 T036 PSNR-loss selected states, the new common-gain coordinate is much more often anti-restorative than legacy EV+gamma under the frozen T014 energy.
-9. **T039 rejects the simplest missing-supervision explanation near identity.** The gain tangent is mostly well aligned on the original source domain through gain `1.25`, so “the new coordinate was never supervised and is therefore intrinsically broken” is too strong. The remaining ambiguity is whether T038 is caused mainly by target-domain/state extrapolation or by the much higher gain range actually reached by T036. T040-A tests that high-gain source-range alternative before any retraining or controller work.
+## Strongest current mechanism interpretation
+
+1. The source-trained Sobolev field is genuinely useful in controlled/fresh settings and is often directionally correct early on real trajectories.
+2. The original EV+gamma action family is too restrictive; common post-gamma intensity is a real missing degree of freedom.
+3. T036 proves that this extra common-gain capacity can improve fresh target-free aggregate quality without retraining the field.
+4. The remaining problem is **per-image safety and late real-domain field reliability**, not lack of aggregate capacity.
+5. T037 rules out a universal checkpoint-timing explanation.
+6. T038 shows a strong gain-coordinate mismatch specifically in the 29 real PSNR-loss selected states.
+7. T039 and T040 jointly reject the simplest source-side explanation: the gain tangent is not intrinsically broken near identity and does not become uniquely broken on source at gain `1.75`.
+8. High gain still degrades alignment for both source coordinate groups, so range extrapolation contributes globally, but it is insufficient to explain the real loss-subset pattern.
+9. The strongest remaining hypothesis is a **real target/selected-state distribution effect beyond gain value alone**. This must be phrased carefully: current evidence does not yet separate image-domain content shift from the real trajectory's legacy EV/gamma and learned-feature state.
 
 ## Benchmark readiness
 
-- **T024-A:** target-free comparison protocol frozen. Retinexformer `GT_mean` is inadmissible; Retinexformer without `GT_mean` and SNR-Aware have admissible target-free paths.
-- **T027-A:** Retinexformer exporter-ready and checkpoint/source-bound; target-disabled official adapter and TTIE exporter are float-identical on eight non-validation lows.
-- **T027-B:** SNR-Aware exporter-ready and source/checkpoint-bound; native-pad16 adapter and TTIE exporter are float-identical on eight non-evaluation lows. This is a predeclared protocol adaptation, not the official resize-based `test4` reproduction.
-- **T033-A:** Retinexformer development anchor completed with explicit training-exposure limitation.
-- **SNR-Aware quality benchmark remains not yet run.**
-- **Official LOL-v2 Real test remains sealed** until final Ours and baseline protocols are frozen.
+- T024-A froze the target-free comparison protocol. Reference-based brightness matching/selection is inadmissible.
+- T027-A Retinexformer exporter is source/checkpoint bound and target-disabled.
+- T027-B SNR-Aware exporter is source/checkpoint bound with the accepted native-pad16 protocol adaptation.
+- T033-A Retinexformer development anchor is complete with the training-exposure limitation above.
+- SNR-Aware quality benchmarking has not yet been run.
+- **Official LOL-v2 Real test remains sealed** until Ours and all baseline protocols are frozen.
 
 ## Best current methods / ceilings
 
 - **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
-- **Best fixed-validation deployable candidate:** T026-A, **`11.1208764 dB / 0.3737918`**.
-- **Fresh-qualified real-domain action extension:** T036-A common-gain TTT, fresh paired **`+0.9392571 dB / +0.0083560`** over exact T026-A on its new 100-pair cohort; unsafe per-image tail remains unresolved.
-- **Exact-family non-deployable ceiling:** T028-A, **`17.4599918 / 0.4317158`**.
-- **Common-gain non-deployable ceiling:** T035-A, **`19.5530229 / 0.4084669`**.
-- **Full-WB non-deployable ceiling:** T034-A, **`19.9079495 / 0.4084354`**.
-- **Training-exposed supervised development anchor:** T033-A Retinexformer, **`21.4787864 / 0.7900612`**.
+- **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918`.
+- **Fresh-qualified real-domain action extension:** T036-A common-gain TTT, fresh paired `+0.9392571 dB / +0.0083560 RGB-SSIM` over exact T026-A on its new 100-pair cohort; unsafe tail unresolved.
+- **Exact EV+gamma non-deployable ceiling:** T028-A, `17.4599918 / 0.4317158`.
+- **Common-gain non-deployable ceiling:** T035-A, `19.5530229 / 0.4084669`.
+- **Full-WB non-deployable ceiling:** T034-A, `19.9079495 / 0.4084354`.
+- **Training-exposed supervised development anchor:** T033-A Retinexformer, `21.4787864 / 0.7900612`.
 - **Heterogeneous-only geometry extension:** T019.
 
 ## Information-boundary rules
 
-- Test-time adaptation/selection must never consume test labels, clean/normal-light targets, degradation masks/gain maps, condition IDs, annotations, semantic image IDs, reference gradients/Jacobians, oracle values, or evaluation metrics.
-- Validation/test enhanced outputs and decisions must be finalized and persisted before references or metrics are attached, except explicitly isolated non-deployable reference diagnostics.
-- Oracle/reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
-- Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible as test-time inputs.
-- External baselines admitted to the main comparison must be target-free at inference; reference-based brightness matching or selection is inadmissible.
-- Final benchmark test sets must remain isolated from model/hyperparameter selection. The official 100 LOL-v2 Real test pairs remain untouched through T039-A.
+- Test-time adaptation and checkpoint selection must never consume test labels, clean/normal-light targets, reference gradients/Jacobians, oracle values, PSNR/SSIM, degradation masks/gain maps, condition IDs, annotations, or semantic image IDs.
+- Validation/test outputs and decisions must be finalized and persisted before references or evaluation metrics are attached, except in explicitly isolated non-deployable reference diagnostics.
+- Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
+- Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
+- External baselines admitted to the main comparison must be target-free at inference.
+- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. The official LOL-v2 Real test is still untouched through T040-A.
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Milestones
 
-T001–T013 completed mechanism/diagnostic sequence. T014 broad controlled/fresh Sobolev Ours-Core completed. T019 heterogeneous adaptive geometry fresh positive. T020 universal-geometry repair route paused. T021 RGB-SSIM transfer positive. T022 real validation/action-range sequence completed. T023 tiny real recalibration negative. T024 baseline protocol frozen. T025/T028 oracle reachability diagnosed. T026-A promoted fixed-validation deployable candidate; T026-B longer budget negative. T027-A/B baseline exporters ready. T029 late-field mismatch diagnosed. T030 self-reversal guard negative. T031 support-distance diagnostic positive association. T032 support-radius controller negative. T033 Retinexformer development anchor completed. T034 WB-family capacity positive with SSIM tradeoff. T035 common-mode attribution positive. T036-A common post-gamma gain materially positive on a fresh target-free cohort with an unsafe tail. T037-A late-selection headroom limited/mixed. T038-A gain-specific gradient mismatch supported in the T036 PSNR-loss subset. **T039-A completed — source gain-tangent deficit is not supported over gains 0.75–1.25, leaving high-gain range versus target-domain state extrapolation as the next distinction.**
+T001–T013: controlled mechanism/diagnostic sequence. T014: broad controlled/fresh Sobolev Ours-Core. T019: heterogeneous adaptive geometry positive. T020: universal geometry route paused. T021: RGB-SSIM transfer positive. T022/T023: real validation/action-range and tiny recalibration sequence. T024: baseline protocol frozen. T025/T028: reachability diagnosed. T026-A: fixed-validation deployable base. T027-A/B: baseline exporters ready. T029: late-field mismatch. T030: self-reversal guard negative. T031: support-distance association positive. T032: support-radius controller negative. T033: Retinexformer development anchor. T034/T035: RGB-WB capacity resolved mainly to common intensity. T036: common gain fresh target-free aggregate positive with unsafe tail. T037: late-selection headroom limited/mixed. T038: real loss-subset gain mismatch. T039: near-range source gain-tangent deficit not supported. **T040: high-range gain-specific source deficit also not supported; shared high-gain degradation exists, leaving real selected-state distribution as the stronger remaining mechanism.**
 
 ## Current open task
 
-**T040-A — source high-gain tangent range audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T041-A — fixed-gain real selected-state alignment audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Reuse all accepted T039/T014 source states and source-only isolation; probe only common gain `{1.50,1.75}` with legacy EV/gamma and gates fixed. Freeze all learned gradients before authorized source-reference opens, compare gain versus legacy alignment at the high end, and stop after the single predeclared verdict. No retraining, no LOL-v2 access, no deployable decision change, and no official-test access.
+Reuse exactly the 100 already-reference-used T036 common-gain selected states. With each image's selected legacy EV/gamma and gate frozen, create only fixed common-gain probes `{1.25,1.75}`. Freeze all 200 low-only learned gradients and output hashes before opening any normal/reference or prior metric/loss-case file; then compute isolated RGB-MSE reference gradients on the same already-used normals. Compare the real all-100 total-group alignment at gain `1.75` against the accepted T040 source gain=`1.75` baseline under one predeclared `20 pp / 0.25` gate. This is diagnostic only: no optimizer, controller, fresh cohort, deployable change, or official-test access.
