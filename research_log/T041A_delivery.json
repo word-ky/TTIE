@@ -1,0 +1,55 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-15T04:34:05.593902+00:00",
+  "executed_source": "63e0cb7770c5f2f7c4d85244cf7a83a5a065e87a",
+  "branch": "codex/T041A-fixed-gain-real-state",
+  "pr": "https://github.com/word-ky/TTIE/pull/66",
+  "stage_a_run": "20260915-122826-ttie-t041a-stage-a",
+  "stage_b_run": "20260915-123014-ttie-t041a-stage-b",
+  "device": "A6000 physical GPU1",
+  "classification": "real selected-state field deficit beyond source high-gain supported",
+  "replay": {
+    "status": "PASS",
+    "all_states": 200,
+    "group_vectors": 600,
+    "scalar_checks": 4492,
+    "max_abs_error": 1.9506618542664e-13,
+    "classification": "real selected-state field deficit beyond source high-gain supported",
+    "source_baseline_hashes_bound": true,
+    "masks_rebuilt_from_frozen_gates": true,
+    "stage_a_before_references": true
+  },
+  "archives": {
+    "completed_utc": "2026-09-15T04:31:05.952608+00:00",
+    "stage_a_100_file_hashes_unchanged": true,
+    "archives": {
+      "full": {
+        "path": "/media/wenchang/F/wjq/TTIE/shared/t041a/T041A_full.tar",
+        "bytes": 578078720,
+        "sha256": "910a733e2fe60036ddaf8a8c238c551177996698c437a985c23255f7590b1f68"
+      },
+      "compact": {
+        "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t041a/T041A_compact.tar.gz",
+        "bytes": 198036,
+        "sha256": "4db7447e98b5bcfa693905c95cddbd625d8470245aa89262b60cbd8fb77ca93e"
+      }
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t041a/T041A_compact.tar.gz"
+  },
+  "tests": {
+    "baseline": "3passed9.75s",
+    "local": "2passed7.08s",
+    "server": "2passed1.38s"
+  },
+  "failures": [
+    "Initial test before new sparse checkout found no files; checkout completed and tests passed; no experiment affected"
+  ],
+  "scientific_deviations": [],
+  "stage_a_attempts": 1,
+  "stage_b_attempts": 1,
+  "optional_loss_grouping": false,
+  "optimizer_updates": 0,
+  "selection_changes": 0,
+  "official_test_access": false,
+  "next_step": "Await research-lead review; no further experiment this cycle"
+}
