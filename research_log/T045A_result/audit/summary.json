@@ -1,0 +1,68 @@
+{
+  "classification": "SNR-Aware development benchmark complete",
+  "metrics": {
+    "snr_psnr": {
+      "mean": 23.39632992074517,
+      "median": 23.63474204516376,
+      "p95": 28.88779228881784
+    },
+    "snr_ssim": {
+      "mean": 0.8237643949325277,
+      "median": 0.848579327709198,
+      "p95": 0.9281302772783346
+    },
+    "ours_psnr": {
+      "mean": 11.120876417349557,
+      "median": 10.60731929878586,
+      "p95": 17.288745957126146
+    },
+    "ours_ssim": {
+      "mean": 0.3737918251517076,
+      "median": 0.367924983123891,
+      "p95": 0.7462291064147759
+    },
+    "delta_psnr": {
+      "mean": 12.275453503395617,
+      "median": 13.010855373084405,
+      "p95": 18.86684646372531
+    },
+    "delta_ssim": {
+      "mean": 0.44997256978082006,
+      "median": 0.46589045294351805,
+      "p95": 0.7079155187666887
+    }
+  },
+  "runtime": {
+    "mean": 0.023176202999893578,
+    "median": 0.01971009949920699,
+    "p95": 0.021557697781827298
+  },
+  "peak_memory_bytes": 669319680,
+  "win_equal_loss": {
+    "psnr": {
+      "win": 99,
+      "equal": 0,
+      "loss": 1
+    },
+    "ssim": {
+      "win": 99,
+      "equal": 0,
+      "loss": 1
+    }
+  },
+  "metric": {
+    "data_range": 1.0,
+    "window": 11,
+    "sigma": 1.5,
+    "K1": 0.01,
+    "K2": 0.03,
+    "covariance": "population",
+    "channels": "RGB mean",
+    "crop": 0,
+    "padding": "reflect (half-sample symmetric)",
+    "dtype": "float64"
+  },
+  "pixel_convention": "native full RGB float32 [0,1] pixels promoted tofloat64; no crop/resize/Y/quantization",
+  "GT_mean": false,
+  "self_ensemble": false
+}
