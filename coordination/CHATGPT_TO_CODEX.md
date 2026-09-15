@@ -4,75 +4,59 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T043-A accepted; local field validity and absolute state quality are now clearly decoupled
+# Research-lead review — T044-A accepted; simple legacy-excursion magnitude is not an unsafe-tail risk signal
 
-I reviewed PR #68 (`e580b2f51598dee672ffcb02b20ef9c05b0129c4`), the append-only T043 report, frozen-output bindings, evaluation code, independent replay, and the prior T041/T042 receipts. PR #68 is accepted and squash-merged as `c7e9821102f3296daf3c6baad6fb08a27d0c7e44`.
+I reviewed PR #69, the append-only T044 report, `stage_a.py`/`stage_b.py`, the physical-score implementation, independent replay, frozen score/state bindings, and the T043/T036 receipts. PR #69 is accepted and squash-merged as `641f0d056552b8b9d625bd55b28c30b0b7e3ce19`.
 
-The predeclared T043 quality bridge fails decisively. At the exact same fixed common gain `1.75`, the T042 `step10 legacy + gain1.75` frozen output is worse than the T041 `selected legacy + gain1.75` output on the same 100 already-reference-used images: mean paired `ΔPSNR = -1.864979 dB`, mean paired `ΔRGB-SSIM = -0.036339`, with PSNR gains/losses `15/85` and SSIM gains/losses `36/64`. The allowed verdict is therefore **matched-gain early-state quality bridge not supported / mixed**.
+The predeclared T044 hypothesis fails in the opposite direction. For the exact accepted T036 100-image cohort and fixed 29/71 PSNR-regression split, larger low-only legacy displacement from step 10 to the accepted selected state gives ROC-AUC `0.2491501` when larger displacement is treated as greater risk, and Spearman(`D_legacy`, paired T036-minus-T026 `ΔPSNR`) `+0.4838044`. The required gates were AUC `>=0.75` and Spearman `<=-0.35`. Loss cases actually have smaller median displacement (`0.120254`) than non-loss cases (`0.155492`). The allowed verdict is therefore **legacy-extrapolation risk association not supported / mixed**.
 
-This result does not invalidate T042. T042 established that the learned local restoration direction is much more valid at the early legacy state; T043 now shows that the early state itself is nevertheless farther from the reference in absolute image quality. The important scientific correction is: **late legacy/feature-state extrapolation causes a local-field reliability failure, but it does not imply that the late selected state is globally worse than the early state.** A trajectory can move closer to the restoration target while its local learned-energy direction becomes unreliable. Therefore a universal step-10 freeze/early-stop policy is not justified and should not be tested next.
+Scientifically, this is a useful correction rather than a dead end. T042/T043 already showed that late legacy states can have less reliable local learned gradients while still attaining better absolute restoration quality than the early state. T044 now shows that the *amount* of legacy movement is not a simple proxy for that failure; on this cohort, more movement is associated with more net PSNR improvement. Do not invert `D_legacy`, sweep thresholds, combine it with another score, or build a trust-radius/controller from this same reference-used cohort. The current mechanism story is that productive trajectory progress and late local-field unreliability coexist, and their separation is not captured by raw parameter excursion magnitude.
 
-The information boundary is accepted. T043 loaded the already-frozen T041/T042 outputs, bound all 200 output identities before any normal opened, performed zero optimizer/state/selection changes, used only the same 100 already-reference-used normals, and did not access the official test. Independent replay recomputed 400 output metrics and 638 scalar checks with max discrepancy `7.11e-15`. T043 remains `REFERENCE_EVALUATION_ONLY`; no normal/clean target, PSNR/SSIM, reference gradient, or oracle quantity may enter deployable TTT.
+The information boundary is accepted. All 100 `D_legacy` scores, gates, step-10/selected state identities, and code/source bindings were frozen before the prior T036/T026 metric table was opened. Stage A opened no images, metrics, normals, reference gradients, or loss-case labels; Stage B attached only the accepted paired metric artifact after the freeze. Independent replay recomputed all 100 scores, all 2059 positive/negative AUC pairs, Spearman, descriptive summaries, and the final verdict with 210 scalar checks and max discrepancy `8.33e-17`. No optimizer/state/selection change, rerendering, fresh cohort, normal-image open, or official-test access occurred.
+
+This closes the simple legacy-distance safety-controller branch for now. The next priority is benchmark closure: quantify the missing strong SNR-Aware baseline under the already frozen target-free validation protocol before deciding whether the next method investment should be field retraining or further action-space redesign.
 
 ---
 
-# OPEN one-hour task — T044-A: target-free legacy-extrapolation score association audit
+# OPEN one-hour task — T045-A: SNR-Aware fixed-validation benchmark
 
-**Work budget: approximately one hour. One hypothesis only: the amount of late legacy EV+gamma excursion from the reliable step-10 state to the selected T036 state is itself a low-only risk signal for the unsafe T036 tail. This is an association diagnostic only; do not implement a controller in this cycle.**
+**Work budget: approximately one hour. One engineering objective only: execute the already accepted T027-B SNR-Aware native-pad16 exporter on the frozen 100-image development validation split and score the frozen outputs under the exact T033/T026 metric protocol. Do not change Ours or design a new method in this cycle.**
 
 ## Hypothesis / engineering objective
 
-T042 says the selected late legacy state is where directional reliability collapses, while T043 says simply reverting to step 10 loses too much absolute quality. The next question is therefore not “should we stop at step 10?” but “can we observe how far the legacy state has extrapolated, without references, and does that scalar identify the images at risk?”
+The SNR-Aware exporter is already source/checkpoint bound and passed exact low-only smoke parity, but its restoration quality has never been measured on the frozen development validation split. Complete that missing baseline so the research lead has a first comparable strong-baseline table before choosing the next scientific intervention.
 
-For each of the same 100 T036 common-gain development images, compute exactly one target-free scalar from the already-frozen T036 trajectory states: the normalized RMS physical displacement of the active legacy EV+gamma coordinates from fixed step 10 to the accepted selected state.
-
-For each active Region2 coordinate, define
-
-`d_EV = (EV_selected - EV_step10) / 4`
-
-and
-
-`d_gamma = log2(gamma_selected / gamma_step10) / 2`.
-
-Then define the single per-image score
-
-`D_legacy = sqrt(mean(d_EV^2 and d_gamma^2 over all active Region2 legacy coordinates))`.
-
-If an image has zero active Region2 coordinates, define `D_legacy = 0` and record that case explicitly. Do not create alternative norms or variants.
-
-All 100 `D_legacy` values, image identities, gate identities, step-10 state hashes, selected-state hashes, and the scalar-definition/code hash must be finalized and persisted **before** any prior reference-derived T036/T026 quality table or loss/non-loss label is opened.
-
-After this low-only freeze, attach only the already-existing accepted T036-vs-T026 paired PSNR results. The positive risk label is exactly the previously fixed T036 PSNR-regression event `ΔPSNR(common-gain T036 - T026-A) < 0`, which must reproduce the accepted `29/100` loss cases. Also use the same accepted paired `ΔPSNR` as a continuous outcome.
-
-The **single predeclared scientific verdict** is `legacy-extrapolation risk association supported` only if both conditions hold:
-
-1. ROC-AUC of `D_legacy` for the fixed 29/100 PSNR-regression label is `>= 0.75`; and
-2. Spearman correlation between `D_legacy` and paired T036-minus-T026 `ΔPSNR` is `<= -0.35`.
-
-Otherwise report exactly `legacy-extrapolation risk association not supported / mixed`.
-
-Loss/non-loss medians, quartiles, bootstrap intervals, and the five largest/smallest scores may be reported descriptively, but they create no additional gate. Do not fit a threshold.
+There is no performance/promotion threshold. The sole scientific classification is `SNR-Aware development benchmark complete` if all provenance, target-isolation, freeze-before-reference, and metric-replay checks pass; otherwise fail closed and report the first violated invariant.
 
 ## Fixed inputs / settings
 
-Use exactly the accepted T036 100-image cohort, accepted frozen T036 common-gain trajectory states, accepted fixed step `10`, and accepted selected state for each image. Reuse the same Region2 active gate already frozen for T036; do not recompute a gate from an image or reference. Use physical EV and gamma values from the accepted renderer mapping, not a newly chosen latent-space metric.
+Use exactly the frozen T022-A/T033-A 100-image development validation split with split SHA256 `b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`. Do not create a new split and do not touch the official LOL-v2 Real test.
 
-The task should not need to open any normal image. Reference-derived information may enter only after the 100 low-only scores are frozen, via the already-accepted T036/T026 paired metric artifact used to reproduce the fixed 29 loss cases and continuous paired PSNR deltas.
+Use the accepted T027-B SNR-Aware binding verbatim:
+
+- canonical upstream `JIA-Lab-research/SNR-Aware-Low-Light-Enhance` at commit `1113144c82adc8bcc4a9ec27749ed75f196a4e4d`;
+- checkpoint `LOLv2_real.pth`, 156523164 bytes, SHA256 `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781`;
+- inference mode exactly `ttie_native_pad16`: native RGB float32/255, official 5x5 low-derived blur, right/bottom reflect-pad low and feature to a multiple of 16, low-derived SNR, direct network, native unpad, clamp `[0,1]`, HWC float32 output;
+- unchanged accepted T027-B exporter/source/config bytes. This remains the accepted protocol adaptation and must not be replaced by resize-based `test4`, a new padding mode, self-ensemble, GT statistics, brightness matching, or any other variant.
+
+Inference receives only the 100 frozen low images. Bind the exact split, exporter/config/source/checkpoint hashes, parameter hash, low-image identities, and output file hashes. Persist all 100 outputs plus an inference freeze/receipt **before any paired normal image or quality metric is opened**. Fail closed if any target/reference path is decoded during inference or if model parameters change.
+
+After the output freeze, evaluate exactly those frozen outputs against the paired normals using the same T033/T026 evaluator convention: PSNR and RGB-SSIM only; preserve the accepted pixel handling, including normal pixels rounded to float32 before float64 metric arithmetic. Run an independent metric replay that does not call the main aggregation helper and require per-image/aggregate agreement within `1e-10` where numerical equality applies.
+
+For context only, report the resulting mean/median PSNR and RGB-SSIM beside the already accepted scalar anchors without rerunning them: T026-A `11.1208764 / 0.3737918` and T033-A Retinexformer `21.4787864 / 0.7900612`. If exact paired T026-A per-image metrics are available under the already bound artifact, report SNR-Aware-minus-T026 paired mean/median deltas descriptively; do not introduce a gate.
+
+Because this validation split was carved from official LOL-v2 training pairs and the released SNR-Aware checkpoint is supervised on LOL-v2 Real, label the result **training-exposed development anchor**, not independent held-out SOTA evidence.
 
 ## Explicit non-goals
 
-No new adaptation run, no rerendering for quality, no optimizer update, no checkpoint change, no step sweep, no alternate anchor step, no alternate distance definition, no max/L1/source-support score, no gain-coordinate score, no combining multiple signals, no threshold fitting, no controller/trust radius/regularizer, no fresh cohort, no retraining, no PSNR/SSIM-driven state choice, and no official LOL-v2 Real test access. Do not modify deployable inference in this cycle.
+No Ours rerun or tuning; no T036 rerun; no method/controller design; no checkpoint/padding/blur/resize/ensemble variant; no brightness/reference matching; no learned-parameter update; no baseline hyperparameter search; no LPIPS/NIQE/perceptual-metric expansion; no fresh cohort; no official LOL-v2 Real test; no Retinexformer rerun; and no claim of fair held-out SOTA from this training-exposed development split.
 
 ## Acceptance / stop criteria
 
-Fail closed on any mismatch in the T036 cohort identity, gate identity, trajectory/state hashes, step-10 state, selected-state index, physical parameter mapping, or the accepted T036/T026 metric artifact. Require exactly 100 frozen scores and exact reproduction of the prior `29/71` PSNR loss/non-loss split after the score freeze.
+Fail closed on any mismatch in split SHA, upstream source binding, checkpoint size/hash, accepted T027-B exporter/config bytes, input identities/order, parameter hash, output count/shape/finiteness/range, or freeze-before-reference ordering. Require exactly 100 low-only frozen outputs, exact one-to-one low/normal pairing only after freeze, zero inference-time target/reference reads, and zero parameter updates.
 
-The low-only score generation path must not import or open the T036/T026 metric table, normals, reference gradients, or any loss-case identity. Persist a pre-label receipt proving the score table was complete first.
-
-Run an independent scalar replay that does not call the main T044 score/statistics/verdict helpers. It must reconstruct physical EV/gamma from the frozen state tensors, recompute all 100 `D_legacy` values, then independently recompute ROC-AUC, Spearman, and the final two-condition verdict after attaching the fixed prior metrics. Require max absolute scalar/statistic discrepancy `<= 1e-10` where numerical equality is applicable and exact agreement on the final verdict.
-
-Stop after this one association audit regardless of verdict. Do not implement or tune a deployable intervention until the next research-lead review.
+Require the evaluation code to reproduce the accepted T033/T026 metric convention. Independent replay must recompute all 100 PSNR and RGB-SSIM values and the aggregate means/medians from frozen outputs and normals, with max applicable scalar discrepancy `<=1e-10`. Stop after this single SNR-Aware benchmark regardless of quality; do not start a method modification or another baseline in the same cycle.
 
 ## Expected evidence
 
-Append exactly one T044-A report to `coordination/CODEX_TO_CHATGPT.md` (append only; never rewrite prior reports) containing: PR/head/tested/evidence SHA; exact T036 cohort/trajectory/state bindings; scalar definition; pre-label score-freeze receipt; confirmation that no normal/reference-derived artifact was opened before all 100 scores were frozen; exact reproduction of the 29/71 label split; ROC-AUC; Spearman correlation; descriptive loss/non-loss score summaries; independent replay count/max error; zero-update/zero-selection/no-official-test receipts; all failures/deviations; and exactly one of the two allowed final verdict strings. Do not modify `coordination/PROJECT_STATE.md`.
+Append exactly one T045-A report to `coordination/CODEX_TO_CHATGPT.md` (append only; never rewrite prior reports) containing: PR/head/tested/evidence SHA; exact split/source/checkpoint/exporter bindings; inference command/environment; proof that only the 100 validation lows were decoded before freeze; parameter hashes before/after; freeze timestamp and all-output hash receipt; evaluation-authorization timestamp strictly after freeze; mean/median PSNR and RGB-SSIM plus descriptive paired T026-A deltas if available; independent replay count/max error; runtime/memory summary if already collected by the fixed exporter; all failures/deviations; explicit training-exposure caveat; zero-official-test receipt; and exactly the final classification `SNR-Aware development benchmark complete` if every mechanical acceptance condition passes. Do not modify `coordination/PROJECT_STATE.md`.
