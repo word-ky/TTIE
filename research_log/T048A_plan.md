@@ -1,0 +1,5 @@
+# T048-A fixed affine closure probe
+
+REFERENCE_ORACLE_ONLY. Main943f78ce; T047 accepted6659d7ae. Exact100 splitb88c8347, T047freeze c82e6b60 and pairsd4b12f46; priorpreflight90edc063 binds original T046 states.
+All100low-only reconstructions of exact T047 selected outputs <=1e-6 before normals. Freeze EV/gamma bit-exact, cache only immutable shifted-gamma output. Train existing common-gain raw initializedT046 using accepted physical mapping [.5,2] and accepted inactive-raw0 projection; physical lift initializedT047 bounds[-.2,.2], inactive0. Preserve gain->lift->identitycontrast->clamp->hardgate order. FreshAdam two parameter groups gainrawlr.05/liftlr.01, exactly500updates, one start,501retained states, earliest strict fullRGBMSE minimum. Float32renderer,float64MSE,GPU1,TF32off,seed7,threads1.
+Freeze100selected outputs before metrics. Independent replay: all50100gain/lift states, init/winner/bounds/hashes/frozenEVgamma, independent render,200metrics, pairedstats/counts/distributions/verdict. SolemeanT048minusT047PSNR>=.5 ANDmedian>=.25. T046totaldescriptive only. No deployable change, sweep, nonlinear operator, officialtest or T049. Stopafteroneprobe/report.
