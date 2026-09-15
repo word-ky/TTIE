@@ -1,0 +1,5 @@
+# T043-A frozen-output quality bridge
+Only existing T041selectedlegacy+1.75 and T042step10legacy+1.75 outputs. Exactcohort100; pin accepted freezeSHA b2612273/a5b0799e, all200tensor/outputhashes, fixedgainraw, common gate andassets; bindallpairidentities on disk beforeanynormal opens. No renderer/model/optimizer/selection. Main metric unchangedT026/T036 SciPyfloat64 RGBSSIM, native400x600 normalfloat64/255 thenfloat32round/float64; PSNRperimageRGBMSE. CPU for exactacceptedmetric and light evaluation-only task. Independent separatelyreloadsallfrozenoutputs/normals, torchPSNR/explicit11tapseparableSSIM andstdlibaggregates/verdict <=1e-10. All100pairmean>=.5dB ANDmeanSSIM>=0 solecriterion. Median/p10/p90WELandbest/worst5 descriptiveonly. No newcohort/test/controller/qualitydrivenstatechange. Stopafteroneaudit.
+BaselineacceptedSSIM vsindependentskimagefullmap test1passed1.44s. Reuseacceptedttie.ssim_transfer directly, priorT026independentmetricconvention. No newmetric implementation inmain.
+
+T0432focusedtestsPASS0.17s. Independent replay authored before reference evaluation, no mainmetric/aggregation/verdict helper imports.
