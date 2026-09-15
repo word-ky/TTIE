@@ -29,7 +29,7 @@ On LOL-v2 Real development data, the official 100-pair test remains sealed. The 
 - **T034-A:** adding per-region RGB gains to the reference oracle raises the ceiling to `19.9079495 / 0.4084354`, with an SSIM decline.
 - **T035-A:** a matched RGB-shared common-gain oracle reaches `19.5530229 / 0.4084669`. It explains `85.50%` of T034's mean PSNR gain and `81.82%` of its median gain, showing that the dominant added capacity is a post-gamma common-intensity degree rather than independent chromatic WB.
 
-## Unsafe-tail diagnosis through T043-A
+## Unsafe-tail diagnosis through T044-A
 
 **T037-A — limited/mixed late-selection headroom.** On the exact frozen T036 trajectories, reference-best minus selected common-gain PSNR is `+0.6832337 dB` mean but only `+0.0917852 dB` median. `18/29` prior PSNR-loss cases can be rescued to at least the T026 baseline by an earlier common state, but `11/29` cannot, and `28/100` images are genuinely reference-best at step 40. Severe overshoot exists in a subset, but a universal early-stop explanation is not supported.
 
@@ -47,7 +47,9 @@ On LOL-v2 Real development data, the official 100-pair test remains sealed. The 
 
 T043 is the key correction to T042: **directional validity and absolute state quality are not the same thing.** The early legacy state has a much more trustworthy local learned-energy direction, yet is farther from the restoration target in absolute quality. The late trajectory can therefore make useful net progress before the local field becomes unreliable. T042 does not justify a universal step-10 checkpoint, freeze, or early-stopping policy; T043 actively argues against that naive intervention.
 
-The T043 information boundary is accepted: all 200 frozen output identities were bound before any normal opened; the same already-reference-used 100 normals were used only for evaluation; there were zero optimizer/state/selection changes and no official-test access. Independent replay recomputed 400 output metrics and 638 scalar checks with max error `7.11e-15`.
+**T044-A — raw low-only legacy excursion is not an unsafe-tail risk signal.** On the same accepted T036 100-image cohort, with `D_legacy` frozen before any metric/loss label was opened, treating larger step10-to-selected physical EV+gamma displacement as greater risk gives ROC-AUC **`0.2491501`** and Spearman(`D_legacy`, paired T036-minus-T026 `ΔPSNR`) **`+0.4838044`**. Both predeclared risk gates fail in the opposite direction. Loss cases have median `D_legacy = 0.120254`, versus `0.155492` for non-loss cases. Thus greater legacy movement is associated with greater net PSNR improvement on this cohort, not greater regression risk. Do not invert this score, sweep thresholds, or build a controller from it on the same reference-used data.
+
+The T044 information boundary is accepted: all 100 scores and state/gate/code bindings were frozen before the accepted paired metric artifact was attached; Stage A opened no images, metrics, normals, reference gradients, or loss identities; Stage B opened no normals. Independent replay recomputed all scores, 2059 AUC pairs, Spearman, summaries and verdict with 210 scalar checks and max error `8.33e-17`. There were zero optimizer/state/selection changes, no fresh cohort, and no official-test access.
 
 ## Strongest current mechanism interpretation
 
@@ -61,7 +63,8 @@ The T043 information boundary is accepted: all 200 frozen output identities were
 8. T041 shows a dramatic all-100 real selected-state deficit at matched gain, dominated by legacy EV+gamma / feature-state alignment.
 9. T042 shows that on the exact same real images, substituting the fixed early step-10 legacy state restores most directional validity. Late legacy/feature-state extrapolation is therefore a major causal contributor to **field reliability failure**.
 10. T043 shows that the same early-state substitution is much worse in absolute image quality. Therefore late state extrapolation should not be equated with late-state quality degradation: the trajectory may move closer to the target before its local direction becomes untrustworthy.
-11. The next useful question is whether the amount of low-only legacy excursion itself is a measurable risk signal. T044 tests that association before any new controller or fresh qualification is attempted.
+11. T044 shows that raw legacy excursion magnitude does not resolve this decoupling. More parameter movement is actually associated with larger net quality improvement on the fixed cohort, so simple distance-to-step10 is not a safety proxy.
+12. The simple controller/proxy branch should pause. The immediate priority is benchmark closure so the absolute gap to strong target-free-at-inference supervised baselines is quantified before deciding between field retraining and further action-space redesign.
 
 ## Benchmark readiness
 
@@ -69,7 +72,7 @@ The T043 information boundary is accepted: all 200 frozen output identities were
 - T027-A Retinexformer exporter is source/checkpoint bound and target-disabled.
 - T027-B SNR-Aware exporter is source/checkpoint bound with the accepted native-pad16 protocol adaptation.
 - T033-A Retinexformer development anchor is complete with the training-exposure limitation above.
-- SNR-Aware quality benchmarking has not yet been run.
+- **T045-A now runs the missing SNR-Aware quality benchmark on the exact frozen development validation split and metric convention.**
 - **Official LOL-v2 Real test remains sealed** until Ours and all baseline protocols are frozen.
 
 ## Best current methods / ceilings
@@ -90,15 +93,15 @@ The T043 information boundary is accepted: all 200 frozen output identities were
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
 - External baselines admitted to the main comparison must be target-free at inference.
-- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. The official LOL-v2 Real test is still untouched through T043-A.
+- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. The official LOL-v2 Real test is still untouched through T044-A.
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Milestones
 
-T001–T013: controlled mechanism/diagnostic sequence. T014: broad controlled/fresh Sobolev Ours-Core. T019: heterogeneous adaptive geometry positive. T020: universal geometry route paused. T021: RGB-SSIM transfer positive. T022/T023: real validation/action-range and tiny recalibration sequence. T024: baseline protocol frozen. T025/T028: reachability diagnosed. T026-A: fixed-validation deployable base. T027-A/B: baseline exporters ready. T029: late-field mismatch. T030: self-reversal guard negative. T031: support-distance association positive. T032: support-radius controller negative. T033: Retinexformer development anchor. T034/T035: RGB-WB capacity resolved mainly to common intensity. T036: common gain fresh target-free aggregate positive with unsafe tail. T037: late-selection headroom limited/mixed. T038: real loss-subset gain mismatch. T039: near-range source gain-tangent deficit not supported. T040: high-range gain-specific source deficit not supported. T041: matched-gain all-100 real selected-state deficit strongly supported. T042: fixed step-10 legacy substitution restores directional field validity. **T043: the same substitution is substantially worse in absolute quality, disproving the direct early-state quality bridge and separating local field reliability from state quality.**
+T001–T013: controlled mechanism/diagnostic sequence. T014: broad controlled/fresh Sobolev Ours-Core. T019: heterogeneous adaptive geometry positive. T020: universal geometry route paused. T021: RGB-SSIM transfer positive. T022/T023: real validation/action-range and tiny recalibration sequence. T024: baseline protocol frozen. T025/T028: reachability diagnosed. T026-A: fixed-validation deployable base. T027-A/B: baseline exporters ready. T029: late-field mismatch. T030: self-reversal guard negative. T031: support-distance association positive. T032: support-radius controller negative. T033: Retinexformer development anchor. T034/T035: RGB-WB capacity resolved mainly to common intensity. T036: common gain fresh target-free aggregate positive with unsafe tail. T037: late-selection headroom limited/mixed. T038: real loss-subset gain mismatch. T039: near-range source gain-tangent deficit not supported. T040: high-range gain-specific source deficit not supported. T041: matched-gain all-100 real selected-state deficit strongly supported. T042: fixed step-10 legacy substitution restores directional field validity. T043: the same substitution is substantially worse in absolute quality, separating local field reliability from state quality. **T044: fixed low-only legacy excursion magnitude fails as a regression-risk signal and points toward productive movement instead.**
 
 ## Current open task
 
-**T044-A — target-free legacy-extrapolation score association audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T045-A — SNR-Aware fixed-validation benchmark** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Compute exactly one low-only scalar `D_legacy` from each accepted T036 trajectory: normalized RMS physical EV+gamma displacement from fixed step 10 to the accepted selected state, using the frozen Region2 gate. Freeze all 100 scores and state/hash bindings before opening any prior reference-derived metric artifact. Then attach only the accepted T036-vs-T026 paired PSNR results and test the fixed 29/71 loss label. The sole verdict requires both ROC-AUC `>= 0.75` and Spearman(`D_legacy`, paired `ΔPSNR`) `<= -0.35`. This is association-only: no controller, threshold fitting, new adaptation, fresh cohort, or official-test access.
+Run the accepted T027-B `ttie_native_pad16` exporter exactly once on the frozen T022/T033 100-image development validation split (`b88c8347005984b5523b117b52c0c068672fe172eb7c9aa5b60102d350e2d85b`). Freeze all 100 low-only outputs and provenance before any paired normal or metric is opened, then evaluate PSNR/RGB-SSIM with the exact T033/T026 convention and independent replay. No Ours change, no variant search, no official test, and no performance gate; the purpose is to close the missing strong-baseline row before the next method decision.
