@@ -23,8 +23,8 @@ for name,key in [('starts','starts_sha256'),('lifts','lifts_sha256'),('qs','qs_s
 weights=np.exp(-np.arange(-5,6,dtype=np.float64)**2/4.5);weights/=weights.sum()
 def smooth(v):return convolve1d(convolve1d(v,weights,axis=0,mode='reflect'),weights,axis=1,mode='reflect')
 def interpolate(grid,h,w):
- yy=np.maximum((np.arange(h)+.5)*8/h-.5,0);xx=np.maximum((np.arange(w)+.5)*8/w-.5,0)
- y0=np.floor(yy).astype(int);x0=np.floor(xx).astype(int);y1=np.minimum(y0+1,7);x1=np.minimum(x0+1,7);fy=yy-y0;fx=xx-x0
+ yy=np.maximum((np.arange(h,dtype=np.float32)+.5)*np.float32(8/h)-.5,0);xx=np.maximum((np.arange(w,dtype=np.float32)+.5)*np.float32(8/w)-.5,0)
+ y0=np.floor(yy).astype(int);x0=np.floor(xx).astype(int);y1=np.minimum(y0+1,7);x1=np.minimum(x0+1,7);fy=yy-y0.astype(np.float32);fx=xx-x0.astype(np.float32)
  top=grid[y0[:,None],x0[None,:]]*(1-fx)+grid[y0[:,None],x1[None,:]]*fx
  bot=grid[y1[:,None],x0[None,:]]*(1-fx)+grid[y1[:,None],x1[None,:]]*fx
  return top*(1-fy[:,None])+bot*fy[:,None]
@@ -45,7 +45,7 @@ for i,(row,item,old,main) in enumerate(zip(f['rows'],split,baseline,pairs)):
  raw=v['raw'];bounded=raw.tanh();ev=2*bounded[:,0:1];gamma=(math.log(2)*bounded[:,1:2]).exp();gain=(math.log(2)*bounded[:,2:3]).exp();h,w=low.shape[-2:];yy=(torch.arange(h)>=h//2).long();xx=(torch.arange(w)>=w//2).long()
  ev=ev[:,:,yy[:,None],xx[None,:]];gamma=gamma[:,:,yy[:,None],xx[None,:]];gain=gain[:,:,yy[:,None],xx[None,:]]
  z=low*torch.exp2(ev);z=(z+1e-6).pow(gamma)-torch.pow(1e-6,gamma);z=(.5+(z*gain+v['lift'][yy[:,None],xx[None,:]]-.5)).clamp(0,1)
- field=interpolate(2*np.tanh(v['u'].numpy()[0,0].astype(np.float64)),h,w);field_errors.append(float(np.max(np.abs(field-v['ev'].numpy()[0,0]))));assert field_errors[-1]<=1e-6
+ field=interpolate(2*np.tanh(v['u'].numpy()[0,0]),h,w);field_errors.append(float(np.max(np.abs(field-v['ev'].numpy()[0,0]))));assert field_errors[-1]<=1e-6
  # Use saved exact field after independent interpolation verification to isolate float32 renderer rounding.
  z=(z*torch.exp2(v['ev'])).clamp(0,1).numpy();scaled=z*8;segment=np.minimum(np.floor(scaled).astype(int),7);region=(yy[:,None]*2+xx[None,:]).numpy();index=region*9+segment;y=v['knots'].numpy().flatten();expected=y[index]+(y[index+1]-y[index])*(scaled-segment).astype(np.float32)
  mask=np.array(pre['rows'][i]['gate']['active']).reshape(2,2)[yy[:,None],xx[None,:]];expected=np.where(mask,expected,low.numpy());render_errors.append(float(np.max(np.abs(expected-v['image'].numpy()))));assert render_errors[-1]<=1e-6
