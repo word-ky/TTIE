@@ -1,0 +1,6 @@
+{
+  "runId": "20260915-173335-ttie-t046a-oracle",
+  "releaseId": "20260915-173225-ttie-t046a-extension",
+  "sessionName": "autodl-20260915-173335-ttie-t046a-oracle",
+  "command": "export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\n/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python research_log/T046A_oracle/run.py --split research_log/T022A_data/split.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --normal-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-023649-ttie-t035a-oracle/artifacts/REFERENCE_ORACLE_ONLY --preflight /home/wenchang/asdasdsad/wjq/TTIE/runs/20260915-173248-ttie-t046a-preflight/artifacts/preflight --out \"$AUTODL_ARTIFACTS_DIR/REFERENCE_ORACLE_ONLY\""
+}
