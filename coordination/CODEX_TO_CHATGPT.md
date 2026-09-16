@@ -4224,3 +4224,20 @@ All151 sources,8 original T058-A artifacts and7 T058-W artifacts unchanged befor
 Infrastructure: Ddiskfull blocked initial local commit/stage, before any remote run. Automatic policy denied deleting verified rebuildable stage copies; nothing deleted. System-TEMP Git index allowed commit; disk subsequently63MBfree, exact151-file stage rebuilt/verified and deployed normally. Initial branch push briefly pointed to accepted base before new source commit; no experiment used that base. No scientific settings changed. Evidence41470bytes SHA6c0297508b6acc3ba283f5a59e5485191b4bc05f4093c3ece2fd53dfeb8f7640 verifiedhome/F/local, all7 files exact.
 
 Recommendation: research lead should adjudicate the efficient-attention forward-AD limitation before another numerical route. Stop; no inferred SDP adjustment, T058-A continuation/StageB/retraining/T059/selfmerge/historycleanup. PROJECT_STATE unchanged.
+
+
+## T058-Y DONE — 2026-09-16T22:32:55.285761+00:00
+
+Adjudication: **T058 derivative verifier unresolved**. Cast-only shadow retains a float32 intermediate; no credible all-float64 derivative/FD result. T058-A remains PARTIAL, source-readiness unevaluated.
+
+Verifier source `64d6cca13ac94368043be84ac4a401700f8a5101`; evidence `08da88743b2e6b7331a534bcf7f2272fb5319308`; branch `codex/T058Y-float64`; PR https://github.com/word-ky/TTIE/pull/88 ready. Full method,16-row table,dtype/hash receipts,trace and commands: `research_log/T058Y_report.md` / `T058Y_result/`.
+
+Exact first16 selection SHA4e18e346478421ebbbd192fdbe6c5a861cdc0a45761ecf7a3becb7afeec079c2; only historical index3 attempted first. Original GPU1/default E32=-4.796320915222168,d32_rev=.006348547933157533 (historical .006348532158881426; tiny recomputation difference disclosed). Only copy.deepcopy(...).cpu().double() and tensor casts used for local nonpersistent shadow; every copied tensor matches original values cast to corresponding dtype. No scientific/model/preprocessing/backend change.
+
+CPU shadow executes, but observed energy/output dtypes arefloat64 while features remainfloat32. Accepted ttie/energy_model.py features explicitly ends in .float(); QualityHead later converts to normalization-buffer dtype, which cannot restore rounded precision. The verifier's dtype check therefore raises before labeling E64/d64 or running FD. This is not an unsupported PyTorch operator exception: trace points to our explicit pure-float64 check. No cast-site rewrite, monkeypatch, GPUdouble fallback, new route or rerun. E64/d64/primal-reverse margins/FD ladder unavailable; other15rows not_run.
+
+Frozen-renderer index3 boundary_directional_count=3042; minimum nonzero active boundary distance=2.115964889526367e-6. This proves directional clamp-boundary presence but does not establish the required one-sided-secant interval without a valid float64 shadow. Historical FD mismatch explanation remains still unresolved; original h=.001/tolerance/receipt unchanged.
+
+All156 sources,8T058-A artifacts,7T058-X artifacts and original/shadow scorer/head/detail/legacy hashes unchanged. Zero optimizer updates,persistent scientific changes,source clean/JPG opens,StageB,target-domain/official-test access. No full7346 continuation. Local3tests5.32s/server3tests1.55s/compilePASS. Sole run20260917-062907-ttie-t058y-shadow,release062841,originalGPU1/shadowCPU,22.861678685s,exit0 records unresolved outcome. No infrastructure failure or activejob.
+
+Evidence68302bytes SHA931aeae53ff3b513857efef4eb811d51540c4c31bd9f2b0f490fc38a990a46be verifiedhome/F/local, all7 contained files exact. Recommendation: adjudicate the explicit float32 feature-cast boundary before any further shadow run. Stop; no inferred permission for cast-site changes, StageA/B continuation,retraining,T059,selfmerge/historycleanup. PROJECT_STATE unchanged.
