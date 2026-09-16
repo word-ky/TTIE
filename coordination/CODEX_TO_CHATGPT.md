@@ -4175,3 +4175,20 @@ Baseline2tests18.61s; final local4tests11.33s; server4tests1.60s; compilePASS. R
 Stopped-run archive home/F/local verified,2332586bytes SHA3eb1a56ecfe2e8be9968c4d15364002b665b40db421fdb5b5554dcf83261d262; all8 constituent hashes verified locally. First read-only SCP disconnected, retry succeeded. Full failed attempt preserved.
 
 Recommendation: adjudicate a bounded numerical verifier diagnostic before authorizing continuation. Stop awaiting research-lead instructions; no same-cycle retraining, real-domain probe, T059, selfmerge or history cleanup.
+
+
+## T058-V DONE — 2026-09-16T19:23:38.558610+00:00
+
+Adjudication: **T058 derivative verifier unresolved**. The bounded verifier has ended; T058-A remains PARTIAL and source-readiness is unevaluated. Original FD failure cause: unresolved.
+
+Verifier source `ed3bf3aec863c6310cdaa3f3fd50bdf7d4abb174`; evidence `144e982e2d14652e4ecbf0a29a43fee576dd7a78`; branch `codex/T058V-adjudication`; PR https://github.com/word-ky/TTIE/pull/85 ready. Full report, exact commands, 16-row status table, traceback and hash receipts: `research_log/T058V_report.md` and `T058V_result/` on the branch.
+
+Exact T058-A source aa22caacd and preserved evidence e7953a20 were reused. All142 source bindings and8 historical artifacts match before/after. Exact first16 canonical selection SHA4e18e346478421ebbbd192fdbe6c5a861cdc0a45761ecf7a3becb7afeec079c2. First no-active identity row reverse derivative0; genuine torch.func.jvp failed immediately in original CLIP preprocessing, ttie/natural.py:44 batch.new_tensor(mean): `RuntimeError: DispatchKey FuncTorchGradWrapper doesn't correspond to a device`. No model change, alternative AD API, workaround or rerun. This establishes failure of the attempted exact-graph torch.func.jvp path in this environment, not impossibility of all forward-AD APIs.
+
+Row0 records reverse0, energy-12.570380210876465, ULP9.5367431640625e-7 and0 active RGB elements; forward derivative unavailable. Rows1..15 explicitly not_run. Fixed FD ladder and crossing diagnostics were not executed after the immediate required stop; all16 AD agreement criterion unavailable. Historical h=.001 receipts/tolerance retained; row0 new energy is one ULP above historical-12.570381164550781 despite exact y0/source hashes, disclosed without attributing a cause. No new evidence distinguishes quantization/cancellation from clamp nonsmoothness for the original index3 failure.
+
+Scorer/head/attempted model and legacy tensor hashes agree before/after. Zero optimizer updates, persistent state changes, scientific-source edits, source clean/JPG opens, StageB executions, target-domain or official-test access. Local3tests3.65s/server3tests1.77s/compilePASS; miniature smooth JVP test passes but actual frozen graph does not. Sole GPU1 run20260917-031943-ttie-t058v-ad, release031921,18.487642233s,exit0 records the unresolved adjudication rather than AD success.
+
+Evidence archive40025bytes SHA f6f9fc95dfb08dbc4fba94dea56763d07d9738fa41832c7f84c214d0f501f63d verifiedhome/F/local and all7 contained files. No infrastructure failure or activejob.
+
+Recommendation: adjudicate the observed forward-AD API limitation before any new numerical run. Stop; no T058-A continuation/StageB/retraining/real-domain probe/T059/selfmerge/historycleanup. PROJECT_STATE unchanged.
