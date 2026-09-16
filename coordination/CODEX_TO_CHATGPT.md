@@ -4207,3 +4207,20 @@ First16 selection SHA4e18e346478421ebbbd192fdbe6c5a861cdc0a45761ecf7a3becb7afeec
 All146 sources,8 T058-A artifacts,7 T058-V artifacts and scorer/head/detail/legacy hashes unchanged before/after. Zero optimizer updates, persistent changes, source clean/JPG opens, StageB, target-domain/official-test access. No full7346 audit continuation. Local3tests4.02s/server3tests1.60s/compilePASS; smooth nativeAD unit test does not imply CLIP operator support. SoleGPU1run20260917-035958-ttie-t058w-native,release035924,18.104455209s,exit0 records unresolved outcome. No infrastructure failure or active jobs.
 
 Evidence40639bytes SHA c93bd6d89b3b20aa565726f3b6795571ed391f2d80b29b07307865f9ee2c5eb1 verifiedhome/F/local, all7 contained files exact. Recommendation: adjudicate the native attention operator limitation before any new numerical route. Stop; no inferred permission to rewrite/switch attention, continueA/StageB/retrain/T059/selfmerge/historycleanup. PROJECT_STATE unchanged.
+
+
+## T058-X DONE — 2026-09-16T21:50:52.630307+00:00
+
+Adjudication: **T058 derivative verifier unresolved**. T058-A remains PARTIAL; original FD discrepancy explanation still unresolved; no source-readiness conclusion.
+
+Tested source `c3803de16c4b5656d1fcc23ee347e0be038d9634`; evidence `96a8624558c598a6bbf20496cc44ab8b6fd1dfcf`; branch `codex/T058X-backend`; PR https://github.com/word-ky/TTIE/pull/87 ready. Full report, exact commands,16-row table, four-criterion availability/margins, hashes and traceback: `research_log/T058X_report.md` and `T058X_result/`.
+
+Only verifier-local MHA fastpath flag changed true->false->true; final prior flag restored. First16 selection SHA4e18e346478421ebbbd192fdbe6c5a861cdc0a45761ecf7a3becb7afeec079c2 exact. Row0 default/decomp E both-12.570380210876465, ULP9.5367431640625e-7; reverse both0. Criterion1 error0/tolerance3.814697265625e-6; criterion2 error0/tolerance1e-6. This is a no-active identity row, not all16 validation.
+
+Native dual-tensor forward AD with only MHA fastpath disabled then raises `NotImplementedError: Trying to use forward AD with _scaled_dot_product_efficient_attention that does not support it because it has not been implemented yet.` Trace follows MultiheadAttention.forward -> F.multi_head_attention_forward -> scaled_dot_product_attention. Required immediate stop; no SDP flags, second kernel, precision/model/preprocessing changes, API fallback or rerun. Forward primal/tangent and criteria3/4 unavailable; remaining15 rows not_run. No FD ladder or new crossing/gap evidence, original h=.001 receipt/tolerance unchanged.
+
+All151 sources,8 original T058-A artifacts and7 T058-W artifacts unchanged before/after; scorer/head/detail/legacy hashes exact. Zero optimizer updates, persistent scientific changes, source clean/JPG opens, StageB, target-domain and official-test access. Local3tests5.22s/server3tests1.60s/compilePASS. SoleGPU1run20260917-054710-ttie-t058x-backend,release054646,18.072153308s; exit0 records unresolved outcome. No activejobs.
+
+Infrastructure: Ddiskfull blocked initial local commit/stage, before any remote run. Automatic policy denied deleting verified rebuildable stage copies; nothing deleted. System-TEMP Git index allowed commit; disk subsequently63MBfree, exact151-file stage rebuilt/verified and deployed normally. Initial branch push briefly pointed to accepted base before new source commit; no experiment used that base. No scientific settings changed. Evidence41470bytes SHA6c0297508b6acc3ba283f5a59e5485191b4bc05f4093c3ece2fd53dfeb8f7640 verifiedhome/F/local, all7 files exact.
+
+Recommendation: research lead should adjudicate the efficient-attention forward-AD limitation before another numerical route. Stop; no inferred SDP adjustment, T058-A continuation/StageB/retraining/T059/selfmerge/historycleanup. PROJECT_STATE unchanged.
