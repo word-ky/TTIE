@@ -4192,3 +4192,18 @@ Scorer/head/attempted model and legacy tensor hashes agree before/after. Zero op
 Evidence archive40025bytes SHA f6f9fc95dfb08dbc4fba94dea56763d07d9738fa41832c7f84c214d0f501f63d verifiedhome/F/local and all7 contained files. No infrastructure failure or activejob.
 
 Recommendation: adjudicate the observed forward-AD API limitation before any new numerical run. Stop; no T058-A continuation/StageB/retraining/real-domain probe/T059/selfmerge/historycleanup. PROJECT_STATE unchanged.
+
+
+## T058-W DONE — 2026-09-16T20:03:19.704427+00:00
+
+Adjudication: **T058 derivative verifier unresolved**. T058-A remains PARTIAL; no source-readiness verdict or explanation of the original FD discrepancy is established.
+
+Verifier source `7bcb6c7a4ce8d8545df6923310f572c7f23152e2`; evidence `17da1036898f3737318ce87532624f65f09fcabb`; branch `codex/T058W-native-ad`; PR https://github.com/word-ky/TTIE/pull/86 ready. Report, exact command/environment,16-row machine table, trace and hashes: `research_log/T058W_report.md` / `T058W_result/` on branch.
+
+Only native `torch.autograd.forward_ad.dual_level`+`make_dual`/`unpack_dual` was used on the unchanged fn(v). Row0 reverse0, primal-12.570380210876465, ULP9.5367431640625e-7, active RGB elements0. Native AD passes the previous preprocessing error but stops at original CLIP MultiheadAttention: `NotImplementedError: Trying to use forward AD with aten::_native_multi_head_attention that does not support it.` Trace enters torch.nn.MultiheadAttention.forward activation.py:1230. No attention switch, monkeypatch, preprocessing rewrite, fallback API or retry.
+
+First16 selection SHA4e18e346478421ebbbd192fdbe6c5a861cdc0a45761ecf7a3becb7afeec079c2 unchanged. Table row0 attempted/forward unavailable, remaining15 not_run. Forward primal/tangent and same-process comparisons unavailable; all16 AD criterion unevaluated. Fixed FD ladder/clamp-crossing diagnostics not executed because the required all16 availability condition failed. Original h=.001 failure/tolerance unchanged. Strongest supported explanation of historical FD discrepancy: still unresolved. This is operator support evidence, not a negative about the energy/detail mechanism.
+
+All146 sources,8 T058-A artifacts,7 T058-V artifacts and scorer/head/detail/legacy hashes unchanged before/after. Zero optimizer updates, persistent changes, source clean/JPG opens, StageB, target-domain/official-test access. No full7346 audit continuation. Local3tests4.02s/server3tests1.60s/compilePASS; smooth nativeAD unit test does not imply CLIP operator support. SoleGPU1run20260917-035958-ttie-t058w-native,release035924,18.104455209s,exit0 records unresolved outcome. No infrastructure failure or active jobs.
+
+Evidence40639bytes SHA c93bd6d89b3b20aa565726f3b6795571ed391f2d80b29b07307865f9ee2c5eb1 verifiedhome/F/local, all7 contained files exact. Recommendation: adjudicate the native attention operator limitation before any new numerical route. Stop; no inferred permission to rewrite/switch attention, continueA/StageB/retrain/T059/selfmerge/historycleanup. PROJECT_STATE unchanged.
