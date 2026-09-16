@@ -1,0 +1,6 @@
+{
+  "runId": "20260916-185805-ttie-t053a-preflight",
+  "releaseId": "20260916-185445-ttie-t053a-range",
+  "sessionName": "autodl-20260916-185805-ttie-t053a-preflight",
+  "command": "export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n$PY -m pytest tests/test_t053a_range.py tests/test_t052a_spatial_affine.py -q && $PY research_log/T053A_oracle/preflight.py --split research_log/T022A_data/split.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260916-173158-ttie-t052a-oracle/artifacts/REFERENCE_ORACLE_ONLY --prior-preflight /home/wenchang/asdasdsad/wjq/TTIE/runs/20260916-173103-ttie-t052a-preflight/artifacts/preflight --binding research_log/T053A_source_binding.json --out \"$AUTODL_ARTIFACTS_DIR/preflight\""
+}

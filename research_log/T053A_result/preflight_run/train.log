@@ -1,0 +1,17 @@
+[autodl] run_id=20260916-185805-ttie-t053a-preflight
+[autodl] started_at=2026-09-16T19:00:22+08:00
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+tests/test_t053a_range.py::test_projection_frozen_buffers_and_earliest_selection
+  <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+
+tests/test_t053a_range.py::test_projection_frozen_buffers_and_earliest_selection
+  <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 2 warnings in 2.49s
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+PREFLIGHT100 PASS 19825fb7d49d2a9c19c05a12ed37a9c56d77544ad4bbac904704509ebc0c7b9c
+[autodl] finished_at=2026-09-16T19:00:31+08:00
+[autodl] exit_code=0

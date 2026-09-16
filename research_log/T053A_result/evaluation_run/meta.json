@@ -1,0 +1,6 @@
+{
+  "runId": "20260916-190707-ttie-t053a-eval",
+  "releaseId": "20260916-185445-ttie-t053a-range",
+  "sessionName": "autodl-20260916-190707-ttie-t053a-eval",
+  "command": "export PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\nARGS=\"--split research_log/T022A_data/split.json --normal-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260916-173158-ttie-t052a-oracle/artifacts/REFERENCE_ORACLE_ONLY --preflight /home/wenchang/asdasdsad/wjq/TTIE/runs/20260916-185805-ttie-t053a-preflight/artifacts/preflight --out /home/wenchang/asdasdsad/wjq/TTIE/runs/20260916-190122-ttie-t053a-oracle/artifacts/REFERENCE_ORACLE_ONLY\"\n$PY research_log/T053A_oracle/evaluate.py $ARGS && $PY research_log/T053A_oracle/replay.py $ARGS --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low"
+}
