@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260917-031921-ttie-t058v-ad/research_log/T058V/run.py", line 67, in <module>
+    primal,jvp=torch.func.jvp(fn,(model.v.detach(),),(direction,))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/_functorch/eager_transforms.py", line 1084, in jvp
+    return _jvp_with_argnums(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/_functorch/vmap.py", line 48, in fn
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/_functorch/eager_transforms.py", line 1141, in _jvp_with_argnums
+    result_duals = func(*duals)
+                   ^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260917-031921-ttie-t058v-ad/research_log/T058V/run.py", line 61, in fn
+    def fn(v):return energy(model,obj,head,v)[0]
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/current/research_log/T058A_tangent/core.py", line 26, in energy
+    phi=features(obj,obj.scorer(y),model.grid)
+                     ^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/current/ttie/semantic_ttt.py", line 59, in forward
+    return self.prototypes.scores(self.encoder.image_embeddings(image))[1:]
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/current/ttie/clip_signal.py", line 44, in image_embeddings
+    return F.normalize(self.model.encode_image(clip_pixels(image, **self.preprocess)), dim=-1)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/current/ttie/natural.py", line 44, in clip_pixels
+    return (batch - batch.new_tensor(mean)[None, :, None, None]) / batch.new_tensor(std)[None, :, None, None]
+                    ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: DispatchKey FuncTorchGradWrapper doesn't correspond to a device
