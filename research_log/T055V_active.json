@@ -1,0 +1,51 @@
+{
+  "task": "T055-V",
+  "status": "DONE",
+  "base": "528b9517b1345c743765d60b7b8da1ec49148910",
+  "branch": "codex/T055V-verifier",
+  "worktree": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T055V-work",
+  "started_utc": "2026-09-16T16:02:59.597966+00:00",
+  "authorization": "c78f97792756a1ef69a93e0197be8fca751126cc",
+  "failures": [
+    "Initial copy replacement missed CRLF; synthetic tests exercised original unfused arithmetic; normalized generation and9testsPASS before fullreplay.",
+    "Evidence SCP SSH255 once, read-only retry succeeded."
+  ],
+  "verifier_source": "49606b5d654a5e69b68b9895e81759c0f01cd175",
+  "replay_run": "20260917-000911-ttie-t055v-replay",
+  "adjudication": "T055 replay verified",
+  "replay": {
+    "status": "PASS",
+    "images": 100,
+    "history_states": 100100,
+    "selected_output_metrics": 200,
+    "scalar_checks": 724,
+    "max_abs_error": 3.552713678800501e-15,
+    "independent_renderer_max_abs": 0.0,
+    "independent_basis_max_abs": 1.771841198205948e-07,
+    "independent_interpolation_max_abs": 1.1920928955078125e-07,
+    "all_old_coordinates_exact": true,
+    "inactive_outputs_exact": true,
+    "preflight_before_normals": true,
+    "freeze_before_metrics": true,
+    "classification": "material local-detail underconvergence not supported under fixed extension",
+    "seconds": 37.450051062973216
+  },
+  "proof": {
+    "status": "PASS",
+    "files": 299,
+    "source_files": 86,
+    "all_scientific_files_unchanged": true,
+    "baseline_sha256": "514172ee1dd73e2635b5a045b40bebf63fd1dafe6ced7c9b6eaf336a325e2709",
+    "original_verifier_sha256": "95ee4a247c4830bcc5cfae704de5c3dd5dc49cb31cad54d44b2d059be3aa6e64",
+    "new_verifier_sha256": "ac5a055aab5f8bf9380fd3587841589e361d52d57dfeed3f9ecb515e7396cd69",
+    "optimizer_calls": 0,
+    "metric_files_regenerated": false
+  },
+  "archives": {
+    "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/T055V_evidence.tar.gz",
+    "backup": "/media/wenchang/F/wjq/TTIE/shared/t055v/T055V_evidence.tar.gz",
+    "bytes": 21677,
+    "sha256": "b0ffa400502fa5b677b120983a73108cb81e5e9f3cbab1de8c943a3b73ac503d"
+  },
+  "next_step": "Stop after publication; await research-lead review/new explicit task. No T056."
+}
