@@ -1,5 +1,5 @@
 {
-  "status": "SCIENCE_DONE_PUBLISH_BLOCKED",
+  "status": "DONE",
   "completed_utc": "2026-09-15T19:28:35.483809+00:00",
   "tested_source": "cab61cdbfb5a4a6d45d22e5a6ebd914bda21f6c9",
   "summary": {
@@ -165,10 +165,22 @@
   },
   "failures": [
     "Initial independent replay used float64 interpolation coordinates; corrected verifier to float32, unchanged tolerance and frozen results",
-    "GitHub account email verification403 prevents publication"
+    "GitHub account email verification403 delayed publication"
   ],
   "scientific_deviations": [],
   "label": "REFERENCE_ORACLE_ONLY",
   "official_test_access": false,
-  "next_step": "Publish existing evidence after email verification; await review; noT052."
+  "next_step": "Await research-lead review; noT052.",
+  "evidence_sha": "a41beda5cc0da891e2ddf3a8b83e52093fcbae3e",
+  "recovery": {
+    "head": "a41beda5cc0da891e2ddf3a8b83e52093fcbae3e",
+    "tested_source": "cab61cdbfb5a4a6d45d22e5a6ebd914bda21f6c9",
+    "files": 204,
+    "bytes": 11279322,
+    "sha256": "6b11eb63f7c7cbf6999201c61f7d89cfc4768fc529bf6e4bfccf431638976ce6"
+  },
+  "recovery_home_F_verified": true,
+  "publication_error": "GitHub push403: You must verify your email address",
+  "scientific_evidence_sha": "a41beda5cc0da891e2ddf3a8b83e52093fcbae3e",
+  "publication_recovered": true
 }
