@@ -3944,3 +3944,8 @@ Archives: `{"all_output_history_hashes_unchanged": true, "source_bindings_unchan
 REFERENCE_ORACLE_ONLY: zero deployable changes, zeroofficialtestaccess, no target/oraclegradient/state/metric admittedtoTTT. Finite-budgetdevelopmentcapacity, notheldoutSOTA/globaloptimum. Recommendation: research-leadreviewthennewexplicitOPEN; noT053orunrequestedrange/budgetrescue.
 
 Exposurecontrolgriddiagnostics: `{"raw_u": {"count": 6400, "min": -5.941775321960449, "max": 0.8145485520362854, "mean": -0.3645020302171049, "median": -0.12232993543148041}, "physical_ev": {"count": 6400, "min": -1.9999723434448242, "max": 1.3441836833953857, "mean": -0.3836988514307009, "median": -0.2434467226266861, "lower_hits": 0, "upper_hits": 0}, "arithmetic": "Selected raw u controls from frozen histories; descriptive physical controls computed as float32 torch CPU 2*tanh(u). No image decode, selection change or experiment rerun."}`.
+
+
+### 2026-09-16T10:14:54.903658+00:00 — T052-A PR77 reporting fixes (status remains PARTIAL)
+
+Addressed review comments4024730410/4024730415 in2433dd70db158d50b7728e4750d33f81b0a95141. Only report.py/generated report/continuation note changed: preserve PARTIAL, awaiting_research_review and next_step, plus all existing delivery metadata; identify T052A_tested_source_binding.json as actual preflight/config manifest and describe current corrected-verifier manifest separately. Actual regeneration PASS: entire delivery JSON semantically unchanged. Preflight/config bindings equal original tested manifest; numerical results, scientific code, verifier and frozen artifacts unchanged. No experiment rerun. Receipt research_log/T052A_report_review_fix.json. Original verifier adjudication remains pending; no new completion or T053.
