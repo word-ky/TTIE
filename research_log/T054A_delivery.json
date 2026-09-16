@@ -1,0 +1,122 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-16T12:10:16.560766+00:00",
+  "tested_source": "f4baa579e4441a6edf5ec818ddca87f28f1b7e5d",
+  "pr": "https://github.com/word-ky/TTIE/pull/79",
+  "summary": {
+    "label": "REFERENCE_ORACLE_ONLY",
+    "metrics": {
+      "psnr": {
+        "mean": 24.345486740889513,
+        "median": 24.810761905858474
+      },
+      "ssim": {
+        "mean": 0.757757239114671,
+        "median": 0.776655515255342
+      },
+      "t052_psnr": {
+        "mean": 23.107151128412106,
+        "median": 23.898237791110247
+      },
+      "t052_ssim": {
+        "mean": 0.5700401897397994,
+        "median": 0.6092937048638108
+      },
+      "delta_psnr": {
+        "mean": 1.2383356124774059,
+        "median": 1.2353359818727352
+      },
+      "delta_ssim": {
+        "mean": 0.1877170493748716,
+        "median": 0.17671724632549995
+      }
+    },
+    "best_step_histogram": {
+      "500": 100
+    },
+    "at_step500": 100,
+    "win_equal_loss": {
+      "psnr": {
+        "win": 100,
+        "equal": 0,
+        "loss": 0
+      },
+      "ssim": {
+        "win": 100,
+        "equal": 0,
+        "loss": 0
+      }
+    },
+    "runtime_seconds": 128.10646960500162,
+    "c_distributions": {
+      "selected_controls": {
+        "count": 6400,
+        "min": -0.9999998807907104,
+        "max": 0.9998723268508911,
+        "mean": -0.7532879280111752,
+        "median": -0.9395946562290192,
+        "exact_hits": {
+          "-1.0": 0,
+          "1.0": 0
+        }
+      },
+      "selected_field": {
+        "count": 24000000,
+        "min": -0.9999998807907104,
+        "max": 0.9998697638511658,
+        "mean": -0.7858675457784365,
+        "median": -0.9391513168811798,
+        "exact_hits": {
+          "-1.0": 0,
+          "1.0": 0
+        }
+      }
+    },
+    "classification": "local-detail capacity supported"
+  },
+  "replay": {
+    "status": "PASS",
+    "images": 100,
+    "history_states": 50100,
+    "selected_output_metrics": 200,
+    "scalar_checks": 720,
+    "max_abs_error": 3.552713678800501e-15,
+    "independent_renderer_max_abs": 0.0,
+    "independent_basis_max_abs": 1.771841198205948e-07,
+    "independent_interpolation_max_abs": 4.470348358154297e-07,
+    "all_old_coordinates_exact": true,
+    "inactive_outputs_exact": true,
+    "preflight_before_normals": true,
+    "freeze_before_metrics": true,
+    "classification": "local-detail capacity supported",
+    "seconds": 26.504553918959573
+  },
+  "archives": {
+    "all_output_history_hashes_unchanged": true,
+    "source_bindings_unchanged": true,
+    "full": {
+      "path": "/media/wenchang/F/wjq/TTIE/shared/t054a/T054A_full.tar",
+      "bytes": 1071093760,
+      "sha256": "85562949d1fcd9b971868c61c1a7802b6f7d8a06e963cee89a4aed70b91e1995"
+    },
+    "compact": {
+      "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t054a/T054A_compact.tar.gz",
+      "bytes": 11411022,
+      "sha256": "e5f1b22eacf78b0c10deddfcc5d3253b10db7b92276c13983f7bf0c84462ed2d"
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t054a/T054A_compact.tar.gz"
+  },
+  "runs": {
+    "release": "20260916-200256-ttie-t054a-detail",
+    "preflight_run": "20260916-200318-ttie-t054a-preflight",
+    "oracle_run": "20260916-200429-ttie-t054a-oracle",
+    "evaluation_run": "20260916-200748-ttie-t054a-eval"
+  },
+  "failures": [
+    "Read-only preflight log fetch SSH255 once; job not restarted."
+  ],
+  "scientific_deviations": [],
+  "label": "REFERENCE_ORACLE_ONLY",
+  "official_test_access": false,
+  "next_step": "Stop after delivery; await research-lead review/new explicit OPEN. Do not repeat T054 while OPEN or start T055."
+}
