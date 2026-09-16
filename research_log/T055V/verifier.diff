@@ -1,0 +1,33 @@
+diff --git a/research_log/T055A_oracle/replay.py "b/research_log\\T055V\\replay.py"
+index 81a20b29..794ebb1f 100644
+--- a/research_log/T055A_oracle/replay.py
++++ "b/research_log\\T055V\\replay.py"
+@@ -7,6 +7,7 @@ from PIL import Image
+ from scipy.ndimage import convolve1d
+ p=argparse.ArgumentParser()
+ for k in ['split','low-root','normal-root','accepted','preflight','out']:p.add_argument('--'+k,type=Path,required=True)
++p.add_argument('--receipt',type=Path,required=True)
+ a=p.parse_args();torch.set_num_threads(1);start=time.perf_counter()
+ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+ def thash(x):return hashlib.sha256(x.contiguous().numpy().tobytes()).hexdigest()
+@@ -27,9 +28,11 @@ def interpolate(grid,h,w):
+  def coords(n):return np.maximum(((np.arange(n,dtype=np.float32)+.5).astype(np.float64)*float(np.float32(8/n))-.5).astype(np.float32),0)
+  yy=coords(h);xx=coords(w)
+  y0=np.floor(yy).astype(int);x0=np.floor(xx).astype(int);y1=np.minimum(y0+1,7);x1=np.minimum(x0+1,7);fy=yy-y0.astype(np.float32);fx=xx-x0.astype(np.float32)
+- top=grid[y0[:,None],x0[None,:]]*(1-fx)+grid[y0[:,None],x1[None,:]]*fx
+- bot=grid[y1[:,None],x0[None,:]]*(1-fx)+grid[y1[:,None],x1[None,:]]*fx
+- return top*(1-fy[:,None])+bot*fy[:,None]
++ # Match CUDA's contracted weighted sums, globally for every grid value.
++ def fma(a,b,c):return (a.astype(np.float64)*b.astype(np.float64)+c.astype(np.float64)).astype(np.float32)
++ top=fma(1-fx,grid[y0[:,None],x0[None,:]],fx*grid[y0[:,None],x1[None,:]])
++ bot=fma(1-fx,grid[y1[:,None],x0[None,:]],fx*grid[y1[:,None],x1[None,:]])
++ return fma(1-fy[:,None],top,fy[:,None]*bot)
+ errors=[];render_errors=[];field_errors=[];basis_errors=[];steps=[];fields={k:[] for k in ['selected_controls','selected_field']};values={k:[] for k in ['psnr','ssim','t054_psnr','t054_ssim','delta_psnr','delta_ssim']}
+ for i,(row,item,old,main) in enumerate(zip(f['rows'],split,baseline,pairs)):
+  root=a.out/f'{i:03d}';prior_root=a.accepted/f'{i:03d}';assert row['low']==item['low']==old['low']==main['low']
+@@ -69,4 +72,4 @@ for name,data in fields.items():
+ classification='material local-detail underconvergence supported' if statistics.mean(values['delta_psnr'])>=.25 and statistics.median(values['delta_psnr'])>=.10 and statistics.mean(values['delta_ssim'])>=.010 else 'material local-detail underconvergence not supported under fixed extension'
+ assert classification==summary['classification'] and max(errors)<=1e-10
+ result=dict(status='PASS',images=100,history_states=100100,selected_output_metrics=200,scalar_checks=len(errors),max_abs_error=max(errors),independent_renderer_max_abs=max(render_errors),independent_basis_max_abs=max(basis_errors),independent_interpolation_max_abs=max(field_errors),all_old_coordinates_exact=True,inactive_outputs_exact=True,preflight_before_normals=True,freeze_before_metrics=True,classification=classification,seconds=time.perf_counter()-start)
+-(a.out/'independent_replay.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
++a.receipt.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
