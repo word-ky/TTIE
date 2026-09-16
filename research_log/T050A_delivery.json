@@ -1,0 +1,162 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-15T18:36:09.816544+00:00",
+  "tested_source": "9109f3296716a378a8d1424360ccec2c813a9713",
+  "pr": "https://github.com/word-ky/TTIE/pull/75",
+  "summary": {
+    "label": "REFERENCE_ORACLE_ONLY",
+    "metrics": {
+      "psnr": {
+        "mean": 21.874262727355422,
+        "median": 22.647607082917492
+      },
+      "ssim": {
+        "mean": 0.5051607175038693,
+        "median": 0.540449382934806
+      },
+      "t049_psnr": {
+        "mean": 21.872255249768454,
+        "median": 22.6465425425704
+      },
+      "t049_ssim": {
+        "mean": 0.5047578705434101,
+        "median": 0.5403937235737263
+      },
+      "delta_psnr": {
+        "mean": 0.002007477586970072,
+        "median": 0.0006543314521287869
+      },
+      "delta_ssim": {
+        "mean": 0.00040284696045923455,
+        "median": 5.309164177508263e-05
+      },
+      "total_vs_t048_psnr": {
+        "mean": 0.8092827413129902,
+        "median": 0.6004874122174133
+      },
+      "total_vs_t048_ssim": {
+        "mean": 0.04849690457474201,
+        "median": 0.02788832369653374
+      }
+    },
+    "best_step_histogram": {
+      "1000": 50,
+      "998": 2,
+      "984": 3,
+      "414": 1,
+      "999": 10,
+      "910": 1,
+      "994": 1,
+      "659": 1,
+      "816": 1,
+      "991": 1,
+      "992": 1,
+      "995": 5,
+      "671": 1,
+      "240": 1,
+      "993": 1,
+      "981": 1,
+      "977": 1,
+      "997": 2,
+      "799": 1,
+      "983": 1,
+      "499": 1,
+      "952": 1,
+      "986": 2,
+      "966": 1,
+      "996": 1,
+      "918": 1,
+      "559": 1,
+      "988": 1,
+      "0": 1,
+      "978": 1,
+      "987": 1,
+      "640": 1,
+      "542": 1
+    },
+    "at_step1000": 50,
+    "win_equal_loss": {
+      "psnr": {
+        "win": 99,
+        "equal": 1,
+        "loss": 0
+      },
+      "ssim": {
+        "win": 70,
+        "equal": 1,
+        "loss": 29
+      }
+    },
+    "runtime_seconds": 5983.430297610117,
+    "tone_distribution": {
+      "active_curves": 392,
+      "segment_count": 3136,
+      "segment_min": 1.811981201171875e-05,
+      "segment_max": 0.5917223691940308,
+      "segment_mean": 0.12499999997505386,
+      "segment_median": 0.12267990410327911,
+      "zero_width_segments": 0,
+      "interior_knot_min": 0.062297191470861435,
+      "interior_knot_max": 0.9999817609786987,
+      "interior_knot_mean": 0.5209381680721118,
+      "interior_knot_median": 0.5042145252227783,
+      "fixed_endpoints": [
+        0,
+        1
+      ]
+    },
+    "classification": "material monotonic-tone underconvergence not supported under fixed extension"
+  },
+  "replay": {
+    "status": "PASS",
+    "images": 100,
+    "history_states": 100100,
+    "selected_output_metrics": 200,
+    "scalar_checks": 924,
+    "max_abs_error": 7.105427357601002e-15,
+    "classification": "material monotonic-tone underconvergence not supported under fixed extension",
+    "independent_renderer_max_abs": 4.76837158203125e-07,
+    "all_t048_coordinates_exact": true,
+    "all_luts_monotonic": true,
+    "inactive_outputs_exact": true,
+    "all_states_finite_bounded": true,
+    "all_earliest_selected_raws_exact": true,
+    "preflight_before_normals": true,
+    "freeze_before_metrics": true,
+    "seconds": 13.60323457699269
+  },
+  "archives": {
+    "all_output_history_hashes_unchanged": true,
+    "source_bindings_unchanged": true,
+    "full": {
+      "path": "/media/wenchang/F/wjq/TTIE/shared/t050a/T050A_full.tar",
+      "bytes": 303052800,
+      "sha256": "aed671406d3e507f13966ab6fc73107c3c4cc55fc23961112efb9d8faa76fb54"
+    },
+    "compact": {
+      "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t050a/T050A_compact.tar.gz",
+      "bytes": 9645887,
+      "sha256": "c1e984b45fcb1a45ee0a250b945575019da9c747708ed6b03706b7193964f326"
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t050a/T050A_compact.tar.gz"
+  },
+  "runs": {
+    "preflight_run": "20260916-004324-ttie-t050a-preflight",
+    "oracle_run": "20260916-004508-ttie-t050a-oracle",
+    "evaluation_run": "20260916-023322-ttie-t050a-eval",
+    "replay_run": "20260916-023442-ttie-t050a-replay"
+  },
+  "failures": [
+    "Initial replay failed on stale prior-task pairs SHA; corrected constant only and replayed frozen artifacts",
+    "Preflight launch SSH255 before process creation; exact generated script started after verifying no job/log"
+  ],
+  "scientific_deviations": [
+    "Wall runtime about100minutes exceeded approximate one-hour estimate; no algorithmic changes"
+  ],
+  "official_test_access": false,
+  "label": "REFERENCE_ORACLE_ONLY",
+  "next_step": "Stop; await research-lead review.",
+  "scientific_evidence_sha": "455d95b9068ce868d28dc2d3301b33f0c2f1c423",
+  "main_mailbox_sha": "640a3bbff10548536063e0c84174377d75a51750",
+  "main_mailbox_url": "https://github.com/word-ky/TTIE/blob/640a3bbff10548536063e0c84174377d75a51750/coordination/CODEX_TO_CHATGPT.md"
+}
