@@ -4156,3 +4156,22 @@ Independent replay: {"zero_rgb_sum_max": 1.7881393432617188e-07, "zero_rgb_sum_t
 Failures: local template hash replacement caught and restored before source freeze; initial SSH255 deployment failed before upload, identical source redeployed successfully. No scientific failure, source repair or rerun. Full histories/start/output images archived on server/F; SHA 62b00468f73fc4531cf1afbfb393dae36b9863a7051ddc2361ae6606c0cd277f. Metadata/report local and committed.
 
 Recommendation: stop this fixed probe and await research-lead adjudication/new task. No budget/range/scale rescue, T058, self-merge, or history cleanup.
+
+
+## T058-A PARTIAL — 2026-09-16T18:41:49.655135+00:00
+
+SOURCE_REFERENCE_GRADIENT_DIAGNOSTIC_ONLY. Zero deployable changes, zero target-domain/official-test access, zero optimizer updates. **No source-readiness verdict available.**
+
+Tested source `aa22caacd42906ba36063a1a2560600ba2370897`; evidence `e7953a202112baf647654411626e743865ae8f25`; branch `codex/T058A-source-detail`; PR https://github.com/word-ky/TTIE/pull/84 ready. Full method, provenance, commands, context and failure evidence: `research_log/T058A_report.md`, `T058A_source_binding.json`, `T058A_result/` on the branch.
+
+All137 source bindings and accepted T039/T014 bank/checkpoint/manifests verified before work. All7346 canonical y0 reconstructions in original order passed before derivatives, max2.682209014892578e-7 <=1e-6. Preflight SHA22733704e27209d33d24794c88f4119b7643b7e0aa0f3e06a4018fd7d1c0a431; T058 selection SHA7e5062869f267164cc02a14de249ab0ec8e430bde88b0eeb2a9d28d4f3b7b06b; canonical donor selection SHA08227ee09f4cd428ee034d1d33cea7827037e853f2fe8b0a7efedcccfecc964c. Only zero v8x8 differentiated, old coordinates/energy frozen.
+
+Sole GPU1 StageA023631 stopped at canonical index3 (fourth row) with ENERGY_FINITE_DIFFERENCE_FAILURE. Predeclared first16 check: alternating unit-L2 direction, central h=.001, engineering sanity tolerance .0005+.05*abs(autograd); no settings chosen after run. Index0..2 passed. Index3 central .003814697265625 versus autograd .006348532158881426, error .002533834893256426 > tolerance .0008174266079440714. Energy(+h)=-4.796319007873535; energy(-h)=-4.796326637268066. Cause unestablished; float32 sensitivity/clamp non-smoothness are possibilities only. No repair, step/tolerance change, rerun or sweep.
+
+Stage A complete freeze absent. Only bank000 (one identity-row gradient) serialized; scalar FD receipts retain indices0..3. Stage B not started; source clean JPG opens0, reference gradients0. Positive-dot/cosine/norm aggregate and degeneracy denominator unavailable. Full independent replay and full16-state sanity not completed. Do not classify the energy as not ready from this incomplete audit.
+
+Baseline2tests18.61s; final local4tests11.33s; server4tests1.60s; compilePASS. Run20260917-023631-ttie-t058a-stage-a, release20260917-023609-ttie-t058a-detail,02:36:36..02:37:26+08, exit1. StageB/replay code compiled but end-to-end unexecuted. Context only: accepted T039 gain1 legacy positive .997654525386/median cosine .977504105827, gain .890299434249/.839585423228; these are not new results or a second gate.
+
+Stopped-run archive home/F/local verified,2332586bytes SHA3eb1a56ecfe2e8be9968c4d15364002b665b40db421fdb5b5554dcf83261d262; all8 constituent hashes verified locally. First read-only SCP disconnected, retry succeeded. Full failed attempt preserved.
+
+Recommendation: adjudicate a bounded numerical verifier diagnostic before authorizing continuation. Stop awaiting research-lead instructions; no same-cycle retraining, real-domain probe, T059, selfmerge or history cleanup.
