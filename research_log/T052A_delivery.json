@@ -1,5 +1,5 @@
 {
-  "status": "DONE",
+  "status": "PARTIAL",
   "completed_utc": "2026-09-16T09:47:40.690815+00:00",
   "tested_source": "e3bbf12c701d642a215afc049ca05cf9017feed1",
   "pr": "https://github.com/word-ky/TTIE/pull/77",
@@ -197,5 +197,33 @@
   "scientific_deviations": [],
   "label": "REFERENCE_ORACLE_ONLY",
   "official_test_access": false,
-  "next_step": "Await research-lead review; noT053."
+  "next_step": "Research lead must adjudicate verifier-only correction under concurrent EXEC no-source-edit rule. No rerun, noT053.",
+  "scientific_evidence_sha": "86dde41c3b795b78217172583e64b6ab3f2b2d50",
+  "awaiting_research_review": true,
+  "experiment_complete": true,
+  "original_replay_passed": false,
+  "corrected_replay_passed": true,
+  "concurrent_exec_commit": "b577bd0b1399550302e9e58b806aef02a60a4867",
+  "exposure_control_distribution": {
+    "raw_u": {
+      "count": 6400,
+      "min": -5.941775321960449,
+      "max": 0.8145485520362854,
+      "mean": -0.3645020302171049,
+      "median": -0.12232993543148041
+    },
+    "physical_ev": {
+      "count": 6400,
+      "min": -1.9999723434448242,
+      "max": 1.3441836833953857,
+      "mean": -0.3836988514307009,
+      "median": -0.2434467226266861,
+      "lower_hits": 0,
+      "upper_hits": 0
+    },
+    "arithmetic": "Selected raw u controls from frozen histories; descriptive physical controls computed as float32 torch CPU 2*tanh(u). No image decode, selection change or experiment rerun."
+  },
+  "protocol_deviations": [
+    "Concurrent research-lead update: b577bd0b1399550302e9e58b806aef02a60a4867 (17:44:24+08) created T052-A-EXEC, accepting exactscientificsourcee3bbf12c and freezing allsettings but prohibiting postauthorization source edits. It was first read during publication after the verifier-only repair and corrected replay were already completed. The sole scientifictrajectory and metrics used exactauthorizedsource and froze17:42:11+08, beforethisupdate. Originalreplayfailed; correctedverifierpassedwithouttoleranceortrajectorychanges. Because the new no-source-edit condition encompasses that verifier correction, delivery is PARTIAL pending explicit research-lead acceptance of the repaired verifier. No further source edits/reruns. Negative numericgateclassification remains not supported under fixed probe. This joint-family probe cannot isolate scale/offset interaction from the additional exposure optimization; no u-onlycontrol is authorized."
+  ]
 }

@@ -1,6 +1,8 @@
-# T052-A DONE — spatial affine coupling
+# T052-A / T052-A-EXEC PARTIAL — spatial affine coupling
 
 REFERENCE_ORACLE_ONLY. Zero deployable changes; zero official-test access.
+
+Concurrent research-lead update: b577bd0b1399550302e9e58b806aef02a60a4867 (17:44:24+08) created T052-A-EXEC, accepting exactscientificsourcee3bbf12c and freezing allsettings but prohibiting postauthorization source edits. It was first read during publication after the verifier-only repair and corrected replay were already completed. The sole scientifictrajectory and metrics used exactauthorizedsource and froze17:42:11+08, beforethisupdate. Originalreplayfailed; correctedverifierpassedwithouttoleranceortrajectorychanges. Because the new no-source-edit condition encompasses that verifier correction, delivery is PARTIAL pending explicit research-lead acceptance of the repaired verifier. No further source edits/reruns. Negative numericgateclassification remains not supported under fixed probe. This joint-family probe cannot isolate scale/offset interaction from the additional exposure optimization; no u-onlycontrol is authorized.
 
 not supported under fixed probe
 
@@ -53,3 +55,5 @@ Reference-only finite-budget development capacity, not deployable restoration, h
 PR77 is based on research-authorized acceptedT051head; PR76 remains unmerged after PR75squash. Dependencies preserved, no rebase/selfmerge. Await research-lead integration/review.
 
 Archives: `{"all_output_history_hashes_unchanged": true, "source_bindings_unchanged": true, "full": {"path": "/media/wenchang/F/wjq/TTIE/shared/t052a/T052A_full.tar", "bytes": 507719680, "sha256": "3dd281208099a64413fb70898e769aeb6a1cfc4ab123cdd98ff66602b6972cce"}, "compact": {"path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t052a/T052A_compact.tar.gz", "bytes": 20353551, "sha256": "3342e0dafde33f98f7d1ef0f7b49124ac6506f131999de137a1f23a1a087fe4c"}, "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t052a/T052A_compact.tar.gz"}`. FullimagesremoteF; compacthistories/receipts/plots stored projectlocally.
+
+Exposure control-grid diagnostics: `{"raw_u": {"count": 6400, "min": -5.941775321960449, "max": 0.8145485520362854, "mean": -0.3645020302171049, "median": -0.12232993543148041}, "physical_ev": {"count": 6400, "min": -1.9999723434448242, "max": 1.3441836833953857, "mean": -0.3836988514307009, "median": -0.2434467226266861, "lower_hits": 0, "upper_hits": 0}, "arithmetic": "Selected raw u controls from frozen histories; descriptive physical controls computed as float32 torch CPU 2*tanh(u). No image decode, selection change or experiment rerun."}`.
