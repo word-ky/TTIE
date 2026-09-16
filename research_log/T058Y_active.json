@@ -1,0 +1,20 @@
+{
+  "task": "T058-Y",
+  "status": "DONE",
+  "authorization": "f0a0432a5313e014f56ef7c7aaacaaca920442d5",
+  "base": "dfe6e1bd27a721334ddbf27cd86b8f52a16a908f",
+  "branch": "codex/T058Y-float64",
+  "worktree": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T058Y-work",
+  "started_utc": "2026-09-16T22:24:42.472156+00:00",
+  "next_step": "Stop: unchanged energy.features returnsfloat32, pureCPUfloat64shadow unavailable without cast-site change. Await research-lead review; no samecycle rewrite/FD/StageA/B/JPG/T059.",
+  "failures": [
+    "RuntimeError: Unchanged composition retains a non-float64 intermediate; full CPU float64 shadow would require a functional/cast-site rewrite"
+  ],
+  "source": "64d6cca13ac94368043be84ac4a401700f8a5101",
+  "local_tests": "3passed5.32s",
+  "release": "20260917-062841-ttie-t058y-shadow",
+  "run": "20260917-062907-ttie-t058y-shadow",
+  "pr": "https://github.com/word-ky/TTIE/pull/88",
+  "pr_node": "PR_kwDOUXJJGc8AAAABD11bwA",
+  "classification": "T058 derivative verifier unresolved"
+}
