@@ -1,0 +1,21 @@
+{
+  "task": "T058-X",
+  "status": "DONE",
+  "authorization": "17a5e484a743c4ad569a9c21ef30dc80241f2fa6",
+  "base": "b6b5b1f79db405341acb99eff59d5c301d2dce1b",
+  "branch": "codex/T058X-backend",
+  "worktree": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T058X-work",
+  "started_utc": "2026-09-16T21:40:44.004902+00:00",
+  "next_step": "Stop after unresolved MHA-backend triangulation; await research-lead review. T058-A remains PARTIAL; no SDP flag change, fallback, full audit/StageB/JPG/T059.",
+  "failures": [
+    "D disk full blocked initial git add/commit and stage build before any remote run. Deletion of verified redundant staging copies denied by automatic policy; no files deleted. Git temporary index moved to system TEMP; disk subsequently has63MB free. Source committed and exact stage rebuilt.",
+    "NotImplementedError: Trying to use forward AD with _scaled_dot_product_efficient_attention that does not support it because it has not been implemented yet.\nPlease file an issue to PyTorch at https://github.com/pytorch/pytorch/issues/new?template=feature-request.yml so that we can prioritize its implementation or submit a PR adding the implementation to derivatives.yaml"
+  ],
+  "source": "c3803de16c4b5656d1fcc23ee347e0be038d9634",
+  "local_tests": "3passed5.22s",
+  "release": "20260917-054646-ttie-t058x-backend",
+  "run": "20260917-054710-ttie-t058x-backend",
+  "pr": "https://github.com/word-ky/TTIE/pull/87",
+  "pr_node": "PR_kwDOUXJJGc8AAAABD1lpBQ",
+  "classification": "T058 derivative verifier unresolved"
+}
