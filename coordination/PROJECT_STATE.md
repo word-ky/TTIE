@@ -14,45 +14,44 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 On LOL-v2 Real development data, the official 100-pair test remains sealed. The accepted fixed-validation deployable base is **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`**. T026-B showed that extending the same trajectory from 40 to 80 steps adds only `+0.1210491 dB / +0.0042526`, so the 40-step base remains fixed.
 
-**T036-A common gain is the strongest fresh-qualified deployable action expansion so far.** On its deterministic reference-unused 100-pair training-development cohort it improves exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean, but it is not per-image safe: PSNR declines on 29/100 images, SSIM on 40/100, and the worst PSNR loss is `5.61447 dB`. It is a mechanism result, not the final deployable Ours.
+**T036-A common gain is the strongest fresh-qualified deployable action expansion so far.** On its deterministic reference-unused 100-pair training-development cohort it improves exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean, but remains unsafe per image. It is a mechanism result, not the final deployable Ours.
 
 ## Optimization-field diagnosis
 
-- **T028-A:** exact EV+gamma reference-only reachability `17.4599918 / 0.4317158`, proving large reachable headroom beyond the learned path.
-- **T029-A:** the learned field is directionally strong early and collapses late: step-10 median cosine `0.7266` with `97%` positive-dot, versus selected-state median cosine `-0.2785` with `24%` positive-dot.
-- **T031/T032:** source-support distance predicts gradient invalidity moderately well, but the obvious global trust-radius controller fails.
-- **T041/T042:** late real legacy/feature-state extrapolation is a major local field-reliability failure; substituting fixed step-10 legacy coordinates restores strong directional alignment.
-- **T043:** that early-state substitution is worse in reference quality, proving local gradient validity and absolute restoration quality are not the same thing.
-- **T044:** raw step10-to-selected excursion is not a useful target-free regression-risk signal.
+- **T028-A:** exact EV+gamma reference-only reachability `17.4599918 / 0.4317158`, proving substantial headroom beyond the learned path.
+- **T029-A:** learned-field direction is strong early and collapses late: step-10 median cosine `0.7266` with `97%` positive-dot versus selected-state median cosine `-0.2785` with `24%` positive-dot.
+- **T031/T032:** source-support distance predicts invalidity moderately well, but the direct global trust-radius controller fails.
+- **T041/T042:** late real legacy/feature-state extrapolation is a major local reliability failure; substituting fixed step-10 legacy coordinates restores strong directional alignment.
+- **T043/T044:** directional validity does not equal absolute image quality, and raw late excursion is not a useful target-free risk score.
 
-The deployable bottleneck remains two-sided: the action family must be expressive enough, and the learned reference-free optimization field must remain valid over the states it visits.
+The deployable bottleneck remains two-sided: the renderer/action family must be expressive enough, and the learned target-free optimization field must remain valid over the states it visits.
 
-## Capacity sequence through T055
+## Capacity sequence through T056
 
-All results in this section are **non-deployable `REFERENCE_ORACLE_ONLY` diagnostics** on the frozen development cohort. Clean targets, reference gradients/states, PSNR/SSIM, or per-image oracle quantities from these diagnostics are forbidden from deployable test-time adaptation.
+All results here are **non-deployable `REFERENCE_ORACLE_ONLY` diagnostics** on the frozen development cohort. Clean targets, reference gradients/states, PSNR/SSIM, and per-image oracle quantities are forbidden from deployable inference.
 
-- **T046-A common-gain continuation:** `19.5732278 / 0.4093671`; +1000 extra updates add only `+0.0202 dB`, so common-gain underconvergence is not the main explanation.
+- **T046-A common-gain continuation:** `19.5732278 / 0.4093671`; +1000 more updates add only `+0.0202 dB`, rejecting material underconvergence.
 - **T047-A additive lift with gain frozen:** `20.0559720 / 0.4142735`; broad-positive but sub-gate.
 - **T048-A joint regional affine coupling:** `21.0649800 / 0.4566638`; joint gain+lift adds `+1.0090 dB` mean / `+0.5584 dB` median over T047.
 - **T049-A regional monotonic tone LUT:** `21.8722552 / 0.5047579`; adds `+0.8073 dB` mean / `+0.5989 dB` median and `+0.0481` mean SSIM.
-- **T050-A fixed tone convergence extension:** `21.8742627 / 0.5051607`; another +1000 tone-only updates add only `+0.0020 dB` mean / `+0.00065 dB` median, closing pure tone LR/step/budget rescue.
-- **T051-A smooth RGB-shared 8×8 exposure field:** `22.5332679 / 0.5219925`; relative to T050, `+0.6590052 dB` mean / `+0.4525454 dB` median PSNR and `+0.0168318` mean SSIM. Broad-positive but below the frozen SOTA-scale promotion gate.
-- **T052-A joint smooth exposure + additive field:** `23.1071511 / 0.5700402` (median PSNR `23.8982378`). Relative to T050, `+1.2328884 dB` mean / `+1.0713880 dB` median PSNR and `+0.0648795` mean SSIM. The frozen total gate misses only the `+1.50 dB` mean requirement; relative to T051 it adds `+0.5738832 / +0.5183313 dB` mean/median PSNR and `+0.0480477` mean SSIM.
-- **T053-A fixed additive-range closure:** `23.1137228 / 0.5693885`. Widening only `b` from `[-0.20,+0.20]` to `[-0.40,+0.40]` adds only `+0.0065717 dB` mean / `+0.0012222 dB` median and reduces mean SSIM by `0.0006517`; additive range/LR/budget rescue is closed.
-- **T054-A fixed local-detail field:** `24.3454867 dB / 0.7577572 RGB-SSIM` (median PSNR `24.8107619`). Starting from exact accepted T052 and freezing every old coordinate, one RGB-shared 8×8 coefficient field multiplies the fixed image-derived basis `D=y0-B5(y0)` using the deterministic separable 5×5 binomial blur. Relative to T052, T054 adds **`+1.2383356 dB` mean / `+1.2353360 dB` median PSNR and `+0.1877170` mean RGB-SSIM**, with both metrics improving on 100/100 images. The selected field is strongly negative, establishing spatially varying detail attenuation / denoising as a major missing renderer capability.
-- **T055-A fixed one-scale detail convergence extension:** now independently accepted after T055-V verifier adjudication. Continuing only the accepted T054 detail `v` for fixed +1000 fresh-Adam updates at the same `lr=0.05` reaches **`24.3497922 / 0.7591279`**. Relative to T054 this is only **`+0.0043055 dB` mean / `+0.0029189 dB` median PSNR and `+0.0013707` mean RGB-SSIM**, far below the frozen `+0.25/+0.10 dB/+0.010` gate. Material underconvergence of the fixed one-scale 5×5 family is therefore **not supported**; pure step/LR-budget rescue is closed.
-- **T055-V verifier adjudication:** accepted as verifier-only. The original `1.0952353e-6` interpolation failure was caused by separate NumPy rounding versus CUDA contracted weighted sums. A global FMA-order emulation, with no scientific/tolerance change, reduces max interpolation error to `1.1920929e-7`. The frozen 299-file scientific manifest is unchanged, optimizer calls are zero, metrics were not regenerated, and replay passes 100 images / 100,100 history states / 200 metrics / 724 scalar checks with max basis/interpolation/renderer/scalar errors `1.7719e-7 / 1.1921e-7 / 0 / 3.55e-15`.
+- **T050-A tone convergence extension:** `21.8742627 / 0.5051607`; another +1000 tone-only updates add only `+0.0020 dB`, closing pure tone budget rescue.
+- **T051-A smooth RGB-shared 8×8 exposure field:** `22.5332679 / 0.5219925`; broad-positive but below the frozen SOTA-scale gate.
+- **T052-A joint smooth exposure + additive field:** `23.1071511 / 0.5700402`; relative to T050, `+1.2328884 dB` mean / `+1.0713880 dB` median and `+0.0648795` mean SSIM. It misses only the frozen `+1.50 dB` mean requirement.
+- **T053-A additive-range closure:** `23.1137228 / 0.5693885`; widening only `b` gives `+0.00657 dB` mean and slightly worse SSIM, closing additive-range rescue.
+- **T054-A local-detail field:** `24.3454867 / 0.7577572`. A single RGB-shared 8×8 coefficient on `D=y0-B5(y0)` adds **`+1.2383356 dB` mean / `+1.2353360 dB` median PSNR and `+0.1877170` mean SSIM** over T052, with both metrics improving on 100/100 images. The selected field is strongly negative, establishing local detail attenuation / denoising as a major missing capability.
+- **T055-A/T055-V one-scale convergence closure:** `24.3497922 / 0.7591279`. Another fixed +1000 updates add only **`+0.0043055 dB` mean / `+0.0029189 dB` median and `+0.0013707` SSIM**. Independent replay is accepted after verifier-only FMA-order adjudication; pure one-scale step/LR rescue is closed.
+- **T056-A fixed second-scale detail band:** scientifically valid but **not materially supported**. Adding one RGB-shared 8×8 coefficient on `D2=B5(y0)-B9(y0)` reaches **`24.4701676 / 0.7698747`**, only `+0.1203754 dB` mean / `+0.1019722 dB` median PSNR and `+0.0107468` mean SSIM over T055, below the frozen `+0.50/+0.25 dB/+0.020` gate. Gains are broad (`100/100` PSNR wins, `81/100` SSIM wins), but too small to promote coarse-band stacking as the next major mechanism. Replay passes 100 images / 50,100 history states / 200 metrics / 724 scalar checks with basis/interpolation/renderer maxima `3.22e-7 / 1.19e-7 / 0`; all older coordinates remain exact.
 
-The capacity diagnosis is now sharper. The one-scale local-detail operator was genuinely valuable, but more optimization of that same family is essentially exhausted. T055 also drives many controls toward the negative asymptote without material quality gain. Because `c=-1` already moves the active output from `y0` to the fixed 5×5 low-pass `B5(y0)`, the next isolated capacity question is not a larger step budget but whether a **coarser local-frequency band** provides residual capacity.
+The capacity diagnosis is now sharper: the large post-T052 jump comes from **local detail/noise control**, but simply adding a coarser shared frequency band gives only a modest increment. T056 controls polarize toward both signs, so the next structural question is whether the remaining error is specifically **chroma high-frequency noise that the RGB-shared detail coefficient cannot decouple from luminance structure**.
 
 ## Strong baseline development anchors
 
 - **Retinexformer T033-A:** `21.4787864 / 0.7900612`.
 - **SNR-Aware T045-A:** `23.3963299 / 0.8237644`.
 
-Both are target-free at inference under the frozen comparison protocol, but their released supervised recipes/checkpoints are exposed to LOL-v2 Real training data containing this development split. They are therefore **training-exposed development anchors**, not independent held-out SOTA evidence.
+Both are target-free at inference under the frozen comparison protocol, but their released supervised checkpoints are exposed to LOL-v2 Real training data containing this development split. They are training-exposed development anchors, not independent held-out SOTA evidence.
 
-The first strong-baseline development table is sufficient for method investment; do not add another baseline before resolving Ours capacity and optimization. The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the strongest fair target-free baseline on the same held-out protocol**, without sacrificing the no-test-target rule. This is an objective, not a current claim.
+The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the strongest fair target-free baseline on the same held-out protocol**, without violating the no-test-target rule. This is an objective, not a current claim.
 
 ## Information-boundary rules
 
@@ -61,7 +60,7 @@ The first strong-baseline development table is sufficient for method investment;
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
 - External baselines admitted to the main comparison must be target-free at inference.
-- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. **The official LOL-v2 Real test remains untouched through T055-A/T055-V.**
+- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. **The official LOL-v2 Real test remains untouched through T056-A.**
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -69,18 +68,16 @@ The first strong-baseline development table is sufficient for method investment;
 - **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
 - **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918`.
 - **Fresh-qualified deployable action extension:** T036-A common gain, `+0.9392571 dB` mean on its fresh cohort, unsafe tail unresolved.
-- **Best accepted non-deployable reference reachability:** T055-A, **`24.3497922 / 0.7591279`**; its gain over T054 is negligible, so it is a convergence closure rather than a new capacity mechanism.
+- **Best promoted non-deployable mechanism state:** T055-A, `24.3497922 / 0.7591279`; T056 is a valid higher finite-budget observation (`24.4701676 / 0.7698747`) but failed its materiality gate and is not promoted as a mechanism.
 - **Training-exposed development anchors:** Retinexformer `21.4787864 / 0.7900612`; SNR-Aware `23.3963299 / 0.8237644`.
 - **Heterogeneous-only adaptive geometry extension:** T019; universal geometry repair remains paused after T020.
 
-## Milestones
+## Integration note
 
-T001–T013: controlled mechanism/diagnostic sequence. T014: broad controlled/fresh Sobolev Ours-Core. T019: heterogeneous adaptive geometry positive. T020: universal geometry route paused. T021: RGB-SSIM transfer positive. T024: baseline protocol frozen. T026-A: fixed-validation deployable base. T027-A/B: baseline exporters ready. T029: late-field mismatch. T031/T032: support-distance association positive but controller negative. T033: Retinexformer development anchor. T036: common-gain fresh target-free aggregate positive with unsafe tail. T041/T042: late real field-reliability failure and early-state directional rescue. T043: directional validity versus absolute quality separated. T044: simple excursion risk signal rejected. T045: SNR-Aware anchor `23.3963 / 0.8238`. T046: common-gain budget extension negative. T047: lift broad-positive/sub-gate. T048: regional affine coupling positive. T049: nonlinear monotonic tone positive. T050: tone underconvergence rejected. T051: smooth spatial exposure broad-positive but below promotion gate. T052: joint smooth spatial affine family reaches `23.1072 / 0.5700`. T053: additive-range rescue rejected. T054: compact one-scale local-detail control gives a universal large gain to `24.3455 / 0.7578`. **T055/T055-V: another +1000 updates add essentially nothing and independent replay verifies the negative convergence result, closing pure one-scale detail budget rescue.**
-
-PR #75/T050 is merged as `276c0b1fa5c9e6548bef90048ec6fcc43da439c3`. PR #76/T051, #77/T052, #78/T053, #79/T054, #80/T055, and #81/T055-V inherit evidence-history/integration complications; preserve exact accepted scientific/evidence states rather than rewriting history during experiment cycles.
+PR #75/T050 is merged as `276c0b1fa5c9e6548bef90048ec6fcc43da439c3`. PRs #76–#82 inherit evidence-history/integration complications; preserve exact accepted scientific/evidence states rather than rewriting history during experiment cycles. PR #82/T056 is currently non-mergeable for history reasons; that does not invalidate its reviewed scientific evidence.
 
 ## Current open task
 
-**T056-A — fixed second-scale detail-band marginal-capacity oracle** in `coordination/CHATGPT_TO_CODEX.md`.
+**T057-A — fixed chroma-detail marginal-capacity oracle** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Start from exact accepted T055 selected states. Freeze every old coordinate, including T054/T055 `v`. Add only one new RGB-shared 8×8 coefficient field on the fixed mid-frequency basis `D2=B5(y0)-B9(y0)`, where `B5` is the existing 5×5 binomial blur and `B9` is the fixed 9×9 binomial blur. Zero start, fresh Adam `lr=0.05`, exactly 500 updates, single start, same active mask, `REFERENCE_ORACLE_ONLY`. No scale/kernel/range/LR/budget sweep, joint reoptimization, retraining, baseline rerun, fresh cohort, official-test access, or T057 is authorized.
+Start from exact accepted T055 states, not T056. Freeze all existing coordinates. Reuse `D=y0-B5(y0)` and add exactly one new RGB-shared 8×8 coefficient on the zero-RGB-mean basis `D_chroma = D - mean_RGB(D)`. Zero start, fresh Adam `lr=0.05`, exactly 500 updates, single start, same active mask, `REFERENCE_ORACLE_ONLY`. No independent RGB grids, luminance residual, B9/D2 stacking, sweep, joint reoptimization, retraining, baseline rerun, fresh cohort, official-test access, or T058 is authorized.
