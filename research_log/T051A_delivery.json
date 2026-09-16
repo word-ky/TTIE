@@ -1,0 +1,189 @@
+{
+  "status": "DONE",
+  "completed_utc": "2026-09-15T19:28:35.483809+00:00",
+  "tested_source": "cab61cdbfb5a4a6d45d22e5a6ebd914bda21f6c9",
+  "summary": {
+    "label": "REFERENCE_ORACLE_ONLY",
+    "metrics": {
+      "psnr": {
+        "mean": 22.533267888904962,
+        "median": 23.265271057273715
+      },
+      "ssim": {
+        "mean": 0.521992520231561,
+        "median": 0.5545018976735614
+      },
+      "t050_psnr": {
+        "mean": 21.874262727355422,
+        "median": 22.647607082917492
+      },
+      "t050_ssim": {
+        "mean": 0.5051607175038693,
+        "median": 0.540449382934806
+      },
+      "delta_psnr": {
+        "mean": 0.6590051615495335,
+        "median": 0.45254539039826547
+      },
+      "delta_ssim": {
+        "mean": 0.016831802727691733,
+        "median": 0.008217066854546262
+      }
+    },
+    "best_step_histogram": {
+      "421": 1,
+      "221": 1,
+      "500": 23,
+      "278": 2,
+      "234": 2,
+      "496": 1,
+      "210": 2,
+      "453": 1,
+      "291": 1,
+      "229": 1,
+      "218": 1,
+      "206": 1,
+      "342": 1,
+      "205": 1,
+      "255": 1,
+      "295": 1,
+      "385": 1,
+      "169": 1,
+      "362": 1,
+      "224": 1,
+      "208": 2,
+      "198": 2,
+      "199": 1,
+      "207": 1,
+      "259": 1,
+      "233": 1,
+      "294": 1,
+      "158": 1,
+      "203": 2,
+      "239": 1,
+      "176": 1,
+      "192": 2,
+      "170": 1,
+      "425": 1,
+      "345": 1,
+      "298": 1,
+      "285": 1,
+      "200": 1,
+      "260": 1,
+      "249": 1,
+      "194": 1,
+      "303": 1,
+      "318": 1,
+      "244": 1,
+      "272": 1,
+      "223": 1,
+      "225": 2,
+      "262": 1,
+      "201": 1,
+      "389": 1,
+      "211": 1,
+      "443": 1,
+      "322": 1,
+      "227": 2,
+      "230": 1,
+      "350": 1,
+      "228": 1,
+      "293": 1,
+      "287": 1,
+      "276": 1,
+      "195": 1,
+      "268": 1,
+      "361": 1,
+      "404": 1,
+      "336": 1,
+      "159": 1,
+      "310": 1,
+      "261": 1,
+      "467": 1
+    },
+    "at_step500": 23,
+    "win_equal_loss": {
+      "psnr": {
+        "win": 100,
+        "equal": 0,
+        "loss": 0
+      },
+      "ssim": {
+        "win": 96,
+        "equal": 0,
+        "loss": 4
+      }
+    },
+    "runtime_seconds": 122.97653557377635,
+    "field_distribution": {
+      "active_pixels": 23520000,
+      "min": -1.9926578998565674,
+      "max": 1.3630602359771729,
+      "mean": -0.08553029074602378,
+      "median": -0.0058067485224455595,
+      "lower_hits": 0,
+      "upper_hits": 0
+    },
+    "classification": "not supported under fixed probe"
+  },
+  "replay": {
+    "status": "PASS",
+    "images": 100,
+    "history_states": 50100,
+    "selected_output_metrics": 200,
+    "scalar_checks": 716,
+    "max_abs_error": 3.552713678800501e-15,
+    "independent_renderer_max_abs": 8.940696716308594e-07,
+    "independent_interpolation_max_abs": 8.344650268554688e-07,
+    "all_old_coordinates_exact": true,
+    "inactive_outputs_exact": true,
+    "preflight_before_normals": true,
+    "freeze_before_metrics": true,
+    "classification": "not supported under fixed probe",
+    "seconds": 27.192875106993597
+  },
+  "archives": {
+    "all_output_history_hashes_unchanged": true,
+    "source_bindings_unchanged": true,
+    "full": {
+      "path": "/media/wenchang/F/wjq/TTIE/shared/t051a/T051A_full.tar",
+      "bytes": 398745600,
+      "sha256": "46ecf02da122e202d82e1c37d430710dfaec9c6dca31b88cdbc4aa16de8bda2a"
+    },
+    "compact": {
+      "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t051a/T051A_compact.tar.gz",
+      "bytes": 11122905,
+      "sha256": "36cb77f91bcd6497108fcf93cde06ae664f060d04ed5c2fca8999cd08d574e9a"
+    },
+    "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t051a/T051A_compact.tar.gz"
+  },
+  "runs": {
+    "preflight_run": "20260916-032032-ttie-t051a-preflight",
+    "oracle_run": "20260916-032119-ttie-t051a-oracle",
+    "evaluation_run": "20260916-032428-ttie-t051a-eval",
+    "replay_run": "20260916-032631-ttie-t051a-replay"
+  },
+  "failures": [
+    "Initial independent replay used float64 interpolation coordinates; corrected verifier to float32, unchanged tolerance and frozen results",
+    "GitHub account email verification403 delayed publication"
+  ],
+  "scientific_deviations": [],
+  "label": "REFERENCE_ORACLE_ONLY",
+  "official_test_access": false,
+  "next_step": "Await research-lead review; noT052.",
+  "evidence_sha": "a41beda5cc0da891e2ddf3a8b83e52093fcbae3e",
+  "recovery": {
+    "head": "a41beda5cc0da891e2ddf3a8b83e52093fcbae3e",
+    "tested_source": "cab61cdbfb5a4a6d45d22e5a6ebd914bda21f6c9",
+    "files": 204,
+    "bytes": 11279322,
+    "sha256": "6b11eb63f7c7cbf6999201c61f7d89cfc4768fc529bf6e4bfccf431638976ce6"
+  },
+  "recovery_home_F_verified": true,
+  "publication_error": "GitHub push403: You must verify your email address",
+  "scientific_evidence_sha": "a41beda5cc0da891e2ddf3a8b83e52093fcbae3e",
+  "publication_recovered": true,
+  "pr": "https://github.com/word-ky/TTIE/pull/76",
+  "main_mailbox_sha": "9a25d0e98bd114f21e7e42ab9702261f04e891d4",
+  "main_mailbox_url": "https://github.com/word-ky/TTIE/blob/9a25d0e98bd114f21e7e42ab9702261f04e891d4/coordination/CODEX_TO_CHATGPT.md"
+}
