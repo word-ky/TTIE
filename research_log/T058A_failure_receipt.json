@@ -1,0 +1,84 @@
+{
+  "status": "PARTIAL",
+  "run": "20260917-023631-ttie-t058a-stage-a",
+  "exit_code": 1,
+  "all7346_preflight_pass": true,
+  "max_reconstruction_abs": 2.682209014892578e-07,
+  "preflight_completed_utc": "2026-09-16T18:37:25.673005+00:00",
+  "preflight_sha256": "22733704e27209d33d24794c88f4119b7643b7e0aa0f3e06a4018fd7d1c0a431",
+  "selection_sha256": "7e5062869f267164cc02a14de249ab0ec8e430bde88b0eeb2a9d28d4f3b7b06b",
+  "persisted_bank_files": [
+    "000.pt"
+  ],
+  "finite_difference": [
+    {
+      "step": 0.001,
+      "direction": "alternating64_unit_l2",
+      "plus": -12.570381164550781,
+      "minus": -12.570381164550781,
+      "central": 0.0,
+      "autograd": 0.0,
+      "abs_error": 0.0,
+      "tolerance": 0.0005,
+      "passed": true,
+      "index": 0
+    },
+    {
+      "step": 0.001,
+      "direction": "alternating64_unit_l2",
+      "plus": -2.9730823040008545,
+      "minus": -2.973111391067505,
+      "central": 0.014543533325195312,
+      "autograd": 0.014239750418710173,
+      "abs_error": 0.0003037829064851394,
+      "tolerance": 0.0012119875209355086,
+      "passed": true,
+      "index": 1
+    },
+    {
+      "step": 0.001,
+      "direction": "alternating64_unit_l2",
+      "plus": -3.9525394439697266,
+      "minus": -3.9525537490844727,
+      "central": 0.007152557373046875,
+      "autograd": 0.007409976562485099,
+      "abs_error": 0.00025741918943822384,
+      "tolerance": 0.000870498828124255,
+      "passed": true,
+      "index": 2
+    },
+    {
+      "step": 0.001,
+      "direction": "alternating64_unit_l2",
+      "plus": -4.796319007873535,
+      "minus": -4.796326637268066,
+      "central": 0.003814697265625,
+      "autograd": 0.006348532158881426,
+      "abs_error": 0.002533834893256426,
+      "tolerance": 0.0008174266079440714,
+      "passed": false,
+      "index": 3
+    }
+  ],
+  "stage_a_complete_freeze": false,
+  "stage_b_started": false,
+  "source_jpg_opens": 0,
+  "optimizer_updates": 0,
+  "reruns": 0,
+  "files": {
+    "train.log": "9d0b7d51379f83d0cd0e616805d916f8adcde0b53267eea9cf7e38f8349183ad",
+    "meta.json": "cb4fe7675d1d71e285cb1d0f8be6fc8fc09b8ae8b7127c4f2ed6aee2f95862d5",
+    "run.sh": "9672463befb1ac3603f007994e7d02efcd2fa54fdd8d0e86e1792ab33a31b44c",
+    "artifacts/stage_a/finite_difference_energy.json": "789541bdf7da4fa616f2c26faef2bb53cd2701adc932cd93c4761f17590ba09f",
+    "artifacts/stage_a/preflight.json": "22733704e27209d33d24794c88f4119b7643b7e0aa0f3e06a4018fd7d1c0a431",
+    "artifacts/stage_a/selection.json": "7e5062869f267164cc02a14de249ab0ec8e430bde88b0eeb2a9d28d4f3b7b06b",
+    "artifacts/stage_a/progress.json": "2c3809e4c28b86ef5fb8924b001990530e0018c17babb2b7654e5a57ff5c4f05",
+    "artifacts/stage_a/000.pt": "31b9f048bfb9541a396b2cc2942d3e96f317c32dfd3a97c8dab5f5d19f82cec2"
+  },
+  "archive": {
+    "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t058a/T058A_failure.tar.gz",
+    "backup": "/media/wenchang/F/wjq/TTIE/shared/t058a/T058A_failure.tar.gz",
+    "bytes": 2332586,
+    "sha256": "3eb1a56ecfe2e8be9968c4d15364002b665b40db421fdb5b5554dcf83261d262"
+  }
+}

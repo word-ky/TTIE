@@ -1,0 +1,20 @@
+[autodl] run_id=20260917-023631-ttie-t058a-stage-a
+[autodl] started_at=2026-09-17T02:36:36+08:00
+....                                                                     [100%]
+4 passed in 1.60s
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+1/400 banks; 1/7346 detail gradients frozen
+Traceback (most recent call last):
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260917-023609-ttie-t058a-detail/research_log/T058A_tangent/stage_a.py", line 69, in <module>
+    assert check['passed'],'ENERGY_FINITE_DIFFERENCE_FAILURE'
+           ~~~~~^^^^^^^^^^
+AssertionError: ENERGY_FINITE_DIFFERENCE_FAILURE
+[autodl] finished_at=2026-09-17T02:37:26+08:00
+[autodl] exit_code=1
