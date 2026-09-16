@@ -23,7 +23,9 @@ for name,key in [('starts','starts_sha256'),('lifts','lifts_sha256'),('qs','qs_s
 weights=np.exp(-np.arange(-5,6,dtype=np.float64)**2/4.5);weights/=weights.sum()
 def smooth(v):return convolve1d(convolve1d(v,weights,axis=0,mode='reflect'),weights,axis=1,mode='reflect')
 def interpolate(grid,h,w):
- yy=np.maximum((np.arange(h,dtype=np.float32)+.5)*np.float32(8/h)-.5,0);xx=np.maximum((np.arange(w,dtype=np.float32)+.5)*np.float32(8/w)-.5,0)
+ # CUDA source coordinates use a single-rounding multiply-add. Emulate that arithmetic in NumPy.
+ def coords(n):return np.maximum(((np.arange(n,dtype=np.float32)+.5).astype(np.float64)*float(np.float32(8/n))-.5).astype(np.float32),0)
+ yy=coords(h);xx=coords(w)
  y0=np.floor(yy).astype(int);x0=np.floor(xx).astype(int);y1=np.minimum(y0+1,7);x1=np.minimum(x0+1,7);fy=yy-y0.astype(np.float32);fx=xx-x0.astype(np.float32)
  top=grid[y0[:,None],x0[None,:]]*(1-fx)+grid[y0[:,None],x1[None,:]]*fx
  bot=grid[y1[:,None],x0[None,:]]*(1-fx)+grid[y1[:,None],x1[None,:]]*fx
