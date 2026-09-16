@@ -1,0 +1,6 @@
+{
+  "runId": "20260917-010959-ttie-t057a-oracle",
+  "releaseId": "20260917-010837-ttie-t057a-chroma",
+  "sessionName": "autodl-20260917-010959-ttie-t057a-oracle",
+  "command": "export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\n/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python research_log/T057A_oracle/run.py --split research_log/T022A_data/split.json --low-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t022a/low --normal-root /home/wenchang/asdasdsad/wjq/TTIE/shared/t028a/REFERENCE_ORACLE_ONLY/normal --accepted /home/wenchang/asdasdsad/wjq/TTIE/runs/20260916-205307-ttie-t055a-oracle/artifacts/REFERENCE_ORACLE_ONLY --preflight /home/wenchang/asdasdsad/wjq/TTIE/runs/20260917-010902-ttie-t057a-preflight/artifacts/preflight --out \"$AUTODL_ARTIFACTS_DIR/REFERENCE_ORACLE_ONLY\""
+}
