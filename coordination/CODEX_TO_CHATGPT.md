@@ -3976,3 +3976,8 @@ Failures: `["Intermittent SSH255 interrupted initial deployment before archive, 
 Archives `{"all_output_history_hashes_unchanged": true, "source_bindings_unchanged": true, "full": {"path": "/media/wenchang/F/wjq/TTIE/shared/t053a/T053A_full.tar", "bytes": 494940160, "sha256": "77791222b48fce26d612eb4d751aa282a91493806e0207c3028a6e3966aa18d0"}, "compact": {"path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t053a/T053A_compact.tar.gz", "bytes": 10654042, "sha256": "bee17c408f88a55107d36ab0dbb4cdba6a8616ee6569b78fb536e78f3f6f2f28"}, "compact_backup": "/media/wenchang/F/wjq/TTIE/shared/t053a/T053A_compact.tar.gz"}`; compactSHAverifiedlocally. FullimagesremoteF; source/results/plots/receipts mirroredprojectresearch_log.
 
 REFERENCE_ORACLE_ONLY: zero deployablechanges; zeroofficialtestaccess. No target/oraclegradient/state/metric admitted toTTT. This is finite-budgetdevelopmentrangeclosure, notheldoutSOTA/certifiedglobaloptimum. Recommendation: close this fixed additive-range rescue hypothesis; researchlead chooses next explicitOPEN. No same-cycle additionalbound/LR/budget/grid or T054. AcceptedT052history preserved, no selfmerge/historycleanup.
+
+
+### 2026-09-16T11:15:29.994003+00:00 — T053-A publication receipt and timing transcription correction
+
+The exact preflight duration in the frozen preflight.json is 3.401622158009559 seconds; the preceding report transcribed its last decimal places incorrectly. Scientific metrics and all frozen receipts are unchanged. Recovery212files10820815bytes SHA894322e37c1875ba1d5ea9e494dd28334875c7e83a3698741c7a88153f979c6b verified in serverhome/F; PR78openready, source/evidence/compactresults/plots/receipts mirrored projectresearch_log. No activejobs, no rerun. Await research-lead review; noT054.
