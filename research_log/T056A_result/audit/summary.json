@@ -1,0 +1,75 @@
+{
+  "label": "REFERENCE_ORACLE_ONLY",
+  "metrics": {
+    "psnr": {
+      "mean": 24.470167646516515,
+      "median": 24.987490380312202
+    },
+    "ssim": {
+      "mean": 0.769874733634213,
+      "median": 0.7926866325268953
+    },
+    "t055_psnr": {
+      "mean": 24.349792215571938,
+      "median": 24.813333145194267
+    },
+    "t055_ssim": {
+      "mean": 0.7591279046304531,
+      "median": 0.7779133530305549
+    },
+    "delta_psnr": {
+      "mean": 0.1203754309445748,
+      "median": 0.10197221026392533
+    },
+    "delta_ssim": {
+      "mean": 0.010746829003759981,
+      "median": 0.004411192607561454
+    }
+  },
+  "best_step_histogram": {
+    "500": 100
+  },
+  "at_step500": 100,
+  "win_equal_loss": {
+    "psnr": {
+      "win": 100,
+      "equal": 0,
+      "loss": 0
+    },
+    "ssim": {
+      "win": 81,
+      "equal": 0,
+      "loss": 19
+    }
+  },
+  "runtime_seconds": 112.57730173086748,
+  "c2_distributions": {
+    "selected_controls": {
+      "count": 6400,
+      "min": -1.0,
+      "max": 1.0,
+      "mean": 0.04670615412520988,
+      "median": 0.17575129121541977,
+      "exact_hits": {
+        "-1.0": 149,
+        "1.0": 97
+      },
+      "fraction_le_neg099": 0.25859375,
+      "fraction_ge_pos099": 0.25234375
+    },
+    "selected_field": {
+      "count": 24000000,
+      "min": -1.0,
+      "max": 1.0,
+      "mean": 0.07709090185313759,
+      "median": 0.31836096942424774,
+      "exact_hits": {
+        "-1.0": 99831,
+        "1.0": 73832
+      },
+      "fraction_le_neg099": 0.2290875,
+      "fraction_ge_pos099": 0.19779666666666668
+    }
+  },
+  "classification": "not supported under fixed probe"
+}
