@@ -9,7 +9,8 @@
   "next_step": "Stop for research-lead review. First16 numeric credibility only; no full T058A or StageB.",
   "failures": [
     "Predeployment local syntax collection failure (missing brace) fixed before passing tests; no scientific run.",
-    "Post-run archive SSH255 disconnect; retried transfer/archive only, no scientific rerun."
+    "Post-run archive SSH255 disconnect; retried transfer/archive only, no scientific rerun.",
+    "Recovery metadata default SCP timed out; workflow legacy SCP retry succeeded. No scientific rerun."
   ],
   "local_tests": "6 passed in 7.73s; compile PASS; genuineCUDA regression pending server",
   "source": "35f11ca298dbb5a0dc2104949258657c8c622830",
@@ -17,5 +18,15 @@
   "pr": "https://github.com/word-ky/TTIE/pull/92",
   "pr_node": "PR_kwDOUXJJGc8AAAABD3KKhw",
   "run": "20260917-105829-ttie-t058ac-copy",
-  "classification": "T058 first16 reverse detail gradients numerically credible under exact clamp-aware chain rule"
+  "classification": "T058 first16 reverse detail gradients numerically credible under exact clamp-aware chain rule",
+  "publication": {
+    "published_utc": "2026-09-17T03:05:18.543110+00:00",
+    "tested_source": "35f11ca298dbb5a0dc2104949258657c8c622830",
+    "evidence_commit": "28ed8188247043d470e1b008b2ff9766e38480d0",
+    "main_mailbox_commit": "f12c625198fc380e60fbf520936368c229f12547",
+    "pr": "https://github.com/word-ky/TTIE/pull/92",
+    "completion_entries": 1,
+    "status": "DONE",
+    "classification": "T058 first16 reverse detail gradients numerically credible under exact clamp-aware chain rule"
+  }
 }
