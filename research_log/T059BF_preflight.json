@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "comparisons": {
+    "legacy_value_huber": {
+      "actual": 0.051005665212869644,
+      "expected": 0.051005665212869644,
+      "passed": true
+    },
+    "legacy_positive_fraction": {
+      "actual": 0.9976544976234436,
+      "expected": 0.9976544976234436,
+      "passed": true
+    },
+    "legacy_median_cosine": {
+      "actual": 0.9724292755126953,
+      "expected": 0.9724292755126953,
+      "passed": true
+    },
+    "legacy_direction_loss": {
+      "actual": 0.025412224233150482,
+      "expected": 0.025412224233150482,
+      "passed": true
+    },
+    "detail_positive_fraction": {
+      "actual": 0.6845665574073792,
+      "expected": 0.6845665378244064,
+      "passed": true
+    },
+    "detail_median_cosine": {
+      "actual": 0.2305164337158203,
+      "expected": 0.23051627609319664,
+      "passed": true
+    }
+  },
+  "replay_tolerance": {
+    "atol": 2e-06,
+    "rtol": 2e-05,
+    "origin": "fixed T014 chain numerical gate; fixed before execution"
+  },
+  "legacy": {
+    "value_huber": 0.051005665212869644,
+    "direction_rows": 7248,
+    "positive_fraction": 0.9976544976234436,
+    "median_cosine": 0.9724292755126953,
+    "direction_loss": 0.025412224233150482
+  },
+  "detail": {
+    "direction_rows": 7244,
+    "positive_fraction": 0.6845665574073792,
+    "median_cosine": 0.2305164337158203,
+    "direction_loss": 0.4106746315956116,
+    "gradient_sha256": "f1f67871222b0099bd5852273e0d355fe68489806f3f6c7aaa81eabe5b629ca1",
+    "zero_rows": 98
+  },
+  "cached_feature_max_abs": 4.050135612487793e-05,
+  "legacy_eligible": 7248,
+  "detail_eligible": 7244,
+  "cache_reopen": {
+    "rows": 7346,
+    "all_tensor_hashes_verified": true,
+    "all_chain_results_verified": true,
+    "order_exact": true,
+    "chunks": 116,
+    "manifest_sha256": "1dc8006aa6aef5fa4352cdce7a95124ca940633cc927ab9b18ede0fa2c85db19"
+  },
+  "completed_utc": "2026-09-17T13:13:51.972690+00:00"
+}
