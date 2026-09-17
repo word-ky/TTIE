@@ -4337,3 +4337,24 @@ Sole run20260917-105829-ttie-t058ac-copy/release105757; start2026-09-17T10:58:33
 Evidence105798bytes SHA742341b6cdb18b6956a438a8b96ee9df7d2b2a94c0cf17e27c7ba770fbe5c513 verifiedhome/F/local; statesSHA936b05cfb1660d90deff27b9385dc4aac3cc995d66dbe71b2a762505ab1f3c9b; receiptSHA64430933a96208a12073359a38d93bff48d470e5de8d8ece817f9ec570410918; CUDAregressionSHA852c7079097e4b83bbe9698058b88b12298293074dacb52e0ab5704602ef3137. No scientific failures or reruns. One precommit syntax typo was caught/fixed in local tests; one post-run SSH disconnect resolved by retrying archive transfer only. Exact existingworktree deployed and compact artifacts retained due Ddisk capacity.
 
 This validates the fixed-first16 numerical gradients only. T058-A remainsPARTIAL; no full7346-state source-alignment result, readiness promotion or StageB authorization follows automatically. Recommendation: adjudicate first16 credibility and issue a separately scoped continuation if desired. Stop for review, no selfmerge or further experiment.
+
+
+## T058-AD DONE — Stage-A shard0 frozen
+
+UTC 2026-09-17T05:23:35.148240+00:00
+
+**T058-AD Stage-A shard 0 frozen**
+
+Tested source `80513f9efdc3057caffc25819cbc2debd419bcd0`; evidence `f1c7a7fa2b0c99e741a0a08eefd341fed002c477`; branch `codex/T058AD-shard0`; PR https://github.com/word-ky/TTIE/pull/93 ready. New orchestration/storage/tests only in research_log/T058AD*. Original scientific path/checkpoints/renderer unchanged. Report, full1024-row manifest and hash/norm/provenance metadata, receipt/continuity/completion/separate-reopen files, exact command and raw tensor archive committed.
+
+Exactly canonical0–1023 processed once in order:1024 finite float32 1×1×8×8 gradients,17 chunks,60 bank entries/12 source images;18 exactzero norms retained. First16 continuity against accepted T058AC g32 passed16/16 before index16: maxL2=4.5370379493111933e-7, minimum nonzero cosine=.9999999999985184, maxL2/tolerance=.0016550804803743377. Original tolerances and zero-case handling unchanged; detachedCPU64 comparisons only, scientificgradientGPU32.
+
+Accepted preflightSHA22733704e27209d33d24794c88f4119b7643b7e0aa0f3e06a4018fd7d1c0a431 and T058AselectionSHA7e5062869f267164cc02a14de249ab0ec8e430bde88b0eeb2a9d28d4f3b7b06b verified; each row's y0/raw matches that frozen preflight. No obsolete centralFD/newFD/JVP/CPUshadow recomputation. All189sources,8T058A/7T058ACartifacts, source-bank/checkpoint/prototypes and before/after model/detail/legacy hashes unchanged.
+
+Temporary chunk files are fsynced and atomically renamed; checkpoint manifest advances only after committed chunks. After all1024 and hash/readback checks, authoritative complete.json is atomically published and binds final manifest/receipt. Manifest complete:false identifies its checkpoint role; completion authority is the separately verified complete.json marker. A separate process reopened all17 chunks and all1024 tensor hashes/norms/finite values/order successfully; no gradients recomputed. ManifestSHAbd81dacae5928d1d1cec8dd59fdb0376eaff6c55734b8f5e410a22e01ec5b819; receiptSHAe9f29badd383e153904e13c552ee9f0d6214b88c63b586200fce6c1c28c3de4d; completeSHA02c64366c88e3321fe60f989c3d7770dd7f55ed55fa437bef837a428dac70720.
+
+Local7tests12.04s/ASTPASS; server7tests1.49sPASS, including simulated interrupted-write and corrupt/incomplete-shard tests. Sole GPU1 run20260917-131739-ttie-t058ad-shard0/release131701, start2026-09-17T13:17:46+08:00/finish13:19:05+08:00,74.7972430269001s, exit0. Exact command in T058AD_run.sh. No scientific/infrastructure failure or rerun. Independent readback UTC2026-09-17T05:20:01.573753+00:00.
+
+Evidence522467bytes SHAc28544645acce5b000527c25865f36cf30635328c09e4e143d23555a0d3cf2e8 verifiedhome/F/local; all27 constituents hash-verified. Raw gradient chunks reside in the committed compressed archive and server run. Zero optimizer/persistent scientific changes/source-clean/JPG/reference-gradient/StageB/target-domain/official-test access. No positive-dot or source-readiness cosine statistic; all cosines here are continuity checks.
+
+This is only Stage-A shard0, not full7346-state completion or a source-readiness verdict. Recommendation: review this reusable shard and explicitly scope the next step. Stop atindex1023; no nextshard/StageB/selfmerge/PROJECT_STATE change.
