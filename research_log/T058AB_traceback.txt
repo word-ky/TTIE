@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260917-092610-ttie-t058ab-full/research_log/T058AB/run.py", line 91, in <module>
+    row['full_gradient']=full_chain(model64,obj64,head64,direction64,y64,row['E32'],row['E64'],g,g64)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/current/research_log/T058AB/chain.py", line 39, in full_chain
+    result=vector_checks(g32.detach(),g64.detach(),g_chain.detach());criteria=result['criteria']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/current/research_log/T058AB/chain.py", line 12, in vector_checks
+    a=g32.double();b=g64;delta=a-b
+                               ~^~
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

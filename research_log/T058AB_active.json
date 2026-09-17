@@ -1,0 +1,22 @@
+{
+  "task": "T058-AB",
+  "status": "DONE",
+  "authorization": "82eb008dfcf21846abd7cf78ff7c5ac676da28b3",
+  "base": "36fa4533f03accdc1dc0e7a3ed74c4363a6ae250",
+  "branch": "codex/T058AB-full-gradient",
+  "worktree": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T058AB-work",
+  "started_utc": "2026-09-17T01:22:20.062723+00:00",
+  "next_step": "Stop for research-lead review; comparison implementation failed first row, no rerun/other15rows/StageB.",
+  "failures": [
+    "Before deployment, redundant staging copy failed with D disk full; exact committed existing worktree verified for direct deployment. No scientific run had started.",
+    "Initial deployment SSH closed before upload; retry deployed successfully. No scientific rerun.",
+    "RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!"
+  ],
+  "local_tests": "6 passed in 4.04s; compile PASS",
+  "source": "10f79bfbb0acb4382383df4ca49a0a5bef1965d3",
+  "pr": "https://github.com/word-ky/TTIE/pull/91",
+  "pr_node": "PR_kwDOUXJJGc8AAAABD2sYMw",
+  "release": "20260917-092610-ttie-t058ab-full",
+  "run": "20260917-092633-ttie-t058ab-full",
+  "classification": "T058 derivative verifier unresolved"
+}
