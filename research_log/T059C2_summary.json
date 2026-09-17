@@ -1,0 +1,75 @@
+{
+  "gates": {
+    "detail_positive": {
+      "actual": 0.8450312614440918,
+      "threshold": 0.75,
+      "margin": 0.0950312614440918,
+      "passed": true
+    },
+    "detail_cosine": {
+      "actual": 0.4797055721282959,
+      "threshold": 0.5,
+      "margin": -0.0202944278717041,
+      "passed": false
+    },
+    "legacy_positive": {
+      "actual": 0.9506944417953491,
+      "threshold": 0.95,
+      "margin": 0.0006944417953491655,
+      "passed": true
+    },
+    "legacy_cosine": {
+      "actual": 0.9380397796630859,
+      "threshold": 0.9,
+      "margin": 0.038039779663085915,
+      "passed": true
+    },
+    "value_huber": {
+      "actual": 0.19325308501720428,
+      "threshold": 0.07650849781930447,
+      "margin": -0.11674458719789982,
+      "passed": false
+    }
+  },
+  "classification": "image-held-out dual-tangent generalization not supported under fixed split",
+  "heldout": {
+    "rows": 1460,
+    "legacy": {
+      "value_huber": 0.19325308501720428,
+      "direction_rows": 1440,
+      "positive_fraction": 0.9506944417953491,
+      "median_cosine": 0.9380397796630859,
+      "direction_loss": 0.08770221471786499
+    },
+    "detail": {
+      "direction_rows": 1439,
+      "positive_fraction": 0.8450312614440918,
+      "median_cosine": 0.4797055721282959,
+      "direction_loss": 0.31041139364242554,
+      "gradient_sha256": "54ae116ea5e4dffbfd7b0f67e2c87edb20dec9aaa9e22d00f42898ba7c4105f3",
+      "zero_rows": 20
+    },
+    "legacy_ineligible": 20,
+    "detail_ineligible": 21
+  },
+  "training": {
+    "rows": 5886,
+    "legacy": {
+      "value_huber": 0.07175987213850021,
+      "direction_rows": 5808,
+      "positive_fraction": 0.9939738512039185,
+      "median_cosine": 0.9681633710861206,
+      "direction_loss": 0.03255437687039375
+    },
+    "detail": {
+      "direction_rows": 5805,
+      "positive_fraction": 0.9869078397750854,
+      "median_cosine": 0.6441896557807922,
+      "direction_loss": 0.19614127278327942,
+      "gradient_sha256": "83f96d78c0119c7d496c5bc8aa07df843ca7ca2d2a11e8ce073c9a8c8f3549e5",
+      "zero_rows": 78
+    },
+    "legacy_ineligible": 78,
+    "detail_ineligible": 81
+  }
+}
