@@ -1,0 +1,17 @@
+--- original ttie.stop_quality.train_head
++++ T059E train_relative
+@@ -1,4 +1,4 @@
+-def train_head(features,mse,*,head_factory=QualityHead,extra_loss=None):
++def train_relative(features,mse,anchors,*,head_factory=EnergyHead,extra_loss=None):
+     # No calibration data, clean pixels, condition or image IDs are inputs here.
+     torch.manual_seed(7);torch.set_num_threads(1)
+     features=features.detach().cpu().float();target=(mse.detach().cpu().double()+1e-6).log()
+@@ -15,7 +15,7 @@
+         order=torch.randperm(len(features),generator=generator);total=0.;extra_total=0.
+         for batch in order.split(256):
+             x=features[batch].requires_grad_(extra_loss is not None)
+-            prediction=head.standardized(x);value_loss=nn.functional.huber_loss(prediction,target[batch],delta=1.)
++            prediction=head.standardized(x);value_loss=relative_value(prediction,head.standardized(features[anchors[batch]]),target[batch],target[anchors[batch]])
+             loss=value_loss
+             if extra_loss is not None:
+                 additional=extra_loss(head,prediction,x,batch);loss=loss+additional
