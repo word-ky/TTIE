@@ -4318,3 +4318,22 @@ All175bindings,8T058A/6T058AAartifacts, original and shadow scorer/head/detail/l
 Infrastructure: redundant stage copy failed Ddiskfull, so deployed existing worktree after exact Git/binding verification; one SSH disconnect before upload resolved on retry. Main mailbox index sync also exhausted disk; recovered its interrupted fast-forward after verifying unchanged coordination content, using temporary C index. No scientific rerun or evidence changes resulted.
 
 Recommendation: issue a bounded correction to colocate detached gradient copies for comparison and test the actual CUDA-to-CPU interface before repeating the unchanged fixed16 audit. Stop for research-lead review; no full audit/StageB/selfmerge.
+
+
+## T058-AC DONE — all16 full-gradient credibility checks pass
+
+UTC 2026-09-17T03:04:29.795676+00:00
+
+**T058 first16 reverse detail gradients numerically credible under exact clamp-aware chain rule**
+
+Tested source `35f11ca298dbb5a0dc2104949258657c8c622830`; evidence `28ed8188247043d470e1b008b2ff9766e38480d0`; branch `codex/T058AC-comparison-copy`; PR https://github.com/word-ky/TTIE/pull/92 ready for review. Only verifier comparison copies were changed to detached CPUfloat64 before arithmetic; original GPUfloat32 g32 and CPUfloat64 g64/g_chain untouched. T058AC_minimal.diff, report, complete16-row gradients/hashes/norms/criteria/device metadata, summary, regression and raw compressed evidence are committed under research_log/T058AC*.
+
+Genuine CUDAfloat32→CPUfloat64 regression passed for nonzero and zero inputs: old implementation raises the original device-mismatch error, corrected implementation passes, original hashes/devices/dtypes/requires_grad/empty.grad unchanged. Both cases use CUDA:0 on physicalGPU1; all comparison copies CPUfloat64 detached. CUDA was required, with no CPU-only substitution. Local6tests7.73s/compilePASS; server7tests1.75sPASS (one knownNVMLwarning).
+
+All16/16 canonical rows ran once in order0–15 and passed every original T058-AB gate. Full64-D max_abs(g64-g_chain)=0 for every row. Max ||g32.double()-g64||2=2.8517847234210123e-6 atrow14; minimum nonzero cosine=.9999999999452329 atrow14 (threshold.9999). Row0 g32/g64/g_chain norms0, negligible-case L2difference0, cosine null. All image identities, inclusive deterministic clamp[1,1], finite values, exact-zero inactive tangent/chain and unchanged hashes pass. No thresholds changed. These are16 frozen states, not16 independent images; exact selectionSHA4e18e346478421ebbbd192fdbe6c5a861cdc0a45761ecf7a3becb7afeec079c2 and duplicates retained.
+
+Sole run20260917-105829-ttie-t058ac-copy/release105757; start2026-09-17T10:58:33+08:00, finish11:00:17+08:00; verifier99.1208476490574s, exit0. Genuine regression passed before the audit. Exact commands in T058AC_run.sh. Original scientificGPU1 and accepted CPUfloat64shadow unchanged. All182sourcebindings,8T058A/7T058ABfiles, before/after model/checkpoint/legacy/detail/shadow hashes unchanged. Zero optimizer/persistent scientific changes/JPG/clean/reference-gradient/StageB/target-domain/official-test access; zero FD or rows beyond16.
+
+Evidence105798bytes SHA742341b6cdb18b6956a438a8b96ee9df7d2b2a94c0cf17e27c7ba770fbe5c513 verifiedhome/F/local; statesSHA936b05cfb1660d90deff27b9385dc4aac3cc995d66dbe71b2a762505ab1f3c9b; receiptSHA64430933a96208a12073359a38d93bff48d470e5de8d8ece817f9ec570410918; CUDAregressionSHA852c7079097e4b83bbe9698058b88b12298293074dacb52e0ab5704602ef3137. No scientific failures or reruns. One precommit syntax typo was caught/fixed in local tests; one post-run SSH disconnect resolved by retrying archive transfer only. Exact existingworktree deployed and compact artifacts retained due Ddisk capacity.
+
+This validates the fixed-first16 numerical gradients only. T058-A remainsPARTIAL; no full7346-state source-alignment result, readiness promotion or StageB authorization follows automatically. Recommendation: adjudicate first16 credibility and issue a separately scoped continuation if desired. Stop for review, no selfmerge or further experiment.
