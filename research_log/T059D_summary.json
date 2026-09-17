@@ -1,0 +1,212 @@
+{
+  "classification": "C2 value failure is not explained by bankwise additive offsets",
+  "c2_verdict_unchanged": "image-held-out dual-tangent generalization not supported under fixed split",
+  "banks": 80,
+  "rows": 1460,
+  "anchors": 80,
+  "unanchored_huber": 0.19325308501720428,
+  "bank_relative_huber": 0.10301457345485687,
+  "value_huber_limit": 0.07650849781930447,
+  "gate_margin": -0.026506075635552406,
+  "distributions": {
+    "unanchored_huber": {
+      "defined": 80,
+      "undefined": 0,
+      "mean": 0.6613833755647647,
+      "minimum": 0.0017513936618342996,
+      "p10": 0.008718154672533274,
+      "median": 0.08135852590203285,
+      "p90": 2.0400752782821665,
+      "maximum": 5.963692665100098
+    },
+    "relative_huber": {
+      "defined": 80,
+      "undefined": 0,
+      "mean": 0.07833400087765767,
+      "minimum": 0.0,
+      "p10": 0.0,
+      "median": 0.008963286876678467,
+      "p90": 0.06399445682764057,
+      "maximum": 4.565145969390869
+    },
+    "spearman": {
+      "defined": 60,
+      "undefined": 20,
+      "mean": 0.8405350187285744,
+      "minimum": -0.6452173913043479,
+      "p10": 0.7707826086956523,
+      "median": 0.9612875163114396,
+      "p90": 0.986168217201443,
+      "maximum": 1.0
+    },
+    "argmin_regret": {
+      "defined": 80,
+      "undefined": 0,
+      "mean": 0.10562373930588365,
+      "minimum": 0.0,
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.04203675985336311,
+      "maximum": 6.0469279289245605
+    },
+    "anchor_residual": {
+      "defined": 80,
+      "undefined": 0,
+      "mean": 0.34317260002717376,
+      "minimum": -4.591813564300537,
+      "p10": -0.961475932598114,
+      "median": 0.07195356488227844,
+      "p90": 1.7896120548248318,
+      "maximum": 7.40751314163208
+    },
+    "legacy_positive_fraction": {
+      "defined": 60,
+      "undefined": 20,
+      "mean": 0.9506944432854653,
+      "minimum": 0.4583333432674408,
+      "p10": 0.875,
+      "median": 1.0,
+      "p90": 1.0,
+      "maximum": 1.0
+    },
+    "legacy_median_cosine": {
+      "defined": 60,
+      "undefined": 20,
+      "mean": 0.8585766023645799,
+      "minimum": -0.07751527428627014,
+      "p10": 0.667386794090271,
+      "median": 0.9395002722740173,
+      "p90": 0.9799352884292603,
+      "maximum": 0.9895222187042236
+    },
+    "detail_positive_fraction": {
+      "defined": 60,
+      "undefined": 20,
+      "mean": 0.8444746374463041,
+      "minimum": 0.0,
+      "p10": 0.36250000000000004,
+      "median": 1.0,
+      "p90": 1.0,
+      "maximum": 1.0
+    },
+    "detail_median_cosine": {
+      "defined": 60,
+      "undefined": 20,
+      "mean": 0.4071621637791395,
+      "minimum": -0.47153934836387634,
+      "p10": -0.04799282029271124,
+      "median": 0.4847913235425949,
+      "p90": 0.7073133647441864,
+      "maximum": 0.749714732170105
+    }
+  },
+  "worst_bank_indices": {
+    "relative_huber": [
+      300,
+      327,
+      152,
+      153,
+      352,
+      154,
+      227,
+      253,
+      102,
+      279
+    ],
+    "argmin_regret": [
+      300,
+      102,
+      152,
+      128,
+      27,
+      379,
+      154,
+      378,
+      179,
+      127
+    ],
+    "spearman": [
+      300,
+      128,
+      27,
+      154,
+      152,
+      202,
+      153,
+      276,
+      277,
+      377
+    ],
+    "legacy_positive_fraction": [
+      128,
+      27,
+      154,
+      300,
+      229,
+      152,
+      351,
+      78,
+      127,
+      328
+    ],
+    "legacy_median_cosine": [
+      128,
+      300,
+      154,
+      27,
+      153,
+      152,
+      276,
+      179,
+      178,
+      229
+    ],
+    "detail_positive_fraction": [
+      29,
+      54,
+      300,
+      126,
+      1,
+      354,
+      129,
+      154,
+      27,
+      376
+    ],
+    "detail_median_cosine": [
+      300,
+      126,
+      54,
+      29,
+      354,
+      1,
+      129,
+      376,
+      53,
+      28
+    ]
+  },
+  "global_directional_statistics_unchanged": {
+    "rows": 1460,
+    "legacy": {
+      "value_huber": 0.19325308501720428,
+      "direction_rows": 1440,
+      "positive_fraction": 0.9506944417953491,
+      "median_cosine": 0.9380397796630859,
+      "direction_loss": 0.08770221471786499
+    },
+    "detail": {
+      "direction_rows": 1439,
+      "positive_fraction": 0.8450312614440918,
+      "median_cosine": 0.4797055721282959,
+      "direction_loss": 0.31041139364242554,
+      "gradient_sha256": "54ae116ea5e4dffbfd7b0f67e2c87edb20dec9aaa9e22d00f42898ba7c4105f3",
+      "zero_rows": 20
+    },
+    "legacy_ineligible": 20,
+    "detail_ineligible": 21
+  },
+  "tie_rule": "Average ranks; singleton or constant ranks undefined/null. Argmin ties choose earliest state_index; diagnostic worst-bank ties choose bank_index ascending.",
+  "anchor_rule": "Unique state_index==0 in each bank; all1460rows including anchors remain in aggregate",
+  "value_convention": "log(mse.double()+1e-6).float(), then original head y_mean/y_scale; head.standardized(x); float32 anchor subtraction and Huber delta1"
+}
