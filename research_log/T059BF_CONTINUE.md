@@ -1,0 +1,3 @@
+# T059-BF complete
+
+All five gates pass: dual-tangent source fit feasible. Exactly one CPU100epoch/2900step fit; final checkpoint and all immutable inputs reopened. PR99 ready, main completion3d8da3dda4bdf5be894d76f94bae4d03e5a5563f. No further training or real-domain evaluation. Wait for new research-lead authorization; do not repeat reported OPEN task. Local GitHEAD stays tested source524f6436; do not push stale branch over API-published evidence. Initial compact fetch failed on Ddisk; exact compressed receipt/history/summary subsequently restored and hash-verified locally. Home/F recovery manifest retained.
