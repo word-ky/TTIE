@@ -4358,3 +4358,24 @@ Local7tests12.04s/ASTPASS; server7tests1.49sPASS, including simulated interrupte
 Evidence522467bytes SHAc28544645acce5b000527c25865f36cf30635328c09e4e143d23555a0d3cf2e8 verifiedhome/F/local; all27 constituents hash-verified. Raw gradient chunks reside in the committed compressed archive and server run. Zero optimizer/persistent scientific changes/source-clean/JPG/reference-gradient/StageB/target-domain/official-test access. No positive-dot or source-readiness cosine statistic; all cosines here are continuity checks.
 
 This is only Stage-A shard0, not full7346-state completion or a source-readiness verdict. Recommendation: review this reusable shard and explicitly scope the next step. Stop atindex1023; no nextshard/StageB/selfmerge/PROJECT_STATE change.
+
+
+## T058-AE DONE — full Stage A complete
+
+UTC 2026-09-17T06:06:38.256818+00:00
+
+**T058-A Stage A complete — all 7346 learned gradients frozen**
+
+Tested source `118b9c6c4c1ae46fe20872f8f40caedd62ab10a2`; evidence `3b70560bec7a59e679fd3af942be76d02054c365`; branch `codex/T058AE-stage-a-complete`; PR https://github.com/word-ky/TTIE/pull/94 ready. New orchestration/range-storage/finalizer/tests only research_log/T058AE*. Report,6322-row hash/norm/provenance CSV, chunk index, full receipt, separate combined reopen and completion markers committed. Scientific graph/checkpoints unchanged.
+
+Exactly6322 new indices1024–7345 processed once in order on accepted GPUfloat32 path,99 atomic chunks; allfinite;80 exactzero gradient rows retained. The accepted AD0–1023 shard was fully hash/reopen-verified before any new gradient, never recomputed/modified, and verified unchanged afterward. New shard covers341bank entries/69images; one bank straddles the shard boundary without overlapping state indices.
+
+Independent finalizer reopened new6322 plus immutable1024: exactly7346 unique indices0–7345, canonical identities/order match, no gap/overlap/filtering. All tensor hashes/norms/dtypes/shapes/finite values pass. New manifestSHAf253f1be2375fef377d26c34e1d119260dfcbcb6dcf71ae58dd013ad405e0e2c; combined canonical identitySHA26813ac6c9d513b50dd657e5628b8e8f088b8cfecc92989c735b561311eb9fcd. OriginalADmanifestbd81dacae5928d1d1cec8dd59fdb0376eaff6c55734b8f5e410a22e01ec5b819 and all27old run files unchanged. Completion has two stages: new_shard_complete.json precedes the separate finalizer; complete.json is the authoritative full Stage-A marker, binding combined_reopen and new receipt/manifest. The writer's pending classification/manifest checkpoint flag are historical sequencing, not a failed final result.
+
+All197sourcebindings,8originalT058Afiles,27ADfiles, source-bank/checkpoint/prototypes/model/detail/legacy hashes unchanged. Original T058-A preflight/selection bound; every new y0/raw checked before differentiation. Zero oldrow recomputation, FD/JVP/CPUshadow, optimizer/persistent scientific changes, source-clean/JPG/reference-gradient/StageB/target-domain/official-test access. No learned-versus-reference positive-dot/cosine or readiness verdict computed.
+
+Local7tests5.32s/ASTPASS; server7tests1.47sPASS. Sole run20260917-135400-ttie-t058ae-stagea/release135320, start2026-09-17T13:54:07+08:00, finish14:01:28+08:00; gradient writer434.89286936901044s, separate finalizer.43187092093285173s, exit0. Exact command in T058AE_run.sh. No scientific/runtime/storage failure or second run; one read-only log SSH255 retry reattached to the uninterrupted job.
+
+Raw evidence3,001,189bytes SHAcf28f4f558aac621057686d94d5356ebabddef05272a03e52cfa27ca511518f1 verifiedhome/F/local,109files. The full raw manifest/tensors are project-local and in both server backups; because Ddisk is constrained, this3MB archive is not duplicated into Git object storage. Git contains complete per-row hash/norm/identity CSV plus original manifest/chunk/receipt/completion bindings; CSV is a compact projection of the archived scientific manifest. T058AE_archives.json gives exact locations and constituent hashes.
+
+Stage A is now complete; T058-A source-alignment/readiness remains unanswered until a separately authorized Stage B. Recommendation: review combined frozen coverage and define the next bounded task. Stop; no StageB/sourceclean/reference metric/selfmerge/PROJECT_STATE edit.
