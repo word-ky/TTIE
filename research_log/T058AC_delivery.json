@@ -1,0 +1,43 @@
+{
+  "status": "DONE",
+  "classification": "T058 first16 reverse detail gradients numerically credible under exact clamp-aware chain rule",
+  "tested_source": "35f11ca298dbb5a0dc2104949258657c8c622830",
+  "pr": "https://github.com/word-ky/TTIE/pull/92",
+  "run": "20260917-105829-ttie-t058ac-copy",
+  "metrics": {
+    "passed_rows": 16,
+    "required": 16,
+    "max_chain_error": 0.0,
+    "max_l2_error": 2.8517847234210123e-06,
+    "min_nonzero_cosine": 0.9999999999452329,
+    "min_chain_margin": 2e-08,
+    "min_l2_margin": 1e-05,
+    "zero_gradient_rows": [
+      0
+    ]
+  },
+  "seconds": 99.1208476490574,
+  "archives": {
+    "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t058ac/T058AC_evidence.tar.gz",
+    "backup": "/media/wenchang/F/wjq/TTIE/shared/t058ac/T058AC_evidence.tar.gz",
+    "bytes": 105798,
+    "sha256": "742341b6cdb18b6956a438a8b96ee9df7d2b2a94c0cf17e27c7ba770fbe5c513",
+    "source182_unchanged": true,
+    "historical8_unchanged": true,
+    "prior_verifier7_unchanged": true,
+    "files": {
+      "train.log": "d0fae872c472ae986320bee038ead2ece229ded317c9e449d5efec8982957d33",
+      "meta.json": "4471d4dbecf88db711f5de8d491dada449b024e1376eb369a5709c349d4fbb1f",
+      "run.sh": "fef4cd2a8b984bfdbb7d722f46c132e3481a60524a307b3aa834e12f98af359d",
+      "artifacts/T058AC_cuda_regression.json": "852c7079097e4b83bbe9698058b88b12298293074dacb52e0ab5704602ef3137",
+      "artifacts/T058AC/receipt.json": "64430933a96208a12073359a38d93bff48d470e5de8d8ece817f9ec570410918",
+      "artifacts/T058AC/selection.json": "4e18e346478421ebbbd192fdbe6c5a861cdc0a45761ecf7a3becb7afeec079c2",
+      "artifacts/T058AC/states.json": "936b05cfb1660d90deff27b9385dc4aac3cc995d66dbe71b2a762505ab1f3c9b"
+    }
+  },
+  "failures": [
+    "Predeployment local syntax collection failure (missing brace) fixed before passing tests; no scientific run.",
+    "Post-run archive SSH255 disconnect; retried transfer/archive only, no scientific rerun."
+  ],
+  "full_receipt_location": "T058AC_evidence.tar.gz:artifacts/T058AC/receipt.json"
+}

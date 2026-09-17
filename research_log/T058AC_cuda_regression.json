@@ -1,0 +1,215 @@
+{
+  "cuda_available": true,
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "gpu": "NVIDIA RTX A6000",
+  "cases": [
+    {
+      "case": "nonzero",
+      "old_error": "Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!",
+      "old_failed": true,
+      "new_passed": true,
+      "original_before": [
+        {
+          "hash": "bed69a5fc8272ac2fef7968c49b34b22680c87192500990117f6aaa3a1e6dd25",
+          "device": "cuda:0",
+          "dtype": "torch.float32",
+          "requires_grad": true
+        },
+        {
+          "hash": "95f7287b8b6af9f6902ae094abe4e14d208e59c063eafac4ed8098c2df1143b2",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "requires_grad": true
+        },
+        {
+          "hash": "95f7287b8b6af9f6902ae094abe4e14d208e59c063eafac4ed8098c2df1143b2",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "requires_grad": true
+        }
+      ],
+      "original_after": [
+        {
+          "hash": "bed69a5fc8272ac2fef7968c49b34b22680c87192500990117f6aaa3a1e6dd25",
+          "device": "cuda:0",
+          "dtype": "torch.float32",
+          "requires_grad": true
+        },
+        {
+          "hash": "95f7287b8b6af9f6902ae094abe4e14d208e59c063eafac4ed8098c2df1143b2",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "requires_grad": true
+        },
+        {
+          "hash": "95f7287b8b6af9f6902ae094abe4e14d208e59c063eafac4ed8098c2df1143b2",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "requires_grad": true
+        }
+      ],
+      "comparison": {
+        "original_devices": {
+          "g32": {
+            "device": "cuda:0",
+            "dtype": "torch.float32"
+          },
+          "g64": {
+            "device": "cpu",
+            "dtype": "torch.float64"
+          },
+          "g_chain": {
+            "device": "cpu",
+            "dtype": "torch.float64"
+          }
+        },
+        "comparison_copies": {
+          "g32": {
+            "device": "cpu",
+            "dtype": "torch.float64",
+            "requires_grad": false
+          },
+          "g64": {
+            "device": "cpu",
+            "dtype": "torch.float64",
+            "requires_grad": false
+          },
+          "g_chain": {
+            "device": "cpu",
+            "dtype": "torch.float64",
+            "requires_grad": false
+          }
+        },
+        "norm32": 2.921369476607697,
+        "norm64": 2.921369476607697,
+        "norm_chain": 2.921369476607697,
+        "criteria": {
+          "chain": {
+            "max_abs_error": 0.0,
+            "tolerance": 1.2619999904632568e-05,
+            "margin": 1.2619999904632568e-05,
+            "passed": true
+          },
+          "float32_float64": {
+            "l2_error": 0.0,
+            "tolerance": 0.0029313694766076974,
+            "margin": 0.0029313694766076974,
+            "passed": true
+          },
+          "orientation": {
+            "mode": "cosine",
+            "cosine": 0.9999999999999996,
+            "threshold": 0.9999,
+            "margin": 9.99999999995449e-05,
+            "passed": true
+          }
+        }
+      }
+    },
+    {
+      "case": "zero",
+      "old_error": "Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!",
+      "old_failed": true,
+      "new_passed": true,
+      "original_before": [
+        {
+          "hash": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+          "device": "cuda:0",
+          "dtype": "torch.float32",
+          "requires_grad": true
+        },
+        {
+          "hash": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "requires_grad": true
+        },
+        {
+          "hash": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "requires_grad": true
+        }
+      ],
+      "original_after": [
+        {
+          "hash": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+          "device": "cuda:0",
+          "dtype": "torch.float32",
+          "requires_grad": true
+        },
+        {
+          "hash": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "requires_grad": true
+        },
+        {
+          "hash": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "requires_grad": true
+        }
+      ],
+      "comparison": {
+        "original_devices": {
+          "g32": {
+            "device": "cuda:0",
+            "dtype": "torch.float32"
+          },
+          "g64": {
+            "device": "cpu",
+            "dtype": "torch.float64"
+          },
+          "g_chain": {
+            "device": "cpu",
+            "dtype": "torch.float64"
+          }
+        },
+        "comparison_copies": {
+          "g32": {
+            "device": "cpu",
+            "dtype": "torch.float64",
+            "requires_grad": false
+          },
+          "g64": {
+            "device": "cpu",
+            "dtype": "torch.float64",
+            "requires_grad": false
+          },
+          "g_chain": {
+            "device": "cpu",
+            "dtype": "torch.float64",
+            "requires_grad": false
+          }
+        },
+        "norm32": 0.0,
+        "norm64": 0.0,
+        "norm_chain": 0.0,
+        "criteria": {
+          "chain": {
+            "max_abs_error": 0.0,
+            "tolerance": 2e-08,
+            "margin": 2e-08,
+            "passed": true
+          },
+          "float32_float64": {
+            "l2_error": 0.0,
+            "tolerance": 1e-05,
+            "margin": 1e-05,
+            "passed": true
+          },
+          "orientation": {
+            "mode": "both_negligible",
+            "cosine": null,
+            "l2_error": 0.0,
+            "threshold": 1e-08,
+            "margin": 1e-08,
+            "passed": true
+          }
+        }
+      }
+    }
+  ]
+}
