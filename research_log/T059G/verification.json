@@ -1,0 +1,25 @@
+{
+  "verification": "PASS",
+  "independent_classification": "T059-E failure is consistent with an inner-held feature-support shift under fixed 1-NN",
+  "independent_gates": {
+    "train": {
+      "value": true,
+      "detail_positive": true,
+      "detail_median": true
+    },
+    "heldout": {
+      "value": false,
+      "detail_positive": true,
+      "detail_median": true
+    }
+  },
+  "all_neighbor_indices_and_tie_counts_exact": true,
+  "maximum_distance_replay_error": {
+    "train": 7.105427357601002e-15,
+    "heldout": 3.552713678800501e-15
+  },
+  "neighbor_rows": 5886,
+  "canonical_smallest_tie_verified": true,
+  "heldout_map_before_supervision": true,
+  "result_sha256": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4"
+}

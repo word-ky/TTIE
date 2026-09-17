@@ -1,0 +1,70 @@
+{
+  "status": "DONE",
+  "classification": "T059-E failure is consistent with an inner-held feature-support shift under fixed 1-NN",
+  "train_gates": {
+    "value": true,
+    "detail_positive": true,
+    "detail_median": true
+  },
+  "heldout_gates": {
+    "value": false,
+    "detail_positive": true,
+    "detail_median": true
+  },
+  "supervision_opened_utc": {
+    "train": "2026-09-17T21:03:11.989057+00:00",
+    "heldout": "2026-09-17T21:03:12.046288+00:00"
+  },
+  "counters": {
+    "training_runs": 0,
+    "optimizer_steps": 0,
+    "model_forwards": 0,
+    "new_source_image_opens": 0,
+    "reference_gradient_recomputations": 0,
+    "new_feature_forwards": 0,
+    "outer_supervision_reads": 0,
+    "target_domain_access": 0,
+    "lolv2_access": 0,
+    "official_test_access": 0,
+    "inference_reference_leakage": 0
+  },
+  "completed_utc": "2026-09-17T21:03:12.380942+00:00",
+  "train": {
+    "rows": 4357,
+    "relative_huber": 0.06445551663637161,
+    "detail_eligible": 4295,
+    "detail_ineligible": 62,
+    "neighbor_noneligible_on_eligible_query": 32,
+    "detail_positive": 0.946449339389801,
+    "detail_median": 0.5974024534225464,
+    "nearest_squared_distance": {
+      "defined": 4357,
+      "undefined": 0,
+      "mean": 6.1469461068418045,
+      "minimum": 0.5212370110108725,
+      "p10": 1.9423253758457177,
+      "median": 4.988656294532646,
+      "p90": 11.627280033882418,
+      "maximum": 25.94452180152861
+    }
+  },
+  "heldout": {
+    "rows": 1529,
+    "relative_huber": 0.23172274231910706,
+    "detail_eligible": 1510,
+    "detail_ineligible": 19,
+    "neighbor_noneligible_on_eligible_query": 4,
+    "detail_positive": 0.9132450222969055,
+    "detail_median": 0.528417706489563,
+    "nearest_squared_distance": {
+      "defined": 1529,
+      "undefined": 0,
+      "mean": 6.62581756962515,
+      "minimum": 0.3521257084449767,
+      "p10": 2.32444852904065,
+      "median": 5.8818987193196755,
+      "p90": 12.502348509808007,
+      "maximum": 19.39224755276757
+    }
+  }
+}
