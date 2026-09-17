@@ -24,8 +24,9 @@ On LOL-v2 Real development data, the official 100-pair test remains sealed. The 
 - **T039-A:** on all `7,346` accepted canonical T014 source states and gains `{0.75,1.00,1.25}`, legacy alignment is `93.3545%` positive-dot / `0.955998` median cosine and later common-gain alignment is `85.2274% / 0.802533`; the frozen energy can therefore generalize to at least one later action tangent on source.
 - **T041/T042:** late real legacy/feature-state extrapolation is a major local reliability failure; substituting fixed step-10 legacy coordinates restores strong directional alignment.
 - **T043/T044:** directional validity does not equal absolute image quality, and raw late excursion is not a useful target-free risk score.
+- **T058-AF:** the exact T054 local-detail tangent fails the preregistered frozen-energy source-readiness gate on all `7,346` canonical T014 source states: `4,959/7,244 = 68.4567%` positive-dot and `0.230516` median cosine, versus required `>=75%` and `>=0.50`. The result is a source-only diagnostic with immutable learned gradients frozen before clean-source reference gradients were opened. The frozen T014 field is therefore **not ready** for direct T054-detail integration. Descriptively, homogeneous-dark states are especially weak (`51.6782%`, median cosine `0.0209763`), while homogeneous-bright is stronger (`82.7819%`, `0.456648`); these subgroups do not alter the global verdict.
 
-The deployable bottleneck remains two-sided: the renderer/action family must be expressive enough, and the learned target-free optimization field must remain valid over the states/directions it visits. After the T054–T057 capacity sequence, the immediate question is now whether the existing frozen T014 field is locally compatible with the high-value T054 detail direction before any real-domain rollout or retraining.
+The deployable bottleneck remains two-sided: the renderer/action family must be expressive enough, and the learned target-free optimization field must remain valid over the states/directions it visits. T054–T057 establish that local detail/noise control is the strongest missing renderer capability found so far, while T058-AF now resolves the compatibility question negatively: the existing frozen T014 Sobolev field does not transfer strongly enough to that 64-D detail tangent. **Matched source-side Sobolev supervision for the exact T054 detail coordinate must precede any real-domain detail rollout.**
 
 ## Capacity sequence through T057
 
@@ -44,7 +45,7 @@ All results here are **non-deployable `REFERENCE_ORACLE_ONLY` diagnostics** on t
 - **T056-A fixed second-scale detail band:** scientifically valid but **not materially supported**. Adding one RGB-shared 8×8 coefficient on `D2=B5(y0)-B9(y0)` reaches **`24.4701676 / 0.7698747`**, only `+0.1203754 dB` mean / `+0.1019722 dB` median PSNR and `+0.0107468` mean SSIM over T055, below the frozen `+0.50/+0.25 dB/+0.020` gate. Gains are broad but too small to promote coarse-band stacking as the next major mechanism.
 - **T057-A fixed chroma-detail marginal oracle:** scientifically valid but **not materially supported**. Starting exact T055 and adding only one zero-RGB-mean chroma-detail 8×8 field reaches **`24.4353944 / 0.7673667`**, for only `+0.0856022 dB` mean / `+0.0472394 dB` median PSNR and `+0.0082388` mean SSIM versus T055, far below the same `+0.50/+0.25 dB/+0.020` gate despite `100/100` PSNR and SSIM wins. Only `5/100` selected states are at step 500. Independent replay passes 100 images / 50,100 history states / 200 metrics / 724 scalar checks; basis/interpolation/renderer errors remain below `1e-6`, all old coordinates and inactive pixels are exact, and official test access is zero.
 
-The capacity diagnosis is now sharper. T054 establishes **local detail/noise control** as a high-value missing capability, while T055 closes simple one-scale budget rescue and T056/T057 show only small broad-positive returns from a coarser frequency band or chroma/luminance detail decoupling. Renderer micro-extension around the T054 family is therefore no longer the highest-value next step. The next bottleneck to test is whether the **existing frozen target-free energy has a useful source-side gradient along the T054 detail tangent**; if not, matched Sobolev retraining should precede any real-domain integration.
+The capacity diagnosis is now sharper. T054 establishes **local detail/noise control** as a high-value missing capability, while T055 closes simple one-scale budget rescue and T056/T057 show only small broad-positive returns from a coarser frequency band or chroma/luminance detail decoupling. T058-AF then shows that the current frozen T014 energy does not supply a sufficiently aligned gradient for the T054 direction. Renderer micro-extension and direct real-domain rollout are therefore both paused; the next mechanism step is matched Sobolev supervision for the exact detail tangent while preserving the no-test-target inference boundary.
 
 ## Strong baseline development anchors
 
@@ -62,7 +63,7 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
 - External baselines admitted to the main comparison must be target-free at inference.
-- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. **The official LOL-v2 Real test remains untouched through T057-A.**
+- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. **The official LOL-v2 Real test remains untouched through T058-AF.**
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -76,10 +77,10 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 
 ## Integration note
 
-PR #75/T050 is merged as `276c0b1fa5c9e6548bef90048ec6fcc43da439c3`. PRs #76–#83 inherit evidence-history/integration complications; preserve exact accepted scientific/evidence states rather than rewriting history during experiment cycles. PR #83/T057 may remain non-mergeable for history reasons; that does not invalidate its reviewed scientific evidence.
+PR #75/T050 is merged as `276c0b1fa5c9e6548bef90048ec6fcc43da439c3`. PRs #76–#83 inherit evidence-history/integration complications; preserve exact accepted scientific/evidence states rather than rewriting history during experiment cycles. PR #83/T057 may remain non-mergeable for history reasons; that does not invalidate its reviewed scientific evidence. PR #95/T058-AF is likewise scientifically reviewable despite inherited non-mergeable history; do not repair history inside experiment cycles.
 
 ## Current open task
 
-**T058-A — frozen-energy local-detail tangent alignment audit on the canonical T014 source states** in `coordination/CHATGPT_TO_CODEX.md`.
+**T059-A — matched-detail Sobolev Jacobian-cache preflight** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Reuse all 7,346 accepted canonical T014 source-bank rows in the exact T039-A order. At each frozen source state, define the exact T054 one-scale basis `D=y0-B5(y0)` and a zero-initialized RGB-shared 8×8 detail coordinate only for differentiation. Freeze the accepted T014 energy and all legacy states. Stage A must compute/freeze learned-energy gradients before any source clean target is opened; Stage B then computes source RGB-MSE reference gradients. No optimizer updates, no retraining, no LOL-v2 image, no real-domain TTT, and no official-test access. The sole readiness gate is positive-dot fraction `>=0.75` and median cosine `>=0.50`; otherwise the frozen-energy detail tangent is not ready and the cycle stops.
+On the exact same 7,346 canonical T014 source states and exact T054 zero-initialized local-detail renderer, compute the fixed 28-feature Jacobian with respect to the 64-D detail coordinate, with all learned models/checkpoints frozen and no clean target opened. Validate the cache by reconstructing the already-frozen T058 learned-energy gradient through the chain rule. This task prepares matched source-side Sobolev retraining; it does not train a new energy, run target-domain TTT, or access LOL-v2/official-test data.
