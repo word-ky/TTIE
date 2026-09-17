@@ -1,0 +1,251 @@
+[
+  {
+    "index": 3,
+    "bank_index": 1,
+    "state_index": 2,
+    "image_id": 36660,
+    "status": "explained",
+    "E32": -4.796320915222168,
+    "d32_rev": 0.006348521463223733,
+    "E64": -4.796321043571391,
+    "d64_rev": 0.00634846690811682,
+    "criteria": {
+      "image_identity": {
+        "passed": true
+      },
+      "clamp_microprobe": {
+        "passed": true
+      },
+      "reverse_reproduction": {
+        "actual": 0.00634846690811682,
+        "expected": 0.00634846690811682,
+        "abs_error": 0.0,
+        "tolerance": 1.634846690811682e-10,
+        "margin": 1.634846690811682e-10,
+        "passed": true
+      },
+      "reverse_decomposition": {
+        "actual": 0.00634846690811682,
+        "expected": 0.006348466908117039,
+        "abs_error": 2.185751579730777e-16,
+        "tolerance": 1.469693381623364e-07,
+        "margin": 1.4696933794376125e-07,
+        "passed": true
+      },
+      "clamp_surrogate": {
+        "actual": 0.006348466908117042,
+        "expected": 0.006348466908117039,
+        "abs_error": 3.469446951953614e-18,
+        "tolerance": 1.469693381623364e-07,
+        "margin": 1.4696933815886696e-07,
+        "passed": true
+      },
+      "mixed_boundaries": {
+        "B_plus_nonzero": true,
+        "B_minus_nonzero": true,
+        "zero_tangent_contribution": 0.0,
+        "passed": true
+      }
+    },
+    "ladder": null,
+    "boundary": {
+      "boundary_directional_count": 3042,
+      "min_nonzero_boundary_distance": 2.115964889526367e-06
+    },
+    "y0_sha256": "e42e2310aefb092df40d55fcd7710c829d875593394f042c16249a1f7d529fcb",
+    "historical_h001": {
+      "step": 0.001,
+      "direction": "alternating64_unit_l2",
+      "plus": -4.796319007873535,
+      "minus": -4.796326637268066,
+      "central": 0.003814697265625,
+      "autograd": 0.006348532158881426,
+      "abs_error": 0.002533834893256426,
+      "tolerance": 0.0008174266079440714,
+      "passed": false,
+      "index": 3
+    },
+    "cast_isolation": {
+      "accepted_shadow_features": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.5186816453933716,
+        2.494615077972412,
+        3.805448532104492,
+        1.943534016609192,
+        -0.06989376991987228,
+        0.014552365057170391,
+        0.7968837022781372,
+        -0.2916347086429596,
+        -2.6483712196350098,
+        -2.6364986896514893,
+        -1.6122512817382812,
+        -2.2564170360565186,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.8000000715255737,
+        0.8000000715255737,
+        0.8000000715255737,
+        0.8000000715255737
+      ],
+      "phi64": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.5186816184780634,
+        2.494615163158565,
+        3.805448617707594,
+        1.9435339654316348,
+        -0.06989376830560824,
+        0.014552364731524872,
+        0.7968836864826079,
+        -0.29163470900535166,
+        -2.64837116220253,
+        -2.636498573338151,
+        -1.6122513073608749,
+        -2.256417112592726,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.8000000715255737,
+        0.8000000715255737,
+        0.8000000715255737,
+        0.8000000715255737
+      ],
+      "bitwise_castback_identity": true,
+      "intermediate_dtypes": {
+        "active": "torch.float64",
+        "signed": "torch.float64",
+        "evidence": "torch.float64",
+        "z_dark": "torch.float64",
+        "z_bright": "torch.float64",
+        "grid_ev": "torch.float64",
+        "grid_gamma": "torch.float64"
+      },
+      "scores_dtype": "torch.float64",
+      "phi_dtype": "torch.float64",
+      "device": "cpu"
+    },
+    "observed_shadow_dtypes": {
+      "energy": "torch.float64",
+      "output": "torch.float64",
+      "features": "torch.float64"
+    },
+    "decomposition": {
+      "image_identity": true,
+      "clamp_microprobe": {
+        "multipliers": [
+          [
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "deterministic": true,
+        "inclusive": true
+      },
+      "criteria": {
+        "image_identity": {
+          "passed": true
+        },
+        "clamp_microprobe": {
+          "passed": true
+        },
+        "reverse_reproduction": {
+          "actual": 0.00634846690811682,
+          "expected": 0.00634846690811682,
+          "abs_error": 0.0,
+          "tolerance": 1.634846690811682e-10,
+          "margin": 1.634846690811682e-10,
+          "passed": true
+        },
+        "reverse_decomposition": {
+          "actual": 0.00634846690811682,
+          "expected": 0.006348466908117039,
+          "abs_error": 2.185751579730777e-16,
+          "tolerance": 1.469693381623364e-07,
+          "margin": 1.4696933794376125e-07,
+          "passed": true
+        },
+        "clamp_surrogate": {
+          "actual": 0.006348466908117042,
+          "expected": 0.006348466908117039,
+          "abs_error": 3.469446951953614e-18,
+          "tolerance": 1.469693381623364e-07,
+          "margin": 1.4696933815886696e-07,
+          "passed": true
+        },
+        "mixed_boundaries": {
+          "B_plus_nonzero": true,
+          "B_minus_nonzero": true,
+          "zero_tangent_contribution": 0.0,
+          "passed": true
+        }
+      },
+      "counts": {
+        "interior": 472151,
+        "lower": 3049,
+        "upper": 0,
+        "B_plus": 1387,
+        "B_minus": 1655,
+        "zero_tangent_boundary": 7,
+        "outside": 0,
+        "inactive": 0,
+        "lower_positive": 1387,
+        "lower_negative": 1655,
+        "lower_zero": 7,
+        "upper_positive": 0,
+        "upper_negative": 0,
+        "upper_zero": 0
+      },
+      "I": 0.002372322425400148,
+      "B_plus": 0.0007070290067309537,
+      "B_minus": 0.0032691154759859373,
+      "zero_tangent": 0.0,
+      "d_rev_pred": 0.006348466908117039,
+      "d_plus_pred": 0.0030793514321311014,
+      "d_minus_pred": 0.005641437901386085,
+      "surrogate_derivative": 0.006348466908117042,
+      "leaf_energy": -4.796321043571391,
+      "q_dtype": "torch.float64",
+      "feature_dtypes": {
+        "active": "torch.float64",
+        "signed": "torch.float64",
+        "evidence": "torch.float64",
+        "z_dark": "torch.float64",
+        "z_bright": "torch.float64",
+        "grid_ev": "torch.float64",
+        "grid_gamma": "torch.float64"
+      },
+      "z_dtype": "torch.float64",
+      "tangent_dtype": "torch.float64",
+      "inactive_tangent_nonzero": 0
+    },
+    "historical_T058Z_h0005": {
+      "h": 0.0005,
+      "plus": -4.7963195036774575,
+      "minus": -4.79632386411706,
+      "central": 0.004360439602280053,
+      "plus_secant": 0.0030797878665111966,
+      "minus_secant": 0.005641091338048909
+    },
+    "historical_T058Z_d64_rev": 0.00634846690811682
+  }
+]
