@@ -1,0 +1,25 @@
+--- research_log/T058AB/chain.py
++++ research_log/T058AC/chain.py
+@@ -9,7 +9,12 @@
+ UNRESOLVED='T058 derivative verifier unresolved'
+ 
+ def vector_checks(g32,g64,g_chain):
+-    a=g32.double();b=g64;delta=a-b
++    original_devices={n:dict(device=str(g.device),dtype=str(g.dtype)) for n,g in [('g32',g32),('g64',g64),('g_chain',g_chain)]}
++    a=g32.detach().to(device='cpu',dtype=torch.float64)
++    b=g64.detach().to(device='cpu',dtype=torch.float64)
++    g_chain=g_chain.detach().to(device='cpu',dtype=torch.float64)
++    comparison_copies={n:dict(device=str(g.device),dtype=str(g.dtype),requires_grad=g.requires_grad) for n,g in [('g32',a),('g64',b),('g_chain',g_chain)]}
++    delta=a-b
+     n32=float(torch.linalg.vector_norm(a));n64=float(torch.linalg.vector_norm(b))
+     error=float(torch.linalg.vector_norm(delta));limit=1e-5+1e-3*n64
+     chain_error=float((b-g_chain).abs().max());chain_limit=2e-8+2e-5*float(b.abs().max())
+@@ -17,7 +22,7 @@
+         cosine=float((a*b).sum()/(n32*n64)) if n32*n64>0 else None
+         orientation=dict(mode='cosine',cosine=cosine,threshold=.9999,margin=None if cosine is None else cosine-.9999,passed=cosine is not None and cosine>=.9999)
+     else:orientation=dict(mode='both_negligible',cosine=None,l2_error=error,threshold=1e-8,margin=1e-8-error,passed=error<=1e-8)
+-    return dict(norm32=n32,norm64=n64,norm_chain=float(torch.linalg.vector_norm(g_chain)),criteria=dict(chain=dict(max_abs_error=chain_error,tolerance=chain_limit,margin=chain_limit-chain_error,passed=chain_error<=chain_limit),float32_float64=dict(l2_error=error,tolerance=limit,margin=limit-error,passed=error<=limit),orientation=orientation))
++    return dict(original_devices=original_devices,comparison_copies=comparison_copies,norm32=n32,norm64=n64,norm_chain=float(torch.linalg.vector_norm(g_chain)),criteria=dict(chain=dict(max_abs_error=chain_error,tolerance=chain_limit,margin=chain_limit-chain_error,passed=chain_error<=chain_limit),float32_float64=dict(l2_error=error,tolerance=limit,margin=limit-error,passed=error<=limit),orientation=orientation))
+ 
+ def full_chain(model,obj,head,direction,y64,E32,E64,g32,g64):
+     v=torch.zeros_like(model.v,requires_grad=True)
