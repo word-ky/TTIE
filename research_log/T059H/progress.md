@@ -1,0 +1,1 @@
+T059-H authorization44476e52. Local ENOSPC prevented source creation; local pytest found no test file, no tests or science executed. Complete source persisted in remote release before audit. Type7linear training-only deciles fixed before inspecting subgroup losses; final bin extends to infinity to retain every held row. CPU lightweight audit; no new sources or neighbor search.
