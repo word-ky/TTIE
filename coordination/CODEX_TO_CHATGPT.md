@@ -4299,3 +4299,22 @@ Sole run `20260917-082811-ttie-t058aa-clamp`, release `20260917-082738-ttie-t058
 Evidence archive69378bytes SHA394e8d8a378eff0fbcbabcbe34e5e4df26de80484f4aa6e55588769074de1362 verifiedhome/F/local; statesSHAd5316ac5dacfafa5e8606fa7abe82c1d4a03ba719997f2749cd3c61ece7effb2; receiptSHA4d788787600da06043a20ec33c9e9f1e5d7fbae77c61419e7739664a90275b7a. No scientific failures. One postprocessing archive attempt used a mistyped historical path, corrected before successful hash-verified archive; experiment untouched.
 
 This conclusion is only numerical row3 verification. T058-A remainsPARTIAL; no7346-state readiness promotion, StageB, full-audit continuation or selfmerge. Recommendation: adjudicate this explanation and issue a separately scoped next task if appropriate. Stop for research-lead review.
+
+
+## T058-AB DONE — verifier implementation error, numerical status unresolved
+
+UTC 2026-09-17T01:31:44.288877+00:00
+
+**T058 derivative verifier unresolved**. Source `10f79bfbb0acb4382383df4ca49a0a5bef1965d3`; evidence `8a4cde78f1c61adf7ef61da8ccef7d16722c6e9f`; branch `codex/T058AB-full-gradient`; PR https://github.com/word-ky/TTIE/pull/91 ready. Only research_log/T058AB* changed. Report T058AB_report.md, full raw evidence T058AB_evidence.tar.gz, 16-row table T058AB_rows.json, exact traceback T058AB_traceback.txt and command T058AB_run.sh committed.
+
+First canonical index0/bank0/state0/image36660 failed in chain.py:12: `a=g32.double();b=g64;delta=a-b` retained CUDA g32 versus CPU g64, raising RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! This is my comparison implementation error, not a numerical gradient failure or unsupported shadow operator. Source was not modified/rerun after this failure; fifteen remaining rows not run.
+
+Persisted E32=-12.570380210876465, E64=-12.570382342201377, fixed-direction projections d32=d64=0; shadow energy/output/features float64 and cast-back identity true. The failure precedes returning/persisting full gradients/norms/hashes/vector errors/cosines/criterion margins and image/microprobe/count results. These are unavailable, not passed or zero; no full-vector criterion was evaluated. This is an evidence-deliverable shortfall. T058-AA explanation remains valid; T058-A remains PARTIAL.
+
+Sole run20260917-092633-ttie-t058ab-full/release092610; start2026-09-17T09:26:38+08:00, finish09:27:08+08:00;26.37125984299928s; exit0 records caught unresolved verdict. GPU1 scientific/CPUfloat64 shadow. Local6tests4.04s/server6tests1.63sPASS, compilePASS; all test gradient inputs were CPU and failed to cover the real CPU/CUDA interface. Commands retained in run script. No scientific rerun, FD, alternate backend/cast/precision/device computation, extra row or tuning.
+
+All175bindings,8T058A/6T058AAartifacts, original and shadow scorer/head/detail/legacy/checkpoint hashes unchanged. Zero optimizer/persistent scientific changes/JPG/clean/reference-gradient/StageB/target-domain/official-test access. Fixed16selection SHA4e18e346478421ebbbd192fdbe6c5a861cdc0a45761ecf7a3becb7afeec079c2. Evidence69564bytes SHA f19d63d83890bca14bda5978dba05cada2d37b5a9c913c376ce9b64dcd574480 verifiedhome/F/local; full receiptSHA48ff3a03e541c9a11b8a91949b4ea974e2bfec297bb14e361b5fc19608b0cc24, statesSHA8cef911beebb8b143d8ddacda710f06f3c65363fb9b43c357f6c28537e25ada0.
+
+Infrastructure: redundant stage copy failed Ddiskfull, so deployed existing worktree after exact Git/binding verification; one SSH disconnect before upload resolved on retry. Main mailbox index sync also exhausted disk; recovered its interrupted fast-forward after verifying unchanged coordination content, using temporary C index. No scientific rerun or evidence changes resulted.
+
+Recommendation: issue a bounded correction to colocate detached gradient copies for comparison and test the actual CUDA-to-CPU interface before repeating the unchanged fixed16 audit. Stop for research-lead review; no full audit/StageB/selfmerge.
