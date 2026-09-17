@@ -1,0 +1,143 @@
+{
+  "task": "T059-B",
+  "status": "PARTIAL",
+  "classification": "T059-B preflight stopped: cached feature path mismatch; source-fit feasibility unresolved",
+  "training_runs": 0,
+  "optimizer_steps": 0,
+  "final_checkpoint": null,
+  "required_frozen_checkpoint_statistics": "not reached",
+  "source": "2cecef0797e625440e474720adcea6b8195d1447",
+  "authorization": "a2041ad4095a54b7d63086c898498b565c1c6ed8",
+  "run": "20260917-185145-ttie-t059b-dualfit",
+  "pr": "https://github.com/word-ky/TTIE/pull/97",
+  "failure": {
+    "error": "AssertionError: CACHED_FEATURE_PATH_MISMATCH",
+    "training_started": false,
+    "seconds": 15.556082566967234,
+    "completed_utc": "2026-09-17T10:53:47.577660+00:00"
+  },
+  "feature_difference": {
+    "label": "READ_ONLY_POST_STOP_CACHED_TENSOR_DIFFERENCE",
+    "utc": "2026-09-17T10:55:32.468574+00:00",
+    "no_forward_no_autograd_no_training": true,
+    "shape": [
+      7346,
+      28
+    ],
+    "gate": {
+      "atol": 1e-06,
+      "rtol": 1e-06,
+      "origin": "implementation cached-feature equality check; not the requested aggregate baseline replay"
+    },
+    "mismatched_elements": 12941,
+    "mismatched_rows": 5807,
+    "first": {
+      "row": 0,
+      "feature": 13,
+      "stored": -1.5427707433700562,
+      "cached": -1.5427734851837158,
+      "abs_error": 2.7418136596679688e-06,
+      "identity": {
+        "index": 0,
+        "bank_index": 0,
+        "state_index": 0,
+        "image_id": 36660,
+        "condition": "clean",
+        "state_name": "identity"
+      }
+    },
+    "maximum": {
+      "row": 970,
+      "feature": 14,
+      "stored": 0.44754159450531006,
+      "cached": 0.4475010931491852,
+      "abs_error": 4.050135612487793e-05
+    },
+    "per_feature_mismatched": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1652,
+      1408,
+      1424,
+      1380,
+      1873,
+      1709,
+      1744,
+      1751,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "per_feature_max_abs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      2.1338462829589844e-05,
+      1.7881393432617188e-05,
+      4.050135612487793e-05,
+      3.826618194580078e-05,
+      2.9921531677246094e-05,
+      2.0444393157958984e-05,
+      2.765655517578125e-05,
+      2.8848648071289062e-05,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "zero_active_mismatched_rows": 69,
+    "active_mismatched_rows": 5738
+  },
+  "raw_archive": {
+    "path": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t059b/T059B_evidence.tar.gz",
+    "backup": "/media/wenchang/F/wjq/TTIE/shared/t059b/T059B_evidence.tar.gz",
+    "bytes": 1791,
+    "sha256": "f5d2721c4f7d03b38fc8b0f3e63a86080271f72e605b327110e60fa82ad1fece",
+    "source217_unchanged": true,
+    "files": {
+      "train.log": "d5fcd65bc4011d401a836dd15776ef0655d26cb0838052c9292f1e40be65de02",
+      "submission_recovery.json": "446ee0bee0d149e9333ea210c8c38f1f9cff10004fe2e9303f8154502c7bcfe3",
+      "meta.json": "8cf3bd297c0c64b3920bcd7a1979140dda504949f692760599b822a0b4bc4431",
+      "run.sh": "c01f61a06f96d998cdfed7e146309c18784abe6063d92f679af755460c1edba0",
+      "artifacts/T059B/failure.json": "c2456e0e07d84e832e6fb4f6e241bc32002a852822551fcdc31b63b6fbf04515",
+      "artifacts/T059B/error.txt": "c26e68742265ac78003ee5fe1d50b9e791bbbdbcba9da0bc2cdf1d1f311322ed"
+    }
+  },
+  "local_archive_all_members_verified": true,
+  "tests": {
+    "local": "4 passed in15.65s",
+    "server": "4 passed in2.70s"
+  },
+  "no_new_source_image_opens": true,
+  "no_new_reference_gradients": true,
+  "no_target_or_official_test_access": true,
+  "limitations": "Extra implementation-level cached-feature allclose1e-6/1e-6 stopped before mandated statistical replay. Not evidence that fixed dual-tangent training is infeasible. No final model/input state receipt because execution stopped early."
+}

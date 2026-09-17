@@ -1,0 +1,19 @@
+[autodl] run_id=20260917-185145-ttie-t059b-dualfit
+[autodl] started_at=2026-09-17T18:53:27+08:00
+....                                                                     [100%]
+=============================== warnings summary ===============================
+research_log/T059B/test_fit.py::test_zero_detail_reproduces_original_training_exactly
+  <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+
+research_log/T059B/test_fit.py::test_zero_detail_reproduces_original_training_exactly
+  <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 2 warnings in 2.70s
+Traceback (most recent call last):
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260917-185120-ttie-t059b-dualfit/research_log/T059B/run.py", line 56, in <module>
+    feature_error=float((x-phi).abs().max());assert torch.allclose(x,phi,atol=1e-6,rtol=1e-6),'CACHED_FEATURE_PATH_MISMATCH'
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: CACHED_FEATURE_PATH_MISMATCH
+[autodl] finished_at=2026-09-17T18:53:47+08:00
+[autodl] exit_code=1
