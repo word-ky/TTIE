@@ -1,0 +1,5 @@
+# T058-AF recovery handoff
+
+DONE, PR95. Frozen-energy detail tangent not ready: positive4959/7244=.6845665378244064 and median.23051627609319664 fail .75/.50 gates. All7346 reference gradients,80 authorized source images,102degenerate retained. Sole GPU1 run20260917-153308-ttie-t058af-stageb exit0,157.1405962089775s. Local/server8testsPASS; full storedtensorreadbackPASS. No learnedrecompute/FD/optimizer/target/test. Main mailbox completion3f594a0f7187593eaccefbf1de9174e770b410ae.
+
+D disk full prevented local Git add and outer artifact mirroring. Evidence652930da5cf9e7a2dbba5807ede44dbaa8a3b7ab was published through GitHub API; local branch HEAD remains tested source40642d35a4ab78d686f41673b6b933c7a39a6827, do not push stale history. Remote project shared/t058af/metadata and recovery are authoritative for resumption. Full recovery SHA71d3f20c1cbe810790e5ee1a6c6712daf9c80b79a5fc5783a7862081a9dec0bd verified home/F. Raw tensorarchive staysremote; compressed allrowCSV and receipts publishedinGit. Stop for research-lead review/new task; do not repeat reported OPEN, retrain, or integrate into realdomain thiscycle.
