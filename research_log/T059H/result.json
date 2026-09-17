@@ -1,0 +1,195 @@
+{
+  "bins": [
+    {
+      "bin": 0,
+      "train_rows": 435,
+      "held_rows": 87,
+      "held_fraction": 0.05689993459777633,
+      "train_mean_huber": 0.005727456831576451,
+      "held_mean_huber": 0.0029869150315885783
+    },
+    {
+      "bin": 1,
+      "train_rows": 437,
+      "held_rows": 151,
+      "held_fraction": 0.0987573577501635,
+      "train_mean_huber": 0.002829846125464525,
+      "held_mean_huber": 0.1904838538802775
+    },
+    {
+      "bin": 2,
+      "train_rows": 434,
+      "held_rows": 94,
+      "held_fraction": 0.061478090255068674,
+      "train_mean_huber": 0.0049131432860789435,
+      "held_mean_huber": 0.433311796153838
+    },
+    {
+      "bin": 3,
+      "train_rows": 436,
+      "held_rows": 81,
+      "held_fraction": 0.052975801177240024,
+      "train_mean_huber": 0.010981336907259488,
+      "held_mean_huber": 0.4404596786580638
+    },
+    {
+      "bin": 4,
+      "train_rows": 436,
+      "held_rows": 166,
+      "held_fraction": 0.10856769130150425,
+      "train_mean_huber": 0.007550457079109152,
+      "held_mean_huber": 0.45807694712469715
+    },
+    {
+      "bin": 5,
+      "train_rows": 434,
+      "held_rows": 297,
+      "held_fraction": 0.19424460431654678,
+      "train_mean_huber": 0.014697359149952573,
+      "held_mean_huber": 0.05827595132103763
+    },
+    {
+      "bin": 6,
+      "train_rows": 438,
+      "held_rows": 185,
+      "held_fraction": 0.1209941137998692,
+      "train_mean_huber": 0.04088449867286449,
+      "held_mean_huber": 0.13558377173469385
+    },
+    {
+      "bin": 7,
+      "train_rows": 435,
+      "held_rows": 131,
+      "held_fraction": 0.08567691301504252,
+      "train_mean_huber": 0.2852331031695199,
+      "held_mean_huber": 0.9126532639346503
+    },
+    {
+      "bin": 8,
+      "train_rows": 436,
+      "held_rows": 134,
+      "held_fraction": 0.08763897972531066,
+      "train_mean_huber": 0.04638641586071188,
+      "held_mean_huber": 0.014842563311072083
+    },
+    {
+      "bin": 9,
+      "train_rows": 436,
+      "held_rows": 203,
+      "held_fraction": 0.1327665140614781,
+      "train_mean_huber": 0.2254713353069003,
+      "held_mean_huber": 0.04381483243524367
+    }
+  ],
+  "distance_reweighted_train_huber": 0.06854875106125766,
+  "threshold": 0.07650849781930447,
+  "threshold_margin": 0.00795974675804681,
+  "classification": "nearest-distance shift alone does not explain T059-G scalar failure; conditional scalar mismatch remains",
+  "status": "DONE",
+  "input_root": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G",
+  "inputs_before": {
+    "maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "evaluation_rows.pt": "671a9b3afc74f2ffecab4c0359dbec902942a43d166f31af1cfd3d7cf763cf1b",
+    "result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4"
+  },
+  "inputs_after": {
+    "maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "evaluation_rows.pt": "671a9b3afc74f2ffecab4c0359dbec902942a43d166f31af1cfd3d7cf763cf1b",
+    "result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4"
+  },
+  "tensor_replay_hashes": {
+    "train": {
+      "global_index": "4cc19000c51c132a48e8e004e22020fb19bf2e79b5280c3c1d6d130e9c8c9ee7",
+      "neighbor_index": "46d3ce041ae2af55fca4a327de260fcc19fef4563978b53029d796f4e3e9b570",
+      "neighbor_global": "e9df3a0d7b5e68f59efb7c74b94418a565fb913d22147fae64ffd70fdcd307dd",
+      "distance": "d829a89118f2a2320cf114440b25a901964b5557dc64c79c7a3767daa79c4bd0",
+      "pred": "0d26c1af3b2a42a120364d681ef1436d6a79893ddfacc51833e1e2c86fca70de",
+      "target": "a9bebf05f1c1d75cc283e9a0d67c2addf973b1c6ad5962f3636d3f2ce2bc9fc5"
+    },
+    "heldout": {
+      "global_index": "e536d7c5beb08fb215ca9acdeea5196fe31020fb3c6f2d34621aa618c0571569",
+      "neighbor_index": "a100696e63be3931fa0e5ac87fcd243455f4e5b653d6760741404299a028300e",
+      "neighbor_global": "60f57d7383d61062a4200f3c888ec5cfbac4ff88ff03ae4fae2441c80a42cace",
+      "distance": "b842f2741d83dadcb85bdb4aeee23ed823cfc731868233c03a59d8c24ef81b53",
+      "pred": "3a3c1c18b03a94516e9d15825c0e262105390a1d303156e6b1c4512124e009c4",
+      "target": "4d01709be268b13f4936db2b2af0428e72a7acb11a0596c7d59ce63d018186bd"
+    }
+  },
+  "original_huber": {
+    "train": 0.06445551663637161,
+    "heldout": 0.23172274231910706
+  },
+  "train_distance": {
+    "rows": 4357,
+    "minimum": 0.5212370110108725,
+    "mean": 6.1469461068418045,
+    "median": 4.988656294532646,
+    "p10": 1.9423253758457177,
+    "p90": 11.627280033882418,
+    "maximum": 25.94452180152861
+  },
+  "held_distance": {
+    "rows": 1529,
+    "minimum": 0.3521257084449767,
+    "mean": 6.62581756962515,
+    "median": 5.8818987193196755,
+    "p10": 2.32444852904065,
+    "p90": 12.502348509808007,
+    "maximum": 19.39224755276757
+  },
+  "held_fraction_above_train_p90": 0.1327665140614781,
+  "held_fraction_above_train_maximum": 0.0,
+  "bins_frozen": {
+    "boundaries": [
+      1.9423253758457177,
+      2.800727039385826,
+      3.322648337045125,
+      3.969145192233483,
+      4.988656294532646,
+      6.385519894327072,
+      7.6536062071255,
+      9.173967985221106,
+      11.627280033882418
+    ],
+    "quantile": "empirical type7 linear interpolation: position=(n-1)*p",
+    "probabilities": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "tie_semantics": "left closed/right open; exact internal boundary to higher bin; outer endpoints -infinity,+infinity include all rows; last bin closed",
+    "persisted_utc": "2026-09-17T22:34:04.498754+00:00",
+    "maps_sha256": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "subgroup_errors_read": false
+  },
+  "scalar_pairs_opened_utc": "2026-09-17T22:34:04.499397+00:00",
+  "source_binding": {
+    "research_log/T059H/run.py": "2a181432642299d8797549e78abb5549650918867088ac0c8f59d69aae76a6d8",
+    "research_log/T059H/test_core.py": "7292b14c30ac1c7ddc1bd0de51edd6208a577555d1994a4538628c123721e6dd",
+    "research_log/T059H/verify.py": "8738fed2fa5d5924454f99eddfc24de7675705f11932152ad483dace6812087a",
+    "research_log/T059H/core.py": "85af42e22325cb8a25d82dd6cdff26433b19f85d2b9de5d1a2647bb9066449bc",
+    "research_log/T059H/authorization.md": "36b70057bee86ff3e3ae856ad20846b54042dee39dfadcb68f084f182256632c"
+  },
+  "numeric_convention": "Frozen float32 per-row Huber; bin means and reweighted sum float64; train-only float64 type7 quantiles",
+  "counters": {
+    "training_runs": 0,
+    "optimizer_steps": 0,
+    "model_forwards": 0,
+    "new_neighbor_searches": 0,
+    "new_source_image_opens": 0,
+    "new_feature_forwards": 0,
+    "reference_gradient_recomputations": 0,
+    "outer_supervision_reads": 0,
+    "target_domain_access": 0,
+    "lolv2_access": 0,
+    "official_test_access": 0,
+    "inference_reference_leakage": 0
+  },
+  "completed_utc": "2026-09-17T22:34:04.540043+00:00"
+}
