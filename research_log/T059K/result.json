@@ -1,0 +1,244 @@
+{
+  "status": "DONE",
+  "label": "REFERENCE_ORACLE_ONLY",
+  "classification": "marginal scalar support exists in the fixed inner-train pool; the unresolved failure is localization/conditioning of that support rather than absence of scalar values",
+  "statistics": {
+    "train": {
+      "rows": 4357,
+      "global_oracle_huber": 0.0003226476546842605,
+      "target_in_global_scalar_range": 0.9977048427817305,
+      "frozen_five_membership": 0.006885471654808354,
+      "distance_rank": {
+        "rows": 4357,
+        "minimum": 1.0,
+        "mean": 1991.1276107413357,
+        "p10": 228.60000000000002,
+        "median": 1972.0,
+        "p90": 3821.8,
+        "maximum": 4289.0
+      },
+      "distance_percentile": {
+        "rows": 4357,
+        "minimum": 0.0,
+        "mean": 0.46685203670609815,
+        "p10": 0.05340736801667026,
+        "median": 0.46161070673867105,
+        "p90": 0.89692416060108,
+        "maximum": 0.9995304061986382
+      },
+      "candidate_count": {
+        "rows": 4357,
+        "minimum": 4237.0,
+        "mean": 4264.349781960064,
+        "p10": 4260.0,
+        "median": 4260.0,
+        "p90": 4283.0,
+        "maximum": 4306.0
+      },
+      "oracle_squared_distance": {
+        "rows": 4357,
+        "minimum": 2.2778807700840966,
+        "mean": 53.69273611802946,
+        "p10": 24.895706201245915,
+        "median": 52.1239857029677,
+        "p90": 83.9522475603573,
+        "maximum": 163.2636754198616
+      },
+      "queries_with_scalar_ties": 350
+    },
+    "heldout": {
+      "rows": 1529,
+      "global_oracle_huber": 0.0005118412664160132,
+      "target_in_global_scalar_range": 0.9967298888162197,
+      "frozen_five_membership": 0.007848266841072597,
+      "distance_rank": {
+        "rows": 1529,
+        "minimum": 1.0,
+        "mean": 2046.5454545454545,
+        "p10": 246.8,
+        "median": 1953.0,
+        "p90": 3968.4,
+        "maximum": 4357.0
+      },
+      "distance_percentile": {
+        "rows": 1529,
+        "minimum": 0.0,
+        "mean": 0.4695926204190668,
+        "p10": 0.05642791551882461,
+        "median": 0.44811753902662993,
+        "p90": 0.91078971533517,
+        "maximum": 1.0
+      },
+      "candidate_count": {
+        "rows": 1529,
+        "minimum": 4357.0,
+        "mean": 4357.0,
+        "p10": 4357.0,
+        "median": 4357.0,
+        "p90": 4357.0,
+        "maximum": 4357.0
+      },
+      "oracle_squared_distance": {
+        "rows": 1529,
+        "minimum": 1.8856187600673184,
+        "mean": 57.12661657002261,
+        "p10": 27.509881096793446,
+        "median": 54.98147202114845,
+        "p90": 88.281778036247,
+        "maximum": 169.9012481373359
+      },
+      "queries_with_scalar_ties": 137
+    }
+  },
+  "threshold": 0.07650849781930447,
+  "margins": {
+    "train": 0.0761858501646202,
+    "heldout": 0.07599665655288845
+  },
+  "exact_baseline_replay": {
+    "train": {
+      "G": 0.06445551663637161,
+      "I": 0.08473703265190125,
+      "J": 0.05390169471502304
+    },
+    "heldout": {
+      "G": 0.23172274231910706,
+      "I": 0.2230137139558792,
+      "J": 0.21286551654338837
+    }
+  },
+  "inputs_before": {
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/maps.pt": "289bee4e567a8daaa8180b2a7b58acbc4044ad26dbbe215aa92a818bf727ac81",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/predictions.pt": "1a09e1b591d890223e0041f0d60cbddd112a716f25c888ac5c3862269dd534f6",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/result.json": "20108a83f00334b9d66d668425bb9171e53cf29da9c7090a6134b15b778981cf",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-075858-ttie-t059j-oracle/artifacts/T059J/result.json": "9eb63becf9374f9dc6bc041ec0da285698663b40c495c6309ffa2ccef5a8b081",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-075858-ttie-t059j-oracle/artifacts/T059J/donor_values.pt": "9700b4732c0e4a8e222bbe6c72b98936a2f349b7091c8ec3d389cffd9abc4b78",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt": "671a9b3afc74f2ffecab4c0359dbec902942a43d166f31af1cfd3d7cf763cf1b"
+  },
+  "inputs_after": {
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/maps.pt": "289bee4e567a8daaa8180b2a7b58acbc4044ad26dbbe215aa92a818bf727ac81",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/predictions.pt": "1a09e1b591d890223e0041f0d60cbddd112a716f25c888ac5c3862269dd534f6",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/result.json": "20108a83f00334b9d66d668425bb9171e53cf29da9c7090a6134b15b778981cf",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-075858-ttie-t059j-oracle/artifacts/T059J/result.json": "9eb63becf9374f9dc6bc041ec0da285698663b40c495c6309ffa2ccef5a8b081",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-075858-ttie-t059j-oracle/artifacts/T059J/donor_values.pt": "9700b4732c0e4a8e222bbe6c72b98936a2f349b7091c8ec3d389cffd9abc4b78",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt": "671a9b3afc74f2ffecab4c0359dbec902942a43d166f31af1cfd3d7cf763cf1b"
+  },
+  "candidate_marker": {
+    "label": "REFERENCE_ORACLE_ONLY",
+    "training_scalar_opened_utc": "2026-09-18T02:51:58.870946+00:00",
+    "training_scalar_receipt": {
+      "side": "train",
+      "key": "target",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 18496,
+      "bytes": 17428,
+      "sha256": "a9bebf05f1c1d75cc283e9a0d67c2addf973b1c6ad5962f3636d3f2ce2bc9fc5",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    "persisted_utc": "2026-09-18T02:51:58.873335+00:00",
+    "sha256": "72c1e26065dc7755bfbb87a66772b1725da026c821dfc9a08a8c1a15ef1e7913",
+    "candidate_rows": 4357,
+    "candidate_images": 48,
+    "held_scalar_reads": 0,
+    "source_binding": {
+      "research_log/T059I/core.py": "e110b9f79be5555410c77daa0928b7b15c7ebd9f64199b56e2b1c58c66ccc5c8",
+      "research_log/T059K/run.py": "32c8d38d0a7a5663d28f10a41f75a0b25f4bf6686f300d274e1ef91901063638",
+      "research_log/T059K/test_core.py": "4c3af23a5c41abd8270b58c6a2ca3ddbde00478b0eeb0012a02db26f2d01981f",
+      "research_log/T059K/verify.py": "5d359a22ac73b0961e8d8570cc609c4431993987339385d80c31722cc8c98364",
+      "research_log/T059K/core.py": "7109f8ab2e5b4c3bbdee10e73ae5af85bf3ddda9687408afbc8a4052e762b89c",
+      "research_log/T059K/authorization.md": "23435f17351a915f6896291160cbd9247ac1fd058337ac2b02cdf0d7c6a2cc9d",
+      "research_log/T059J/run.py": "c0e52dbb3cea54fdd3e90428a3e161fd1f36e9cbadea9fd01e83499d28247059",
+      "research_log/T059J/test_core.py": "09f08349741655db9d1c7a8b28546229d0151c2b6b05c1d8d39ac659dbbc2382",
+      "research_log/T059J/source_binding.json": "5d1220e78600ae4256911240b5e8565b3694ebde04001a95e327ac3e6b15e06f",
+      "research_log/T059J/verify.py": "ae6d1d861d39c7fbe663f00c6643907d1e939cfc8a580ca8b6d1ca5f6ea5b9f3",
+      "research_log/T059J/core.py": "96483a07bed060939a0adbf84f8321a318bfbacffa3acfb3a3e314031ba5e9dd",
+      "research_log/T059J/authorization.md": "414238b43b87f359091717af73e8b209cec303953222fd47edaef923190450cf"
+    },
+    "accepted_inputs": {
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/maps.pt": "289bee4e567a8daaa8180b2a7b58acbc4044ad26dbbe215aa92a818bf727ac81",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/predictions.pt": "1a09e1b591d890223e0041f0d60cbddd112a716f25c888ac5c3862269dd534f6",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/result.json": "20108a83f00334b9d66d668425bb9171e53cf29da9c7090a6134b15b778981cf",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-075858-ttie-t059j-oracle/artifacts/T059J/result.json": "9eb63becf9374f9dc6bc041ec0da285698663b40c495c6309ffa2ccef5a8b081",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-075858-ttie-t059j-oracle/artifacts/T059J/donor_values.pt": "9700b4732c0e4a8e222bbe6c72b98936a2f349b7091c8ec3d389cffd9abc4b78"
+    },
+    "full_mixed_scalar_SHA_deferred_until_held_evaluation": true
+  },
+  "held_scalar_opened_utc": "2026-09-18T02:52:00.488316+00:00",
+  "source_binding": {
+    "research_log/T059I/core.py": "e110b9f79be5555410c77daa0928b7b15c7ebd9f64199b56e2b1c58c66ccc5c8",
+    "research_log/T059K/run.py": "32c8d38d0a7a5663d28f10a41f75a0b25f4bf6686f300d274e1ef91901063638",
+    "research_log/T059K/test_core.py": "4c3af23a5c41abd8270b58c6a2ca3ddbde00478b0eeb0012a02db26f2d01981f",
+    "research_log/T059K/verify.py": "5d359a22ac73b0961e8d8570cc609c4431993987339385d80c31722cc8c98364",
+    "research_log/T059K/core.py": "7109f8ab2e5b4c3bbdee10e73ae5af85bf3ddda9687408afbc8a4052e762b89c",
+    "research_log/T059K/authorization.md": "23435f17351a915f6896291160cbd9247ac1fd058337ac2b02cdf0d7c6a2cc9d",
+    "research_log/T059J/run.py": "c0e52dbb3cea54fdd3e90428a3e161fd1f36e9cbadea9fd01e83499d28247059",
+    "research_log/T059J/test_core.py": "09f08349741655db9d1c7a8b28546229d0151c2b6b05c1d8d39ac659dbbc2382",
+    "research_log/T059J/source_binding.json": "5d1220e78600ae4256911240b5e8565b3694ebde04001a95e327ac3e6b15e06f",
+    "research_log/T059J/verify.py": "ae6d1d861d39c7fbe663f00c6643907d1e939cfc8a580ca8b6d1ca5f6ea5b9f3",
+    "research_log/T059J/core.py": "96483a07bed060939a0adbf84f8321a318bfbacffa3acfb3a3e314031ba5e9dd",
+    "research_log/T059J/authorization.md": "414238b43b87f359091717af73e8b209cec303953222fd47edaef923190450cf"
+  },
+  "scalar_access": [
+    {
+      "side": "train",
+      "key": "target",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 18496,
+      "bytes": 17428,
+      "sha256": "a9bebf05f1c1d75cc283e9a0d67c2addf973b1c6ad5962f3636d3f2ce2bc9fc5",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "train",
+      "key": "pred",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 960,
+      "bytes": 17428,
+      "sha256": "0d26c1af3b2a42a120364d681ef1436d6a79893ddfacc51833e1e2c86fca70de",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "heldout",
+      "key": "target",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 2273280,
+      "bytes": 6116,
+      "sha256": "4d01709be268b13f4936db2b2af0428e72a7acb11a0596c7d59ce63d018186bd",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "heldout",
+      "key": "pred",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 2267072,
+      "bytes": 6116,
+      "sha256": "3a3c1c18b03a94516e9d15825c0e262105390a1d303156e6b1c4512124e009c4",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    }
+  ],
+  "oracle_rows_sha256": "48831d7d5c27bcdfb7c298ad80dd1300d2f585a5e5430c71dc533431b615319e",
+  "gpu": "NVIDIA RTX A6000",
+  "physical_gpu": 1,
+  "distance_percentile_definition": "(rank-1)/(allowable_candidate_count-1), rank1-based; squared Euclidean ties by canonical global row ID",
+  "counters": {
+    "training_runs": 0,
+    "optimizer_steps": 0,
+    "model_forwards": 0,
+    "new_source_image_opens": 0,
+    "new_feature_forwards": 0,
+    "reference_gradient_recomputations": 0,
+    "detail_gradient_tensor_reads": 0,
+    "outer_supervision_reads": 0,
+    "target_domain_access": 0,
+    "lolv2_access": 0,
+    "official_test_access": 0,
+    "inference_reference_leakage": 0
+  },
+  "completed_utc": "2026-09-18T02:52:01.117590+00:00"
+}
