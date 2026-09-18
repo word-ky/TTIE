@@ -40,14 +40,15 @@ The matched-detail program has established a strong asymmetry: **detail-directio
 - **T059-N:** source-only early stopping does not rescue transfer; selected epoch 13 is `0.0407366` fit / `0.149374` selector.
 - **T059-O (corrected pinned metrics):** exact bank-context 56-D `z=concat(u-u0,u0)` passes fit-LOO at **`0.0480293073`** but fails the reused 8-image selector at **`0.1556149274`**. A prior lead review transcribed different numbers; PR #114/evidence are authoritative. The classification is unchanged: explicit state-0 anchor context is insufficient for unseen-source-image scalar localization.
 - **T059-P:** full frozen T014 CLIP latent does not rescue locality under the fixed bank-context Euclidean 1-NN test. Using all five ordered 512-D normalized views, `z_clip=concat(e-e0,e0)` gives fit-LOO Huber **`0.1124138981`**, already above the unchanged `0.0765084978` gate; selector is **`0.1962943375`**. Thus prompt-score compression is **not established** as the bottleneck, and naive raw-CLIP metric/PCA/layer sweeps are not justified by this result.
+- **T059-Q:** exact T059-E/T059-M argmin consensus is **not** a sufficient target-free safety gate. Non-singleton agreement coverage is `41/63 = 0.6507937`; the consensus/abstention policy lowers mean regret from E's `0.2402099` to `0.2136564` and harmed banks from `3/80` to `1/80`, but p90 regret worsens from `0.0864220` to `0.5538099` and maximum regret remains `6.3640804`. Bank 280 is the decisive shared-bias counterexample: both heads choose state 14 and preserve `+6.3640804` harm. Simple argmin disagreement therefore cannot be promoted to C2 or deployment.
 
-### Current scientific interpretation after T059-P
+### Current scientific interpretation after T059-Q
 
 The scalar marginal support exists globally (T059-K), and the head has ample in-sample capacity (T059-M), but calibrated unseen-image scalar prediction remains unsupported. Absolute 28-D locality, distance-shift explanations, smoothing, local donor oracle, simple displacement/anchor coordinate fixes, source-only early stopping, and the raw frozen-CLIP Euclidean geometry have all failed as sufficient rescues.
 
-However, T059-F2 shows that **within-bank ordering is often much better than scalar calibration**: median Spearman is high and median argmin regret is zero, while a small unsafe tail dominates the risk. This matters because deployable TTT does not necessarily need calibrated reference-MSE values; it needs a target-free energy/ordering signal that can choose a safe checkpoint/state. The next isolated question is therefore whether catastrophic ranking failures can be detected by a fixed target-free uncertainty signal rather than by more representation search.
+T059-F2 still shows that **within-bank ordering is often much better than scalar calibration**: median Spearman is high and median argmin regret is zero, while a small unsafe tail dominates the risk. T059-Q adds an important negative: two heads trained under different objectives can share the same catastrophic argmin, so simple inter-head argmin disagreement does not reliably expose the tail. This is evidence for a **systematic shared bias**, not just independent head noise.
 
-The current candidate uncertainty signal is **exact argmin disagreement between two already-frozen heads trained under different objectives**: T059-E joint Sobolev and T059-M scalar-only. This is only a source diagnostic hypothesis; it is not yet validated and cannot be used in deployment.
+Before abandoning the multi-head uncertainty idea entirely, the next isolated diagnostic asks whether the shared wrong argmin nevertheless comes with low **full-curve rank concordance** between E and M. This is a source-only mechanism check, not a new gate. If full-curve disagreement also fails to concentrate unsafe banks, the dual-head disagreement line should stop rather than be rescued with post-hoc margins/top-k thresholds on the already-opened cohort.
 
 The matched-detail line therefore remains **non-deployable**. Detail-direction evidence is encouraging, but safe target-free scalar/ranking control for the detail-expanded state space is not established.
 
@@ -67,7 +68,7 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
 - External baselines admitted to the main comparison must be target-free at inference.
-- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. **The official LOL-v2 Real test remains untouched through T059-P.**
+- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. **The official LOL-v2 Real test remains untouched through T059-Q.**
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -76,15 +77,15 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918`.
 - **Fresh-qualified deployable action extension:** T036-A common gain, `+0.9392571 dB` mean on its fresh cohort, unsafe tail unresolved.
 - **Best promoted non-deployable mechanism state:** T055-A, `24.3497922 / 0.7591279`; T056/T057 are valid but failed materiality gates.
-- **Matched-detail candidate:** source detail-direction transfer is promising, but calibrated scalar transfer repeatedly fails. T059-F2 indicates ordering may still be useful on most banks, with an unacceptable tail. Current work tests a fixed target-free disagreement/abstention gate before any fresh-cohort or real-domain step.
+- **Matched-detail candidate:** source detail-direction transfer remains promising, but calibrated scalar transfer repeatedly fails and exact dual-head argmin consensus does not safely remove the tail. Current work performs one full-curve disagreement diagnostic before deciding whether to stop this uncertainty family.
 - **Training-exposed development anchors:** Retinexformer `21.4787864 / 0.7900612`; SNR-Aware `23.3963299 / 0.8237644`.
 
 ## Integration note
 
-Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P is PR #115 and is scientifically reviewable through its pinned source/evidence even while the PR remains open.
+Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P is PR #115 and T059-Q is PR #116; both are scientifically reviewable through their pinned source/evidence even while the PRs remain open.
 
 ## Current open task
 
-**T059-Q — frozen dual-head argmin-consensus safety-gate audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T059-R — frozen full-curve cross-head disagreement diagnostic** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Using only already-persisted T059-E and T059-M predictions on the same 16-image / 1,529-row / 80-bank inner-held source diagnostic, freeze an exact target-free decision rule before target access: adapt only when both heads choose the same bank argmin; otherwise abstain to `state_index==0`. Compare ranking regret/harm against each frozen head after decisions are persisted. No training, model forwards, new features, C2 outer access, target-domain data, LOL-v2, official-test access, or real-domain rollout is authorized in this cycle.
+Using only the already-persisted T059-E and T059-M predictions on the same already-opened 16-image / 1,529-row / 80-bank inner-held source diagnostic, freeze one target-free uncertainty statistic per non-singleton bank: `u = 1 - Spearman(p_E, p_M)` over the complete within-bank score curves. Only after all descriptors and uncertainty ranks are persisted may source `delta_t` be reopened to test whether unsafe E banks are concentrated at high disagreement. No new gate, training, model/feature forward, C2 outer access, target-domain data, LOL-v2, official-test access, or real-domain rollout is authorized in this cycle.
