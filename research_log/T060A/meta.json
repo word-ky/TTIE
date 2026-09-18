@@ -1,0 +1,6 @@
+{
+  "runId": "20260919-062347-ttie-t060a-exposure",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260919-062347-ttie-t060a-exposure",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260919-ttie-t060a-exposure\nexport CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\n/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T060A.predict --out \"$AUTODL_ARTIFACTS_DIR/T060A\" && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T060A.diagnose --out \"$AUTODL_ARTIFACTS_DIR/T060A\" && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T060A.verify --out \"$AUTODL_ARTIFACTS_DIR/T060A\""
+}
