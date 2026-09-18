@@ -4,7 +4,7 @@
 
 **Spatially Varying Test-Time ISP / Image Enhancement**
 
-This file is the live scientific state. Detailed earlier task-by-task history remains in Git history and `research_log/`.
+This file is the live scientific state. Detailed task-by-task history remains in Git history and `research_log/`.
 
 ## Core scientific question
 
@@ -24,29 +24,32 @@ No T059 matched-detail result is deployable. **No real-domain detail rollout is 
 - **T055-A/T055-V** closes simple one-scale optimization-budget rescue: `24.3497922 / 0.7591279`; another fixed +1000 updates add only `+0.0043055 dB` mean.
 - **T056-A** second-scale detail and **T057-A** chroma-detail extensions are scientifically valid but fail their frozen materiality gates; neither supersedes T054/T055 as the main mechanism.
 
-These mechanism results are non-deployable `REFERENCE_ORACLE_ONLY` diagnostics. Clean targets, reference gradients/states, PSNR/SSIM, and per-image oracle quantities are forbidden from deployable inference.
+These renderer results are non-deployable `REFERENCE_ORACLE_ONLY` diagnostics. Clean targets, reference gradients/states, PSNR/SSIM, and per-image oracle quantities are forbidden from deployable inference.
 
 ## Matched-detail optimization-field diagnosis
 
-- **T058-AF:** the frozen T014 energy is not ready for direct T054-detail integration. On all `7,346` canonical source states, local-detail alignment is `68.4567%` positive-dot / `0.230516` median cosine, below the fixed `>=75% / >=0.50` readiness gates.
-- **T059-BF:** with the unchanged 28-D T014 `EnergyHead`, one fixed `1:1:1` value/legacy/detail recipe can fit all source rows in-sample: detail `98.7990% / 0.626633`, legacy `99.2826% / 0.966527`, value Huber `0.0722323 <= 0.0765085`. This establishes in-source capacity only.
-- **T059-C2:** corrected unique-image holdout is negative. A single fixed fit on `64` source images / `5,886` rows evaluated `16` unseen source images / `1,460` rows. Detail positive-dot `0.845031` passes, detail median cosine `0.479706` fails, legacy `0.950694 / 0.938040` passes, and value Huber `0.193253` fails. Thus the fixed matched recipe does not establish image-held-out source generalization.
-- **T059-D:** subtracting each held-out bank's deterministic state-0 anchor reduces value Huber from `0.1932531` to `0.1030146` but still fails. Additive bank offset is only part of the problem.
-- **T059-E:** directly training bank-relative value still fails the fixed nested source-development split. On `48` inner-train images / `4,357` rows and `16` inner-held images / `1,529` rows, held relative Huber is `0.221076`, detail `0.868874 / 0.491553`, and legacy `0.957011 / 0.905764`; only detail median cosine and scalar value fail. Inner-train relative Huber is `0.056903`.
-- **T059-F2:** after offset removal, a strict-positive bankwise scale decomposition still leaves held Huber `0.2147133`, rejecting positive scalar-scale miscalibration as a sufficient explanation. Genuine within-bank shape/order error remains in the tail.
-- **T059-G:** fixed cross-image 1-NN in the standardized 28-D feature space separates detail support from scalar transfer. Train-LOO passes relative Huber/detail gates at `0.064456 / 0.946449 / 0.597402`. Inner-held detail still passes at `0.913245 / 0.528418`, but scalar Huber fails at `0.231723`. Thus the 28-D representation contains transferable local information for detail direction while scalar geometry does not transfer under fixed 1-NN.
-- **T059-H:** reweighting train-LOO scalar error by the held nearest-distance distribution gives Huber `0.068549`, still below the gate while actual held remains `0.231723`. A modest marginal nearest-support-distance shift is therefore not sufficient to explain the scalar collapse.
-- **T059-I:** fixed unweighted averaging over the nearest rows from five distinct training images is not a viable rescue. It worsens train-LOO scalar Huber from `0.064456` to `0.084737` and leaves held at `0.223014`.
-- **T059-J:** the source-target oracle over those same frozen five donors is also negative on inner-held images. Train-LOO oracle-floor Huber is `0.0539017` (passes), but inner-held oracle-floor Huber is `0.2128655` (fails). Thus the frozen local five-donor neighborhood itself usually lacks an accurate held scalar value.
-- **T059-K:** the source-target oracle over the **entire fixed 48-image / 4,357-row inner-train pool** is strongly positive: train-LOO global-oracle Huber `0.000322648`, inner-held `0.000511841`, both far below the unchanged `0.0765085` gate. Global scalar-range coverage is `0.997705 / 0.996730`. However, the oracle donor is in T059-I's frozen five-donor neighborhood only `0.006885 / 0.007848` of the time, and its median rank under the existing absolute standardized-28D Euclidean geometry is `1972 / 1953` (median percentile `0.4616 / 0.4481`). Therefore the scalar **values** are present in the fixed source pool, but the current absolute 28-D geometry does not localize the appropriate value for held images.
-- **T059-L:** the obvious bank-relative feature-coordinate fix is negative. Replacing absolute `x` by `dx = x - x_state0` under the same fixed cross-image 1-NN worsens train-LOO scalar Huber from `0.064456` to `0.099402`, already failing the `0.0765085` source-control gate; inner-held is `0.232549`, effectively unchanged from the absolute-feature `0.231723`. Thus simple state-0 feature centering is not a viable scalar-localization mechanism.
-- **T059-M:** removing the legacy/detail Sobolev terms does **not** rescue scalar transfer. Scalar-only relative Huber falls to `0.00525188` on the 48-image / 4,357-row inner-train set but remains `0.2274732` on the 16-image / 1,529-row inner-held set. Relative to T059-E, train improves by `-0.0516511` while held slightly worsens by `+0.00639746`. Harmful joint-objective interference is therefore not supported as the cause of the scalar failure; the unchanged 28-D head has ample in-sample capacity but unresolved cross-image scalar generalization.
-- **T059-N:** fixed nested source-only checkpoint selection also fails. The deterministic 48-image parent is split into 40 fit images / 3,604 rows / 200 banks and 8 selector images / 753 rows / 40 banks. All 100 checkpoints are fit-eligible; the fixed minimum-selector rule selects epoch 13 with fit Huber `0.0407366`, but selector Huber is `0.149374 > 0.0765085`. Epoch 100 is `0.00383755 / 0.175349` fit/selector. Thus ordinary late-epoch overfitting or checkpoint choice is not sufficient to explain or rescue cross-image scalar transfer under the unchanged 28-D EnergyHead.
-- **T059-O:** the explicit bank-context 56-D coordinate repair is also negative. Using exactly `z=concat(u-u0,u0)` from the T059-N fit-only normalized 28-D features, fixed Euclidean `k=1`, fit leave-one-image-out donors, and selector donors from the 40 fit images, fit-LOO Huber is `0.0584816285` and passes the unchanged gate, but selector Huber is `0.1549071118` and fails. Thus restoring the state-0 anchor context alongside within-bank displacement preserves the source control but is **not sufficient** for source-image scalar localization. This rejects the most direct deterministic bank-anchor transform as a rescue; it does not prove that every possible 28-D learner or metric must fail.
+The matched-detail program has established a strong asymmetry: **detail-direction information transfers much better than calibrated scalar energy/value**.
 
-**Current scientific interpretation after T059-O:** the scalar marginal values exist in the fixed source pool (T059-K), and the model has ample in-sample capacity (T059-M), but target-free scalar conditioning/localization remains unresolved. Absolute 28-D locality (T059-G/J), marginal distance shift (T059-H), multi-image smoothing (T059-I), displacement-only centering (T059-L), harmful joint-objective interference (T059-M), source-only checkpoint selection (T059-N), and the explicit displacement-plus-anchor 56-D transform (T059-O) have all failed as sufficient explanations/rescues. The newest evidence is especially important because T059-O passes fit-LOO but still fails a fresh source-image selector: the problem is not merely retaining an anchor coordinate inside the compact feature vector. The next isolated representation question is whether the **full frozen CLIP image embedding already present upstream of the T014 prompt-score compression** retains image-conditioned information that the 28-D EnergyHead input discards.
+- **T058-AF:** frozen T014 energy is not ready for direct T054-detail integration. On all 7,346 canonical source states, local-detail alignment is `68.4567%` positive-dot / `0.230516` median cosine, below `>=75% / >=0.50` readiness gates.
+- **T059-BF:** unchanged 28-D T014 `EnergyHead` can fit value/legacy/detail jointly in-sample; this establishes source capacity only.
+- **T059-C2/E:** unique-image source holdouts are negative for scalar transfer. T059-E bank-relative training reaches inner-train Huber `0.056903` but inner-held Huber `0.221076`; detail direction remains much healthier (`0.868874` positive-dot / `0.491553` median cosine).
+- **T059-F2:** positive bankwise scale correction does not fix value Huber (`0.2147133`), but the original T059-E predictions have **median within-bank Spearman `0.9356522` and median argmin regret `0`** on the 80-bank inner-held source diagnostic. The tail is unsafe: mean regret `0.2402099`, p90 `0.0864220`, maximum `6.3640804`, with several strongly reversed banks. This means scalar calibration failure does not automatically imply useless ordering, but ranking safety is unresolved.
+- **T059-G/H/I/J/K:** fixed 28-D cross-image locality separates detail from scalar transfer. Train-LOO scalar can pass while unseen-image scalar fails; marginal nearest-distance shift and five-image smoothing do not explain/rescue it; even a five-donor oracle fails on held rows. A global oracle over the fixed 48-image/4,357-row source pool is nearly perfect (`0.000511841` inner-held), so the scalar **values exist** in the source pool but current local geometry does not locate them.
+- **T059-L:** simple bank-relative feature centering `x-x_state0` fails even the source control.
+- **T059-M:** scalar-only training nearly fits source train (`0.00525188`) yet still fails inner-held (`0.2274732`), ruling out joint Sobolev-objective interference as the main cause.
+- **T059-N:** source-only early stopping does not rescue transfer; selected epoch 13 is `0.0407366` fit / `0.149374` selector.
+- **T059-O (corrected pinned metrics):** exact bank-context 56-D `z=concat(u-u0,u0)` passes fit-LOO at **`0.0480293073`** but fails the reused 8-image selector at **`0.1556149274`**. A prior lead review transcribed different numbers; PR #114/evidence are authoritative. The classification is unchanged: explicit state-0 anchor context is insufficient for unseen-source-image scalar localization.
+- **T059-P:** full frozen T014 CLIP latent does not rescue locality under the fixed bank-context Euclidean 1-NN test. Using all five ordered 512-D normalized views, `z_clip=concat(e-e0,e0)` gives fit-LOO Huber **`0.1124138981`**, already above the unchanged `0.0765084978` gate; selector is **`0.1962943375`**. Thus prompt-score compression is **not established** as the bottleneck, and naive raw-CLIP metric/PCA/layer sweeps are not justified by this result.
 
-The matched-detail line therefore remains **non-deployable**. The renderer/action family has strong detail headroom, and detail-direction information itself transfers surprisingly well, but the target-free optimization field has not yet demonstrated sufficiently reliable unseen-image scalar geometry for the detail-expanded state space.
+### Current scientific interpretation after T059-P
+
+The scalar marginal support exists globally (T059-K), and the head has ample in-sample capacity (T059-M), but calibrated unseen-image scalar prediction remains unsupported. Absolute 28-D locality, distance-shift explanations, smoothing, local donor oracle, simple displacement/anchor coordinate fixes, source-only early stopping, and the raw frozen-CLIP Euclidean geometry have all failed as sufficient rescues.
+
+However, T059-F2 shows that **within-bank ordering is often much better than scalar calibration**: median Spearman is high and median argmin regret is zero, while a small unsafe tail dominates the risk. This matters because deployable TTT does not necessarily need calibrated reference-MSE values; it needs a target-free energy/ordering signal that can choose a safe checkpoint/state. The next isolated question is therefore whether catastrophic ranking failures can be detected by a fixed target-free uncertainty signal rather than by more representation search.
+
+The current candidate uncertainty signal is **exact argmin disagreement between two already-frozen heads trained under different objectives**: T059-E joint Sobolev and T059-M scalar-only. This is only a source diagnostic hypothesis; it is not yet validated and cannot be used in deployment.
+
+The matched-detail line therefore remains **non-deployable**. Detail-direction evidence is encouraging, but safe target-free scalar/ranking control for the detail-expanded state space is not established.
 
 ## Strong baseline development anchors
 
@@ -60,11 +63,11 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 ## Information-boundary rules
 
 - Test-time adaptation and checkpoint selection must never consume test labels, clean/normal-light targets, reference gradients/Jacobians, oracle values, PSNR/SSIM, degradation masks/gain maps, condition IDs, annotations, or semantic image IDs.
-- Validation/test outputs and decisions must be finalized and persisted before references or evaluation metrics are attached, except in explicitly isolated non-deployable reference diagnostics.
+- Validation/test outputs and decisions must be finalized and persisted before references or evaluation metrics are attached, except in explicitly isolated non-deployable source/reference diagnostics.
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
 - External baselines admitted to the main comparison must be target-free at inference.
-- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. **The official LOL-v2 Real test remains untouched through T059-O.**
+- Fresh/final benchmark sets must remain isolated from model/hyperparameter selection. **The official LOL-v2 Real test remains untouched through T059-P.**
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -73,15 +76,15 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918`.
 - **Fresh-qualified deployable action extension:** T036-A common gain, `+0.9392571 dB` mean on its fresh cohort, unsafe tail unresolved.
 - **Best promoted non-deployable mechanism state:** T055-A, `24.3497922 / 0.7591279`; T056/T057 are valid but failed materiality gates.
-- **Matched-detail candidate:** T059-BF through T059-O. In-source capacity exists and detail-direction information transfers nonparametrically, but unseen-image scalar geometry repeatedly fails. Offset, positive-scale, marginal distance shift, five-image smoothing, five-donor oracle, simple displacement-only state-0 centering, harmful joint-objective interference, fixed source-only early stopping, and explicit displacement-plus-anchor 56-D locality have been rejected as sufficient explanations/rescues; T059-K shows scalar marginal support exists globally. The next unresolved mechanism is whether the richer frozen CLIP latent representation upstream of the compact 28-D prompt/gate/state summary restores target-free scalar locality. This line remains non-deployable.
+- **Matched-detail candidate:** source detail-direction transfer is promising, but calibrated scalar transfer repeatedly fails. T059-F2 indicates ordering may still be useful on most banks, with an unacceptable tail. Current work tests a fixed target-free disagreement/abstention gate before any fresh-cohort or real-domain step.
 - **Training-exposed development anchors:** Retinexformer `21.4787864 / 0.7900612`; SNR-Aware `23.3963299 / 0.8237644`.
 
 ## Integration note
 
-Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-O is PR #114 and is scientifically reviewable through its pinned head/evidence under that rule.
+Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P is PR #115 and is scientifically reviewable through its pinned source/evidence even while the PR remains open.
 
 ## Current open task
 
-**T059-P — frozen CLIP-latent bank-context 1-NN scalar-locality audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T059-Q — frozen dual-head argmin-consensus safety-gate audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Using only the accepted T059-N 40-fit / 8-selector source partition and the same frozen bank-state image tensors, compute the exact existing T014 `FrozenCLIP.image_embeddings` representation, form exactly `z_clip=concat(e-e_state0,e_state0)`, freeze all features and Euclidean `k=1` cross-image neighbor maps before scalar access, then test the unchanged scalar Huber gate on fit-LOO and the 8-image selector. No feature/metric/k sweep, model training, inner-held or outer access, target-domain TTT, LOL-v2, official-test access, or real-domain rollout is allowed in this cycle.
+Using only already-persisted T059-E and T059-M predictions on the same 16-image / 1,529-row / 80-bank inner-held source diagnostic, freeze an exact target-free decision rule before target access: adapt only when both heads choose the same bank argmin; otherwise abstain to `state_index==0`. Compare ranking regret/harm against each frozen head after decisions are persisted. No training, model forwards, new features, C2 outer access, target-domain data, LOL-v2, official-test access, or real-domain rollout is authorized in this cycle.
