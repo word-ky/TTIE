@@ -1,0 +1,66 @@
+[autodl] run_id=20260919-031106-ttie-t059w-active
+[autodl] started_at=2026-09-19T03:11:10+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+{"completed": 1, "bank": 1}
+{"completed": 2, "bank": 26}
+{"completed": 3, "bank": 54}
+{"completed": 4, "bank": 77}
+{"completed": 5, "bank": 102}
+{"completed": 6, "bank": 127}
+{"completed": 7, "bank": 152}
+{"completed": 8, "bank": 177}
+{"completed": 9, "bank": 204}
+{"completed": 10, "bank": 227}
+{"completed": 11, "bank": 252}
+{"completed": 12, "bank": 277}
+{"completed": 13, "bank": 302}
+{"completed": 14, "bank": 327}
+{"completed": 15, "bank": 352}
+{"completed": 16, "bank": 377}
+ONLINE16_FROZEN
+{"classification": "active-path online target-free Jacobian bridge is reproducible across the fixed outer source images", "passed": 16, "total": 16, "failed_banks": [], "online_freeze_utc": "2026-09-18T19:11:22.184896+00:00", "first_cached_tensor_read_utc": "2026-09-18T19:11:24.720790+00:00", "cached_comparison_inputs": {"/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_001.pt": "dee88a3f147ed574b0cbe9b586db84fa16d7a969a1d130da1c6dc008f7028835", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_026.pt": "76b984f4845a6cc6424dbc307e11a82438d1030e844e5a322e0400c3c02c7840", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_054.pt": "5e66a8a003e0d00fd6e63d1ab8c4aa658c77a2762866d2f45818714056ecfa4d", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_077.pt": "c4f477520d0c7d02a056443ec5865228d113caf5cbe4d15a2c2bb00eadbb3b85", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_102.pt": "7ba89239c77471b23268dca0908e918f178b23daeebc98ab83e75346cfd8afeb", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_127.pt": "ecac34ce291185846e56376cd2b8e89f5a48fb515db66dc966c5189cd6bbdd36", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_152.pt": "209e26df0e7d762868fb8fe4c4b1463aa340ddd698c2abf839855015df52e8be", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_177.pt": "94a9cb7a3d23c2149a50349fba898bd303875be7e31f9304c0800bb5839d9043", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_204.pt": "ace0174964c2316db602f8fbc527d668ca2650ee6b09242aef2d336ec9131c7f", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_227.pt": "96a812ce3de186afa9613ef693c6067162978ba194cf29dc8ddf13ff84809934", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_252.pt": "3aea6c370f4cec37d1fe830ecb3fcfd58e9c1022b3bf224a7591af1be8ce7615", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_277.pt": "1fefce1c94728cd48acbd24841b9ca208abdf008c127686ac907810dcf4308a8", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_302.pt": "0fbb9cd6233a70d764d2de5e2d6e8212957a9646e10300271830ea57ea8f62ae", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_327.pt": "325655f607344f694ff94eaec386e4375053ed51d720cc52d18eb31a7eb753f1", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_352.pt": "e695d80cfa6210f704ff63d3b3e47d7018f0eab87da11a18f7a6af14eeaad573", "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260919-013345-ttie-t059u-outer/artifacts/T059U/bank_377.pt": "60586441c164075a6c064ac073ed484b1be4a62888234f01461f7d4fc798d20d"}, "counters": {"clean_reference_reads": 0, "reference_gradient_reads": 0, "target_domain_access": 0, "lolv2_access": 0, "official_test_access": 0, "inference_reference_leakage": 0}, "completed_utc": "2026-09-18T19:11:26.886567+00:00"}
+Traceback (most recent call last):
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260919-ttie-t059w-active/research_log/T059W/verify.py", line 3, in <module>
+    from scipy.ndimage import convolve1d
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/scipy/ndimage/__init__.py", line 157, in <module>
+    from ._support_alternative_backends import *
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/scipy/ndimage/_support_alternative_backends.py", line 2, in <module>
+    from scipy._lib._array_api import (
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/scipy/_lib/_array_api.py", line 24, in <module>
+    from scipy._lib.array_api_compat import (
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/scipy/_lib/array_api_compat/numpy/__init__.py", line 9, in <module>
+    __all__ = clone_module("numpy", globals())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/scipy/_lib/array_api_compat/_internal.py", line 67, in clone_module
+    if not n.startswith("_") and hasattr(mod, n):
+                                 ^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/numpy/__init__.py", line 327, in __getattr__
+    import numpy.testing as testing
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/numpy/testing/__init__.py", line 11, in <module>
+    from ._private.utils import *
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/numpy/testing/_private/utils.py", line 1253, in <module>
+    _SUPPORTS_SVE = check_support_sve()
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/numpy/testing/_private/utils.py", line 1247, in check_support_sve
+    output = subprocess.run(cmd, capture_output=True, text=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/subprocess.py", line 2115, in _communicate
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/selectors.py", line 323, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: select() takes from 1 to 2 positional arguments but 5 were given
+[autodl] finished_at=2026-09-19T03:11:27+08:00
+[autodl] exit_code=1
