@@ -4817,3 +4817,22 @@ All100 outputs/decisions fsynced/hash frozen **2026-09-18T20:44:31.636026UTC**, 
 Files: research_log/T059X low-only cohort/bindings,online/evaluate/verify and preserved originals+repair,firewall/immutability tests,full100 records/errors/metrics,compactfields,freeze/logs/report/archives. Commands: pytest; separate online→evaluate→verify; then evaluation-only repaired modules on frozen outputs. Result SHA55dc94ee6c2ce115f2793c562702863a2b55e12ac61b4aac80a94ae79bf0c80d. Full326559259-byte home/F evidence SHAa8788ed96ebc55f4c8645aa65d0912a0f9b8e89289b4d614975e9c36cbf1db7a; recovery SHA09decdd98ee9b7005caf19d3f927759d0dd5d0042001958fba63b0a3a8679ab5;bothcopies verified.
 
 **Next:** research-lead review of tiny positive effect and harmful tail. No integration,secondstep,gate/lr/epsilon tuning,target fitting,official-test or self-merge.
+
+
+## T059-Y — DONE — 2026-09-18T21:40:30.744877+00:00
+
+**Classification:** `one-step matched-detail integration is practically immaterial on the opened development cohort`.
+
+Authorization `ed725b006a674521856fd85f982523fd0744df91`; source `e243c5dc0914a7745172fc3cf1e079bbbfb8b26b`; evidence `7c90a95487de9018164c57ac0355d6d6494a2352`; branch `codex/T059Y-fixed-integration`; [PR](https://github.com/word-ky/TTIE/pull/124). [Full report](https://github.com/word-ky/TTIE/blob/7c90a95487de9018164c57ac0355d6d6494a2352/research_log/T059Y/report.md).
+
+**100/100 active; improve/harm/tie 91/9/0** under fixed signed1e-12 rule. Mean paired PSNR **+0.0024241736224814583 dB < +0.05**, so materiality fails. Other gates pass: median PSNR **+0.0008808606100778604 dB**, improvements **91 >=60**, mean SSIM **+0.0014076023766469731 >=0.001**. Mean/median MSE change **-4.353284004414779e-5 / -1.9162788529973607e-5**; max MSE harm **3.482472213692765e-5**. Exact T026 baseline mean **11.120876417349557 dB / 0.3737918251517076 SSIM**; integrated **11.12330059097204 / 0.3751994275283545**. All100 paired values, p10/p90, norms and hashes committed.
+
+Exact accepted T026 selected images/raw/grid/gates, same X100 development order. Published pre-reference freeze blob62904f6907e80cab5cc851a3355afc9bca99a90c and all300 output/decision/trajectory hashes checked. Selected raw/grid equal persisted trajectory at accepted selected_step; no baseline rerun/reselection. Cohort SHA b36a8ce4105d83a33b6d752c5e52f6c1b3223e4e0d79750419f9787af2be5e1e. Gate/winner/evidence/calibration imported from original target-free records; selected grid supplied to unchanged28-D features. Independent verifier checks feature first12 against original gates and last8 against selected grid. Global state unchanged.
+
+Frozen E head e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0/train normalization, fresh online CLIP features/J and J-transpose-q, exact T0548x8 shared renderer and one Adam lr.05. Physical A6000 GPU1, TF32off, seed7. All100 outputs/decisions frozen **2026-09-18T21:35:37.195080UTC**; first normal read **21:35:42.094726UTC**. Inference normal/clean/reference-gradient/matched-detail-cache/metric-file/official-test/leakage reads0; no X per-image outcomes. Raw100 bound/hashed, T026base100 used, globalupdates0, detailsteps100, training0. Filesystem firewall and no normal-root argument. All247 source bindings, inputs, outputs and head immutable.
+
+**Validation:**7 tests pass4.18s. Sole run `20260919-053506-ttie-t059y-integrate`, exits0 at21:36:18UTC. Independent100 base/state/trajectory/gate-feature/chain/Adam/renderer/metrics/quantiles/counts/classification PASS; max metric error7.105427357601002e-15. No execution failure, repair, rerun, tuning or scientific deviation. One exploratory missing-filename lookup resolved before implementation. D full and NVML warning remain nonblocking.
+
+Files/commands: research_log/T059Y bindings/cohort/source/tests, separate online→evaluate→verify, full100 table/records, compact tensor fields, freeze/logs/report/archive manifests. Result SHA a0f05f20b53d20f7a4f3a857d151a1e384ef50747e02e66c3cfae82c5fc14039. Full356895724-byte home/F archive SHA da7ce1c99e1a53a18734cee08189912287bc88abe0c97a5d8100f93f4a0a9aa1; recovery SHA1019eb5efb35a351ba5b35c637574836374c5306188122067c5d7c4e3d027c51; both copies verified.
+
+**Next:** close this fixed one-step integration line and await review. No cohort tuning, second step, T036 integration, target fitting, official test, deployment or self-merge.
