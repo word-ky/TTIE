@@ -1,0 +1,18 @@
+--- T059M/fit.py
++++ T059N/fit.py
+@@ -4,7 +4,7 @@
+ def thash(t):return hashlib.sha256(t.detach().cpu().contiguous().numpy().tobytes()).hexdigest()
+ def relative_value(prediction,anchor_prediction,target,anchor_target):
+  return nn.functional.huber_loss(prediction-anchor_prediction,target-anchor_target,delta=1.)
+-def train_scalar(features,mse,anchors):
++def train_scalar(features,mse,anchors,epoch_callback):
+  torch.manual_seed(7);torch.set_num_threads(1)
+  features=features.detach().cpu().float();target=(mse.detach().cpu().double()+1e-6).log();head=EnergyHead();initial={k:thash(v) for k,v in head.state_dict().items()}
+  with torch.no_grad():
+@@ -16,5 +16,6 @@
+    x=features[batch];prediction=head.standardized(x);value_loss=relative_value(prediction,head.standardized(features[anchors[batch]]),target[batch],target[anchors[batch]])
+    optimizer.zero_grad(set_to_none=True);value_loss.backward();optimizer.step();total+=float(value_loss.detach())*len(batch)
+   history.append(dict(epoch=epoch+1,train_huber=total/len(features),order_sha256=thash(order)))
++  history[-1]['fit_huber']=epoch_callback(epoch+1,head)
+  head.zero_grad(set_to_none=True);head.eval().requires_grad_(False)
+  return head,history,initial,optimizer.state_dict(),generator.get_state()
