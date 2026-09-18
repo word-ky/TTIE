@@ -4772,3 +4772,29 @@ Counters clean_reference_reads0,reference_gradient_reads0,target_domain_access0,
 Files: research_log/T059V online/compare/independent verifier/tests,authorization/selection/source binding,onlinefields,16-row errors,per-tensor hashes/freeze/comparison timestamps,normalization/report/logs/archive manifests. Commands: pytest then separate online→compare→verify withCUDA1,TF32off,seed7. Result SHA256 `347d3f021c75640f718070e5858cbe01cb656922f6739993cd7c110248f99929`; full44800437-byte home/F evidence SHA256 `356da25d2a4914c5eb2e31020681bc2f6c8c944f9db1546a3f36664443cb2bd3`; recovery SHA256 `34449758d2b98dc9a7d3d90fe0317c42408bfe6755833b3780f9ac747a77f87d`; both copies verified.
 
 **Next:** stop for research-lead review. Assess the15-zero/1-nonzero coverage limitation before any broader claim. This pass authorizes no target-domain development run, LOL-v2/test access, multi-step adaptation, deployment or self-merge.
+
+
+## T059-W — DONE — 2026-09-18T19:16:25.375402+00:00
+
+Source `5e25e9d76589f4f733b0d11bb0badd0c7259c0e6`; evidence `dba46ebbaad583d078afd63a1ae1b1e85084b199`; branch `codex/T059W-active-bridge`; [PR](https://github.com/word-ky/TTIE/pull/122). [Full report](https://github.com/word-ky/TTIE/blob/dba46ebbaad583d078afd63a1ae1b1e85084b199/research_log/T059W/report.md).
+
+Classification: `active-path online target-free Jacobian bridge is reproducible across the fixed outer source images`. All 16 selected anchors have positive cached and fresh online gradients and active regions; all 16 pass unchanged V bounds. This is source numerical reproducibility, not safety or enhancement quality.
+
+Authorization 0098138c8d074f0d39d6196599e74333936cc1ce; source 5e25e9d76589f4f733b0d11bb0badd0c7259c0e6; inherited V b4bd9ee9e2df829b915a0494c50ed1642bcfa102; U evidence 88de78b1a91adfc6dec71c378cdf8a4ec044cb51.
+
+Selection uses only U pre-reference actions.json/action_freeze.json metadata: fixed16 source images, maximum predicted norm per image, smallest bank tie. Norm is not a confidence gate. Selection fsynced/hash before online run; SHA256 061734caba7d3dc95f79434cb18629c0f925ac5c08de502801901188e3195f27. No image substitution.
+
+Exact unchanged V numerical path: image-only frozen CLIP/prototypes/gate, original28-D features and fresh autograd J, fixed E head/train normalization, J-transpose-q, literal T0548x8 shared renderer and one fresh Adam lr.05. Selected state0 y0/masks match U exactly. Source222 bindings and all inputs immutable. All model computation on physical A6000GPU1; q retains CPU E convention.
+
+Head SHA e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0; source/checkpoint/feature/renderer exact hashes in selection/source/onlinefreeze. No cached field or action tensors read by online process; cached comparison only after all16 bundles persisted/fsynced/hashed.
+
+Online freeze 2026-09-18T19:11:22.184896+00:00; first cached tensor read 2026-09-18T19:11:24.720790+00:00. All forbidden counters zero: clean/reference images, reference gradients, target-domain, LOL-v2, official test, inference reference leakage; no reference MSE/PSNR/SSIM computed.
+
+Max/min errors: {"x_max": 1.2874603271484375e-05, "J_relative_max": 1.3895649269392029e-06, "g_cosine_min": 0.9999999999832085, "g_relative_max": 6.882436190954023e-06, "y1_max": 5.960464477539063e-08, "v1_max": 5.587935447692871e-08, "q_max": 8.940696716308594e-07, "active_anchors": 16}.
+
+
+**Validation and failures:** 9 tests pass2.70s. Independent maximum/tie selection, numerical errors, chain rule, Adam, renderer and fixed-bound verification passes all16. Sole online/comparison run `20260919-031106-ttie-t059w-active` (19:11:10–19:11:27UTC) completed both stages but exited1 on verifier SciPy import: select.py shadowed stdlib. Unchanged-source recovery uses `python -m research_log.T059W.verify`; verifier-only run `20260919-031158-ttie-t059w-verify-only` (19:12:03–19:12:09UTC) exits0. No online/action/comparison rerun, tolerance change or scientific failure. Before execution, shell quoting and manifest directory-enumeration errors were corrected; an SSH timeout recovered. Dfull/NVML warning remain nonblocking for remote CUDA.
+
+Files: research_log/T059W source/tests/selection/bindings, full16 errors, compact tensors, freeze timestamps/hashes, independent verification, original/recovery logs and archive receipts. Commands: pytest; online then compare then verify; recovery module verifier only. Result SHA256 b2bdca7e0c852979ba9443f37b1913ac68f45bbebf1a8c2cc8f663599e11b28e. Raw38,913,170 bytes SHA256 0b75df4a603ea369999dd692d395c5a298f78992df468175a7c92e53a9ba1be0; recovery SHA256 c64107389482ee975028fd2a768a814b040f6bdd5b2cc8a07f996649dd875917; both verified home/F.
+
+Next: research-lead review. Reproducibility only; no quality/safety claim, target-domain/LOL-v2/test rollout, second step, training, sweep or self-merge.
