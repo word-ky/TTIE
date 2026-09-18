@@ -4691,3 +4691,31 @@ Files: research_log/T059S core/act/evaluate/original+repaired verifier/tests, or
 Full image/output evidence **370509645 bytes**, dual-disk home/F SHA256 `6b6d2a9f8d610879f85a59b420b103caaf01119aadc66aa6505e873ef64b5516`; source/compact-evidence recovery SHA256 `55aecb07c23cb4a14c99c458b9349570c0f2ecfbbe9f27866650a5b33d7e94d3`. Exact paths and member hashes in archives.json/recovery.json/artifact_manifest.json.
 
 **Next:** stop for research-lead review. Strong anchor directional alignment and frequent tiny improvements do not pass the specified finite-step mean-change gate. No multi-step extension, sweep, scalar rescue, C2 outer or real-domain rollout; no self-merge.
+
+
+## T059-T — DONE — 2026-09-18T16:37:54.490361+00:00
+
+**Classification:** `optimizer-scale/curvature mismatch not established; close the direct detail-step branch`.
+
+Authorization `2d1fae2970c7ea8dd4564d2028b8e30ca7988faf`; source `8871ba34df1743cf30647dc0b4ee2c35aac36fa3`; evidence `ae113e2aa948e1463c6e8aa9d128309cfb1fffcb`; branch `codex/T059T-frozen-forensic`; [PR #119](https://github.com/word-ky/TTIE/pull/119). [Full report](https://github.com/word-ky/TTIE/blob/ae113e2aa948e1463c6e8aa9d128309cfb1fffcb/research_log/T059T/report.md).
+
+Only frozen S evidence27d2c2d41c6a2aebfd1b16ab78b9bf2e0ad853e3 reused. Exact80 banks/16 images, same61 eligible anchors. **57/61=0.9344262295081968** have first-order L<0, passing90%. **0/4** eligible actual harms are overshoot flips, failing50%. Median saturation **1.0**, passing80%. Second scientific stop criterion applies. All four harmful steps already have L>0; no case predicts local descent then flips to finite harm. S classification unchanged; this does not establish general impossibility of detail adaptation.
+
+| Harmful bank / image / global row | L | A | R |
+|---|---:|---:|---:|
+|84 /38829 /1418|4.946078489343562e-6|5.161531608257469e-6|2.1545311891390733e-7|
+|131 /39956 /2224|3.294932945352341e-6|3.6455370178503643e-6|3.506040724980232e-7|
+|284 /45229 /5137|9.412557685469447e-6|9.755031681220327e-6|3.4247399575088063e-7|
+|305 /46031 /5572|1.5763467927883195e-12|2.5971345947508405e-6|2.5971330184040476e-6|
+
+All units absolute MSE; no baseline-relative statistic in gates. Median L **-4.4333987526732836e-5**, A **-4.426528012752701e-5**, R **8.732729906984907e-7**. Median predicted/reference gradient norms **0.10678693438564199 /0.0002672981754218584**, step norm **0.3605497860851218**. Full p10/median/p90 for all7 quantities committed. Spearman(predicted-gradient norm,step norm) **0.3504494976203067**; reference-gradient norm versus step norm **0.642199894235854**. Descriptive only.
+
+Algebraic Adam replay uses inherited lr.05, betas.9/.999, eps1e-8; maximum error **1.2359145491747103e-8 <1e-7**. Saturation uses only abs(g_hat)>eps coordinates; all61 denominators nonempty. Exact row/field/displacement/reference alignment; all31 published S files verified against Git blob identities, then SHA256-bound; all82 frozen files and source evaluation/reference records immutable before/after. Source7 bindings unchanged.
+
+**Validation:**3 focused tests pass1.54s. Sole CPU run `20260919-003356-ttie-t059t-forensic`,2026-09-18 **16:34:01–16:34:13UTC**,exit0. Independent scalar-loop moment/bias-correction algebra, dot/norm, pairwise average-tie ranks, scalar quantiles and separate gates verify all80/61 alignment, all61 rows and summaries/classification PASS. No scientific failure, repair or rerun. One authorization-copy SSH timeout recovered before execution. D remains full; remote project and GitHub publication used.
+
+All counters0: new_actions,renderer_calls,optimizer_steps,model_or_feature_forwards,outer_supervision_reads,target_domain_access,lolv2_access,official_test_access,inference_reference_leakage. No clean image opens. CPU appropriate for small frozen-value audit; no GPU model workload.
+
+Files: research_log/T059T core/run/tests/independent verifier, authorization/source bindings,80-row compact frozen vectors/alignment,61-row table,four harm receipts,result/report/input hashes/logs/archives. Commands: pytest, then separate run.py→verify.py. Result SHA256 `a0d6267d7dbfa9336acad859fb6dd484f864a91678d585ac563392fb93643acb`; raw home/F evidence SHA256 `6b6a9faa6e371af1746385e734ef169e95f42969be6a777a7cada8e1a4f5ec3e`; recovery SHA256 `6dccf304e93364401c3e8d2f04f17245b00c5e3aaeb7f3aca3eced73cf9bd01e`. Both copies verified; large original S inputs referenced without duplication.
+
+**Next:** close direct detail-step branch and await review. No magnitude-preserving action, optimizer variant, second step, sweep, C2 outer, target domain, official test, deployment or self-merge.
