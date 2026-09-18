@@ -4836,3 +4836,24 @@ Frozen E head e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0/t
 Files/commands: research_log/T059Y bindings/cohort/source/tests, separate online→evaluate→verify, full100 table/records, compact tensor fields, freeze/logs/report/archive manifests. Result SHA a0f05f20b53d20f7a4f3a857d151a1e384ef50747e02e66c3cfae82c5fc14039. Full356895724-byte home/F archive SHA da7ce1c99e1a53a18734cee08189912287bc88abe0c97a5d8100f93f4a0a9aa1; recovery SHA1019eb5efb35a351ba5b35c637574836374c5306188122067c5d7c4e3d027c51; both copies verified.
 
 **Next:** close this fixed one-step integration line and await review. No cohort tuning, second step, T036 integration, target fitting, official test, deployment or self-merge.
+
+
+## T060-A — DONE — 2026-09-18T22:28:02.669122+00:00
+
+**Classification:** `spatial-exposure projection is insufficiently active`.
+
+Authorization `522cce475dd0ec82c5eeb81f8205e468068d6a70`; source `8d4a331536a9f6c910b7bde2bd8db486e7a11ba7`; evidence `2fb48219b52b07f9ab42ea312190dcb401b10b5a`; branch `codex/T060A-exposure-direction`; [PR](https://github.com/word-ky/TTIE/pull/125). [Full report](https://github.com/word-ky/TTIE/blob/2fb48219b52b07f9ab42ea312190dcb401b10b5a/research_log/T060A/report.md).
+
+**65/80 nondegenerate <72/80**, triggering first fixed stop criterion. Important interpretation: all80 predicted norms exceed1e-12;15 reference gradients are exactlyzero. No cohort exclusion or threshold adjustment. Among65,positive dots **60/65=0.9230769230769231**;cosine mean **0.33672857889293484**,median **0.3524152040016726**,p10 **0.03010917947689727**,p90 **0.664910713948927**. Median also falls below.40 descriptively;no later-stage pass claimed. Smallest included reference norm4.306956464587262e-12. All80 rows and all/nondegenerate norm/dot summaries committed.
+
+Exact80 Uouter state0 anchors/16images/order, cohort SHA f3fabdec3e9397a133347094a5cd619153f50c9b5cd03e4348980b5a37534fd4; original y0/grid hashes reproduce U. T051 PR76 source head78d24ef2365ec2a8b3e18036a9154ec9f833e9d9/core SHA0a75c8b083239bc5b4c242cdd83e2e19abd75f6f14771033cfb5584594c8cbd7: AST extracts only ev interpolation and z=clamp(base*exp2(ev),0,1). u1x1x8x8, e=2*tanh(u),bilinear alignFalse,RGB-shared fullbase exposure as explicitly specified. No T051 tone/mask/oracle state/trajectory imported. Gate constants and Region2state/grid remain fixed.
+
+Exact frozen Ehead e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0/train normalization,CLIP/prototypes,28-D features. Fresh online Jexp,q,J-transpose-q;no reference-dependent input. All80 target-free tensors fsynced/hash by **2026-09-18T22:24:17.955190+00:00**,first sourcecleanread **2026-09-18T22:24:23.538292+00:00**,separate process. Inference firewall restricts project paths to pinned code/model/target-free bankinputs/output. Source diagnostic16clean images only afterfreeze;independent verifier reopens same16. All234 sourcebindings,inputs,predicted tensors,head immutable.
+
+Counters beforefreeze clean/reference0,referencegradients0,targetdomain0,LOL-v2 0,officialtest0,inferenceleakage0;optimizersteps0 throughout. MSE only differentiated at u=0 for the authorized source diagnostic;no finite-step comparison,PSNR/SSIM or search. A6000GPU1 for model/J/reference gradients,CPU analytic verification.
+
+**Validation:**4tests pass3.49s. Sole run `20260919-062347-ttie-t060a-exposure` exits0 at22:24:33UTC. Independent all80 analytic RGB-MSE/exposure/bilinear-adjoint gradients,NumPy chain rule,scalar norms/dots/cosines/quantiles/counts/classification and hashes PASS. Max analytic relative error2.050581961487991e-6;maxabs4.529787095940152e-8,within fixed preregistered verification tolerances. No execution failure,repair or rerun. Preparation SSH closure recovered before file creation/experiment;historical source found via pinned PR. LocalDfull/NVMLwarning remain nonblocking.
+
+Files/commands: research_log/T060A minimalrenderer/Jacobian,target-free predict→separate diagnose→independent verify,tests/cohort/bindings,prediction/reference fields,all80table,freeze/logs/report/archive manifests. Result SHA0a2162b45f5468402e9c0f8baabbf35dff8c703b2d92f571744996ff9faad495;full101955506-byte home/F archive SHA1f9ec8ca0c6e9448befd7c23d45bbd37cc3915172851e65469dfb6e097d3e58f;recovery SHA7d80cd0dacece7bbd19e146244866b91cdacacd89000e79ccafc7721b6dcb85c;bothcopies verified.
+
+**Next:** stop under fixed coverage criterion and await lead review. No zero-reference exclusions,eligibility adjustment,grid/range/head change,optimizerstep,real-domain rollout or self-merge.
