@@ -1,0 +1,118 @@
+[autodl] run_id=20260919-044358-ttie-t059x-real
+[autodl] started_at=2026-09-19T04:44:03+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+{"completed": 1, "index": 0}
+{"completed": 2, "index": 1}
+{"completed": 3, "index": 2}
+{"completed": 4, "index": 3}
+{"completed": 5, "index": 4}
+{"completed": 6, "index": 5}
+{"completed": 7, "index": 6}
+{"completed": 8, "index": 7}
+{"completed": 9, "index": 8}
+{"completed": 10, "index": 9}
+{"completed": 11, "index": 10}
+{"completed": 12, "index": 11}
+{"completed": 13, "index": 12}
+{"completed": 14, "index": 13}
+{"completed": 15, "index": 14}
+{"completed": 16, "index": 15}
+{"completed": 17, "index": 16}
+{"completed": 18, "index": 17}
+{"completed": 19, "index": 18}
+{"completed": 20, "index": 19}
+{"completed": 21, "index": 20}
+{"completed": 22, "index": 21}
+{"completed": 23, "index": 22}
+{"completed": 24, "index": 23}
+{"completed": 25, "index": 24}
+{"completed": 26, "index": 25}
+{"completed": 27, "index": 26}
+{"completed": 28, "index": 27}
+{"completed": 29, "index": 28}
+{"completed": 30, "index": 29}
+{"completed": 31, "index": 30}
+{"completed": 32, "index": 31}
+{"completed": 33, "index": 32}
+{"completed": 34, "index": 33}
+{"completed": 35, "index": 34}
+{"completed": 36, "index": 35}
+{"completed": 37, "index": 36}
+{"completed": 38, "index": 37}
+{"completed": 39, "index": 38}
+{"completed": 40, "index": 39}
+{"completed": 41, "index": 40}
+{"completed": 42, "index": 41}
+{"completed": 43, "index": 42}
+{"completed": 44, "index": 43}
+{"completed": 45, "index": 44}
+{"completed": 46, "index": 45}
+{"completed": 47, "index": 46}
+{"completed": 48, "index": 47}
+{"completed": 49, "index": 48}
+{"completed": 50, "index": 49}
+{"completed": 51, "index": 50}
+{"completed": 52, "index": 51}
+{"completed": 53, "index": 52}
+{"completed": 54, "index": 53}
+{"completed": 55, "index": 54}
+{"completed": 56, "index": 55}
+{"completed": 57, "index": 56}
+{"completed": 58, "index": 57}
+{"completed": 59, "index": 58}
+{"completed": 60, "index": 59}
+{"completed": 61, "index": 60}
+{"completed": 62, "index": 61}
+{"completed": 63, "index": 62}
+{"completed": 64, "index": 63}
+{"completed": 65, "index": 64}
+{"completed": 66, "index": 65}
+{"completed": 67, "index": 66}
+{"completed": 68, "index": 67}
+{"completed": 69, "index": 68}
+{"completed": 70, "index": 69}
+{"completed": 71, "index": 70}
+{"completed": 72, "index": 71}
+{"completed": 73, "index": 72}
+{"completed": 74, "index": 73}
+{"completed": 75, "index": 74}
+{"completed": 76, "index": 75}
+{"completed": 77, "index": 76}
+{"completed": 78, "index": 77}
+{"completed": 79, "index": 78}
+{"completed": 80, "index": 79}
+{"completed": 81, "index": 80}
+{"completed": 82, "index": 81}
+{"completed": 83, "index": 82}
+{"completed": 84, "index": 83}
+{"completed": 85, "index": 84}
+{"completed": 86, "index": 85}
+{"completed": 87, "index": 86}
+{"completed": 88, "index": 87}
+{"completed": 89, "index": 88}
+{"completed": 90, "index": 89}
+{"completed": 91, "index": 90}
+{"completed": 92, "index": 91}
+{"completed": 93, "index": 92}
+{"completed": 94, "index": 93}
+{"completed": 95, "index": 94}
+{"completed": 96, "index": 95}
+{"completed": 97, "index": 96}
+{"completed": 98, "index": 97}
+{"completed": 99, "index": 98}
+{"completed": 100, "index": 99}
+ONLINE100_FROZEN
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260919-ttie-t059x-real/research_log/T059X/evaluate.py", line 14, in <module>
+    t=torch.load(out/r['file'],weights_only=True,map_location='cpu');raw=native_rgb(r['image_file']);assert torch.equal(raw,t['y0'])
+                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+[autodl] finished_at=2026-09-19T04:44:36+08:00
+[autodl] exit_code=1

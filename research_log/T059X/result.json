@@ -1,0 +1,86 @@
+{
+  "rows": 100,
+  "active_actions": 100,
+  "coverage": 1.0,
+  "improve": 97,
+  "harm": 3,
+  "tie": 0,
+  "statistics": {
+    "raw_mse": {
+      "mean": 0.17384228268088883,
+      "median": 0.17377589047788042,
+      "p10": 0.07370105124112276,
+      "p90": 0.2744915612994211
+    },
+    "ours_mse": {
+      "mean": 0.1738148749087288,
+      "median": 0.17377076064890207,
+      "p10": 0.07365017858664213,
+      "p90": 0.2744840317874349
+    },
+    "raw_psnr": {
+      "mean": 8.109722671657906,
+      "median": 7.600161540858166,
+      "p10": 5.614712058102572,
+      "p90": 11.325265016767327
+    },
+    "ours_psnr": {
+      "mean": 8.110858099655049,
+      "median": 7.600289404629095,
+      "p10": 5.614831160189648,
+      "p90": 11.328264331539282
+    },
+    "raw_ssim": {
+      "mean": 0.1600228434803769,
+      "median": 0.13897726549987016,
+      "p10": 0.058135681528556214,
+      "p90": 0.2518230726709055
+    },
+    "ours_ssim": {
+      "mean": 0.16060312365583937,
+      "median": 0.13973464079434583,
+      "p10": 0.0581494863225785,
+      "p90": 0.2517141384165657
+    },
+    "mse_change": {
+      "mean": -2.7407772160033887e-05,
+      "median": -1.4010135269804103e-05,
+      "p10": -8.73120097382038e-05,
+      "p90": -2.4009801419644345e-06
+    },
+    "psnr_change": {
+      "mean": 0.0011354279971409165,
+      "median": 0.00029144522778690174,
+      "p10": 5.456511609231996e-05,
+      "p90": 0.003178144303386967
+    },
+    "ssim_change": {
+      "mean": 0.0005802801754624694,
+      "median": 0.00011806366117159822,
+      "p10": -0.0001068453524861318,
+      "p90": 0.0019889597231519825
+    }
+  },
+  "maximum_mse_harm": 5.534114021710224e-06,
+  "classification": "one-step matched-detail direction transfers aggregate real-domain benefit",
+  "online_freeze_utc": "2026-09-18T20:44:31.636026+00:00",
+  "first_reference_read_utc": "2026-09-18T20:44:36.609193+00:00",
+  "metric": {
+    "data_range": 1.0,
+    "window": 11,
+    "sigma": 1.5,
+    "K1": 0.01,
+    "K2": 0.03,
+    "covariance": "population",
+    "channels": "RGB mean",
+    "crop": 0,
+    "padding": "reflect (half-sample symmetric)",
+    "dtype": "float64"
+  },
+  "psnr": "RGB float64 MSE over native float32 pixels; PSNR floor1e-12",
+  "validation_only": true,
+  "official_test_access": 0,
+  "inference_reference_leakage": 0,
+  "normal_reads_before_freeze": 0,
+  "completed_utc": "2026-09-18T20:49:11.040515+00:00"
+}
