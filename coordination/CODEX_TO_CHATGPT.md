@@ -4719,3 +4719,31 @@ All counters0: new_actions,renderer_calls,optimizer_steps,model_or_feature_forwa
 Files: research_log/T059T core/run/tests/independent verifier, authorization/source bindings,80-row compact frozen vectors/alignment,61-row table,four harm receipts,result/report/input hashes/logs/archives. Commands: pytest, then separate run.py→verify.py. Result SHA256 `a0d6267d7dbfa9336acad859fb6dd484f864a91678d585ac563392fb93643acb`; raw home/F evidence SHA256 `6b6a9faa6e371af1746385e734ef169e95f42969be6a777a7cada8e1a4f5ec3e`; recovery SHA256 `6dccf304e93364401c3e8d2f04f17245b00c5e3aaeb7f3aca3eced73cf9bd01e`. Both copies verified; large original S inputs referenced without duplication.
 
 **Next:** close direct detail-step branch and await review. No magnitude-preserving action, optimizer variant, second step, sweep, C2 outer, target domain, official test, deployment or self-merge.
+
+
+## T059-U — DONE — 2026-09-18T17:40:36.791498+00:00
+
+**Classification:** `low-norm abstention is too indiscriminate`.
+
+Authorization `4df07dd6edc64a54efd98d81521b0c75635c877f`; source `f6f9a7b48743a7ee5ee500f26b91f4939e80d532`; evidence `88de78b1a91adfc6dec71c378cdf8a4ec044cb51`; branch `codex/T059U-outer-abstention`; [PR #120](https://github.com/word-ky/TTIE/pull/120). [Full report](https://github.com/word-ky/TTIE/blob/88de78b1a91adfc6dec71c378cdf8a4ec044cb51/research_log/T059U/report.md).
+
+Exact corrected C2outer16images/80banks/1460rows,80 unique state0 anchors; split SHA256 `f0fa4c44d96fb91a7d6d0047b9d06750becc01cba25019875bd277640bb11242` matches the published f4be91c67a5bc0d5dec09ecbded4ad8877d192cc split. Image IDs [36660,37670,38070,38825,39551,39951,41488,41990,42563,43435,44195,45070,45728,46463,47121,47801]; full80 bank IDs and1460 canonical rows committed. No overlap with E inner development. Exact E head `e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0` and train-only normalization retained; S/T054 renderer/Adam and accepted degraded-image J unchanged.
+
+Fixed tau literal **0.031453661388567547**, act iff norm>=tau. Gated coverage **55/80=0.6875 <0.75** triggers the first scientific stop. Harmful-anchor recall **1/5=0.2**; beneficial-action retention **51/55=0.9272727272727272**;4 harmful acted anchors remain. No threshold adjustment. JSON shortest decimal0.03145366138856755 is the identical binary64 value.
+
+| Policy | Acted | Improved/harmed/tied | Mean A | Median A | p90 A | Max harm | Acted median A |
+|---|---:|---|---:|---:|---:|---:|---:|
+|ungated|80|55/5/20|-3.798855508361079e-5|-2.211263528853133e-5|0|7.305624691450463e-6|-2.211263528853133e-5|
+|gated|55|51/4/25|-3.75573508339754e-5|-1.988141440381272e-5|0|7.305624691450463e-6|-3.625889323526088e-5|
+
+A=fullRGB MSE_after-MSE_state0, absolute units. Mean/median/p90 over80; acted median over acted subset. All ungated harms: bank28/image37670 norm0.0344926059295886 A1.3811400336183333e-6 passes; bank29/image37670 norm0.062088655414304104 A2.73412899684522e-6 passes; bank54/image38070 norm0.09621426380511772 A7.305624691450463e-6 passes; bank126/image39951 norm0.019952157446661022 A5.239592599931564e-6 abstains; bank300/image45728 norm0.0383781065367789 A4.2847073214158567e-7 passes. Full receipts and80-row table committed.
+
+All80 q/g/norm/decisions/ungated+gated v/output tensors frozen/fsynced **2026-09-18T17:34:15.816120UTC**; first outer source-reference read **17:34:25.401387UTC**, separate evaluator. Physical A6000GPU1 executes80 ungated comparison steps; gated policy reuses identical displacement/output for55 passing anchors and zero/y0 otherwise, without a second optimizer call. CPU q preserves S convention on1460outer batch. No new CLIP features or reference gradients. Only16 unique pinned outer source clean images used after freeze.
+
+Counters training_runs0,new_heads0,head_optimizer_steps0,ungated_comparison_steps80,gated_acted55,premature_outer_reference_reads0,outer_source_clean_images16,reference_gradient_reads0,target_domain_access0,lolv2_access0,official_test_access0,inference_reference_leakage0. Outer-source evaluation here is explicitly authorized; no real-domain rollout.
+
+**Validation:**5 tests pass4.93s, including exact threshold/equality, ordered gates, inherited T054 firstAdam/blur/zero-gradient/inactive identity. Sole run `20260919-013345-ttie-t059u-outer`,17:33:49–17:34:43UTC,exit0. Independent NumPy/SciPy all80 split/norm/gate/Adam/render/RGB-MSE/policy/classification replay PASS. Max Adam error1.4612744791975274e-8 (<1e-7), render error3.7737047930974654e-8 (<1e-6); gated output byte-identical to ungated or y0. All199 source bindings, input files and selected J ranges unchanged. No scientific failure, repair, rerun or scope deviation. NVML warning nonblocking; local D full, server project and API delivery used.
+
+Files: research_log/T059U source/tests/verifier/plan,authorization/bindings,split/fullfield/actionvectors,freeze/normalization/input hashes,80-row table/result/report/logs/archive manifests. Commands: pytest then separate act→evaluate→verify. Result SHA256 `4f7a844411b610e153cb1d1799bcb8ac36aeee34d041ed94ed7db8e60d03b4e4`. Full462747234-byte home/F archive SHA256 `ae3f9cd31322026badcc4696dffc57f6bcbf95e5c2855ec5e677f3f411814bad`; recovery SHA256 `cdbe0949907b3ef174ad8aae19cdb38f867075230ccaf847a5712b59cbc6b48d`; both copies verified.
+
+**Next:** stop and await review. No threshold/percentile/norm search, retraining, optimizer change, second step, target-domain/LOL-v2/test access, rollout or self-merge.
