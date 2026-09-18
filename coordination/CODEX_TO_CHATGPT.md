@@ -4591,3 +4591,24 @@ Complete maps frozen07:38:31UTC; donor predictions frozen07:38:33UTC; selector l
 Focused4tests1.39sPASS; independent preflight source/partition/normalization/anchors/verifier setup PASS before sole audit. Run20260918-153825-ttie-t059or-context, A6000physicalGPU1,07:38:29–07:38:41UTC exit0. Independent CPU all4357vectors/distances/ties/neighbors/predictions/losses and per-image/per-bank metrics PASS; maxdistance differences7.105427357601002e-15 /3.552713678800501e-15, exact choices/ties. Training/optimizer/model,selector-before-map/prediction-freeze,inner-held,outer,newimage/feature/refgrad,legacy/detail tensors,target-domain,LOL-v2,official-test,inference-reference counters all0.
 
 Prior combined tool-policy rejection recorded inc4365fbacbcd80bf674fe88114b1471ea10d5bf3; new O-R atomic steps completed without another policy rejection. Two SSH connection timeouts on preflight/log-read recovered without scientific rerun; NVMLwarning nonblocking. LocalD ENOSPC blocks fetch/full copies; remote project andGitHub preserve evidence. Commands in report. Rawhome/F shared/t059o/T059O_evidence.tar.gz SHA256 f44f6f5298dec3f9a3b6016c1e224191f8446c25349a783418d48dccd138c49e. Stop for research-lead review; no head training, later cohort or alternate recipe.
+
+
+## T059-P — DONE — 2026-09-18T09:15:09.923581+00:00
+
+**Classification:** `frozen CLIP-latent locality fails the source control; stop`.
+
+Authorization `89f0baabb74530724c9c78e6014f2d42e15cbcab`; source `3739020b25e6be511c0871813f710911d59be064`; evidence `51301d6c95a543b6db8a5d047c77db66667efdfa`; branch `codex/T059P-clip-latent`; [PR #115](https://github.com/word-ky/TTIE/pull/115). [Full report and artifact instructions](https://github.com/word-ky/TTIE/blob/51301d6c95a543b6db8a5d047c77db66667efdfa/research_log/T059P/report.md).
+
+Sole A6000 GPU-1 run `20260918-170231-ttie-t059p-clip`, 09:02:37–09:10:50 UTC, exit 0. Exact N 40-fit/8-selector split, 3604/753 rows and 200/40 banks. **Fit-LOO Huber 0.11241389811038971**, margin -0.03590540029108524; **selector Huber 0.19629433751106262**, margin -0.11978583969175816; unchanged gate 0.07650849781930447. First gate fails; no positive bottleneck or transfer claim.
+
+Reused hash-matched accepted T014 checkpoint and unchanged FrozenCLIP.image_embeddings path. Existing output is 5×512 (full plus four fixed views); retain all ordered outputs, losslessly flatten to e=2560 and z=5120, with no averaging/selection/sweep. Exactly concat(e-e0,e0), same-bank state-0 anchors, FP64 squared Euclidean k=1, fit image exclusion and canonical exact ties. FP32 eval/no_grad, one state/five views per call: **4357 authorized state-image forwards / 21785 view embeddings**. Original fixed from_checkpoint text initialization unchanged. Separate clean/reference images never opened.
+
+Maps freeze 09:03:31.999127 UTC < fit scalar read 09:03:34.728773 < both predictions freeze 09:03:34.937078 < selector scalar read 09:03:36.733671. Source/input hashes unchanged. All protected-access counters zero, including training, optimizer, reference-image feature forwards, premature selector reads, inner-held, outer, new cohort, reference gradients, target-domain, LOL-v2 and official test.
+
+**Tests:** 4 passed in 1.43s (reference replacement/absence, full-view anchors, exclusion/ties, gate order). Independent CPU replay verifies all 4357 representation/map/tie/prediction/loss rows and all per-image/per-bank summaries; maximum distance error 1.7763568394002505e-15 on each side. Full per-query IDs/distances/candidate/tie counts, tensor hashes, preprocessing bindings and timestamps committed. Result SHA256 `413fa8a6ea3f2ea34b12385db670e63c1777fff203f08352befb83d536acae3e`. Raw evidence SHA256 `e883aad71229fc0000da21ddc16cc2d3cace9c2afe748ebc070f8600f96120d0`, verified home/F backups. Full vectors are lossless gzip shards with reconstruction/hash instructions.
+
+Files: research_log/T059P core/run/tests/independent verifier, authorization/bindings, report and evidence; exact T014 ttie CLIP/preprocess code. Commands: pytest then separate maps → predict → evaluate → CPU verify processes. No scientific recipe change or rerun. Infrastructure: D: full (remote project persistence and memory-only GitHub API publication); initial authorization copy exceeded Windows command length, compressed retry hit one SSH timeout then succeeded; bare python absent (venv used); existing NVML warning did not prevent CUDA execution.
+
+**Correction to prior lead review:** accepted O actual fit/selector metrics are **0.04802930727601051 / 0.1556149274110794**, not the values transcribed in its acceptance text. Selector is reused, not fresh. Original artifacts and lead-owned files were not modified; O classification is unchanged.
+
+**Next:** stop and await research-lead review. No alternate representation, training, inner-held/outer evaluation, target-domain rollout or self-merge authorized.
