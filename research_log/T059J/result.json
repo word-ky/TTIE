@@ -1,0 +1,203 @@
+{
+  "status": "DONE",
+  "label": "REFERENCE_ORACLE_ONLY",
+  "classification": "even oracle choice among the frozen five donors cannot recover held scalar geometry; local 28-D scalar support is inadequate on inner-held images",
+  "statistics": {
+    "train": {
+      "rows": 4357,
+      "oracle_floor_huber": 0.05390169471502304,
+      "rank1_fraction": 0.3158136332338765,
+      "rank_histogram": [
+        1376,
+        941,
+        807,
+        602,
+        631
+      ],
+      "target_in_donor_range_fraction": 0.7236630709203581,
+      "donor_range_distribution": {
+        "rows": 4357,
+        "minimum": 0.0,
+        "mean": 0.45310855351793733,
+        "p10": 0.04379218816757203,
+        "median": 0.20377478003501892,
+        "p90": 0.6526616215705872,
+        "maximum": 7.947259426116943
+      },
+      "donor_iqr_distribution": {
+        "rows": 4357,
+        "minimum": 0.0,
+        "mean": 0.1085964726364945,
+        "p10": 0.0077830106019973755,
+        "median": 0.07176199555397034,
+        "p90": 0.2541719079017639,
+        "maximum": 1.0934927463531494
+      },
+      "tie_rows": 291
+    },
+    "heldout": {
+      "rows": 1529,
+      "oracle_floor_huber": 0.21286551654338837,
+      "rank1_fraction": 0.2707652060170046,
+      "rank_histogram": [
+        414,
+        362,
+        314,
+        228,
+        211
+      ],
+      "target_in_donor_range_fraction": 0.7109221713538261,
+      "donor_range_distribution": {
+        "rows": 1529,
+        "minimum": 0.0,
+        "mean": 0.27011815617878193,
+        "p10": 0.05467464923858643,
+        "median": 0.21741527318954468,
+        "p90": 0.5546641230583191,
+        "maximum": 1.6684901714324951
+      },
+      "donor_iqr_distribution": {
+        "rows": 1529,
+        "minimum": 0.0,
+        "mean": 0.1110205401583015,
+        "p10": 0.009579610824584962,
+        "median": 0.07963627576828003,
+        "p90": 0.2438627660274506,
+        "maximum": 0.8810667395591736
+      },
+      "tie_rows": 116
+    }
+  },
+  "threshold": 0.07650849781930447,
+  "margins": {
+    "train": 0.022606803104281425,
+    "heldout": -0.1363570187240839
+  },
+  "baseline_G_exact": {
+    "train": 0.06445551663637161,
+    "heldout": 0.23172274231910706
+  },
+  "consensus_I_exact": {
+    "train": 0.08473703265190125,
+    "heldout": 0.2230137139558792
+  },
+  "inputs_before": {
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/maps.pt": "289bee4e567a8daaa8180b2a7b58acbc4044ad26dbbe215aa92a818bf727ac81",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/predictions.pt": "1a09e1b591d890223e0041f0d60cbddd112a716f25c888ac5c3862269dd534f6",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/result.json": "20108a83f00334b9d66d668425bb9171e53cf29da9c7090a6134b15b778981cf",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt": "671a9b3afc74f2ffecab4c0359dbec902942a43d166f31af1cfd3d7cf763cf1b"
+  },
+  "inputs_after": {
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/maps.pt": "289bee4e567a8daaa8180b2a7b58acbc4044ad26dbbe215aa92a818bf727ac81",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/predictions.pt": "1a09e1b591d890223e0041f0d60cbddd112a716f25c888ac5c3862269dd534f6",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/result.json": "20108a83f00334b9d66d668425bb9171e53cf29da9c7090a6134b15b778981cf",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt": "671a9b3afc74f2ffecab4c0359dbec902942a43d166f31af1cfd3d7cf763cf1b"
+  },
+  "donor_marker": {
+    "label": "REFERENCE_ORACLE_ONLY",
+    "training_scalar_opened_utc": "2026-09-17T23:59:04.019984+00:00",
+    "training_scalar_receipt": {
+      "side": "train",
+      "key": "target",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 18496,
+      "bytes": 17428,
+      "sha256": "a9bebf05f1c1d75cc283e9a0d67c2addf973b1c6ad5962f3636d3f2ce2bc9fc5",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    "persisted_utc": "2026-09-17T23:59:04.022196+00:00",
+    "sha256": "9700b4732c0e4a8e222bbe6c72b98936a2f349b7091c8ec3d389cffd9abc4b78",
+    "accepted_inputs": {
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/maps.pt": "289bee4e567a8daaa8180b2a7b58acbc4044ad26dbbe215aa92a818bf727ac81",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/predictions.pt": "1a09e1b591d890223e0041f0d60cbddd112a716f25c888ac5c3862269dd534f6",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-073334-ttie-t059i-five/artifacts/T059I/result.json": "20108a83f00334b9d66d668425bb9171e53cf29da9c7090a6134b15b778981cf"
+    },
+    "source_binding": {
+      "research_log/T059J/run.py": "c0e52dbb3cea54fdd3e90428a3e161fd1f36e9cbadea9fd01e83499d28247059",
+      "research_log/T059J/test_core.py": "09f08349741655db9d1c7a8b28546229d0151c2b6b05c1d8d39ac659dbbc2382",
+      "research_log/T059J/verify.py": "ae6d1d861d39c7fbe663f00c6643907d1e939cfc8a580ca8b6d1ca5f6ea5b9f3",
+      "research_log/T059J/core.py": "96483a07bed060939a0adbf84f8321a318bfbacffa3acfb3a3e314031ba5e9dd",
+      "research_log/T059J/authorization.md": "414238b43b87f359091717af73e8b209cec303953222fd47edaef923190450cf",
+      "research_log/T059I/core.py": "e110b9f79be5555410c77daa0928b7b15c7ebd9f64199b56e2b1c58c66ccc5c8"
+    },
+    "accepted_I_source_bindings": {
+      "research_log/T059I/run.py": "7dafbc351cdb06cca70637497a9a853e114cd924aa3f59528974cd4d8d49e4b2",
+      "research_log/T059I/test_core.py": "64a23a635340f9b13f1c1964315a895bbfaa2a5fc621d6bf319105ff8c3ad106",
+      "research_log/T059I/verify.py": "47f5bc4ea6ababc2dc3ea795887b5954ee65027a49cb8c00f46e25acc90fff41",
+      "research_log/T059I/core.py": "e110b9f79be5555410c77daa0928b7b15c7ebd9f64199b56e2b1c58c66ccc5c8",
+      "research_log/T059I/authorization.md": "a048e9e5e608db8f1ee9e9f8c64735721927b9d718a559a780a21cf184c36498"
+    },
+    "held_scalar_reads": 0,
+    "full_mixed_scalar_SHA_deferred": true
+  },
+  "held_scalar_opened_utc": "2026-09-17T23:59:05.631724+00:00",
+  "scalar_access": [
+    {
+      "side": "train",
+      "key": "target",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 18496,
+      "bytes": 17428,
+      "sha256": "a9bebf05f1c1d75cc283e9a0d67c2addf973b1c6ad5962f3636d3f2ce2bc9fc5",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "train",
+      "key": "pred",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 960,
+      "bytes": 17428,
+      "sha256": "0d26c1af3b2a42a120364d681ef1436d6a79893ddfacc51833e1e2c86fca70de",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "heldout",
+      "key": "target",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 2273280,
+      "bytes": 6116,
+      "sha256": "4d01709be268b13f4936db2b2af0428e72a7acb11a0596c7d59ce63d018186bd",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "heldout",
+      "key": "pred",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 2267072,
+      "bytes": 6116,
+      "sha256": "3a3c1c18b03a94516e9d15825c0e262105390a1d303156e6b1c4512124e009c4",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    }
+  ],
+  "source_binding": {
+    "research_log/T059J/run.py": "c0e52dbb3cea54fdd3e90428a3e161fd1f36e9cbadea9fd01e83499d28247059",
+    "research_log/T059J/test_core.py": "09f08349741655db9d1c7a8b28546229d0151c2b6b05c1d8d39ac659dbbc2382",
+    "research_log/T059J/verify.py": "ae6d1d861d39c7fbe663f00c6643907d1e939cfc8a580ca8b6d1ca5f6ea5b9f3",
+    "research_log/T059J/core.py": "96483a07bed060939a0adbf84f8321a318bfbacffa3acfb3a3e314031ba5e9dd",
+    "research_log/T059J/authorization.md": "414238b43b87f359091717af73e8b209cec303953222fd47edaef923190450cf",
+    "research_log/T059I/core.py": "e110b9f79be5555410c77daa0928b7b15c7ebd9f64199b56e2b1c58c66ccc5c8"
+  },
+  "oracle_rows_sha256": "1d28d3127d7dcf1a3c5af9e7e71173193533eefd27a35b561fb875f9dbb1b65d",
+  "counters": {
+    "training_runs": 0,
+    "optimizer_steps": 0,
+    "model_forwards": 0,
+    "new_neighbor_searches": 0,
+    "new_source_image_opens": 0,
+    "new_feature_forwards": 0,
+    "reference_gradient_recomputations": 0,
+    "detail_gradient_tensor_reads": 0,
+    "outer_supervision_reads": 0,
+    "target_domain_access": 0,
+    "lolv2_access": 0,
+    "official_test_access": 0,
+    "inference_reference_leakage": 0
+  },
+  "completed_utc": "2026-09-17T23:59:05.651822+00:00"
+}
