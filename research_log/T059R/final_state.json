@@ -1,0 +1,50 @@
+{
+  "task": "T059-R",
+  "status": "DONE",
+  "source": "39e5c40f0400bedb65bd56b61418ab45d29aa11d",
+  "run": "20260918-201204-ttie-t059r-rank",
+  "release": "20260918-ttie-t059r-rank",
+  "classification": "full-curve cross-head disagreement is not a convincing tail-uncertainty mechanism; stop the dual-head disagreement line",
+  "auroc": 0.8222222222222222,
+  "unsafe_banks": [
+    {
+      "bank": 230,
+      "image": 43581,
+      "u": 0.782608695652174,
+      "rho_EM": 0.21739130434782608,
+      "uncertainty_rank": 3,
+      "uncertainty_percentile": 3.225806451612903,
+      "harm_vs_anchor": 4.667080879211426
+    },
+    {
+      "bank": 280,
+      "image": 45229,
+      "u": 0.07058823529411762,
+      "rho_EM": 0.9294117647058824,
+      "uncertainty_rank": 31,
+      "uncertainty_percentile": 48.38709677419355,
+      "harm_vs_anchor": 6.364080429077148
+    },
+    {
+      "bank": 305,
+      "image": 46031,
+      "u": 0.46608695652173915,
+      "rho_EM": 0.5339130434782609,
+      "uncertainty_rank": 4,
+      "uncertainty_percentile": 4.838709677419355,
+      "harm_vs_anchor": 6.284384727478027
+    }
+  ],
+  "raw_sha256": "3c1d8d1b855f7ef7c44959a299a79d83ab08ccf14ea4e33bafa0d1517b34f009",
+  "evidence_commit": "ac122e64eeebbf31ac00f9d8d58141a40d878646",
+  "pr": "https://github.com/word-ky/TTIE/pull/117",
+  "branch": "codex/T059R-rank-disagreement",
+  "published_utc": "2026-09-18T12:15:43.778070+00:00",
+  "reported": true,
+  "main_mailbox_commit": "b639c168a1812f80334936e51c8a1de4052c7e80",
+  "completion_entries": 1,
+  "next_step": "Stop dual-head disagreement line; await research-lead review and new task",
+  "local_disk_full": true,
+  "updated_utc": "2026-09-18T12:17:29.986848+00:00",
+  "recovery_sha256": "718d06cec050a710bd09aaff7949864d6332915ef841264753647126b7d69750"
+}
