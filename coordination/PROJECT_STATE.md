@@ -12,64 +12,41 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 ## Current deployable state
 
-**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** It uses the frozen nuisance readout + clean-abstention gate, source-supervised Sobolev restoration energy, hard Region2 EV+gamma adaptation, projected label-free updates, and minimum predicted-energy checkpoint selection.
-
-On LOL-v2 Real development data, the accepted fixed-validation deployable base remains **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`**. T036-A common gain remains the strongest fresh-qualified deployable action expansion found so far, improving exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean on its deterministic reference-unused development cohort, but with an unresolved unsafe tail.
+**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** On LOL-v2 Real development data, the accepted fixed-validation deployable base remains **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`**. T036-A common gain remains the strongest fresh-qualified deployable action expansion found so far, improving exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean on its deterministic reference-unused development cohort, but with an unresolved unsafe tail.
 
 No T059 matched-detail result is deployable. The official LOL-v2 Real test remains sealed.
 
 ## Renderer / action-family diagnosis
 
-- **T054-A local-detail field** is the strongest missing renderer capability identified in reference-only mechanism studies: `24.3454867 / 0.7577572`, adding `+1.2383356 dB` mean / `+1.2353360 dB` median PSNR and `+0.1877170` mean SSIM over T052 on that oracle/reference cohort.
-- **T055-A/T055-V** show that merely extending the same one-scale optimization budget adds only about `+0.0043 dB` beyond T054-A.
-- **T056-A** second-scale detail and **T057-A** chroma-detail are valid but failed their frozen materiality gates.
+Reference-only renderer studies established that the remaining capacity is strongly spatial:
 
-These renderer studies are non-deployable `REFERENCE_ORACLE_ONLY` diagnostics. Their clean targets, reference gradients/states, PSNR/SSIM, and per-image oracle quantities are forbidden from test-time inference.
+- **T051-A spatial exposure field:** fixed 8×8 RGB-shared exposure field adds `+0.6590052 dB` mean / `+0.4525454 dB` median PSNR over T050, with `100/100` PSNR wins. It missed its intentionally large oracle materiality gate, but it is clearly a larger low-frequency action family than the later deployed Region2/global variants.
+- **T054-A local-detail field:** strongest later reference-only renderer extension, reaching `24.3454867 / 0.7577572` and adding `+1.2383356 dB` mean / `+1.2353360 dB` median PSNR plus `+0.1877170` mean SSIM over T052.
+- T055-A/T055-V show that simply extending the same one-scale optimization budget adds only about `+0.0043 dB`; T056 second-scale detail and T057 chroma-detail failed their fixed materiality gates.
 
-## Matched-detail optimization-field diagnosis
+All of these are non-deployable `REFERENCE_ORACLE_ONLY` diagnostics. Their clean targets, reference gradients/states, PSNR/SSIM, and per-image oracle quantities are forbidden from test-time inference.
 
-The matched-detail program has established a stable asymmetry: **detail-direction information transfers much better than calibrated scalar energy/value, but the field is not safety-calibrated and its first real-domain raw-input gain is extremely small.**
+## T059 matched-detail optimization-field diagnosis — closed as a practical detail route
 
-Accepted negative/closed conclusions from T059-C2 through T059-U remain unchanged:
+The T059 program established a stable asymmetry: **direction transfers much better than calibrated scalar value**, but the tested detail action family is not practically useful enough to continue tuning.
+
+Accepted conclusions remain:
 
 - calibrated unseen-image scalar prediction is unsupported despite strong in-sample capacity;
-- simple 28-D locality, bank centering/context, early stopping, raw frozen-CLIP Euclidean locality, and local-donor smoothing/oracles do not solve scalar localization;
-- dual-head argmin/full-curve disagreement does not expose the catastrophic shared-bias tail reliably;
-- optimizer-scale/curvature is not the explanation for the harmful one-step source cases;
-- low predicted-gradient norm does not transfer as a useful target-free abstention rule on the independent source outer cohort.
+- simple 28-D locality, bank centering/context, early stopping, frozen-CLIP Euclidean locality, donor smoothing/oracles, dual-head disagreement, optimizer-scale rescue, and low-gradient-norm abstention do not solve the value/safety problem;
+- the detail field itself is directionally real: T059-E source inner-held alignment is `0.868874` positive-dot / `0.491553` median cosine; T059-S/T and T059-U show most source anchors have useful local descent direction; T059-V/W show the degraded-image `dx/dv` bridge and one-step action can be reconstructed fully online without reference-dependent caches;
+- T059-X transfers to the already-open 100-image LOL-v2 Real development cohort from raw input, with `97/100` MSE improvements, but only **`+0.001135428 dB` mean PSNR**;
+- **T059-Y** applies the same frozen field after exact accepted T026-A global correction. It remains numerically positive but fails materiality: `100/100` active, `91/100` MSE improve, mean/median MSE change `-4.3532840e-5 / -1.9162789e-5`, mean RGB-SSIM `+0.0014076024`, but mean paired PSNR only **`+0.0024241736 dB < +0.05 dB`**. The harmful tail is `9/100`.
 
-At the same time, the detail field is consistently more promising than scalar value prediction:
+Therefore the fixed one-step matched-detail integration line is **closed**. No lr/step-count/optimizer/threshold rescue on this opened cohort, no T036+detail combination, and no official-test promotion are authorized.
 
-- T059-E source inner-held detail alignment is much healthier than value transfer (`0.868874` positive-dot / `0.491553` median cosine).
-- T059-S/T show that most source anchors have the correct local descent sign, although the minority harmful cases already have the wrong first-order sign.
-- T059-U shows that the **ungated** fixed one-step action is aggregate-favorable on the independent source outer cohort: `55 improve / 5 harm / 20 tie`, mean absolute MSE change `-3.7988555e-5`, median `-2.2112635e-5`, maximum harm `7.3056247e-6`.
-- T059-V/W establish that the degraded-image feature/action Jacobian and one-step detail action can be reconstructed fully online from the current degraded image and frozen model, including 16/16 active nonzero-gradient source replay cases, without cached reference-dependent quantities.
+### Current scientific interpretation after T059-Y
 
-### T059-X — first real-domain transfer result
+The useful result from T059 is not a deployable detail enhancer; it is evidence that the frozen source-trained feature-space restoration gradient can contain transferable action direction. The next scientifically cleaner question is whether that field transfers to a **more relevant low-frequency action family**.
 
-T059-X is accepted as **validation-only directional mechanism evidence** on the exact already-open 100-image LOL-v2 Real development cohort, not as deployment or benchmark evidence.
+Severe low-light error is dominated by illumination/exposure, while T054 detail acts mainly on local high-frequency structure. T059-Y's `+0.001408` mean SSIM but only `+0.002424 dB` mean PSNR reinforces that mismatch. T051-A provides a pre-existing, fixed 8×8 RGB-shared spatial exposure renderer with materially larger reference-only capacity and no need to invent a new action family.
 
-The fixed image-only T059-W path was executed from each literal raw low image with exactly one Adam detail step (`lr=0.05`). All 100 outputs and decisions were frozen before any development normal was opened. The original evaluator then stopped because it incorrectly asserted bitwise equality between literal raw and the inherited zero-state ISP output; the difference was only float32 roundoff (`<=5.960464477539063e-8`). An evaluation-only repair preserved the already-frozen inference outputs and evaluated the literal raw baseline. Independent replay verifies the ISP chain, Adam/detail render, metrics, counts, and classification. No inference/action/output rerun or tuning occurred.
-
-Frozen T059-X results:
-
-- active actions: **`100/100`**;
-- strict full-RGB MSE improve/harm/tie: **`97 / 3 / 0`**;
-- mean MSE change: **`-2.7407772160e-5`**;
-- median MSE change: **`-1.4010135270e-5`**;
-- mean RGB-SSIM change: **`+0.0005802802`**;
-- mean paired PSNR gain: **`+0.001135428 dB`**;
-- maximum MSE harm: **`5.5341140e-6`**.
-
-T059-X therefore passes its preregistered aggregate-transfer gates, but the effect magnitude is **practically negligible**. The correct interpretation is not that matched-detail is now a deployable enhancer; it is that the source-trained detail direction survives the source→real development shift often enough to produce a tiny consistent gain.
-
-### Current scientific interpretation after T059-X
-
-The scalar/value branch remains closed as a practical route under the tested formulations. The detail branch remains alive, but the evidence now separates **directional validity** from **useful effect size**.
-
-A local high-frequency/detail renderer applied directly to severely underexposed raw images cannot repair the dominant low-frequency/global illumination error, so the tiny `+0.0011 dB` raw-input gain is not surprising. The scientifically relevant remaining question is whether the same frozen detail field is **complementary to the already accepted target-free T026-A global correction**, where the image is closer to the regime in which local detail processing can matter.
-
-The matched-detail line remains **non-deployable**. No official-test matched-detail action, multi-step rollout, target-domain fitting, or per-image metric/oracle selection is authorized.
+The new branch therefore tests **action-family transfer of the same frozen energy field**, not another value model and not another detail-specific rescue.
 
 ## Strong baseline development anchors
 
@@ -83,13 +60,13 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 ## Information-boundary rules
 
 - Test-time adaptation and checkpoint/state selection must never consume test labels, clean/normal-light targets, reference gradients/Jacobians, oracle values, PSNR/SSIM, degradation masks/gain maps, condition IDs, annotations, or semantic image IDs.
-- A degraded-image feature/action Jacobian such as `dx/dv`, computed entirely from the current degraded image/current target-free intermediate image and frozen model, is permissible; a Jacobian/gradient that depends on a clean/reference target is not.
+- A degraded-image feature/action Jacobian such as `dx/dv` or `dx/du`, computed entirely from the current degraded image/current target-free intermediate image and frozen model, is permissible; a Jacobian/gradient that depends on a clean/reference target is not.
 - Validation/test outputs and decisions must be finalized and persisted before references or evaluation metrics are attached, except in explicitly isolated non-deployable source/reference diagnostics.
-- Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
+- Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - External baselines admitted to the main comparison must be target-free at inference.
 - Fresh/final benchmark sets must remain isolated from model/hyperparameter selection.
-- **The official LOL-v2 Real test remains untouched through T059-X.**
+- **The official LOL-v2 Real test remains untouched through T059-Y.**
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -98,14 +75,14 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918`.
 - **Fresh-qualified deployable action extension:** T036-A common gain, `+0.9392571 dB` mean on its fresh cohort, unsafe tail unresolved.
 - **Best promoted non-deployable mechanism state:** T055-A, `24.3497922 / 0.7591279`; T056/T057 are valid but failed materiality gates.
-- **Matched-detail candidate:** calibrated scalar localization and the tested safety gates are unsupported. The detail direction is source-validated, online-reproducible, and now shows a tiny positive raw-input real-development transfer (`+0.001135428 dB`, `97/100` MSE improvements), but this is not material or deployable.
+- **T059 matched-detail:** direction transfer is scientifically supported, but raw and T026-conditioned real-development gains are practically negligible; the integration line is closed.
 
 ## Integration note
 
-Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P through T059-X are scientifically reviewable through their pinned source/evidence even while PRs remain open. T059-X is PR #123.
+Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P through T059-Y are scientifically reviewable through their pinned source/evidence even while PRs remain open. T059-Y is PR #124.
 
 ## Current open task
 
-**T059-Y — fixed one-step matched-detail integration on frozen T026-A outputs** in `coordination/CHATGPT_TO_CODEX.md`.
+**T060-A — frozen-energy spatial-exposure direction transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use the exact accepted target-free T026-A selected outputs/states on the same already-open 100-image development cohort as immutable bases. Apply exactly one frozen T059-E/T054 detail step while keeping the T026-A global state fixed. Freeze/hash all 100 integrated outputs before any reference read, then evaluate only against the already-open development normals. The preregistered materiality gates are mean PSNR gain `>= +0.05 dB`, median PSNR gain `>0`, at least `60/100` strict MSE improvements, and mean RGB-SSIM gain `>= +0.001`. No tuning, second step, T036 integration, official-test access, or clean/reference information in inference is authorized.
+Reuse exactly the 80 fixed source outer state-0 anchors. Keep the T059-E head/features frozen and project `q=dE/dx` through the exact T051-style 8×8 RGB-shared spatial-exposure Jacobian `J_exp=dx/du`. Freeze all target-free `x/J_exp/q/g_hat` tensors before any source clean/reference read, then compute source-only true restoration gradients for a direction-alignment diagnostic. No optimizer step, no real-development rollout, no target-domain fitting, and no official-test access are authorized in this cycle.
