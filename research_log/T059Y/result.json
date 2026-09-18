@@ -1,0 +1,86 @@
+{
+  "rows": 100,
+  "active_actions": 100,
+  "coverage": 1.0,
+  "improve": 91,
+  "harm": 9,
+  "tie": 0,
+  "statistics": {
+    "base_mse": {
+      "mean": 0.09821229379392683,
+      "median": 0.08695032115391438,
+      "p10": 0.03026575035417183,
+      "p90": 0.2081281117356245
+    },
+    "ours_mse": {
+      "mean": 0.09816876095388266,
+      "median": 0.08670795406542778,
+      "p10": 0.03023186817676418,
+      "p90": 0.2080719066383884
+    },
+    "base_psnr": {
+      "mean": 11.120876417349557,
+      "median": 10.607319298785859,
+      "p10": 6.816695624968695,
+      "p90": 15.191372106291052
+    },
+    "ours_psnr": {
+      "mean": 11.12330059097204,
+      "median": 10.619416040707158,
+      "p10": 6.817868687989109,
+      "p90": 15.19621454099724
+    },
+    "base_ssim": {
+      "mean": 0.3737918251517076,
+      "median": 0.367924983123891,
+      "p10": 0.10265065004366769,
+      "p90": 0.6617588934775271
+    },
+    "ours_ssim": {
+      "mean": 0.3751994275283545,
+      "median": 0.3698753758190091,
+      "p10": 0.10312001732043509,
+      "p90": 0.6643780677647652
+    },
+    "mse_change": {
+      "mean": -4.353284004414779e-05,
+      "median": -1.9162788529973607e-05,
+      "p10": -5.7664668902975004e-05,
+      "p90": -1.8914140770239146e-07
+    },
+    "psnr_change": {
+      "mean": 0.0024241736224814583,
+      "median": 0.0008808606100778604,
+      "p10": 3.55696156578489e-05,
+      "p90": 0.004057558442834975
+    },
+    "ssim_change": {
+      "mean": 0.0014076023766469731,
+      "median": 0.0012128652427930015,
+      "p10": 0.00019903312816752088,
+      "p90": 0.0026664639393294944
+    }
+  },
+  "maximum_mse_harm": 3.482472213692765e-05,
+  "classification": "one-step matched-detail integration is practically immaterial on the opened development cohort",
+  "online_freeze_utc": "2026-09-18T21:35:37.195080+00:00",
+  "first_reference_read_utc": "2026-09-18T21:35:42.094726+00:00",
+  "metric": {
+    "data_range": 1.0,
+    "window": 11,
+    "sigma": 1.5,
+    "K1": 0.01,
+    "K2": 0.03,
+    "covariance": "population",
+    "channels": "RGB mean",
+    "crop": 0,
+    "padding": "reflect (half-sample symmetric)",
+    "dtype": "float64"
+  },
+  "psnr": "RGB float64 MSE over native float32 pixels; PSNR floor1e-12",
+  "validation_only": true,
+  "official_test_access": 0,
+  "inference_reference_leakage": 0,
+  "normal_reads_before_freeze": 0,
+  "completed_utc": "2026-09-18T21:35:57.540095+00:00"
+}

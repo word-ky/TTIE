@@ -1,0 +1,6 @@
+{
+  "runId": "20260919-053506-ttie-t059y-integrate",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260919-053506-ttie-t059y-integrate",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260919-ttie-t059y-integrate\nexport CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\n/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T059Y.online --out \"$AUTODL_ARTIFACTS_DIR/T059Y\" && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T059Y.evaluate --out \"$AUTODL_ARTIFACTS_DIR/T059Y\" && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T059Y.verify --out \"$AUTODL_ARTIFACTS_DIR/T059Y\""
+}
