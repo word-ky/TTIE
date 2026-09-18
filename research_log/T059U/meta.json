@@ -1,0 +1,6 @@
+{
+  "runId": "20260919-013345-ttie-t059u-outer",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260919-013345-ttie-t059u-outer",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260919-ttie-t059u-outer\nexport CUDA_VISIBLE_DEVICES=1 PYTHONPATH=\"$PWD\" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\n/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python research_log/T059U/act.py --out \"$AUTODL_ARTIFACTS_DIR/T059U\" && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python research_log/T059U/evaluate.py --out \"$AUTODL_ARTIFACTS_DIR/T059U\" && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python research_log/T059U/verify.py --out \"$AUTODL_ARTIFACTS_DIR/T059U\""
+}

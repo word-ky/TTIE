@@ -1,0 +1,3922 @@
+[
+  {
+    "index": 0,
+    "bank_index": 0,
+    "state_index": 0,
+    "image_id": 36660,
+    "position": 0,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_000.pt",
+    "sha256": "f443fbc341bc991dee2896ea7332fb77b5cd60a07fa713e3c794359930353a18",
+    "tensor_hashes": {
+      "q": "1db0d5e48fe7060e271a279bd38ca06ea94f2aa70287cb549da9bab86622e541",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "9a366b921fd6542efffd3536c34a9b2a333580229ce9c1bc970808188208b044",
+      "y0": "6f2027afe16bad36dfd633c1169a9f8055dc023d4a55b8a39879715d86cc974f",
+      "y1": "6f2027afe16bad36dfd633c1169a9f8055dc023d4a55b8a39879715d86cc974f",
+      "mask": "9ff88aa55e58df7d6774efc6baf1f556db1546d3d0a1fe3d7c87c2466b9087c7",
+      "detail": "41e6e6012469cab9771cb0a99bc039f85ceaf91c61c28f775cd01a01105f32ac",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "6f2027afe16bad36dfd633c1169a9f8055dc023d4a55b8a39879715d86cc974f"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "6f2027afe16bad36dfd633c1169a9f8055dc023d4a55b8a39879715d86cc974f",
+      "detail": "41e6e6012469cab9771cb0a99bc039f85ceaf91c61c28f775cd01a01105f32ac",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "9ff88aa55e58df7d6774efc6baf1f556db1546d3d0a1fe3d7c87c2466b9087c7"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:04.794058+00:00"
+  },
+  {
+    "index": 1,
+    "bank_index": 1,
+    "state_index": 0,
+    "image_id": 36660,
+    "position": 1,
+    "norm": 0.08407012890680644,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_001.pt",
+    "sha256": "dee88a3f147ed574b0cbe9b586db84fa16d7a969a1d130da1c6dc008f7028835",
+    "tensor_hashes": {
+      "q": "9f264ddf2fde36daf8799df752d66e958b02234357858faa19f496279e168132",
+      "g": "07a3a63dbf3872f9db47e1f284ddb391a5cae013b7a9e9c3fc97e24087d33758",
+      "v1": "8240f4a36f5a3765e9fd988a8d2fb9d7744de885989f32c9a7ce4f117045b033",
+      "c1": "4c569bd72908f276c646de30ddac073b3191f299604139a5a713bd629a2138e6",
+      "y0": "b425e1c894a8ed64b2085a3e37a42138c1f09eda13d2beaace9517c1443d7fd7",
+      "y1": "ada4d3c3ece990f59570d75aa6fab3aeebfca51648f2dd1355ab5c5a2c3763e5",
+      "mask": "142840f910203c0cccd0694012acb62ef5d725ce8451f1c2bc08333a73c0eb09",
+      "detail": "af0aec5b6cc546a18bd43a42880d9bacf64b0d9aa90a260e8d2987aa1fbd6cf5",
+      "v_gated": "8240f4a36f5a3765e9fd988a8d2fb9d7744de885989f32c9a7ce4f117045b033",
+      "y_gated": "ada4d3c3ece990f59570d75aa6fab3aeebfca51648f2dd1355ab5c5a2c3763e5"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "b425e1c894a8ed64b2085a3e37a42138c1f09eda13d2beaace9517c1443d7fd7",
+      "detail": "af0aec5b6cc546a18bd43a42880d9bacf64b0d9aa90a260e8d2987aa1fbd6cf5",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "142840f910203c0cccd0694012acb62ef5d725ce8451f1c2bc08333a73c0eb09"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:04.919711+00:00"
+  },
+  {
+    "index": 25,
+    "bank_index": 2,
+    "state_index": 0,
+    "image_id": 36660,
+    "position": 25,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_002.pt",
+    "sha256": "ab4c9a0c1aa33fd32cbda585b343b364ee6b277df12614330cdb7bca89e7fe15",
+    "tensor_hashes": {
+      "q": "9a74e7f72a4763bc739ac7cb7905a4e37f56abb3f76e1977093c279350bb6cff",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "9a366b921fd6542efffd3536c34a9b2a333580229ce9c1bc970808188208b044",
+      "y0": "5c071e6076e7dee2f9a7dbc5e16498e88594719ad34bda293f72e4376e8bd34b",
+      "y1": "5c071e6076e7dee2f9a7dbc5e16498e88594719ad34bda293f72e4376e8bd34b",
+      "mask": "9ff88aa55e58df7d6774efc6baf1f556db1546d3d0a1fe3d7c87c2466b9087c7",
+      "detail": "739369f3c9d9c7fd476cbd03cc5a0aff572f9609e70a635dc86ab53de6f54651",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "5c071e6076e7dee2f9a7dbc5e16498e88594719ad34bda293f72e4376e8bd34b"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "5c071e6076e7dee2f9a7dbc5e16498e88594719ad34bda293f72e4376e8bd34b",
+      "detail": "739369f3c9d9c7fd476cbd03cc5a0aff572f9609e70a635dc86ab53de6f54651",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "9ff88aa55e58df7d6774efc6baf1f556db1546d3d0a1fe3d7c87c2466b9087c7"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.004191+00:00"
+  },
+  {
+    "index": 26,
+    "bank_index": 3,
+    "state_index": 0,
+    "image_id": 36660,
+    "position": 26,
+    "norm": 0.05429794198149829,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_003.pt",
+    "sha256": "189a76e6d0d5bd0f0377037656268b9991bd3be02240395ccf759a9f5dee5d1b",
+    "tensor_hashes": {
+      "q": "d5abe42d82114d05d7d26cfc14fe31f43832a4c325d1afe2f971ae8c3036feb2",
+      "g": "57f750e5016413108dc4ec5b6ace9f7f89f7092cc3a39f7d942fad8407b797dc",
+      "v1": "59513dc334b9460b5b83ccfb6a0c73e9feffe40d95bbb93a67ab32ce12631bc2",
+      "c1": "b7859bea0b25542bd784008c712a3e411404a2ee0841a02df39bbd96e8932665",
+      "y0": "ed73d072f9c13c616a00bab4795d094419e538ac2a8f3ed4b95acf3274fe44a8",
+      "y1": "34072b6e7ffe6b0f8502bfb7f0d835109791044b1c31a5a3b39fbd6162f9dd04",
+      "mask": "3ea7ea201181b0f1c33a6390919e8aa6f062bbc3b88e5e1896dd5755f0ca5514",
+      "detail": "bcdb13d52529deb0f735c81608b4b2ffe2474b32f906940e42dd4db1a53b3716",
+      "v_gated": "59513dc334b9460b5b83ccfb6a0c73e9feffe40d95bbb93a67ab32ce12631bc2",
+      "y_gated": "34072b6e7ffe6b0f8502bfb7f0d835109791044b1c31a5a3b39fbd6162f9dd04"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "ed73d072f9c13c616a00bab4795d094419e538ac2a8f3ed4b95acf3274fe44a8",
+      "detail": "bcdb13d52529deb0f735c81608b4b2ffe2474b32f906940e42dd4db1a53b3716",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "3ea7ea201181b0f1c33a6390919e8aa6f062bbc3b88e5e1896dd5755f0ca5514"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.127118+00:00"
+  },
+  {
+    "index": 50,
+    "bank_index": 4,
+    "state_index": 0,
+    "image_id": 36660,
+    "position": 50,
+    "norm": 0.06639709872159018,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_004.pt",
+    "sha256": "e6792bb119914e6b5fbcbf125df764787a3bc31d519eba5e9ebc45f4e50af7ef",
+    "tensor_hashes": {
+      "q": "57782d0be1efd087aa637b0b6fbcc2fbf48448857efe9df3ac98223595ed8574",
+      "g": "4ac4d8d0f9ff553be23f75a91b339d347f778a005092fb2b114a5c2312e55142",
+      "v1": "e2fdd5f5845a09079bcf08d52eb56c8f3f6b176b6b0cd4dc1b36378ae728bf4d",
+      "c1": "df68abf85b8b3639a14bee47d5de48156d8d721ea6bd38ad6a2080784f4d01e7",
+      "y0": "aa584756b8f7c297ff88e32e637c24521faa3428f91b3aa5c11b68237b3f2abf",
+      "y1": "9ce0120a8709188265ee7a2987bdf3a7fe07092901f18398dd315cbd8a32ec44",
+      "mask": "a00387b714829a529cca2546a711e974ffb07a9e4bf06cb0b29edfe6417862eb",
+      "detail": "085ad1426b17077f6647564126cb0e83990123f0e70b1e141783ee2d650a112d",
+      "v_gated": "e2fdd5f5845a09079bcf08d52eb56c8f3f6b176b6b0cd4dc1b36378ae728bf4d",
+      "y_gated": "9ce0120a8709188265ee7a2987bdf3a7fe07092901f18398dd315cbd8a32ec44"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "aa584756b8f7c297ff88e32e637c24521faa3428f91b3aa5c11b68237b3f2abf",
+      "detail": "085ad1426b17077f6647564126cb0e83990123f0e70b1e141783ee2d650a112d",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "a00387b714829a529cca2546a711e974ffb07a9e4bf06cb0b29edfe6417862eb"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.252612+00:00"
+  },
+  {
+    "index": 370,
+    "bank_index": 25,
+    "state_index": 0,
+    "image_id": 37670,
+    "position": 74,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_025.pt",
+    "sha256": "efca2076bc20b5805c8c9ab1db680d76557549006585d5e1ba568ceb17921bac",
+    "tensor_hashes": {
+      "q": "15a9ba0f84ec9f1dbb4e369a0c63cc95ea02baa242c0539c6dfd255fc8899799",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "18f8ed2b52b631612f3a7fd3d2fa0a38be8588b1701a00857885665c3755604a",
+      "y0": "55a6fd06a15f4a8ff90f379849b3a08f8e95849751a81f6d11e136e804ce3da1",
+      "y1": "55a6fd06a15f4a8ff90f379849b3a08f8e95849751a81f6d11e136e804ce3da1",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7",
+      "detail": "7782aca55d4ee74793c6c33dca9125977d6b98dfc5afb1063494aefa5cd7d8d0",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "55a6fd06a15f4a8ff90f379849b3a08f8e95849751a81f6d11e136e804ce3da1"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "55a6fd06a15f4a8ff90f379849b3a08f8e95849751a81f6d11e136e804ce3da1",
+      "detail": "7782aca55d4ee74793c6c33dca9125977d6b98dfc5afb1063494aefa5cd7d8d0",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.325225+00:00"
+  },
+  {
+    "index": 371,
+    "bank_index": 26,
+    "state_index": 0,
+    "image_id": 37670,
+    "position": 75,
+    "norm": 0.07529388271607605,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_026.pt",
+    "sha256": "76b984f4845a6cc6424dbc307e11a82438d1030e844e5a322e0400c3c02c7840",
+    "tensor_hashes": {
+      "q": "aec2621553a1e4ad4b6034853531e1a67ce89c65973c309c1ca5c683e691cb95",
+      "g": "820899a732cd23517e73d857465b02c81fef44156adfc1726020898daf2d4674",
+      "v1": "2033ab7a3bc301cf0dbd337b68960f846c75ea74031577b6282c323ee36ceb8f",
+      "c1": "751e91465a8b328b2a3a40e2a5e6d6c45e30024b4328b25c3de9fdb44a21654c",
+      "y0": "7571bc9c85432838f7033e646f425c590ac02bad5c435db1b1d15e83359127c7",
+      "y1": "57e5e13632cadff7236bfe4fd0342f0ffa661704636274b3acb59a5ae9bf323f",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "f6f328eae2b6e5b4f75ccf0119862c0f9d756fb4931f8f8f40aff3a12937f549",
+      "v_gated": "2033ab7a3bc301cf0dbd337b68960f846c75ea74031577b6282c323ee36ceb8f",
+      "y_gated": "57e5e13632cadff7236bfe4fd0342f0ffa661704636274b3acb59a5ae9bf323f"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "7571bc9c85432838f7033e646f425c590ac02bad5c435db1b1d15e83359127c7",
+      "detail": "f6f328eae2b6e5b4f75ccf0119862c0f9d756fb4931f8f8f40aff3a12937f549",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.431323+00:00"
+  },
+  {
+    "index": 395,
+    "bank_index": 27,
+    "state_index": 0,
+    "image_id": 37670,
+    "position": 99,
+    "norm": 0.07288669059616668,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_027.pt",
+    "sha256": "2b328628e25a8e3ac5e9d7a133ee6cd93826374c2246315d49f9a9f8188084fd",
+    "tensor_hashes": {
+      "q": "3216a02cd0f91d734a408622450299e824dbe2aed7ce332cf7012e598b9eaa9c",
+      "g": "08c3661a8e50f91bfde99f66e332bbfb8236ec130eac1c8a6b2537cc303142ed",
+      "v1": "5dd3d3b858dff9f5699d3f5cac95c975f342c2c5d14d9a08fad6ddc487b87ba9",
+      "c1": "822fb446b7110083d830f4c8a7c73dd31fc708087b762d826ae31b6d0dc0a984",
+      "y0": "3893c7fe6f598c616a50c7dbc014dbe65aa1c2230b4a433e199f7bebe3cc5235",
+      "y1": "7818aebd06f6ab3e92ad5578ae0dfc1a3ed4ff380fa6b14f23bcd3b201c30466",
+      "mask": "97ddd0a5cd5e37e43e96ef6bf3ac71486cff574d8332318e8b162cd57b1b09e3",
+      "detail": "a9889dfb95c0b4de61227340d7dd490d053d7e76f63907b4753e89b4f7383e4a",
+      "v_gated": "5dd3d3b858dff9f5699d3f5cac95c975f342c2c5d14d9a08fad6ddc487b87ba9",
+      "y_gated": "7818aebd06f6ab3e92ad5578ae0dfc1a3ed4ff380fa6b14f23bcd3b201c30466"
+    },
+    "active_regions": 1,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "3893c7fe6f598c616a50c7dbc014dbe65aa1c2230b4a433e199f7bebe3cc5235",
+      "detail": "a9889dfb95c0b4de61227340d7dd490d053d7e76f63907b4753e89b4f7383e4a",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "97ddd0a5cd5e37e43e96ef6bf3ac71486cff574d8332318e8b162cd57b1b09e3"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.538236+00:00"
+  },
+  {
+    "index": 419,
+    "bank_index": 28,
+    "state_index": 0,
+    "image_id": 37670,
+    "position": 123,
+    "norm": 0.0344926059295886,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_028.pt",
+    "sha256": "ffae455492d3619dbac9cdb37a8d7a5d00dd9cd6e78dc953f485642b97f44b18",
+    "tensor_hashes": {
+      "q": "149c40f12fc9823267227751380f1327a9c64655c210897722c60eb207ce3b64",
+      "g": "a048a0930017b731ec97697f8b894dffa9e72cce42c8d7c00880ef955b86eac1",
+      "v1": "2518251c8b36fabeb84747d7709a6c234bc9f3f17ded87e1e8408d3da49ba9e5",
+      "c1": "a42bcb81d11ad90fb090cc58e4a4d554fdab065a1588011197e0622b6deb6539",
+      "y0": "bc2002d9bfd70e18bacbdfade9dd3029695bddb1ea0b974e307bd8c1ce16bd14",
+      "y1": "ac10470476a8fed0956330e07d552e33abc31eacd743aaa74084b461eda27af4",
+      "mask": "89165af757257f4ff703518ea815811aafe9de6c18471685f5c9b878dc728bae",
+      "detail": "b2f3407f40452f5ed5dfc3106dd69325906af1cf59fbf729469311245a54ef0f",
+      "v_gated": "2518251c8b36fabeb84747d7709a6c234bc9f3f17ded87e1e8408d3da49ba9e5",
+      "y_gated": "ac10470476a8fed0956330e07d552e33abc31eacd743aaa74084b461eda27af4"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "bc2002d9bfd70e18bacbdfade9dd3029695bddb1ea0b974e307bd8c1ce16bd14",
+      "detail": "b2f3407f40452f5ed5dfc3106dd69325906af1cf59fbf729469311245a54ef0f",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "89165af757257f4ff703518ea815811aafe9de6c18471685f5c9b878dc728bae"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.644920+00:00"
+  },
+  {
+    "index": 443,
+    "bank_index": 29,
+    "state_index": 0,
+    "image_id": 37670,
+    "position": 147,
+    "norm": 0.062088655414304104,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_029.pt",
+    "sha256": "85e34a7fe5d2e3ef4a32337ae5b6545cb58f92749766d81cf5e604c4cc3e4f1a",
+    "tensor_hashes": {
+      "q": "a83c41bc5f9b961665155f5c0ecd3d48c6028d01a4129e979aca2450d3cea342",
+      "g": "302a1fc320007d901583c6e030911466e7096c6c0d5ef5253f0469508e957cd0",
+      "v1": "092a5d16702e65591c52867cad35ae1bc741668835a900ff5b020fb4ca0ed7ca",
+      "c1": "358810698b8cfe34c80c0de74c330deca25ec3d167f5ad40dfd823a9e494a8dc",
+      "y0": "7e4a82e389e596b4d585ff24e48874e49fb9e519410806e9c9c6c6ecb4049b5b",
+      "y1": "11b15f994e81c7c7eaad70a44b0eaa0b06cb96e8bf9b607eee528f309858dd72",
+      "mask": "4a5cb6f8c717e31302696794fd68ba7aa448ae5640ec6744b6d7d9de67abe724",
+      "detail": "fe3a1700ed0b955b1d8b7acc1650e5b5bc95ed0a74286baf224ff8817de9fd5e",
+      "v_gated": "092a5d16702e65591c52867cad35ae1bc741668835a900ff5b020fb4ca0ed7ca",
+      "y_gated": "11b15f994e81c7c7eaad70a44b0eaa0b06cb96e8bf9b607eee528f309858dd72"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "7e4a82e389e596b4d585ff24e48874e49fb9e519410806e9c9c6c6ecb4049b5b",
+      "detail": "fe3a1700ed0b955b1d8b7acc1650e5b5bc95ed0a74286baf224ff8817de9fd5e",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "4a5cb6f8c717e31302696794fd68ba7aa448ae5640ec6744b6d7d9de67abe724"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.753349+00:00"
+  },
+  {
+    "index": 855,
+    "bank_index": 50,
+    "state_index": 0,
+    "image_id": 38070,
+    "position": 171,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_050.pt",
+    "sha256": "f71fd901980ab51fe2a370410928020473c3f80e0e2bdb8f3e2d1a8d9d8717d6",
+    "tensor_hashes": {
+      "q": "4f98784a926d80220b8541b70e7c82540269eb739570e8a8aba03f4ed3819d53",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "18f8ed2b52b631612f3a7fd3d2fa0a38be8588b1701a00857885665c3755604a",
+      "y0": "4a27a9d1569e3096398c24df375da155955f2b8063842420115ddc08349c0383",
+      "y1": "4a27a9d1569e3096398c24df375da155955f2b8063842420115ddc08349c0383",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7",
+      "detail": "ad3397754d3ed78446f18b123b6adf09aa2ba38d90d983721598fecfd3d0bed6",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "4a27a9d1569e3096398c24df375da155955f2b8063842420115ddc08349c0383"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "4a27a9d1569e3096398c24df375da155955f2b8063842420115ddc08349c0383",
+      "detail": "ad3397754d3ed78446f18b123b6adf09aa2ba38d90d983721598fecfd3d0bed6",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.825666+00:00"
+  },
+  {
+    "index": 856,
+    "bank_index": 51,
+    "state_index": 0,
+    "image_id": 38070,
+    "position": 172,
+    "norm": 0.07644967034080499,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_051.pt",
+    "sha256": "570b0e6c101b8b438c0db558a297d2d9ed2535686c98c09725da86f971ea3a25",
+    "tensor_hashes": {
+      "q": "ef093803a0fe41225b4ff35eddf32e8fef26c895d6a0e10f1c9e87553d785cfb",
+      "g": "6dc94fda07d56f9f922d008516cf9c7311467fc04dc5b6ec13001f0b3d17efc8",
+      "v1": "e22a186ee2ff5a3e6b3979d9106cea70c525ca71ed61d9e64e6c337a8b93368a",
+      "c1": "b8e956b190a649fe4e39174e813113ab1e3bd0329c4865dbb4054b8eb87ac4c4",
+      "y0": "86e2eb55342e5c75d1b2af4cceb627b7e8ecb79774806287f9bd9aff3ee73747",
+      "y1": "ac98a62e039bedfe1c1774b92edf107a6203e54494f64c20218176d376709abd",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "e2260af01d78785d14035ed15354f5873360fcb7ac75f7c21d32c21e7a801def",
+      "v_gated": "e22a186ee2ff5a3e6b3979d9106cea70c525ca71ed61d9e64e6c337a8b93368a",
+      "y_gated": "ac98a62e039bedfe1c1774b92edf107a6203e54494f64c20218176d376709abd"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "86e2eb55342e5c75d1b2af4cceb627b7e8ecb79774806287f9bd9aff3ee73747",
+      "detail": "e2260af01d78785d14035ed15354f5873360fcb7ac75f7c21d32c21e7a801def",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:05.931072+00:00"
+  },
+  {
+    "index": 880,
+    "bank_index": 52,
+    "state_index": 0,
+    "image_id": 38070,
+    "position": 196,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_052.pt",
+    "sha256": "5804852a2ea9d8c376d3a79ec54b3e2a8d951734467cca0ad03233f1ff3036f5",
+    "tensor_hashes": {
+      "q": "091fa0773f0a200528400cf742261d5a7978d68061fd2dd65a6eb99089e8431d",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "18f8ed2b52b631612f3a7fd3d2fa0a38be8588b1701a00857885665c3755604a",
+      "y0": "b25c3a5d778b67bf91a9dcf8ff12ffe27e054bfa7aa6a9c0b29e8fd736a682cb",
+      "y1": "b25c3a5d778b67bf91a9dcf8ff12ffe27e054bfa7aa6a9c0b29e8fd736a682cb",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7",
+      "detail": "2de2ef27e39230a34ab93cd6010fd6327a657a54d1337a0933b626ae28fde9b4",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "b25c3a5d778b67bf91a9dcf8ff12ffe27e054bfa7aa6a9c0b29e8fd736a682cb"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "b25c3a5d778b67bf91a9dcf8ff12ffe27e054bfa7aa6a9c0b29e8fd736a682cb",
+      "detail": "2de2ef27e39230a34ab93cd6010fd6327a657a54d1337a0933b626ae28fde9b4",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.003611+00:00"
+  },
+  {
+    "index": 881,
+    "bank_index": 53,
+    "state_index": 0,
+    "image_id": 38070,
+    "position": 197,
+    "norm": 0.029154924897592745,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_053.pt",
+    "sha256": "caee603041e8cddf39db3616eefd7ee17ea6c4811da9a039442fac2043556863",
+    "tensor_hashes": {
+      "q": "7a021b88db11f6c4b211e2fdae318b40b4e66b2e172247c06238a45b0673f9ca",
+      "g": "046f431a1a2384c4374ca72b97a00c2da741e4b40cc3717fa273f4d40ab6f74d",
+      "v1": "0a680710a496960258d0899795234689d03c9db88b55e84621ed425471446b82",
+      "c1": "3bc67e72c9d2f2a223e0eca2586756f69c99235fdb778397f6d003f7d772e7a3",
+      "y0": "d5823890c3b82c315a9177c0fb02f160396c8f5ab412a73cbcf7343ece3c9800",
+      "y1": "2835561f0dcccb1cbfeaca9088c15fe992d2d2ad297b4c2b962069957b6ade1c",
+      "mask": "89165af757257f4ff703518ea815811aafe9de6c18471685f5c9b878dc728bae",
+      "detail": "28aff4140c10cbfadaf62ca6ea3804793aa841f8c9cee67ffd4d9d563ee856bc",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "d5823890c3b82c315a9177c0fb02f160396c8f5ab412a73cbcf7343ece3c9800"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "d5823890c3b82c315a9177c0fb02f160396c8f5ab412a73cbcf7343ece3c9800",
+      "detail": "28aff4140c10cbfadaf62ca6ea3804793aa841f8c9cee67ffd4d9d563ee856bc",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "89165af757257f4ff703518ea815811aafe9de6c18471685f5c9b878dc728bae"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.110267+00:00"
+  },
+  {
+    "index": 905,
+    "bank_index": 54,
+    "state_index": 0,
+    "image_id": 38070,
+    "position": 221,
+    "norm": 0.09621426380511772,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_054.pt",
+    "sha256": "5e66a8a003e0d00fd6e63d1ab8c4aa658c77a2762866d2f45818714056ecfa4d",
+    "tensor_hashes": {
+      "q": "a64b6cc278a7655a94180492d93d90343349417790bd74e51d55a82825ac88cb",
+      "g": "65ae8521c61db04321b21bb1330d6f3ab45f594cf48c711e7598bc70b9ff4a92",
+      "v1": "d8468a9d5d25b79721921e5dce1e64f13f3d84137034b8efab6788872ee5c232",
+      "c1": "23ad55bffdb65ff486e19768bd3def153cd553bf5e6c6a94bd21cafe216e1ae6",
+      "y0": "2b0f56fdc7e896310d4b1ee36a766ad85cad16b678755afa7844b1f14143e9b8",
+      "y1": "f64f4d81009b42782afa1df0de7c19f050cf3c34ed0f65005449803476293b62",
+      "mask": "4a5cb6f8c717e31302696794fd68ba7aa448ae5640ec6744b6d7d9de67abe724",
+      "detail": "65abc87efdf064b543bb9ebfddabcc565234280c408e9cc255c36030863cb69a",
+      "v_gated": "d8468a9d5d25b79721921e5dce1e64f13f3d84137034b8efab6788872ee5c232",
+      "y_gated": "f64f4d81009b42782afa1df0de7c19f050cf3c34ed0f65005449803476293b62"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "2b0f56fdc7e896310d4b1ee36a766ad85cad16b678755afa7844b1f14143e9b8",
+      "detail": "65abc87efdf064b543bb9ebfddabcc565234280c408e9cc255c36030863cb69a",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "4a5cb6f8c717e31302696794fd68ba7aa448ae5640ec6744b6d7d9de67abe724"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.219449+00:00"
+  },
+  {
+    "index": 1317,
+    "bank_index": 75,
+    "state_index": 0,
+    "image_id": 38825,
+    "position": 245,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_075.pt",
+    "sha256": "2b0a894e449f98fd47cd07a6c6a852025618b270fcb9f60071c42383ae653486",
+    "tensor_hashes": {
+      "q": "bab6d9f6d7501e385d951a74e9f39f08d96139991f295a3d9c88abc661418533",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "d849f6973187205f9ecd84a39c9cb39dd55774ab4162005cadc74adca6be179a",
+      "y0": "3095d33a889b0b4aa217805996bef8dd6d93fabb7ba1f2308a3618f0ba148ea3",
+      "y1": "3095d33a889b0b4aa217805996bef8dd6d93fabb7ba1f2308a3618f0ba148ea3",
+      "mask": "ce62f662c3e0e2cf8d72cde11b020c9ad1d940cf0b578a02171d129d56c6616b",
+      "detail": "71b27050556d8dcd846edc26e0dc21f62fd05de1618a974bd0a9322a0bfca3e6",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "3095d33a889b0b4aa217805996bef8dd6d93fabb7ba1f2308a3618f0ba148ea3"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "3095d33a889b0b4aa217805996bef8dd6d93fabb7ba1f2308a3618f0ba148ea3",
+      "detail": "71b27050556d8dcd846edc26e0dc21f62fd05de1618a974bd0a9322a0bfca3e6",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "ce62f662c3e0e2cf8d72cde11b020c9ad1d940cf0b578a02171d129d56c6616b"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.298300+00:00"
+  },
+  {
+    "index": 1318,
+    "bank_index": 76,
+    "state_index": 0,
+    "image_id": 38825,
+    "position": 246,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_076.pt",
+    "sha256": "66e70d09c5275a46f1ee4db26afd912e7d49e09cfea12ae70f5664228d661fc4",
+    "tensor_hashes": {
+      "q": "807895f9f13fbabfae7fcfa6ddbc4b014352c8e20ea9ac0dc1fdfd9eeeb95742",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "d849f6973187205f9ecd84a39c9cb39dd55774ab4162005cadc74adca6be179a",
+      "y0": "bcfb1aff5c66551640cb3d728edb48de869cc976142e09d321366bd47bb06160",
+      "y1": "bcfb1aff5c66551640cb3d728edb48de869cc976142e09d321366bd47bb06160",
+      "mask": "ce62f662c3e0e2cf8d72cde11b020c9ad1d940cf0b578a02171d129d56c6616b",
+      "detail": "85a36cbda4c5c481e16de7dde849dfba583bdbe34c3e8e8f586eb01a6f0a8746",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "bcfb1aff5c66551640cb3d728edb48de869cc976142e09d321366bd47bb06160"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "bcfb1aff5c66551640cb3d728edb48de869cc976142e09d321366bd47bb06160",
+      "detail": "85a36cbda4c5c481e16de7dde849dfba583bdbe34c3e8e8f586eb01a6f0a8746",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "ce62f662c3e0e2cf8d72cde11b020c9ad1d940cf0b578a02171d129d56c6616b"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.375244+00:00"
+  },
+  {
+    "index": 1319,
+    "bank_index": 77,
+    "state_index": 0,
+    "image_id": 38825,
+    "position": 247,
+    "norm": 0.4803686547737009,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_077.pt",
+    "sha256": "c4f477520d0c7d02a056443ec5865228d113caf5cbe4d15a2c2bb00eadbb3b85",
+    "tensor_hashes": {
+      "q": "b4beb4e118d75432b6a4747f9ce8baeb3c6dd7200a90f899b032dced5123df74",
+      "g": "0b9b6d16a932be54fac8fd2a9bf24a50d87db1ccd59dc990a0d95ddc80ae1139",
+      "v1": "d54538eea11dbbe0b4d77ab44d2d9f426bc5b21d218463f83c1f0db63fcd93ba",
+      "c1": "30628dc227fe7d4e8197cf0a8671fc0a1064d8054aaa7549a191ff257b4b67f1",
+      "y0": "9660bbe2f47ad02bd06ed5e2c8631a26a9ea881d729b977d7ad20f8a8289d6dd",
+      "y1": "672f0b5c666bd8309cf7c9223e405c754ea35ec4dbfea915d41bfd60d0fa4924",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00",
+      "detail": "bf61f7cd3e9283d20cb02f7e854517bc094298971f4208baa22680ffc1cfd231",
+      "v_gated": "d54538eea11dbbe0b4d77ab44d2d9f426bc5b21d218463f83c1f0db63fcd93ba",
+      "y_gated": "672f0b5c666bd8309cf7c9223e405c754ea35ec4dbfea915d41bfd60d0fa4924"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "9660bbe2f47ad02bd06ed5e2c8631a26a9ea881d729b977d7ad20f8a8289d6dd",
+      "detail": "bf61f7cd3e9283d20cb02f7e854517bc094298971f4208baa22680ffc1cfd231",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.487250+00:00"
+  },
+  {
+    "index": 1343,
+    "bank_index": 78,
+    "state_index": 0,
+    "image_id": 38825,
+    "position": 271,
+    "norm": 0.1854475741954158,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_078.pt",
+    "sha256": "dfd2e67ba1ff85ac4b25a6ff2129ff9ed65876914f146f42c23d3b9f57ee1b0f",
+    "tensor_hashes": {
+      "q": "a47ef58dab83422504f8bd5e1b57628eaa702a1bbed812f2781167a12c63a90b",
+      "g": "9b9a53ded5112d7efa033527df0a3658fad824d147857c629d321433bd9183cb",
+      "v1": "81c7716cda52a0c62a5453b9584b1f2c87e2870c3426b5b2773b9d6c77340619",
+      "c1": "ab6019363f9fa5fab9c84102489b9472eddebd365b1d46e94738047ff191d6ef",
+      "y0": "8f063f1a152b78a00df917387cbdf1bc5e10a42aac1e1aaba538f0ecaa4bde57",
+      "y1": "c86c1168e39bc5ec13e82dcf46e27672e7a3651b4159773d3f2373e82a97194d",
+      "mask": "5c8c4d0c846df800d18834dfa30ddc24529dad661967b0e4ee1945aa1badf31d",
+      "detail": "fd9aab217b3c039b94fb5258042c93ec286ab38d197b48753badfb98800d42ba",
+      "v_gated": "81c7716cda52a0c62a5453b9584b1f2c87e2870c3426b5b2773b9d6c77340619",
+      "y_gated": "c86c1168e39bc5ec13e82dcf46e27672e7a3651b4159773d3f2373e82a97194d"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "8f063f1a152b78a00df917387cbdf1bc5e10a42aac1e1aaba538f0ecaa4bde57",
+      "detail": "fd9aab217b3c039b94fb5258042c93ec286ab38d197b48753badfb98800d42ba",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "5c8c4d0c846df800d18834dfa30ddc24529dad661967b0e4ee1945aa1badf31d"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.603545+00:00"
+  },
+  {
+    "index": 1367,
+    "bank_index": 79,
+    "state_index": 0,
+    "image_id": 38825,
+    "position": 295,
+    "norm": 0.2672139452283773,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_079.pt",
+    "sha256": "ddec9c0c8ad4c7b236b19f16aea9aa2189307b91def24c3f566e8d32bcf3378f",
+    "tensor_hashes": {
+      "q": "ca52bf005f0bb7f2b6716a65f89f52e3f2c7ecbe6887188df34808d3e45871ca",
+      "g": "8cddc25307d6676f6a29c4a570771850451eadfe56efbb39f446ba4823bf69b5",
+      "v1": "390fde94aef327db6bd12fd40d2c29cce3a8160815a96a84998a76a4136dbaf2",
+      "c1": "fda6a01ec197339c2cdf8313f13c13b94449011e4f7cc8a53b550a43a6e75d70",
+      "y0": "dbb8a5d05923cd7daabaf36fb0a590472ff57215f90d214493b8c37a8ebdc11d",
+      "y1": "a860b81ab4473e8ac1d1f881387ed1ba8e96dd357b55778f9ea96798a5ab02c2",
+      "mask": "a73ebcd3440a13512a892dbc2f1f4f2b404929bf82c969929df77f9e655be80b",
+      "detail": "253050f41ee0349c946e31a4f34862d801677cbb823220689ed81052117cc56a",
+      "v_gated": "390fde94aef327db6bd12fd40d2c29cce3a8160815a96a84998a76a4136dbaf2",
+      "y_gated": "a860b81ab4473e8ac1d1f881387ed1ba8e96dd357b55778f9ea96798a5ab02c2"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "dbb8a5d05923cd7daabaf36fb0a590472ff57215f90d214493b8c37a8ebdc11d",
+      "detail": "253050f41ee0349c946e31a4f34862d801677cbb823220689ed81052117cc56a",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "a73ebcd3440a13512a892dbc2f1f4f2b404929bf82c969929df77f9e655be80b"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.719110+00:00"
+  },
+  {
+    "index": 1664,
+    "bank_index": 100,
+    "state_index": 0,
+    "image_id": 39551,
+    "position": 319,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_100.pt",
+    "sha256": "9ee9769a070ff5adf44d2e12773be35cb513db21b16ad6941aa2b6c2734618bc",
+    "tensor_hashes": {
+      "q": "db9ccecfac6b72c7f407727a06cc210362cddd76d65a2d13a00b0755637345e8",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "d849f6973187205f9ecd84a39c9cb39dd55774ab4162005cadc74adca6be179a",
+      "y0": "2c5ec4e687738d758e71cd0826f2a5d368f0f199cd810c0c591491698f49ea79",
+      "y1": "2c5ec4e687738d758e71cd0826f2a5d368f0f199cd810c0c591491698f49ea79",
+      "mask": "ce62f662c3e0e2cf8d72cde11b020c9ad1d940cf0b578a02171d129d56c6616b",
+      "detail": "f2edf65aaba7a94ddd9c318a9ef4de4729950732fa5bf4d81a8e3e214a78c758",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "2c5ec4e687738d758e71cd0826f2a5d368f0f199cd810c0c591491698f49ea79"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "2c5ec4e687738d758e71cd0826f2a5d368f0f199cd810c0c591491698f49ea79",
+      "detail": "f2edf65aaba7a94ddd9c318a9ef4de4729950732fa5bf4d81a8e3e214a78c758",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "ce62f662c3e0e2cf8d72cde11b020c9ad1d940cf0b578a02171d129d56c6616b"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.800869+00:00"
+  },
+  {
+    "index": 1665,
+    "bank_index": 101,
+    "state_index": 0,
+    "image_id": 39551,
+    "position": 320,
+    "norm": 0.09058906089495926,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_101.pt",
+    "sha256": "6a828fb0e973dd81628155e9e0159e15db805c47cc3c4e9393a56d9c8de851b5",
+    "tensor_hashes": {
+      "q": "2b2a6d510264f68ec68ac44bb1b145e6f61ae210c3ecd324da0b503844a97c2b",
+      "g": "8be09332b48e7e6994ed71a9a1ed2cc2c1d36b99f3cdea9997a888be9f801a88",
+      "v1": "43ec66e45aa7b731b8000cabcdb362ff36f6429226aa6f53ea22f3b9bf842c90",
+      "c1": "c060d5076004001909da3f4168f71e09817312bc529fdf3f629d4fcb2244eab1",
+      "y0": "8465ae3a70019704f8a6a32899b159d5766b6058aa522cf476c86954ae25dd78",
+      "y1": "ed32aaa13ad1f8e5579f95f3a08bc7b0a1a0898f1758646974c5bb58088f1e81",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00",
+      "detail": "6a66424c5129d97eb99779269f5e7486228e840bf99c29390dbb4e3ec83b4097",
+      "v_gated": "43ec66e45aa7b731b8000cabcdb362ff36f6429226aa6f53ea22f3b9bf842c90",
+      "y_gated": "ed32aaa13ad1f8e5579f95f3a08bc7b0a1a0898f1758646974c5bb58088f1e81"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "8465ae3a70019704f8a6a32899b159d5766b6058aa522cf476c86954ae25dd78",
+      "detail": "6a66424c5129d97eb99779269f5e7486228e840bf99c29390dbb4e3ec83b4097",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:06.914397+00:00"
+  },
+  {
+    "index": 1689,
+    "bank_index": 102,
+    "state_index": 0,
+    "image_id": 39551,
+    "position": 344,
+    "norm": 0.2982143650163301,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_102.pt",
+    "sha256": "7ba89239c77471b23268dca0908e918f178b23daeebc98ab83e75346cfd8afeb",
+    "tensor_hashes": {
+      "q": "9e2e7097484c1bc53f82400a5f7525ba803b551cc6c8c2a0eeb5cb627328ad6d",
+      "g": "6bb6fe066cc4f1591e5ba9f0a77a703b10da69d6d7fe97d1e956004a932470ee",
+      "v1": "d022e000e05c2ad990e3388dafa31574686717912597a2ff31b6a6e37a5474df",
+      "c1": "a626d9507830843e85c18fba4a72e86b8fabac62f5e2fdeaeb3483cfe364afc6",
+      "y0": "29db880624a83c4548b83cb5fedf01ab769699e9777f023a3f29e86bcdcf33e3",
+      "y1": "472c779a09ba16921c3611fe8f33c17e0f09ed27bd40591765d4321e8d666e43",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00",
+      "detail": "3661b13cf11fce1e499a56bc4705c19803e6adf035ed5a074c59607901125a8d",
+      "v_gated": "d022e000e05c2ad990e3388dafa31574686717912597a2ff31b6a6e37a5474df",
+      "y_gated": "472c779a09ba16921c3611fe8f33c17e0f09ed27bd40591765d4321e8d666e43"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "29db880624a83c4548b83cb5fedf01ab769699e9777f023a3f29e86bcdcf33e3",
+      "detail": "3661b13cf11fce1e499a56bc4705c19803e6adf035ed5a074c59607901125a8d",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.032931+00:00"
+  },
+  {
+    "index": 1713,
+    "bank_index": 103,
+    "state_index": 0,
+    "image_id": 39551,
+    "position": 368,
+    "norm": 0.10392340544582329,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_103.pt",
+    "sha256": "d477e3e2e858693338b268bf54e69b0f7beec0f015f2628ebe58086c8890acc6",
+    "tensor_hashes": {
+      "q": "793036d6ede29628a14fc5e65cdbab5528e389fd3a9168b79a5fe102e2ec42f6",
+      "g": "45d843cca463496584604f8ffaebf6431802adeddd39128cdea4f0570a88fa55",
+      "v1": "093a5e057b8440bd55e7a019ffdabf61f00516b90cafd2a69e155728ecca0f26",
+      "c1": "4093d932ad63763dd90614c6a254317f10417b2ddfebce98be8f0489d564fb70",
+      "y0": "34d5c5c0bbdec45757576fac1f48878bddde3f46434ecec59a9516bcbbac61e3",
+      "y1": "ab731fa1e8b4fe22208f4901179a45c9e4bfaab2ee9f9ee3d8e5d90ac82deec5",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00",
+      "detail": "32f59be4848151434c5bd1344bc75c646b99ea83aee0d1f255cd43af44c73aa2",
+      "v_gated": "093a5e057b8440bd55e7a019ffdabf61f00516b90cafd2a69e155728ecca0f26",
+      "y_gated": "ab731fa1e8b4fe22208f4901179a45c9e4bfaab2ee9f9ee3d8e5d90ac82deec5"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "34d5c5c0bbdec45757576fac1f48878bddde3f46434ecec59a9516bcbbac61e3",
+      "detail": "32f59be4848151434c5bd1344bc75c646b99ea83aee0d1f255cd43af44c73aa2",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.148585+00:00"
+  },
+  {
+    "index": 1737,
+    "bank_index": 104,
+    "state_index": 0,
+    "image_id": 39551,
+    "position": 392,
+    "norm": 0.18283752058927213,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_104.pt",
+    "sha256": "57ea9396b05e0cbedb775176621172eda6426d6957c65f2fa1ace4da45fb0c18",
+    "tensor_hashes": {
+      "q": "cb42456a46477216d99695ebacfb56c60e0352518f19c1837cc54fb860ec15a6",
+      "g": "fe926ca1e6b41b61528ed2278d73aee3997dd60518187436ba3ef786440cbf7b",
+      "v1": "500f90c067a4082f6c980cf8c61955893446699bf37b557addde0c5d33aeee57",
+      "c1": "70e3c8a9b8b27b2ce3b33b5a7730e0f1aa6127648d1bcd6f021de7bbca05c965",
+      "y0": "d67401fd875e759bd901b9a6604209bf3e3b7d1e7ced4f49dd918ba0e2007b10",
+      "y1": "c21b5317d85f9225f1da22f4a9276ad865552eb6afd962bfdec8f132a1e91ba8",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00",
+      "detail": "f064e7479dac0f77deaa31fdc253d9522a7c50339c2bbde682c3bd16c72e9d31",
+      "v_gated": "500f90c067a4082f6c980cf8c61955893446699bf37b557addde0c5d33aeee57",
+      "y_gated": "c21b5317d85f9225f1da22f4a9276ad865552eb6afd962bfdec8f132a1e91ba8"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "d67401fd875e759bd901b9a6604209bf3e3b7d1e7ced4f49dd918ba0e2007b10",
+      "detail": "f064e7479dac0f77deaa31fdc253d9522a7c50339c2bbde682c3bd16c72e9d31",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "baf3f759b468a724fff631708501bc9d997897a02f4cbbf1c346d849ee352a00"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.264466+00:00"
+  },
+  {
+    "index": 2126,
+    "bank_index": 125,
+    "state_index": 0,
+    "image_id": 39951,
+    "position": 416,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_125.pt",
+    "sha256": "5376e5e30de127b237f4cd99ba03d13c481942443225ed9e8c46224cc98f4597",
+    "tensor_hashes": {
+      "q": "b3748eb36e75927315e1d166577c2ca8aa5dca39ad1ec65b8b796ab1c4aafc6f",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "2e2a805cda3185399a97ce343af9f316072e147fd4b73675a3af754297e28dee",
+      "y0": "782c62dd9d74c5a49b8e0d2bb3469f851a82f85a2373af15edc0ad6a81f51299",
+      "y1": "782c62dd9d74c5a49b8e0d2bb3469f851a82f85a2373af15edc0ad6a81f51299",
+      "mask": "3b46f957efdc52f3d87176ba42b3a150fd3b0976f41a0ef9ac9a996f57ea3ecd",
+      "detail": "bf7fc080d9efd4de74439304b77b94c53939b626856a0f7c679439cd94444a79",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "782c62dd9d74c5a49b8e0d2bb3469f851a82f85a2373af15edc0ad6a81f51299"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "782c62dd9d74c5a49b8e0d2bb3469f851a82f85a2373af15edc0ad6a81f51299",
+      "detail": "bf7fc080d9efd4de74439304b77b94c53939b626856a0f7c679439cd94444a79",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "3b46f957efdc52f3d87176ba42b3a150fd3b0976f41a0ef9ac9a996f57ea3ecd"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.343148+00:00"
+  },
+  {
+    "index": 2127,
+    "bank_index": 126,
+    "state_index": 0,
+    "image_id": 39951,
+    "position": 417,
+    "norm": 0.019952157446661022,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_126.pt",
+    "sha256": "ce1d3e67474848b68f942730a1ae47e60631887786cbe146cf92276b4c17cec6",
+    "tensor_hashes": {
+      "q": "d85f69d409dfe3f8e832ec59336ebb16ae9125823fc625b6032c7a93469d697e",
+      "g": "1e94e20102dcd3fa15f11f5950e703dfa2116cab3d23c4b195026c6fb420bac6",
+      "v1": "04bb7b11c72c1154e628a284edbeaf6260f712dcc970460c6e153d44145437ba",
+      "c1": "796e94a5fc99030e8df6b92c55ae1a24c451287ae12b82d800a33e90427080a8",
+      "y0": "38d9fb12fcd2863d43ea036aee4d1b8a545701c54d6df599bd9fc59d86f44441",
+      "y1": "8fc108f5ef15ec7c42740c65816184049395b2ffc18d09e1b5e6c0546bf0bbdc",
+      "mask": "4312e5f36720d9eb780b90233167e2c3700a31ab0c5017c5f64a9b86b1fe6982",
+      "detail": "4e34715aa71b14aeb54be431255d0b3b50c12cc21806b296325f65dc39605f49",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "38d9fb12fcd2863d43ea036aee4d1b8a545701c54d6df599bd9fc59d86f44441"
+    },
+    "active_regions": 1,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "38d9fb12fcd2863d43ea036aee4d1b8a545701c54d6df599bd9fc59d86f44441",
+      "detail": "4e34715aa71b14aeb54be431255d0b3b50c12cc21806b296325f65dc39605f49",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "4312e5f36720d9eb780b90233167e2c3700a31ab0c5017c5f64a9b86b1fe6982"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.449340+00:00"
+  },
+  {
+    "index": 2151,
+    "bank_index": 127,
+    "state_index": 0,
+    "image_id": 39951,
+    "position": 441,
+    "norm": 0.26051933949560724,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_127.pt",
+    "sha256": "ecac34ce291185846e56376cd2b8e89f5a48fb515db66dc966c5189cd6bbdd36",
+    "tensor_hashes": {
+      "q": "3fabe1327f60c247b564375efdc261d6b80dd05c9ba5b29261e036627f311d6a",
+      "g": "96ba798a1f2e6516cfe7b0222cfc7fbc73f021f8a1a15c5fe831d7c5a1b63a9e",
+      "v1": "9d3fbcda9f644a5cc3026b34c14fc5a2ce51869ab7f52e872d780e5d867aa775",
+      "c1": "9ea674cfed21b67e553d84b20bcdcfb86465baf0560a11fa96dabbf55ec5bdee",
+      "y0": "fd0120b45e69ca32107702a15e0b48b68bbefecf470b3a55964d81d28acb3913",
+      "y1": "879574872da59a23a4cb9b37b6d47099f4ffe5c5f31bdfeb442f23c19d8cef2d",
+      "mask": "c408508c72a3b963aae0cfaf6ad6c5f9781ba89f35ec115a76ecccdc3b536b13",
+      "detail": "ebac9238d7d85f27792d5af086452b41255662af89a782db436b8298fd67b7ee",
+      "v_gated": "9d3fbcda9f644a5cc3026b34c14fc5a2ce51869ab7f52e872d780e5d867aa775",
+      "y_gated": "879574872da59a23a4cb9b37b6d47099f4ffe5c5f31bdfeb442f23c19d8cef2d"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "fd0120b45e69ca32107702a15e0b48b68bbefecf470b3a55964d81d28acb3913",
+      "detail": "ebac9238d7d85f27792d5af086452b41255662af89a782db436b8298fd67b7ee",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "c408508c72a3b963aae0cfaf6ad6c5f9781ba89f35ec115a76ecccdc3b536b13"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.559944+00:00"
+  },
+  {
+    "index": 2175,
+    "bank_index": 128,
+    "state_index": 0,
+    "image_id": 39951,
+    "position": 465,
+    "norm": 0.02565598521919564,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_128.pt",
+    "sha256": "4e691aee60f23d505665ab5b3c2a47901d96d211a8a83711f239e09314706452",
+    "tensor_hashes": {
+      "q": "4133813f9f8c8c34245149c13c81b5fff9a8b57344c7b33cfa309f0594b0abbf",
+      "g": "288d9d2c0a81a0e2db9f5f22ff0dba9ff08cd73e95368cc6f10a6d3338f08655",
+      "v1": "0023c7ecbe7a57f6c97a33732b85adfb47a8eceec99df5cc2a8611bd5a7f1750",
+      "c1": "d829258d0729f59144ea25a10eb13fd42ab591bad9ea1c95b2f586eea76c2f55",
+      "y0": "9f0b96728d82ce6d70c0ffb61664d33fb6d14a81814b50ec7fcbbb282f8378a7",
+      "y1": "4af41978066866dc98082a4714ef39989f4a19978a434293717c2b0294a5820e",
+      "mask": "4312e5f36720d9eb780b90233167e2c3700a31ab0c5017c5f64a9b86b1fe6982",
+      "detail": "34493c0828a8323b830e44e2de89f2172371cc7e315c4a6d86333b72d8258000",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "9f0b96728d82ce6d70c0ffb61664d33fb6d14a81814b50ec7fcbbb282f8378a7"
+    },
+    "active_regions": 1,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "9f0b96728d82ce6d70c0ffb61664d33fb6d14a81814b50ec7fcbbb282f8378a7",
+      "detail": "34493c0828a8323b830e44e2de89f2172371cc7e315c4a6d86333b72d8258000",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "4312e5f36720d9eb780b90233167e2c3700a31ab0c5017c5f64a9b86b1fe6982"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.668299+00:00"
+  },
+  {
+    "index": 2199,
+    "bank_index": 129,
+    "state_index": 0,
+    "image_id": 39951,
+    "position": 489,
+    "norm": 0.11235678850557071,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_129.pt",
+    "sha256": "2ef1ea786e923d3c36042eab675338267e11431bbbac8421bd50965a6b43b4e9",
+    "tensor_hashes": {
+      "q": "66bcad6b3ad1cf84b0dd5c90f09d77b234225ac5dd1b1a858058bcdc48830fdf",
+      "g": "ea1c021ac91899f50733f2ca936ede8749faa798e73af50d4519857f66321aeb",
+      "v1": "f26d0f8593365b742e46b36c58f306e44360e8f5bcda1d9160e873b35513d8b9",
+      "c1": "28ee84784d1447e710fc5428d859678029ec6900f376fd18765d9ea9e01af8bc",
+      "y0": "5bb638a7b6b66234432927864a7bf5b9e3395f05878172c95d934278c6403a19",
+      "y1": "61b749a0bf0d85c979e1a54c18fa1c673f1d8342c7d7a0cc9ea1481cae19dcba",
+      "mask": "6e2d9eccfc82de9455e3398f198ae9cfa0068d3c3f4a5649a5fc4b0baad152b9",
+      "detail": "845dd8184ccd6742317d32bcfb965c473ad81deffecf411c7c84c6acbd3d5094",
+      "v_gated": "f26d0f8593365b742e46b36c58f306e44360e8f5bcda1d9160e873b35513d8b9",
+      "y_gated": "61b749a0bf0d85c979e1a54c18fa1c673f1d8342c7d7a0cc9ea1481cae19dcba"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "5bb638a7b6b66234432927864a7bf5b9e3395f05878172c95d934278c6403a19",
+      "detail": "845dd8184ccd6742317d32bcfb965c473ad81deffecf411c7c84c6acbd3d5094",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "6e2d9eccfc82de9455e3398f198ae9cfa0068d3c3f4a5649a5fc4b0baad152b9"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.777510+00:00"
+  },
+  {
+    "index": 2634,
+    "bank_index": 150,
+    "state_index": 0,
+    "image_id": 41488,
+    "position": 513,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_150.pt",
+    "sha256": "dbad7855d5722f56b0ecf19d70c95a4eb7cceb680686a5cfc6b889247d8245f4",
+    "tensor_hashes": {
+      "q": "ec57b826b54499dbc1f864b20b229b7ea18437e7016929bdf90ab9889b258d6a",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "cd43dd2a57f3850f57a39ac3692f692f443acbaafe9205b26d7d9e180b281f48",
+      "y0": "1add913341923966d2611fa61eb02c8791e19549ce4d918a1a1f59f4f82d8a82",
+      "y1": "1add913341923966d2611fa61eb02c8791e19549ce4d918a1a1f59f4f82d8a82",
+      "mask": "49dd9e92b1e9a75cc2d008fcb9b99f8d86af71d853f2e7bdb5f884884860fdeb",
+      "detail": "c82b9b9c4a9c5f68bda1c9e4fe8f3c62002c382d82233d1e172208a716dda867",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "1add913341923966d2611fa61eb02c8791e19549ce4d918a1a1f59f4f82d8a82"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "1add913341923966d2611fa61eb02c8791e19549ce4d918a1a1f59f4f82d8a82",
+      "detail": "c82b9b9c4a9c5f68bda1c9e4fe8f3c62002c382d82233d1e172208a716dda867",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "49dd9e92b1e9a75cc2d008fcb9b99f8d86af71d853f2e7bdb5f884884860fdeb"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.866059+00:00"
+  },
+  {
+    "index": 2635,
+    "bank_index": 151,
+    "state_index": 0,
+    "image_id": 41488,
+    "position": 514,
+    "norm": 0.019404217914303915,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_151.pt",
+    "sha256": "70ab1a13233e33c96b084dd7b8499910d700030f7022f6ff6967496c044a9f5e",
+    "tensor_hashes": {
+      "q": "0f12b57ed32e6c8004ece43e7342e94348106c969feb37c787c6f8d97a2336cc",
+      "g": "19880b6f72546a152109735a7e86441a4ab8be88241905631e2e5ff3a9705f9d",
+      "v1": "e22b3acaab492fc6e56415689e91742774a31920b17178e55fdaacc88362f56a",
+      "c1": "d100d517b6c3bec445ef074dad1f88b2f79ece253010dd7673f7907aa80a6163",
+      "y0": "190bbaf73add012a34ba0e6c2cacef7384c0e983afcd6c620b105c0d5100e55b",
+      "y1": "2928ecb823b8eb22276729571deb9c8adf1b11fdade987237fc27375a3dd38af",
+      "mask": "b385448555e9a2536d84b7ed562b5aa6b724e34980cc42e89e8978f0b43a17e8",
+      "detail": "e8ef441b115927ebd481655431757fbdaac4f9a59242f90b8d434bcf27fd259f",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "190bbaf73add012a34ba0e6c2cacef7384c0e983afcd6c620b105c0d5100e55b"
+    },
+    "active_regions": 1,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "190bbaf73add012a34ba0e6c2cacef7384c0e983afcd6c620b105c0d5100e55b",
+      "detail": "e8ef441b115927ebd481655431757fbdaac4f9a59242f90b8d434bcf27fd259f",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "b385448555e9a2536d84b7ed562b5aa6b724e34980cc42e89e8978f0b43a17e8"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:07.995764+00:00"
+  },
+  {
+    "index": 2659,
+    "bank_index": 152,
+    "state_index": 0,
+    "image_id": 41488,
+    "position": 538,
+    "norm": 0.15321925949416323,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_152.pt",
+    "sha256": "209e26df0e7d762868fb8fe4c4b1463aa340ddd698c2abf839855015df52e8be",
+    "tensor_hashes": {
+      "q": "a1f34b269f62717b0e5ccf8ed039d204787e14942f0c29d8e1080c6fb8e3a161",
+      "g": "7ee6a31c4c9aeb84530a05e60f94fa67402194d090550324687cd62becbe598f",
+      "v1": "dfc0da2e96e4bdf82aee692d15e5a5b9d71ad67c6a5dd8df3092119f9ab69e8c",
+      "c1": "9321ea222a37a4442f8ac67c1e4c50080c78fa71c9aa1b410c994a1214036949",
+      "y0": "4448fb46d1d361f23a1bb3db65d801c3d1fc6fe525473f3b42eda524a1812cda",
+      "y1": "e9489fd62a9695899c3688d8039fc27e744d8eb3658f74d6be7cfd3862974f64",
+      "mask": "1aa8f42661fe3a079e1e282dace61b57f45748106b074a959ce845ea8ec44603",
+      "detail": "f3fc15939ff41d97e502af3627842557d3b310c6836eecb50b76cda4f8693042",
+      "v_gated": "dfc0da2e96e4bdf82aee692d15e5a5b9d71ad67c6a5dd8df3092119f9ab69e8c",
+      "y_gated": "e9489fd62a9695899c3688d8039fc27e744d8eb3658f74d6be7cfd3862974f64"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "4448fb46d1d361f23a1bb3db65d801c3d1fc6fe525473f3b42eda524a1812cda",
+      "detail": "f3fc15939ff41d97e502af3627842557d3b310c6836eecb50b76cda4f8693042",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "1aa8f42661fe3a079e1e282dace61b57f45748106b074a959ce845ea8ec44603"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:08.125053+00:00"
+  },
+  {
+    "index": 2683,
+    "bank_index": 153,
+    "state_index": 0,
+    "image_id": 41488,
+    "position": 562,
+    "norm": 0.0894912421822291,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_153.pt",
+    "sha256": "c66fb9dd0ae2576b579a56b35d808ad6b749c1b522684ea15a65ff39169f6284",
+    "tensor_hashes": {
+      "q": "6b6ba80b8c26804e5b04d875f634e9b8a82baa854e3a3c5ea7489fc99ecc3c95",
+      "g": "1183eae10ac8116613e850a6b160831de831ce9e8bb3660a68c400a0008ced44",
+      "v1": "e21e348b728d58adf8bec640aba5832ed469bbeb4b8e634e726343b5d8585722",
+      "c1": "9a0678b984ca5e10c7c2fda0b368ded5797dae14654f280e7b8e7bf0bacbe6b2",
+      "y0": "068ae6b93584d32118dae140bfa215d5bf535c7aefa985c1f33cc482050bc50f",
+      "y1": "bc3afb68109491ca005d9ada1295b7029008bbdc36a26efea27671d7e09609a3",
+      "mask": "8ae244c3ae1ca96920bf0c514147cf501c82afe39d495eaad903adcc53eff408",
+      "detail": "a4cf9ad406aed2287dedad56cffcadce76bcb0e55859a6806bd486c0e64fdff3",
+      "v_gated": "e21e348b728d58adf8bec640aba5832ed469bbeb4b8e634e726343b5d8585722",
+      "y_gated": "bc3afb68109491ca005d9ada1295b7029008bbdc36a26efea27671d7e09609a3"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "068ae6b93584d32118dae140bfa215d5bf535c7aefa985c1f33cc482050bc50f",
+      "detail": "a4cf9ad406aed2287dedad56cffcadce76bcb0e55859a6806bd486c0e64fdff3",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "8ae244c3ae1ca96920bf0c514147cf501c82afe39d495eaad903adcc53eff408"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:08.253204+00:00"
+  },
+  {
+    "index": 2707,
+    "bank_index": 154,
+    "state_index": 0,
+    "image_id": 41488,
+    "position": 586,
+    "norm": 0.06395350111834536,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_154.pt",
+    "sha256": "67761937a3e719e9b757f7601a7816573c2f0d5581b5140408c637c7f23e02bb",
+    "tensor_hashes": {
+      "q": "83aa5faf774d317f1fe1ffa9e096bc1f4f733169ba947712883870feb3e3b45b",
+      "g": "b59608f4cdc49c48d8bf9a70c24d3b7e29044eb39acb0ad36d5d65547f35b272",
+      "v1": "be4bd5038915c27a81f05ddfe023560736611d072736a575812a047f6c787553",
+      "c1": "fc0565d1bbb62375c0f04dd961b1d43d50beffcc7aeae6ec063e250bb529b6ba",
+      "y0": "ee91126e6703fc88f079cda80e9a910b7a00a1b705ed2ddfcbd8ae726c9d8468",
+      "y1": "754a7872b421580568e4d5204a876574e920754419ce711198b36690f895b1ac",
+      "mask": "a63644244a211250437921c73ed9d15d2729befdb3f0b5707ecf542887c740c6",
+      "detail": "55c8e64abbce9d5c1beb27d8ce2c74d31ac170bcd116d4fc5511b90630d9192e",
+      "v_gated": "be4bd5038915c27a81f05ddfe023560736611d072736a575812a047f6c787553",
+      "y_gated": "754a7872b421580568e4d5204a876574e920754419ce711198b36690f895b1ac"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "ee91126e6703fc88f079cda80e9a910b7a00a1b705ed2ddfcbd8ae726c9d8468",
+      "detail": "55c8e64abbce9d5c1beb27d8ce2c74d31ac170bcd116d4fc5511b90630d9192e",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "a63644244a211250437921c73ed9d15d2729befdb3f0b5707ecf542887c740c6"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:08.384364+00:00"
+  },
+  {
+    "index": 3119,
+    "bank_index": 175,
+    "state_index": 0,
+    "image_id": 41990,
+    "position": 610,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_175.pt",
+    "sha256": "b7d3364251721cdd0f35b3b79f0f71f54dae9f23614bd3a397f4086444d902cd",
+    "tensor_hashes": {
+      "q": "3fe8308f0d44f5987b654d56411f8fa6dc5c3c703445902224504f89a88abf5c",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "18f8ed2b52b631612f3a7fd3d2fa0a38be8588b1701a00857885665c3755604a",
+      "y0": "c60c2c9eda790dfe32ea0d72de6148f48ed8f1f8efca51e7720a43ae271dad36",
+      "y1": "c60c2c9eda790dfe32ea0d72de6148f48ed8f1f8efca51e7720a43ae271dad36",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7",
+      "detail": "ccd6a14e67ccab88e99c7966bb1c99861d819535ca800363f4f3aaf8424a3101",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "c60c2c9eda790dfe32ea0d72de6148f48ed8f1f8efca51e7720a43ae271dad36"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "c60c2c9eda790dfe32ea0d72de6148f48ed8f1f8efca51e7720a43ae271dad36",
+      "detail": "ccd6a14e67ccab88e99c7966bb1c99861d819535ca800363f4f3aaf8424a3101",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:08.457232+00:00"
+  },
+  {
+    "index": 3120,
+    "bank_index": 176,
+    "state_index": 0,
+    "image_id": 41990,
+    "position": 611,
+    "norm": 0.06524433939947377,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_176.pt",
+    "sha256": "c721f2676cbc28163e9e2599a338ca7d34870b52ceaa2550efb227e46512f810",
+    "tensor_hashes": {
+      "q": "6338d040e26a3ad48bd55ba18993703245f04d0d69f251ae5e1eead915781789",
+      "g": "1acaa31d5c34e8071c909a53ac977c58f5016030924a15cacbf6311f43c77958",
+      "v1": "aad73921a4a398607efece1ea85de34a5b3ce4816fc8531255c992cf9f9dd951",
+      "c1": "f62495d4d0d56d07622c2401dfbad7e82c09450e39f62a9554057f2fd5d02e0c",
+      "y0": "eeac71781ab86a68e0d3f119ebf2ce83efd7fe3e7cc4d32828ee5afc49d552e8",
+      "y1": "f7b0aa55101a5e28c845415eb5259c7f4fa671641b0f0d340f6e5e2186ac08b9",
+      "mask": "56af5509463f827725c0aacfe42eec8b1d0ee325dc200a0729d79e804b4f82ab",
+      "detail": "4c312b1b333caa0682d1745c43e75f4bfdf2474f5fef01fb5aca9b8f7e682740",
+      "v_gated": "aad73921a4a398607efece1ea85de34a5b3ce4816fc8531255c992cf9f9dd951",
+      "y_gated": "f7b0aa55101a5e28c845415eb5259c7f4fa671641b0f0d340f6e5e2186ac08b9"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "eeac71781ab86a68e0d3f119ebf2ce83efd7fe3e7cc4d32828ee5afc49d552e8",
+      "detail": "4c312b1b333caa0682d1745c43e75f4bfdf2474f5fef01fb5aca9b8f7e682740",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "56af5509463f827725c0aacfe42eec8b1d0ee325dc200a0729d79e804b4f82ab"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:08.555928+00:00"
+  },
+  {
+    "index": 3144,
+    "bank_index": 177,
+    "state_index": 0,
+    "image_id": 41990,
+    "position": 635,
+    "norm": 0.3477161118199821,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_177.pt",
+    "sha256": "94a9cb7a3d23c2149a50349fba898bd303875be7e31f9304c0800bb5839d9043",
+    "tensor_hashes": {
+      "q": "148a32a3a48898951a500c4994cb1f7821ff5af7dd1ce1fd7957bc2d70ed94ef",
+      "g": "afce4bc64805c9bc88356db3ce2c467728d7562cab7245ab14ed2e22d251c97f",
+      "v1": "00e94af8c7bc8e687b130fc97a037f005889171875a3ce425d5ae1f458f9a47f",
+      "c1": "9416d2f0df8e1da18365778f7498fbd925296cf2d7bd0477b1658b751e1538bf",
+      "y0": "5372deedbb6c6dfb89a8074ddc732e66a6dab3ae5e156447c78f23d6bd595197",
+      "y1": "c0cf2c48e6d70013a8f9cf510d9ce1055a55ec4f0301f951196c5cadd89629e2",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "ec38fa26ef58f00c476a1f4a6873766a2f631ac9079a4ca0945270280fa5b333",
+      "v_gated": "00e94af8c7bc8e687b130fc97a037f005889171875a3ce425d5ae1f458f9a47f",
+      "y_gated": "c0cf2c48e6d70013a8f9cf510d9ce1055a55ec4f0301f951196c5cadd89629e2"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "5372deedbb6c6dfb89a8074ddc732e66a6dab3ae5e156447c78f23d6bd595197",
+      "detail": "ec38fa26ef58f00c476a1f4a6873766a2f631ac9079a4ca0945270280fa5b333",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:08.661750+00:00"
+  },
+  {
+    "index": 3168,
+    "bank_index": 178,
+    "state_index": 0,
+    "image_id": 41990,
+    "position": 659,
+    "norm": 0.18332199412151606,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_178.pt",
+    "sha256": "8d5932f7597102c80e1e9cd4f67a155aa1f9855d84a24d39ac6af3099490f80f",
+    "tensor_hashes": {
+      "q": "aba6575bed34462e92a94ed42da78b9e907d0115ee7b5260dd777f24e68462fb",
+      "g": "01b1b8a40a4fde59cfbf9426ebacdd8397ce336ae7ef33d24eeca7f4b037130b",
+      "v1": "28f0713beb652e761ddf05d3735b2f02109d6ab4b3415ac4e3ed26a6e5acc1c0",
+      "c1": "570b4a69f486699b65a3f428c86814a5661afccad729db99ab532debccacf9e7",
+      "y0": "2e7a813ece7d776d8de88e453ef3ab127ca78862e5df03c89470f64fa02075cd",
+      "y1": "7bf274f93e657a6f3935d4f6a24464eeccea74d4392af2902b56151ee62321a6",
+      "mask": "56af5509463f827725c0aacfe42eec8b1d0ee325dc200a0729d79e804b4f82ab",
+      "detail": "1b59f7344af6036a7914d55295c4366b1a369908e8247acd6ed7f58b3afcfa6e",
+      "v_gated": "28f0713beb652e761ddf05d3735b2f02109d6ab4b3415ac4e3ed26a6e5acc1c0",
+      "y_gated": "7bf274f93e657a6f3935d4f6a24464eeccea74d4392af2902b56151ee62321a6"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "2e7a813ece7d776d8de88e453ef3ab127ca78862e5df03c89470f64fa02075cd",
+      "detail": "1b59f7344af6036a7914d55295c4366b1a369908e8247acd6ed7f58b3afcfa6e",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "56af5509463f827725c0aacfe42eec8b1d0ee325dc200a0729d79e804b4f82ab"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:08.766670+00:00"
+  },
+  {
+    "index": 3192,
+    "bank_index": 179,
+    "state_index": 0,
+    "image_id": 41990,
+    "position": 683,
+    "norm": 0.16760553862391067,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_179.pt",
+    "sha256": "881ffa6d17c61ce1a8f301a8c0950a39e474e7505aaef6e6fc37fd2205d776ec",
+    "tensor_hashes": {
+      "q": "f3a343047074fdbde56757c332f78b86975fe4fff4fb12ab28619fd8bb485bb4",
+      "g": "bf540f042f417d3fde2922ff9488b01046bb006948015211adcccaa7056c81c4",
+      "v1": "a4c5fca386c316aed73675191730b20fc676efe2eed20b19ffc11f58cf94d33f",
+      "c1": "3bcf6555efe5184931493569e3433c5da02e144f1465b73638bf3bb646ed4b61",
+      "y0": "233f7e304506625e689c83838c8a48974978bda8ba021a8c7275a290c44d46f7",
+      "y1": "ec2ea2cae7d7ba0cd2c1eae2b782212b6e622db48f5d0129e29a90aa4d964c90",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "eadcd78070b40c9b8f8af2506ffc62a474ea345db12c7e35ce9e9e7d49809ad7",
+      "v_gated": "a4c5fca386c316aed73675191730b20fc676efe2eed20b19ffc11f58cf94d33f",
+      "y_gated": "ec2ea2cae7d7ba0cd2c1eae2b782212b6e622db48f5d0129e29a90aa4d964c90"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "233f7e304506625e689c83838c8a48974978bda8ba021a8c7275a290c44d46f7",
+      "detail": "eadcd78070b40c9b8f8af2506ffc62a474ea345db12c7e35ce9e9e7d49809ad7",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.019337+00:00"
+  },
+  {
+    "index": 3604,
+    "bank_index": 200,
+    "state_index": 0,
+    "image_id": 42563,
+    "position": 707,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_200.pt",
+    "sha256": "fcd9d6245c301bfd28a67d01417028aaabd210400ffb34061e811d13b80f2fb8",
+    "tensor_hashes": {
+      "q": "acbcdeecbf16b9a446764aaf293c71aa6c07e80c46c373cd02bc63164d3e5d7d",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "5ad458c08f76cc339beef240e1ddd5207ce74f5350c1e12a5300ec23bf44d9df",
+      "y0": "208a8a05bb615e21ad0070076c14da98181de5c5fcfe149c6032cca3db61027a",
+      "y1": "208a8a05bb615e21ad0070076c14da98181de5c5fcfe149c6032cca3db61027a",
+      "mask": "aeea2e9d7ba5e90a81b886cfde006e10936f9606313e78bf88494f7c71685152",
+      "detail": "3105864e780a06d13a3f220e4a18e7b79794e1730f28abdcb937b6e44f4aa04b",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "208a8a05bb615e21ad0070076c14da98181de5c5fcfe149c6032cca3db61027a"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "208a8a05bb615e21ad0070076c14da98181de5c5fcfe149c6032cca3db61027a",
+      "detail": "3105864e780a06d13a3f220e4a18e7b79794e1730f28abdcb937b6e44f4aa04b",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "aeea2e9d7ba5e90a81b886cfde006e10936f9606313e78bf88494f7c71685152"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.079798+00:00"
+  },
+  {
+    "index": 3605,
+    "bank_index": 201,
+    "state_index": 0,
+    "image_id": 42563,
+    "position": 708,
+    "norm": 0.04241908859815071,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_201.pt",
+    "sha256": "37dc71feb8bee12a587d340738c72bb68f7b72b7038f4fca920e081faa068c5d",
+    "tensor_hashes": {
+      "q": "aa7975001fe610290f5b29006774f52ca99d3b5969279d0c2001f58795488d76",
+      "g": "eba877790d3dea37d90826ade5c9f35c94a50d80cbf3ab85decfe131b66554f0",
+      "v1": "16d0ac864a041c7560e727136926ebd8942f0acc4d73172221643b326b58331c",
+      "c1": "1c4c14d507f76f48f4f9f164759e0c7faf1c16d95fdcd5ee7c473d53752b9edf",
+      "y0": "254a22f4e27c1a3fa51b41a4c4595a7f801269ac7c607ab8fe28dcd66d8088a7",
+      "y1": "bb122a5458998c9c22d5599f51a9e258dfb9ea67d9f9d9c1581e79d950343668",
+      "mask": "7d0996b595776708698ea87601e15b4058edfed14b8df93abd5159fcf2fc77c4",
+      "detail": "304fc2510568084ad85ad54584d36825a58b41c34871552a1fa7e46461c52c49",
+      "v_gated": "16d0ac864a041c7560e727136926ebd8942f0acc4d73172221643b326b58331c",
+      "y_gated": "bb122a5458998c9c22d5599f51a9e258dfb9ea67d9f9d9c1581e79d950343668"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "254a22f4e27c1a3fa51b41a4c4595a7f801269ac7c607ab8fe28dcd66d8088a7",
+      "detail": "304fc2510568084ad85ad54584d36825a58b41c34871552a1fa7e46461c52c49",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "7d0996b595776708698ea87601e15b4058edfed14b8df93abd5159fcf2fc77c4"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.164142+00:00"
+  },
+  {
+    "index": 3629,
+    "bank_index": 202,
+    "state_index": 0,
+    "image_id": 42563,
+    "position": 732,
+    "norm": 0.12001942378621086,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_202.pt",
+    "sha256": "1ed6487dbf6b48c6a9962415115203a4a7e0c324f67e4aaa93b715f1de965d95",
+    "tensor_hashes": {
+      "q": "aa1933963b42c0bbcb7a6e67de1b4808e718ac4f9bf3b6fe842fb6a8d65a135a",
+      "g": "08cedacfcf9bda7c2505487428f797fa7f2500b8397fa705cb56c61abb6eb9b7",
+      "v1": "d57353a4a77a76b85cd6ca3e874ac2d026f5521b1350f7b3b0902c4c85db632a",
+      "c1": "f5f538f379ebf2747436960a5e34c9eec94ef344480380621d9bca69f48fd2d3",
+      "y0": "b54b779eaee82c1a2c0e231501bcfe90db8ecde689482cf1ee350765704ef8a6",
+      "y1": "2715c444b9ea46920f01d5a4890b23d8b028f0e4e01ee004ba0f9a9117b78a5d",
+      "mask": "0f6ba231ae4167b238bba2c17935ccf5b3eecf3875fbf3931c8b364bf0612765",
+      "detail": "dddda95e607f73eb1864689b59c5b5a1140bc54d1e9633b678814c872936e3c8",
+      "v_gated": "d57353a4a77a76b85cd6ca3e874ac2d026f5521b1350f7b3b0902c4c85db632a",
+      "y_gated": "2715c444b9ea46920f01d5a4890b23d8b028f0e4e01ee004ba0f9a9117b78a5d"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "b54b779eaee82c1a2c0e231501bcfe90db8ecde689482cf1ee350765704ef8a6",
+      "detail": "dddda95e607f73eb1864689b59c5b5a1140bc54d1e9633b678814c872936e3c8",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "0f6ba231ae4167b238bba2c17935ccf5b3eecf3875fbf3931c8b364bf0612765"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.251799+00:00"
+  },
+  {
+    "index": 3653,
+    "bank_index": 203,
+    "state_index": 0,
+    "image_id": 42563,
+    "position": 756,
+    "norm": 0.16315162511034156,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_203.pt",
+    "sha256": "b5a4d305d42d8b9133619702c2eedaeee16d69c655cb56eecb333484990a8c32",
+    "tensor_hashes": {
+      "q": "46f7696c5ce2ea4ee21edec78cfd9ee9bc9d65f6bad3f03475698893323ec87f",
+      "g": "66bc3b8ac54620475e29d0e04a1f89feee36aca714e275fb246f4d30803b4fd4",
+      "v1": "b7d54c9d8dc279c6bf3ea954c40a53c2a8c632df6ae9577f09770963c85a6165",
+      "c1": "a18eae6226707a03b4e5b639b25195db88053289dec2f26ea22b8968757ab596",
+      "y0": "ca7bb7bf10bd07c99f64b4457ab528a7154cbb213f5e9b6c2be29d88f388fbdd",
+      "y1": "920b4c1665c69cd813e0540a619a5b06a0f8bf63658d27dcc4a61f461e6730e9",
+      "mask": "a833021849ca09ac8785d3a174b4f38fb4ffb271c4cd2216ed2fc370c378dfcb",
+      "detail": "1c2876957c970a7aa46534fb149e07e7ac5ee9a44fc11f00b256a706adaddb71",
+      "v_gated": "b7d54c9d8dc279c6bf3ea954c40a53c2a8c632df6ae9577f09770963c85a6165",
+      "y_gated": "920b4c1665c69cd813e0540a619a5b06a0f8bf63658d27dcc4a61f461e6730e9"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "ca7bb7bf10bd07c99f64b4457ab528a7154cbb213f5e9b6c2be29d88f388fbdd",
+      "detail": "1c2876957c970a7aa46534fb149e07e7ac5ee9a44fc11f00b256a706adaddb71",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "a833021849ca09ac8785d3a174b4f38fb4ffb271c4cd2216ed2fc370c378dfcb"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.332522+00:00"
+  },
+  {
+    "index": 3677,
+    "bank_index": 204,
+    "state_index": 0,
+    "image_id": 42563,
+    "position": 780,
+    "norm": 0.2950621775494756,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_204.pt",
+    "sha256": "ace0174964c2316db602f8fbc527d668ca2650ee6b09242aef2d336ec9131c7f",
+    "tensor_hashes": {
+      "q": "3601de82035c63fda736da75a37ff5c3704611f9a8343e87c302014e5c57ca1b",
+      "g": "6f12e91c993f368e6107afad3c34236ee57ff89abbc89eb6ce421786bf83bd0b",
+      "v1": "fd539baa9019a90a760bbabb06a7ffd4c09e3d289600a81d321942a374998c3f",
+      "c1": "b847afa77c453605ca78210884e4c9ce5025acba07b993a22bebb91a1fdef355",
+      "y0": "9c851c5a21092704be0689520b59273284e9646cf0a0536fdf1a70d11bebef04",
+      "y1": "75e0b8f287047f8c54c70410cb9fbc4437dd22c382f170c825a5518ac07fc674",
+      "mask": "70d58cfb1cb0aa967eb973d7be1f6695a2aa17bcff602eed7abeab4e38cc0788",
+      "detail": "21e52d02c7bc766243d3be44895e6ec84af8bb998340d86a3bdc9697cb5d0f2d",
+      "v_gated": "fd539baa9019a90a760bbabb06a7ffd4c09e3d289600a81d321942a374998c3f",
+      "y_gated": "75e0b8f287047f8c54c70410cb9fbc4437dd22c382f170c825a5518ac07fc674"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "9c851c5a21092704be0689520b59273284e9646cf0a0536fdf1a70d11bebef04",
+      "detail": "21e52d02c7bc766243d3be44895e6ec84af8bb998340d86a3bdc9697cb5d0f2d",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "70d58cfb1cb0aa967eb973d7be1f6695a2aa17bcff602eed7abeab4e38cc0788"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.415989+00:00"
+  },
+  {
+    "index": 4066,
+    "bank_index": 225,
+    "state_index": 0,
+    "image_id": 43435,
+    "position": 804,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_225.pt",
+    "sha256": "d5a7a4581b5c41e300eba08012148c58ed2ccf88fb44b024cf53e09f08ef5c0d",
+    "tensor_hashes": {
+      "q": "0acd4cdde664c918738e7e30ca30f37898091575d9385cc5b74d94c43a31e878",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "5c079e204e1aa66c1dc7ddad34c6c8f314da8659ee1a6d4b6aa1deebe23808b0",
+      "y0": "8da75f33adcc647ad7ba959a35fecbc5bed20ef25665179de46036b9acb27692",
+      "y1": "8da75f33adcc647ad7ba959a35fecbc5bed20ef25665179de46036b9acb27692",
+      "mask": "bb74b30efa0fcae915d0e09da93c53620e1ff68b07db81d1c6c4ff8ea1581ee8",
+      "detail": "a898d83c8c8b98cc3d6ca6daa4b1d5d7fe14056c4e77d81f91a629eed07a0621",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "8da75f33adcc647ad7ba959a35fecbc5bed20ef25665179de46036b9acb27692"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "8da75f33adcc647ad7ba959a35fecbc5bed20ef25665179de46036b9acb27692",
+      "detail": "a898d83c8c8b98cc3d6ca6daa4b1d5d7fe14056c4e77d81f91a629eed07a0621",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "bb74b30efa0fcae915d0e09da93c53620e1ff68b07db81d1c6c4ff8ea1581ee8"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.480822+00:00"
+  },
+  {
+    "index": 4067,
+    "bank_index": 226,
+    "state_index": 0,
+    "image_id": 43435,
+    "position": 805,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_226.pt",
+    "sha256": "ae6e045f85ccfecd28be37e9890c3a4ea84080af9c620d682977bf8224aede15",
+    "tensor_hashes": {
+      "q": "dc6d7cb8374386e33632eb65efeb5e1d11d9da44fd3db4130687981910325b2a",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "5c079e204e1aa66c1dc7ddad34c6c8f314da8659ee1a6d4b6aa1deebe23808b0",
+      "y0": "d2346281f0a6624b663ec432ffb8fe869b3bc90f69b0718fa7b3c5bcec0afeec",
+      "y1": "d2346281f0a6624b663ec432ffb8fe869b3bc90f69b0718fa7b3c5bcec0afeec",
+      "mask": "bb74b30efa0fcae915d0e09da93c53620e1ff68b07db81d1c6c4ff8ea1581ee8",
+      "detail": "cc9e87fda7e7e10c11ce95d12805a1961377c146667485471150595417b04c65",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "d2346281f0a6624b663ec432ffb8fe869b3bc90f69b0718fa7b3c5bcec0afeec"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "d2346281f0a6624b663ec432ffb8fe869b3bc90f69b0718fa7b3c5bcec0afeec",
+      "detail": "cc9e87fda7e7e10c11ce95d12805a1961377c146667485471150595417b04c65",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "bb74b30efa0fcae915d0e09da93c53620e1ff68b07db81d1c6c4ff8ea1581ee8"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.538226+00:00"
+  },
+  {
+    "index": 4068,
+    "bank_index": 227,
+    "state_index": 0,
+    "image_id": 43435,
+    "position": 806,
+    "norm": 0.17508543116930045,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_227.pt",
+    "sha256": "96a812ce3de186afa9613ef693c6067162978ba194cf29dc8ddf13ff84809934",
+    "tensor_hashes": {
+      "q": "813d6eb0e03b5351e42498fea308d948c749a033c4e433922562a050c65dbd7d",
+      "g": "53059972c3221613739bcdd6a3a8aa60a53504171b4e86e3a4ce2c6bc43eb8b2",
+      "v1": "3d663038e1d4ae6f8649db154619f16832b1bdaa126d710333ff2137938bae7c",
+      "c1": "7e8c06dac660852f0f813204a6bf986ac1117dcdbfbbce3e268b5c912a608cdd",
+      "y0": "f55829e8d934c5dc2cad35dd78a25bfc8f8796f31feb9a8d0b62aba7a5e733c3",
+      "y1": "1f192f46f0148087b5806820062d7f68f8fc047683a7585e9256429dfd267dde",
+      "mask": "492deab4d505688d62ce41561dc1bae09715909bda2ebecf986250fda0900803",
+      "detail": "2d3be00e99d1a875a2875af0d72be580feb0d53965c1f29f7645c6059c148530",
+      "v_gated": "3d663038e1d4ae6f8649db154619f16832b1bdaa126d710333ff2137938bae7c",
+      "y_gated": "1f192f46f0148087b5806820062d7f68f8fc047683a7585e9256429dfd267dde"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "f55829e8d934c5dc2cad35dd78a25bfc8f8796f31feb9a8d0b62aba7a5e733c3",
+      "detail": "2d3be00e99d1a875a2875af0d72be580feb0d53965c1f29f7645c6059c148530",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "492deab4d505688d62ce41561dc1bae09715909bda2ebecf986250fda0900803"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.621830+00:00"
+  },
+  {
+    "index": 4092,
+    "bank_index": 228,
+    "state_index": 0,
+    "image_id": 43435,
+    "position": 830,
+    "norm": 0.06265871786144067,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_228.pt",
+    "sha256": "1a35d5ce460937e1c7ea328496773f707fe0f188e7cd33381425beff75fda1cc",
+    "tensor_hashes": {
+      "q": "166c1fad04c837e1b7452672d6958c71f177d4d916578cfd90f31f5992caed42",
+      "g": "aa6b797c19702c8ef560242887174dfbfef616907b83c69f2334cce6d4c19a9f",
+      "v1": "3ecdf20511adbbe4be00b1f8edd268eb3bc0e19619907de49087137519ea5072",
+      "c1": "0c055dd304e6373fe1e983cf512f98f7908c7db9664180f2513882e3affe5155",
+      "y0": "47729d2a22001b8685a41df7e885a97aa60e00c06616dbc732116fdbc49dfb63",
+      "y1": "fc05fd8cda8842e6fa7469ac677d51d64fa19d266c348d06879e0e44f0cb0099",
+      "mask": "2936f512d55b4c82c622f00372d8228c84b6ad68162629a6112d7f3d6dc67ac9",
+      "detail": "3c0c7d99ea95cbbd8ff8aa2d2c0bff965db1d73be66cef1364b230106e332c0f",
+      "v_gated": "3ecdf20511adbbe4be00b1f8edd268eb3bc0e19619907de49087137519ea5072",
+      "y_gated": "fc05fd8cda8842e6fa7469ac677d51d64fa19d266c348d06879e0e44f0cb0099"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "47729d2a22001b8685a41df7e885a97aa60e00c06616dbc732116fdbc49dfb63",
+      "detail": "3c0c7d99ea95cbbd8ff8aa2d2c0bff965db1d73be66cef1364b230106e332c0f",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "2936f512d55b4c82c622f00372d8228c84b6ad68162629a6112d7f3d6dc67ac9"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.704000+00:00"
+  },
+  {
+    "index": 4116,
+    "bank_index": 229,
+    "state_index": 0,
+    "image_id": 43435,
+    "position": 854,
+    "norm": 0.10075588897288333,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_229.pt",
+    "sha256": "2c7f82a45829698e9b23fc2de131f87e7055774465b9cbc9805a5185fbbe4e9d",
+    "tensor_hashes": {
+      "q": "131ec9fdb2e0d2d3e1d774a28422b156e29e16d24059523a3f5e1e10acf1fc90",
+      "g": "aa515b2d0268f35f584903f260d3c6da35599de88dedfd91ecea307a2e9c903b",
+      "v1": "ecb07cf253cfd174a452e4ae0fe7a4dddb1333472f6fb8821caddde950a1d348",
+      "c1": "e37a795df49ce4366d8de1aaf6458f64a6452dfa13b07e8af1fdf1d75c433182",
+      "y0": "82dc9e0d62aef7274ae2bc3390dce25007fa9f4f3f475f8e5fb27d0703c11ab1",
+      "y1": "4f32072867b8b196045f71bf38bb27ffab2721df059fa30decf94853a525084c",
+      "mask": "639e272aebec3ba0dd29998623dc3b82bda9091bbd46bd2e3fef0a4c511e66e5",
+      "detail": "f4bff5a5af6d6a89b2bf278abf617cf8b62b952ca114eb18fef5323a325be205",
+      "v_gated": "ecb07cf253cfd174a452e4ae0fe7a4dddb1333472f6fb8821caddde950a1d348",
+      "y_gated": "4f32072867b8b196045f71bf38bb27ffab2721df059fa30decf94853a525084c"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "82dc9e0d62aef7274ae2bc3390dce25007fa9f4f3f475f8e5fb27d0703c11ab1",
+      "detail": "f4bff5a5af6d6a89b2bf278abf617cf8b62b952ca114eb18fef5323a325be205",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "639e272aebec3ba0dd29998623dc3b82bda9091bbd46bd2e3fef0a4c511e66e5"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.771764+00:00"
+  },
+  {
+    "index": 4528,
+    "bank_index": 250,
+    "state_index": 0,
+    "image_id": 44195,
+    "position": 878,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_250.pt",
+    "sha256": "aec040455e556f130ed4018947c48e6e75c9ad71b133c6c2fb7abdaa1d59129b",
+    "tensor_hashes": {
+      "q": "baf70513f65712f91d724a4c6400b34621598ca25476ed80a58f450d1384bcbd",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "bbccd584f9cd7c1e2d703e7cb63247eafe2fcc14cfc47fa743f9ba8a681d5ffe",
+      "y0": "ab5cc2f9a9d0ba3b445a84fe71d7b747847a6212466b9d99433bfc5f3df3ed16",
+      "y1": "ab5cc2f9a9d0ba3b445a84fe71d7b747847a6212466b9d99433bfc5f3df3ed16",
+      "mask": "6699a8787471e2adb03fd5f99d72ae8858dba255d71721cd7485e8e9164ee3d8",
+      "detail": "4ddc281c48283b87945a44b33cbaf411ea521fabcf3268e7bfbb6edfa047471f",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "ab5cc2f9a9d0ba3b445a84fe71d7b747847a6212466b9d99433bfc5f3df3ed16"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "ab5cc2f9a9d0ba3b445a84fe71d7b747847a6212466b9d99433bfc5f3df3ed16",
+      "detail": "4ddc281c48283b87945a44b33cbaf411ea521fabcf3268e7bfbb6edfa047471f",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "6699a8787471e2adb03fd5f99d72ae8858dba255d71721cd7485e8e9164ee3d8"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.843546+00:00"
+  },
+  {
+    "index": 4529,
+    "bank_index": 251,
+    "state_index": 0,
+    "image_id": 44195,
+    "position": 879,
+    "norm": 0.10130425986826615,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_251.pt",
+    "sha256": "9608e87b4f3c8e672c37fd462c2ea45b5b8173597431260361b8eaf383e26ed9",
+    "tensor_hashes": {
+      "q": "abd37b184c6f28dcb0ba8919660f57183702690bca792ed29e74e32d521cbfab",
+      "g": "59377ecec6bc5fcc052d51bfb9f71c76820f2006e14514a91187f98988d82ef8",
+      "v1": "62d793ae3c7db96993e800bd9268631cb04529589930b8fb79e9c196b0da3463",
+      "c1": "90aa69f2dcdacbb53bd0ad341ccfe16050d4d62ad352fcb4425f32a45f779ca6",
+      "y0": "49d675a979ab0851837adbf0f1243fb84050788ede0de2840a27495201f01d15",
+      "y1": "63082ec96a65551803e151fd7c20b5919bf40e8ad734feb3fe0b194c431b0bbd",
+      "mask": "50baca1ec63b6bda6efc533958f62f12abee63a69adb88a5816bb7bb246d573e",
+      "detail": "c5876aaece3a9166806a521942837e7effff1a3d30acb4a250cd27fddd96463c",
+      "v_gated": "62d793ae3c7db96993e800bd9268631cb04529589930b8fb79e9c196b0da3463",
+      "y_gated": "63082ec96a65551803e151fd7c20b5919bf40e8ad734feb3fe0b194c431b0bbd"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "49d675a979ab0851837adbf0f1243fb84050788ede0de2840a27495201f01d15",
+      "detail": "c5876aaece3a9166806a521942837e7effff1a3d30acb4a250cd27fddd96463c",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "50baca1ec63b6bda6efc533958f62f12abee63a69adb88a5816bb7bb246d573e"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:09.930431+00:00"
+  },
+  {
+    "index": 4553,
+    "bank_index": 252,
+    "state_index": 0,
+    "image_id": 44195,
+    "position": 903,
+    "norm": 0.4141053040568453,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_252.pt",
+    "sha256": "3aea6c370f4cec37d1fe830ecb3fcfd58e9c1022b3bf224a7591af1be8ce7615",
+    "tensor_hashes": {
+      "q": "59ef7bc18ac035b52ac3a0ca3e964d33f5e837e9ccee66eaa0466e9321883aa6",
+      "g": "dd0ef279cb5031ac94a05a89d454b4792f4004f9a9e73c14a9d67af869a758e9",
+      "v1": "1708a71da8449c2918a3720317c9740e3ae83145b7a3608ee2e7bcecf360c614",
+      "c1": "464845f4ca82eec59ac0533633b7fa476e1be283ad789506d80144bc320e4b9a",
+      "y0": "4ffd14d6c416f0a66f82077704ede4b1570005d426d970b3e10328914ef1ddb1",
+      "y1": "18700ab8fbc19510cee3da6af3ff04721f3212de65e8b99081b281234ba80cc9",
+      "mask": "50baca1ec63b6bda6efc533958f62f12abee63a69adb88a5816bb7bb246d573e",
+      "detail": "6487a87d80cfbf33ca97f976958fbb9da6f95499e9cebce2a858c6ba67f9ab64",
+      "v_gated": "1708a71da8449c2918a3720317c9740e3ae83145b7a3608ee2e7bcecf360c614",
+      "y_gated": "18700ab8fbc19510cee3da6af3ff04721f3212de65e8b99081b281234ba80cc9"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "4ffd14d6c416f0a66f82077704ede4b1570005d426d970b3e10328914ef1ddb1",
+      "detail": "6487a87d80cfbf33ca97f976958fbb9da6f95499e9cebce2a858c6ba67f9ab64",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "50baca1ec63b6bda6efc533958f62f12abee63a69adb88a5816bb7bb246d573e"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.037092+00:00"
+  },
+  {
+    "index": 4577,
+    "bank_index": 253,
+    "state_index": 0,
+    "image_id": 44195,
+    "position": 927,
+    "norm": 0.2329901542541997,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_253.pt",
+    "sha256": "21fc30805f649366aa0356f844d395ab67a9384a351372b3184873c6ad85b310",
+    "tensor_hashes": {
+      "q": "a851fa8d199b380593fa54c64d38f240f092cc9c450236348fda0cd553c9ab52",
+      "g": "ec0ececa8956f3c5f2347936a8cab5b560fe6268293ba22aecf003eacdb2770d",
+      "v1": "0a72a5486e4866fe10b30bf097cd747573272ef85c45fb867e2fc842e129cfc5",
+      "c1": "b5306b65d9e0af4d99d71dd2bb96aace8b8ba7f4eb87040c5c78cb35df019182",
+      "y0": "5ec6924927321a0c0be13939403d57ee3f317c37d1817bc058189cd3acbba05f",
+      "y1": "dffccbaa442cc1ab27e9fd017c13aee2fdf57aa09badfdc1ad3c871b2029fb23",
+      "mask": "50baca1ec63b6bda6efc533958f62f12abee63a69adb88a5816bb7bb246d573e",
+      "detail": "3eea33333a50a77bd8ab82a3d43797af2068cb3fba845a7e1e19c0cafce79089",
+      "v_gated": "0a72a5486e4866fe10b30bf097cd747573272ef85c45fb867e2fc842e129cfc5",
+      "y_gated": "dffccbaa442cc1ab27e9fd017c13aee2fdf57aa09badfdc1ad3c871b2029fb23"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "5ec6924927321a0c0be13939403d57ee3f317c37d1817bc058189cd3acbba05f",
+      "detail": "3eea33333a50a77bd8ab82a3d43797af2068cb3fba845a7e1e19c0cafce79089",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "50baca1ec63b6bda6efc533958f62f12abee63a69adb88a5816bb7bb246d573e"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.125187+00:00"
+  },
+  {
+    "index": 4601,
+    "bank_index": 254,
+    "state_index": 0,
+    "image_id": 44195,
+    "position": 951,
+    "norm": 0.14698853431509534,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_254.pt",
+    "sha256": "cb7e44583e49a803670e5c682ba143fd0b3136993cf4b914368aa9b72e9c56f6",
+    "tensor_hashes": {
+      "q": "359299ebee6a3c22932e38ef53822dded76bc6bcd3349a8220f000858186ebf9",
+      "g": "320ba503c0e71a821049e18172b36bcd2fc70aa3d010561af2916b008c6a7130",
+      "v1": "d5d773ae117dc67b4e4251fc997000259f472c696eb23e38c5213f89bf9d0b22",
+      "c1": "d4749176f0e3312c77d760d6a0b49bf12d81f3d52c292d2b7d60eec07ee483b3",
+      "y0": "96172a24ae813b04e64239d2583e25a364f041f1706e638a333f1a531a5cf88a",
+      "y1": "f0f7159126ceb7ddc9a23476cb726377c3d85b96cde18a6ab2c5c432242eac94",
+      "mask": "50baca1ec63b6bda6efc533958f62f12abee63a69adb88a5816bb7bb246d573e",
+      "detail": "bc6a2e156e22747734d55f55d2f72c632e7c8969a6e133a261f78e97792ca805",
+      "v_gated": "d5d773ae117dc67b4e4251fc997000259f472c696eb23e38c5213f89bf9d0b22",
+      "y_gated": "f0f7159126ceb7ddc9a23476cb726377c3d85b96cde18a6ab2c5c432242eac94"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "96172a24ae813b04e64239d2583e25a364f041f1706e638a333f1a531a5cf88a",
+      "detail": "bc6a2e156e22747734d55f55d2f72c632e7c8969a6e133a261f78e97792ca805",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "50baca1ec63b6bda6efc533958f62f12abee63a69adb88a5816bb7bb246d573e"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.231917+00:00"
+  },
+  {
+    "index": 4967,
+    "bank_index": 275,
+    "state_index": 0,
+    "image_id": 45070,
+    "position": 975,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_275.pt",
+    "sha256": "a0b8be667dbe546e629bfba0fa13d20f242be30f8df6556bf4ee2aff2c48e431",
+    "tensor_hashes": {
+      "q": "c186b603f25cd4c4aa390aad390c0f6940e1bd0b37049352527f4719da9731d3",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "cc708dffdf28ba8d9276b56840eb6596f85a672052752a62e453b297914baedb",
+      "y0": "d27f0d490d13e03dd458955438d3929303db6c5a03273d106bdbd49647c62434",
+      "y1": "d27f0d490d13e03dd458955438d3929303db6c5a03273d106bdbd49647c62434",
+      "mask": "e130f82ba0a355b6027727010c40055465aabf979eaa9f17af028b9eb1b96e62",
+      "detail": "2a05801c2deeacf461863f7357265b8fff82a73f11bc210daa5885e96c41bd5c",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "d27f0d490d13e03dd458955438d3929303db6c5a03273d106bdbd49647c62434"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "d27f0d490d13e03dd458955438d3929303db6c5a03273d106bdbd49647c62434",
+      "detail": "2a05801c2deeacf461863f7357265b8fff82a73f11bc210daa5885e96c41bd5c",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "e130f82ba0a355b6027727010c40055465aabf979eaa9f17af028b9eb1b96e62"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.293410+00:00"
+  },
+  {
+    "index": 4968,
+    "bank_index": 276,
+    "state_index": 0,
+    "image_id": 45070,
+    "position": 976,
+    "norm": 0.02762461982195725,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_276.pt",
+    "sha256": "2c2b05cfc3a91121a19ded08e6957b4e47c34b4a05a596607d2172e188cbd417",
+    "tensor_hashes": {
+      "q": "da41d2904f2252a9d67012e08f627380e9112d9e3f53f2d798dc819322cc113c",
+      "g": "0763eb96f95ec4c6483f7eb81f7abce9cde2a7efc6c85e4d3c9c728bb8a66aa8",
+      "v1": "9072a98d6f431e48a855a11b9607b1af1ec1e138ce850e4837c3131a637cd040",
+      "c1": "3d8eddffc545e47f9175f608957c49b23e0fa000784ca646681e3b2bfd544615",
+      "y0": "b5b0113d92fdff1b0e0bb330386e75a64222eae39d843af374af71542ee92287",
+      "y1": "9a2fc1076dec3e179971c1c48d2682d23e6e730f6fa86512fa6e51e648ed699e",
+      "mask": "b1cd2511503e16675fa67ab44b538667f4ed54ad055933599e8f5faf98e2b4c1",
+      "detail": "f50fe917c7524bbab7ee66cc78a81cb843fee3bce4cfa9eb92d55209c253630e",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "b5b0113d92fdff1b0e0bb330386e75a64222eae39d843af374af71542ee92287"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "b5b0113d92fdff1b0e0bb330386e75a64222eae39d843af374af71542ee92287",
+      "detail": "f50fe917c7524bbab7ee66cc78a81cb843fee3bce4cfa9eb92d55209c253630e",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "b1cd2511503e16675fa67ab44b538667f4ed54ad055933599e8f5faf98e2b4c1"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.363951+00:00"
+  },
+  {
+    "index": 4992,
+    "bank_index": 277,
+    "state_index": 0,
+    "image_id": 45070,
+    "position": 1000,
+    "norm": 0.16242200706130053,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_277.pt",
+    "sha256": "1fefce1c94728cd48acbd24841b9ca208abdf008c127686ac907810dcf4308a8",
+    "tensor_hashes": {
+      "q": "44783801a02d0da4cb06a16c0edf7031d57c9f01e25a5ba80fcae46d5ab61e7e",
+      "g": "44f98e743af56fe605625db1f650f90a970b624033a4b1acf18d4a75864b59a8",
+      "v1": "2027917a7ac0aa3bb8dfa0ae663048e0939580f8b92dd7d4dc0dab34b6482707",
+      "c1": "0c7095fdb6a318f06f34fbe099a2a051a42a01a6de70b8d062c8f6fad88d5421",
+      "y0": "026a0164476cde8ca99bdf39239a07633a17442bb2a0ad896c91c87abeb5230f",
+      "y1": "8a26771d0b6ff10eb761529c268bcd7c0a454961f402b3fb72a1ecfdc66efb6d",
+      "mask": "86c6be435670848a18a5a38fc48f951326b3fa10d1efbb665ac78b645a3c6a28",
+      "detail": "da2329411954817e99291232c05f6209fe351cd13ac2b2f6b967894a39b2841c",
+      "v_gated": "2027917a7ac0aa3bb8dfa0ae663048e0939580f8b92dd7d4dc0dab34b6482707",
+      "y_gated": "8a26771d0b6ff10eb761529c268bcd7c0a454961f402b3fb72a1ecfdc66efb6d"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "026a0164476cde8ca99bdf39239a07633a17442bb2a0ad896c91c87abeb5230f",
+      "detail": "da2329411954817e99291232c05f6209fe351cd13ac2b2f6b967894a39b2841c",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "86c6be435670848a18a5a38fc48f951326b3fa10d1efbb665ac78b645a3c6a28"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.449266+00:00"
+  },
+  {
+    "index": 5016,
+    "bank_index": 278,
+    "state_index": 0,
+    "image_id": 45070,
+    "position": 1024,
+    "norm": 0.07998866641213116,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_278.pt",
+    "sha256": "826fc53669e02e77dd63f0cdba5173ce338d11b3e1d3020b4cd18df32611ead2",
+    "tensor_hashes": {
+      "q": "3415e773ddc85deb9a703a6d6e519a05d9cdda5439c00440315a5765d49de719",
+      "g": "ad6e9085687e277ae90c0221a59632a438f9d50d76dfdb8002a0b90f32446765",
+      "v1": "9b5f9bdbda13fb183aec20e6bcb87dfc4e731a091db02081c1557c01336a9e2b",
+      "c1": "ae3b880f67b14335857f24917b8f24fbb2cb1f152317fb9c38a65434225524e2",
+      "y0": "9cffc3f1096aac4896c02ca0f46d2d82ecd6f94278b790b1f4b44e5073d5cca4",
+      "y1": "47a4a579be5ef92002753ac87ea9e093593d6434a925099836e970d48c5d84bc",
+      "mask": "86c6be435670848a18a5a38fc48f951326b3fa10d1efbb665ac78b645a3c6a28",
+      "detail": "e15d32939c9d31ad9a0c628722df9d13e3d6a6cc15073939e29ba3518f420346",
+      "v_gated": "9b5f9bdbda13fb183aec20e6bcb87dfc4e731a091db02081c1557c01336a9e2b",
+      "y_gated": "47a4a579be5ef92002753ac87ea9e093593d6434a925099836e970d48c5d84bc"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "9cffc3f1096aac4896c02ca0f46d2d82ecd6f94278b790b1f4b44e5073d5cca4",
+      "detail": "e15d32939c9d31ad9a0c628722df9d13e3d6a6cc15073939e29ba3518f420346",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "86c6be435670848a18a5a38fc48f951326b3fa10d1efbb665ac78b645a3c6a28"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.521599+00:00"
+  },
+  {
+    "index": 5040,
+    "bank_index": 279,
+    "state_index": 0,
+    "image_id": 45070,
+    "position": 1048,
+    "norm": 0.0805248916628267,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_279.pt",
+    "sha256": "1b9903375b00bede6c676201d307ded965218388871c043f47845eab71a9e8af",
+    "tensor_hashes": {
+      "q": "cf984292f6ad3f9382087596ec54a7e97c66a53158e378f52e835eb52a1fd393",
+      "g": "6b80631b81c118eb0acbb0386344a9eae41fc3bad5cf0e581346ed03c02be94e",
+      "v1": "81be0ad77d1f76d606bd26bd9935f2fe589c64f8477b3e0e643011a50b5e7b28",
+      "c1": "3d8407af154711c7b717b3b943412782569ea4b383ab05d8f8dff0d2a8901b29",
+      "y0": "1c4e82352f852570f6a12803cb604b59986c2405bd332990d2a8258fc30cfc98",
+      "y1": "278d5383cc787e0c498feb51bceae0d4a84423569ac467af8fc32e8ee556e8fb",
+      "mask": "416f0506f51e62a7d1a7abaae9b2eb6bc7b32f86a27d00218df83b2e693a7f40",
+      "detail": "dccef9b1535cec0d23b1d1345baa59d0dedae2bb90bbcda5aac324cf48948d66",
+      "v_gated": "81be0ad77d1f76d606bd26bd9935f2fe589c64f8477b3e0e643011a50b5e7b28",
+      "y_gated": "278d5383cc787e0c498feb51bceae0d4a84423569ac467af8fc32e8ee556e8fb"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "1c4e82352f852570f6a12803cb604b59986c2405bd332990d2a8258fc30cfc98",
+      "detail": "dccef9b1535cec0d23b1d1345baa59d0dedae2bb90bbcda5aac324cf48948d66",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "416f0506f51e62a7d1a7abaae9b2eb6bc7b32f86a27d00218df83b2e693a7f40"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.594284+00:00"
+  },
+  {
+    "index": 5452,
+    "bank_index": 300,
+    "state_index": 0,
+    "image_id": 45728,
+    "position": 1072,
+    "norm": 0.0383781065367789,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_300.pt",
+    "sha256": "8703d4e9c04c465e16232e42152f002dd6c74eb6333ab5aee9400f9ae5c6d223",
+    "tensor_hashes": {
+      "q": "8a673fa68754b2fcf49f28e7aff227a9925809e7057bc8b17f69b578acffdb67",
+      "g": "b999ec66cb775765df2e8b209d3576f5c7c45787bd45fecca8fef1d71d10bef3",
+      "v1": "b584b8337098cf1f1e5ef33c97d2b9cec7417c27394e7a07acb8096db3d9552d",
+      "c1": "8745e6dfec967694f86625f7b72c5b5b24931f445b8872673f646070ad85e6f8",
+      "y0": "85e6dfdbd9b1037aeca63a8b7503475c6b88dd10a26f67f32c8bd376824c45e7",
+      "y1": "abacbc75b8b03f295ac2cd67658d84ff19898742e21a35ef389ca937d0e044b8",
+      "mask": "ad85ac7192061b86b3fc41a47f2306f65308f5b6a0f3f92d6a55977875c8206f",
+      "detail": "c002761facfec963cb3281d82ac76228762916ee24098d7a5900654fcf949968",
+      "v_gated": "b584b8337098cf1f1e5ef33c97d2b9cec7417c27394e7a07acb8096db3d9552d",
+      "y_gated": "abacbc75b8b03f295ac2cd67658d84ff19898742e21a35ef389ca937d0e044b8"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "85e6dfdbd9b1037aeca63a8b7503475c6b88dd10a26f67f32c8bd376824c45e7",
+      "detail": "c002761facfec963cb3281d82ac76228762916ee24098d7a5900654fcf949968",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "ad85ac7192061b86b3fc41a47f2306f65308f5b6a0f3f92d6a55977875c8206f"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.700877+00:00"
+  },
+  {
+    "index": 5476,
+    "bank_index": 301,
+    "state_index": 0,
+    "image_id": 45728,
+    "position": 1096,
+    "norm": 0.064840501892875,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_301.pt",
+    "sha256": "8bf0bcf73f1fbab75d82f767180baf565b61305be4e0e06b604fb774785134e7",
+    "tensor_hashes": {
+      "q": "1c32ead3538768d286144fa5548d6f48082a46d9fcfea61a63fbc1cbd13a2608",
+      "g": "2c753531950f6c9015b4be607ee4de0811536dc0328d09aa9cdebdd2f0fe2ca8",
+      "v1": "859d21f428328acebeb53a3b35a610350e89097e711bab4fc11f93127cfef7e5",
+      "c1": "051af0b6e0423935a0910153a95b7e35d9c50fe6d5caa7a4a6de8e0c66573301",
+      "y0": "eab657359d7080ee7c2624bf9386d789bce727340b4d6d1c12ea24cc3524984c",
+      "y1": "1143a766fe1ae083a1b666de2ced924bcf2428c385283fcd52697218cd0303a8",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "0d86d189c830fd0234313d852412f2375184f43efd737c1e3adce44776529261",
+      "v_gated": "859d21f428328acebeb53a3b35a610350e89097e711bab4fc11f93127cfef7e5",
+      "y_gated": "1143a766fe1ae083a1b666de2ced924bcf2428c385283fcd52697218cd0303a8"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "eab657359d7080ee7c2624bf9386d789bce727340b4d6d1c12ea24cc3524984c",
+      "detail": "0d86d189c830fd0234313d852412f2375184f43efd737c1e3adce44776529261",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.806092+00:00"
+  },
+  {
+    "index": 5500,
+    "bank_index": 302,
+    "state_index": 0,
+    "image_id": 45728,
+    "position": 1120,
+    "norm": 0.14869349318812633,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_302.pt",
+    "sha256": "0fbb9cd6233a70d764d2de5e2d6e8212957a9646e10300271830ea57ea8f62ae",
+    "tensor_hashes": {
+      "q": "fc0fc37c41be7dce882ad8a1abb848013a80aaf45d07067cf023650737a352b7",
+      "g": "59d2c5e8dd6c6a9e9b0468a9278d82ed779291b21790bb5f41b78c8c091e4539",
+      "v1": "c827656088320f14d9592de22ea638226978a6960e4c5d748d4ed2996c529188",
+      "c1": "e880adb76d9528d2a5a79a2b4709841803777a21e1b36978afa223867844f986",
+      "y0": "05cabfde0414bb1289b62dd70d59119a134d903ef5e907e086296b4ea540d098",
+      "y1": "f4274b7c98499fe4f5eb97511e4484efe498473a005f7d8d8c61e3aa264f6ab2",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "a2b3675e817816a17bfea72f74646d49a295232016f810ae2fb5124129d96435",
+      "v_gated": "c827656088320f14d9592de22ea638226978a6960e4c5d748d4ed2996c529188",
+      "y_gated": "f4274b7c98499fe4f5eb97511e4484efe498473a005f7d8d8c61e3aa264f6ab2"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "05cabfde0414bb1289b62dd70d59119a134d903ef5e907e086296b4ea540d098",
+      "detail": "a2b3675e817816a17bfea72f74646d49a295232016f810ae2fb5124129d96435",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:10.912049+00:00"
+  },
+  {
+    "index": 5524,
+    "bank_index": 303,
+    "state_index": 0,
+    "image_id": 45728,
+    "position": 1144,
+    "norm": 0.08895872628907203,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_303.pt",
+    "sha256": "399ee03404a2a960dc5381988952f55ed9da8cfa20511956949c26147b80b130",
+    "tensor_hashes": {
+      "q": "9c1a66ba048b19d5ab12214778b51377ad2f5d5ec1666ab30b54c9dbe463bc69",
+      "g": "1683ed890927cde05bb1444701bff0c1a9ce843802b62f3179eba8da2ad37afc",
+      "v1": "a7f578b169c922547da800afd7324ee839642b5354504b24fc3a5cdfa8a9c89c",
+      "c1": "12f9d73541d3010a0e8bff57a469b282d3c86cab5cf60d4040ec20ff27bbb777",
+      "y0": "50afd1d3b8b822a54d076afc10c8b16f7e1432f3a90f3b5392567d94fb97f61b",
+      "y1": "81198e4603aa6107f0be031a7ac801f85146ea1dc10ae2868f9cdc7efa2190ab",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "0d90374c712ccf97e72446737049f5839474bef14c594b9771f4a6e71cde3aef",
+      "v_gated": "a7f578b169c922547da800afd7324ee839642b5354504b24fc3a5cdfa8a9c89c",
+      "y_gated": "81198e4603aa6107f0be031a7ac801f85146ea1dc10ae2868f9cdc7efa2190ab"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "50afd1d3b8b822a54d076afc10c8b16f7e1432f3a90f3b5392567d94fb97f61b",
+      "detail": "0d90374c712ccf97e72446737049f5839474bef14c594b9771f4a6e71cde3aef",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.015692+00:00"
+  },
+  {
+    "index": 5548,
+    "bank_index": 304,
+    "state_index": 0,
+    "image_id": 45728,
+    "position": 1168,
+    "norm": 0.08703478376691272,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_304.pt",
+    "sha256": "99a8b969aa3f1ce2d047d24e019b616b0e475bd3d7224d312b41a07b33f5618a",
+    "tensor_hashes": {
+      "q": "b05290d074112e6ea8607289c6ede4a871d7f8f12a10a8ce964e654a3a89661f",
+      "g": "b91d95d2bf24793a0fc617cfb1b54c003e37a11b3acbdbc95906b59db122c645",
+      "v1": "023f1481cde26e58aa11f1d61f24408e1c0503bb9ad2dc4274fe3fc2220b9cdd",
+      "c1": "917cce54ed9b1029823801ce5d48c1eb205ac3360959490d986d5fd56c164911",
+      "y0": "ab5b27908a75683374c80f0a7a3354a3577be98e938f091770193a57e86f8e1f",
+      "y1": "4791f23c589b8692a7c8266acf84b85b67bd16244a3dbfb4e20e9f1f71b1bd8e",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "a0234fb177ef276367c75988c991a39913d174797604d5228d8ae7e0cd481e68",
+      "v_gated": "023f1481cde26e58aa11f1d61f24408e1c0503bb9ad2dc4274fe3fc2220b9cdd",
+      "y_gated": "4791f23c589b8692a7c8266acf84b85b67bd16244a3dbfb4e20e9f1f71b1bd8e"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "ab5b27908a75683374c80f0a7a3354a3577be98e938f091770193a57e86f8e1f",
+      "detail": "a0234fb177ef276367c75988c991a39913d174797604d5228d8ae7e0cd481e68",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.119284+00:00"
+  },
+  {
+    "index": 5983,
+    "bank_index": 325,
+    "state_index": 0,
+    "image_id": 46463,
+    "position": 1192,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_325.pt",
+    "sha256": "babea1e000809c43e29180d1134c7a721d265a06eab6077e364adfae1f22d61c",
+    "tensor_hashes": {
+      "q": "5add7ca798aae231b3dea079557744c2c2970684b0da0924ce6ddb8ac349e745",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "2d4da04b861bb9dbe77c871415931785a18138d6db035f1bbcd0cf8277c6fc23",
+      "y0": "498cf76c2385ab5272640429456461128ca2b8ae96207c5668f7b0b3f8947f2d",
+      "y1": "498cf76c2385ab5272640429456461128ca2b8ae96207c5668f7b0b3f8947f2d",
+      "mask": "eec19bc6af0b3b6dfb97a08782c65f4bb3c3203e789a015d2008b0d689ad08be",
+      "detail": "c51be5dd019483cc939e19f081866383e305a15c77837acd3a3823cd653547c7",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "498cf76c2385ab5272640429456461128ca2b8ae96207c5668f7b0b3f8947f2d"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "498cf76c2385ab5272640429456461128ca2b8ae96207c5668f7b0b3f8947f2d",
+      "detail": "c51be5dd019483cc939e19f081866383e305a15c77837acd3a3823cd653547c7",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "eec19bc6af0b3b6dfb97a08782c65f4bb3c3203e789a015d2008b0d689ad08be"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.188251+00:00"
+  },
+  {
+    "index": 5984,
+    "bank_index": 326,
+    "state_index": 0,
+    "image_id": 46463,
+    "position": 1193,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_326.pt",
+    "sha256": "090d1374fd09d05c5beb00705520bb6c72dcce8824649cb10dcd18ba9eb7aa15",
+    "tensor_hashes": {
+      "q": "7fb8766fb6ee847aa8c2b4ed9596f11c06aee5cb123dc88ce88bc8e0f26d3500",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "2d4da04b861bb9dbe77c871415931785a18138d6db035f1bbcd0cf8277c6fc23",
+      "y0": "5256a22a6af581ac36ef93377ab1396dda34e7903bcab91cef15fa08c7488d7d",
+      "y1": "5256a22a6af581ac36ef93377ab1396dda34e7903bcab91cef15fa08c7488d7d",
+      "mask": "eec19bc6af0b3b6dfb97a08782c65f4bb3c3203e789a015d2008b0d689ad08be",
+      "detail": "80c5eb329df4882400838d69a1367620c94f9519eb70db4770db8164390f33b1",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "5256a22a6af581ac36ef93377ab1396dda34e7903bcab91cef15fa08c7488d7d"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "5256a22a6af581ac36ef93377ab1396dda34e7903bcab91cef15fa08c7488d7d",
+      "detail": "80c5eb329df4882400838d69a1367620c94f9519eb70db4770db8164390f33b1",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "eec19bc6af0b3b6dfb97a08782c65f4bb3c3203e789a015d2008b0d689ad08be"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.255589+00:00"
+  },
+  {
+    "index": 5985,
+    "bank_index": 327,
+    "state_index": 0,
+    "image_id": 46463,
+    "position": 1194,
+    "norm": 0.11868811710401087,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_327.pt",
+    "sha256": "325655f607344f694ff94eaec386e4375053ed51d720cc52d18eb31a7eb753f1",
+    "tensor_hashes": {
+      "q": "ca4d271bc65765b005776f811f59dd0b816d99d7c1ca5abecd3a867c2eff9612",
+      "g": "476ed2053edd1e95dccb8ddb05ca43b037fb229f456eea6247315314ca2932a8",
+      "v1": "353dcd87de3ac0009a0900b663883d716aa621ec557d5882f185ab6e5467db1e",
+      "c1": "0921f281f83f6c03085b1944d7799b98321771372559861fa6022e99cbe17cb3",
+      "y0": "4f033302759bb49128c9b1f7bbe8766cd88ea9d17ae0f764e13b1211fe469e9b",
+      "y1": "b080577664a729f0522e75116f9add12c06786df27dbae7d93b836831a19e8f6",
+      "mask": "787b995edebf5ee75c7846e1be61164b4456cfdf6fcc4c252acf0fa1db62af6e",
+      "detail": "224fbfd27a411ab630de0e047f378fe6a6d66c006962252418426e58a4e72ea4",
+      "v_gated": "353dcd87de3ac0009a0900b663883d716aa621ec557d5882f185ab6e5467db1e",
+      "y_gated": "b080577664a729f0522e75116f9add12c06786df27dbae7d93b836831a19e8f6"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "4f033302759bb49128c9b1f7bbe8766cd88ea9d17ae0f764e13b1211fe469e9b",
+      "detail": "224fbfd27a411ab630de0e047f378fe6a6d66c006962252418426e58a4e72ea4",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "787b995edebf5ee75c7846e1be61164b4456cfdf6fcc4c252acf0fa1db62af6e"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.352080+00:00"
+  },
+  {
+    "index": 6009,
+    "bank_index": 328,
+    "state_index": 0,
+    "image_id": 46463,
+    "position": 1218,
+    "norm": 0.05161216351313482,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_328.pt",
+    "sha256": "499d42f8ca13aa2efea19dacf41b71ac544e1cfa21e1f7831efe1e080634a460",
+    "tensor_hashes": {
+      "q": "a2fb7423c0bb8ac0d89c8500423320f70095dd773307f311e18516c947874455",
+      "g": "043fe3a5b8e015c8779d09f061b58a6ed1c48fd9ac83e582b1411e370f435c23",
+      "v1": "4b23754ff47bc601fd81e2fe0a85ead2334842adf16767dc33f207544a951110",
+      "c1": "cbfc4aaa1c42aeadf0d61a5ad7a8dc8f7adcf943fd054d7bc5a46d9525b1e343",
+      "y0": "22cffb5cdd2371140f0bd29324ee96b625d70c0d08547dcd55ae2f39e363090e",
+      "y1": "705d90aeb1b1a1e816f830520fc35eaa115249c2afdc9fcef35347f8f3e5984e",
+      "mask": "f298f77deb1e6a8e4d2c4b8c4230cddf56cd8f45124bc29ab7057c2bf3d7cc16",
+      "detail": "b5a447eae0ad8fbd08421115ef448a6ab22604797ccd6cfc2756bec609f349d0",
+      "v_gated": "4b23754ff47bc601fd81e2fe0a85ead2334842adf16767dc33f207544a951110",
+      "y_gated": "705d90aeb1b1a1e816f830520fc35eaa115249c2afdc9fcef35347f8f3e5984e"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "22cffb5cdd2371140f0bd29324ee96b625d70c0d08547dcd55ae2f39e363090e",
+      "detail": "b5a447eae0ad8fbd08421115ef448a6ab22604797ccd6cfc2756bec609f349d0",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "f298f77deb1e6a8e4d2c4b8c4230cddf56cd8f45124bc29ab7057c2bf3d7cc16"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.450096+00:00"
+  },
+  {
+    "index": 6033,
+    "bank_index": 329,
+    "state_index": 0,
+    "image_id": 46463,
+    "position": 1242,
+    "norm": 0.06452193888640433,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_329.pt",
+    "sha256": "d0824f031916bc6095787735a6b239d6fa4494cdb222ca45728e61ad2924982e",
+    "tensor_hashes": {
+      "q": "0a58b92004b17a49f8d3c2e91d8208f77a34ec79052eae4a454058110be67355",
+      "g": "b912cf50446c3f09badfcaab5b842da1733fca30b71519e4f0e1989174ea2663",
+      "v1": "384a72916380630e84e0575f31d2da764b3178f945820372f45f82dbc8779822",
+      "c1": "9b9de9d5c1a49d12e641ebc9b50256b74d9f2473527e775c4197b6e550389108",
+      "y0": "e6f420e8efa5f188a772b50bddfca5c05997c474cb3e5a3a87b0212fb10504cb",
+      "y1": "7155a65db595cc08c222b42301f76af024b56af1660399218387978054f99e02",
+      "mask": "43d2b45a791d621098e92bb03161452b62d858d94f4d1b7850518b53d47ad642",
+      "detail": "3326340fdc50d62fd1f5e9bfedfb1208956fe497f8c1476cde54d0ec588b0a4f",
+      "v_gated": "384a72916380630e84e0575f31d2da764b3178f945820372f45f82dbc8779822",
+      "y_gated": "7155a65db595cc08c222b42301f76af024b56af1660399218387978054f99e02"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "e6f420e8efa5f188a772b50bddfca5c05997c474cb3e5a3a87b0212fb10504cb",
+      "detail": "3326340fdc50d62fd1f5e9bfedfb1208956fe497f8c1476cde54d0ec588b0a4f",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "43d2b45a791d621098e92bb03161452b62d858d94f4d1b7850518b53d47ad642"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.548982+00:00"
+  },
+  {
+    "index": 6422,
+    "bank_index": 350,
+    "state_index": 0,
+    "image_id": 47121,
+    "position": 1266,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_350.pt",
+    "sha256": "f4822cc5873a0fb72e75c85c46e414c966ae94ac07711c21221dbe68438d90c2",
+    "tensor_hashes": {
+      "q": "8ccb0b9df35c7af48e72a3a29baba1a18cb010624836b22b2aed05e7c87fbfa5",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "18f8ed2b52b631612f3a7fd3d2fa0a38be8588b1701a00857885665c3755604a",
+      "y0": "0a1502ee306392cf5dd24fe6a5e92875a6a03452fb287f62c99c3f11372aa890",
+      "y1": "0a1502ee306392cf5dd24fe6a5e92875a6a03452fb287f62c99c3f11372aa890",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7",
+      "detail": "d1a585a5eed7f9f629584c980f5e6d5f94b1f7954c176494f8be98522d0e6b12",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "0a1502ee306392cf5dd24fe6a5e92875a6a03452fb287f62c99c3f11372aa890"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "0a1502ee306392cf5dd24fe6a5e92875a6a03452fb287f62c99c3f11372aa890",
+      "detail": "d1a585a5eed7f9f629584c980f5e6d5f94b1f7954c176494f8be98522d0e6b12",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "1a5af91ea86f79793a2e349b2fbd959d2ddedaecd77e1b421ad4ca20b5e455a7"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.623468+00:00"
+  },
+  {
+    "index": 6423,
+    "bank_index": 351,
+    "state_index": 0,
+    "image_id": 47121,
+    "position": 1267,
+    "norm": 0.038633001041731514,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_351.pt",
+    "sha256": "922f9fdffdb3769eea31d80bd73cc17e5296e14a8392f9c45e8cdc62dae5a2f9",
+    "tensor_hashes": {
+      "q": "3d666ace43c5f233e013beddb401abb04482310622f3bdc694d52ca977e92150",
+      "g": "feb90cc385f9927690ded54d090470b3b8275e8b704d828abccbcfafe9f8c9d6",
+      "v1": "d8baaf647032958750dc4c20ebdc5c176e8e43ac56a7c050308f24f782dbdc5f",
+      "c1": "a7fa8799e6510fcf66e55b893b76762665ba67638536a8c90861cf48571b0f0f",
+      "y0": "f0b4cfbb9f8966bc5987306959ce1151cb3fdb2100a95f330e5338cdf7f99948",
+      "y1": "790716649528e0a16322bb2afc5b5c1156f73d448ccd2c89a8ca3d116676c7df",
+      "mask": "9fd1cbce40945150897e818552cfc2fa89edbb2c8a6bdc64d41be32004d2efa7",
+      "detail": "c619102674c6dae21f58a65e75fe5902243e3261ad4483bc577c8469cad7e5dd",
+      "v_gated": "d8baaf647032958750dc4c20ebdc5c176e8e43ac56a7c050308f24f782dbdc5f",
+      "y_gated": "790716649528e0a16322bb2afc5b5c1156f73d448ccd2c89a8ca3d116676c7df"
+    },
+    "active_regions": 1,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "f0b4cfbb9f8966bc5987306959ce1151cb3fdb2100a95f330e5338cdf7f99948",
+      "detail": "c619102674c6dae21f58a65e75fe5902243e3261ad4483bc577c8469cad7e5dd",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "9fd1cbce40945150897e818552cfc2fa89edbb2c8a6bdc64d41be32004d2efa7"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.721761+00:00"
+  },
+  {
+    "index": 6447,
+    "bank_index": 352,
+    "state_index": 0,
+    "image_id": 47121,
+    "position": 1291,
+    "norm": 0.20101530454790342,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_352.pt",
+    "sha256": "e695d80cfa6210f704ff63d3b3e47d7018f0eab87da11a18f7a6af14eeaad573",
+    "tensor_hashes": {
+      "q": "8ef15a55d10617dc4600dbdf48b6d421f7dce1307d96a0bc3b4386bc24ce7f3d",
+      "g": "0d93f0ffc88a929d4c9ff60df40e3ed958401b056ac74d1bb42e0a07e8410247",
+      "v1": "3b2ee68600610790fbf9efbdf4782061dc816040ffdb7746ac11e8c47f52d726",
+      "c1": "747166f8487723637f0cda26da68212e50bb26ee0feea07817ce13c4a940dff4",
+      "y0": "9c0f2bb53ae53b579d47af6e5e651a9547cc741f3e5005de677274643a194507",
+      "y1": "c1f515295b974d9471c19b2d5cc2cf302f8ba9f460bf01f082ebbf3e314cc8fb",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717",
+      "detail": "3809bc4891a6d15d66b867ee09f4865e2715acbb18d16a343c4df95c7ee5d6e9",
+      "v_gated": "3b2ee68600610790fbf9efbdf4782061dc816040ffdb7746ac11e8c47f52d726",
+      "y_gated": "c1f515295b974d9471c19b2d5cc2cf302f8ba9f460bf01f082ebbf3e314cc8fb"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "9c0f2bb53ae53b579d47af6e5e651a9547cc741f3e5005de677274643a194507",
+      "detail": "3809bc4891a6d15d66b867ee09f4865e2715acbb18d16a343c4df95c7ee5d6e9",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "39cc05f354d76d98d4e4db7d2da211969b1314c8ed578db86554fa86ef723717"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.826684+00:00"
+  },
+  {
+    "index": 6471,
+    "bank_index": 353,
+    "state_index": 0,
+    "image_id": 47121,
+    "position": 1315,
+    "norm": 0.09224389701911356,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_353.pt",
+    "sha256": "a601204c07e2361fbb8d939ea9c42fd7715c9bd4aca404e7ab097dafd3aa4f89",
+    "tensor_hashes": {
+      "q": "a7a58f952d7cc50587d870b61a6caf362190be3ec81c54e722eaf054312ad1a3",
+      "g": "00efc99cfbfc98482e20e4fa007c762a45e05bb0e9ccc4aea2db47f037cc3d57",
+      "v1": "8bf15bb730cba8c200a1cc0ef3b55056b68b7730a58f410915f8a2136c45c793",
+      "c1": "6bff6dcf0c57e962adc427c2c5f6abe406004551be5d5a9ead7d468eddff0b4f",
+      "y0": "bb4449ede9f267d80f9aa3186325abf23b8bf6856a12d8888e734c2046a26ed4",
+      "y1": "36918aeddb8a347bb9cfca2e26b2c3fa8c9ef8c98bf33e1b22b7981f7d0a86a6",
+      "mask": "e708a71ae6174556989c0789f7152361d8fcc22183dc97f306589b36441a28ff",
+      "detail": "0bfaf6af19b9cdef577912a4560446a7c120792830490b949557815f345e14ca",
+      "v_gated": "8bf15bb730cba8c200a1cc0ef3b55056b68b7730a58f410915f8a2136c45c793",
+      "y_gated": "36918aeddb8a347bb9cfca2e26b2c3fa8c9ef8c98bf33e1b22b7981f7d0a86a6"
+    },
+    "active_regions": 3,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "bb4449ede9f267d80f9aa3186325abf23b8bf6856a12d8888e734c2046a26ed4",
+      "detail": "0bfaf6af19b9cdef577912a4560446a7c120792830490b949557815f345e14ca",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "e708a71ae6174556989c0789f7152361d8fcc22183dc97f306589b36441a28ff"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:11.931343+00:00"
+  },
+  {
+    "index": 6495,
+    "bank_index": 354,
+    "state_index": 0,
+    "image_id": 47121,
+    "position": 1339,
+    "norm": 0.08476960906328321,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_354.pt",
+    "sha256": "adc9c0a1aa9c840c2445dda605014801766cd20e9a136c34345bd6ff530f8183",
+    "tensor_hashes": {
+      "q": "2b26e234ce4146dd3fabb588e00c2ef435e6371e43d89943b0032b35a0b698a2",
+      "g": "5682f5f0caffe4c57d8b33383f1e83bf64b4b765d361213d2f9a7ea53bbd95ea",
+      "v1": "68a056552632a6f72c104e851cd7a5a62851e4fab06b85fd2fb4fb4d125d78c8",
+      "c1": "e5d84dfe77f29169fb7864da371259ea0a6486366c0f709622bfa7278a308c72",
+      "y0": "73ec8cd127a86ed61418c7c62da421191f3fd659784ac916e003f7b17bbdf53b",
+      "y1": "12c20df9d0740cad94005d3f5eb6ba4df690466edc3671db1161fbacc36dbda2",
+      "mask": "8abb524f23f82f273c3dece2fdcf002e9daa41c8ba1b8d5191282538ec570844",
+      "detail": "1fa3b0af62d6d0010b606c828f31bece79bf0a30cf828ed7737e72c66a896624",
+      "v_gated": "68a056552632a6f72c104e851cd7a5a62851e4fab06b85fd2fb4fb4d125d78c8",
+      "y_gated": "12c20df9d0740cad94005d3f5eb6ba4df690466edc3671db1161fbacc36dbda2"
+    },
+    "active_regions": 2,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "73ec8cd127a86ed61418c7c62da421191f3fd659784ac916e003f7b17bbdf53b",
+      "detail": "1fa3b0af62d6d0010b606c828f31bece79bf0a30cf828ed7737e72c66a896624",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "8abb524f23f82f273c3dece2fdcf002e9daa41c8ba1b8d5191282538ec570844"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:12.035091+00:00"
+  },
+  {
+    "index": 6884,
+    "bank_index": 375,
+    "state_index": 0,
+    "image_id": 47801,
+    "position": 1363,
+    "norm": 0.0,
+    "acted": false,
+    "tau": 0.03145366138856755,
+    "file": "bank_375.pt",
+    "sha256": "1c62056a924ab81d09dcce49cef94961da58aea5c9a0ccb4cc6cf4d868e0d5fc",
+    "tensor_hashes": {
+      "q": "0643691f4c5e78e9d12bdfe2cbcbf01fe87815b03165b039045beb3a61d607e2",
+      "g": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "v1": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "c1": "d58201a30b35a60612306667b083ca4dfaf9efa107386fff36188e42c34c3c19",
+      "y0": "cf33a8be91a6389d3c7eb47fcc06b43ccce1e90a63fc58b5613f5846cda983b5",
+      "y1": "cf33a8be91a6389d3c7eb47fcc06b43ccce1e90a63fc58b5613f5846cda983b5",
+      "mask": "f627ca4c2c322f15db26152df306bd4f983f0146409b81a4341b9b340c365a16",
+      "detail": "491406b3f11649dc3af03079a9c7d84c4ea4cd3b0bd60cf8922ff79d086a19d7",
+      "v_gated": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y_gated": "cf33a8be91a6389d3c7eb47fcc06b43ccce1e90a63fc58b5613f5846cda983b5"
+    },
+    "active_regions": 0,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "cf33a8be91a6389d3c7eb47fcc06b43ccce1e90a63fc58b5613f5846cda983b5",
+      "detail": "491406b3f11649dc3af03079a9c7d84c4ea4cd3b0bd60cf8922ff79d086a19d7",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "f627ca4c2c322f15db26152df306bd4f983f0146409b81a4341b9b340c365a16"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:12.094452+00:00"
+  },
+  {
+    "index": 6885,
+    "bank_index": 376,
+    "state_index": 0,
+    "image_id": 47801,
+    "position": 1364,
+    "norm": 0.045844865479968494,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_376.pt",
+    "sha256": "11fd19d1bc0e54a73ba30c55eb447a1f372b4d6223f0ec99c95541bb657a69e9",
+    "tensor_hashes": {
+      "q": "b3497f0c393442893c1c358ecb81a5e1e3f3ba1e704a24139d2a6b0c7f7e2bff",
+      "g": "dc617ebd6e2d719c55a2dd2d1cc6c37641bf9757300f4a752c5e12e9ea5421dc",
+      "v1": "76a6a425a6ba814cd0ed5f053fca1b9ca0872a3a6fd361c766aacd559b7d2924",
+      "c1": "3cc94abb1cf814486f6d677b49845166485a9b48907d980bfc43eb938be46b04",
+      "y0": "7d15881b94b4505a1d81dd395ae0debd79b8836f2c39bdc0165eeff6edf0e0b0",
+      "y1": "7eac364dc59901131277b5ce9ceccb0ee4878cb30ffdc3e606154707cb6af2db",
+      "mask": "352e7f033c4e02adb04b3d62717bb32ca810bfba68ee204e34370687276301a2",
+      "detail": "0dd6a910b8b902d4eac997e85d2ff652cc94697105bf54e5c851b479e10dac72",
+      "v_gated": "76a6a425a6ba814cd0ed5f053fca1b9ca0872a3a6fd361c766aacd559b7d2924",
+      "y_gated": "7eac364dc59901131277b5ce9ceccb0ee4878cb30ffdc3e606154707cb6af2db"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "7d15881b94b4505a1d81dd395ae0debd79b8836f2c39bdc0165eeff6edf0e0b0",
+      "detail": "0dd6a910b8b902d4eac997e85d2ff652cc94697105bf54e5c851b479e10dac72",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "352e7f033c4e02adb04b3d62717bb32ca810bfba68ee204e34370687276301a2"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:12.171416+00:00"
+  },
+  {
+    "index": 6909,
+    "bank_index": 377,
+    "state_index": 0,
+    "image_id": 47801,
+    "position": 1388,
+    "norm": 0.3570839797760837,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_377.pt",
+    "sha256": "60586441c164075a6c064ac073ed484b1be4a62888234f01461f7d4fc798d20d",
+    "tensor_hashes": {
+      "q": "aa7b0b932a8d7567b7f05cce5ddf34f8b145c6dfdae714d2d6a489228a91f824",
+      "g": "ee19c869e43bb047cfeb077579972e128adc174ffa8630d371edcc0ddf4d2df7",
+      "v1": "4dba633483015855f5ca0c1292309e371d0b8bdb68070ebc9defdaececda03f3",
+      "c1": "bf4f789b52c1aea15f1fb1dd80e0a5fab61d9328b3b191a87f5febf1e9c9a04f",
+      "y0": "31c64d31b55f15697d0eaa02c2e9ae9e5d5d369bef84d1c4545151d12bd4f676",
+      "y1": "a274090287ef961c962a2d65d9b684b924bd61e94e52d3bc74dc515dcdf4dafc",
+      "mask": "352e7f033c4e02adb04b3d62717bb32ca810bfba68ee204e34370687276301a2",
+      "detail": "08b343b496668f2e88ea8f870e98c19ac7443c0b2dbffa5f6d1ed5d40c45131a",
+      "v_gated": "4dba633483015855f5ca0c1292309e371d0b8bdb68070ebc9defdaececda03f3",
+      "y_gated": "a274090287ef961c962a2d65d9b684b924bd61e94e52d3bc74dc515dcdf4dafc"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "31c64d31b55f15697d0eaa02c2e9ae9e5d5d369bef84d1c4545151d12bd4f676",
+      "detail": "08b343b496668f2e88ea8f870e98c19ac7443c0b2dbffa5f6d1ed5d40c45131a",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "352e7f033c4e02adb04b3d62717bb32ca810bfba68ee204e34370687276301a2"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:12.253846+00:00"
+  },
+  {
+    "index": 6933,
+    "bank_index": 378,
+    "state_index": 0,
+    "image_id": 47801,
+    "position": 1412,
+    "norm": 0.16634436317588425,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_378.pt",
+    "sha256": "4c05c6d51d7733875d3d3820005b81122dc751b268ad66abf153b54bf6ebd643",
+    "tensor_hashes": {
+      "q": "240610ab24bc73c6f9016f7340ac88ce46d85169e8021b9dd998ca26bd36d901",
+      "g": "4c2ee7209042f44b6b6f5dfec9388968145bb9b32277a1d62c352cf635729b73",
+      "v1": "9fa9db1de5de186ef8b1f37e9e5d3b16662a0dc9d799c5fbde4e2f140699da10",
+      "c1": "2d27fbfb0dfd33f5cc585830a7aeccf67a834e2a6239a5fe5955261b007b1d2d",
+      "y0": "fd4b97c4f44b8e8d30bcb4b31410e5709d363d7e10bfdf37a2bb189f8c6a2b7e",
+      "y1": "35ba7c3bb60f7011a27ecadfd03cec5513f28944da71d4873e25ce5048a8d055",
+      "mask": "352e7f033c4e02adb04b3d62717bb32ca810bfba68ee204e34370687276301a2",
+      "detail": "a3820111d6451244cc8c3e839d67c1e9b25e22ccfb78486a1534052973e669d5",
+      "v_gated": "9fa9db1de5de186ef8b1f37e9e5d3b16662a0dc9d799c5fbde4e2f140699da10",
+      "y_gated": "35ba7c3bb60f7011a27ecadfd03cec5513f28944da71d4873e25ce5048a8d055"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "fd4b97c4f44b8e8d30bcb4b31410e5709d363d7e10bfdf37a2bb189f8c6a2b7e",
+      "detail": "a3820111d6451244cc8c3e839d67c1e9b25e22ccfb78486a1534052973e669d5",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "352e7f033c4e02adb04b3d62717bb32ca810bfba68ee204e34370687276301a2"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:12.335507+00:00"
+  },
+  {
+    "index": 6957,
+    "bank_index": 379,
+    "state_index": 0,
+    "image_id": 47801,
+    "position": 1436,
+    "norm": 0.12752382302574228,
+    "acted": true,
+    "tau": 0.03145366138856755,
+    "file": "bank_379.pt",
+    "sha256": "0a40292642c690f599ad47d8bc8bcbc52b9f1f34627f77c540d8a8825f7af401",
+    "tensor_hashes": {
+      "q": "92fadec6fa5a6fe1b8d87562396429e1de32d7d02488f85b21fbc87b3776ee9c",
+      "g": "072c272b38640b2996778d2b70a2ffa47a3227dd110f9d0c1d6f7e54eac12de0",
+      "v1": "961e340e8c8a890f438e9e3bdd2378e15e334152fc7fc718cb4e7051849ec340",
+      "c1": "4635ba64fdfe8b7938bc063f2d1862a511693f2561a41caaca9af23dd28c6aa7",
+      "y0": "73965fca22f687144664e289bf2cc7d00b2ec669362f8b5e344b642107a255dd",
+      "y1": "307fb3b4aef5e358dc4c90843d5a61e9d6970261098ea4149cd2944d9b33322e",
+      "mask": "352e7f033c4e02adb04b3d62717bb32ca810bfba68ee204e34370687276301a2",
+      "detail": "8f2ce9f283c0fb8b1d1c70b29d99496316fa9c1774a52749214d9e8ed6ba6c16",
+      "v_gated": "961e340e8c8a890f438e9e3bdd2378e15e334152fc7fc718cb4e7051849ec340",
+      "y_gated": "307fb3b4aef5e358dc4c90843d5a61e9d6970261098ea4149cd2944d9b33322e"
+    },
+    "active_regions": 4,
+    "state_before": {
+      "v": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+      "y0": "73965fca22f687144664e289bf2cc7d00b2ec669362f8b5e344b642107a255dd",
+      "detail": "8f2ce9f283c0fb8b1d1c70b29d99496316fa9c1774a52749214d9e8ed6ba6c16",
+      "grid": "5ca758f235810fcaebc311b6a3b7bb82fe6cd9a56a684b37d9af96519a1000e4",
+      "mask": "352e7f033c4e02adb04b3d62717bb32ca810bfba68ee204e34370687276301a2"
+    },
+    "detail_action_steps": 1,
+    "optimizer_defaults": {
+      "lr": 0.05,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "persisted_utc": "2026-09-18T17:34:12.403168+00:00"
+  }
+]
