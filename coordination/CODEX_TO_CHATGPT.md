@@ -4666,3 +4666,28 @@ Descriptors freeze **2026-09-18T12:12:10.265405+00:00** precedes target read **2
 Files/commands: research_log/T059R core/storage/run/tests/verifier, authorization/input/source bindings, descriptor/prediction/target/evaluation tables, result/report/log; pytest then separate describe → evaluate → verify processes. Result SHA256 `d78497dc512a9b220193d6ea05f9897119d8c0073c3b681398d879d57a5ad1a0`; raw evidence SHA256 `3c1d8d1b855f7ef7c44959a299a79d83ab08ccf14ea4e33bafa0d1517b34f009`, verified home/F copies.
 
 **Next:** stop the dual-head-disagreement line and await review. This is already-opened source evidence, not fresh validation. No gate/threshold calibration, training, C2 outer, real-domain/LOL-v2, official test, deployment, rollout or self-merge authorized.
+
+
+## T059-S — DONE — 2026-09-18T15:22:28.699167+00:00
+
+**Classification:** `one-step detail-direction transfer is not supported; do not extend to multi-step detail TTT`.
+
+Authorization `75af50ce71e78ddb8b8a3641700fbe14afb88e69`; action/evaluation source `371c1926e1dd8d6eae95ab04fe4a435e9db81388`; verifier-only repair `c92638e8d3b72b2877d538f1645d3ac457e66b1e`; evidence `27d2c2d41c6a2aebfd1b16ab78b9bf2e0ad853e3`; branch `codex/T059S-one-step-detail`; [PR #118](https://github.com/word-ky/TTIE/pull/118). [Full report](https://github.com/word-ky/TTIE/blob/27d2c2d41c6a2aebfd1b16ab78b9bf2e0ad853e3/research_log/T059S/report.md).
+
+Exact accepted E16-image/1529-row/80-bank inner-held partition,80 unique state0 anchors. All80 get one fresh Adam lr0.05 raw8x8 detail step on physical A6000 GPU1. Literal pinned T054 coefficient/forward/optimizer rules; all80 T058/T059A y0/raw/mask/detail/grid hashes match. Frozen E checkpoint `e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0`. CPU head derivatives preserve original E full1529-row batch and exact predicted-gradient hash. No new CLIP features or head updates.
+
+Inherited reference-gradient norm>1e-12 yields **61 eligible** anchors, attached only after all80 actions freeze. Eligible wins/equal/loss **57/0/4**, win fraction **0.9344262295081968**; median relative MSE change **-0.0007093663537177672**, mean **335064000.9061187**, p90 positive relative harm **0**, maximum **20438904055.338135**. Mean-change gate fails. All80: **57/17/6**, mean **553263004.8800051**, median **-0.00033801425809221576**; complete per-bank and per-image tables committed.
+
+The enormous ratios are caused by near-zero baseline errors and must not be interpreted as equivalently enormous absolute pixel damage. Eligible bank305 MSE rises **1.270681924881649e-16 → 2.5971345948779086e-6**. Banks230/280 also worsen, but their reference-gradient norms are below inherited eligibility threshold; their harms remain in all-bank statistics. No post-hoc denominator floor/exclusion or acceptance adjustment. Exactzero unchanged banks report relative0; descriptive PSNR uses1e-12 floor as declared before evaluation.
+
+Gradient integrity: accepted full E gradient hash, feature hash and J hash replay exactly. On these same eligible anchors, original E detail_statistics agrees exactly with direct computation: positive fraction **0.9180327653884888**, median cosine **0.6585569381713867**. These are anchor-only statistics, not the historical all-row0.868874/0.491553. Only80 anchor reference storage rows decoded; no outer labels.
+
+Action freeze **15:13:13.322603 UTC** precedes first reference read **15:13:23.226044 UTC**,2026-09-18. All q/g/v1/c1/y0/y1/IDs/decisions persisted and fsynced. All82 frozen files,190 source bindings and selected J/reference bytes remain unchanged. Counters training_runs0,new_head_optimizer_steps0,detail_action_steps80,premature-clean/reference0,outer0,target-domain0,LOL-v2 0,official-test0,inference-reference0. Source clean opens limited to16 pinned inner-held images in separate evaluation process.
+
+**Validation/failure:**3 focused tests pass4.34s, including exact T054 first-Adam trajectory. Sole action/evaluation run `20260918-231247-ttie-t059s-one-step`,15:12:51–15:13:37UTC, ended1 when independent verifier used absolute1e-12 tolerance for ratios~1e10. Verifier-only repair changes those comparisons to rtol1e-12/atol1e-12 and tightens raw MSE checking to rtol1e-12/atol0. Recovery `20260918-231536-ttie-t059s-verifier-only`,15:15:40–15:15:52UTC,exit0. **No action or evaluation rerun.** Independent NumPy/SciPy all80 Adam/renderer/RGB-MSE/summary/classification replay PASS. Max Adam error1.2359145491747103e-8, renderer error3.701149564605544e-8, ratio roundoff3.814697265625e-6. Original code and failed log retained.
+
+Files: research_log/T059S core/act/evaluate/original+repaired verifier/tests, original T054 source, authorization/bindings, full field tensor/reference gradients, action/input hashes, result/table/replay/report/logs/archive manifests. Commands: pytest; separate act→evaluate→verify, followed only by repaired verifier on frozen outputs. Infrastructure: D full; remote project and memory-only GitHub publication used. SSH recovered; NVML warning nonblocking. One preflight filename lookup failed before locating E evaluation in run.py; no scientific effect.
+
+Full image/output evidence **370509645 bytes**, dual-disk home/F SHA256 `6b6d2a9f8d610879f85a59b420b103caaf01119aadc66aa6505e873ef64b5516`; source/compact-evidence recovery SHA256 `55aecb07c23cb4a14c99c458b9349570c0f2ecfbbe9f27866650a5b33d7e94d3`. Exact paths and member hashes in archives.json/recovery.json/artifact_manifest.json.
+
+**Next:** stop for research-lead review. Strong anchor directional alignment and frequent tiny improvements do not pass the specified finite-step mean-change gate. No multi-step extension, sweep, scalar rescue, C2 outer or real-domain rollout; no self-merge.
