@@ -1,0 +1,24 @@
+import pathlib,json,argparse,torch
+from research_log.T059J.run import setup as prior_setup,G,I,ROOT,EXPECTED,SCALAR_SHA,sha,utc,write,save,tensor_only
+from research_log.T059J.core import floor
+from research_log.T059K.core import oracle,classify,LIMIT
+J=ROOT/'runs/20260918-075858-ttie-t059j-oracle/artifacts/T059J'
+JHASH={str(J/'result.json'):'9eb63becf9374f9dc6bc041ec0da285698663b40c495c6309ffa2ccef5a8b081',str(J/'donor_values.pt'):'9700b4732c0e4a8e222bbe6c72b98936a2f349b7091c8ec3d389cffd9abc4b78'}
+def setup():
+ old,maps,gm,prior=prior_setup();b=json.loads(pathlib.Path('research_log/T059K/source_binding.json').read_text());assert all(sha(pathlib.Path(n))==h for n,h in b.items());assert {n:sha(pathlib.Path(n)) for n in JHASH}==JHASH;j=json.loads((J/'result.json').read_text());assert j['statistics']['train']['oracle_floor_huber']==.05390169471502304 and j['statistics']['heldout']['oracle_floor_huber']==.21286551654338837
+ return old,maps,gm,b,j
+
+def freeze(out):
+ old,maps,gm,b,j=setup();out.mkdir(parents=True,exist_ok=False);opened=utc();t,receipt=tensor_only(G/'evaluation_rows.pt','train','target');pool={k:gm['train'][k] for k in ['global_index','image','x']};pool['target']=t;assert pool['x'].shape==(4357,28) and len(pool['image'].unique())==48;assert torch.equal(pool['global_index'],pool['global_index'].sort().values);save(out/'candidates.pt',pool)
+ write(out/'candidates_persisted.json',dict(label='REFERENCE_ORACLE_ONLY',training_scalar_opened_utc=opened,training_scalar_receipt=receipt,persisted_utc=utc(),sha256=sha(out/'candidates.pt'),candidate_rows=4357,candidate_images=48,held_scalar_reads=0,source_binding=b,accepted_inputs={**EXPECTED,**JHASH},full_mixed_scalar_SHA_deferred_until_held_evaluation=True));print('CANDIDATES_FROZEN',utc())
+def evaluate(out):
+ old,maps,gm,b,j=setup();marker=json.loads((out/'candidates_persisted.json').read_text());assert sha(out/'candidates.pt')==marker['sha256'];opened=utc();assert marker['persisted_utc']<opened;before={**EXPECTED,**JHASH,str(G/'evaluation_rows.pt'):SCALAR_SHA};assert all(sha(pathlib.Path(n))==h for n,h in before.items());pool=torch.load(out/'candidates.pt',map_location='cpu',weights_only=True);assert all(torch.equal(pool[k],gm['train'][k]) for k in ['global_index','image','x']);table=torch.load(J/'donor_values.pt',map_location='cpu',weights_only=True);pred=torch.load(I/'predictions.pt',map_location='cpu',weights_only=True);stats={};rows={};replay={};access=[];assert torch.cuda.is_available()
+ for s in ['train','heldout']:
+  t,rec=tensor_only(G/'evaluation_rows.pt',s,'target');access.append(rec);oldp,rec=tensor_only(G/'evaluation_rows.pt',s,'pred');access.append(rec);assert torch.equal(table[s],pool['target'][maps[s]['index']]);assert torch.equal(oldp,table[s][:,0]);assert torch.equal(pred[s],table[s].mean(1))
+  if s=='train':assert torch.equal(t,pool['target'])
+  g=float(torch.nn.functional.huber_loss(oldp,t));i=float(torch.nn.functional.huber_loss(pred[s],t));jf,_=floor(table[s],t);jh=jf['oracle_floor_huber'];assert g==old['original_G_Huber_exact'][s] and i==old['consensus_huber'][s] and jh==j['statistics'][s]['oracle_floor_huber'];replay[s]=dict(G=g,I=i,J=jh)
+  stats[s],rows[s]=oracle(pool,gm[s],t,maps[s]['index'],loo=s=='train');assert not (rows[s]['image']==gm[s]['image']).any()
+ assert access[0]['sha256']==marker['training_scalar_receipt']['sha256'];after={n:sha(pathlib.Path(n)) for n in before};assert before==after and sha(out/'candidates.pt')==marker['sha256'];assert all(sha(pathlib.Path(n))==h for n,h in b.items());save(out/'oracle_rows.pt',rows)
+ r=dict(status='DONE',label='REFERENCE_ORACLE_ONLY',classification=classify(stats['train']['global_oracle_huber'],stats['heldout']['global_oracle_huber']),statistics=stats,threshold=LIMIT,margins={s:LIMIT-stats[s]['global_oracle_huber'] for s in stats},exact_baseline_replay=replay,inputs_before=before,inputs_after=after,candidate_marker=marker,held_scalar_opened_utc=opened,source_binding=b,scalar_access=access,oracle_rows_sha256=sha(out/'oracle_rows.pt'),gpu=torch.cuda.get_device_name(0),physical_gpu=1,distance_percentile_definition='(rank-1)/(allowable_candidate_count-1), rank1-based; squared Euclidean ties by canonical global row ID',counters={k:0 for k in ['training_runs','optimizer_steps','model_forwards','new_source_image_opens','new_feature_forwards','reference_gradient_recomputations','detail_gradient_tensor_reads','outer_supervision_reads','target_domain_access','lolv2_access','official_test_access','inference_reference_leakage']},completed_utc=utc());write(out/'result.json',r);print(json.dumps({k:r[k] for k in ['classification','statistics','margins']}))
+if __name__=='__main__':
+ a=argparse.ArgumentParser();a.add_argument('stage',choices=['freeze','evaluate']);a.add_argument('--out',type=pathlib.Path,required=True);a=a.parse_args();(freeze if a.stage=='freeze' else evaluate)(a.out)
