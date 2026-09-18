@@ -1,0 +1,172 @@
+{
+  "status": "DONE",
+  "classification": "bank-relative feature displacement is not even source-LOO consistent under fixed 1-NN; stop",
+  "statistics": {
+    "train": {
+      "rows": 4357,
+      "huber": 0.09940164536237717,
+      "margin": -0.0228931475430727,
+      "absolute_baseline": 0.06445551663637161,
+      "change_from_absolute": 0.034946128726005554,
+      "queries_with_ties": 482,
+      "maximum_ties": 235,
+      "candidate_count_min": 4237,
+      "candidate_count_max": 4306
+    },
+    "heldout": {
+      "rows": 1529,
+      "huber": 0.23254923522472382,
+      "margin": -0.15604073740541935,
+      "absolute_baseline": 0.23172274231910706,
+      "change_from_absolute": 0.0008264929056167603,
+      "queries_with_ties": 145,
+      "maximum_ties": 240,
+      "candidate_count_min": 4357,
+      "candidate_count_max": 4357
+    }
+  },
+  "threshold": 0.07650849781930447,
+  "marker": {
+    "started_utc": "2026-09-18T03:32:52.578192+00:00",
+    "anchors_persisted_utc": "2026-09-18T03:32:52.595582+00:00",
+    "persisted_utc": "2026-09-18T03:32:53.228407+00:00",
+    "anchors_sha256": "517699e3ed0c1668ce179c734c41e260d0ef74706ab567a20c38b868caf18a14",
+    "maps_sha256": "5e92ba354b70e5bbc66d76bab663bc63de997780f114f6cfc1922e9c99a4ddfe",
+    "tensor_hashes": {
+      "train": {
+        "anchor": "b070dda66677d5e28fe80cc6dd34ec31acdf2d4920cfed842be74b264eb06c82",
+        "anchor_global": "5c9102001d848f76af32abd865553b15ccfbcf90f8a729b980d16bf9f64da424",
+        "dx": "b72acfe7c9dbb630e72f2e5b7d1a4ec62f553e34858368429f1237b55000e724"
+      },
+      "heldout": {
+        "anchor": "eeb712c2667e6879bafdc0a1fe67ca778ce48fda7151029099b09284e2de37c1",
+        "anchor_global": "3785740a0082d8e8f919f48c9bbcabf7de5fe9c622bbff987df06bdfa5ed0adc",
+        "dx": "8786d48794081784bce8b5532698485f3d421d417c3d9a16eb0551a5783df5ce"
+      }
+    },
+    "bank_counts": {
+      "train": 240,
+      "heldout": 80
+    },
+    "one_state0_anchor_per_bank": true,
+    "source_scalar_reads": 0,
+    "inputs": {
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-105152-ttie-t059k-global/artifacts/T059K/result.json": "b0cdbf1d630daaab08edf1f0e12e9358b3aeeaa2fdff2e9cd6a284b5174de910",
+      "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-023558-ttie-t059e-relative/artifacts/T059E/split.json": "d44f86b7d1920f8f5efc386888ded4c65f543717165b030978f40ad595956621"
+    },
+    "source_binding": {
+      "research_log/T059I/core.py": "e110b9f79be5555410c77daa0928b7b15c7ebd9f64199b56e2b1c58c66ccc5c8",
+      "research_log/T059G/core.py": "7ab446c2cb5cd08439a0226c2fd5572f805afc2cbe8b5c32f75c8ea7ba2a6742",
+      "research_log/T059L/run.py": "499d8d8b19a230659f6b061b291970f923b3a573bebb30b2c4c65d4538dc83f9",
+      "research_log/T059L/test_core.py": "313c35ae411a60946e121e6fb1d04fa13e1b24fc66a8a88ba76a1e51af7221da",
+      "research_log/T059L/verify.py": "a84f0c7d5a45c2fa02ac372c0d1dbcca637e0d49fb9f528942167913ae0605b9",
+      "research_log/T059L/core.py": "228ac8617ca15e447fc3afc0605fbcb931767576f18503ed786069836bbe3024",
+      "research_log/T059L/authorization.md": "25c5743f4e444ba672470d34ab5154d36128a8df8ffafca4546a58f1824da555",
+      "research_log/T059D/core.py": "ed955bc45890e3041f96b3e872db5a5201d1661bec2c821d5bfb867285c79ce9"
+    },
+    "accepted_source_files": {
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-050258-ttie-t059g-nn/research_log/T059G/authorization.md": "eedcff2bc1269b5a884f595ef06134c0c2b0b2631d6ee4f6a80a88d2827f590c",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-050258-ttie-t059g-nn/research_log/T059G/core.py": "7ab446c2cb5cd08439a0226c2fd5572f805afc2cbe8b5c32f75c8ea7ba2a6742",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-050258-ttie-t059g-nn/research_log/T059G/run.py": "acbedcb3f09d5f16329d69c58abd713346b6d9759bf8ba29b9dacdf0f796880a",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-050258-ttie-t059g-nn/research_log/T059G/test_core.py": "389aa020f5e37a7158685b2a997ee9c6d21bfc921c7ac10ee539321ed2535967",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-050258-ttie-t059g-nn/research_log/T059G/verify.py": "63353272fcf6d69f2ca0f64d182a3f1d508f791c065354eaa418231318bb384d",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-050258-ttie-t059g-nn/research_log/T059D/core.py": "ed955bc45890e3041f96b3e872db5a5201d1661bec2c821d5bfb867285c79ce9",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059I/core.py": "e110b9f79be5555410c77daa0928b7b15c7ebd9f64199b56e2b1c58c66ccc5c8",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059K/run.py": "32c8d38d0a7a5663d28f10a41f75a0b25f4bf6686f300d274e1ef91901063638",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059K/test_core.py": "4c3af23a5c41abd8270b58c6a2ca3ddbde00478b0eeb0012a02db26f2d01981f",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059K/verify.py": "5d359a22ac73b0961e8d8570cc609c4431993987339385d80c31722cc8c98364",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059K/core.py": "7109f8ab2e5b4c3bbdee10e73ae5af85bf3ddda9687408afbc8a4052e762b89c",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059K/authorization.md": "23435f17351a915f6896291160cbd9247ac1fd058337ac2b02cdf0d7c6a2cc9d",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059J/run.py": "c0e52dbb3cea54fdd3e90428a3e161fd1f36e9cbadea9fd01e83499d28247059",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059J/test_core.py": "09f08349741655db9d1c7a8b28546229d0151c2b6b05c1d8d39ac659dbbc2382",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059J/source_binding.json": "5d1220e78600ae4256911240b5e8565b3694ebde04001a95e327ac3e6b15e06f",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059J/verify.py": "ae6d1d861d39c7fbe663f00c6643907d1e939cfc8a580ca8b6d1ca5f6ea5b9f3",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059J/core.py": "96483a07bed060939a0adbf84f8321a318bfbacffa3acfb3a3e314031ba5e9dd",
+      "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-092440-ttie-t059k-global/research_log/T059J/authorization.md": "414238b43b87f359091717af73e8b209cec303953222fd47edaef923190450cf"
+    },
+    "gpu": "NVIDIA RTX A6000",
+    "physical_gpu": 1
+  },
+  "scalar_opened_utc": "2026-09-18T03:32:54.915457+00:00",
+  "scalar_receipts": [
+    {
+      "side": "train",
+      "key": "target",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 18496,
+      "bytes": 17428,
+      "sha256": "a9bebf05f1c1d75cc283e9a0d67c2addf973b1c6ad5962f3636d3f2ce2bc9fc5",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "train",
+      "key": "pred",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 960,
+      "bytes": 17428,
+      "sha256": "0d26c1af3b2a42a120364d681ef1436d6a79893ddfacc51833e1e2c86fca70de",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "heldout",
+      "key": "target",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 2273280,
+      "bytes": 6116,
+      "sha256": "4d01709be268b13f4936db2b2af0428e72a7acb11a0596c7d59ce63d018186bd",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    },
+    {
+      "side": "heldout",
+      "key": "pred",
+      "file": "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt",
+      "offset": 2267072,
+      "bytes": 6116,
+      "sha256": "3a3c1c18b03a94516e9d15825c0e262105390a1d303156e6b1c4512124e009c4",
+      "metadata_sha256": "e92c2ffcc18db86e3739891866412674a23f80bc8adaadfbb8d321d8fe82fc97"
+    }
+  ],
+  "inputs_before": {
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-105152-ttie-t059k-global/artifacts/T059K/result.json": "b0cdbf1d630daaab08edf1f0e12e9358b3aeeaa2fdff2e9cd6a284b5174de910",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-023558-ttie-t059e-relative/artifacts/T059E/split.json": "d44f86b7d1920f8f5efc386888ded4c65f543717165b030978f40ad595956621",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt": "671a9b3afc74f2ffecab4c0359dbec902942a43d166f31af1cfd3d7cf763cf1b"
+  },
+  "inputs_after": {
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/maps.pt": "a40c269baed073499defcfb651600cc7ff852cc47134cc2cd4e5c2283bb807c4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/result.json": "46177cfda13e3c00323b50c837981996aa313237de328aa4f5c632b3c95814d4",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-105152-ttie-t059k-global/artifacts/T059K/result.json": "b0cdbf1d630daaab08edf1f0e12e9358b3aeeaa2fdff2e9cd6a284b5174de910",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-023558-ttie-t059e-relative/artifacts/T059E/split.json": "d44f86b7d1920f8f5efc386888ded4c65f543717165b030978f40ad595956621",
+    "/home/wenchang/asdasdsad/wjq/TTIE/runs/20260918-050302-ttie-t059g-nn/artifacts/T059G/evaluation_rows.pt": "671a9b3afc74f2ffecab4c0359dbec902942a43d166f31af1cfd3d7cf763cf1b"
+  },
+  "evaluation_rows_sha256": "e4635489e7cc31aeb82a0d19f9a59e1920ea8276e100112b8a2509c8e789ac7e",
+  "source_binding": {
+    "research_log/T059I/core.py": "e110b9f79be5555410c77daa0928b7b15c7ebd9f64199b56e2b1c58c66ccc5c8",
+    "research_log/T059G/core.py": "7ab446c2cb5cd08439a0226c2fd5572f805afc2cbe8b5c32f75c8ea7ba2a6742",
+    "research_log/T059L/run.py": "499d8d8b19a230659f6b061b291970f923b3a573bebb30b2c4c65d4538dc83f9",
+    "research_log/T059L/test_core.py": "313c35ae411a60946e121e6fb1d04fa13e1b24fc66a8a88ba76a1e51af7221da",
+    "research_log/T059L/verify.py": "a84f0c7d5a45c2fa02ac372c0d1dbcca637e0d49fb9f528942167913ae0605b9",
+    "research_log/T059L/core.py": "228ac8617ca15e447fc3afc0605fbcb931767576f18503ed786069836bbe3024",
+    "research_log/T059L/authorization.md": "25c5743f4e444ba672470d34ab5154d36128a8df8ffafca4546a58f1824da555",
+    "research_log/T059D/core.py": "ed955bc45890e3041f96b3e872db5a5201d1661bec2c821d5bfb867285c79ce9"
+  },
+  "source_files_unchanged": true,
+  "counters": {
+    "training_runs": 0,
+    "optimizer_steps": 0,
+    "model_forwards": 0,
+    "new_source_image_opens": 0,
+    "new_feature_forwards": 0,
+    "reference_gradient_recomputations": 0,
+    "detail_gradient_tensor_reads": 0,
+    "outer_supervision_reads": 0,
+    "target_domain_access": 0,
+    "lolv2_access": 0,
+    "official_test_access": 0,
+    "inference_reference_leakage": 0
+  },
+  "completed_utc": "2026-09-18T03:32:54.937447+00:00"
+}
