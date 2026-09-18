@@ -12,9 +12,9 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 ## Current deployable state
 
-**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** On LOL-v2 Real development data, the accepted fixed-validation deployable base remains **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`**. T036-A common gain remains the strongest fresh-qualified deployable action expansion found so far, improving exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean on its deterministic reference-unused development cohort, but with an unresolved unsafe tail.
+**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** On LOL-v2 Real development data, the accepted fixed-validation deployable base remains **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`**. T036-A common gain remains the strongest fresh-qualified deployable action expansion found so far, improving exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean on its deterministic reference-unused development cohort, but with an unresolved unsafe tail (`29/100` PSNR regressions; worst `-5.614 dB`).
 
-No T059 matched-detail result is deployable. The official LOL-v2 Real test remains sealed.
+No T059/T060 action-transfer result is deployable. The official LOL-v2 Real test remains sealed.
 
 ## Renderer / action-family diagnosis
 
@@ -40,13 +40,29 @@ Accepted conclusions remain:
 
 Therefore the fixed one-step matched-detail integration line is **closed**. No lr/step-count/optimizer/threshold rescue on this opened cohort, no T036+detail combination, and no official-test promotion are authorized.
 
-### Current scientific interpretation after T059-Y
+## T060 action-family transfer diagnosis
 
-The useful result from T059 is not a deployable detail enhancer; it is evidence that the frozen source-trained feature-space restoration gradient can contain transferable action direction. The next scientifically cleaner question is whether that field transfers to a **more relevant low-frequency action family**.
+### T060-A — direct 8×8 spatial-exposure projection: negative
 
-Severe low-light error is dominated by illumination/exposure, while T054 detail acts mainly on local high-frequency structure. T059-Y's `+0.001408` mean SSIM but only `+0.002424 dB` mean PSNR reinforces that mismatch. T051-A provides a pre-existing, fixed 8×8 RGB-shared spatial exposure renderer with materially larger reference-only capacity and no need to invent a new action family.
+T060-A tested whether the same frozen T059-E feature-space field transfers directly into the exact T051-style 8×8 RGB-shared spatial-exposure action family on the fixed 80-anchor source outer cohort.
 
-The new branch therefore tests **action-family transfer of the same frozen energy field**, not another value model and not another detail-specific rescue.
+The experiment is scientifically admissible: all target-free `x/J_exp/q/g_hat` tensors froze before any source clean/reference read; the T051 renderer math, T059-E head/features/normalization, gate/state inputs, and cohort were pinned; no optimizer step, target-domain/LOL-v2/official-test access, or reference-derived input entered prediction; an independent analytic verifier replayed the exposure derivative/bilinear adjoint and scalar summaries.
+
+Frozen result:
+
+- nondegenerate: **`65/80 < 72/80`** → preregistered classification `spatial-exposure projection is insufficiently active`;
+- all 80 predicted norms are nonzero; the missing 15 are exactly-zero source-reference gradients, so the failure is not numerical collapse of the predicted field;
+- among the 65 nondegenerate anchors, positive-dot fraction is **`60/65 = 0.9230769`**;
+- cosine mean / median / p10 / p90 = **`0.3367 / 0.3524 / 0.0301 / 0.6649`**;
+- the median cosine is also below the fixed `0.40` directional-quality gate.
+
+Therefore the **direct full 8×8 exposure-field projection route is closed**. Do not rescue it by excluding the zero-reference anchors after the fact, changing the grid/range/interpolation, or tuning thresholds on this opened cohort. The scientific residue is narrower: T059-E appears to preserve a useful coarse descent sign across action families, but not enough spatial shape to justify a full low-frequency field rollout.
+
+### Current T060 hypothesis
+
+The remaining action-transfer question is now tied to the strongest existing deployable extension rather than to a new renderer. T036-A's Region2 **common-gain** subspace is only four active spatial coordinates, already has a materially positive fresh qualification, and is exactly where a better direction signal could potentially address the severe harmful tail.
+
+The next audit therefore compares the frozen T059-E direction against the original deployed T014/T036 energy in the exact common-gain subspace before any finite-step or real-domain integration is authorized.
 
 ## Strong baseline development anchors
 
@@ -60,13 +76,13 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 ## Information-boundary rules
 
 - Test-time adaptation and checkpoint/state selection must never consume test labels, clean/normal-light targets, reference gradients/Jacobians, oracle values, PSNR/SSIM, degradation masks/gain maps, condition IDs, annotations, or semantic image IDs.
-- A degraded-image feature/action Jacobian such as `dx/dv` or `dx/du`, computed entirely from the current degraded image/current target-free intermediate image and frozen model, is permissible; a Jacobian/gradient that depends on a clean/reference target is not.
+- A degraded-image feature/action Jacobian such as `dx/dv`, `dx/du`, or `dx/d(raw_gain)`, computed entirely from the current degraded image/current target-free intermediate image and frozen model, is permissible; a Jacobian/gradient that depends on a clean/reference target is not.
 - Validation/test outputs and decisions must be finalized and persisted before references or evaluation metrics are attached, except in explicitly isolated non-deployable source/reference diagnostics.
 - Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - External baselines admitted to the main comparison must be target-free at inference.
 - Fresh/final benchmark sets must remain isolated from model/hyperparameter selection.
-- **The official LOL-v2 Real test remains untouched through T059-Y.**
+- **The official LOL-v2 Real test remains untouched through T060-A.**
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -75,14 +91,15 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918`.
 - **Fresh-qualified deployable action extension:** T036-A common gain, `+0.9392571 dB` mean on its fresh cohort, unsafe tail unresolved.
 - **Best promoted non-deployable mechanism state:** T055-A, `24.3497922 / 0.7591279`; T056/T057 are valid but failed materiality gates.
-- **T059 matched-detail:** direction transfer is scientifically supported, but raw and T026-conditioned real-development gains are practically negligible; the integration line is closed.
+- **T059 matched-detail:** direction transfer is scientifically supported, but raw and T026-conditioned real-development gains are practically negligible; the detail integration line is closed.
+- **T060-A spatial exposure projection:** coarse sign transfer is visible, but full-field coverage/shape alignment fails the fixed audit; no finite-step spatial-exposure rollout is authorized.
 
 ## Integration note
 
-Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P through T059-Y are scientifically reviewable through their pinned source/evidence even while PRs remain open. T059-Y is PR #124.
+Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P through T060-A are scientifically reviewable through their pinned source/evidence even while PRs remain open. T060-A is PR #125.
 
 ## Current open task
 
-**T060-A — frozen-energy spatial-exposure direction transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T060-B — common-gain subspace direction audit versus deployed T014 energy** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Reuse exactly the 80 fixed source outer state-0 anchors. Keep the T059-E head/features frozen and project `q=dE/dx` through the exact T051-style 8×8 RGB-shared spatial-exposure Jacobian `J_exp=dx/du`. Freeze all target-free `x/J_exp/q/g_hat` tensors before any source clean/reference read, then compute source-only true restoration gradients for a direction-alignment diagnostic. No optimizer step, no real-development rollout, no target-domain fitting, and no official-test access are authorized in this cycle.
+Reuse the exact 80 T060-A source-outer state-0 anchors. Freeze a target-free audit set using only `any(gate.active)`, then keep EV/gamma state fixed and differentiate only the exact T036 Region2 common-gain coordinates. From one shared target-free gain Jacobian, compare the frozen T059-E predicted gain gradient against the original accepted T014/T036 energy gradient on the same anchors. Freeze all predicted gradients before any source clean/reference read; only then compute source-only true restoration gradients. No optimizer step, real-development rerun, safety-gate fitting, target-domain fitting, or official-test access is authorized in this cycle.
