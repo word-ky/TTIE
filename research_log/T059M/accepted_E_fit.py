@@ -1,0 +1,56 @@
+"""Original train_head loop; only value residual becomes bank-relative."""
+import torch
+from torch import nn
+from ttie.energy_model import EnergyHead
+from research_log.T059B.fit import dual_terms
+from research_log.T058A_tangent.core import thash
+
+def relative_value(prediction,anchor_prediction,target,anchor_target):
+    return nn.functional.huber_loss(prediction-anchor_prediction,target-anchor_target,delta=1.)
+
+def train_relative(features,mse,anchors,*,head_factory=EnergyHead,extra_loss=None):
+    # No calibration data, clean pixels, condition or image IDs are inputs here.
+    torch.manual_seed(7);torch.set_num_threads(1)
+    features=features.detach().cpu().float();target=(mse.detach().cpu().double()+1e-6).log()
+    head=head_factory()
+    with torch.no_grad():
+        head.x_mean.copy_(features.double().mean(0));scale=features.double().std(0,unbiased=False)
+        head.x_scale.copy_(torch.where(scale==0,torch.ones_like(scale),scale))
+        head.y_mean.copy_(target.mean());scale=target.std(unbiased=False)
+        head.y_scale.copy_(torch.where(scale==0,torch.ones_like(scale),scale))
+    target=(target.float()-head.y_mean)/head.y_scale
+    optimizer=torch.optim.AdamW(head.parameters(),lr=1e-3,weight_decay=1e-4)
+    generator=torch.Generator().manual_seed(7);history=[]
+    for epoch in range(100):
+        order=torch.randperm(len(features),generator=generator);total=0.;extra_total=0.
+        for batch in order.split(256):
+            x=features[batch].requires_grad_(extra_loss is not None)
+            prediction=head.standardized(x);value_loss=relative_value(prediction,head.standardized(features[anchors[batch]]),target[batch],target[anchors[batch]])
+            loss=value_loss
+            if extra_loss is not None:
+                additional=extra_loss(head,prediction,x,batch);loss=loss+additional
+                extra_total+=float(additional.detach())*len(batch)
+            optimizer.zero_grad(set_to_none=True);loss.backward();optimizer.step()
+            total+=float(value_loss.detach())*len(batch)
+        history.append(dict(epoch=epoch+1,train_huber=total/len(features)))
+        if extra_loss is not None:history[-1]['train_direction_batch_weighted']=extra_total/len(features)
+    head.zero_grad(set_to_none=True);head.eval().requires_grad_(False)
+    return head,history
+
+def train_fixed_relative(x,mse,legacy,detail,anchors):
+    batch_losses=[];initial={}
+    def factory():
+        head=EnergyHead();initial.update({k:thash(v) for k,v in head.state_dict().items()});return head
+    def extra(head,prediction,features,indices):
+        assert torch.isfinite(prediction).all()
+        losses=dual_terms(head,prediction,features,indices,legacy,detail)
+        batch_losses.append(dict(n=len(indices),legacy=float(losses[0].detach()),detail=float(losses[1].detach())))
+        return losses[0]+losses[1]
+    head,history=train_relative(x,mse,anchors,head_factory=factory,extra_loss=extra)
+    batches=(len(x)+255)//256;assert len(history)==100 and len(batch_losses)==100*batches
+    for epoch,h in enumerate(history):
+        group=batch_losses[epoch*batches:(epoch+1)*batches]
+        h['legacy_sobolev']=sum(b['n']*b['legacy'] for b in group)/len(x);h['detail_sobolev']=sum(b['n']*b['detail'] for b in group)/len(x)
+        h['total']=h['train_huber']+h['legacy_sobolev']+h['detail_sobolev']
+    assert all(torch.isfinite(v).all() for v in head.state_dict().values())
+    return head,history,initial
