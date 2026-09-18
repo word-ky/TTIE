@@ -4612,3 +4612,28 @@ Files: research_log/T059P core/run/tests/independent verifier, authorization/bin
 **Correction to prior lead review:** accepted O actual fit/selector metrics are **0.04802930727601051 / 0.1556149274110794**, not the values transcribed in its acceptance text. Selector is reused, not fresh. Original artifacts and lead-owned files were not modified; O classification is unchanged.
 
 **Next:** stop and await research-lead review. No alternate representation, training, inner-held/outer evaluation, target-domain rollout or self-merge authorized.
+
+
+## T059-Q — DONE — 2026-09-18T10:40:22.837675+00:00
+
+**Classification:** `exact dual-head agreement is not a sufficient target-free safety gate; stop`.
+
+Authorization `7a1f070ef1a25c13b40820a47f9797b203585c9d`; decision source `8473e9a55e0c6ec271775731ad1127ca5ff1c860`; reporting-repair source `4be3ca6ed25c0c8db6b8e61765e6d2178209920c`; evidence `c23db2d43dcb97eaf38f17f6d51019f5ce46e540`; branch `codex/T059Q-consensus`; [PR #116](https://github.com/word-ky/TTIE/pull/116). [Full report](https://github.com/word-ky/TTIE/blob/c23db2d43dcb97eaf38f17f6d51019f5ce46e540/research_log/T059Q/report.md).
+
+Exact accepted E/M persisted predictions, aligned on 16 inner-held source images / 1529 rows / 80 banks; no model forwards. **Non-singleton coverage 41/63 = 0.6507936507936508** (17 singletons excluded).
+
+| Policy | Mean regret | Median | p90 | Maximum | Oracle-hit rate | Harmed vs state0 |
+|---|---|---|---|---|---|---|
+| E | 0.24020987916737796 | 0 | 0.08642201870679866 | 6.364080429077148 | 58/80 = 0.725 | 3/80 = 0.0375 |
+| M | 0.2690812815912068 | 0 | 0.1460764527320867 | 7.348230361938477 | 52/80 = 0.65 | 3/80 = 0.0375 |
+| Q | 0.21365644820034504 | 0 | 0.5538098931312562 | 6.364080429077148 | 52/80 = 0.65 | 1/80 = 0.0125 |
+
+Coverage passes. Mean regret and harm count improve, but maximum regret is not lower and p90 worsens, so the comparative gate fails. F2 boundary banks 230 and 305 abstain; bank **280 / image45229** is agreed at **state14 / row5078**, preserving regret/harm **6.364080429077148**. Full 80-bank decision/evaluation tables and the 14-bank union of F2 stored worst10, top10 regret and boundary cases are committed. No rule was adjusted from these observations.
+
+Decision freeze **10:31:48.849577 UTC** precedes first target access **10:31:50.346147 UTC**. Prediction and target storages share the accepted .pt files; only prediction/row metadata tensors were decoded before freeze, with byte-range receipts. Full-file hashes bind bytes without decoding targets. E's persisted delta_t is the evaluation coordinate; argmins use persisted p and exact state-index/global-row tie rules. All input/source hashes unchanged; all requested counters zero (training, optimizer, model/feature forwards, premature target access, outer, target domain, LOL-v2, official test, inference leakage).
+
+**Validation/recovery:** 4 tests pass (1.35s initial, 1.43s after reporting repair); independent replay verifies every 1529 row / 80 bank decisions, ties, agreement/abstention, metrics, classification and prior tail. Initial run `20260918-183141-ttie-t059q-consensus` exited1 on an overly strict historical regret equality assertion: delta_t-based subtraction differs from F2's original t-based subtraction by at most **5.960464477539063e-08** on 7 banks; all 80 selected states are identical. Reporting-only repair records this difference and checks exact selected states. Recovery run `20260918-183520-ttie-t059q-report-recovery` (10:35:25–10:35:28 UTC, exit0) reused the three frozen prediction/decision/marker files byte-identically; no model/decision recomputation or scientific recipe change. Original source, failed logs and target-open receipt retained.
+
+Files: research_log/T059Q source/storage/tests/verifier, authorization/input/source bindings, prediction and target rows, decisions, evaluation table, result and logs. Commands: pytest; separate decide → evaluate → independent verify processes; recovery only evaluate → verify on frozen decisions. CPU used for this small existing-value audit. D: remains full; project artifacts are remote and API publication keeps credentials local. Result SHA256 `e4f34e27a982cb73507442b0964cfa3c1422b4baff101b967f63b5d63843b6ea`; raw dual-disk evidence SHA256 `a80f2d988bfbc6eb86e2379daa4a7569e85675032774bb47b93e0bd500f44e7f`. Pinned E/M source/checkpoint/prediction hashes and full metadata are in the report/freeze marker.
+
+**Next:** stop and await review. This is not fresh validation. No alternative gate, training, C2 outer, target-domain rollout, deployment or self-merge is authorized.
