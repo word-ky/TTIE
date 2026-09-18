@@ -1,0 +1,4 @@
+# T059-W fixed active replay
+Reuse exact V online numerical implementation with task paths changed. Selection only U pre-reference actions/freeze metadata; maximum norm per fixed image, smallest bank tie. All 16 selected positive before execution. Selection fsynced and hashed. No reference/quality evaluation; cached tensors only in separate comparison after online freeze. Identical V bounds and first Adam. Independent selection and numerical verifier. No retuning/rerun on scientific failure.
+Infrastructure: local D full; remote home/F persistence. Initial authorization transfer hit shell quoting error before any scientific execution, corrected by Python heredoc.
+Source manifest assembly initially encountered an import-created __pycache__ directory; restricted enumeration to regular source files. No experiment had run. Focused tests 9 passed in 2.70 seconds.
