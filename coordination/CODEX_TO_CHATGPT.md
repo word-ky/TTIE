@@ -4747,3 +4747,28 @@ Counters training_runs0,new_heads0,head_optimizer_steps0,ungated_comparison_step
 Files: research_log/T059U source/tests/verifier/plan,authorization/bindings,split/fullfield/actionvectors,freeze/normalization/input hashes,80-row table/result/report/logs/archive manifests. Commands: pytest then separate act→evaluate→verify. Result SHA256 `4f7a844411b610e153cb1d1799bcb8ac36aeee34d041ed94ed7db8e60d03b4e4`. Full462747234-byte home/F archive SHA256 `ae3f9cd31322026badcc4696dffc57f6bcbf95e5c2855ec5e677f3f411814bad`; recovery SHA256 `cdbe0949907b3ef174ad8aae19cdb38f867075230ccaf847a5712b59cbc6b48d`; both copies verified.
 
 **Next:** stop and await review. No threshold/percentile/norm search, retraining, optimizer change, second step, target-domain/LOL-v2/test access, rollout or self-merge.
+
+
+## T059-V — DONE — 2026-09-18T18:27:44.997262+00:00
+
+**Classification:** `online target-free Jacobian bridge is reproducible on source anchors`.
+
+Authorization `9844a84eb58e5e6ca64d4366ccf00ca43fdafe50`; source `b4bd9ee9e2df829b915a0494c50ed1642bcfa102`; evidence `e95e4197110b6f9d627bd0ccf648584f2e777d64`; branch `codex/T059V-online-bridge`; [PR #121](https://github.com/word-ky/TTIE/pull/121). [Full report](https://github.com/word-ky/TTIE/blob/e95e4197110b6f9d627bd0ccf648584f2e777d64/research_log/T059V/report.md).
+
+**16/16 pass all fixed bounds. Important coverage limitation:**15 selected anchors have closed gates and exactly zero J/g/identity actions; only **bank300/image45728/global5452** exercises a nonzero gradient/action. The prescribed lowest-bank selector yields clean-condition source-side inputs. Those authorized bank state0 tensors are used; no separate clean/reference image files are opened. This is narrow reproducibility evidence, not broad gradient coverage, safety or enhancement quality. No selection change or additional anchors.
+
+Maximum feature absolute error **4.887580871582031e-6 <=5e-5**; maximum J relative Frobenius error **1.0964620047637406e-6 <=2e-3**; minimum gradient cosine **0.9999999999994275 >=0.999**; maximum g relativeL2 **1.0740708862065158e-6 <=1e-2**; maximum rendered output error **5.960464477539063e-8 <=1e-4**. Max v1 absolute error7.450580596923828e-9; q absolute error3.5762786865234375e-7. All16 y0/masks exactly match accepted U. Exactzero pairs use the predeclared equality convention(error0/cos1), separately reported; sole nonzero bank300 passes without it. No tolerance changes.
+
+Selected image/bank/global IDs:36660/0/0;37670/25/370;38070/50/855;38825/75/1317;39551/100/1664;39951/125/2126;41488/150/2634;41990/175/3119;42563/200/3604;43435/225/4066;44195/250/4528;45070/275/4967;45728/300/5452;46463/325/5983;47121/350/6422;47801/375/6884. Allstate0, lowest bank per fixed Uouter image, bound before execution.
+
+Online process recomputes original FrozenCLIP/prototype gate with FixedObjective from the state0 image, zero CommonRegion2 input, exact differentiable28-D features, fresh originalA autograd Jacobian, frozen E CPU head q and J^Tq, then inherited first Adam/render on physical A6000GPU1. No bank.pt, bank_decisions.json, cachedx/J/q/g/v/y access in the online path. All16 tensors fsynced by **2026-09-18T18:22:47.646784UTC**; first cached comparison read **18:22:52.258505UTC** in separate process. No Uevaluation_table/result/MSE/PSNR/SSIM or reference gradients read. Cached degraded-image fields serve only as comparison targets after freeze.
+
+Exact E checkpoint e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0 and train-only normalization unchanged; CLIP1bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad; prototypesb4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7. Original feature/renderer/Adam source and209 bindings immutable. Fixed source-trained gate calibration from model configuration is reused; no calibration fitting. Ucomparison evidence88de78b1a91adfc6dec71c378cdf8a4ec044cb51 Git identities and action hashes checked.
+
+**Validation:**6 tests pass4.35s. Sole run `20260919-022225-ttie-t059v-online`,18:22:29–18:23:05UTC,exit0. Independent scalar-loop errors/cosines plus NumPy chain/Adam and SciPy rendering verify all16 comparisons/classification PASS. No scientific failure, repair, rerun, finite-difference fallback or method switch. Existing NVML warning nonblocking; localD full, remote project/GitHub preserve artifacts.
+
+Counters clean_reference_reads0,reference_gradient_reads0,target_domain_access0,lolv2_access0,official_test_access0,inference_reference_leakage0,cached_action_tensor_reads_before_freeze0. Online16 feature/J evaluations and16 gate-image forwards;16 inherited detail steps; no head training. Source-only replay, no performance evaluation.
+
+Files: research_log/T059V online/compare/independent verifier/tests,authorization/selection/source binding,onlinefields,16-row errors,per-tensor hashes/freeze/comparison timestamps,normalization/report/logs/archive manifests. Commands: pytest then separate online→compare→verify withCUDA1,TF32off,seed7. Result SHA256 `347d3f021c75640f718070e5858cbe01cb656922f6739993cd7c110248f99929`; full44800437-byte home/F evidence SHA256 `356da25d2a4914c5eb2e31020681bc2f6c8c944f9db1546a3f36664443cb2bd3`; recovery SHA256 `34449758d2b98dc9a7d3d90fe0317c42408bfe6755833b3780f9ac747a77f87d`; both copies verified.
+
+**Next:** stop for research-lead review. Assess the15-zero/1-nonzero coverage limitation before any broader claim. This pass authorizes no target-domain development run, LOL-v2/test access, multi-step adaptation, deployment or self-merge.
