@@ -4637,3 +4637,32 @@ Decision freeze **10:31:48.849577 UTC** precedes first target access **10:31:50.
 Files: research_log/T059Q source/storage/tests/verifier, authorization/input/source bindings, prediction and target rows, decisions, evaluation table, result and logs. Commands: pytest; separate decide → evaluate → independent verify processes; recovery only evaluate → verify on frozen decisions. CPU used for this small existing-value audit. D: remains full; project artifacts are remote and API publication keeps credentials local. Result SHA256 `e4f34e27a982cb73507442b0964cfa3c1422b4baff101b967f63b5d63843b6ea`; raw dual-disk evidence SHA256 `a80f2d988bfbc6eb86e2379daa4a7569e85675032774bb47b93e0bd500f44e7f`. Pinned E/M source/checkpoint/prediction hashes and full metadata are in the report/freeze marker.
 
 **Next:** stop and await review. This is not fresh validation. No alternative gate, training, C2 outer, target-domain rollout, deployment or self-merge is authorized.
+
+
+## T059-R — DONE — 2026-09-18T12:16:51.289444+00:00
+
+**Classification:** `full-curve cross-head disagreement is not a convincing tail-uncertainty mechanism; stop the dual-head disagreement line`.
+
+Authorization `c855b29275a203b6de2c110c5d576ca038db0a7c`; source `39e5c40f0400bedb65bd56b61418ab45d29aa11d`; evidence `ac122e64eeebbf31ac00f9d8d58141a40d878646`; branch `codex/T059R-rank-disagreement`; [PR #117](https://github.com/word-ky/TTIE/pull/117). [Full report](https://github.com/word-ky/TTIE/blob/ac122e64eeebbf31ac00f9d8d58141a40d878646/research_log/T059R/report.md).
+
+Sole run `20260918-201204-ttie-t059r-rank`, 12:12:08–12:12:13 UTC, exit0. Exact E/M persisted predictions on 16 source images / 1529 rows / 80 banks. **3 unsafe / 63 non-singleton banks**, 17 singletons excluded. **AUROC 0.8222222222222222 < 0.90**; Spearman(u, positive harm) **0.23401366800652135**.
+
+| Unsafe bank | rho_EM | u | Descending rank / 63 | Percentile from most uncertain | E harm |
+|---|---|---|---|---|---|
+| 230 | 0.21739130434782608 | 0.782608695652174 | 3 | 3.225806451612903 | 4.667080879211426 |
+| 280 | 0.9294117647058824 | 0.07058823529411762 | 31 | 48.38709677419355 | 6.364080429077148 |
+| 305 | 0.5339130434782609 | 0.46608695652173915 | 4 | 4.838709677419355 | 6.284384727478027 |
+
+Unsafe u: median **0.46608695652173915**, Q25/Q75 **0.2683375959079284 / 0.6243478260869566**, IQR width **0.3560102301790282**. Safe u (60 banks): median **0.06701484623541887**, Q25/Q75 **0.036346752219890005 / 0.1158830871645517**, IQR width **0.0795363349446617**.
+
+All three conditions fail: AUROC below gate; not all unsafe banks in top quartile; maximum-harm bank280 outside top decile. Full-curve agreement still preserves shared catastrophic bias. No threshold/gate was created or tuned.
+
+Average ranks for exact score ties; descending u then bank ID. Fixed percentile convention `100*(rank-1)/(N-1)`, <=25 top quartile (ranks1–16), <=10 top decile (ranks1–7), declared before targets. No constant non-singleton curve. Complete canonical score-row IDs, p_E/p_M, rho/u, argmins/ranks and target-attached bank table committed. E/M checkpoint/prediction/source hashes, normalization and exact alignment inherited and rechecked from Q and original artifacts. All80 Q E harm values reproduced exactly.
+
+Descriptors freeze **2026-09-18T12:12:10.265405+00:00** precedes target read **2026-09-18T12:12:11.841140+00:00**. Only selected prediction/metadata storages decoded before freeze; full-file hash reads bind mixed-artifact bytes. Source/input hashes unchanged. All requested counters zero: training, optimizer, model/features, premature target access, outer, target-domain, LOL-v2, official test, inference leakage.
+
+**Validation:** 4 tests pass in 1.33s. Independent verifier recomputes average ranks by pairwise counting, Spearman, every descriptor/rank/argmin, group summaries, harm and classification; independently computes AUROC using Mann–Whitney rank sums. Full63 descriptor and all80 Q harm replay passes. No failures or repairs this cycle. CPU used for this small persisted-value audit, with no GPU model workload. D: remains full; artifacts persisted remotely and published via local API.
+
+Files/commands: research_log/T059R core/storage/run/tests/verifier, authorization/input/source bindings, descriptor/prediction/target/evaluation tables, result/report/log; pytest then separate describe → evaluate → verify processes. Result SHA256 `d78497dc512a9b220193d6ea05f9897119d8c0073c3b681398d879d57a5ad1a0`; raw evidence SHA256 `3c1d8d1b855f7ef7c44959a299a79d83ab08ccf14ea4e33bafa0d1517b34f009`, verified home/F copies.
+
+**Next:** stop the dual-head-disagreement line and await review. This is already-opened source evidence, not fresh validation. No gate/threshold calibration, training, C2 outer, real-domain/LOL-v2, official test, deployment, rollout or self-merge authorized.
