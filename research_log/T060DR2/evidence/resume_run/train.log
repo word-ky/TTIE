@@ -1,0 +1,41 @@
+[autodl] run_id=20260919-181949-ttie-t060dr2-resume
+[autodl] started_at=2026-09-19T18:19:56+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+{"completed": 35, "seconds": 7.624661994999769}
+{"completed": 36, "seconds": 9.225862016002793}
+{"completed": 37, "seconds": 10.621752135004499}
+{"completed": 38, "seconds": 10.605133140998078}
+{"completed": 39, "seconds": 10.796928311003285}
+{"completed": 40, "seconds": 10.837464013002318}
+{"completed": 41, "seconds": 9.332189893997565}
+{"completed": 42, "seconds": 9.406018561003293}
+{"completed": 43, "seconds": 10.637871059003373}
+{"completed": 44, "seconds": 9.38804755199817}
+{"completed": 45, "seconds": 10.341210170001432}
+{"completed": 46, "seconds": 10.764561598}
+{"completed": 47, "seconds": 10.862530652000714}
+{"completed": 48, "seconds": 10.698397829000896}
+{"completed": 49, "seconds": 9.45914003100188}
+{"completed": 50, "seconds": 9.577345198998955}
+{"completed": 51, "seconds": 10.56114940200132}
+{"completed": 52, "seconds": 10.711826084996574}
+{"completed": 53, "seconds": 9.595393880998017}
+{"completed": 54, "seconds": 10.66115061399978}
+{"completed": 55, "seconds": 9.532509531003598}
+{"completed": 56, "seconds": 10.198607148999145}
+{"completed": 57, "seconds": 10.584969144998468}
+{"completed": 58, "seconds": 10.468820193000283}
+{"completed": 59, "seconds": 9.684168921998207}
+{"completed": 60, "seconds": 9.670457204996637}
+ALL_120_TRAJECTORIES_FROZEN
+{"rows": 60, "metrics": {"selected_delta": {"mean": 0.41350123567445796, "median": 0.22087623057871308, "p10": -1.8752552242182292, "p90": 3.986388067519122, "min": -5.732418453265733, "max": 5.958918050419182}, "oracle_delta": {"mean": 0.5054509680637912, "median": 0.0027965773199136734, "p10": -0.9176126863909554, "p90": 2.6959808385174857, "min": -5.355919613505069, "max": 7.071636317727865}, "regret_delta": {"mean": 0.09194973238933339, "median": 0.03368526546339368, "p10": -2.4114192881421594, "p90": 2.9166389551639598, "min": -9.462672659585017, "max": 9.095472442817607}}, "counts": {"selected_delta": {"win": 37, "equal": 0, "loss": 23}, "oracle_delta": {"win": 35, "equal": 1, "loss": 24}, "regret_delta": {"win": 31, "equal": 0, "loss": 29}}, "gates": {"oracle_mean": true, "oracle_median": true, "oracle_wins": false, "regret_mean": false}, "classification": "T014-selection mismatch is not a sufficient explanation for the T060-C-R1 near-miss"}
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+INDEPENDENT_PASS60
+[autodl] finished_at=2026-09-19T18:25:51+08:00
+[autodl] exit_code=0

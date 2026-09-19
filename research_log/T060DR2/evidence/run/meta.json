@@ -1,0 +1,6 @@
+{
+  "runId": "20260919-180757-ttie-t060dr2-selector",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260919-180757-ttie-t060dr2-selector",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260919-ttie-t060dr2-selector\nexport CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD:$PWD/tests\" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\n\"$PY\" -m research_log.T060DR2.infer --out \"$AUTODL_ARTIFACTS_DIR/T060DR2\" && \"$PY\" -m research_log.T060DR2.diagnose --out \"$AUTODL_ARTIFACTS_DIR/T060DR2\" && \"$PY\" -m research_log.T060DR2.verify --out \"$AUTODL_ARTIFACTS_DIR/T060DR2\""
+}

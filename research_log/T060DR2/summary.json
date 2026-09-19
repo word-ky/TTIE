@@ -1,0 +1,79 @@
+{
+  "classification": "T014-selection mismatch is not a sufficient explanation for the T060-C-R1 near-miss",
+  "gates": {
+    "oracle_mean": true,
+    "oracle_median": true,
+    "oracle_wins": false,
+    "regret_mean": false
+  },
+  "metrics": {
+    "selected_delta": {
+      "mean": 0.41350123567445796,
+      "median": 0.22087623057871308,
+      "p10": -1.8752552242182292,
+      "p90": 3.986388067519122,
+      "min": -5.732418453265733,
+      "max": 5.958918050419182
+    },
+    "oracle_delta": {
+      "mean": 0.5054509680637912,
+      "median": 0.0027965773199136734,
+      "p10": -0.9176126863909554,
+      "p90": 2.6959808385174857,
+      "min": -5.355919613505069,
+      "max": 7.071636317727865
+    },
+    "regret_delta": {
+      "mean": 0.09194973238933339,
+      "median": 0.03368526546339368,
+      "p10": -2.4114192881421594,
+      "p90": 2.9166389551639598,
+      "min": -9.462672659585017,
+      "max": 9.095472442817607
+    }
+  },
+  "counts": {
+    "selected_delta": {
+      "win": 37,
+      "equal": 0,
+      "loss": 23
+    },
+    "oracle_delta": {
+      "win": 35,
+      "equal": 1,
+      "loss": 24
+    },
+    "regret_delta": {
+      "win": 31,
+      "equal": 0,
+      "loss": 29
+    }
+  },
+  "absolute_means": {
+    "A": {
+      "selected_psnr": 14.921295312495477,
+      "oracle_psnr": 21.55865906260983,
+      "regret": 6.6373637501143525
+    },
+    "B": {
+      "selected_psnr": 15.334796548169935,
+      "oracle_psnr": 22.06411003067362,
+      "regret": 6.729313482503686
+    },
+    "no_adaptation_identity": {
+      "psnr": 15.179924832196827
+    }
+  },
+  "preflight": {
+    "rows": 60,
+    "max_score_error": 1.6316771507263184e-06,
+    "max_evidence_drift": 2.820755302046507e-05,
+    "min_gain_cosine": 0.9999999997461764,
+    "max_gain_relative_l2": 2.2650691345235727e-05,
+    "zero_vectors": 0
+  },
+  "maximum_adam_error": 3.26154594332273e-07,
+  "maximum_direct_gain_error": 7.748603820800781e-06,
+  "maximum_psnr_error": 6.572520305780927e-13,
+  "result_sha256": "f246802e7086257b9e40586509e55db09b9ffcf30ec1a3fcad19dec49805d45e"
+}

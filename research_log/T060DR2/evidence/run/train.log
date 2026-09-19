@@ -1,0 +1,55 @@
+[autodl] run_id=20260919-180757-ttie-t060dr2-selector
+[autodl] started_at=2026-09-19T18:08:04+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+{"completed": 1, "seconds": 10.40773329700096}
+{"completed": 2, "seconds": 10.84680141699937}
+{"completed": 3, "seconds": 10.814895958999841}
+{"completed": 4, "seconds": 10.933493055999861}
+{"completed": 5, "seconds": 10.849505038000643}
+{"completed": 6, "seconds": 10.804117837997183}
+{"completed": 7, "seconds": 10.793527574000109}
+{"completed": 8, "seconds": 10.870389284000339}
+{"completed": 9, "seconds": 9.232859767000264}
+{"completed": 10, "seconds": 9.96654266400219}
+{"completed": 11, "seconds": 9.908337229999233}
+{"completed": 12, "seconds": 10.765133336000872}
+{"completed": 13, "seconds": 9.763963444002002}
+{"completed": 14, "seconds": 10.950115388000995}
+{"completed": 15, "seconds": 9.4019081990009}
+{"completed": 16, "seconds": 10.192691133001063}
+{"completed": 17, "seconds": 10.906477488995733}
+{"completed": 18, "seconds": 10.64565166200191}
+{"completed": 19, "seconds": 10.893854039000871}
+{"completed": 20, "seconds": 9.87474415899851}
+{"completed": 21, "seconds": 10.883810924002319}
+{"completed": 22, "seconds": 10.849193139998533}
+{"completed": 23, "seconds": 11.008535602995835}
+{"completed": 24, "seconds": 11.047113567998167}
+{"completed": 25, "seconds": 10.389758790999622}
+{"completed": 26, "seconds": 9.557939976002672}
+{"completed": 27, "seconds": 9.555280434000451}
+{"completed": 28, "seconds": 10.817351795998547}
+{"completed": 29, "seconds": 10.830591852001817}
+{"completed": 30, "seconds": 9.455966493002052}
+{"completed": 31, "seconds": 10.44403804900503}
+{"completed": 32, "seconds": 10.793488542996784}
+{"completed": 33, "seconds": 10.653215445996466}
+{"completed": 34, "seconds": 10.802666322997538}
+Traceback (most recent call last):
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/serialization.py", line 652, in save
+    _save(obj, opened_zipfile, pickle_module, pickle_protocol, _disable_byteorder_record)
+  File "/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/serialization.py", line 886, in _save
+    zip_file.write_record(name, storage, num_bytes)
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260919-ttie-t060dr2-selector/research_log/T060DR2/infer.py", line 47, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);main(p.parse_args().out)
+                                                                                ^^^^^^
