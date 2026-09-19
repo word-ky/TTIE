@@ -16,7 +16,7 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 The accepted T036 common path starts independently from each raw low image with identity `raw ∈ R^{1×3×2×2}`, jointly updates all 12 EV/gamma/gain coordinates using Adam `lr=0.03` for 40 active steps plus CommonBox, and uses the original T014 scalar energy for both the full raw gradient and minimum-energy/earliest-tie checkpoint selection.
 
-No T059/T060 action-transfer result is deployable. The official LOL-v2 Real test remains sealed.
+No T059/T060 action-transfer result is deployable. The T059/T060 rescue line is now closed after T060-D-R2. The official LOL-v2 Real test remains sealed.
 
 ## Renderer / action-family diagnosis
 
@@ -42,7 +42,7 @@ Accepted conclusions remain:
 
 Therefore the fixed one-step matched-detail integration line is closed.
 
-## T060 action-family transfer diagnosis
+## T060 action-family transfer diagnosis — closed
 
 ### T060-A — direct 8×8 spatial-exposure projection: negative
 
@@ -58,11 +58,7 @@ On the exact same 60 nondegenerate common-gain source anchors, T059-E is substan
 - cosine median: **`0.9064` vs `0.8009`**, delta `+0.1055`;
 - cosine p10: **`+0.4259` vs `-0.0607`**.
 
-This is accepted source-only first-order evidence that T059-E is a better direction candidate in the exact low-dimensional T036 common-gain subspace. It is not finite-step/deployable evidence by itself.
-
-### T060-C contract clarification — blocked before real experiment, not a negative result
-
-The first T060-C wording incorrectly described T036 as a gain-only continuation from T026. Codex correctly stopped before real-data execution. The corrected intervention preserves the exact T036 12-D trajectory and changes only the four gain-gradient coordinates.
+This remains accepted source-only first-order evidence that T059-E is a better direction candidate in the exact low-dimensional T036 common-gain subspace. It is not finite-step/deployable evidence by itself.
 
 ### T060-C-R1 — fixed gain-slice finite-step test: negative, but near-miss safety shift
 
@@ -76,31 +72,57 @@ Frozen result versus exact persisted T026 on the same T036 cohort:
 - worst paired PSNR: **`-3.578444 dB`** (`< -3.0`, fail);
 - mean RGB-SSIM: **`+0.0065919`** (`>= +0.006`, pass).
 
-Relative to exact T036, the fixed hybrid is slightly worse on mean quality (`-0.018580 dB` PSNR, `-0.001764` RGB-SSIM), so the preregistered classification is accepted: **`T059-E gain-direction advantage does not translate into a sufficiently safe/material fixed T036 trajectory improvement`**. No gate may be relaxed post hoc.
+Relative to exact T036, the fixed hybrid is slightly worse on mean quality (`-0.018580 dB` PSNR, `-0.001764` RGB-SSIM), so the preregistered classification remains: **`T059-E gain-direction advantage does not translate into a sufficiently safe/material fixed T036 trajectory improvement`**. No gate may be relaxed post hoc.
 
-However, the tail shift is real and worth diagnosing: compared with T036's `29/100` regressions and `-5.614 dB` worst case, T060-C-R1 reduces regressions to `20/100` and improves the worst case to `-3.578 dB` while retaining nearly all mean PSNR benefit. This supports a narrower interpretation: T059-E gain guidance can make the trajectory safer, but the fixed hybrid still does not satisfy the predeclared finite-step safety contract.
+The safety shift remains informative: compared with T036's `29/100` regressions and `-5.614 dB` worst case, T060-C-R1 reduces regressions to `20/100` and improves the worst case to `-3.578 dB` while retaining nearly all mean PSNR benefit. This is a mechanism clue, not a promoted method.
 
-No further tuning on this opened target-development cohort is authorized. The next question is source-only: determine whether T014 scalar checkpoint selection is leaving useful T059-guided finite-step states unrealized, or whether the trajectory itself lacks sufficient additional value.
+### T060-D-R2 — source trajectory-vs-selector audit: negative; rescue line closed
+
+The fixed source-only audit compared literal T036/T014 against literal T060-C-R1 on the same 60 T060-B source anchors. All primitive/downstream equivalence checks passed; both 41-state trajectories per anchor froze before any source-clean access; no target-development or official-test quantity entered adaptation or selection.
+
+Paired B−A source results:
+
+- selected PSNR: **`+0.413501 dB` mean**, `+0.220876 dB` median, `37/60` wins;
+- oracle-best PSNR: **`+0.505451 dB` mean**, `+0.002797 dB` median, `35/60` wins;
+- selection-regret difference: **`+0.091950 dB` mean**.
+
+The fixed gates required oracle mean `>=+0.15`, oracle median `>0`, oracle wins `>=36/60`, and regret difference `>=+0.10`. The last two fail (`35/60`, `+0.09195`), so the accepted classification is **`T014-selection mismatch is not a sufficient explanation for the T060-C-R1 near-miss`**. The T059/T060 action-transfer rescue line is closed; no selector fitting or gate relaxation is authorized for that line.
+
+A broader bottleneck signal survives independently of T059: absolute source selection regret is very large for both trajectories — T036/T014 `6.637364 dB` and T060-C-R1 `6.729313 dB`. Together with T037-A's development-only `0.683234 dB` mean reference-best headroom and `18/29` earlier-rescuable T036 PSNR-loss cases, checkpoint selection remains worth studying as a general T036 problem rather than as a T059 rescue mechanism.
+
+## Development versus final-evaluation protocol
+
+The fixed 100-image LOL-v2 Real cohort drawn from the training split is explicitly a **development set**. It may be used for predeclared method design, hyperparameter selection, ablations, and failure analysis. It must **not** be used to state the final Ours-vs-baseline performance gap, because strong released supervised baselines can be training-exposed to this split.
+
+Final comparison rules:
+
+- Freeze the final Ours method, model assets, action space, optimizer/stopping rule, and all hyperparameters before final held-out evaluation.
+- The standard in-domain comparison must use the **complete official LOL-v2 Real test split** under the same frozen inference protocol. No test clean/normal target, PSNR/SSIM, label, reference gradient/Jacobian, or per-image outcome may enter adaptation or selection.
+- A **cross-dataset / domain-shift held-out evaluation is required** to test the stated unknown-degradation motivation. Candidate complete held-out test splits include LSRW and UHD-LL (or equivalent fixed datasets), with the same frozen Ours checkpoint/rule and no target-specific retraining or tuning.
+- Development baseline numbers are diagnostic anchors only. Final baseline-gap claims must come from complete held-out test sets with training exposure/protocol disclosed.
+- T060-specific post-hoc gate relaxation on already-open results remains prohibited even though the 100-image cohort is development data.
+
+The official LOL-v2 Real test and cross-dataset held-out test sets remain sealed until Final Ours is frozen.
 
 ## Strong baseline development anchors
 
 - **Retinexformer T033-A:** `21.4787864 / 0.7900612`.
 - **SNR-Aware T045-A:** `23.3963299 / 0.8237644`.
 
-Both are target-free at inference under the frozen comparison protocol, but their released supervised checkpoints are exposed to LOL-v2 Real training data containing this development split. They are training-exposed development anchors, not independent held-out SOTA evidence.
+Both are target-free at inference under the frozen comparison protocol, but their released supervised checkpoints are exposed to LOL-v2 Real training data containing this development split. They are training-exposed development anchors, not independent held-out SOTA evidence and not valid final Ours-vs-baseline gap estimates.
 
-The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the strongest fair target-free baseline on the same held-out protocol**, without violating the no-test-target rule. This is an objective, not a current claim.
+The final sprint objective remains strong performance against the strongest fair target-free baselines on complete held-out protocols, without violating the no-test-target rule. Any `+2–3 dB` target is an objective, not a current claim.
 
 ## Information-boundary rules
 
 - Test-time adaptation and checkpoint/state selection must never consume test labels, clean/normal-light targets, reference gradients/Jacobians, oracle values, PSNR/SSIM, degradation masks/gain maps, condition IDs, annotations, semantic image IDs, or per-image baseline outcome/harm labels.
 - A degraded-image feature/action Jacobian such as `dx/dv`, `dx/du`, or `dx/d(raw_gain)`, computed entirely from the current degraded image/current target-free intermediate image and frozen model, is permissible; a Jacobian/gradient that depends on a clean/reference target is not.
-- Validation/test outputs and decisions must be finalized and persisted before references or evaluation metrics are attached, except in explicitly isolated non-deployable source/reference diagnostics.
-- Source-training clean/reference targets may be used only for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
+- Development clean/reference targets may be used only offline for globally predeclared method development/evaluation and may never become per-image inference inputs or selectors.
+- Source-training clean/reference targets may be used for source-supervised training or isolated source-domain diagnostics; they are never admissible test-time inputs.
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
-- External baselines admitted to the main comparison must be target-free at inference.
+- External baselines admitted to final main comparisons must be target-free at inference, and their training exposure must be disclosed.
 - Fresh/final benchmark sets must remain isolated from model/hyperparameter selection.
-- **The official LOL-v2 Real test remains untouched through T060-C-R1.**
+- **The official LOL-v2 Real test remains untouched through T060-D-R2.** Cross-dataset held-out sets remain sealed for final evaluation.
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -113,13 +135,14 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - **T060-A spatial exposure:** full-field transfer failed.
 - **T060-B common-gain direction:** positive first-order result; T059-E clearly out-aligns T014 in the exact 4-D gain subspace.
 - **T060-C-R1 finite-step hybrid:** fixed negative by preregistered gate; preserves almost all T036 mean PSNR and improves tail count/severity, but misses the worst-regression safety gate and is not deployable.
+- **T060-D-R2 selector diagnosis:** fixed negative for the T059 rescue hypothesis; T059/T060 action-transfer line closed. Large absolute source selection regret motivates a separate T036 selector investigation.
 
 ## Integration note
 
-Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T060-C-R1 is reviewable through tested source `92c8bdd38e51b7d94c9a16cbd2e5c729dd382e52`, evidence `3963d36aac5d2b3d963b52b1b429020c88b09859`, and PR #128.
+Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T060-C-R1 is reviewable through tested source `92c8bdd38e51b7d94c9a16cbd2e5c729dd382e52`, evidence `3963d36aac5d2b3d963b52b1b429020c88b09859`, and PR #128. T060-D-R2 is reviewable through tested source `2f83e7bda8b7be64f1a520d4ad3afc144ad503be`, evidence `23c98d16c159e8f51c5147647281ae749741dade`, and PR #131; do not spend experiment cycles repairing inherited PR history.
 
 ## Current open task
 
-**T060-D — source-only trajectory-vs-selector bottleneck audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T061-A — source-chosen global stopping-step transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Reuse the exact 60 T060-B source audit anchors. Run only two fixed frozen trajectories per anchor: literal accepted T036/T014 and literal T060-C-R1. Freeze/hash every state/output/score/decision for all anchors before any source clean read. Then, in a separate source-only diagnostic, compute selected-step quality, oracle-best frozen-state quality, and selection regret. The goal is to decide whether T014 scalar checkpoint selection is materially masking better T059-guided trajectories. No LOL-v2 Real development rerun, no selector fitting, no tuning, and no official-test access are authorized.
+Reuse existing frozen source T036 trajectories and existing T037-A 100-image development trajectories only. Choose one global fixed step from source PSNR alone, freeze it before reading development per-step outcomes in this task, then test whether that same constant step improves T036 on development without per-image target information. No new optimizer run, learned selector, T059-E, baseline/SOTA comparison, official LOL-v2 test, or cross-dataset held-out access is authorized.
