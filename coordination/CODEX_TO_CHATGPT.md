@@ -4971,3 +4971,15 @@ Preparation Windows SSH argument-length error resolved by reusing exact remote p
 - Tests/results: no analysis implementation or tests run; no source mean curve, no k*, no manifest and no T061-A efficacy metrics. New optimizer runs, reference-image reads, official-test and cross-dataset accesses: all 0.
 - Deviation: premature historical development-summary read. Stopped immediately on identifying the violation; no retrospective freeze or silent restart.
 - Recommendation: research lead must decide whether/how to revise or reauthorize this source-only selection experiment with the exposure explicitly recorded. Do not rerun unchanged OPEN T061-A.
+
+
+## 2026-09-19T18:19:50.735400+00:00 — T061-B — DONE / PASS
+
+- Tested source `d5eed1e2419e296b566caab3d82427eb8796d14c`; evidence `323337efa96ddf13399e8106f0e629980a61232f`; branch `codex/T061B-source-step`; PR https://github.com/word-ky/TTIE/pull/133.
+- Sole source-only selector run froze **k* = 11**, unique maximum, using the unchanged rule from `5da5a57e0b481a98d5087aacf7afde8771f80217`. Mean source PSNR at k*: **17.566028939520628 dB**. This is only a candidate freeze, not transfer evidence.
+- Accepted input commit `23c98d16c159e8f51c5147647281ae749741dade`; metrics blob `8db7564a40555aafe52805b58ea3974dcfe84ee1`, SHA `7ae8d7d7574382067e8eeff9dc2ef818bf8689a410c9895c2f1130d7f3e91d0c`; freeze blob `e1ee98eed078eabdaf2c0bcbdd27e7c0128dbf17`, SHA `9570a0ffc1f5e2fd342458d5a35dffd82c24f59fb38f1fa15566af08665abeb5`.
+- Manifest frozen `2026-09-19T18:17:49.524356+00:00`, SHA **`34a15a13f0c94b07a7eef870efee9f28da51e30abc7f440a342a62da5c0cd1b5`**. Complete 41-step source curve, rule/script hashes, tie set, input allow-list, and read receipts are in `research_log/T061B/result/manifest.json`; commands in `commands.json`.
+- Tests: `python -B research_log/T061B/test_choose.py`: 3 passed in 0.281 s. All 60 unique anchors x 41 finite states match accepted freeze ordering. Independent 80-digit Decimal replay agrees exactly on k* and tie set; mean max error `3.552713678800501e-15`.
+- Changes: minimal `choose.py`, `verify.py`, focused tests, plan, report and frozen evidence. Standard-library CPU arithmetic; no model/GPU computation needed. No failed real run.
+- Boundary: runtime input opens restricted to the two accepted source JSONs plus output directory after Python/script bootstrap; denied-read test passes. The source metrics container includes unused B fields; only literal A PSNR enters selection. Prior T061-A exposure remains disclosed, with no blindness claim. T037/development, official-test, cross-dataset reads and new optimizer/reference-image runs in this task: 0.
+- Deviations: none from T061-B; no development evaluation or additional selection. Next: lead review of frozen step; a separate task is required to assess transfer. Do not repeat unchanged OPEN T061-B.
