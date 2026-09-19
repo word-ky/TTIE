@@ -1,0 +1,6 @@
+{
+  "runId": "20260920-041332-ttie-t062a-zr",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260920-041332-ttie-t062a-zr",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260920-ttie-t062a-zr\nexport CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD\" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\nOUT=/media/wenchang/F/wjq/TTIE/runs/T062A-fixed-zr\n$PY -m pytest -p no:cacheprovider --import-mode=importlib research_log/T062A/test_core.py -q && $PY -m research_log.T062A.infer --out \"$OUT\" && $PY -m research_log.T062A.evaluate --out \"$OUT\""
+}
