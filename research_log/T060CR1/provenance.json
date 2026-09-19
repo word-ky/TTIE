@@ -1,0 +1,91 @@
+{
+  "original_source": "f80cea4c9d8186e0c4a0404b28ccd58c5e1b5678",
+  "files": {
+    "ttie/common_gain_ttt.py": {
+      "sha256": "ac3e2b393c8f8cd15f8f44010608d1151a3db2302e24e25d054467ba648f25bc",
+      "git_blob": "0a0fc8698e5d6c2b73fe4bb3a1ae0d2212cbc0b6"
+    },
+    "ttie/common_gain.py": {
+      "sha256": "f06cb28c69cbb8edd9d48e248e051f8525c2d0fe637aecfbd4cde7d0e186bfb7",
+      "git_blob": "df9d4d51a4530ef2d39956fbcd50bbabed625187"
+    },
+    "ttie/semantic_ttt.py": {
+      "sha256": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72",
+      "git_blob": "1e846f23021d493a3b9b6675cf297000e5b57e4b"
+    },
+    "ttie/projected_ttt.py": {
+      "sha256": "f5fb68a742ee4038b903bf62ae37ae0b3011762ce3035ba09a3b9609a25a6457",
+      "git_blob": "0b45e51e0dae4c865cc2d3520cc6df57e9db0a9f"
+    },
+    "ttie/gamma_range_box.py": {
+      "sha256": "554dbcd8e8fe649191bb1640477e3fbaa9d3c49c34909b2c4ee1b3d28237b8bf",
+      "git_blob": "f0a7d9dacbecace8ce387d40f94577939a4bbc6d"
+    },
+    "ttie/ev_range_box.py": {
+      "sha256": "97f72e3f4b33ff3281439cdb65036c69a6229f823d2aab21d490a1cf2ba289cb",
+      "git_blob": "bc7290077d9c68c9817e75352ea23b21aee24034"
+    },
+    "ttie/isp.py": {
+      "sha256": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9",
+      "git_blob": "cc76465fbb3f24ada6a9d14ef819639a4e0f96e3"
+    },
+    "ttie/energy_model.py": {
+      "sha256": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4",
+      "git_blob": "712bc98f4d76c463a61205b5e7fed790a35714ae"
+    },
+    "ttie/stop_quality.py": {
+      "sha256": "4e6816898e6924732cf2409619c05212a412aab13da15cac5678c7bc6243c19a",
+      "git_blob": "cc0749e2e56053752109eac362c0150bfa79adc3"
+    },
+    "ttie/clip_signal.py": {
+      "sha256": "8a9b3647f4eb26304f338163cf151d593f7680f64c5059caebdde68115b91ed8",
+      "git_blob": "96676887602e5298cd42423c06b491c924514c41"
+    },
+    "ttie/learned_prototypes.py": {
+      "sha256": "062cb21f65e5611839802ad8dbe86bde883b14c75d50dc5116766e5c903f8eec",
+      "git_blob": "80a798d32a614f96f5094b1ddf823a05fc4e1340"
+    },
+    "ttie/lolv2_gamma_core.py": {
+      "sha256": "fa8e2abf9d4453c9f91fecd381d69c6192aabdd91f5b6efe65215400c04d76e2",
+      "git_blob": "3ca08163813dab63e4d319b7d0511c683fe7693b"
+    },
+    "ttie/stop_trajectory.py": {
+      "sha256": "38965a15430d383b429086ec4460fff2dd3c500a7d162f39b705c40ae4b23ce7",
+      "git_blob": "e1da3e1ec891ec3fb2c3de4b9506f2e57156c259"
+    },
+    "ttie/natural.py": {
+      "sha256": "bfc8cbf8d5c2f92e7e4dfdb49f5c0fc217cb25167be2a8b7a16a0322996fb94e",
+      "git_blob": "40f873bc96bfed3ae27bd79a488d19a151cc2283"
+    },
+    "ttie/ssim_transfer.py": {
+      "sha256": "01d227a8b4caaf8f5705d9c18a5ef685367b6ccf80588d212be92830a04f8556",
+      "git_blob": "6d552182cae996fba82f72b8211fc60d814901eb"
+    },
+    "scripts/run_t036a.py": {
+      "sha256": "2922d1cfd69b7695056f1a7569103d8b2edccc92a14e788e605415e42bf6e1af",
+      "git_blob": "724045ffb5f01e7f11f06341d256701d7926cce7"
+    },
+    "scripts/evaluate_t026a.py": {
+      "sha256": "708ead3585565289b9da05f79bf63261cddf66e6b8604672e0471cb900c8bfd1",
+      "git_blob": "9247c7ac6cd6dd980d9da8993c0d3ebccbc299e6"
+    }
+  },
+  "base_evidence": "b925fbf138d68920502056265bc5b2079b31a426",
+  "head_E_sha256": "e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0",
+  "method": "Literal trajectory AST replaces only autograd.grad call with fixed gain-slice substitution. T014 scalar and EV/gamma gradients unchanged; current E q on CPU, J gain computed on CUDA; original12-D Adam lr.03x40 and CommonBox.",
+  "tests": "5 passed4.15s; earlier4 passed3.12s",
+  "verification_tolerances": {
+    "numpy_adam_rtol": 3e-05,
+    "numpy_adam_atol": 3e-05,
+    "chain_and_direct_gradient_rtol": 3e-05,
+    "chain_and_direct_gradient_atol": 2e-06,
+    "independent_MLP_q_rtol": 3e-05,
+    "independent_MLP_q_atol": 2e-06,
+    "scalar_energy_rtol": 2e-05,
+    "scalar_energy_atol": 2e-05,
+    "independent_metric_atol": 1e-11
+  },
+  "preparation_failures": [
+    "Windows command length before SSH: excluded already-remote manifest and encoded raw JSON text rather than nested base64; no real run started"
+  ]
+}
