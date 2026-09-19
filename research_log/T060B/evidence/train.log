@@ -1,0 +1,77 @@
+[autodl] run_id=20260919-114102-ttie-t060b-common
+[autodl] started_at=2026-09-19T11:41:08+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+{"completed": 1, "bank": 1}
+{"completed": 2, "bank": 3}
+{"completed": 3, "bank": 4}
+{"completed": 4, "bank": 26}
+{"completed": 5, "bank": 27}
+{"completed": 6, "bank": 28}
+{"completed": 7, "bank": 29}
+{"completed": 8, "bank": 51}
+{"completed": 9, "bank": 53}
+{"completed": 10, "bank": 54}
+{"completed": 11, "bank": 77}
+{"completed": 12, "bank": 78}
+{"completed": 13, "bank": 79}
+{"completed": 14, "bank": 101}
+{"completed": 15, "bank": 102}
+{"completed": 16, "bank": 103}
+{"completed": 17, "bank": 104}
+{"completed": 18, "bank": 126}
+{"completed": 19, "bank": 127}
+{"completed": 20, "bank": 128}
+{"completed": 21, "bank": 129}
+{"completed": 22, "bank": 151}
+{"completed": 23, "bank": 152}
+{"completed": 24, "bank": 153}
+{"completed": 25, "bank": 154}
+{"completed": 26, "bank": 176}
+{"completed": 27, "bank": 177}
+{"completed": 28, "bank": 178}
+{"completed": 29, "bank": 179}
+{"completed": 30, "bank": 201}
+{"completed": 31, "bank": 202}
+{"completed": 32, "bank": 203}
+{"completed": 33, "bank": 204}
+{"completed": 34, "bank": 227}
+{"completed": 35, "bank": 228}
+{"completed": 36, "bank": 229}
+{"completed": 37, "bank": 251}
+{"completed": 38, "bank": 252}
+{"completed": 39, "bank": 253}
+{"completed": 40, "bank": 254}
+{"completed": 41, "bank": 276}
+{"completed": 42, "bank": 277}
+{"completed": 43, "bank": 278}
+{"completed": 44, "bank": 279}
+{"completed": 45, "bank": 300}
+{"completed": 46, "bank": 301}
+{"completed": 47, "bank": 302}
+{"completed": 48, "bank": 303}
+{"completed": 49, "bank": 304}
+{"completed": 50, "bank": 327}
+{"completed": 51, "bank": 328}
+{"completed": 52, "bank": 329}
+{"completed": 53, "bank": 351}
+{"completed": 54, "bank": 352}
+{"completed": 55, "bank": 353}
+{"completed": 56, "bank": 354}
+{"completed": 57, "bank": 376}
+{"completed": 58, "bank": 377}
+{"completed": 59, "bank": 378}
+{"completed": 60, "bank": 379}
+ALL_PREDICTED_GRADIENTS_FROZEN
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+{"rows": 60, "nondegenerate": 60, "heads": {"E": {"positive_dot_fraction": 0.9666666666666667, "wrong_sign_count": 2, "zero_dot_count": 0, "cosine": {"mean": 0.7774807272689549, "median": 0.906366178533033, "p10": 0.42592417291029977, "p90": 0.9997704433416597, "min": -0.7282785390782085, "max": 1.0}, "dot": {"mean": 0.047073064628292, "median": 0.0190937466086719, "p10": 0.0011956439340277633, "p90": 0.12865564365091528, "min": -0.007918714147202119, "max": 0.34386987595394114}, "norm_all": {"mean": 0.6572333766414074, "median": 0.43107174812666055, "p10": 0.09168514966385288, "p90": 1.4508579534692967, "min": 0.0062351226806640625, "max": 3.1065981912683154}, "norm_nondegenerate": {"mean": 0.6572333766414074, "median": 0.43107174812666055, "p10": 0.09168514966385288, "p90": 1.4508579534692967, "min": 0.0062351226806640625, "max": 3.1065981912683154}}, "014": {"positive_dot_fraction": 0.8833333333333333, "wrong_sign_count": 7, "zero_dot_count": 0, "cosine": {"mean": 0.6290119788169972, "median": 0.80090100474288, "p10": -0.060745921633695375, "p90": 0.9887045827732086, "min": -0.8347804543501004, "max": 1.0}, "dot": {"mean": 0.07848167514192213, "median": 0.02319522742391475, "p10": -2.671963034332068e-05, "p90": 0.2143752442590732, "min": -0.002742786775159569, "max": 0.5884488625087396}, "norm_all": {"mean": 1.0645920687417065, "median": 0.58988936836472, "p10": 0.1908953959788909, "p90": 2.729058650062736, "min": 0.02452879771590233, "max": 4.89977605947803}, "norm_nondegenerate": {"mean": 1.0645920687417065, "median": 0.58988936836472, "p10": 0.1908953959788909, "p90": 2.729058650062736, "min": 0.02452879771590233, "max": 4.89977605947803}}}, "deltas": {"positive_fraction_E_minus_014": 0.08333333333333337, "median_cosine_E_minus_014": 0.10546517379015308, "wrong_sign_014_minus_E": 5}, "gates": {"positive_E": true, "median_E": true, "not_worse_positive": true, "not_worse_median": true, "material": true}, "reference_norm_all": {"mean": 0.06401898968037395, "median": 0.05088726378216739, "p10": 0.021899947720251035, "p90": 0.11463852165564493, "min": 2.740120211381937e-12, "max": 0.15279560023010055}, "reference_norm_nondegenerate": {"mean": 0.06401898968037395, "median": 0.05088726378216739, "p10": 0.021899947720251035, "p90": 0.11463852165564493, "min": 2.740120211381937e-12, "max": 0.15279560023010055}, "classification": "T059-E is a common-gain direction candidate for one later finite-step test", "selection_freeze": {"utc": "2026-09-19T03:34:59.196694+00:00", "sha256": "494fdafcf0db462d7d8157175bd50a879217f6e5f0c973c9af833b50ac726297", "total": 80, "selected": 60}, "prediction_freeze_utc": "2026-09-19T03:41:33.046537+00:00", "first_source_clean_read_utc": "2026-09-19T03:41:39.024454+00:00", "source_clean_images": 16, "optimizer_steps": 0, "target_domain_access": 0, "lolv2_access": 0, "official_test_access": 0, "inference_reference_leakage": 0, "completed_utc": "2026-09-19T03:41:43.596767+00:00"}
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+INDEPENDENT_PASS 60
+[autodl] finished_at=2026-09-19T11:41:50+08:00
+[autodl] exit_code=0
