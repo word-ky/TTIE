@@ -14,6 +14,8 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** On LOL-v2 Real development data, the accepted fixed-validation deployable base remains **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`**. T036-A common gain remains the strongest fresh-qualified deployable action expansion found so far, improving exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean on its deterministic reference-unused development cohort, but with an unresolved unsafe tail (`29/100` PSNR regressions; worst `-5.614 dB`).
 
+A later contract inspection clarified the accepted T036 common path: it does **not** start from a selected T026 output/state and it is not a gain-only optimizer. It starts independently from each raw low image with identity `raw ∈ R^{1×3×2×2}`, jointly updates all 12 EV/gamma/gain coordinates using Adam `lr=0.03` for 40 active steps plus CommonBox, and uses the original T014 scalar energy both for the full raw gradient and minimum-energy/earliest-tie checkpoint selection. This correction changes the interpretation of the next T060 intervention but does not change the accepted T036 performance numbers.
+
 No T059/T060 action-transfer result is deployable yet. The official LOL-v2 Real test remains sealed.
 
 ## Renderer / action-family diagnosis
@@ -72,11 +74,15 @@ On the same 60 nondegenerate anchors:
 - cosine median: **`0.9064` vs `0.8009`**, delta `+0.1055`;
 - cosine p10: **`+0.4259` vs `-0.0607`**.
 
-T059-E passes every preregistered comparative gate, including both material-advantage alternatives (median cosine `>= +0.05` over T014 and at least two fewer wrong-sign anchors). Therefore the accepted classification is **`T059-E is a common-gain direction candidate for one later finite-step test`**.
+T059-E passes every preregistered comparative gate, including both material-advantage alternatives. Therefore the accepted classification remains **`T059-E is a common-gain direction candidate for one later finite-step test`**.
 
-Scientific interpretation: T059-E does **not** support a high-dimensional 8×8 exposure field, but in the already useful low-dimensional T036 common-gain action subspace it gives substantially better first-order restoration direction than the deployed T014 energy. This is the first direct evidence that the learned transferable field may improve the strongest current deployable action family rather than merely adding a new renderer. It is still source-only first-order evidence: no finite-step quality, real-domain safety, tail reduction, deployability, or final-benchmark improvement is established yet.
+Scientific interpretation: T059-E does **not** support a high-dimensional 8×8 exposure field, but in the already useful low-dimensional T036 common-gain action subspace it gives substantially better first-order restoration direction than the deployed T014 energy. This is still source-only first-order evidence: no finite-step quality, real-domain safety, tail reduction, deployability, or final-benchmark improvement is established yet.
 
-The next experiment is therefore one fixed head-swap validation: preserve the exact accepted T036 finite-step common-gain procedure and replace only T014 guidance with frozen T059-E guidance. No tuning is authorized.
+### T060-C contract clarification — blocked before real experiment, not a negative result
+
+The first T060-C specification incorrectly tried to combine accepted T026 starting states with an “exact T036” gain-only substitution. Inspection and deterministic synthetic reproduction of the pinned accepted T036 implementation showed that those conditions cannot simultaneously hold: accepted T036 starts from raw-low/identity, jointly adapts all 12 EV/gamma/gain coordinates, and uses the same T014 scalar head for both gradient guidance and checkpoint selection. Codex correctly stopped before launching the 100-image development run.
+
+Because T060-B supports only the gain slice, while prior T059 work explicitly does **not** support reliable T059-E scalar calibration, the next finite-step probe is now intentionally narrower than a full head swap: preserve T014 EV/gamma gradients and T014 scalar selection exactly, and substitute T059-E only for the four gain-coordinate gradients inside the accepted 12-coordinate T036 trajectory. This directly tests the evidenced advantage without extending T059-E into unsupported coordinates or scalar selection.
 
 ## Strong baseline development anchors
 
@@ -96,7 +102,7 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - External baselines admitted to the main comparison must be target-free at inference.
 - Fresh/final benchmark sets must remain isolated from model/hyperparameter selection.
-- **The official LOL-v2 Real test remains untouched through T060-B.**
+- **The official LOL-v2 Real test remains untouched through the T060-C contract clarification.**
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -108,13 +114,14 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - **T059 matched-detail:** direction transfer is scientifically supported, but raw and T026-conditioned real-development gains are practically negligible; the detail integration line is closed.
 - **T060-A spatial exposure projection:** coarse sign transfer is visible, but full-field coverage/shape alignment fails the fixed audit; no finite-step spatial-exposure rollout is authorized.
 - **T060-B common-gain direction:** positive comparative first-order result; T059-E is markedly better aligned than T014 in the exact 4-D common-gain subspace, but no finite-step/deployable claim yet.
+- **T060-C:** first finite-step specification was blocked before any real-data run because it misdescribed the accepted T036 procedure; no performance verdict exists yet.
 
 ## Integration note
 
-Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P through T060-B are scientifically reviewable through their pinned source/evidence even while PRs remain open. T060-B is PR #126.
+Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P through T060-B remain scientifically reviewable through their pinned source/evidence even while PRs remain open. T060-C contract clarification is draft PR #127.
 
 ## Current open task
 
-**T060-C — fixed T059-E-for-T014 common-gain finite-step swap on the accepted T036 development cohort** in `coordination/CHATGPT_TO_CODEX.md`.
+**T060-C-R1 — fixed T059-E gain-slice substitution inside the exact accepted T036 joint trajectory** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Reuse the exact accepted T036-A 100-image development cohort and all T026/T036 initial states, operator, masks, optimizer, learning rates, step count, stopping semantics, and renderer settings. Change only the gradient guidance from original T014 energy to frozen T059-E, recomputing the current target-free feature/Jacobian/gradient online. Freeze/hash all 100 outputs before any normal/reference or per-image baseline outcome is read. The fixed test asks whether the new direction retains material T036 mean gain while materially reducing the `29/100` regression tail and `-5.614 dB` worst case. No tuning and no official-test access are authorized in this cycle.
+Use the exact accepted T036 raw-low/identity initialization, active gate, 12-coordinate CommonRegion2 trajectory, Adam `lr=0.03 × 40`, CommonBox, and T014 minimum-energy/earliest-tie selection on the same already-open 100-image development cohort. Keep T014 gradients for EV/gamma and T014 scalar checkpoint selection; replace only the four gain-coordinate gradient entries with fresh target-free T059-E `J_gain^T q_E`. Freeze/hash all outputs and decisions before any normal/reference or per-image baseline outcome read. No tuning and no official-test access are authorized in this cycle.
