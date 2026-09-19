@@ -4857,3 +4857,24 @@ Counters beforefreeze clean/reference0,referencegradients0,targetdomain0,LOL-v2 
 Files/commands: research_log/T060A minimalrenderer/Jacobian,target-free predict→separate diagnose→independent verify,tests/cohort/bindings,prediction/reference fields,all80table,freeze/logs/report/archive manifests. Result SHA0a2162b45f5468402e9c0f8baabbf35dff8c703b2d92f571744996ff9faad495;full101955506-byte home/F archive SHA1f9ec8ca0c6e9448befd7c23d45bbd37cc3915172851e65469dfb6e097d3e58f;recovery SHA7d80cd0dacece7bbd19e146244866b91cdacacd89000e79ccafc7721b6dcb85c;bothcopies verified.
 
 **Next:** stop under fixed coverage criterion and await lead review. No zero-reference exclusions,eligibility adjustment,grid/range/head change,optimizerstep,real-domain rollout or self-merge.
+
+
+## T060-B — DONE — 2026-09-19T03:47:12.890151+00:00
+
+**Classification:** `T059-E is a common-gain direction candidate for one later finite-step test`. Source-only first-order evidence, not a finite-step quality/safety/deployability claim.
+
+Authorization ed214057e12994d6bb4225fa909c75d792b4498a; tested source `73b86dc14b0a4d80d0dad895407b132f30b83976`; evidence `b925fbf138d68920502056265bc5b2079b31a426`; branch `codex/T060B-common-direction`; [PR](https://github.com/word-ky/TTIE/pull/126); [full report](https://github.com/word-ky/TTIE/blob/b925fbf138d68920502056265bc5b2079b31a426/research_log/T060B/report.md).
+
+Exact original80 anchors/order; immutable A selected solely by any(frozen gate.active):**60/80**. Selection SHA494fdafcf0db462d7d8157175bd50a879217f6e5f0c973c9af833b50ac726297, frozen03:34:59.196694UTC. All60 nondegenerate at unchanged three-norm>1e-12. Smallest reference norm2.740120211381937e-12, no threshold change.
+
+**T059-E versus T014:** positive-dot **58/60=0.9666666666666667 versus53/60=0.8833333333333333**; wrong signs **2 versus7**. Cosine mean **0.7774807272689549 versus0.6290119788169972**; median **0.906366178533033 versus0.80090100474288**; p10 **0.42592417291029977 versus-0.060745921633695375**; p90 **0.9997704433416597 versus0.9887045827732086**. Exact median advantage **+0.10546517379015308**, positive fraction **+0.08333333333333337**, wrong-sign reduction **5**. All fixed quality/noninferiority/materiality gates pass.
+
+Unchanged accepted T036 CommonRegion2 hard2x2 RGB-shared gain renderer; identity rawgain0; onlygain differentiable, EV/gamma fixed. All y0/grid anchor hashes reproduce. Shared fresh28-D x/J_gain; exact E head e15e91c4e9be401bcac6d3de039ec2d1ae7141fb6cec40c388d22549652d43d0 and original014 head c3d1eef9f20af163e1268823cf16d3fdaed315e7723fc94db3b1138ad1336521 retain their own accepted loader/normalization. All244 source bindings also match published Git bytes; inputs and head states immutable.
+
+All60 target-free bundles frozen **03:41:33.046537UTC**, first source-clean read **03:41:39.024454UTC** (2026-09-19), separate process. Firewall and clean/reference-gradient/target-domain/LOL-v2/official-test/leakage counters0 beforefreeze. Diagnostic16 sourcecleans; independent verifier same16 afterward. Optimizersteps0, no finite-step output comparison, PSNR/SSIM, training, state selection or tuning. A6000 GPU1 for model/J/reference gradients; acceptedCPU head evaluation.
+
+**Validation:**6 tests pass3.23s; baseline4pass3.29s. Sole run `20260919-114102-ttie-t060b-common` exits0. Independent full60 analytic gain/clamp/quadrant derivatives, separately normalized MLP derivatives, NumPy J-transpose-q, exact80selection/state/feature/hash replay and scalar distributions/deltas/classification PASS. No experiment failure/repair/rerun. Preparation guessed test filename corrected; Windows argument length switched to existing SCP helper; intermittent SSH/SCP timeouts recovered, including a postrun log-read timeout. Existing NVML warning nonblocking; localD space recovered.
+
+Files: research_log/T060B minimal gain adapter/J audit, prediction→diagnostic→verifier, tests, source/provenance/selection bindings, full60 table and compactfields, normalization/norm distributions, freeze/log/report/archives. Result SHA `bf4b42541919f17633b8cc372cd5e55ec342c560fed160b973f100ae084396fc`. Raw 147602559 bytes SHA `c09046117b4b141b78ddb5ab1dfc2452285fb99700f06e2baa7f9bc43eb384e0`; recovery SHA `102dcf28d7407802619cc991d098b939e6de2dcf539c41b367a1dccaaea167a3`; both home/F copies verified. Run command in evidence/run.sh.
+
+**Next:** research-lead review; qualifies only as a common-gain direction candidate for one later finite-step test. Wait explicit next task; no automatic finite-step, target-domain/LOL-v2/official-test run, integration or self-merge.
