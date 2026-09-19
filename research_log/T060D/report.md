@@ -1,0 +1,17 @@
+# T060-D — BLOCKED before trajectories
+
+Authorization: 861620f4c999310e9f1e5e20f9af183a633a4d20. Tested source: 6827ebee9122d84bf00ef911482c549e57372d8e. Branch: codex/T060D-selector-audit.
+
+The required exact gate-metadata reproduction fails at the first of the fixed 60 T060-B source anchors (bank 001, source image 36660, state 0). No A/B trajectory was run. This is a numerical reproducibility/contract block, not evidence for or against the selector-bottleneck hypothesis.
+
+The exact selection SHA is 494fdafcf0db462d7d8157175bd50a879217f6e5f0c973c9af833b50ac726297. The degraded input tensor SHA matches the accepted T060-B state-0 y0 exactly: b425e1c894a8ed64b2085a3e37a42138c1f09eda13d2beaace9517c1443d7fd7. All 262 source bindings and 63 allowed input files validated before and after the preflight. CLIP/prototypes and source configuration are unchanged; the original source frozen receipt supplies the gate, with calibration equal to T060-B. No target-domain gate or image was read.
+
+Recomputed active mask: [true,true,true,true], exact match. Winner: [0,0,0,0], exact match. Maximum absolute score difference: 4.023313522338867e-07. Maximum absolute evidence difference: 3.572896652315194e-06. First expected/actual score: 0.1414288580417633 / 0.14142903685569763. Complete expected/actual scores and evidence are in preflight.json. The small differences are consistent with floating-point execution variation; the underlying cause was not established. No tolerance has been introduced and no historical metadata has been overwritten.
+
+GPU preflight started 2026-09-19T07:36:36.042682+00:00, ended 2026-09-19T07:36:53.750948+00:00, physical NVIDIA RTX A6000 GPU1, TF32 off, seed7, single CPU thread, same FixedObjective/CLIP path. Command: CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH="$PWD:$PWD/tests" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T060D.preflight --out /home/wenchang/asdasdsad/wjq/TTIE/research_log/T060D_preflight
+
+Release: 20260919-ttie-t060d-selector. Direct short preflight command exited0 and persisted explicit BLOCKED status. No tmux experimental run was launched. Source-clean, reference-gradient, metric, target-development and official-test reads: zero. Optimizer updates: zero. Remaining59 anchors were not evaluated after the first mismatch. Therefore no global trajectory freeze, PSNR table, selector regret, or hypothesis classification exists.
+
+Validation: independent arithmetic verifier PASS (python -m research_log.T060D.verify_block), including exact low tensor binding, identical discrete decisions, independently recalculated normalized gate evidence, mismatch magnitude, and zero-update/access receipts. Separate source-clean file-open test PASS: existing inference firewall raises PermissionError before the source image is read. This test is separate from the prediction process. No full-trajectory fixture was run because its mandatory gate precondition failed.
+
+Next: research lead must clarify whether exact matching means all floating scores/evidence bit-for-bit, or authorize a predeclared numerical tolerance for floating fields while preserving exact active/winner decisions. If bitwise identity is required, source-generation execution equivalence must be resolved first. No selector fitting, threshold change, target-domain rerun, or scientific rescue is proposed or authorized here.
