@@ -1,0 +1,19 @@
+# T060-D-R1 — BLOCKED before trajectories
+
+Authorization b9021792165147a6d3210dd46249603ae7af791f; tested source c93e55cab607f942dc1f30bb0c2cfe96cdc473c9; branch codex/T060DR1-selector-audit.
+
+Applied only the research-lead-authorized absolute tolerance1e-5 to floating gate scores/evidence, retaining exact active/winner decisions and exact state-0 tensor hashes. Inputs additionally bind both T014 and T059-E head checkpoints. The ordered preflight passed26 anchors, then stopped on anchor27 (zero-based order26, bank177, original index3144). No trajectories or clean/reference evaluation were launched. Remaining33 anchors were not checked under the explicit stop-on-any-failure rule.
+
+Maximum score error among checked anchors: 6.854534149169922e-07, within1e-5. Maximum evidence error: 1.1849748300818419e-05, exceeding1e-5. The failing sample's active mask is [true,true,true,true] and winner [1,1,1,1], both exact. Its low tensor SHA 5372deedbb6c6dfb89a8074ddc732e66a6dab3ae5e156447c78f23d6bd595197 matches the original T060-B y0. On regionBL, expected/actual bright score is 0.2175149917602539 / 0.217514306306839; expected/actual normalized evidence is 3.7313533350788957 / 3.731341485330595. The unchanged bright calibration scale0.057845398696933635 converts the score difference into the observed evidence difference. This arithmetic explains amplification; the underlying floating execution difference has not been diagnosed.
+
+All263 source bindings and65 allowed config/model/head/low-bank input files validated before and after. Exact selection SHA494fdafcf0db462d7d8157175bd50a879217f6e5f0c973c9af833b50ac726297. No calibration, gate threshold, metadata, cohort, scientific acceptance gate, or tolerance was changed beyond the authorized floating-field tolerance.
+
+GPU preflight started 2026-09-19T09:03:56.638573+00:00; completed 2026-09-19T09:04:06.890275+00:00; physical NVIDIA RTX A6000GPU1; seed7, TF32off, one CPU thread. Release20260919-ttie-t060dr1-selector. Command: CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH="$PWD:$PWD/tests" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T060DR1.preflight --out /home/wenchang/asdasdsad/wjq/TTIE/research_log/T060DR1_preflight
+
+Exit0 with explicit BLOCKED receipt. Zero optimizer steps, source-clean/reference-gradient/metric/target-development/official-test reads. No A/B experiment, global trajectory freeze, PSNR/regret table, or scientific classification exists.
+
+Independent verification PASS: python -m research_log.T060DR1.verify_block reconstructs gate evidence directly from saved scores and frozen calibration, checks exact ordered input hashes/discrete decisions, reproduces both error maxima and the literal <=1e-5 predicates for all27 inspected anchors, and confirms26pass/firstfailure. Existing target-free firewall is unchanged from T060-D, whose separate clean-open test passed. No full-trajectory fixture was run because the mandatory preflight failed. Preflight SHA 3777ef65f6e04d37aa01d6d6361543b7ff22dd988d52b672b2eca3ba8a8fdf20.
+
+Preparation-only failures: generated PowerShell CRLF caused a trailing heredoc terminator NameError after deployment (all deployed file hashes had passed); normalized the local script toLF. The next SSH attempt timed out before running any model. A read-only check confirmed no preflight process/log/output existed; the sole GPU preflight was then launched successfully. No preflight or experiment was rerun after seeing outcomes.
+
+Next: research-lead review of the explicit procedural failure. Do not silently increase tolerance, replace frozen evidence, fit a selector, rerun target development, or access official test. The source selector-bottleneck scientific hypothesis remains unresolved.
