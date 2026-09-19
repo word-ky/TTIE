@@ -1,0 +1,49 @@
+{
+  "k_star": 27,
+  "chosen": {
+    "step": 27,
+    "mean_psnr": 14.702507277274128,
+    "mean_ssim": 0.3582990618390737,
+    "mean_delta": 3.4724671402614296,
+    "median_delta": 2.9745557764389883,
+    "improve": 94,
+    "regress": 6,
+    "tie": 0,
+    "regressions_t026": 5,
+    "worst_delta_t026": -5.580232304134121,
+    "mean_delta_ssim": 0.011996745186623943,
+    "safety_gates": {
+      "regressions": true,
+      "worst": true,
+      "ssim": true
+    },
+    "safety_eligible": true
+  },
+  "eligible_steps": [
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "gates": {
+    "safety": true,
+    "mean_psnr": true,
+    "median_psnr": true
+  },
+  "verdict": "PASS",
+  "classification": "the T062 zero-reference trajectory is useful and a global early stop rescues its safety/structure failure",
+  "completed_utc": "2026-09-19T21:48:41.844118+00:00",
+  "seconds": 71.15437876399665,
+  "table_sha256": "ed5ce25b0a44afab16c8ba074df1a10c3d7214261e876e63ae6d3775230e729a",
+  "new_optimizer_runs": 0,
+  "new_render_runs": 0,
+  "official_test_access": 0,
+  "cross_dataset_access": 0
+}

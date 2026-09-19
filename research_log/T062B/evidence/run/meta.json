@@ -1,0 +1,6 @@
+{
+  "runId": "20260920-054721-ttie-t062b-audit",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260920-054721-ttie-t062b-audit",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260920-ttie-t062b-audit\nexport PYTHONPATH=\"$PWD\" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\nPY=/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python\nOUT=/media/wenchang/F/wjq/TTIE/runs/T062B-frozen-audit\n$PY -m pytest -p no:cacheprovider --import-mode=importlib research_log/T062B/test_selection.py -q && $PY -m research_log.T062B.analyze --out \"$OUT\" && $PY -m research_log.T062B.verify --out \"$OUT\""
+}
