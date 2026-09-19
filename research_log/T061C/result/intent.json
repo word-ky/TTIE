@@ -1,0 +1,28 @@
+{
+  "task": "T061-C",
+  "k_star": 11,
+  "source_manifest_sha256": "34a15a13f0c94b07a7eef870efee9f28da51e30abc7f440a342a62da5c0cd1b5",
+  "development_commit": "c0d84b1d3c7e6af186c28ca736d6ac2bc752d35c",
+  "inputs": {
+    "research_log/T037A_result/per_step.csv": {
+      "git_blob": "0c86ef3aaba2688eb10586018a499b8ef9d5ab7c",
+      "sha256": "b785767669261999212eb19e563d5f858c7ecc2598ce17a82ec0eaf3a4ddf270"
+    },
+    "research_log/T037A_result/per_image.csv": {
+      "git_blob": "39b7e663d18dc8accc6d01c40cbc801f808e96f3",
+      "sha256": "5676541d245fdb41c54a543cf88a79ca37640eea94432af0665cca2ddce2277c"
+    }
+  },
+  "gates": {
+    "mean_psnr_vs_t036_ge": 0.2,
+    "median_psnr_vs_t036_gt": 0.0,
+    "regressions_vs_t026_le": 29,
+    "worst_psnr_vs_t026_ge": -5.614,
+    "mean_ssim_vs_t036_ge": -0.001
+  },
+  "gate_preregistration": "5da5a57e0b481a98d5087aacf7afde8771f80217",
+  "script_commit": "ac345e834e1fddd505558cdad54b2334a7b9f954",
+  "script_sha256": "1feec8f835ed9bdccb4e43851144456092b970e1227170587f2c13c474c925f3",
+  "frozen_utc": "2026-09-19T19:45:33.196210+00:00",
+  "policy": "One fixed common step 11 for all 100 images; offline evaluation only; no second candidate."
+}
