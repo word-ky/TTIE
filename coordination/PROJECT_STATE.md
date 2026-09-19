@@ -12,11 +12,11 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 ## Current deployable state
 
-**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** On LOL-v2 Real development data, the accepted fixed-validation deployable base remains **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`**. T036-A common gain remains the strongest fresh-qualified deployable action expansion found so far, improving exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean on its deterministic reference-unused development cohort, but with an unresolved unsafe tail (`29/100` PSNR regressions; worst `-5.614 dB`).
+**T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** On LOL-v2 Real development data, the accepted fixed-validation deployable base remains **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`** on its original validation cohort. T036-A common gain remains the strongest fresh-qualified deployable action expansion found so far, improving exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean on its deterministic reference-unused fresh development cohort, but with an unresolved unsafe tail (`29/100` PSNR regressions; worst `-5.614 dB`).
 
 The accepted T036 common path starts independently from each raw low image with identity state, jointly optimizes the fixed 12-D EV/gamma/gain action with Adam `lr=0.03` for 40 active steps plus CommonBox, and uses the original T014 scalar energy for trajectory gradients and minimum-energy/earliest-tie checkpoint selection.
 
-No T059/T060 action-transfer result is deployable. The T059/T060 rescue line is closed. The fixed-global-step T061 route is also closed after T061-C. The official LOL-v2 Real test remains sealed.
+No T059/T060 action-transfer result is deployable. The T059/T060 rescue line is closed. The fixed-global-step T061 route is closed after T061-C. T062-A is a non-promoted development control: it exposes a strong objective-bottleneck signal but fails the fixed safety/SSIM contract. The official LOL-v2 Real test remains sealed.
 
 ## Renderer / action-family diagnosis
 
@@ -58,7 +58,23 @@ T061-B selected one immutable source-only global step using exact frozen source 
 
 All five preregistered transfer gates fail. The procedure is admissible: `k=11` and the evaluation intent were frozen before development-quality fields were parsed; no second step, new optimizer/render, official-test access, or cross-dataset access occurred. Exact classification: **`a single source-chosen fixed stopping step does not transfer sufficiently`**.
 
-Scientific implication: the useful horizon is strongly image/domain dependent; a source-global stopping time is not a viable solution. Do not try another constant `k` or relax the T061 gates. Historical learned/heuristic selector work also contains multiple failures, so the next active question is whether the exact T036 action space can instead be driven by a genuinely target-time, reference-free image-space objective.
+Scientific implication: the useful horizon is strongly image/domain dependent; a source-global stopping time is not a viable solution. Do not try another source-global constant `k` or relax the T061 gates.
+
+## T062 target-time objective diagnosis — strong PSNR signal, fixed control not promotable
+
+**T062-A is an accepted scientific negative under its four-gate contract, but it materially changes the diagnosis of the bottleneck.** It keeps the exact T036 12-D CommonRegion2/CommonBox action space, identity initialization, Adam `0.03 × 40`, and low-only initial gate, replacing only the T014 learned trajectory/selection energy with the fixed label-free image objective `L_spa + 10 L_exp + 5 L_col`.
+
+All 100 trajectories and minimum-objective selections froze before any clean/reference, PSNR/SSIM, T026/T036 outcome, official-test, or cross-dataset information was opened. Development result:
+
+- absolute T062-A: **`14.9480877 dB / 0.3369354 RGB-SSIM`**;
+- mean / median PSNR delta versus T036: **`+3.7180475 / +3.8600704 dB`**;
+- improve / regress / tie versus T036: **`85 / 15 / 0`**;
+- regressions versus T026-A: **`12/100`**;
+- worst PSNR delta versus T026-A: **`-7.1055215 dB`** — fails the fixed `>= -5.614 dB` safety gate;
+- mean RGB-SSIM delta versus T036: **`-0.00936695`** — fails the fixed `>= -0.001` structure gate;
+- minimum-objective selected step is `40` on **`88/100`** images.
+
+Exact classification remains **`the fixed three-term zero-reference objective is insufficient`**. Do not relax the gates or sweep its weights/exposure target. However, the `+3.72 dB` mean PSNR jump from changing only the target-time objective is the strongest recent evidence that the learned test-time objective/optimization rule, not the compact renderer capacity alone, is a central bottleneck. The next active question is whether the same frozen T062-A trajectory is useful but over-optimized, i.e. whether one development-tuned global early stop can satisfy the existing safety/SSIM envelope while retaining a material PSNR gain. Any such step is a development hyperparameter only and must later be frozen before held-out evaluation.
 
 ## Development versus final-evaluation protocol
 
@@ -95,14 +111,15 @@ Both are target-free at inference under the frozen comparison protocol, but thei
 ## Best current methods / ceilings
 
 - **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
-- **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918`.
-- **Fresh-qualified deployable action extension:** T036-A common gain, `+0.9392571 dB` mean on its fresh cohort, unsafe tail unresolved (`29/100` regressions; worst `-5.614 dB`).
+- **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918` on its original validation cohort.
+- **Fresh-qualified deployable action extension:** T036-A common gain, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, unsafe tail unresolved (`29/100` regressions; worst `-5.614 dB`).
+- **Strongest target-time objective control:** T062-A, `14.9480877 / 0.3369354` on the T036 development cohort and `+3.7180475 dB` vs T036, but non-promoted because worst-tail and SSIM gates fail.
 - **Best promoted non-deployable mechanism state:** T055-A, `24.3497922 / 0.7591279`.
 - **T059/T060:** direction-transfer insight retained; practical rescue line closed.
 - **T061:** source-global fixed stopping is rejected by T061-C; route closed.
 
 ## Current open task
 
-**T062-A — fixed zero-reference objective control on the exact T036 action space** in `coordination/CHATGPT_TO_CODEX.md`.
+**T062-B — frozen T062-A global early-stop rescue audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Keep the exact T036 renderer/action space, identity initialization, CommonBox, Adam `0.03`, and 40-step budget. Replace only the learned scalar objective with the one fixed three-term no-reference image-space objective specified in the task. Freeze every 100-image trajectory, objective value, output, and selected step before any development reference or baseline outcome is read. No weight sweep, hybrid objective, official-test access, or cross-dataset access is authorized.
+Reuse only the exact frozen T062-A 100×41 states; do not rerun adaptation. Evaluate one common step `k=0..40` across all 100 development images, define safety eligibility using the fixed T026/T036 tail/SSIM envelope, and deterministically choose the safety-eligible step with maximum mean PSNR versus T036. This is development hyperparameter selection only. No per-image selector, loss/optimizer/action-space change, official-test access, or cross-dataset access is authorized.
