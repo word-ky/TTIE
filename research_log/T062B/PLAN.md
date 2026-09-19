@@ -1,0 +1,5 @@
+# T062-B offline global early-stop audit
+
+Authorization b6f55c313b433fe75d3679ec7943f1f7774440c6. Reuse exact T062-A freeze301c041a, 100x41 saved images, original development references and accepted T037-A per-image anchors. No new renderer, optimizer, objective or gate invocation. Hash all saved files and per-state tensors; reproduce the previous selected metrics. Compute all41 step aggregates with original RGB float32->float64 PSNR/SSIM. Eight CPU workers preserve existing SciPy metric definitions; every state metric is checked with independent dot-product PSNR and separable-convolution SSIM.
+
+Fixed global rule: eligible iff <=29 T026 regressions, worst>=-5.614dB, mean SSIM delta>=-0.001. Among eligible steps maximize mean PSNR delta to T036, earliest ties. PASS additionally requires mean>=2dB and median>0. No per-image choice. Tests cover absent eligible steps, ordering/ties, efficacy gate and safety boundary. Independent verifier replays all4100 state hash lookups and all41 aggregate/selection calculations using Decimal arithmetic. No alternate rule after results. Development-tuned hyperparameter only, no held-out claim.
