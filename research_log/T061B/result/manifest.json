@@ -1,0 +1,82 @@
+{
+  "task": "T061-B",
+  "status": "PASS",
+  "accepted_commit": "23c98d16c159e8f51c5147647281ae749741dade",
+  "rule_commit": "5da5a57e0b481a98d5087aacf7afde8771f80217",
+  "rule": "For k=0..40 compute unweighted mean source PSNR across all 60 literal method-A/T036 anchors; choose argmax with earliest-step tie breaking.",
+  "rule_sha256": "9242c8948aab87eeb1fe0a9bc59e61e6b4de33c06d50014cedad74ace8fc9c12",
+  "script_commit": "d5eed1e2419e296b566caab3d82427eb8796d14c",
+  "script_sha256": "33ca7e5bd36130d24776d3706b4bbf11eea304ea9097c9071d3454c14c5ff87c",
+  "inputs": {
+    "research_log/T060DR2/evidence/metrics.json": {
+      "git_blob": "8db7564a40555aafe52805b58ea3974dcfe84ee1",
+      "sha256": "7ae8d7d7574382067e8eeff9dc2ef818bf8689a410c9895c2f1130d7f3e91d0c"
+    },
+    "research_log/T060DR2/evidence/freeze.json": {
+      "git_blob": "e1ee98eed078eabdaf2c0bcbdd27e7c0128dbf17",
+      "sha256": "9570a0ffc1f5e2fd342458d5a35dffd82c24f59fb38f1fa15566af08665abeb5"
+    }
+  },
+  "allow_list": [
+    "research_log/T060DR2/evidence/metrics.json",
+    "research_log/T060DR2/evidence/freeze.json"
+  ],
+  "output_directory": "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\research_log\\T060B_worktree\\research_log\\T061B\\result",
+  "started_utc": "2026-09-19T18:17:49.509336+00:00",
+  "frozen_utc": "2026-09-19T18:17:49.524356+00:00",
+  "anchors": 60,
+  "states_per_anchor": 41,
+  "mean_source_psnr": [
+    15.179924832196827,
+    13.825519270512155,
+    14.568944121840778,
+    15.361897493130641,
+    16.14128349828968,
+    16.82426193660889,
+    17.29614781941488,
+    17.426148009222462,
+    17.440261522160974,
+    17.502836855198364,
+    17.556483555435314,
+    17.566028939520628,
+    17.494074713478938,
+    17.321228293078423,
+    17.08437083804877,
+    16.830060912332993,
+    16.58902229065716,
+    16.374953234478074,
+    16.186207694557332,
+    16.02689287700112,
+    15.893414972368065,
+    15.782335183152695,
+    15.693085194708567,
+    15.620689528942428,
+    15.557136071158883,
+    15.50342908994949,
+    15.45475270264915,
+    15.41263112468858,
+    15.376655520943816,
+    15.34236694679732,
+    15.304868778548295,
+    15.267561099957907,
+    15.235034538899493,
+    15.204350536636774,
+    15.169633973237437,
+    15.131963048260278,
+    15.091232436796666,
+    15.04851339481371,
+    15.004263862186487,
+    14.958865146619866,
+    14.915831533646735
+  ],
+  "tie_set": [
+    11
+  ],
+  "k_star": 11,
+  "data_reads": [
+    "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\research_log\\T060B_worktree\\research_log\\T060DR2\\evidence\\metrics.json",
+    "D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\research_log\\T060B_worktree\\research_log\\T060DR2\\evidence\\freeze.json"
+  ],
+  "target_data_reads": 0,
+  "note": "Historical T061-A development-summary exposure is disclosed; rule predates exposure. Only method A PSNR is used; accepted metrics container also includes unused method B fields."
+}
