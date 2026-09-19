@@ -14,15 +14,15 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 **T014 Sobolev Region2 TTT remains the broad fresh-qualified Ours-Core.** On LOL-v2 Real development data, the accepted fixed-validation deployable base remains **T026-A: `11.1208764 dB / 0.3737918 RGB-SSIM`**. T036-A common gain remains the strongest fresh-qualified deployable action expansion found so far, improving exact T026-A by `+0.9392571 dB / +0.0083560 RGB-SSIM` mean on its deterministic reference-unused development cohort, but with an unresolved unsafe tail (`29/100` PSNR regressions; worst `-5.614 dB`).
 
-A later contract inspection clarified the accepted T036 common path: it does **not** start from a selected T026 output/state and it is not a gain-only optimizer. It starts independently from each raw low image with identity `raw ∈ R^{1×3×2×2}`, jointly updates all 12 EV/gamma/gain coordinates using Adam `lr=0.03` for 40 active steps plus CommonBox, and uses the original T014 scalar energy both for the full raw gradient and minimum-energy/earliest-tie checkpoint selection. This correction changes the interpretation of the next T060 intervention but does not change the accepted T036 performance numbers.
+The accepted T036 common path starts independently from each raw low image with identity `raw ∈ R^{1×3×2×2}`, jointly updates all 12 EV/gamma/gain coordinates using Adam `lr=0.03` for 40 active steps plus CommonBox, and uses the original T014 scalar energy for both the full raw gradient and minimum-energy/earliest-tie checkpoint selection.
 
-No T059/T060 action-transfer result is deployable yet. The official LOL-v2 Real test remains sealed.
+No T059/T060 action-transfer result is deployable. The official LOL-v2 Real test remains sealed.
 
 ## Renderer / action-family diagnosis
 
-Reference-only renderer studies established that the remaining capacity is strongly spatial:
+Reference-only renderer studies established that remaining capacity is strongly spatial:
 
-- **T051-A spatial exposure field:** fixed 8×8 RGB-shared exposure field adds `+0.6590052 dB` mean / `+0.4525454 dB` median PSNR over T050, with `100/100` PSNR wins. It missed its intentionally large oracle materiality gate, but it is clearly a larger low-frequency action family than the later deployed Region2/global variants.
+- **T051-A spatial exposure field:** fixed 8×8 RGB-shared exposure adds `+0.6590052 dB` mean / `+0.4525454 dB` median PSNR over T050, with `100/100` PSNR wins.
 - **T054-A local-detail field:** strongest later reference-only renderer extension, reaching `24.3454867 / 0.7577572` and adding `+1.2383356 dB` mean / `+1.2353360 dB` median PSNR plus `+0.1877170` mean SSIM over T052.
 - T055-A/T055-V show that simply extending the same one-scale optimization budget adds only about `+0.0043 dB`; T056 second-scale detail and T057 chroma-detail failed their fixed materiality gates.
 
@@ -36,53 +36,51 @@ Accepted conclusions remain:
 
 - calibrated unseen-image scalar prediction is unsupported despite strong in-sample capacity;
 - simple 28-D locality, bank centering/context, early stopping, frozen-CLIP Euclidean locality, donor smoothing/oracles, dual-head disagreement, optimizer-scale rescue, and low-gradient-norm abstention do not solve the value/safety problem;
-- the detail field itself is directionally real: T059-E source inner-held alignment is `0.868874` positive-dot / `0.491553` median cosine; T059-S/T and T059-U show most source anchors have useful local descent direction; T059-V/W show the degraded-image `dx/dv` bridge and one-step action can be reconstructed fully online without reference-dependent caches;
-- T059-X transfers to the already-open 100-image LOL-v2 Real development cohort from raw input, with `97/100` MSE improvements, but only **`+0.001135428 dB` mean PSNR**;
-- **T059-Y** applies the same frozen field after exact accepted T026-A global correction. It remains numerically positive but fails materiality: `100/100` active, `91/100` MSE improve, mean/median MSE change `-4.3532840e-5 / -1.9162789e-5`, mean RGB-SSIM `+0.0014076024`, but mean paired PSNR only **`+0.0024241736 dB < +0.05 dB`**. The harmful tail is `9/100`.
+- the detail field itself is directionally real: T059-E source inner-held alignment is `0.868874` positive-dot / `0.491553` median cosine; T059-S/T/U show most source anchors have useful local descent direction; T059-V/W show the degraded-image Jacobian bridge and one-step action can be reconstructed online without reference-dependent caches;
+- T059-X transfers to the already-open 100-image LOL-v2 Real development cohort from raw input, with `97/100` MSE improvements, but only `+0.001135428 dB` mean PSNR;
+- T059-Y after exact T026-A remains numerically positive but materially negligible: `+0.002424174 dB` mean PSNR, `+0.001407602` RGB-SSIM, and `9/100` harmful cases.
 
-Therefore the fixed one-step matched-detail integration line is **closed**. No lr/step-count/optimizer/threshold rescue on this opened cohort, no T036+detail combination, and no official-test promotion are authorized.
+Therefore the fixed one-step matched-detail integration line is closed.
 
 ## T060 action-family transfer diagnosis
 
 ### T060-A — direct 8×8 spatial-exposure projection: negative
 
-T060-A tested whether the same frozen T059-E feature-space field transfers directly into the exact T051-style 8×8 RGB-shared spatial-exposure action family on the fixed 80-anchor source outer cohort.
-
-The experiment is scientifically admissible: all target-free `x/J_exp/q/g_hat` tensors froze before any source clean/reference read; the T051 renderer math, T059-E head/features/normalization, gate/state inputs, and cohort were pinned; no optimizer step, target-domain/LOL-v2/official-test access, or reference-derived input entered prediction; an independent analytic verifier replayed the exposure derivative/bilinear adjoint and scalar summaries.
-
-Frozen result:
-
-- nondegenerate: **`65/80 < 72/80`** → preregistered classification `spatial-exposure projection is insufficiently active`;
-- all 80 predicted norms are nonzero; the missing 15 are exactly-zero source-reference gradients, so the failure is not numerical collapse of the predicted field;
-- among the 65 nondegenerate anchors, positive-dot fraction is **`60/65 = 0.9230769`**;
-- cosine mean / median / p10 / p90 = **`0.3367 / 0.3524 / 0.0301 / 0.6649`**;
-- the median cosine is also below the fixed `0.40` directional-quality gate.
-
-Therefore the **direct full 8×8 exposure-field projection route is closed**. The residue is a useful coarse descent sign, not enough transferred spatial shape for a full low-frequency field rollout.
+The exact T051-style exposure projection failed the preregistered coverage/shape audit: `65/80` nondegenerate versus required `72/80`; among the 65, positive-dot is `60/65 = 0.9231` but median cosine is `0.3524 < 0.40`. The direct full-field route is closed. The residue is a useful coarse descent sign, not reliable transferred high-dimensional spatial shape.
 
 ### T060-B — exact T036 common-gain subspace comparison: positive first-order result
 
-T060-B asked whether the frozen T059-E field is more faithful than the original deployed T014/T036 energy when both are projected through the **same exact 4-D Region2 common-gain Jacobian**.
-
-The audit is scientifically admissible. The target-free audit set is selected only by already-frozen `any(gate.active)` metadata from the exact 80 T060-A source-outer state-0 anchors. `60/80` enter the audit and all 60 satisfy the unchanged nondegenerate criterion. The same fresh degraded-image `J_gain` feeds both frozen heads with their own accepted normalization/loading semantics. All `x/J_gain/q_E/q_014/g_E/g_014` tensors were frozen and hashed before the first source-clean read; only then did the separate source diagnostic compute true restoration gradients. No optimizer step, real-domain/LOL-v2/official-test access, PSNR/SSIM, or reference quantity entered prediction.
-
-On the same 60 nondegenerate anchors:
+On the exact same 60 nondegenerate common-gain source anchors, T059-E is substantially better aligned with true restoration direction than deployed T014:
 
 - positive-dot: **T059-E `58/60 = 0.9667` vs T014 `53/60 = 0.8833`**;
-- wrong-sign count: **T059-E `2` vs T014 `7`**;
+- wrong-sign count: **`2` vs `7`**;
 - cosine mean: **`0.7775` vs `0.6290`**;
 - cosine median: **`0.9064` vs `0.8009`**, delta `+0.1055`;
 - cosine p10: **`+0.4259` vs `-0.0607`**.
 
-T059-E passes every preregistered comparative gate, including both material-advantage alternatives. Therefore the accepted classification remains **`T059-E is a common-gain direction candidate for one later finite-step test`**.
-
-Scientific interpretation: T059-E does **not** support a high-dimensional 8×8 exposure field, but in the already useful low-dimensional T036 common-gain action subspace it gives substantially better first-order restoration direction than the deployed T014 energy. This is still source-only first-order evidence: no finite-step quality, real-domain safety, tail reduction, deployability, or final-benchmark improvement is established yet.
+This is accepted source-only first-order evidence that T059-E is a better direction candidate in the exact low-dimensional T036 common-gain subspace. It is not finite-step/deployable evidence by itself.
 
 ### T060-C contract clarification — blocked before real experiment, not a negative result
 
-The first T060-C specification incorrectly tried to combine accepted T026 starting states with an “exact T036” gain-only substitution. Inspection and deterministic synthetic reproduction of the pinned accepted T036 implementation showed that those conditions cannot simultaneously hold: accepted T036 starts from raw-low/identity, jointly adapts all 12 EV/gamma/gain coordinates, and uses the same T014 scalar head for both gradient guidance and checkpoint selection. Codex correctly stopped before launching the 100-image development run.
+The first T060-C wording incorrectly described T036 as a gain-only continuation from T026. Codex correctly stopped before real-data execution. The corrected intervention preserves the exact T036 12-D trajectory and changes only the four gain-gradient coordinates.
 
-Because T060-B supports only the gain slice, while prior T059 work explicitly does **not** support reliable T059-E scalar calibration, the next finite-step probe is now intentionally narrower than a full head swap: preserve T014 EV/gamma gradients and T014 scalar selection exactly, and substitute T059-E only for the four gain-coordinate gradients inside the accepted 12-coordinate T036 trajectory. This directly tests the evidenced advantage without extending T059-E into unsupported coordinates or scalar selection.
+### T060-C-R1 — fixed gain-slice finite-step test: negative, but near-miss safety shift
+
+T060-C-R1 executed the corrected intervention on the exact accepted T036 100-image development cohort. It is scientifically admissible: raw-low/identity initialization, all 12 optimizer coordinates, Adam `0.03 × 40`, CommonBox, T014 EV/gamma gradients, and T014 minimum-energy/earliest-tie selection are preserved; only the four gain-gradient entries are replaced by fresh target-free T059-E `J_gain^T q_E`. All 100 actions/states/outputs froze before any normal/reference or persisted per-image baseline outcome was opened. No clean target, label, reference gradient/Jacobian, PSNR/SSIM, harm label, or official-test information entered adaptation.
+
+Frozen result versus exact persisted T026 on the same T036 cohort:
+
+- mean paired PSNR: **`+0.920677 dB`** (`>= +0.80`, pass);
+- median paired PSNR: `+0.699179 dB`;
+- improve/regress/tie: **`80/20/0`** (`<=20` regressions, pass);
+- worst paired PSNR: **`-3.578444 dB`** (`< -3.0`, fail);
+- mean RGB-SSIM: **`+0.0065919`** (`>= +0.006`, pass).
+
+Relative to exact T036, the fixed hybrid is slightly worse on mean quality (`-0.018580 dB` PSNR, `-0.001764` RGB-SSIM), so the preregistered classification is accepted: **`T059-E gain-direction advantage does not translate into a sufficiently safe/material fixed T036 trajectory improvement`**. No gate may be relaxed post hoc.
+
+However, the tail shift is real and worth diagnosing: compared with T036's `29/100` regressions and `-5.614 dB` worst case, T060-C-R1 reduces regressions to `20/100` and improves the worst case to `-3.578 dB` while retaining nearly all mean PSNR benefit. This supports a narrower interpretation: T059-E gain guidance can make the trajectory safer, but the fixed hybrid still does not satisfy the predeclared finite-step safety contract.
+
+No further tuning on this opened target-development cohort is authorized. The next question is source-only: determine whether T014 scalar checkpoint selection is leaving useful T059-guided finite-step states unrealized, or whether the trajectory itself lacks sufficient additional value.
 
 ## Strong baseline development anchors
 
@@ -102,7 +100,7 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - Reference diagnostics may motivate only global research choices; no per-image oracle quantity may enter deployable inference.
 - External baselines admitted to the main comparison must be target-free at inference.
 - Fresh/final benchmark sets must remain isolated from model/hyperparameter selection.
-- **The official LOL-v2 Real test remains untouched through the T060-C contract clarification.**
+- **The official LOL-v2 Real test remains untouched through T060-C-R1.**
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Best current methods / ceilings
@@ -110,18 +108,18 @@ The final sprint objective remains a clear **`+2–3 dB` PSNR advantage over the
 - **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
 - **Best fixed-validation deployable candidate:** T026-A, `11.1208764 / 0.3737918`.
 - **Fresh-qualified deployable action extension:** T036-A common gain, `+0.9392571 dB` mean on its fresh cohort, unsafe tail unresolved (`29/100` regressions; worst `-5.614 dB`).
-- **Best promoted non-deployable mechanism state:** T055-A, `24.3497922 / 0.7591279`; T056/T057 are valid but failed materiality gates.
-- **T059 matched-detail:** direction transfer is scientifically supported, but raw and T026-conditioned real-development gains are practically negligible; the detail integration line is closed.
-- **T060-A spatial exposure projection:** coarse sign transfer is visible, but full-field coverage/shape alignment fails the fixed audit; no finite-step spatial-exposure rollout is authorized.
-- **T060-B common-gain direction:** positive comparative first-order result; T059-E is markedly better aligned than T014 in the exact 4-D common-gain subspace, but no finite-step/deployable claim yet.
-- **T060-C:** first finite-step specification was blocked before any real-data run because it misdescribed the accepted T036 procedure; no performance verdict exists yet.
+- **Best promoted non-deployable mechanism state:** T055-A, `24.3497922 / 0.7591279`.
+- **T059 matched-detail:** direction transfer is scientifically supported, but practical detail gains are negligible; the integration line is closed.
+- **T060-A spatial exposure:** full-field transfer failed.
+- **T060-B common-gain direction:** positive first-order result; T059-E clearly out-aligns T014 in the exact 4-D gain subspace.
+- **T060-C-R1 finite-step hybrid:** fixed negative by preregistered gate; preserves almost all T036 mean PSNR and improves tail count/severity, but misses the worst-regression safety gate and is not deployable.
 
 ## Integration note
 
-Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T059-P through T060-B remain scientifically reviewable through their pinned source/evidence even while PRs remain open. T060-C contract clarification is draft PR #127.
+Historical PRs may contain inherited history/integration complications. Preserve accepted scientific/evidence states rather than repairing history inside experiment cycles. T060-C-R1 is reviewable through tested source `92c8bdd38e51b7d94c9a16cbd2e5c729dd382e52`, evidence `3963d36aac5d2b3d963b52b1b429020c88b09859`, and PR #128.
 
 ## Current open task
 
-**T060-C-R1 — fixed T059-E gain-slice substitution inside the exact accepted T036 joint trajectory** in `coordination/CHATGPT_TO_CODEX.md`.
+**T060-D — source-only trajectory-vs-selector bottleneck audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use the exact accepted T036 raw-low/identity initialization, active gate, 12-coordinate CommonRegion2 trajectory, Adam `lr=0.03 × 40`, CommonBox, and T014 minimum-energy/earliest-tie selection on the same already-open 100-image development cohort. Keep T014 gradients for EV/gamma and T014 scalar checkpoint selection; replace only the four gain-coordinate gradient entries with fresh target-free T059-E `J_gain^T q_E`. Freeze/hash all outputs and decisions before any normal/reference or per-image baseline outcome read. No tuning and no official-test access are authorized in this cycle.
+Reuse the exact 60 T060-B source audit anchors. Run only two fixed frozen trajectories per anchor: literal accepted T036/T014 and literal T060-C-R1. Freeze/hash every state/output/score/decision for all anchors before any source clean read. Then, in a separate source-only diagnostic, compute selected-step quality, oracle-best frozen-state quality, and selection regret. The goal is to decide whether T014 scalar checkpoint selection is materially masking better T059-guided trajectories. No LOL-v2 Real development rerun, no selector fitting, no tuning, and no official-test access are authorized.
