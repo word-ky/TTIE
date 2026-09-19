@@ -1,0 +1,42 @@
+{
+  "t036_commit": "46f675232e03d8bd8d66534004e830cfc365e38c",
+  "t036_files": {
+    "ttie/common_gain.py": {
+      "git_blob": "df9d4d51a4530ef2d39956fbcd50bbabed625187",
+      "sha256": "f06cb28c69cbb8edd9d48e248e051f8525c2d0fe637aecfbd4cde7d0e186bfb7"
+    },
+    "ttie/isp.py": {
+      "git_blob": "cc76465fbb3f24ada6a9d14ef819639a4e0f96e3",
+      "sha256": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9"
+    },
+    "ttie/semantic_ttt.py": {
+      "git_blob": "1e846f23021d493a3b9b6675cf297000e5b57e4b",
+      "sha256": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72"
+    },
+    "ttie/energy_model.py": {
+      "git_blob": "712bc98f4d76c463a61205b5e7fed790a35714ae",
+      "sha256": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4"
+    },
+    "ttie/stop_quality.py": {
+      "git_blob": "cc0749e2e56053752109eac362c0150bfa79adc3",
+      "sha256": "4e6816898e6924732cf2409619c05212a412aab13da15cac5678c7bc6243c19a"
+    }
+  },
+  "source_parent": "2fb48219b52b07f9ab42ea312190dcb401b10b5a",
+  "cohort_sha256": "f3fabdec3e9397a133347094a5cd619153f50c9b5cd03e4348980b5a37534fd4",
+  "reuse": "Unchanged T036 CommonRegion2/Region2/ISP and separate accepted energy loaders; gain-only functional_call adapter; no optimizer",
+  "tests": "A baseline4 passed3.29s; gain unit2 passed1.68s; all B6 passed3.23s",
+  "numerical_verifier_tolerances": {
+    "analytic_reference_abs": "1e-9 + 3e-5 max(abs(g_R))",
+    "analytic_reference_relative": 3e-05,
+    "analytic_q_rtol": 3e-05,
+    "analytic_q_atol": 2e-06,
+    "chain_rtol": 3e-05,
+    "chain_atol": 2e-07
+  },
+  "preparation_failures": [
+    "guessed A test filename absent, corrected to directory discovery",
+    "Windows argument length exceeded before SSH; used existing SCP helper",
+    "intermittent SSH/SCP connection timeouts recovered before experiment"
+  ]
+}
