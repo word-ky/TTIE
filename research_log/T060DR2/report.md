@@ -1,5 +1,8 @@
 # T060-D-R2 — DONE
 
+Reproduction setup: see [REPRODUCING.md](REPRODUCING.md) for restoring the bound
+preflight directory and required artifacts before using the recorded commands.
+
 **Classification: T014-selection mismatch is not a sufficient explanation for the T060-C-R1 near-miss**
 
 This is a fixed source-only trajectory/selector diagnostic. No deployable, target-domain or SOTA claim follows from source oracle states. Exact60 T060-B anchors/order and state-0 degraded inputs; no clean/reference gradient or outcome enters inference/selection.
