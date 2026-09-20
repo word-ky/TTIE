@@ -1,0 +1,11 @@
+# T068-A development-only absolute-step cap
+
+Reuse accepted T067-B source b080b7f3b4f848a0f558c3598b9b713afc1628ac and evidence 2de969763337a9ce3a476daeddf2007394a55463, internal same-repository code and immutable data. Baseline focused tests: 3 passed in 12.58s. No new external code or dependencies.
+
+Reuse map: T066A input/state/model routines unchanged; T067B choices fixes lambda=.875; accepted candidate_freeze supplies identity control; T063B summarize unchanged; T066A independent_development and T067B independent_choices reused. New logic only absolute cap, exact ranking, candidate table and verifier orchestration.
+
+Increment 1: exhaustive cap/formula/endpoint and ranking tests. Increment 2: adapter freezes 2800 choices before reading or hashing evaluation quality; exact prior candidate identity, all five gates, immutable control metric reproduction. Focused affected tests then source commit/push before deployment. Full affected end-to-end development run plus independent GPU rerender and CPU quality checks completes validation.
+
+Complete K=0..27, k_K=max(k_FS,min(k_lambda,K)); fixed lambda=.875, rho=.9857470621423519, p=.5, frozen final model. Per-row model/rule/state/output/input hashes. Existing immutable output binding reused. K27 exactly matches T067B before evaluation; after freeze metrics match T067B exactly. Ranking: passing gates only, maximize worstT026 then meanT036 then medianT036 then largerK; exact frozen primary values used after independent numerical verification to avoid roundoff-created tie changes. K27 is known passing; absence of any passing K implies failed control reproduction, not a new negative classification.
+
+Primary scalar calibration uses CPU; independent render verification uses A6000 GPU, independent PSNR/SSIM CPU. No optimizer/model runs. No transfer references, transfer cohort, fresh/final data. This is model-in-sample development calibration only, not qualification. Source binding excludes all reference-derived quality and rule/result/metrics artifacts, which are checked only after the complete candidate freeze. The already accepted fixed .875 rule is defined in source. Prior target-free candidate table may be read before freeze. Stop after one report.
