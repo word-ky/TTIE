@@ -18,7 +18,8 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - T062/T063 establish a much stronger zero-reference trajectory: mean gains of about `+3.5` to `+3.9 dB` over T036 replicate across independent 100-image cohorts, but fixed/global or normalized-progress checkpoint rules fail rare worst-tail qualification.
 - T063-A and T064-A independently show the relevant catastrophic tails are **selection-limited, not trajectory-limited**: every image in each diagnosed cohort has a safe prefix checkpoint.
 - T063-B cumulative loss-balance and T064-B antithetic photometric-sensitivity guards are closed as non-discriminative target-free statistics.
-- T065-A is the current bounded experiment: one fixed source-trained linear trajectory-quality head, trained only from development references and target-free features, then frozen before transfer selection.
+- T065-A fixed 11-feature ridge trajectory-quality regression is also closed: it preserves strong average performance but badly overestimates the rare unsafe transfer states and fails the immutable worst-tail gate.
+- T065-B is the current bounded experiment: reuse the exact T065-A features, but directly train one class-balanced linear safety detector on development labels and use it only as a rollback guard.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
 The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, using the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
@@ -105,13 +106,31 @@ Result:
 - worst paired delta `-10.3649447 dB` — fail;
 - mean RGB-SSIM delta `+0.0184218`.
 
-The two known tail checkpoints have sensitivity values well below the selected threshold, so this statistic does not discriminate the unsafe late states. The exact antithetic-sensitivity guard is closed. The inference/freeze boundary was valid: all transfer choices/outputs were frozen before reference-quality reads; no clean target, metric, oracle step/range, official test, or cross-dataset data entered selection.
+The two known tail checkpoints have sensitivity values well below the selected threshold, so this statistic does not discriminate the unsafe late states. The exact antithetic-sensitivity guard is closed. The inference/freeze boundary was valid.
+
+### T065-A — fixed linear trajectory-quality head: `TRANSFER_NEGATIVE`
+
+T065-A reused the frozen T063 trajectory and exactly 11 target-free state/trajectory/image features. On the original development cohort, one float64 ridge regression (`lambda=1e-3`) was trained against development-only paired margins `PSNR(state)-PSNR(T026)`, then frozen before transfer selection.
+
+On the already reference-exposed T063-D/T064-A transfer cohort:
+
+- absolute `15.4662827 dB / 0.3977580`;
+- mean / median PSNR delta vs exact T036 `+3.8563678 / +3.8144067 dB`;
+- `12/100` regressions vs exact T026;
+- worst paired delta `-10.3649447 dB` — fail;
+- mean RGB-SSIM delta `+0.0182830`;
+- only `4/100` transfer choices change relative to frozen normalized progress.
+
+The development fit RMSE is `2.2575781 dB` over 2,800 state samples, but the two catastrophic transfer states are severely overestimated by the regressor: predicted margins `+4.3396/+5.1456 dB` versus true post-freeze margins `-7.1311/-10.3649 dB`. Thus the exact average-margin ridge head is closed. The result suggests the next controlled question is whether the fixed feature space can support **direct rare-safety classification** when class imbalance/loss mismatch is addressed; it does not justify adding test labels, oracle signals, or transfer supervision.
+
+The T065-A inference/freeze boundary was valid: the model was trained only from development references, all transfer choices/outputs were frozen before reference-quality reads, and no transfer clean target, PSNR/SSIM, oracle step/range, official test, or cross-dataset data entered selection. Independent verification reproduced features, coefficients, choices, hashes, metrics, and classification.
 
 ## Retained mechanism conclusions
 
 - The 12-D renderer/trajectory has substantial usable capacity; the dominant unresolved issue is **target-free checkpoint selection/safety**, not absence of reachable good states.
 - Large mean improvement of the T062/T063 zero-reference trajectory has replicated on multiple independent 100-image cohorts.
-- Global fixed stopping, cumulative loss-balance, frozen normalized progress alone, and antithetic photometric sensitivity are insufficient to guarantee the rare worst tail.
+- Global fixed stopping, cumulative loss-balance, frozen normalized progress alone, antithetic photometric sensitivity, and average-margin linear ridge prediction are insufficient to guarantee the rare worst tail.
+- The exact T065-A failure is consistent with rare-event loss/class-imbalance mismatch, but this remains a hypothesis until T065-B; do not yet claim the 11-feature space is sufficient or insufficient in general.
 - Reference-oracle diagnostics may motivate only global research choices. Per-image oracle values, safe ranges, PSNR/SSIM, baseline outcomes, and clean targets are forbidden from deployable inference.
 
 ## Development versus final-evaluation protocol
@@ -139,6 +158,6 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 
 ## Current open task
 
-**T065-A — fixed linear trajectory-quality head transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T065-B — class-balanced linear safety rollback transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Train exactly one float64 ridge linear head on the original development cohort using a fixed 11-dimensional target-free state/trajectory feature vector and development-only reference-derived `PSNR(state)-PSNR(T026)` targets. Freeze model/normalization before transfer, then select checkpoints on the already reference-exposed T063-D/T064-A cohort using only degraded/current-state features. No second model/feature set, optimizer rerun, new cohort, official test, or cross-dataset access is authorized.
+Reuse the exact T065-A 11 target-free features and frozen T063-C normalized-progress base checkpoint. Train exactly one development-only class-balanced linear logistic detector for whether `PSNR(state)-PSNR(T026) >= -5.614 dB`, freeze it, and use it only to roll back a base checkpoint that is predicted unsafe. No new features/model family, threshold/hyperparameter sweep, optimizer rerun, new cohort, official test, or cross-dataset access is authorized.
