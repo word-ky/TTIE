@@ -4,74 +4,55 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T066-A accepted as TRANSFER_NEGATIVE
+# Research-lead review — T066-B implementation accepted for execution; no scientific result yet
 
-I reviewed PR #149 (`codex/T066A-dynamics-safety`; scientific source `c6d7a40a78e35a85befb0d77b3bbd103350f3387`, reported evidence/head `84eb78f38b2e10f741e2c4c8eedf080317cf8e94`), the T066-A task-owned implementation/evidence, completion report, and result against the authorized T066-A contract and current `PROJECT_STATE.md`.
+I reviewed Codex commit `e4c011d2bbd183f6227895e6ac3b940aacb6404b` on `codex/T066B-support-diagnosis` against the authorized T066-B contract and current `PROJECT_STATE.md`. This commit is an **implementation milestone only**: there is not yet a completion report, PR result, frozen diagnostic output, or verified scientific classification, so T066-B is not scientifically accepted yet and `PROJECT_STATE.md` must remain unchanged.
 
-T066-A is accepted as **TRANSFER_NEGATIVE**. The implementation uses exactly the authorized 11 frozen snapshot features plus the 8 predeclared temporal-dynamics features, preserves the old 11-feature normalization, fits new-feature normalization development-only, and uses the fixed class-balanced float64 logistic model (`lambda=1e-3`, threshold `0.5`, rollback-only from frozen `k_rho`). No Adam rerun or method retuning occurred.
+The task-owned implementation is consistent with the intended diagnostic. `core.py` uses ordinary Euclidean nearest-single-state geometry in the already frozen development-normalized 19-D space, excludes all 28 states from the query image for development LOIO geometry, preserves deterministic flattened-row tie breaking, and implements the four predeclared classification categories without a tunable rescue rule. `run.py` reuses the frozen T066-A feature/model/normalization artifacts, writes development/transfer target-free feature/probability tables and a diagnostic freeze before opening transfer references, then computes transfer safety labels only for post-freeze diagnosis. It does not fit a new model, rerun Adam, alter the renderer/objective/trajectory, or change checkpoint selection. `verify.py` independently reconstructs features/probabilities, recomputes CPU reference metrics and SciPy support distances, checks freeze-before-reference ordering, and re-derives the confusion/support verdict. Focused tests cover image-excluded geometry, deterministic ties/margin direction, category boundaries, confusion subsets, and summary distributions.
 
-Development leave-one-image-out is genuinely positive at the state level: among `2719` safe and `81` unsafe states, the guard predicts `73/81` unsafe states as unsafe (`unsafe recall = 0.9012`) and all five development gates pass. This is a material contrast with T065-C (`1/81` unsafe recall): explicit trajectory dynamics do contain cross-image safety information inside the development distribution.
+The information boundary is acceptable for execution: test-time quantities remain degraded/current-state features plus the already frozen development-trained model; transfer clean/reference data are used only after the diagnostic tables are frozen and only to assign offline diagnostic safety labels. No transfer label or clean target feeds feature construction, fitting, probability prediction, checkpoint selection, or any deployable inference rule.
 
-However, exposed transfer is a complete checkpoint-level miss: `0/100` choices change. The result remains the frozen T063-D behavior, with absolute `15.4718452 dB / 0.3978969`, mean/median PSNR delta vs exact T036 `+3.8619303/+3.8144067 dB`, `12/100` regressions vs exact T026, mean RGB-SSIM delta `+0.0184218`, but worst paired delta `-10.3649447 dB`; the immutable worst-tail gate fails. Both catastrophic base states remain steps 21/25 and receive essentially unit safe probability (`~0.9999999999999`).
-
-The information boundary is valid. Transfer feature construction/prediction reads only degraded/current frozen trajectory quantities plus the development-trained frozen model. The model/rule is frozen before transfer selection, all 100 transfer choices and outputs are frozen before the first transfer reference-quality read, and the independent verifier reproduces the 2,800+2,800 renders/features, all 100 LOIO fits, final fit, probabilities, hashes, read ordering, metrics, and verdict. No transfer clean target, PSNR/SSIM, oracle step/range, official LOL-v2 Real test, or cross-dataset data enters adaptation or selection.
-
-**Scientific implication.** T066-A rules out the simple statement that “snapshot features were missing temporal information” as a complete explanation. Dynamics recover strong development LOIO unsafe-state recall, yet the frozen model is maximally confident on the two catastrophic transfer states and triggers no transfer rollback. The next controlled question is therefore not another classifier or another hand-designed guard. We first need to determine whether the failure is a **cross-cohort representation/support shift** (transfer-unsafe states occupy regions represented as safe in development) or a **decision-boundary failure despite transferable local support**. Diagnose that distinction before designing any new selector.
-
-PR #149 contains extensive unrelated historical branch material. Treat only `research_log/T066A/**` task-owned files/evidence as scientific evidence; do not merge unrelated history into `main`.
+One repository hygiene caveat remains: the T066-B branch is descended from older task history and is highly divergent from `main`. Treat only `research_log/T066B/**` and the resulting task-owned evidence/report as reviewable T066-B material; do not merge unrelated historical branch contents into `main`.
 
 ---
 
-# OPEN one-hour task — T066-B: frozen 19-D cross-cohort safety-support diagnosis
+# OPEN one-hour task — T066-B-EXEC: execute and verify the frozen support diagnosis
 
-**Single hypothesis / engineering objective.** Determine whether T066-A fails because unsafe transfer states are unsupported / safe-like in the frozen development 19-D target-free feature space, versus because the fixed linear decision boundary fails despite local unsafe support. This is a **diagnostic-only exposed-cohort audit**. Do not create or test a new deployable selector in this cycle.
+**Single hypothesis / engineering objective.** Execute the already implemented T066-B diagnostic exactly once under its frozen specification and determine which predeclared explanation best describes the T066-A transfer failure: `TRANSFER_SUPPORT_SHIFT`, `BOUNDARY_MISMATCH_WITH_UNSAFE_SUPPORT`, `SELECTED_TAIL_SPECIFIC_FAILURE`, or `NO_DIAGNOSTIC_FAILURE`.
 
 ## Fixed inputs/settings
 
-Reuse exactly:
+Use exactly commit `e4c011d2bbd183f6227895e6ac3b940aacb6404b` task-owned T066-B implementation plus the bound T066-A artifacts already recorded in `research_log/T066B/binding.json` / `evaluation_binding.json`.
 
-- the original 100-image development cohort;
-- the already reference-exposed T063-D/T064-A 100-image transfer cohort;
-- the frozen T066-A 19-D feature definitions;
-- the T065-A frozen normalization for the first 11 features;
-- the T066-A all-development normalization for the 8 dynamics features;
-- the frozen T066-A logistic model and `0.5` decision threshold;
-- the same frozen normalized-progress base checkpoint `rho=0.9857470621423519`;
-- the same safety label definition `safe_k = 1[PSNR(y_k, normal)-PSNR(T026, normal) >= -5.614]` for **offline diagnosis only**.
+Keep fixed:
 
-Do not rerun Adam. Do not change the renderer, objective, optimizer, trajectory, feature definitions, normalization, model coefficients, threshold, class weights, or checkpoint rule.
+- original 100-image development cohort and already reference-exposed T063-D/T064-A 100-image transfer cohort;
+- frozen T066-A 19-D feature definitions, normalization, logistic coefficients, and threshold `0.5`;
+- frozen normalized-progress base checkpoint `rho=0.9857470621423519`;
+- safety label `1[PSNR(y_k, normal)-PSNR(T026, normal) >= -5.614]` for post-freeze diagnosis only;
+- Euclidean nearest-single-state support geometry and whole-image exclusion for development LOIO;
+- the four classification rules already encoded in `core.py`.
 
-## Required diagnostic procedure
+Do not rerun Adam, refit any model, change code based on observed diagnostic outcomes, alter the metric/normalization/tie rule, or create a new selector.
 
-1. Reconstruct/reuse the exact frozen 19-D features and T066-A probabilities for all `100×28` development states and all `100×28` transfer states. Verify hashes/bindings against T066-A.
-2. Before any transfer reference-quality read in this task, freeze/hash the complete transfer feature table and probability table. The transfer cohort is already historically exposed, but preserve a clean diagnostic ordering anyway.
-3. Only after that freeze, compute the transfer state labels with the unchanged safety criterion above using the already-authorized references. These labels are **diagnostic only** and must never feed back into feature construction, model fitting, thresholding, or selection.
-4. Report the frozen T066-A classifier's full transfer state confusion matrix and unsafe recall over all 2,800 states. Separately report confusion restricted to each image's states `k<=k_rho` and the base states `k=k_rho`.
-5. In the **already frozen development-normalized 19-D space**, compute for every transfer state:
-   - Euclidean distance to the nearest development-safe state `d_safe`;
-   - Euclidean distance to the nearest development-unsafe state `d_unsafe`;
-   - support margin `m = d_unsafe - d_safe` (positive means locally closer to development-safe support).
-   Do not tune `k`, metric, weighting, or normalization; this is nearest-single-state geometry for diagnosis only.
-6. For all transfer-unsafe states, report the distribution of `d_safe`, `d_unsafe`, and `m`, plus the fraction whose nearest development state is safe. Report the same quantities specifically for the two known catastrophic base states (indices 16 and 86) and for every unsafe base state if there are others.
-7. Also report the corresponding development leave-one-image-out nearest-support geometry using the same 19-D normalization policy, excluding all states from the query image, so that transfer geometry can be compared with a cross-image development reference rather than with in-sample self-neighbors.
+## Required execution
 
-## Classification / stop criteria
+1. Run the focused T066-B tests before the scientific diagnostic. If a binding/hash mismatch or implementation defect prevents execution, stop as `BLOCKED`; only a minimal outcome-independent mechanical fix is permitted, and it must be committed before any scientific rerun.
+2. Run `research_log/T066B/run.py` once on the intended A6000 environment. Confirm the complete development and transfer target-free tables plus probabilities are frozen and hashed before the first transfer reference-quality read.
+3. Run `research_log/T066B/verify.py` independently. It must reproduce feature/probability tables, reference-derived labels, confusion matrices, nearest-safe/nearest-unsafe distances, support margins, explicit tail rows, ordering, and the final diagnostic category.
+4. Report overall / prefix / base transfer unsafe recall, the fraction of transfer-unsafe states with `m>0`, development LOIO unsafe-support summary, and explicit diagnostic rows for indices 16 and 86 plus every other unsafe base state.
+5. Assign exactly one of the four predeclared categories. Do not reinterpret the thresholds after seeing results.
 
-This task has no performance rescue gate and no new inference rule. Assign exactly one diagnostic conclusion:
+## Acceptance / stop criteria
 
-- **`TRANSFER_SUPPORT_SHIFT`** if transfer unsafe recall of the frozen T066-A classifier is `<0.50` **and** at least `75%` of transfer-unsafe states are closer to a development-safe state than to a development-unsafe state (`m>0`).
-- **`BOUNDARY_MISMATCH_WITH_UNSAFE_SUPPORT`** if transfer unsafe recall is `<0.50` but fewer than `75%` of transfer-unsafe states have `m>0`.
-- **`SELECTED_TAIL_SPECIFIC_FAILURE`** if overall transfer unsafe recall is `>=0.50` but one or more unsafe base states at `k_rho` are false-safe, including either catastrophic tail.
-- **`NO_DIAGNOSTIC_FAILURE`** only if transfer unsafe recall is `>=0.50` and every unsafe base state is classified unsafe; in that case report the inconsistency with T066-A checkpoint behavior and stop for lead review.
+Accept this execution only if all source/artifact bindings pass; target-free feature/probability freeze precedes every reference-quality read; `optimizer_runs=0` and `model_fits=0`; the independent verifier passes; and the classification follows the frozen rules exactly.
 
-Do not reinterpret or relax these categories after seeing results.
+Stop immediately and report `BLOCKED` if any prior binding cannot be reproduced, any clean/reference quantity is read before the target-free diagnostic freeze, or verification disagrees materially with the primary result. Do not repair such a failure by changing normalization, support metric, thresholds, features, model, cohort, or category definitions in this cycle.
 
 ## Explicit non-goals
 
-No new classifier, nearest-neighbor selector, OOD guard, threshold, feature, embedding, IQA model, semantic feature, probability calibration, optimizer run, objective/action-space/budget change, new cohort, or post-outcome rescue. No transfer labels in any fitting or inference path. No official LOL-v2 Real test, no LSRW/UHD-LL or other cross-dataset access, and no final Ours-vs-baseline claim.
+No new classifier, k-NN selector, OOD guard, IQA/semantic feature, probability calibration, threshold/metric sweep, optimizer/objective/action-space change, fresh cohort, official LOL-v2 Real test, LSRW/UHD-LL access, or final Ours-vs-baseline claim. No transfer labels or clean targets in any inference/fitting path.
 
 ## Expected evidence
 
-Commit a compact deterministic diagnostic implementation and tests; bindings to T066-A feature/model/normalization artifacts; pre-reference transfer feature/probability freeze; full 2,800-state transfer diagnostic label table generated only post-freeze; overall/prefix/base confusion matrices and unsafe recall; nearest-safe/nearest-unsafe support distances and margins for development LOIO and transfer; explicit rows for indices 16/86; the single classification above; and an independent verifier that recomputes the frozen features/probabilities, label ordering, distances, confusion matrices, support margins, and classification.
-
-Append exactly one completion report to `coordination/CODEX_TO_CHATGPT.md`, never modify `coordination/PROJECT_STATE.md`, then stop.
+Commit the exact tested source SHA, focused-test output, run command/receipt, diagnostic freeze hash/timestamp, first-reference timestamp, full transfer label/confusion/support summaries, explicit tail rows, final classification, independent-verifier output, artifact hashes/recovery paths, and exactly one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
