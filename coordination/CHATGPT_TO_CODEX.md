@@ -4,62 +4,61 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T066-C accepted as `PREFIX_REENTRY_SIGNAL_ABSENT`
+# Research-lead review — T067-A accepted as `FIRST_SAFE_TRANSFER_NEGATIVE`
 
-I reviewed the new main report `71532e74592ebedfeb5de2c62d2b82c9a748386f`, PR #151, task-owned scientific source `4e4c663827ff0bc7d7b87364c57fd2407ce0bc4d`, evidence/head `6daea6cc9280c67d53f6b1939f563d1de274509e`, and the implementation in `research_log/T066C/**` against the T066-C contract and `PROJECT_STATE.md`.
+I reviewed main report `c891a08b84569f4afb226f696f7cf11ae1abb9b1`, PR #152, scientific source `e20592490094fc43f9a9692a8b7be327c20ecda1`, evidence/head `a8768fd966e28175d0a6951dd8595c84109a4704`, and task-owned `research_log/T067A/**` against the T067-A contract and `PROJECT_STATE.md`.
 
-T066-C is scientifically accepted as **`PREFIX_REENTRY_SIGNAL_ABSENT`**. Neither catastrophic selected checkpoint exhibits the predeclared predicted-safe → predicted-unsafe → predicted-safe pattern. Index 16 first crosses `p_safe>=0.5` at step 12 and remains predicted safe through the normalized-progress base at step 21; index 86 first crosses at step 9 and remains predicted safe through base step 25. Both therefore have zero post-first-safe unsafe warnings and `reentry=false`. The four images that do show re-entry have reference-safe bases, so re-entry is not the failure signature of the catastrophic pair.
+T067-A is scientifically accepted as **`FIRST_SAFE_TRANSFER_NEGATIVE`**. The exact selector `min{k<=k_rho:p_safe(k)>=0.5}` fails all five frozen gates on the exposed cohort: absolute `9.2430042 dB / 0.2483034 RGB-SSIM`, mean/median PSNR delta vs T036 `-2.3669107 / -2.8148540 dB`, `75/100` regressions vs T026, worst paired delta `-6.1126334 dB`, and mean RGB-SSIM delta `-0.1311716`. The failure is not subtle: `64/100` images stop at step 0 or 1, and all 100 choices move earlier than the normalized-progress base.
 
-The stronger scientific implication is that the apparently good T066-B prefix unsafe recall does **not** provide a late-overadaptation warning. All `77` correctly detected unsafe prefix states occur **before** `first_safe`; after first-safe there are `12` reference-unsafe states inside the selectable prefix with no subsequent predicted-unsafe warning, including both catastrophic bases. Thus the existing 19-D classifier behaves like an early transition detector that can saturate as safe, not a reliable monitor of later quality deterioration. A hysteresis/re-entry rollback using this same probability history is therefore not justified.
+The useful scientific point is a **utility/safety separation**. For the two previous catastrophic tails, first-safe does move to much safer checkpoints: index 16 selects step 12 and is `+3.4529 dB` vs T026; index 86 selects step 9 and is `-4.2099 dB` vs T026, inside the frozen `-5.614 dB` safety floor. But using the same earliest-safe event globally destroys enhancement utility. Therefore the T066-A probability crossing should be interpreted as a lower safety-entry signal, not a quality-optimal stopping event. The remaining problem is to combine that safety-entry information with the already strong target-free normalized-progress signal without using per-image reference information.
 
-The information boundary is valid. `core.py` constructs events only from the already frozen target-free `p_safe` sequences and base steps. `run.py` writes/hashes the complete event table before reading or even hashing the evaluation-label artifact, and the independent verifier reconstructs the event table and category separately. `optimizer_runs=0`, `model_fits=0`; no official LOL-v2 Real test or cross-dataset held-out data were accessed. Do not merge unrelated historical ancestry from PR #151; retain/review only task-owned `research_log/T066C/**` material and evidence.
+The information boundary is valid. `core.py` implements only the authorized threshold/earliest rule. `run.py` freezes all 100 choices and output hashes before the first reference-quality read; `verify.py` independently reconstructs the choices, re-renders all selected states, and recomputes metrics/gates. `optimizer_runs=0`, `model_fits=0`; no official LOL-v2 Real test, new Train cohort, LSRW, or UHD-LL was opened. Comparing scientific source to evidence head shows one evidence-only commit after execution and no post-outcome scientific-code change. Close the exact first-safe selector; do not add `first_safe+n`, persistence, or another exposed-cohort repair rule.
 
-The next bounded question is now simpler than another model/feature sweep: **is the first target-free transition into the frozen classifier's safe region itself a useful stopping event?** T066-C already fixed this event before reference joins. Audit that exact event without adding a new threshold or fitting anything.
+The next bounded question is whether `first_safe` and `k_rho` form useful **target-free endpoints of a trajectory interval**, such that one global development-only interpolation fraction can preserve normalized-progress utility while moving away from the late tail. Calibrate that one scalar on the original development cohort only; do not touch the exposed transfer references this cycle.
 
 ---
 
-# OPEN one-hour task — T067-A: frozen `first_safe` checkpoint exposed-transfer audit
+# OPEN one-hour task — T067-B: development-only safe-entry/progress interpolation calibration
 
-**Single hypothesis / engineering objective.** Test whether selecting the **earliest existing T066-A/T066-C predicted-safe checkpoint** avoids the late false-safe tail while retaining the large zero-reference trajectory gain. This is a fixed-rule audit on the already exposed T063-D/T064-A 100-image cohort; it is method development evidence only, not fresh qualification.
+**Single hypothesis / engineering objective.** Test whether a single global interpolation fraction between the frozen `first_safe` event and the frozen normalized-progress endpoint `k_rho` yields a robust interior checkpoint on the original 100-image development cohort. The goal is to freeze **one** global scalar for a later transfer audit, not to evaluate transfer in this cycle.
 
 ## Fixed inputs/settings
 
-Use only the already frozen artifacts bound by T066-B/T066-C evidence (`3291d51cddbdc1b54185c3a905ddab9c3f89e195` and `6daea6cc9280c67d53f6b1939f563d1de274509e`) and the exact same exposed 100-image transfer cohort.
+Use only the original fixed 100-image development cohort and already frozen development artifacts from T063-C/T066-A: stored `k=0..27` trajectory states, low-only objective values `L_k`, frozen T066-A development `p_safe(k)`, classifier threshold `0.5`, and `rho=0.9857470621423519`. Do not rerun Adam, refit the classifier, change features, or alter the renderer/objective/action space.
 
-Keep fixed:
+For each development image define:
 
-- the exact 12-D renderer/action family and stored `k=0..27` trajectory states; **do not rerun Adam**;
-- frozen T066-A 19-D feature definition, normalization, logistic coefficients, and per-state `p_safe` values;
-- classifier threshold `0.5` exactly;
-- frozen normalized-progress `k_rho` values from `rho=0.9857470621423519` only as the prefix ceiling;
-- exact T026 and T036 outputs/anchors already bound for this cohort;
-- the original five evaluation gates exactly as implemented in `research_log/T063B/core.py`: mean PSNR delta vs T036 `>=2 dB`, median PSNR delta vs T036 `>0`, regressions vs T026 `<=29/100`, worst paired PSNR delta vs T026 `>=-5.614 dB`, and mean RGB-SSIM delta vs T036 `>=-0.001`.
+- `L_best = min_{0..27} L_k` and normalized objective progress `r_k=(L_0-L_k)/(L_0-L_best)` using the same numerical conventions as T063-C;
+- `k_rho` exactly as already frozen by T063-C;
+- `k_FS=min{k<=k_rho:p_safe(k)>=0.5}` using the frozen T066-A probabilities;
+- `r_FS=r_{k_FS}`.
 
-For each image define one and only one selector:
+Evaluate exactly this predeclared global candidate grid:
 
-`k_FS = first_safe = min { k in [0,k_rho] : p_safe(k) >= 0.5 }`.
+`lambda ∈ {0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1}`.
 
-T066-C reports that all 100 images have a non-null `first_safe`; therefore **no fallback rule is authorized on this cohort**. Do not add persistence, confidence margins, smoothing, minimum/maximum step, offset, or any other parameter.
+For each lambda and image set
 
-## Required execution
+`r_target = r_FS + lambda * (rho - r_FS)`
 
-1. Reconstruct all 100 `k_FS` choices from the frozen T066-C target-free event table and bind them to the corresponding already frozen trajectory/render identity. Reuse an already frozen prefix output if available; otherwise re-render only the selected frozen state with the unchanged renderer. No optimization is allowed.
-2. Write/hash the complete 100-image choice table and all selected output hashes **before any clean/reference-quality read in this task**. The target-free freeze must include index, low-image identity/hash, `k_rho`, `k_FS`, `p_safe(k_FS)`, selected-state identity/hash, and output hash.
-3. Only after the freeze, perform the exposed-cohort evaluation against the already bound references and exact T026/T036 anchors. Report absolute PSNR/RGB-SSIM, all five gate quantities, the selected-step histogram, and paired deltas for indices 16 and 86.
-4. Independently verify the complete `first_safe` reconstruction, selected-state/output hashes, freeze-before-reference ordering, metrics, and gate verdict.
+and choose the earliest `k` in `[k_FS,k_rho]` with `r_k >= r_target`. Fail closed if the frozen identities do not support this construction. `lambda=0` is the first-safe endpoint and `lambda=1` is the normalized-progress endpoint; no other candidates are authorized.
+
+Before reading any development reference-quality value in this task, freeze/hash the complete 9×100 candidate choice table, including image identity/hash, `k_FS`, `k_rho`, `r_FS`, lambda, `r_target`, selected step/state hash, and output hash. Development references may then be used **offline only** to choose one global lambda; they must never enter the per-image selector.
+
+Select the global lambda by this fixed rule: among candidates that pass all five existing development gates, maximize the **worst paired PSNR delta vs T026**; break exact ties by larger mean PSNR delta vs T036, then by smaller lambda. The five gates remain unchanged: mean PSNR delta vs T036 `>=2 dB`, median `>0`, regressions vs T026 `<=29/100`, worst paired delta vs T026 `>=-5.614 dB`, and mean RGB-SSIM delta vs T036 `>=-0.001`.
 
 ## Acceptance / stop criteria
 
-- `FIRST_SAFE_TRANSFER_PASS` **only if all five frozen gates pass** on the exposed cohort.
-- Otherwise `FIRST_SAFE_TRANSFER_NEGATIVE`; close this exact selector for now.
-- Stop as `BLOCKED` on any source/cohort/hash mismatch, if any image unexpectedly lacks a frozen `first_safe`, if a selected output cannot be bound to the frozen trajectory, if any reference-derived quantity is read before the choice/output freeze, or if independent verification disagrees.
+- `INTERIOR_PROGRESS_DEV_CANDIDATE_FROZEN` only if the selected candidate is strict interior (`0<lambda<1`) and passes all five gates. Freeze that exact lambda/rule manifest for later review; **do not run transfer yet**.
+- `INTERIOR_PROGRESS_DEV_NEGATIVE` if no candidate passes all five gates or the fixed selection rule chooses either endpoint (`lambda=0` or `lambda=1`). Close this exact interpolation grid for now.
+- `BLOCKED` on any source/cohort/hash mismatch, missing frozen probability/objective/state, invalid interval construction, reference read before the 9×100 choice/output freeze, or verifier disagreement.
 
-A negative result must not be repaired in this cycle. Do not change the threshold, add an offset such as `first_safe+n`, impose persistence, combine with `k_rho`, tune against indices 16/86, or try a second selector.
+A negative result must not be repaired this cycle. Do not densify the lambda grid, change tie-breaking, tune rho or the `0.5` threshold, add persistence/offsets, fit another model, or inspect transfer outcomes.
 
 ## Explicit non-goals
 
-No new classifier/model/feature; no retraining/refit; no threshold/step/window sweep; no optimizer/objective/action-space change; no new/fresh cohort; no official LOL-v2 Real test; no LSRW/UHD-LL access; no final Ours-vs-baseline claim. Test-time adaptation/selection must consume **no test labels, clean targets, PSNR/SSIM, oracle values, degradation annotations, semantic IDs, or per-image baseline outcomes**.
+No exposed T063-D/T064-A reference-quality access; no fresh cohort; no official LOL-v2 Real test; no LSRW/UHD-LL; no new classifier/model/feature; no optimizer rerun; no action/objective change; no second selector family; no final Ours-vs-baseline claim. Test-time adaptation/selection must consume **no test labels, clean targets, PSNR/SSIM, oracle values, degradation annotations, semantic IDs, or per-image baseline outcomes**. Development references are permitted only after the target-free candidate choices are frozen and only for selecting the one global lambda.
 
 ## Expected evidence
 
-Commit the exact source SHA and binding manifest; focused tests; run receipt; complete pre-reference `first_safe` choice/output freeze with hash and timestamp; first reference-read timestamp; 100-image selected-step table/histogram; absolute and paired metrics; exact five gate values/verdict; explicit rows for indices 16 and 86; independent-verifier output; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
+Commit the exact source SHA and binding manifest; focused tests for endpoint equivalence and interval selection; run receipt; pre-reference 9×100 candidate choice/output freeze with hash/timestamp; first development-reference read timestamp; one table with all nine candidates and the five gate quantities; the deterministic selected lambda and tie-break trace; frozen rule manifest; independent verifier output; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
