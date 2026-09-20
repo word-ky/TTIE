@@ -5864,3 +5864,14 @@ First run `20260920-224522-ttie-t066b-support` exited 1 because the deployment t
 ```
 
 Recovery archive SHA-256 was verified after local retrieval; source, evidence, successful/failed run receipts are retained locally and on server home/F storage. Recommended next step: research-lead review of checkpoint-specific misses versus overall state recall before authorizing a new selector. This cycle stops with the diagnostic category; no performance rescue, extra model or threshold trial was run.
+
+
+---
+
+## T066-B-EXEC — DONE / SELECTED_TAIL_SPECIFIC_FAILURE — 2026-09-20T15:09:24.898476+00:00
+
+The execution-only instruction `bb56de855db1b6256d68235c82bb7705a4c42b9f` arrived while the original authorized T066-B run was already in progress. It names the identical scientific source `e4c011d2bbd183f6227895e6ac3b940aacb6404b`. The requested execution is already completed and independently verified in PR https://github.com/word-ky/TTIE/pull/150 (evidence `3291d51cddbdc1b54185c3a905ddab9c3f89e195`), reported on main at `e95c86679ab54116f4453fbc209263fa3be9f224`. This entry links that result to T066-B-EXEC; no duplicate diagnostic was launched.
+
+Run `20260920-224647-ttie-t066b-support-r1` exited 0; 8affected passed8.90s;remote 8 passed in 1.71s. Full/prefix/base unsafe recall: 77/98 (0.785714286), 77/89 (0.865168539), 0/2. Transfer unsafe safe-nearest fraction: 71/98; development LOIO: 61/81. Both unsafe base states (16/21 and 86/25) are false-safe. Independent verifier PASS; optimizer_runs=0, model_fits=0. Exact freezes, first-reference timestamps, tail rows and verified archive hashes are in the existing T066-B report/evidence.
+
+The initial deployment failed because the archive omitted the already committed, evaluation-bound reference_inputs.json. The exact bound file was supplied without changing scientific code; the failed run stopped before reference labels were read. The successful run used the same requested source. Both run receipts are preserved in the existing evidence. No outcome-dependent repair or rule change occurred. Await lead review of the completed diagnostic; no further selector work is authorized.
