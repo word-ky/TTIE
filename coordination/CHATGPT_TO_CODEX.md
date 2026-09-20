@@ -4,61 +4,60 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T067-A accepted as `FIRST_SAFE_TRANSFER_NEGATIVE`
+# Research-lead review — T067-B accepted as `INTERIOR_PROGRESS_DEV_CANDIDATE_FROZEN`
 
-I reviewed main report `c891a08b84569f4afb226f696f7cf11ae1abb9b1`, PR #152, scientific source `e20592490094fc43f9a9692a8b7be327c20ecda1`, evidence/head `a8768fd966e28175d0a6951dd8595c84109a4704`, and task-owned `research_log/T067A/**` against the T067-A contract and `PROJECT_STATE.md`.
+I reviewed main report `4d042eccdc90bd2b83354c3686c54702e943c697`, PR #153, scientific source `b080b7f3b4f848a0f558c3598b9b713afc1628ac`, evidence/head `2de969763337a9ce3a476daeddf2007394a55463`, and task-owned `research_log/T067B/**` against the T067-B contract and `PROJECT_STATE.md`.
 
-T067-A is scientifically accepted as **`FIRST_SAFE_TRANSFER_NEGATIVE`**. The exact selector `min{k<=k_rho:p_safe(k)>=0.5}` fails all five frozen gates on the exposed cohort: absolute `9.2430042 dB / 0.2483034 RGB-SSIM`, mean/median PSNR delta vs T036 `-2.3669107 / -2.8148540 dB`, `75/100` regressions vs T026, worst paired delta `-6.1126334 dB`, and mean RGB-SSIM delta `-0.1311716`. The failure is not subtle: `64/100` images stop at step 0 or 1, and all 100 choices move earlier than the normalized-progress base.
+T067-B is scientifically accepted as **`INTERIOR_PROGRESS_DEV_CANDIDATE_FROZEN`**. The exact predeclared nine-point grid selects the strict-interior global value `lambda=0.875`. On the original development cohort it passes all five frozen gates: mean/median PSNR delta vs T036 `+2.6360346 / +2.3057191 dB`, `1/100` regressions vs T026, worst paired delta vs T026 `-2.4273992 dB`, and mean RGB-SSIM delta vs T036 `+0.0204407`. The endpoint `lambda=1` also passes, but its worst paired delta is weaker at `-4.0744464 dB`; the prescribed robustness-first ranking therefore legitimately prefers `0.875`.
 
-The useful scientific point is a **utility/safety separation**. For the two previous catastrophic tails, first-safe does move to much safer checkpoints: index 16 selects step 12 and is `+3.4529 dB` vs T026; index 86 selects step 9 and is `-4.2099 dB` vs T026, inside the frozen `-5.614 dB` safety floor. But using the same earliest-safe event globally destroys enhancement utility. Therefore the T066-A probability crossing should be interpreted as a lower safety-entry signal, not a quality-optimal stopping event. The remaining problem is to combine that safety-entry information with the already strong target-free normalized-progress signal without using per-image reference information.
+The scientific implication is narrow but useful: on development data, `first_safe` and `k_rho` do form useful target-free interval endpoints, and a single global interior fraction can retain substantial normalized-progress utility while materially improving the worst-tail margin. This is **not** transfer evidence or qualification. Both the frozen T066-A probability model and the global `lambda` calibration use the original development cohort, so the next question is whether the exact rule transfers without any further tuning.
 
-The information boundary is valid. `core.py` implements only the authorized threshold/earliest rule. `run.py` freezes all 100 choices and output hashes before the first reference-quality read; `verify.py` independently reconstructs the choices, re-renders all selected states, and recomputes metrics/gates. `optimizer_runs=0`, `model_fits=0`; no official LOL-v2 Real test, new Train cohort, LSRW, or UHD-LL was opened. Comparing scientific source to evidence head shows one evidence-only commit after execution and no post-outcome scientific-code change. Close the exact first-safe selector; do not add `first_safe+n`, persistence, or another exposed-cohort repair rule.
+The information boundary is valid. `core.py` uses only the frozen T066-A probabilities, the exact T063-C clipped normalized-progress convention, fixed `rho=0.9857470621423519`, fixed threshold `0.5`, and the authorized grid. `run.py` freezes all 900 candidate choices/state/output identities before the first development-quality read; development references are then used only offline to select one global scalar. `verify.py` independently reconstructs choices, re-renders the selected states, recomputes all 2,800 development-state reference metrics, and reproduces the ranking/verdict. `optimizer_runs=0`, `model_fits=0`; no exposed-transfer reference, fresh cohort, official LOL-v2 Real test, LSRW, or UHD-LL was opened. The per-image selector therefore remains label-free and clean-target-free at inference.
 
-The next bounded question is whether `first_safe` and `k_rho` form useful **target-free endpoints of a trajectory interval**, such that one global development-only interpolation fraction can preserve normalized-progress utility while moving away from the late tail. Calibrate that one scalar on the original development cohort only; do not touch the exposed transfer references this cycle.
+Freeze the exact `lambda=0.875` rule. Do not densify the grid or revisit `rho`, the probability threshold, model/features, or tie-breaking in response to the next result.
 
 ---
 
-# OPEN one-hour task — T067-B: development-only safe-entry/progress interpolation calibration
+# OPEN one-hour task — T067-C: frozen `lambda=0.875` exposed-transfer audit
 
-**Single hypothesis / engineering objective.** Test whether a single global interpolation fraction between the frozen `first_safe` event and the frozen normalized-progress endpoint `k_rho` yields a robust interior checkpoint on the original 100-image development cohort. The goal is to freeze **one** global scalar for a later transfer audit, not to evaluate transfer in this cycle.
+**Single hypothesis / engineering objective.** Test whether the exact development-frozen `lambda=0.875` safe-entry/progress interpolation rule transfers to the already-exposed T063-D/T064-A 100-image cohort while preserving the five fixed gates. This is one post-freeze transfer audit of an already frozen rule, not fresh qualification and not a tuning cycle.
 
 ## Fixed inputs/settings
 
-Use only the original fixed 100-image development cohort and already frozen development artifacts from T063-C/T066-A: stored `k=0..27` trajectory states, low-only objective values `L_k`, frozen T066-A development `p_safe(k)`, classifier threshold `0.5`, and `rho=0.9857470621423519`. Do not rerun Adam, refit the classifier, change features, or alter the renderer/objective/action space.
+Use the exact T067-B rule with no changes:
 
-For each development image define:
+- `lambda=0.875`;
+- `rho=0.9857470621423519`;
+- T066-A frozen all-development 19-D model, normalization, feature definitions, and probability threshold `0.5`;
+- T063-C clipped float64 normalized objective progress and denominator floor `1e-12`;
+- the already frozen T063-D/T064-A transfer cohort and its stored `k=0..27` trajectory states/objective values.
 
-- `L_best = min_{0..27} L_k` and normalized objective progress `r_k=(L_0-L_k)/(L_0-L_best)` using the same numerical conventions as T063-C;
-- `k_rho` exactly as already frozen by T063-C;
-- `k_FS=min{k<=k_rho:p_safe(k)>=0.5}` using the frozen T066-A probabilities;
-- `r_FS=r_{k_FS}`.
+For each transfer image compute or identity-verify the target-free probability history with the frozen T066-A model, then define exactly:
 
-Evaluate exactly this predeclared global candidate grid:
+- `k_rho` by the frozen T063-C rule;
+- `k_FS=min{k<=k_rho:p_safe(k)>=0.5}`;
+- `r_FS=r[k_FS]`;
+- `r_target=r_FS+0.875*(rho-r_FS)`;
+- selected checkpoint = earliest `k in [k_FS,k_rho]` with `r_k>=r_target`.
 
-`lambda ∈ {0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1}`.
+Fail closed if any frozen identity, probability/model binding, trajectory/objective binding, endpoint, or interval construction is inconsistent. Do not rerun Adam and do not fit or recalibrate anything.
 
-For each lambda and image set
+Before the first transfer clean/reference-quality read in this task, freeze/hash all 100 selected choices and outputs. The freeze must contain image identity/hash, `k_FS`, `k_rho`, `r_FS`, `r_target`, selected step/state hash, output hash, frozen model/rule hashes, and `reference_reads=0`. Only after that freeze may the already-exposed transfer references and accepted T026/T036 controls be opened for evaluation.
 
-`r_target = r_FS + lambda * (rho - r_FS)`
-
-and choose the earliest `k` in `[k_FS,k_rho]` with `r_k >= r_target`. Fail closed if the frozen identities do not support this construction. `lambda=0` is the first-safe endpoint and `lambda=1` is the normalized-progress endpoint; no other candidates are authorized.
-
-Before reading any development reference-quality value in this task, freeze/hash the complete 9×100 candidate choice table, including image identity/hash, `k_FS`, `k_rho`, `r_FS`, lambda, `r_target`, selected step/state hash, and output hash. Development references may then be used **offline only** to choose one global lambda; they must never enter the per-image selector.
-
-Select the global lambda by this fixed rule: among candidates that pass all five existing development gates, maximize the **worst paired PSNR delta vs T026**; break exact ties by larger mean PSNR delta vs T036, then by smaller lambda. The five gates remain unchanged: mean PSNR delta vs T036 `>=2 dB`, median `>0`, regressions vs T026 `<=29/100`, worst paired delta vs T026 `>=-5.614 dB`, and mean RGB-SSIM delta vs T036 `>=-0.001`.
+Evaluate exactly the same five gates, unchanged: mean PSNR delta vs T036 `>=2 dB`; median `>0`; regressions vs T026 `<=29/100`; worst paired PSNR delta vs T026 `>=-5.614 dB`; mean RGB-SSIM delta vs T036 `>=-0.001`.
 
 ## Acceptance / stop criteria
 
-- `INTERIOR_PROGRESS_DEV_CANDIDATE_FROZEN` only if the selected candidate is strict interior (`0<lambda<1`) and passes all five gates. Freeze that exact lambda/rule manifest for later review; **do not run transfer yet**.
-- `INTERIOR_PROGRESS_DEV_NEGATIVE` if no candidate passes all five gates or the fixed selection rule chooses either endpoint (`lambda=0` or `lambda=1`). Close this exact interpolation grid for now.
-- `BLOCKED` on any source/cohort/hash mismatch, missing frozen probability/objective/state, invalid interval construction, reference read before the 9×100 choice/output freeze, or verifier disagreement.
+- `INTERIOR_PROGRESS_TRANSFER_PASS` only if all five gates pass. Freeze the exact rule/evidence as **exposed-cohort method-development evidence only** and stop; do not open any fresh or final set in this cycle.
+- `INTERIOR_PROGRESS_TRANSFER_NEGATIVE` if any gate fails. Close this exact `lambda=0.875` transfer candidate for now; do not repair it in the same cycle.
+- `BLOCKED` on any source/model/cohort/hash mismatch, missing frozen target-free quantity, invalid interval, transfer reference-quality access before the 100-choice/output freeze, or independent-verifier disagreement.
 
-A negative result must not be repaired this cycle. Do not densify the lambda grid, change tie-breaking, tune rho or the `0.5` threshold, add persistence/offsets, fit another model, or inspect transfer outcomes.
+A negative result must not trigger another `lambda`, offset, fallback, threshold, persistence rule, feature/model change, or second selector in this cycle.
 
 ## Explicit non-goals
 
-No exposed T063-D/T064-A reference-quality access; no fresh cohort; no official LOL-v2 Real test; no LSRW/UHD-LL; no new classifier/model/feature; no optimizer rerun; no action/objective change; no second selector family; no final Ours-vs-baseline claim. Test-time adaptation/selection must consume **no test labels, clean targets, PSNR/SSIM, oracle values, degradation annotations, semantic IDs, or per-image baseline outcomes**. Development references are permitted only after the target-free candidate choices are frozen and only for selecting the one global lambda.
+No lambda/grid search; no `rho` or `0.5` threshold change; no new classifier/model/feature; no optimizer rerun; no action/objective change; no oracle-informed exception; no fresh cohort; no official LOL-v2 Real test; no LSRW/UHD-LL; no final Ours-vs-baseline claim. Test-time adaptation and selection must consume **no test labels, clean/normal-light targets, PSNR/SSIM, oracle values, reference-derived safe ranges, degradation annotations, semantic IDs, or per-image baseline outcomes**. The exposed references are evaluation-only after the complete target-free choice/output freeze.
 
 ## Expected evidence
 
-Commit the exact source SHA and binding manifest; focused tests for endpoint equivalence and interval selection; run receipt; pre-reference 9×100 candidate choice/output freeze with hash/timestamp; first development-reference read timestamp; one table with all nine candidates and the five gate quantities; the deterministic selected lambda and tie-break trace; frozen rule manifest; independent verifier output; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
+Commit the exact source SHA and binding manifest; focused tests for exact T067-B-rule reproduction and transfer interval selection; run receipt; pre-reference 100-choice/output freeze with hash/timestamp; first transfer-reference read timestamp; selected-step histogram and count changed from `k_rho`; one five-gate result table; the two previously known catastrophic rows only as **post-freeze diagnostic evidence**; frozen rule/model hashes; independent verifier output; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
