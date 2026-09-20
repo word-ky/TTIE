@@ -15,13 +15,13 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
 - **Fixed-validation deployable base:** T026-A, `11.1208764 dB / 0.3737918 RGB-SSIM` on its original validation cohort.
 - **Fresh-qualified action extension:** T036-A CommonRegion2/CommonBox 12-D gain path, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, with an unresolved tail (`29/100` regressions; worst `-5.614 dB`).
-- T062/T063 establish a much stronger zero-reference trajectory: mean gains of roughly `+3.5` to `+3.9 dB` over T036 replicate across independent 100-image cohorts, but fixed/global or normalized-progress checkpoint rules fail rare worst-tail qualification.
-- T063-A and T064-A independently show the catastrophic tails are **selection-limited, not trajectory-limited**: every image in each diagnosed cohort has a safe prefix checkpoint.
+- T062/T063 establish a much stronger zero-reference trajectory: roughly `+3.5` to `+3.9 dB` mean PSNR over T036 replicates across independent 100-image cohorts, but fixed/global or normalized-progress stopping fails rare worst-tail qualification.
+- T063-A and T064-A independently show those catastrophic tails are **selection-limited, not trajectory-limited**: every diagnosed image has a safe prefix checkpoint.
 - T063-B cumulative loss-balance, T064-B antithetic sensitivity, T065-A ridge quality regression, T065-B class-balanced snapshot logistic, and T065-C snapshot 5-NN are closed.
-- T065-C showed the fixed 11-D snapshot representation lacks simple cross-image transferable safety information: development LOIO identified only `1/81` unsafe states.
-- T066-A materially changed that diagnosis: eight trajectory-dynamics features raise development LOIO unsafe-state recall to `73/81 = 0.9012`, proving temporal dynamics contain strong development safety signal, but the frozen all-development 19-D guard still changes `0/100` transfer checkpoints and misses both catastrophic selected states.
-- **T066-B is accepted as `SELECTED_TAIL_SPECIFIC_FAILURE`:** the frozen T066-A guard detects `77/98` unsafe transfer states overall and `77/89` unsafe prefix states, but `0/2` unsafe selected base checkpoints. Thus this is not a global transfer blindness; the failure is concentrated at the chosen late checkpoint, where both catastrophic states are confident false-safe states.
-- The current bounded question is whether those false-safe selected states are **temporal re-entry failures**: did the same frozen target-free safety signal warn earlier in the prefix and then return to predicted-safe at `k_rho`?
+- T066-A adds eight trajectory-dynamics features to the 11 snapshot features. Development leave-one-image-out unsafe recall rises to `73/81 = 0.9012`, proving temporal dynamics contain strong development safety information, but the frozen transfer guard still changes `0/100` checkpoints and misses both catastrophic selected states.
+- T066-B is accepted as **`SELECTED_TAIL_SPECIFIC_FAILURE`**: the frozen T066-A guard detects `77/98` unsafe transfer states overall and `77/89` unsafe prefix states, yet detects `0/2` unsafe selected base checkpoints. The problem is not generic transfer blindness; it is concentrated at the late checkpoint chosen by normalized progress.
+- T066-C is accepted as **`PREFIX_REENTRY_SIGNAL_ABSENT`**: neither catastrophic selected checkpoint has a predicted-safe → predicted-unsafe → predicted-safe excursion. Index/step `16/21` first becomes predicted safe at step `12` and stays predicted safe; index/step `86/25` first becomes predicted safe at step `9` and stays predicted safe. All `77` correctly detected unsafe prefix states occur before first-safe; after first-safe there are `12` reference-unsafe prefix states with no later warning. Therefore the existing T066-A probability history cannot justify a hysteresis/re-entry rollback.
+- The current bounded question is whether the **first target-free transition into the frozen classifier's safe region** is itself a useful stopping event. T067-A is an exposed-cohort fixed-rule audit only; it is not fresh qualification.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
 The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, using the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
@@ -38,7 +38,7 @@ On a deterministic previously reference-unused 100-pair LOL-v2 Real Train cohort
 - worst paired delta vs exact T026 `-7.3341753 dB` — worst-tail gate fail;
 - mean RGB-SSIM delta vs T036 `+0.0098393`.
 
-Four of five gates pass. The large mean signal is real; fixed step 27 is not qualified.
+The large mean signal is real; fixed step 27 is not qualified.
 
 ### T063-A — `SELECTION_HEADROOM_PRESENT` (`REFERENCE_ORACLE_ONLY`)
 
@@ -77,8 +77,7 @@ The exact frozen T063-C rule was applied without retuning to a second determinis
 - mean / median PSNR delta vs exact T036 `+3.8619303 / +3.8144067 dB`;
 - `12/100` regressions vs exact T026;
 - worst paired delta `-10.3649447 dB` — worst-tail gate fail;
-- mean RGB-SSIM delta `+0.0184218`;
-- four of five gates pass.
+- mean RGB-SSIM delta `+0.0184218`.
 
 The exact normalized-progress selector is closed as a qualification candidate.
 
@@ -99,7 +98,7 @@ Both catastrophic failures contain safe early checkpoints. Their oracle steps/ra
 
 The same fixed 11 target-free snapshot/state/image features fail under three different readouts:
 
-- T065-A ridge regression: transfer worst delta remains `-10.3649447 dB` and the two catastrophic margins are severely overestimated.
+- T065-A ridge regression: transfer worst delta remains `-10.3649447 dB`; catastrophic margins are severely overestimated.
 - T065-B class-balanced logistic: `0/100` transfer rollback; both catastrophic states receive essentially unit safe probability.
 - T065-C 5-NN: development LOIO unsafe recall only `1/81`; `0/100` transfer rollback; both catastrophic states have five safe-labeled nearest development neighbors.
 
@@ -117,7 +116,7 @@ Development leave-one-image-out state classification:
 - `0/100` development checkpoint choices change;
 - all five development gates pass.
 
-On the already reference-exposed T063-D/T064-A transfer cohort:
+On the exposed T063-D/T064-A transfer cohort:
 
 - `0/100` checkpoint choices change;
 - absolute `15.4718452 dB / 0.3978969`;
@@ -137,33 +136,52 @@ Using the exact frozen T066-A representation/model with no optimizer rerun and n
 - prefix `k<=k_rho`: safe→safe `2439`, safe→unsafe `202`, unsafe→safe `12`, unsafe→unsafe `77`; unsafe recall `77/89 = 0.8651685`;
 - selected base `k=k_rho`: `98` safe bases correctly predicted safe, but both unsafe bases are predicted safe; unsafe recall `0/2`.
 
-Support geometry in the development-normalized 19-D space:
-
-- `71/98 = 72.45%` transfer-unsafe states are closer to development-safe than development-unsafe support;
-- development LOIO unsafe comparison is `61/81 = 75.31%` closer to safe support;
-- because overall transfer unsafe recall is well above the predeclared `<0.50` support-shift trigger, the accepted category is not generic support shift.
-
 The two catastrophic selected states are:
 
-- index/step `16/21`: `p_safe≈1`, true quality margin `-7.1311 dB`, support margin `+4.8676` toward safe support;
-- index/step `86/25`: `p_safe≈1`, true quality margin `-10.3649 dB`, support margin `+5.6411` toward safe support.
+- index/step `16/21`: `p_safe≈1`, true quality margin `-7.1311 dB`;
+- index/step `86/25`: `p_safe≈1`, true quality margin `-10.3649 dB`.
 
-The complete target-free tables were frozen before any transfer reference-quality read. Independent verification reproduced target-free features/probabilities, CPU PSNR-derived post-freeze labels, support distances, confusion matrices, tail rows, and the final category. `optimizer_runs=0`, `model_fits=0`.
+The complete target-free tables were frozen before any transfer reference-quality read. Independent verification reproduced target-free features/probabilities, post-freeze labels, support distances, confusion matrices, tail rows, and the final category. `optimizer_runs=0`, `model_fits=0`.
 
-**Scientific implication:** the current 19-D dynamics representation is not globally non-transferable. It detects most unsafe transfer states, including most unsafe states inside the selectable prefix, but can become confidently false-safe at exactly the late checkpoint chosen by normalized progress. The next issue is whether this is a temporal warning/re-entry phenomenon visible from the same target-free probability history.
+### T066-C — frozen prefix re-entry diagnosis: `PREFIX_REENTRY_SIGNAL_ABSENT`
+
+Using only frozen T066-B/T066-A `p_safe(k)` sequences and base steps, the complete 100-image event table was frozen before joining any exposed reference-derived labels.
+
+Key results:
+
+- safe bases without re-entry: `94`; safe bases with re-entry: `4`;
+- unsafe bases without re-entry: `2`; unsafe bases with re-entry: `0`;
+- all `98` reference-unsafe states are accounted for as: `77` before first-safe, `0` during a post-safe unsafe excursion, `0` after safe re-entry, `12` inside the prefix after first-safe with no prior warning, and `9` outside the fixed prefix;
+- index `16`, base `21`: `first_safe=12`, then predicted safe continuously through base;
+- index `86`, base `25`: `first_safe=9`, then predicted safe continuously through base;
+- independent verifier PASS; `optimizer_runs=0`, `model_fits=0`.
+
+**Scientific implication:** the T066-A classifier's useful unsafe-state recall is concentrated before its first safe crossing. Once it enters the safe region it can remain confidently safe while true quality later deteriorates. A history-aware re-entry/hysteresis rule based on the same probability sequence is therefore not supported. The next fixed hypothesis is whether the already-defined `first_safe` event itself is a useful stopping point.
 
 ## Retained mechanism conclusions
 
-- The 12-D renderer/trajectory has substantial usable capacity; the dominant unresolved issue is **target-free checkpoint selection/safety**, not absence of reachable good states.
+- The 12-D renderer/trajectory has substantial usable capacity; the dominant unresolved issue remains **target-free checkpoint selection/safety**, not absence of reachable good states.
 - Large mean improvement of the T062/T063 zero-reference trajectory has replicated on multiple independent 100-image cohorts.
-- Global fixed stopping, cumulative loss-balance, normalized progress alone, antithetic sensitivity, and multiple snapshot-based safety readouts are insufficient for the rare worst tail.
-- Explicit trajectory dynamics carry strong development and substantial transfer unsafe-state signal, but the current frozen dynamics guard fails specifically at the selected catastrophic checkpoints.
-- Do not characterize T066-B as proving generic support shift: overall/prefix unsafe recall remains substantial; the accepted failure mode is selected-tail-specific false safety.
+- Global fixed stopping, cumulative loss-balance, normalized progress alone, antithetic sensitivity, multiple snapshot-based safety readouts, and the exact T066-A rollback guard are insufficient for the rare worst tail.
+- Explicit trajectory dynamics carry strong development and substantial transfer unsafe-state signal, but the current frozen dynamics classifier is not a reliable monitor after its first safe crossing.
+- Do not characterize T066-B/T066-C as generic transfer failure: the classifier detects most unsafe prefix states, but those detections occur before first-safe and do not warn about the eventual catastrophic selected states.
 - Reference-oracle diagnostics may motivate only global research choices. Per-image oracle values, safe ranges, PSNR/SSIM, baseline outcomes, and clean targets are forbidden from deployable inference.
+
+## Fixed evaluation gates used in the current development line
+
+From the accepted `research_log/T063B/core.py` contract:
+
+- mean PSNR delta vs exact T036 `>= 2 dB`;
+- median PSNR delta vs exact T036 `> 0`;
+- regressions vs exact T026 `<= 29/100`;
+- worst paired PSNR delta vs exact T026 `>= -5.614 dB`;
+- mean RGB-SSIM delta vs exact T036 `>= -0.001`.
+
+These thresholds must not be changed in response to exposed-cohort outcomes.
 
 ## Development versus final-evaluation protocol
 
-The original fixed 100-image LOL-v2 Real Train-derived cohort is a **development set**. It may be used for method design, global training/hyperparameter selection, ablations, and failure analysis. It must not support final Ours-vs-baseline gap claims.
+The original fixed 100-image LOL-v2 Real Train-derived cohort is a **development set**. It may be used for method design, global training/hyperparameter selection, ablations, and failure analysis. Exposed transfer cohorts may support diagnostics/method development only after explicit freezing; they are not fresh qualification once their references have been inspected. None of these cohorts may support final Ours-vs-baseline gap claims.
 
 Final comparison rules:
 
@@ -187,6 +205,6 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 
 ## Current open task
 
-**T066-C — frozen prefix safe→unsafe→safe re-entry diagnosis** in `coordination/CHATGPT_TO_CODEX.md`.
+**T067-A — frozen `first_safe` checkpoint exposed-transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use only the already frozen T066-B/T066-A per-state `p_safe` sequences and normalized-progress base steps. Construct and freeze a target-free event table before joining any exposed reference-derived labels. Determine whether each catastrophic unsafe base checkpoint is preceded, after the first predicted-safe state, by a predicted-unsafe excursion and then a return to predicted-safe at `k_rho`. No new selector, rollback rule, feature, model, threshold, optimizer run, cohort, official test, or cross-dataset access is authorized.
+Use only the already frozen T066-A/T066-C target-free probability history and stored trajectory states on the same exposed 100-image cohort. Select exactly the earliest `k<=k_rho` with `p_safe(k)>=0.5`, freeze all choices/output hashes before any reference-quality read in the task, then evaluate once with the unchanged five gates. No parameter, threshold, offset, persistence rule, new model, optimizer rerun, fresh cohort, official test, or cross-dataset access is authorized.
