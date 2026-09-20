@@ -1,0 +1,6 @@
+{
+  "runId": "20260921-042913-ttie-t067c-interior",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260921-042913-ttie-t067c-interior",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260921-ttie-t067c-interior && export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_THREADING_LAYER=SEQUENTIAL TTIE_SOURCE_COMMIT=21aaceb5e395749fb06d80fd019aafdbc12a9e1f && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m pytest research_log/T067B/test_core.py research_log/T067C/test_core.py -q && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T067C.run --out /media/wenchang/F/wjq/TTIE/runs/T067C-interior-transfer && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T067C.verify --out /media/wenchang/F/wjq/TTIE/runs/T067C-interior-transfer"
+}
