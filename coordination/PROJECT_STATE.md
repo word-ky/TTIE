@@ -18,9 +18,9 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - T062/T063 establish a much stronger zero-reference trajectory: mean gains of about `+3.5` to `+3.9 dB` over T036 replicate across independent 100-image cohorts, but fixed/global or normalized-progress checkpoint rules fail rare worst-tail qualification.
 - T063-A and T064-A independently show the relevant catastrophic tails are **selection-limited, not trajectory-limited**: every image in each diagnosed cohort has a safe prefix checkpoint.
 - T063-B cumulative loss-balance and T064-B antithetic photometric-sensitivity guards are closed as non-discriminative target-free statistics.
-- T065-A fixed 11-feature ridge trajectory-quality regression is closed: it preserves strong average performance but badly overestimates the rare unsafe transfer states and fails the immutable worst-tail gate.
-- T065-B class-balanced linear logistic safety guard is also closed: it identifies `80/81` unsafe development states but performs `0/100` rollbacks on the transfer cohort and assigns both catastrophic transfer states essentially unit safe probability.
-- T065-C is the current bounded experiment: reuse the exact same 11 target-free features and labels, but replace the global linear boundary with one fixed development-only 5-NN local safety rollback rule to isolate linear-boundary limitation versus representation limitation.
+- T065-A fixed 11-feature ridge trajectory-quality regression, T065-B class-balanced linear logistic safety guard, and T065-C fixed 5-NN safety guard are all closed. The same 11-feature snapshot representation fails under global regression, direct linear classification, and local cross-image nearest-neighbor readout.
+- T065-C is especially diagnostic: development leave-one-image-out 5-NN identifies only `1/81` unsafe states and triggers `0/100` development rollbacks; transfer also triggers `0/100` rollbacks, with both catastrophic states surrounded by safe-labeled nearest development states. This materially shifts the bottleneck from classifier form toward **missing transferable safety information in snapshot features**.
+- **T066-A is the current bounded experiment:** keep all optimization/inference settings frozen and test one predeclared trajectory-dynamics representation (8 temporal features appended to the same 11 snapshot features) with one fixed development-only class-balanced logistic rollback guard.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
 The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, using the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
@@ -96,58 +96,54 @@ Both T063-D catastrophic failures contain safe early checkpoints. Their exact or
 
 ### T064-B — antithetic photometric-sensitivity guard: `TRANSFER_NEGATIVE`
 
-A fixed target-free statistic measured local amplification of a deterministic `±1/255` antithetic Rademacher perturbation at frozen states. Development-only calibration selected `tau=16.09636904055864`.
-
-Result:
-
-- guard changes vs frozen T063-C: `0/100` development and `0/100` transfer;
-- transfer absolute `15.4718452 dB / 0.3978969`;
-- mean / median PSNR delta vs exact T036 `+3.8619303 / +3.8144067 dB`;
-- `12/100` regressions vs exact T026;
-- worst paired delta `-10.3649447 dB` — fail;
-- mean RGB-SSIM delta `+0.0184218`.
-
-The two known tail checkpoints have sensitivity values well below the selected threshold, so this statistic does not discriminate the unsafe late states. The exact antithetic-sensitivity guard is closed. The inference/freeze boundary was valid.
+Development-only calibration selected `tau=16.09636904055864`, but the guard changes `0/100` development and `0/100` transfer choices. Transfer remains `15.4718452 dB / 0.3978969`; the worst paired delta remains `-10.3649447 dB`. The two tail states have sensitivity well below the selected threshold. This statistic is closed.
 
 ### T065-A — fixed linear trajectory-quality head: `TRANSFER_NEGATIVE`
 
-T065-A reused the frozen T063 trajectory and exactly 11 target-free state/trajectory/image features. On the original development cohort, one float64 ridge regression (`lambda=1e-3`) was trained against development-only paired margins `PSNR(state)-PSNR(T026)`, then frozen before transfer selection.
-
-On the already reference-exposed T063-D/T064-A transfer cohort:
+T065-A uses exactly 11 target-free snapshot/state/image features and one development-only ridge model (`lambda=1e-3`). Transfer:
 
 - absolute `15.4662827 dB / 0.3977580`;
 - mean / median PSNR delta vs exact T036 `+3.8563678 / +3.8144067 dB`;
 - `12/100` regressions vs exact T026;
 - worst paired delta `-10.3649447 dB` — fail;
-- mean RGB-SSIM delta `+0.0182830`;
-- only `4/100` transfer choices change relative to frozen normalized progress.
+- only `4/100` choices change.
 
-The development fit RMSE is `2.2575781 dB` over 2,800 state samples, but the two catastrophic transfer states are severely overestimated by the regressor: predicted margins `+4.3396/+5.1456 dB` versus true post-freeze margins `-7.1311/-10.3649 dB`. Thus the exact average-margin ridge head is closed.
+The two catastrophic transfer states are severely overestimated by the regressor (`+4.3396/+5.1456 dB` predicted margin versus `-7.1311/-10.3649 dB` true post-freeze margin). The exact ridge head is closed.
 
 ### T065-B — class-balanced linear safety guard: `TRANSFER_NEGATIVE`
 
-T065-B kept the exact T065-A 11 target-free features and normalization, changed only the development objective to direct binary safety classification, and used a fixed class-balanced linear logistic detector as a rollback guard on the frozen normalized-progress checkpoint.
+With the same 11 features and normalization, a development-only class-balanced linear logistic detector identifies `80/81` unsafe states on the training sample but changes `0/100` development and `0/100` transfer choices. Both catastrophic transfer states receive essentially unit safe probability. Transfer remains `15.4718452 dB / 0.3978969` with worst delta `-10.3649447 dB`. This weakens the loss/imbalance explanation and motivates cross-image evaluation of representation quality.
 
-Development training contains `2719` safe and `81` unsafe states. The fitted classifier identifies `80/81` unsafe development states, with state-level confusion counts: safe→safe `2503`, safe→unsafe `216`, unsafe→safe `1`, unsafe→unsafe `80`. Nevertheless, it changes `0/100` development choices and `0/100` transfer choices.
+### T065-C — fixed 5-NN safety guard: `TRANSFER_NEGATIVE`
+
+T065-C keeps the exact T065-A 11 features/normalization and development safety labels, replacing the linear boundary with ordinary float64 Euclidean 5-NN (`k=5`, unweighted vote, threshold `0.5`) used only as a rollback guard.
+
+Development leave-one-image-out state confusion:
+
+- safe→safe `2694`, safe→unsafe `25`;
+- unsafe→safe `80`, unsafe→unsafe `1`;
+- unsafe recall `1/81`;
+- `0/100` development choices change.
 
 On the already reference-exposed transfer cohort:
 
+- `0/100` choices change;
 - absolute `15.4718452 dB / 0.3978969`;
 - mean / median PSNR delta vs exact T036 `+3.8619303 / +3.8144067 dB`;
 - `12/100` regressions vs exact T026;
 - worst paired delta `-10.3649447 dB` — fail;
 - mean RGB-SSIM delta `+0.0184218`.
 
-The two catastrophic transfer states at indices 16/86 (steps 21/25) receive predicted safe probability `0.9999999999999065` despite true post-freeze safety margins `-7.1311/-10.3649 dB`. Therefore direct class balancing does not repair transfer safety. This weakens the loss/imbalance explanation and shifts the controlled question to **linear-boundary limitation versus feature-representation limitation**. It does not yet prove that every nonlinear rule over the 11 features must fail.
+The two catastrophic states (indices 16/86, steps 21/25) each have five safe-labeled nearest development neighbors and therefore `p_safe=1.0`. This is strong evidence that the exact 11 snapshot features do not carry a simple cross-image transferable safety neighborhood. It does **not** prove that every richer target-free representation must fail.
 
-The T065-B information boundary is valid: labels come only from development references; transfer inference reads only degraded/current states plus the frozen development-trained model; all transfer choices/outputs are frozen before reference-quality reads; official test and cross-dataset sets remain untouched. Independent verification reproduces the fit, feature values, decisions, hashes, metrics, and classification.
+The information boundary is valid: development labels are allowed only as frozen global training/bank information; transfer inference reads only degraded/current states plus the frozen development resource; all transfer choices/outputs freeze before reference-quality reads. Official test and cross-dataset sets remain untouched.
 
 ## Retained mechanism conclusions
 
 - The 12-D renderer/trajectory has substantial usable capacity; the dominant unresolved issue is **target-free checkpoint selection/safety**, not absence of reachable good states.
 - Large mean improvement of the T062/T063 zero-reference trajectory has replicated on multiple independent 100-image cohorts.
-- Global fixed stopping, cumulative loss-balance, frozen normalized progress alone, antithetic photometric sensitivity, average-margin linear ridge prediction, and class-balanced linear logistic safety prediction are insufficient to guarantee the rare worst tail.
-- T065-B shows that merely reweighting the rare unsafe development class and changing to a direct safety loss does not transfer. The remaining near-term question is whether the exact 11-feature representation supports a simple local nonlinear safety rule; T065-C tests that without changing features.
+- Global fixed stopping, cumulative loss-balance, frozen normalized progress alone, antithetic photometric sensitivity, and three readouts of the same 11 snapshot features (ridge, class-balanced logistic, 5-NN) are insufficient to guarantee the rare worst tail.
+- T065-C materially strengthens the representation diagnosis because its cross-image leave-one-out unsafe recall collapses even on development. The next controlled question is whether explicit **trajectory dynamics / overshoot features** recover transferable warning information without changing the optimizer or using test references.
 - Reference-oracle diagnostics may motivate only global research choices. Per-image oracle values, safe ranges, PSNR/SSIM, baseline outcomes, and clean targets are forbidden from deployable inference.
 
 ## Development versus final-evaluation protocol
@@ -167,7 +163,7 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 ## Information-boundary rules
 
 - Test-time adaptation and checkpoint/state selection must never consume test labels, clean/normal-light targets, reference gradients/Jacobians, oracle values, PSNR/SSIM, degradation masks/gain maps, condition IDs, annotations, semantic image IDs, or per-image baseline outcome/harm labels.
-- Quantities computed entirely from the current degraded image/current target-free intermediate image, frozen state, and frozen globally trained model or development-only reference bank are permissible.
+- Quantities computed entirely from the current degraded image/current target-free intermediate image, frozen state, and frozen globally trained model or development-only reference resource are permissible.
 - Development clean/reference targets may be used only offline for global method development/training/hyperparameter selection; they may never become per-image inference inputs.
 - Fresh/final sets must remain isolated from method/hyperparameter selection until the corresponding rule is frozen.
 - Official LOL-v2 Real test and cross-dataset held-out sets remain sealed until Final Ours is frozen.
@@ -175,6 +171,6 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 
 ## Current open task
 
-**T065-C — fixed 5-NN safety rollback transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T066-A — fixed trajectory-dynamics safety guard transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Reuse the exact T065-A 11 target-free features, T065-A normalization, and development-only safety labels. Use exactly `k=5`, unweighted Euclidean nearest neighbors in normalized feature space, threshold `0.5`, and the same rollback-only rule from the frozen normalized-progress checkpoint. Development evaluation must be leave-one-image-out to prevent same-image leakage. No feature/model/hyperparameter sweep, optimizer rerun, new cohort, official test, or cross-dataset access is authorized.
+Keep the optimization trajectory frozen. Append exactly eight predeclared target-free temporal-dynamics features to the same 11 T065-A snapshot features, use development-only normalization for the new features, and fit one fixed class-balanced linear logistic rollback guard. Development evaluation must be leave-one-image-out and must reach unsafe recall `>=0.50` plus all five development gates before transfer quality evaluation is allowed. No feature/model/hyperparameter sweep, optimizer rerun, new cohort, official test, or cross-dataset access is authorized.
