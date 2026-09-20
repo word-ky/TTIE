@@ -10,189 +10,135 @@ This file is the live scientific state. Detailed task history remains in Git his
 
 Can a vision system adapt a compact spatial image-processing state per test image, without test labels or clean/normal-light targets, so that unknown and spatially heterogeneous degradation is corrected by a reference-free test-time optimization field/objective?
 
-## Current deployable state
+## Current deployable / qualification state
 
 - **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
 - **Fixed-validation deployable base:** T026-A, `11.1208764 dB / 0.3737918 RGB-SSIM` on its original validation cohort.
-- **Fresh-qualified deployable action extension:** T036-A CommonRegion2/CommonBox 12-D gain path, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, but with an unresolved tail (`29/100` regressions; worst `-5.614 dB`).
-- T059/T060 action-transfer rescue is closed. T061 source-global fixed stopping is closed.
-- T062 step 27 is **not** deployable/fresh-qualified: it retains a large mean gain but failed the immutable fresh worst-tail gate.
-- T063-A proves strong checkpoint-selection headroom on the first frozen T062 prefix.
-- T063-B's cumulative loss-balance selector failed and is closed.
-- T063-C normalized objective progress passes all five gates on an exposed transfer cohort, but T063-D shows that the exact frozen selector **fails fresh qualification on the rare worst-tail gate**; the exact normalized-progress selector is closed as a qualification candidate.
-- **T064-A now proves the new T063-D fresh tail is also selection-limited, not trajectory-limited:** all `100/100` images have a safe prefix checkpoint, including both T063-D failures.
+- **Fresh-qualified action extension:** T036-A CommonRegion2/CommonBox 12-D gain path, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, with an unresolved tail (`29/100` regressions; worst `-5.614 dB`).
+- T062/T063 establish a much stronger zero-reference trajectory: mean gains of about `+3.5` to `+3.9 dB` over T036 replicate across independent 100-image cohorts, but fixed/global or normalized-progress checkpoint rules fail rare worst-tail qualification.
+- T063-A and T064-A independently show the relevant catastrophic tails are **selection-limited, not trajectory-limited**: every image in each diagnosed cohort has a safe prefix checkpoint.
+- T063-B cumulative loss-balance and T064-B antithetic photometric-sensitivity guards are closed as non-discriminative target-free statistics.
+- T065-A is the current bounded experiment: one fixed source-trained linear trajectory-quality head, trained only from development references and target-free features, then frozen before transfer selection.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
-The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, replacing T014 energy with the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
+The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, using the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
 
-## Accepted T062 evidence
+## Key accepted evidence
 
-### T062-A — fixed zero-reference objective
+### T062-C-R2 — fixed step 27 fresh qualification: NEGATIVE
 
-On the original 100-image development cohort:
-
-- absolute `14.9480877 dB / 0.3369354`;
-- mean / median PSNR delta vs T036 `+3.7180475 / +3.8600704 dB`;
-- `12/100` regressions vs T026;
-- worst delta vs T026 `-7.1055215 dB` — safety fail;
-- mean RGB-SSIM delta vs T036 `-0.00936695` — structure fail;
-- minimum-objective selection lands at step 40 on `88/100` images.
-
-Classification remains negative under its original contract, but the large PSNR signal shifted the bottleneck diagnosis away from renderer capacity and toward objective/stopping.
-
-### T062-B — development-selected fixed step 27
-
-Using only the frozen T062-A trajectory, development references select one global `k*=27`. On development:
-
-- absolute `14.7025073 dB / 0.3582991`;
-- mean / median PSNR delta vs T036 `+3.4724671 / +2.9745558 dB`;
-- `5/100` regressions vs T026;
-- worst delta vs T026 `-5.5802323 dB`;
-- mean RGB-SSIM delta vs T036 `+0.0119967`.
-
-This is a development hyperparameter result, not a final comparison.
-
-### T062-C-R2 — fresh qualification of fixed step 27
-
-On an independently frozen previously reference-unused 100-pair LOL-v2 Real Train cohort:
+On a deterministic previously reference-unused 100-pair LOL-v2 Real Train cohort:
 
 - absolute `15.6879652 dB / 0.4124338`;
-- mean / median PSNR delta vs T036 `+3.5504315 / +3.3795780 dB`;
-- `10/100` regressions vs T026;
-- worst delta vs T026 `-7.3341753 dB` — immutable safety-gate fail;
+- mean / median PSNR delta vs exact T036 `+3.5504315 / +3.3795780 dB`;
+- `10/100` regressions vs exact T026;
+- worst paired delta vs exact T026 `-7.3341753 dB` — worst-tail gate fail;
 - mean RGB-SSIM delta vs T036 `+0.0098393`.
 
-Four of five gates pass, but the formal verdict is **NEGATIVE**. The fixed-global-step-27 route is closed. The replicated mean gain remains strong evidence that the T062 zero-reference trajectory is useful and that the remaining issue is concentrated in checkpoint selection/safety rather than gross renderer capacity.
+Four of five gates pass. The large mean signal is real; fixed step 27 is not qualified.
 
-## T063/T064 stopping and selection evidence
+### T063-A — `SELECTION_HEADROOM_PRESENT` (`REFERENCE_ORACLE_ONLY`)
 
-### T063-A — accepted `SELECTION_HEADROOM_PRESENT`
+On the frozen T062-C-R2 prefix `k=0..27`:
 
-T063-A re-renders only the already-frozen T062-C-R2 prefix `k=0..27`; all 2,800 outputs are frozen before any diagnostic reference read and every reconstructed step-27 output is bit-exact to accepted T062-C-R2. No optimizer/objective/action-space rerun occurs.
+- safety-reachable prefix state: `100/100`;
+- mean / median PSNR delta vs exact T036 `+5.2221903 / +4.2352859 dB`;
+- regressions vs exact T026 `0/100`;
+- worst paired delta `+0.8757352 dB`;
+- mean RGB-SSIM delta vs T036 `+0.0295648`;
+- oracle absolute `17.3597241 dB / 0.4321593`.
 
-A strictly `REFERENCE_ORACLE_ONLY` safety-constrained oracle shows:
+This proves strong checkpoint headroom but is diagnostic only; reference/oracle information is forbidden from deployable inference.
 
-- safety-reachable prefix state: **`100/100` images**;
-- mean / median PSNR delta vs T036: **`+5.2221903 / +4.2352859 dB`**;
-- regressions vs T026: **`0/100`**;
-- worst paired delta vs T026: **`+0.8757352 dB`**;
-- mean RGB-SSIM delta vs T036: **`+0.0295648`**;
-- oracle absolute mean: **`17.3597241 dB / 0.4321593 SSIM`**.
+### T063-C — normalized objective progress: exposed transfer PASS
 
-The sole fixed-step-27 safety failure, `Train/Low/low00221.png`, has safe saved states `12..24`; reference oracle step 17 gives `32.3537627 dB / 0.7653929 SSIM`, versus exact T026 `22.8328597 dB` and T062 step 27 `15.4986844 dB`.
+Development selects one global fraction `rho=0.9857470621423519`. For each image, using only the low/current trajectory, define `L_best=min_{0..27} L_k`, `D=L_0-L_best`, then choose the earliest checkpoint satisfying `L_k <= L_0-rho*D`.
 
-**Scientific implication:** for the observed T062 tail, the frozen trajectory/action space already contains safe high-quality states. The primary bottleneck is checkpoint stopping/selection, not lack of reachable states. Reference oracle steps/harm labels are diagnostic only and are forbidden from deployable inference.
+On an already reference-exposed 100-image transfer cohort:
 
-### T063-B — accepted `TRANSFER_NEGATIVE`
+- absolute `15.8475933 dB / 0.4171932`;
+- mean / median PSNR delta vs exact T036 `+3.7100596 / +3.2033990 dB`;
+- `10/100` regressions vs exact T026;
+- worst paired delta `-4.3235641 dB`;
+- mean RGB-SSIM delta `+0.0145986`;
+- all five gates pass;
+- `45/100` choose earlier than step 27.
 
-T063-B tested exactly one globally calibrated, target-free cumulative loss-balance statistic on already-frozen T062 states. Development calibration chose `tau=0.03832858496579632`, but the resulting selector chose **step 27 for all 100 development images and all 100 exposed-cohort transfer images**. Transfer therefore exactly reproduced T062-C-R2:
+This is exposed-cohort transfer evidence only, not qualification.
 
-- mean / median PSNR delta vs T036 `+3.5504315 / +3.3795780 dB`;
-- `10/100` regressions vs T026;
-- worst paired delta vs T026 `-7.3341753 dB` — immutable safety-gate fail;
-- mean RGB-SSIM delta vs T036 `+0.0098393`.
+### T063-D — frozen normalized-progress fresh qualification: NEGATIVE
 
-The selector/freeze boundary was valid and an independent verifier reproduced states, loss components, ratios, calibration, hashes, metrics, and gates. This closes the cumulative loss-balance ratio as a stopping statistic; it does not invalidate T063-A selection headroom.
+The exact frozen T063-C rule was applied without retuning to a second deterministic previously reference-unused 100-pair cohort:
 
-### T063-C — accepted `TARGET_FREE_TRANSFER_PASS`
-
-T063-C tests one frozen normalized objective-progress selector. On development, the unique selected global fraction is
-
-`rho = 0.9857470621423519`.
-
-For each image, using only its low/current rendered trajectory, define `L_best=min_{0..27} L_k`, `D=L_0-L_best`, and choose the earliest checkpoint satisfying `L_k <= L_0-rho*D` (with the frozen tiny-progress fallback). The rule inspects the complete `0..27` target-free trajectory; it is therefore a checkpoint selector, not a compute-saving early-stop claim.
-
-On development:
-
-- mean / median PSNR delta vs T036 `+3.5695323 / +3.0938391 dB`;
-- `3/100` regressions vs T026;
-- worst paired delta vs T026 `-4.0744464 dB`;
-- mean RGB-SSIM delta vs T036 `+0.0150118`.
-
-On the already reference-exposed T062-C-R2/T063-A cohort, with the selector frozen before any transfer quality read:
-
-- absolute `15.8475933 dB / 0.4171932 RGB-SSIM`;
-- mean / median PSNR delta vs T036 `+3.7100596 / +3.2033990 dB`;
-- `10/100` regressions vs T026;
-- worst paired delta vs T026 `-4.3235641 dB`;
-- mean RGB-SSIM delta vs T036 `+0.0145986`;
-- all five transfer gates pass;
-- `45/100` transfer images select a checkpoint earlier than step 27.
-
-The previous fixed-step failure `low00221.png` now selects step 22 and reaches `20.0067855 dB`, with paired delta vs T026 `-2.8260742 dB`, inside the safety envelope.
-
-**Scientific implication:** normalized objective progress can exploit part of the T063-A checkpoint headroom and repair the first exposed safety tail, but exposed-cohort success alone is insufficient evidence of qualification.
-
-### T063-D — accepted `FRESH_QUALIFICATION_NEGATIVE`
-
-The exact frozen T063-C rule and `rho=0.9857470621423519` were applied with no retuning to one deterministic 100-pair LOL-v2 Real Train cohort whose references had never previously been opened.
-
-Fresh result:
-
-- absolute `15.4718452 dB / 0.3978969 RGB-SSIM`;
+- absolute `15.4718452 dB / 0.3978969`;
 - mean / median PSNR delta vs exact T036 `+3.8619303 / +3.8144067 dB`;
 - `12/100` regressions vs exact T026;
-- worst paired delta vs exact T026 `-10.3649447 dB` — immutable safety-gate fail;
-- mean RGB-SSIM delta vs exact T036 `+0.0184218`;
-- `35/100` images select earlier than step 27;
-- four of five fixed gates pass.
+- worst paired delta `-10.3649447 dB` — worst-tail gate fail;
+- mean RGB-SSIM delta `+0.0184218`;
+- four of five gates pass.
 
-The worst case `Train/Low/low00262.png` selects step 25 and obtains `13.2478338 dB`, versus exact T026 `23.6127785 dB`. Two images violate the fixed safety threshold. All 300 outputs and 100 selector decisions were frozen before the first reference read; an independent verifier reconstructs the cohort, inference bindings, 2,800 T063 candidate states, control states, choices, hashes, metrics, and negative classification.
+The exact normalized-progress selector is closed as a qualification candidate.
 
-**Scientific implication:** the large mean benefit of the T062/T063 zero-reference trajectory generalizes again to genuinely fresh data, but normalized objective progress is not reliable enough for the rare safety tail. The exact selector is closed as a qualification candidate.
+### T064-A — `FRESH_TAIL_SELECTION_LIMITED` (`REFERENCE_ORACLE_ONLY`)
 
-### T064-A — accepted `FRESH_TAIL_SELECTION_LIMITED`
+Re-rendering only the already-frozen T063-D `k=0..27` states shows:
 
-T064-A re-renders only the already-frozen T063-D `k=0..27` states and freezes all 2,800 outputs before any new diagnostic reference read. No optimizer/objective/action-space rerun occurs, and every accepted T063-D selected output is reconstructed bit-exactly.
+- safety-reachable prefix state: `100/100`;
+- mean / median PSNR delta vs exact T036 `+5.4523215 / +4.8916423 dB`;
+- regressions vs exact T026 `0/100`;
+- worst paired delta `+0.4279520 dB`;
+- mean RGB-SSIM delta `+0.0370898`;
+- oracle absolute `17.0622363 dB / 0.4165648`.
 
-The same strictly `REFERENCE_ORACLE_ONLY` safety-constrained oracle shows:
+Both T063-D catastrophic failures contain safe early checkpoints. Their exact oracle steps/ranges are reference-derived diagnostics and must not be hard-coded or used at inference.
 
-- safety-reachable prefix state: **`100/100` images**;
-- mean / median PSNR delta vs exact T036: **`+5.4523215 / +4.8916423 dB`**;
-- regressions vs exact T026: **`0/100`**;
-- worst paired delta vs exact T026: **`+0.4279520 dB`**;
-- mean RGB-SSIM delta vs exact T036: **`+0.0370898`**;
-- oracle absolute mean: **`17.0622363 dB / 0.4165648 SSIM`**.
+### T064-B — antithetic photometric-sensitivity guard: `TRANSFER_NEGATIVE`
 
-Both T063-D safety failures have safe states exactly at steps `8..19`. `low00478.png` was selected at step 21 but has oracle step 14 (`28.6190 dB` vs T026 `22.3750 dB`); `low00262.png` was selected at step 25 but has oracle step 14 (`30.1302 dB` vs T026 `23.6128 dB`). These steps/ranges are reference-derived diagnostics only and are forbidden from deployable inference or a hard-coded global cap.
+A fixed target-free statistic measured local amplification of a deterministic `±1/255` antithetic Rademacher perturbation at frozen states. Development-only calibration selected `tau=16.09636904055864`.
 
-**Scientific implication:** the fresh catastrophic tail remains a checkpoint-selection problem. The accepted 12-D trajectory contains safe/high-quality states for every image in this fresh cohort; the missing mechanism is a target-free way to detect when later optimization has become unsafe.
+Result:
 
-## Closed / retained mechanism conclusions
+- guard changes vs frozen T063-C: `0/100` development and `0/100` transfer;
+- transfer absolute `15.4718452 dB / 0.3978969`;
+- mean / median PSNR delta vs exact T036 `+3.8619303 / +3.8144067 dB`;
+- `12/100` regressions vs exact T026;
+- worst paired delta `-10.3649447 dB` — fail;
+- mean RGB-SSIM delta `+0.0184218`.
 
-- T059/T060: learned field direction is real, but practical rescue failed fixed gates; line closed.
-- T061: source-chosen global step `k=11` transfers poorly (`-2.2515 dB` mean vs T036; `92/100` regressions vs T026); source-global fixed stopping rejected.
-- T063-B: cumulative spatial-cost/exposure-color-benefit ratio is non-discriminative under the frozen trajectory; statistic closed.
-- T063-C/T063-D: normalized objective progress produces strong target-free mean gains and passes exposed transfer, but the exact frozen rule fails fresh worst-tail qualification and is closed as a qualification candidate.
-- T064-A: the T063-D fresh failures are selection-limited, not trajectory-limited; no oracle-derived step/range may enter deployable inference.
-- Renderer oracle studies T051/T054/T055 show substantial spatial capacity remains, but they are `REFERENCE_ORACLE_ONLY` and not deployable.
+The two known tail checkpoints have sensitivity values well below the selected threshold, so this statistic does not discriminate the unsafe late states. The exact antithetic-sensitivity guard is closed. The inference/freeze boundary was valid: all transfer choices/outputs were frozen before reference-quality reads; no clean target, metric, oracle step/range, official test, or cross-dataset data entered selection.
+
+## Retained mechanism conclusions
+
+- The 12-D renderer/trajectory has substantial usable capacity; the dominant unresolved issue is **target-free checkpoint selection/safety**, not absence of reachable good states.
+- Large mean improvement of the T062/T063 zero-reference trajectory has replicated on multiple independent 100-image cohorts.
+- Global fixed stopping, cumulative loss-balance, frozen normalized progress alone, and antithetic photometric sensitivity are insufficient to guarantee the rare worst tail.
+- Reference-oracle diagnostics may motivate only global research choices. Per-image oracle values, safe ranges, PSNR/SSIM, baseline outcomes, and clean targets are forbidden from deployable inference.
 
 ## Development versus final-evaluation protocol
 
-The original fixed 100-image LOL-v2 Real Train-derived cohort is a **development set**. It may be used for method design, global hyperparameter selection, ablations, and failure analysis. It must not support final Ours-vs-baseline gap claims.
+The original fixed 100-image LOL-v2 Real Train-derived cohort is a **development set**. It may be used for method design, global training/hyperparameter selection, ablations, and failure analysis. It must not support final Ours-vs-baseline gap claims.
 
 Final comparison rules:
 
-- Freeze Final Ours, model assets, action space, optimizer/stopping rule, and all hyperparameters before held-out evaluation.
+- Freeze Final Ours, model assets, action space, optimizer/stopping/selection rule, and all hyperparameters before held-out evaluation.
 - Standard in-domain comparison must use the **complete official LOL-v2 Real test split** under the frozen inference protocol.
 - A **cross-dataset/domain-shift held-out evaluation is required** for the unknown-degradation motivation, e.g. complete LSRW and UHD-LL test splits or equivalent fixed sets.
 - No target-specific retraining/tuning is allowed on held-out sets; only per-image target-free test-time adaptation is permitted.
-- Development baseline anchors are diagnostic only because strong released supervised checkpoints may be exposed to LOL-v2 Real training data.
+- Development baseline anchors are diagnostic only and must not be reported as the final Ours-vs-baseline gap.
 
 Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.7900612`; SNR-Aware T045-A `23.3963299 / 0.8237644`.
 
 ## Information-boundary rules
 
 - Test-time adaptation and checkpoint/state selection must never consume test labels, clean/normal-light targets, reference gradients/Jacobians, oracle values, PSNR/SSIM, degradation masks/gain maps, condition IDs, annotations, semantic image IDs, or per-image baseline outcome/harm labels.
-- Quantities computed entirely from the current degraded image/current target-free intermediate image and frozen code/model are permissible.
-- Development clean/reference targets may be used only offline for globally predeclared method development/hyperparameter selection; they may never become per-image inference inputs.
-- Reference diagnostics may motivate only global research choices. Per-image oracle quantities remain forbidden from deployable inference.
+- Quantities computed entirely from the current degraded image/current target-free intermediate image, frozen state, and frozen globally trained model are permissible.
+- Development clean/reference targets may be used only offline for global method development/training/hyperparameter selection; they may never become per-image inference inputs.
 - Fresh/final sets must remain isolated from method/hyperparameter selection until the corresponding rule is frozen.
-- The official LOL-v2 Real test and cross-dataset held-out sets remain sealed.
+- Official LOL-v2 Real test and cross-dataset held-out sets remain sealed until Final Ours is frozen.
 - Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
 
 ## Current open task
 
-**T064-B — antithetic photometric-sensitivity rollback guard** in `coordination/CHATGPT_TO_CODEX.md`.
+**T065-A — fixed linear trajectory-quality head transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Keep the accepted T063 trajectory/objective and frozen normalized-progress base selector unchanged. On development, calibrate exactly one global threshold for a fixed low-only antithetic perturbation-sensitivity statistic, freeze the rule, then audit transfer on the already reference-exposed T063-D/T064-A cohort. No second statistic, optimizer rerun, new cohort, official test, or cross-dataset access is authorized.
+Train exactly one float64 ridge linear head on the original development cohort using a fixed 11-dimensional target-free state/trajectory feature vector and development-only reference-derived `PSNR(state)-PSNR(T026)` targets. Freeze model/normalization before transfer, then select checkpoints on the already reference-exposed T063-D/T064-A cohort using only degraded/current-state features. No second model/feature set, optimizer rerun, new cohort, official test, or cross-dataset access is authorized.
