@@ -5134,3 +5134,22 @@ Independent verifier PASS:cohort reconstruction,allthree source/model/config bin
 Manifest/provenance,source/asset hashes,all100receipts/300traces,freeze/read logs,per-image metrics,gate table,step histogram,independent verification and report are in `research_log/T063D/`. Full outputs `/media/wenchang/F/wjq/TTIE/runs/T063D-fresh-progress`;raw archive1163776000bytes SHA `d78f7de88723f385ea97d983b34d958b10c7d0ccf6800eaba19d2a2f9a3fdaec`;recovery4826453bytes SHA `580d0490a6560a472f6601d261bdc787716ce0efb22e9681810a1b1489036c37`,verified local/home/F.
 
 Recommendation: close this exact frozen normalized-progress selector as a qualification candidate and await research-lead review. Do not retune rho,replace the cohort,relax gates or add another heuristic.
+
+
+## T064-A — DONE / FRESH_TAIL_SELECTION_LIMITED
+
+UTC: 2026-09-20T06:46:16.907887+00:00
+
+Source `b82b47ccc47cdc3bc9494e4a80b378888db33430`; evidence `99ec63795483704a20ee17b0b3e1301ba6b40ba5`; branch `codex/T064A-fresh-tail-reachability`; PR https://github.com/word-ky/TTIE/pull/144. **REFERENCE_ORACLE_ONLY**, not deployable selection and not a reversal of T063-D qualification failure.
+
+All100/100images have nonempty safety-reachable sets. The unchanged safety-constrained max-PSNR/earliest-tie oracle passes all5gates:mean/median PSNR delta vs exactT036 +5.452321463119/+4.891642318974dB;0/100regressions vs T026;worst paired delta +0.427951960342dB;mean RGB-SSIM delta +0.037089770304. Absolute17.062236331845dB/.416564793858SSIM. No unreachable images.
+
+Both T063-D failures have exactly safe steps8..19 and oracle14. Index16 low00478.png:normalized-progress choice21,15.243922691784dB/.730831917479;oracle14,28.619005276608dB/.845094865168;T02622.375038122116dB/.827508093042. Index86 low00262.png:choice25,13.247833801770dB/.607845717517;oracle14,30.130172420827dB/.822459445778;T02623.612778481265dB/.790280790804. Full56-row tail trajectories and all2,800rows are committed; no oracle step/range is allowed as deployable inference input.
+
+All2,800GPU renders freeze2026-09-20T06:40:14.936437+00:00,SHA `b5da79c68ecd1b05488e7b22f6b5b58e46e4a7c4ed2ed1627b5291f80f77da21`;first diagnostic reference/quality marker2026-09-20T06:40:16.801380+00:00. Reconstruction reads only standalone frozen low PNGs and traces,checks original source/cohort/state/low bindings,and all100accepted selected-output tensor hashes. Post-freeze evaluator additionally confirms torch.equal of all accepted selections. Independent verifier re-renders2,800states and redoes hashes/read-order,independent PSNR/SSIM,reachable sets,tie-breaks and gates. PASS,max metric difference1.1759482276829658e-12.
+
+3focused tests pass14.26s local/1.51s remote. Sole run `20260920-143921-ttie-t064a-prefix` exits0, A6000GPU1 reconstruction43.749874s and8CPU-worker primary metrics32.013535s. No optimization,rho change,selector fit,scientific rerun,new cohort,official test/cross-dataset access. Archive export initially lacked a home backup directory;created it and completed only copy/hash steps after the F archives existed. No scientific outputs/archive regeneration.
+
+Report/source/config/state receipts/full metrics/reachable sets/failure trajectories/verification: `research_log/T064A/`. Full tensors `/media/wenchang/F/wjq/TTIE/runs/T064A-fresh-tail-oracle`. Raw archive8065914880bytes SHA `e01a41b40fd92ec820bdbe0890df4e7a6240ecd6fb63b491e6596aab6ed04289`;recovery755645bytes SHA `c02528edb7393fe363ce215739e5401119afd2edc6125de2c2f89e93b2250f4a`,verified local/home/F.
+
+Recommendation: research-lead review of a selection-limited fresh tail. Stop; no new heuristic,target-free rule,fallback,rho sweep or cohort is authorized.
