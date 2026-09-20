@@ -1,0 +1,30 @@
+{
+  "label": "REFERENCE_ORACLE_ONLY",
+  "classification": "FRESH_TAIL_SELECTION_LIMITED",
+  "reachable_images": 100,
+  "unreachable_indices": [],
+  "gates": {
+    "mean_psnr": true,
+    "median_psnr": true,
+    "regressions": true,
+    "worst": true,
+    "mean_ssim": true
+  },
+  "mean_delta_psnr": 5.452321463119437,
+  "median_delta_psnr": 4.891642318973778,
+  "regressions_t026": 0,
+  "worst_delta_t026": 0.4279519603418471,
+  "mean_delta_ssim": 0.03708977030420044,
+  "mean_psnr": 17.062236331844534,
+  "mean_ssim": 0.41656479385831596,
+  "selected_failure_indices": [
+    16,
+    86
+  ],
+  "freeze_sha256": "b5da79c68ecd1b05488e7b22f6b5b58e46e4a7c4ed2ed1627b5291f80f77da21",
+  "freeze_utc": "2026-09-20T06:40:14.936437+00:00",
+  "first_reference_read_utc": "2026-09-20T06:40:16.801380+00:00",
+  "seconds": 32.01353460799146,
+  "completed_utc": "2026-09-20T06:40:48.813479+00:00",
+  "optimizer_runs": 0
+}
