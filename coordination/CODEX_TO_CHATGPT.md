@@ -5077,3 +5077,22 @@ Preparation Windows SSH argument-length error resolved by reusing exact remote p
 UTC: 2026-09-20T02:58:58.789409+00:00
 
 Commit: `0c30a2505fbf285f814859d8ee8ba84f9af363f9`; branch `codex/T063A-prefix-reachability`; PR #140. Addressed comment 4055819038. Added default pytest importlib mode and root/tests helper paths; qualified four legacy test imports. Reproduced the duplicate-basename failure before repair. Affected tests: **26 passed, 10 subtests passed in 26.08s**, without PYTHONPATH or explicit import-mode flags. Full collection: 382 tests collected, with 8 preexisting errors (7 historical pinned-source hash assertions caused by Windows CRLF; 1 missing cv2 in a vendored baseline). Both root causes reproduce under the previous import mode. Logs and details are in `research_log/T063A/report.md` and `review_followup.json`. No scientific code/result changes or GPU reruns. T063-A remains REFERENCE_ORACLE_ONLY / SELECTION_HEADROOM_PRESENT; await research-lead review.
+
+
+## T063-B — DONE / TRANSFER_NEGATIVE
+
+UTC: 2026-09-20T03:47:36.828135+00:00
+
+Source `5d07ac5349f5224d2b330b4722e9e83d8417eec6`; evidence `e031b44a07f03bfb4c6ebb3b9e8056cbf1260ef5`; branch `codex/T063B-loss-balance`; PR https://github.com/word-ky/TTIE/pull/141.
+
+The sole loss-balance rule calibrates tau=0.03832858496579632 from exactly 2,702 prescribed candidates. Calibration passes: mean/median delta vs T036 +3.472467140261/+2.974555776439 dB, 5 regressions vs T026, worst -5.580232304134 dB, mean SSIM delta +0.011996745187. Both development and transfer choose step27 for every image (100/100), so the mechanism does not produce earlier stopping.
+
+Exposed-cohort transfer audit (not fresh qualification): mean/median delta vs exact T036 +3.550431493935/+3.379578012346 dB; 10/100 regressions vs exact T026; worst delta -7.334175346098 dB FAIL (required >=-5.614); mean RGB-SSIM delta +0.009839267210. Four of five gates pass; formal verdict TRANSFER_NEGATIVE.
+
+Selector freeze SHA `6dfeb71294e1851af73706ed5a318fd20823a5dfaaf284a7e8d747a08a9c443e` at 2026-09-20T03:42:28.469231+00:00; all100 transfer choices/output hashes frozen at 2026-09-20T03:42:53.511942+00:00, SHA `ebd2caa03b0524b878eb916a6ed934098146e662a0c856217b6da9c2c0967c1c`; first transfer reference/quality marker 2026-09-20T03:42:53.537410+00:00. Calibration reads only development quality, selector reads only frozen low/current state quantities. No oracle/harm-label or transfer-quality inputs before selection freeze.
+
+Independent verifier PASS: GPU re-rendered 2,800 development and 2,800 transfer states, recomputed components and scalar ratios, all candidates/tie-breaks/selected steps, hashes/order and independent metrics/gates. Maximum development metric discrepancy 1.0871303857129533e-12; transfer 7.744915819785092e-13. Baseline6 tests pass; new3 tests pass; affected9 pass18.90s local/2.63s remote. Run `20260920-114153-ttie-t063b-balance` exit0 on A6000 GPU1, primary53.298942s. No optimizer/new cohort/official test/cross-dataset access, second heuristic or scientific rerun. Pre-run packaging canonical-byte discrepancies and a local cwd mistake were corrected before execution; no method changes based on outcomes.
+
+Report/code/tests, 2,702-row threshold table, calibration/selector and transfer freeze receipts, per-image metrics and verification: `research_log/T063B/`. Full outputs `/media/wenchang/F/wjq/TTIE/runs/T063B-loss-balance`; raw archive 291215360 bytes SHA `425395700a64ca54663e249b713ec76dc064c8a9b7eceb50c445ee1774849c1b`; recovery 1272368 bytes SHA `7a0c6015a239ee804c38e63d8e4b0a558b4988f309eb23f046b5ff460cd136c7`, verified local/home/F.
+
+Recommendation: close this single loss-balance statistic and await a separate research-lead task. No further threshold/statistic tuning or unchanged OPEN rerun.
