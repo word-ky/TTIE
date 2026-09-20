@@ -1,0 +1,5 @@
+# T066-C exact prefix event diagnostic
+
+Use only committed T066-B target-free transfer table to construct all 100 events; freeze before reading even the label artifact for hashing. Source and target-free bindings separate from evaluation bindings. Fixed .5 threshold; history only0..k_rho. No model/renderer/GPU calculation is needed for 2800 existing scalar probabilities, so lightweight CPU execution on A6000 server suffices.
+
+The requested event window is the prefix, whereas the requested unsafe-state denominator includes all28states. Preserve this distinction: report three named within-prefix categories plus explicit initial-safe-without-prior-warning/no-first-safe residuals and outside-prefix count, summing to all98. Do not extend the event window past k_rho or silently discard any unsafe state. This bookkeeping is diagnostic, not a new event/selection definition. Freeze includes full prefix probabilities and every requested event field. Independent verifier uses separate sequence/group scans, then recomputes label contingency/category/tail joins. No selector, model fit, optimization or quality-dependent event construction.
