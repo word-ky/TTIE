@@ -1,0 +1,6 @@
+{
+  "runId": "20260921-071214-ttie-t068b-motion-knee",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260921-071214-ttie-t068b-motion-knee",
+  "command": "cd /media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t068b-motion-knee && export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_THREADING_LAYER=SEQUENTIAL TTIE_SOURCE_COMMIT=86b99ad7261bc9ac4b1b4fad089f616137de0d27 && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m pytest research_log/T068B research_log/T067B research_log/T063C -q && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T068B.run --out /media/wenchang/F/wjq/TTIE/runs/T068B-dev-motion-knee && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T068B.verify --out /media/wenchang/F/wjq/TTIE/runs/T068B-dev-motion-knee"
+}
