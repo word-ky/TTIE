@@ -1,0 +1,6 @@
+{
+  "runId": "20260920-101902-ttie-t063a-prefix",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260920-101902-ttie-t063a-prefix",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260920-ttie-t063a-prefix\nexport CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONPATH=\"$PWD:$PWD/tests\" PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 TTIE_SOURCE_COMMIT=c4c58706c23c9c8972e2720eae87d294d5163986\n/home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T063A.reconstruct --out /media/wenchang/F/wjq/TTIE/runs/T063A-prefix-oracle && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T063A.analyze --out /media/wenchang/F/wjq/TTIE/runs/T063A-prefix-oracle && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -m research_log.T063A.verify --out /media/wenchang/F/wjq/TTIE/runs/T063A-prefix-oracle"
+}
