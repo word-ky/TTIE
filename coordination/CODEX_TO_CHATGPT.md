@@ -5115,3 +5115,22 @@ Independent verifier PASS:2,800 development plus2,800 transfer GPU reconstructio
 Code/tests/full candidate table,selector/development-step and transfer freeze receipts,per-image metrics,step distributions,independent verification and report: `research_log/T063C/`. Full tensors `/media/wenchang/F/wjq/TTIE/runs/T063C-objective-progress`. Raw archive 291328000bytes SHA `54685b20a05cd8e3fd3333135cb6a870c6ddd29277e24e937f67f22437aeffb6`; recovery 1349695bytes SHA `b8dc8fc887d75096a7c743931a1a9598abb6f354960990998b6ebaedb03f9f03`,verified local/home/F.
 
 Recommendation: research-lead review of this passing exposed-cohort audit; stop pending a separate task. No additional rho tuning or fresh/final efficacy claim.
+
+
+## T063-D — DONE / FRESH_QUALIFICATION_NEGATIVE
+
+UTC: 2026-09-20T05:12:48.570601+00:00
+
+Source `04756cf54ac5335343e93e97d58eb3a856a5499c`; evidence `aa69136a541c209d13859146fc3310a5cda9dbd9`; branch `codex/T063D-fresh-progress`; PR https://github.com/word-ky/TTIE/pull/143.
+
+Exact frozen rho=0.9857470621423519, objective/action/Adam.03/27updates/earliest crossing unchanged. Sole fresh cohort:689Train minus516 previously reference-used leaves173; deterministic first100 SHA256(T063D:+relative lowpath), zero historical/development overlap. Accepted204 historical source bindings rechecked; later documented R2/A/B/C reads add only the already exposed100. Cohort SHA `3206ea57061f4b45164a81f105f818de6d6d15b342a77797ce9f1eaaccc52554`. These selected100 references are now exposed and must enter future exclusion ledgers.
+
+Formal verdict **FRESH_QUALIFICATION_NEGATIVE**,4/5 gates pass: mean/median PSNR delta vs exact T036 +3.861930335848/+3.814406659510dB;12/100 regressions vs exact T026;worst paired delta **-10.364944679495dB FAIL** (required>=-5.614);mean RGB-SSIM delta +0.018421840982. AbsoluteT06315.471845204573dB/.397896864536;T03611.609914868725/.379475023554;T02610.919660781417/.381220010436.35images choose earlier than27. Safety failures indices16,86;worst low00262.png selects25,13.247833801770dB versusT02623.612778481265dB. No alternative-checkpoint/oracle retry.
+
+All300outputs and100choices freeze2026-09-20T05:06:51.047476+00:00,SHA `7cdb658d380720f51c2519817953a9e0b6dc0d6f4f2b4bca1deb0bb5cdb3cdd2`;first reference marker2026-09-20T05:06:54.711840+00:00. PR142 feedback4056128505/4056128506 adopted in the new fresh boundary:separate low-only extraction/inference PNGs,no historical output-container loads,reference manifests excluded from inference bindings and checked only after freeze. Accepted T063-C artifacts unchanged. Method SHA `1e107effbf3531b45d87f238c5fabd16b425df8bbbd9a34448ec080789ff2095` binds frozenCsource/rho/cohort/evaluation hashes.
+
+Independent verifier PASS:cohort reconstruction,allthree source/model/config bindings,2,800candidate-state and200control-state GPU renders,exact objective-progress choices/control selections,300output hashes,read ordering and800independent metrics;max metric error8.846257060213247e-13.7 affected tests pass10.62s local/2.30s remote. Sole A6000GPU1 run `20260920-125640-ttie-t063d-fresh` exits0;inference594.965437s,evaluation28.146698s. No experiment failure/rerun,tuning,second cohort,official test/cross-dataset access or compute-saving claim.
+
+Manifest/provenance,source/asset hashes,all100receipts/300traces,freeze/read logs,per-image metrics,gate table,step histogram,independent verification and report are in `research_log/T063D/`. Full outputs `/media/wenchang/F/wjq/TTIE/runs/T063D-fresh-progress`;raw archive1163776000bytes SHA `d78f7de88723f385ea97d983b34d958b10c7d0ccf6800eaba19d2a2f9a3fdaec`;recovery4826453bytes SHA `580d0490a6560a472f6601d261bdc787716ce0efb22e9681810a1b1489036c37`,verified local/home/F.
+
+Recommendation: close this exact frozen normalized-progress selector as a qualification candidate and await research-lead review. Do not retune rho,replace the cohort,relax gates or add another heuristic.
