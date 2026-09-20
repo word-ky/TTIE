@@ -5096,3 +5096,22 @@ Independent verifier PASS: GPU re-rendered 2,800 development and 2,800 transfer 
 Report/code/tests, 2,702-row threshold table, calibration/selector and transfer freeze receipts, per-image metrics and verification: `research_log/T063B/`. Full outputs `/media/wenchang/F/wjq/TTIE/runs/T063B-loss-balance`; raw archive 291215360 bytes SHA `425395700a64ca54663e249b713ec76dc064c8a9b7eceb50c445ee1774849c1b`; recovery 1272368 bytes SHA `7a0c6015a239ee804c38e63d8e4b0a558b4988f309eb23f046b5ff460cd136c7`, verified local/home/F.
 
 Recommendation: close this single loss-balance statistic and await a separate research-lead task. No further threshold/statistic tuning or unchanged OPEN rerun.
+
+
+## T063-C — DONE / TARGET_FREE_TRANSFER_PASS
+
+UTC: 2026-09-20T04:30:30.612014+00:00
+
+Source `237d0c170ba14771ccae8de24eb79539031509a4`; evidence `908a6711da4afe84296164e27920a5e8bc648d05`; branch `codex/T063C-objective-progress`; PR https://github.com/word-ky/TTIE/pull/142.
+
+The sole normalized objective-progress rule chooses rho=0.9857470621423519 from exactly2,602 prescribed candidates. Development passes: mean/median PSNR delta vs T036 +3.569532298153/+3.093839109590dB;3/100 regressions vs T026;worst -4.074446413712dB;mean RGB-SSIM delta +0.015011775217. All100 development steps are frozen in the selector manifest.
+
+**Exposed-cohort transfer audit, not fresh qualification:** all5 gates PASS. Mean/median delta vs exact T036 +3.710059564573/+3.203398962458dB;10/100 regressions vs exact T026;worst delta -4.323564050865dB (>=-5.614);mean RGB-SSIM delta +0.014598646911. Absolute15.847593317319dB /0.417193181093SSIM. Development/transfer earlier-than27 choices35/45; transfer counts k21..27=1,2,4,4,8,26,55. Previous fixed27 safety failure low00221.png chooses22,20.006785485660dB,delta vs T026=-2.826074241259dB. These descriptions are post-freeze only.
+
+Selector SHA `0568c3627547dec97ed55bd673d885fee6e0ce58431bf283c980bf89723cdd63` frozen2026-09-20T04:25:44.281369+00:00; all100 transfer choices/output hashes freeze2026-09-20T04:26:00.960736+00:00,SHA `5a9ea645ae60dc24ceaf7773ad9c35ab1a46cb0f369ba5f12d3ae8fad104cc3a`;first reference/quality marker2026-09-20T04:26:00.990727+00:00. Exact low/current components and GPU float32 total, binary64 L_best/D/q/crossing, earliest finite checkpoint; no transfer reference quality/oracle/harm/baseline-outcome selector inputs. Full27-step trajectory is needed, so no compute-saving claim.
+
+Independent verifier PASS:2,800 development plus2,800 transfer GPU reconstructions, recomputed components/totals, independent scalar best/D/q, grid, earliest crossings/tie-break, source/cohort/output hashes and freeze ordering. Independent metric max errors development1.0871303857129533e-12,transfer7.318590178329032e-13.10 affected tests pass25.05s local/2.52s remote. Sole A6000GPU1 run `20260920-122510-ttie-t063c-progress` exits0;primary38.157871s. No failures,scientific reruns,optimizer updates,second heuristic,new cohort or held-out access.
+
+Code/tests/full candidate table,selector/development-step and transfer freeze receipts,per-image metrics,step distributions,independent verification and report: `research_log/T063C/`. Full tensors `/media/wenchang/F/wjq/TTIE/runs/T063C-objective-progress`. Raw archive 291328000bytes SHA `54685b20a05cd8e3fd3333135cb6a870c6ddd29277e24e937f67f22437aeffb6`; recovery 1349695bytes SHA `b8dc8fc887d75096a7c743931a1a9598abb6f354960990998b6ebaedb03f9f03`,verified local/home/F.
+
+Recommendation: research-lead review of this passing exposed-cohort audit; stop pending a separate task. No additional rho tuning or fresh/final efficacy claim.
