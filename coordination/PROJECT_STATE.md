@@ -22,7 +22,8 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - T066-B is accepted as **`SELECTED_TAIL_SPECIFIC_FAILURE`**: the frozen T066-A guard detects `77/98` unsafe transfer states overall and `77/89` unsafe prefix states, yet detects `0/2` unsafe selected base checkpoints. The problem is not generic transfer blindness; it is concentrated at the late checkpoint chosen by normalized progress.
 - T066-C is accepted as **`PREFIX_REENTRY_SIGNAL_ABSENT`**: neither catastrophic selected checkpoint has a predicted-safe → predicted-unsafe → predicted-safe excursion. All `77` correctly detected unsafe prefix states occur before first-safe; after first-safe there are `12` reference-unsafe prefix states with no later warning. The existing T066-A probability history therefore cannot justify hysteresis/re-entry rollback.
 - T067-A is accepted as **`FIRST_SAFE_TRANSFER_NEGATIVE`**: exact earliest predicted-safe stopping protects the two previously catastrophic tails much better, but globally stops far too early (`64/100` at step 0 or 1), fails all five gates, and collapses mean utility. The T066-A crossing is therefore a **lower safety-entry signal, not a quality-optimal stopping event**.
-- The current bounded question is whether `first_safe` and the strong normalized-progress endpoint `k_rho` define useful target-free interval endpoints. T067-B calibrates exactly one global interpolation fraction on the original development cohort only; transfer/fresh/final sets remain untouched this cycle.
+- T067-B is accepted as **`INTERIOR_PROGRESS_DEV_CANDIDATE_FROZEN`**: the exact development-only robustness-first calibration selects strict-interior `lambda=0.875`, with mean/median PSNR delta vs T036 `+2.6360/+2.3057 dB`, `1/100` regressions vs T026, worst paired delta `-2.4274 dB`, and mean RGB-SSIM delta `+0.02044`. Endpoint `lambda=1` also passes but has a weaker worst tail (`-4.0744 dB`). This is development calibration only, not transfer evidence or qualification.
+- The current bounded question is whether the exact frozen `lambda=0.875` interval selector transfers without retuning to the already-exposed T063-D/T064-A cohort. Fresh/final sets remain untouched.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
 The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, using the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
@@ -173,13 +174,30 @@ Using the exact frozen earliest predicted-safe event on the same exposed 100-ima
 
 The two previous catastrophic normalized-progress tails become much safer under first-safe: index 16 selects step 12 with `+3.4529 dB` vs T026; index 86 selects step 9 with `-4.2099 dB` vs T026, inside the fixed `-5.614 dB` safety floor. This demonstrates that the first-safe signal contains useful lower-bound safety information but is not a useful global stopping event because it can fire before meaningful enhancement utility has accumulated. Independent verification passed with `optimizer_runs=0`, `model_fits=0` and no new/final data access.
 
+### T067-B — development-only interval interpolation: `INTERIOR_PROGRESS_DEV_CANDIDATE_FROZEN`
+
+Using the exact predeclared nine-value global interpolation grid between frozen `first_safe` and frozen `k_rho`, all 900 target-free candidate choices/output identities were frozen before any development-quality read. The fixed robustness-first selection chooses `lambda=0.875`.
+
+For `lambda=0.875` on the original development cohort:
+
+- mean / median PSNR delta vs exact T036 `+2.6360346 / +2.3057191 dB`;
+- `1/100` regressions vs exact T026;
+- worst paired PSNR delta vs exact T026 `-2.4273992 dB`;
+- mean RGB-SSIM delta vs T036 `+0.0204407`;
+- all five gates pass.
+
+The endpoint `lambda=1` also passes with larger mean PSNR (`+3.5695323 dB`) but weaker worst paired delta (`-4.0744464 dB`), so the predeclared robustness-first ranking selects the strict-interior candidate. `optimizer_runs=0`, `model_fits=0`; independent verification reproduces all candidate choices, metrics, gates, and the selected lambda. No exposed-transfer, fresh, official-test, or cross-dataset reference was accessed.
+
+**Scientific implication:** the development data support a simple global combination of the safety-entry endpoint and normalized-progress utility signal. This remains in-sample global calibration because both the T066-A model and `lambda` were learned/selected from the original development cohort; transfer generalization is unestablished until the exact frozen rule is audited without retuning.
+
 ## Retained mechanism conclusions
 
 - The 12-D renderer/trajectory has substantial usable capacity; the dominant unresolved issue remains **target-free checkpoint selection/safety**, not absence of reachable good states.
 - Large mean improvement of the T062/T063 zero-reference trajectory has replicated on multiple independent 100-image cohorts.
 - Global fixed stopping, cumulative loss-balance, normalized progress alone, antithetic sensitivity, multiple snapshot-based safety readouts, the exact T066-A rollback guard, and exact first-safe stopping are insufficient.
 - Explicit trajectory dynamics carry strong development and substantial transfer unsafe-state signal, but the current frozen dynamics classifier is not a reliable monitor after its first safe crossing.
-- T067-A adds an important distinction: `first_safe` is useful as a **safety-entry endpoint** for the two known catastrophic tails, yet is far too early for many ordinary images. The next method line should combine safety-entry with target-free utility/progress rather than treating `p_safe>=0.5` as a complete stopping criterion.
+- T067-A adds an important distinction: `first_safe` is useful as a **safety-entry endpoint** for the two known catastrophic tails, yet is far too early for many ordinary images.
+- T067-B provides the first strict-interior global development candidate that explicitly combines safety-entry with target-free utility/progress and passes all five development gates; whether this compromise transfers is still unknown.
 - Reference-oracle diagnostics may motivate only global research choices. Per-image oracle values, safe ranges, PSNR/SSIM, baseline outcomes, and clean targets are forbidden from deployable inference.
 
 ## Fixed evaluation gates used in the current development line
@@ -220,6 +238,6 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 
 ## Current open task
 
-**T067-B — development-only safe-entry/progress interpolation calibration** in `coordination/CHATGPT_TO_CODEX.md`.
+**T067-C — frozen `lambda=0.875` exposed-transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use only the original development cohort and frozen T063-C/T066-A trajectory/objective/probability artifacts. Freeze the exact predeclared nine-candidate target-free interpolation choice table before any development reference-quality read, then choose one global lambda with the fixed robustness-first rule. Do not access exposed-transfer references, a fresh cohort, official LOL-v2 Real test, LSRW, or UHD-LL in this cycle.
+Apply the exact development-frozen interpolation rule once to the already-exposed T063-D/T064-A cohort. Freeze all 100 target-free checkpoint choices/output hashes before any transfer reference-quality read, then evaluate the unchanged five gates. No retuning, alternate lambda/rule, fresh cohort, official LOL-v2 Real test, LSRW, or UHD-LL access is authorized in this cycle.
