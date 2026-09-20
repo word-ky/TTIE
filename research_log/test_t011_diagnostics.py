@@ -1,6 +1,6 @@
 """Hand-counted fixture for the newly requested offline statistics."""
 import unittest
-from t011_projection_diagnostics import episode_counts,fractions
+from research_log.t011_projection_diagnostics import episode_counts,fractions
 
 
 class DiagnosticTest(unittest.TestCase):

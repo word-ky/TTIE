@@ -28,3 +28,10 @@ Validation:3 focused tests pass13.41s locally /1.54s remotely (frozen-state rend
 Raw reconstructed tensors: F/runs/T063A-prefix-oracle; full archive `/media/wenchang/F/wjq/TTIE/shared/t063a/T063A_raw.tar`,8065546240bytes SHA `ae8cd61c007d6f1399ed66f78bb8c77c85821b88741ca03796ce9fffc0958e51`. Recovery620929bytes SHA `28e0fb59df8ccd75f04dc140df586485084708dfedfcc095c199ec3384328f33`, verified local/home/F; contains source/config, receipts, complete per-state metrics/reachable sets and runlogs. Original T062-C-R2 frozen inputs remain separately archived.
 
 Next: research-lead review of selection headroom. Stop here. Any future degraded-image-only stopping/selection mechanism requires a separate task; never reuse the reference oracle as a deployable selector or infer held-out efficacy.
+
+
+## PR review follow-up — test collection
+
+Addressed review comment4055819038: configure pytest importlib mode and repository/test helper paths by default, and qualify four legacy test-module imports that relied on path insertion or ambiguous top-level names. No algorithm, fixture expectation, frozen source binding, metric, or experiment output changed.
+
+The reported two-test basename collision was reproduced before the fix. Final affected run without PYTHONPATH and without an explicit import-mode flag passes26tests plus10subtests in26.08s. Full repository collection now collects382tests with no duplicate-module/import-name errors, but is **not fully green**:8existing errors remain (7share a historical pinned-source hash assertion;1vendored baseline needs cv2). Both root causes reproduce with the previous prepend import mode and the new config overridden. Logs are committed; these unrelated failures are left unchanged. No GPU/scientific rerun.

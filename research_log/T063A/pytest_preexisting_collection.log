@@ -1,0 +1,24 @@
+
+=================================== ERRORS ====================================
+______________ ERROR collecting research_log/T059S/test_core.py _______________
+research_log\T059S\test_core.py:2: in <module>
+    from research_log.T059S.core import Bridge,step,namespace
+research_log\T059S\core.py:15: in <module>
+    assert sha(pinned)=='e56f359bc353b1d5ccf374e0980a27780e827d67fc9cc36b78dfaf6887100ce1'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError
+_ ERROR collecting research_log/T027A_official/Enhancement/test_from_dataset.py _
+ImportError while importing test module 'D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\research_log\T060B_worktree\research_log\T027A_official\Enhancement\test_from_dataset.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+D:\anaconda3\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research_log\T027A_official\Enhancement\test_from_dataset.py:12: in <module>
+    import cv2
+E   ModuleNotFoundError: No module named 'cv2'
+=========================== short test summary info ===========================
+ERROR research_log/T059S/test_core.py - AssertionError
+ERROR research_log/T027A_official/Enhancement/test_from_dataset.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!
+no tests collected, 2 errors in 9.96s

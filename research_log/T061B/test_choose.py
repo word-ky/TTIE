@@ -5,7 +5,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
-from choose import select
+from research_log.T061B.choose import select
 
 def fixture():
     rows, frozen = [], []

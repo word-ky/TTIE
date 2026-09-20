@@ -1,9 +1,8 @@
 import sys,math
 from pathlib import Path
 import torch
-sys.path.insert(0,str(Path(__file__).parents[1]/'research_log/T044A_audit'))
-from core import score,physical
-from association import summarize,verdict,SUPPORTED,NEGATIVE
+from research_log.T044A_audit.core import score,physical
+from research_log.T044A_audit.association import summarize,verdict,SUPPORTED,NEGATIVE
 from ttie.common_gain import physical_grid
 
 def test_physical_displacement_active_mask_and_zero_gate():

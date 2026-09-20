@@ -1,0 +1,9 @@
+..........................                                     [100%]
+============================== warnings summary ===============================
+research_log/T062A/test_core.py::test_independent_equations_and_gradients
+  D:\work\fightccfa-agin\CVPR2027\TTT-ImageEnhancement\research_log\T060B_worktree\research_log\T062A\test_core.py:13: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+  Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:823.)
+    assert abs(float(value)-other)<1e-12
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+26 passed, 1 warning, 10 subtests passed in 26.08s

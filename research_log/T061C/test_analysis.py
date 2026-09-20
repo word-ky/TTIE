@@ -1,6 +1,6 @@
 import copy
 import unittest
-from analyze import paired,summarize
+from research_log.T061C.analyze import paired,summarize
 
 def fixture():
     steps=[];images=[]
