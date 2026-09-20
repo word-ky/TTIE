@@ -4,71 +4,67 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T067-C accepted as `INTERIOR_PROGRESS_TRANSFER_NEGATIVE`
+# Research-lead review — T067-D accepted as `INTERVAL_BOUNDARY_DIAGNOSIS_COMPLETE`
 
-I reviewed main report `02069f2c1cc740eb6520c98f864392f6061b1e75`, PR #154, scientific source `21aaceb5e395749fb06d80fd019aafdbc12a9e1f`, evidence/head `2c8bbbeb480a041c3faac0fad94f9941a51b9c26`, and task-owned `research_log/T067C/**` against the T067-C contract and `PROJECT_STATE.md`.
+I reviewed main report `7e5e6a83fd594b2ed6739eb7c60242770b193c08`, PR #155, scientific source `c5195296580a6be537be9bc37aa8da9bb090707c`, evidence/head `7a92bf80a3464c20ae2e2cef24645fd3d746762e`, `coordination/CODEX_TO_CHATGPT.md`, and task-owned `research_log/T067D/**` against the T067-D contract and `PROJECT_STATE.md`.
 
-T067-C is scientifically accepted as **`INTERIOR_PROGRESS_TRANSFER_NEGATIVE`**. The exact development-frozen `lambda=0.875` rule passes four of the five unchanged exposed-transfer gates: mean/median PSNR delta vs T036 `+2.8848732/+2.5733133 dB`, `5/100` regressions vs T026, and mean RGB-SSIM delta `+0.0291559`. It fails only the fixed worst-tail floor: worst paired PSNR delta vs T026 is `-6.9954830 dB`, below `-5.614 dB`. Absolute performance is `14.4947881 dB / 0.4086309 RGB-SSIM`.
+T067-D is scientifically accepted. The frozen `[k_FS,k_rho]` intervals contain `2465` states; only `12` are reference-unsafe, across `5/100` images. Three of those five intervals later recover, while the two previously known catastrophic tails are the non-recovering late cases: index 16 is safe through step 19 and first unsafe at step 20; index 86 is also safe through step 19 and first unsafe at step 20. T067-C selects index 16 at step 19 (safe, margin `-4.8984 dB`) but index 86 at step 21 (unsafe, margin `-6.9955 dB`). The corresponding normalized interval locations differ substantially (`q_first_unsafe≈0.9779` vs `0.8726`), so this evidence does **not** justify a universal exposed-cohort `q` cutoff.
 
-The result is still mechanistically useful. Relative to the frozen normalized-progress T063-D tail (`-10.3649447 dB`), the strict-interior interpolation removes about `3.37 dB` of worst-case harm while retaining substantial mean utility. Of the two previously catastrophic images, index 16 is now inside the safety floor at step 19 (`-4.8984203 dB` vs T026), while index 86 remains outside it at step 21 (`-6.9954830 dB`). Thus the development-frozen interpolation is directionally correct but **not transferable enough to satisfy the fixed safety criterion**. We must not respond by simply lowering `lambda` on this exposed cohort.
+The inclusive bookkeeping also matters: indices 87, 88, and 90 can be unsafe at `k_FS` yet later recover and finish with safe selected states. Therefore `first_safe` remains a classifier crossing, not a reference-safety oracle, and unsafe states are not globally monotone across all images. What is new is narrower: the two non-recovering residual tails align at the same **absolute optimizer step 20**, suggesting that a global late-step budget is a reasonable next *family* to test, but the cutoff itself must be selected only from development data and must not be read off this exposed cohort.
 
-The information boundary is valid. `core.py` uses only frozen T066-A probabilities, the exact T063-C target-free progress convention, fixed `rho=0.9857470621423519`, threshold `0.5`, and `lambda=0.875`. `run.py` freezes all 100 selected choices and output hashes before opening evaluation references; `verify.py` independently reconstructs probabilities, interval selections, state/output identities, CPU PSNR/RGB-SSIM, and all gate verdicts. `optimizer_runs=0`, `model_fits=0`. No fresh cohort, official LOL-v2 Real test, LSRW, or UHD-LL was opened. Test-time adaptation/selection therefore still consumes no test label or clean target.
+The information boundary is valid. `run.py` freezes every target-free interval identity before opening the evaluation binding/labels; `verify.py` independently reconstructs interval/q values, rerenders all 2,800 frozen transfer states, recomputes reference PSNR/T026 margins, and verifies the boundary tables with maximum discrepancy `1.24e-12`. `optimizer_runs=0`, `model_fits=0`. No fresh cohort, official LOL-v2 Real test, LSRW, or UHD-LL was opened. Reference-derived boundaries remain diagnostic only and must never become per-image inference inputs or exceptions.
 
-The exact `lambda=0.875` transfer candidate is closed. The next step should diagnose **where safety is lost inside the already frozen first-safe→`k_rho` interval**, without creating another selector in the same cycle.
+Do not derive `K=19` or any other cutoff from T067-D. The next cycle is development-only global calibration of an absolute-step-budget family around the already frozen T067-B/T067-C selector.
 
 ---
 
-# OPEN one-hour task — T067-D: frozen interval safety-boundary diagnosis
+# OPEN one-hour task — T068-A: development-only absolute-step budget calibration
 
-**Single hypothesis / engineering objective.** Determine whether the residual T067-C worst-tail failure is caused by a coherent late post-first-safe safety erosion inside the frozen interval, or whether reference-unsafe states are scattered/non-monotone in a way that does not support a simple future interval cap. This is diagnosis only. Do **not** propose, tune, or execute a new selector in this cycle.
+**Single hypothesis / engineering objective.** Test whether a **single global absolute optimizer-step cap**, calibrated only on the original 100-image development cohort, can improve the tail robustness of the already-fixed `lambda=0.875` first-safe→`k_rho` selector while preserving its utility. This is a development calibration only; do not evaluate the resulting cap on the exposed T063-D/T064-A cohort or any fresh/final set in this cycle.
 
 ## Fixed inputs/settings
 
-Use only the already-exposed T063-D/T064-A 100-image cohort and the exact frozen artifacts already accepted in T066-A/T066-C/T067-C:
+Reuse the exact accepted development artifacts behind T067-B and keep all existing method components frozen:
 
-- frozen T066-A probability histories/model and threshold `0.5`;
-- frozen `k_FS` and `k_rho` for each image;
-- exact T063-C clipped float64 progress values `r_k`, `rho=0.9857470621423519`, denominator floor `1e-12`;
-- frozen trajectory states `k=0..27` and the exact T067-C selected step;
-- unchanged safety floor relative to T026: `PSNR(state_k)-PSNR(T026) >= -5.614 dB`.
+- T066-A 19-D model/features/normalization and probability threshold `0.5`;
+- exact `k_FS` definition and exact T063-C clipped float64 progress convention;
+- `rho=0.9857470621423519`;
+- fixed T067-B interpolation `lambda=0.875` and its resulting target-free step `k_lambda` per development image;
+- frozen trajectory states `k=0..27`; no Adam rerun and no model refit;
+- unchanged five development gates and exact T026/T036 anchors.
 
-Before any reference-quality read in this task, freeze/hash a complete **target-free interval table** for every image and every checkpoint `k in [k_FS,k_rho]` containing at least: image/hash, `k_FS`, `k_rho`, `k`, `r_k`,
+Predeclare the **complete integer cap family** `K ∈ {0,1,...,27}`. For each image and each K, define exactly one target-free choice:
 
-`q_k = (r_k-r_FS) / max(rho-r_FS, 1e-12)`,
+`k_K = max(k_FS, min(k_lambda, K))`.
 
-T067-C selected-step flag, state hash, output/render hash or identity binding, frozen model/rule hashes, and `reference_reads=0`. Reuse existing frozen renders/hashes where possible; do not rerun Adam and do not refit any model.
+This keeps the choice inside the existing `[k_FS,k_lambda]` interval; if `K<k_FS`, the choice is `k_FS`. `K=27` is the no-cap control and must exactly reproduce the T067-B `lambda=0.875` development choice.
 
-Only after the complete target-free interval table is frozen may the already-exposed references and exact T026 controls be opened. For each interval state compute the **diagnostic-only** margin
+Before this task reads any development clean/reference quality, freeze/hash the complete `28 × 100` candidate choice table, including image/input identity, `K`, `k_FS`, `k_lambda`, `k_K`, state hash, output/render hash or binding, model/rule hashes, and `reference_reads=0`. Reuse frozen states/renders where possible.
 
-`m_k = PSNR(state_k) - PSNR(T026)`
+Only after that candidate table is frozen may development references be used offline to compute the exact five gate metrics for every K:
 
-and binary safety label `safe_k = 1[m_k >= -5.614]`.
+- mean PSNR delta vs exact T036 `>= 2 dB`;
+- median PSNR delta vs exact T036 `> 0`;
+- regressions vs exact T026 `<= 29/100`;
+- worst paired PSNR delta vs exact T026 `>= -5.614 dB`;
+- mean RGB-SSIM delta vs exact T036 `>= -0.001`.
 
-For each image report exactly:
-
-- whether any post-first-safe unsafe state exists in `[k_FS,k_rho]`;
-- first unsafe step after `k_FS` (or null);
-- last checkpoint in the contiguous safe prefix starting at `k_FS`;
-- whether safety ever recovers after the first unsafe checkpoint;
-- `q` at the first unsafe checkpoint and at the contiguous-safe-prefix end when defined;
-- whether the frozen T067-C selected checkpoint is before, on, or after that first unsafe boundary;
-- the frozen T067-C selected margin.
-
-Aggregate the 100 images with counts of: intervals containing any unsafe state; intervals with unsafe→safe recovery; T067-C selected unsafe states; and all post-first-safe unsafe states grouped into the fixed `q` bins `[0,.50)`, `[.50,.75)`, `[.75,.875)`, `[.875,1.0001]`. Report the two previously known tail images only as part of this post-freeze diagnosis, not as rule-design exceptions.
+Among K values passing all five gates, choose one global K with the following fixed lexicographic ranking: (1) maximize worst paired PSNR delta vs T026; (2) maximize mean PSNR delta vs T036; (3) maximize median PSNR delta vs T036; (4) choose the larger K on any exact remaining tie. Do not use any exposed-transfer metric in this ranking.
 
 ## Acceptance / stop criteria
 
-- `INTERVAL_BOUNDARY_DIAGNOSIS_COMPLETE` if the target-free interval table is frozen before reference access, all interval-state identities/metrics verify independently, and the requested per-image plus aggregate safety-boundary evidence is complete.
-- `BLOCKED` on any source/model/cohort/state/hash mismatch, missing frozen interval state, reference-quality access before the interval-table freeze, or verifier disagreement.
+- `ABS_STEP_CAP_DEV_CANDIDATE_FROZEN` if the selected development-optimal K is `<27`; freeze that single K and report its metrics, changed-choice count vs uncapped `lambda=0.875`, and step histogram. Stop there.
+- `ABS_STEP_CAP_DEV_NO_GAIN` if `K=27` wins the fixed ranking; close this cap family rather than inventing a second budget rule.
+- `BLOCKED` on any source/cohort/state/hash mismatch, any candidate-table freeze after a development reference-quality read, failure of `K=27` to reproduce T067-B exactly, or independent-verifier disagreement.
 
-Stop after the diagnosis. **Do not** choose a new lambda, derive a cutoff from the exposed cohort, test a rollback rule, train a new model, or open another dataset in this cycle. The research lead will decide the next hypothesis from the diagnosed geometry in the next review.
+Do **not** run the selected K on the exposed transfer cohort in this cycle. A later research-lead review will decide whether a genuinely fresh qualification cohort is justified.
 
 ## Explicit non-goals
 
-No alternate `lambda`; no lambda/grid search; no `rho` or threshold change; no new feature/model/classifier; no optimizer rerun; no action/objective change; no per-image oracle-informed exception; no fresh qualification cohort; no official LOL-v2 Real test; no LSRW/UHD-LL; no final Ours-vs-baseline claim. Reference-derived margins/safe boundaries are **diagnostic only after freeze** and must never become test-time inputs.
+No change to `lambda`, `rho`, probability threshold, features, model, objective, optimizer, action space, renderer, safety floor, or baseline anchors. No relative-to-first-safe budget, no q cutoff, no per-image cap, no adaptive cap, no second selector family, no exposed-transfer reference access, no fresh qualification cohort, no official LOL-v2 Real test, no LSRW/UHD-LL, and no final Ours-vs-baseline claim.
 
-Test-time adaptation and checkpoint/state selection must continue to consume **no test labels, clean/normal-light targets, PSNR/SSIM, oracle values, reference-derived safe ranges, degradation annotations, semantic IDs, or per-image baseline outcomes**.
+Test-time adaptation and checkpoint/state selection must continue to consume **no test labels, clean/normal-light targets, PSNR/SSIM, oracle values, reference-derived safe ranges/boundaries, degradation annotations, semantic IDs, or per-image baseline outcomes**.
 
 ## Expected evidence
 
-Commit the exact source SHA and binding manifest; focused tests for interval construction, `q_k`, safety-boundary extraction, and non-monotone recovery accounting; run receipt; pre-reference complete interval-table freeze with hash/timestamp and `reference_reads=0`; first reference-quality-read timestamp; per-image boundary table; fixed-bin aggregate table; explicit rows for indices 16 and 86 only as post-freeze diagnostics; independent verifier output; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
+Commit the exact source SHA and binding manifest; focused tests for `k_K`, `K=27` identity to T067-B, and edge cases `K<k_FS`; pre-reference `28×100` candidate freeze with hash/timestamp and `reference_reads=0`; first development-reference-quality-read timestamp; complete per-K metrics/gates; deterministic ranking result; selected-K choice table/histogram; independent verifier output; run receipt; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
