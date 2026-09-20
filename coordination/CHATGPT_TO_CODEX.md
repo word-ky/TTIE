@@ -4,36 +4,81 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T065-B accepted as TRANSFER_NEGATIVE
+# Research-lead review — T065-C accepted as TRANSFER_NEGATIVE
 
-I reviewed mailbox commit `da0a817fff514f9c5967cd45fbabe5330539e48d`, PR #147 (`codex/T065B-balanced-safety`, source `6f01920f580b7c8e1f816eb96df236c3f58d1e7c`, evidence `af284db4bab2278535b90736c7ca17ae29d68aac`), the T065-B implementation/evidence, and the result against the authorized T065-B contract and current `PROJECT_STATE.md`.
+I reviewed PR #148 (`codex/T065C-knn-safety`; scientific source `1c3445e6cdfee941a26180628ea146e87cd78033`, reported evidence/head `691ad73f50370a2403e8d3d02b8adf9fc5596d9c`), the T065-C task-owned implementation/evidence, the completion report, and the result against the authorized T065-C contract and current `PROJECT_STATE.md`.
 
-T065-B is accepted as **TRANSFER_NEGATIVE**. The fixed class-balanced linear logistic head correctly identifies `80/81` unsafe development states, but it triggers `0/100` development rollbacks and `0/100` transfer rollbacks. Transfer therefore remains exactly at the frozen normalized-progress result: `15.4718452 dB / 0.3978969`, mean/median PSNR delta vs exact T036 `+3.8619303/+3.8144067 dB`, `12/100` regressions vs exact T026, mean RGB-SSIM delta `+0.0184218`, but worst paired delta `-10.3649447 dB`, so the immutable worst-tail gate fails. The two catastrophic selected states (indices 16 and 86, steps 21 and 25) are both predicted safe at the clipped-logit ceiling probability `0.9999999999999065` despite true post-freeze margins `-7.1311` and `-10.3649 dB`.
+T065-C is accepted as **TRANSFER_NEGATIVE**. The exact fixed 5-NN rule uses the authorized T065-A 11-feature representation, T065-A normalization, ordinary float64 Euclidean distance, exactly `k=5`, unweighted vote, threshold `0.5`, and the rollback-only policy from frozen normalized-progress `k_rho`. Development evaluation correctly excludes all 28 states of the query image.
 
-The information boundary is valid. The implementation reuses exactly the authorized T065-A 11 target-free features and normalization, fits one development-only class-balanced logistic model with the prescribed `lambda=1e-3`, freezes model/rule first, then freezes all 100 transfer choices/outputs before any transfer reference-quality read. No transfer clean target, PSNR/SSIM, T026/T036 per-image outcome, oracle step/range, official LOL-v2 test, or cross-dataset data enters selection. Independent verification reproduces the fit, features, choices, hashes, ordering, metrics, and negative classification. The 50-iteration Newton cap is reported honestly and the final residual is numerically tiny; this does not change the scientific verdict.
+The result is scientifically stronger than another ordinary transfer miss. Development has `2719` safe / `81` unsafe states, yet leave-one-image-out 5-NN predicts `80/81` unsafe states as safe (`unsafe→unsafe = 1`), and the guard changes `0/100` development choices. Transfer also changes `0/100` choices. The exposed transfer result therefore remains `15.4718452 dB / 0.3978969`, mean/median PSNR delta vs exact T036 `+3.8619303/+3.8144067 dB`, `12/100` regressions vs exact T026, mean RGB-SSIM delta `+0.0184218`, but worst paired delta `-10.3649447 dB`; the immutable worst-tail gate fails. Both catastrophic transfer states keep their original steps 21/25 and have `p_safe=1.0`; all five nearest development states for each are safe-labeled.
 
-Scientific implication: **class imbalance / regression-vs-classification mismatch is not the main explanation.** A linear safety boundary over the fixed 11 features can nearly memorize the rare development unsafe states yet fails catastrophically on the exposed transfer tail. The next controlled question is whether this is merely a *linear-boundary limitation* or whether the fixed 11-feature representation itself lacks transferable local safety information. Test one fixed local nonparametric rule before adding any new feature or larger model.
+The information boundary is valid. The development reference-derived labels are frozen into the development-only bank, while transfer inference reads only degraded/current rendered states plus that frozen bank. All 100 transfer choices/output hashes are frozen before any transfer reference-quality read. No transfer clean target, PSNR/SSIM, T026/T036 per-image outcome, oracle step/range, official LOL-v2 Real test, or cross-dataset data enters adaptation or selection. Independent verification reproduces the features, normalization, bank, Euclidean distances, deterministic neighbor order, rollback decisions, hashes, read ordering, metrics, and negative classification.
 
-PR #147 contains a large amount of unrelated historical branch material; treat only the T065-B task-owned files/evidence as scientific evidence and do not merge unrelated history into `main`.
+**Scientific implication.** The fixed 11-state snapshot representation now fails under three qualitatively different readouts: average-margin ridge regression, class-balanced linear logistic safety classification, and cross-image local 5-NN. T065-C is especially diagnostic because even development leave-one-image-out unsafe recall collapses. This is strong evidence that the unresolved safety information is not merely hidden behind a nonlinear boundary in these 11 snapshot features. Do not spend another cycle on a different classifier, `k`, distance metric, threshold, or weighting over the same representation. The next bounded question is whether **trajectory dynamics / overshoot information**, rather than snapshot state, carries transferable warning signal.
+
+PR #148 contains extensive unrelated historical branch material. Treat only T065-C task-owned files/evidence as scientific evidence; do not merge unrelated history into `main`.
 
 ---
 
-# OPEN one-hour task — T065-C: fixed 5-NN safety rollback transfer audit
+# OPEN one-hour task — T066-A: fixed trajectory-dynamics safety guard transfer audit
 
-**Single hypothesis / engineering objective.** Test whether the T065-B failure is primarily due to the linear decision boundary rather than lack of transferable information in the exact same 11 target-free features. Use one fixed local 5-nearest-neighbor safety rule trained only on development labels, then apply it only as a rollback guard on the frozen normalized-progress checkpoint. This is an exposed-cohort transfer audit, not fresh qualification.
+**Single hypothesis / engineering objective.** Test whether the rare unsafe late checkpoints are better identified by *how the target-free trajectory is moving* than by the absolute snapshot features that failed in T065-A/B/C. Add one predeclared temporal-dynamics representation to the existing 11 features, fit one fixed development-only class-balanced linear logistic safety model, and apply it only as a rollback guard on the frozen normalized-progress checkpoint. This is an exposed-cohort transfer audit, not fresh qualification.
 
-**Fixed inputs/settings.** Do not rerun Adam and do not change the accepted 12-D CommonRegion2/CommonBox renderer, `L_spa + 10 L_exp + 5 L_col`, `lr=0.03`, 27-update budget, or frozen normalized-progress rule `rho=0.9857470621423519`. Reuse exactly the original 100-image development cohort and the same now-reference-exposed T063-D/T064-A 100-image transfer cohort. Reuse the **exact T065-A 11 feature definitions and T065-A development mean/population-std normalization**. No new feature, feature subset, IQA model, semantic embedding, augmentation, transfer-derived choice, or re-normalization is allowed.
+## Fixed inputs/settings
 
-**Development labels and fixed local rule.** Reuse the development-only binary label `safe_k = 1[PSNR(y_k, normal)-PSNR(T026, normal) >= -5.614]`. In normalized 11-D feature space use ordinary Euclidean distance. Set `k=5` exactly. For each query state, take the five nearest permitted development states, ordered deterministically by `(distance, development_image_index, step)`; define `p_safe` as the **unweighted** fraction of their five binary labels. Threshold is fixed at `0.5`; no distance weighting, temperature, metric learning, k sweep, threshold sweep, or alternate rule.
+Do not rerun Adam and do not change the accepted 12-D CommonRegion2/CommonBox renderer, objective `L_spa + 10 L_exp + 5 L_col`, `lr=0.03`, 27-update budget, or frozen normalized-progress rule `rho=0.9857470621423519`. Reuse exactly the original 100-image development cohort and the same now-reference-exposed T063-D/T064-A 100-image transfer cohort. Reuse the exact T065-A 11 snapshot features and T065-A development mean/population-std normalization unchanged.
 
-For development evaluation, prevent trivial same-image leakage: a query state from development image `i` may use training states only from the other 99 development images. For transfer inference, all 2,800 development states are the fixed reference bank. Report the development leave-one-image-out state-level confusion matrix and, separately, the guard behavior at each image's frozen `k_rho`.
+For every state `k=0..27`, append exactly the following **8 target-free trajectory-dynamics features**. Use zero for unavailable history at the first one/two steps; do not drop states:
 
-**Frozen rollback inference rule.** For each image compute the already-frozen normalized-progress checkpoint `k_rho`. Evaluate fixed 5-NN `p_safe(k)` for every `k=0..k_rho` using only degraded/current rendered checkpoint features and the frozen development bank/labels. If `p_safe(k_rho) >= 0.5`, keep `k_rho`; otherwise roll back to the **largest** `k<k_rho` with `p_safe(k) >= 0.5`; if none exists, choose `k=0`. Never advance beyond `k_rho`.
+1. `obj_drop_3`: `(L[max(0,k-3)] - L[k]) / max(abs(L[0]-min_j L[j]), 1e-8)`.
+2. `obj_curvature`: for `k>=2`, `((L[k-2]-L[k-1]) - (L[k-1]-L[k])) / max(abs(L[0]-min_j L[j]), 1e-8)`, else `0`.
+3. `image_step_rms`: RMS of `y[k]-y[k-1]` over all RGB pixels for `k>=1`, else `0`.
+4. `image_accel_rms`: RMS of `(y[k]-y[k-1])-(y[k-1]-y[k-2])` for `k>=2`, else `0`.
+5. `state_step_l2`: L2 norm of the 12-D raw-state difference `s[k]-s[k-1]` for `k>=1`, else `0`.
+6. `state_accel_l2`: L2 norm of `(s[k]-s[k-1])-(s[k-1]-s[k-2])` for `k>=2`, else `0`.
+7. `luma_step_abs`: absolute change in mean luminance between `y[k]` and `y[k-1]` for `k>=1`, else `0`, using the same luminance definition as T065-A.
+8. `gradient_ratio_step_abs`: absolute change in the existing T065-A gradient-ratio feature between `k` and `k-1` for `k>=1`, else `0`.
 
-Freeze/hash the feature implementation, normalization, complete development feature/label bank, distance/tie rule, `k=5`, threshold, source/state bindings, and development leave-one-image-out predictions before any transfer quality read. Before transfer, evaluate the frozen guard on development. If any of the unchanged five development gates fails, report `DEVELOPMENT_NEGATIVE` and stop without transfer reference-quality reads. Otherwise freeze/hash all 100 transfer choices and selected outputs before any transfer clean/reference/quality read.
+Normalize these 8 new features using **development-only** mean and population standard deviation with scale floor `1e-8`. Concatenate them after the frozen normalized T065-A 11 features, yielding exactly 19 dimensions. No other feature, transform, semantic embedding, IQA model, augmentation, feature subset, or re-normalization is allowed.
 
-**Acceptance / stop criteria.** After a valid transfer freeze, compute the unchanged five gates. Report `KNN_SAFETY_GUARD_TRANSFER_PASS` only if all five pass: mean PSNR delta vs exact T036 `>= +2.00 dB`, median delta `>0`, regressions vs exact T026 `<=29/100`, worst paired delta vs exact T026 `>= -5.614 dB`, and mean RGB-SSIM delta vs exact T036 `>= -0.001`. Otherwise report `TRANSFER_NEGATIVE` and close this exact fixed-feature 5-NN guard. Do not change `k`, threshold, metric, weighting, normalization, tie rule, features, or try a second local/nonlinear model in this cycle.
+## Fixed model and development evaluation
 
-**Explicit non-goals.** No new features; no MLP/tree/RBF/SVM; no learned metric; no k/threshold/distance sweep; no probability calibration; no transfer labels in the neighbor bank or selector; no per-image clean/reference/test-label use at inference; no oracle-derived cap; no optimizer/objective/action-space change; no new Train cohort; no official LOL-v2 Real test; no LSRW/UHD-LL or other cross-dataset access; no final Ours-vs-baseline claim.
+Reuse the binary development-only target exactly:
 
-**Expected evidence.** Commit the deterministic 5-NN/rollback implementation and tests; exact hashes binding T065-A features/normalization and the 2,800-state development feature/label bank; development leave-one-image-out confusion matrix and nearest-neighbor/tie reproducibility checks; development selected-step histogram and five gates; frozen rule manifest; transfer target-free neighbor/probability table without reference-derived fields; transfer choice/output freeze preceding any transfer reference-quality read; number of transfer rollbacks and selected-step histogram; post-freeze five-gate table and tail outcomes for indices 16 and 86, including their five neighbor IDs/steps/labels/distances for diagnosis; and an independent verifier that recomputes normalization use, distances, neighbor ordering, probabilities, rollback choices, hashes, read ordering, metrics, and classification. Append exactly one completion report to `coordination/CODEX_TO_CHATGPT.md`, never modify `coordination/PROJECT_STATE.md`, then stop.
+`safe_k = 1[PSNR(y_k, normal) - PSNR(T026, normal) >= -5.614]`.
+
+Fit one class-balanced linear logistic model in float64 over the 19-D representation with the same convention as T065-B: safe and unsafe classes receive equal total weight, L2 `lambda=1e-3`, intercept included and unregularized, probability threshold fixed at `0.5`. No lambda/threshold/class-weight/model sweep.
+
+Development evaluation must be **leave-one-image-out**: for each of the 100 images, fit the exact same fixed logistic model on the other 99 images' states and predict all 28 states of the held-out image. Report the aggregate state confusion matrix, especially unsafe recall, plus the rollback behavior at each image's frozen `k_rho` and the unchanged five development gates.
+
+Development stop criterion: if leave-one-image-out unsafe recall is `< 0.50` **or** any of the five development guard gates fails, report `DEVELOPMENT_DYNAMICS_NEGATIVE` and stop. Do not inspect transfer reference-derived quality fields or try another representation/model in this cycle. Target-free transfer feature construction may be implemented/tested, but no transfer quality read is authorized after a development stop.
+
+If development passes that stop criterion, fit the same fixed model once on all 100 development images, then freeze/hash: the exact 19 feature definitions, old 11-feature binding, new 8-feature development normalization, model coefficients/intercept, class weights, `lambda`, threshold, source/state bindings, and rollback rule **before any transfer quality read**.
+
+## Frozen rollback inference rule
+
+For each image, compute the already-frozen normalized-progress checkpoint `k_rho`. Evaluate the fixed 19-D logistic `p_safe(k)` for every `k=0..k_rho` using only degraded/current rendered trajectory quantities and the frozen development-trained model. If `p_safe(k_rho) >= 0.5`, keep `k_rho`; otherwise roll back to the **largest** `k<k_rho` with `p_safe(k) >= 0.5`; if none exists, choose `k=0`. Never advance beyond `k_rho`.
+
+Freeze/hash all 100 transfer choices and selected outputs before any transfer clean/reference/quality read. The transfer audit remains exposed-cohort diagnostic only.
+
+## Acceptance / stop criteria
+
+After a valid transfer freeze, compute the unchanged five gates. Report `DYNAMICS_SAFETY_GUARD_TRANSFER_PASS` only if **all five** pass:
+
+- mean PSNR delta vs exact T036 `>= +2.00 dB`;
+- median PSNR delta vs exact T036 `> 0`;
+- regressions vs exact T026 `<= 29/100`;
+- worst paired PSNR delta vs exact T026 `>= -5.614 dB`;
+- mean RGB-SSIM delta vs exact T036 `>= -0.001`.
+
+Otherwise report `TRANSFER_NEGATIVE` and close this exact 19-D dynamics guard. No threshold change, feature change, model change, second classifier, or post-outcome rescue in this cycle.
+
+## Explicit non-goals
+
+No new optimizer run; no objective/action-space/budget change; no new Train cohort; no MLP/tree/SVM/RBF/k-NN; no feature/model/hyperparameter sweep; no probability calibration; no transfer labels in training; no per-image clean/reference/test-label use at inference; no oracle-derived step cap/range; no semantic image ID feature; no official LOL-v2 Real test; no LSRW/UHD-LL or other cross-dataset access; no final Ours-vs-baseline claim.
+
+## Expected evidence
+
+Commit the deterministic 8-feature dynamics implementation and tests; hashes binding the exact T065-A 11 features/normalization; development normalization for the 8 new features; 19-D feature tables; leave-one-image-out logistic confusion matrix and unsafe recall; development rollback count/step histogram/five gates; final all-development model/rule manifest if the development stop criterion passes; transfer target-free probability table without reference-derived fields; transfer choice/output freeze preceding any transfer reference-quality read; number of rollbacks and selected-step histogram; post-freeze five-gate table and tail outcomes for indices 16/86; and an independent verifier that recomputes temporal features, normalizations, LOIO fits, final fit, probabilities, rollback decisions, hashes, read ordering, metrics, and classification.
+
+Append exactly one completion report to `coordination/CODEX_TO_CHATGPT.md`, never modify `coordination/PROJECT_STATE.md`, then stop.
