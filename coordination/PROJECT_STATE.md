@@ -17,6 +17,7 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - **Fresh-qualified deployable action extension:** T036-A CommonRegion2/CommonBox 12-D gain path, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, but with an unresolved tail (`29/100` regressions; worst `-5.614 dB`).
 - T059/T060 action-transfer rescue is closed. T061 source-global fixed stopping is closed.
 - T062 step 27 is **not** deployable/fresh-qualified: it retains a large mean gain but failed the immutable fresh worst-tail gate.
+- T063-A proves strong checkpoint-selection headroom on the frozen T062 prefix, but T063-B's first target-free cumulative loss-balance selector failed to exploit it and is closed.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
 The accepted T036/T062 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062 keeps this action space and Adam `lr=0.03`, replacing T014 energy with the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
@@ -77,12 +78,24 @@ A strictly `REFERENCE_ORACLE_ONLY` safety-constrained oracle shows:
 
 The sole fixed-step-27 safety failure, `Train/Low/low00221.png`, has safe saved states `12..24`; reference oracle step 17 gives `32.3537627 dB / 0.7653929 SSIM`, versus exact T026 `22.8328597 dB` and T062 step 27 `15.4986844 dB`.
 
-**Scientific implication:** for the observed T062 tail, the frozen trajectory/action space already contains safe high-quality states. The primary bottleneck is now checkpoint stopping/selection, not lack of reachable states. Reference oracle steps/harm labels are diagnostic only and are forbidden from deployable inference.
+**Scientific implication:** for the observed T062 tail, the frozen trajectory/action space already contains safe high-quality states. The primary bottleneck is checkpoint stopping/selection, not lack of reachable states. Reference oracle steps/harm labels are diagnostic only and are forbidden from deployable inference.
+
+### T063-B — accepted `TRANSFER_NEGATIVE`
+
+T063-B tested exactly one globally calibrated, target-free cumulative loss-balance statistic on already-frozen T062 states. Development calibration chose `tau=0.03832858496579632`, but the resulting selector chose **step 27 for all 100 development images and all 100 exposed-cohort transfer images**. Therefore transfer exactly reproduced T062-C-R2:
+
+- mean / median PSNR delta vs T036 `+3.5504315 / +3.3795780 dB`;
+- `10/100` regressions vs T026;
+- worst paired delta vs T026 `-7.3341753 dB` — immutable safety-gate fail;
+- mean RGB-SSIM delta vs T036 `+0.0098393`.
+
+The selector/freeze boundary was valid and an independent verifier reproduced states, loss components, ratios, calibration, hashes, metrics, and gates. This result closes the **cumulative loss-balance ratio** as a stopping statistic; it does not invalidate T063-A selection headroom. The current narrower question is whether a target-free image-specific convergence signal can exploit that headroom.
 
 ## Closed / retained mechanism conclusions
 
 - T059/T060: learned field direction is real, but practical rescue failed fixed gates; line closed.
 - T061: source-chosen global step `k=11` transfers poorly (`-2.2515 dB` mean vs T036; `92/100` regressions vs T026); source-global fixed stopping rejected.
+- T063-B: cumulative spatial-cost/exposure-color-benefit ratio is non-discriminative under the frozen trajectory (all images select step 27); statistic closed.
 - Renderer oracle studies T051/T054/T055 show substantial spatial capacity remains, but they are `REFERENCE_ORACLE_ONLY` and not deployable.
 
 ## Development versus final-evaluation protocol
@@ -111,6 +124,6 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 
 ## Current open task
 
-**T063-B — target-free loss-balance stopping transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T063-C — normalized objective-progress stopping transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use only frozen T062 trajectories. Calibrate one global scalar threshold on the original development cohort for the predeclared target-free ratio between spatial-consistency cost and exposure/color benefit, freeze the rule, then apply it unchanged to the T062-C-R2/T063-A cohort before reading any reference-derived transfer metrics. This is an exposed-cohort transfer audit, not fresh qualification. No learned selector, second heuristic, new optimizer run, new cohort, official test, or cross-dataset access is authorized.
+Use only the frozen T062 `k=0..27` trajectories. Calibrate one global normalized objective-progress fraction on the original development cohort, freeze the rule, then apply it unchanged to the T062-C-R2/T063-A exposed transfer cohort before reading any transfer reference-derived metrics. No learned selector, second heuristic, optimizer rerun, new cohort, official test, or cross-dataset access is authorized.
