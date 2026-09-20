@@ -1,0 +1,6 @@
+{
+  "runId": "20260921-024307-ttie-t067b-interpolation",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260921-024307-ttie-t067b-interpolation",
+  "command": "cd /home/wenchang/asdasdsad/wjq/TTIE/releases/20260921-ttie-t067b-interpolation && export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_THREADING_LAYER=SEQUENTIAL TTIE_SOURCE_COMMIT=b080b7f3b4f848a0f558c3598b9b713afc1628ac && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m pytest research_log/T063C/test_core.py research_log/T067B/test_core.py -q && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T067B.run --out /media/wenchang/F/wjq/TTIE/runs/T067B-dev-interpolation && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T067B.verify --out /media/wenchang/F/wjq/TTIE/runs/T067B-dev-interpolation"
+}
