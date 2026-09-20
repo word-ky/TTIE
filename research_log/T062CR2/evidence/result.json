@@ -1,0 +1,42 @@
+{
+  "task": "T062-C-R2",
+  "verdict": "NEGATIVE",
+  "gates": {
+    "mean_psnr": true,
+    "median_psnr": true,
+    "regressions": true,
+    "worst": false,
+    "mean_ssim": true
+  },
+  "mean_delta_psnr": 3.5504314939354953,
+  "median_delta_psnr": 3.3795780123457853,
+  "regressions_t026": 10,
+  "worst_delta_t026": -7.334175346097778,
+  "mean_delta_ssim": 0.009839267210038789,
+  "improve": 92,
+  "regress": 8,
+  "tie": 0,
+  "absolute": {
+    "identity": {
+      "psnr": 7.578243899154436,
+      "ssim": 0.16359604074682918
+    },
+    "T026": {
+      "psnr": 11.095192131606941,
+      "ssim": 0.4054545153843958
+    },
+    "T036": {
+      "psnr": 12.13753375274626,
+      "ssim": 0.4025945341818165
+    },
+    "T062": {
+      "psnr": 15.687965246681758,
+      "ssim": 0.4124338013918553
+    }
+  },
+  "freeze_utc": "2026-09-20T01:33:30.465378+00:00",
+  "first_reference_read_utc": "2026-09-20T01:33:34.332667+00:00",
+  "freeze_sha256": "700ae2612234eb139a20c3560b58c85dca1eef3849347c24ffc09575620c07de",
+  "seconds": 26.91785541801073,
+  "completed_utc": "2026-09-20T01:33:59.806810+00:00"
+}
