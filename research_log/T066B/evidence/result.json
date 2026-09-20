@@ -1,0 +1,125 @@
+{
+  "classification": "SELECTED_TAIL_SPECIFIC_FAILURE",
+  "label": "diagnostic-only exposed-cohort audit; no new selector",
+  "transfer": {
+    "all": {
+      "states": 2800,
+      "confusion": {
+        "safe_pred_safe": 2500,
+        "safe_pred_unsafe": 202,
+        "unsafe_pred_safe": 21,
+        "unsafe_pred_unsafe": 77
+      },
+      "unsafe_recall": 0.7857142857142857
+    },
+    "prefix": {
+      "states": 2730,
+      "confusion": {
+        "safe_pred_safe": 2439,
+        "safe_pred_unsafe": 202,
+        "unsafe_pred_safe": 12,
+        "unsafe_pred_unsafe": 77
+      },
+      "unsafe_recall": 0.8651685393258427
+    },
+    "base": {
+      "states": 100,
+      "confusion": {
+        "safe_pred_safe": 98,
+        "safe_pred_unsafe": 0,
+        "unsafe_pred_safe": 2,
+        "unsafe_pred_unsafe": 0
+      },
+      "unsafe_recall": 0.0
+    }
+  },
+  "transfer_unsafe_support": {
+    "states": 98,
+    "fraction_m_positive": 0.7244897959183674,
+    "d_safe": {
+      "min": 0.022376604631845133,
+      "q25": 0.24960924410870608,
+      "median": 0.32402934594755584,
+      "q75": 0.9056916170178615,
+      "max": 3.2845910281855493,
+      "mean": 0.6233226738555318
+    },
+    "d_unsafe": {
+      "min": 0.02116469138459028,
+      "q25": 0.3477888323514535,
+      "median": 0.4645914415748896,
+      "q75": 0.7412346954411599,
+      "max": 10.980629348537633,
+      "mean": 1.6325064191082903
+    },
+    "margin": {
+      "min": -0.44357963057924765,
+      "q25": -0.006022901355019494,
+      "median": 0.11554835705377121,
+      "q75": 0.23822031598420335,
+      "max": 7.696038320352084,
+      "mean": 1.0091837452527583
+    }
+  },
+  "development_loio_unsafe_support": {
+    "states": 81,
+    "fraction_m_positive": 0.7530864197530864,
+    "d_safe": {
+      "min": 0.060257628819189786,
+      "q25": 0.23907585433189854,
+      "median": 0.34835052798123034,
+      "q75": 0.6614626288320725,
+      "max": 15.97493087883408,
+      "mean": 0.7843332061266565
+    },
+    "d_unsafe": {
+      "min": 0.11738713547728966,
+      "q25": 0.3097580159450124,
+      "median": 0.5127947892387559,
+      "q75": 0.8020161457631616,
+      "max": 23.554513687842654,
+      "mean": 1.1418446152501347
+    },
+    "margin": {
+      "min": -0.3190120500569905,
+      "q25": 8.81533766474707e-05,
+      "median": 0.1133215276179108,
+      "q75": 0.24207384709343283,
+      "max": 7.579582809008574,
+      "mean": 0.35751140912347795
+    }
+  },
+  "unsafe_base_rows": [
+    {
+      "index": 16,
+      "step": 21,
+      "p_safe": 0.9999999999999065,
+      "safe": 0,
+      "quality_margin": -7.1311154303317075,
+      "d_safe": 2.116968259553892,
+      "d_unsafe": 6.984576534557032,
+      "margin": 4.86760827500314,
+      "safe_bank_row": 1616,
+      "unsafe_bank_row": 907
+    },
+    {
+      "index": 86,
+      "step": 25,
+      "p_safe": 0.9999999999999065,
+      "safe": 0,
+      "quality_margin": -10.364944679494553,
+      "d_safe": 1.406172879210794,
+      "d_unsafe": 7.047229207921262,
+      "margin": 5.6410563287104685,
+      "safe_bank_row": 2714,
+      "unsafe_bank_row": 907
+    }
+  ],
+  "false_safe_base_states": 2,
+  "transfer_unsafe_exact_distance_ties": 0,
+  "development_classifier_context": "T066-A held-out classifier recall73/81; target-free development table here uses frozen final model",
+  "completed_utc": "2026-09-20T14:47:13.653827+00:00",
+  "seconds": 17.540653786010807,
+  "optimizer_runs": 0,
+  "model_fits": 0
+}
