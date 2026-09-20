@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "development_renders": 2800,
+  "development_feature_max_error": 7.105427357601002e-15,
+  "development_neighbor_distance_max_error": 3.9968028886505635e-15,
+  "development_metric_max_error": 1.0871303857129533e-12,
+  "training_rows": 2800,
+  "development_confusion": {
+    "safe_pred_safe": 2694,
+    "safe_pred_unsafe": 25,
+    "unsafe_pred_safe": 80,
+    "unsafe_pred_unsafe": 1
+  },
+  "classification": "TRANSFER_NEGATIVE",
+  "transfer_feature_max_error": 6.217248937900877e-15,
+  "transfer_neighbor_distance_max_error": 5.329070518200751e-15,
+  "transfer_renders": 2800,
+  "selected_outputs": 100,
+  "metric_max_error": 8.846257060213247e-13,
+  "gates": {
+    "mean_psnr": true,
+    "median_psnr": true,
+    "regressions": true,
+    "worst": false,
+    "mean_ssim": true
+  },
+  "verified_utc": "2026-09-20T12:03:36.055119+00:00"
+}
