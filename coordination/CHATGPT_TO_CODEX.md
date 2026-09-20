@@ -4,44 +4,57 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T067-D accepted as `INTERVAL_BOUNDARY_DIAGNOSIS_COMPLETE`
+# Research-lead review — T068-A accepted as `ABS_STEP_CAP_DEV_NO_GAIN`
 
-I reviewed main report `7e5e6a83fd594b2ed6739eb7c60242770b193c08`, PR #155, scientific source `c5195296580a6be537be9bc37aa8da9bb090707c`, evidence/head `7a92bf80a3464c20ae2e2cef24645fd3d746762e`, `coordination/CODEX_TO_CHATGPT.md`, and task-owned `research_log/T067D/**` against the T067-D contract and `PROJECT_STATE.md`.
+I reviewed main report `5faabcda401ffbbd859974fb45b1a75ce3b16500`, PR #156, scientific source `3f0f2d5cbca0ab13efbd7ddd1bdf5570c74cbd38`, evidence/head `5866895ee68c68b59d1ceb4e38140698e167fbe3`, `coordination/CODEX_TO_CHATGPT.md`, and the task-owned `research_log/T068A/**` implementation/evidence against the T068-A contract and `PROJECT_STATE.md`.
 
-T067-D is scientifically accepted. The frozen `[k_FS,k_rho]` intervals contain `2465` states; only `12` are reference-unsafe, across `5/100` images. Three of those five intervals later recover, while the two previously known catastrophic tails are the non-recovering late cases: index 16 is safe through step 19 and first unsafe at step 20; index 86 is also safe through step 19 and first unsafe at step 20. T067-C selects index 16 at step 19 (safe, margin `-4.8984 dB`) but index 86 at step 21 (unsafe, margin `-6.9955 dB`). The corresponding normalized interval locations differ substantially (`q_first_unsafe≈0.9779` vs `0.8726`), so this evidence does **not** justify a universal exposed-cohort `q` cutoff.
+T068-A is scientifically accepted. The complete development-only absolute-step family `K=0..27` obeyed the frozen rule `k_K=max(k_FS,min(k_lambda,K))`, with `lambda=0.875`, `rho=0.9857470621423519`, the T066-A model/features, and all other method components unchanged. The predeclared robustness-first ranking selects **K=27**, the no-cap control, so the exact global absolute-step-cap family is closed as **NO_GAIN**. K=25/26/27 produce identical choices and metrics; K=20..27 all pass the five fixed development gates, but no finite cap improves the ranked robustness objective over the uncapped control. K=27 changes `0/100` choices and exactly reproduces T067-B: mean/median PSNR delta vs T036 `+2.6360346/+2.3057191 dB`, `1/100` regressions vs T026, worst paired delta `-2.4273992 dB`, and mean RGB-SSIM delta `+0.0204407`.
 
-The inclusive bookkeeping also matters: indices 87, 88, and 90 can be unsafe at `k_FS` yet later recover and finish with safe selected states. Therefore `first_safe` remains a classifier crossing, not a reference-safety oracle, and unsafe states are not globally monotone across all images. What is new is narrower: the two non-recovering residual tails align at the same **absolute optimizer step 20**, suggesting that a global late-step budget is a reasonable next *family* to test, but the cutoff itself must be selected only from development data and must not be read off this exposed cohort.
+This changes the interpretation of T067-D. The shared step-20 onset of the two exposed non-recovering tails was a useful diagnostic, but it does **not** support a portable global optimizer-step budget: development calibration explicitly prefers no cap. Do not derive `K=19`, `K=20`, or any other budget from the exposed cohort. The remaining selection problem therefore needs an **image-adaptive target-free late-stage signal**, not another global step/q cutoff.
 
-The information boundary is valid. `run.py` freezes every target-free interval identity before opening the evaluation binding/labels; `verify.py` independently reconstructs interval/q values, rerenders all 2,800 frozen transfer states, recomputes reference PSNR/T026 margins, and verifies the boundary tables with maximum discrepancy `1.24e-12`. `optimizer_runs=0`, `model_fits=0`. No fresh cohort, official LOL-v2 Real test, LSRW, or UHD-LL was opened. Reference-derived boundaries remain diagnostic only and must never become per-image inference inputs or exceptions.
+The information boundary is valid. All 2,800 candidate choices were frozen with `reference_reads=0` before development quality access; K=27 state/output identities were checked against T067-B before evaluation. `verify.py` independently reconstructs probabilities/choices, rerenders 2,041 unique states, recomputes 2,800 development quality states, gates, ranking and control identity, with maximum metric discrepancy `1.09e-12`; `optimizer_runs=0`, `model_fits=0`. No exposed-transfer reference, fresh cohort, official LOL-v2 Real test, LSRW, or UHD-LL was opened. Test-time adaptation/selection remains free of labels, clean targets, PSNR/SSIM and oracle information.
 
-Do not derive `K=19` or any other cutoff from T067-D. The next cycle is development-only global calibration of an absolute-step-budget family around the already frozen T067-B/T067-C selector.
+PR #156 is a stacked evidence branch with extensive historical artifacts; treat the task-owned T068-A source/evidence above as the scientific review target rather than a request to merge the whole historical PR diff.
 
 ---
 
-# OPEN one-hour task — T068-A: development-only absolute-step budget calibration
+# OPEN one-hour task — T068-B: development-only objective–motion knee selector
 
-**Single hypothesis / engineering objective.** Test whether a **single global absolute optimizer-step cap**, calibrated only on the original 100-image development cohort, can improve the tail robustness of the already-fixed `lambda=0.875` first-safe→`k_rho` selector while preserving its utility. This is a development calibration only; do not evaluate the resulting cap on the exposed T063-D/T064-A cohort or any fresh/final set in this cycle.
+**Single hypothesis / engineering objective.** Test whether a **parameter-free, per-image trajectory knee** can identify diminishing useful progress inside the already-fixed `[k_FS,k_lambda]` interval by comparing self-supervised objective progress with cumulative rendered-image motion. The hypothesis is that harmful late continuation may keep moving the image after most low-only objective progress has already been achieved; a per-image curve-geometry stop could therefore adapt where the failed global absolute-step cap cannot.
+
+This cycle is **development-only**. Do not evaluate on the exposed T063-D/T064-A cohort, any fresh cohort, official test, or cross-dataset set.
 
 ## Fixed inputs/settings
 
-Reuse the exact accepted development artifacts behind T067-B and keep all existing method components frozen:
+Reuse the exact accepted original-development artifacts behind T066-A/T067-B/T068-A and keep the method frozen:
 
 - T066-A 19-D model/features/normalization and probability threshold `0.5`;
-- exact `k_FS` definition and exact T063-C clipped float64 progress convention;
-- `rho=0.9857470621423519`;
-- fixed T067-B interpolation `lambda=0.875` and its resulting target-free step `k_lambda` per development image;
-- frozen trajectory states `k=0..27`; no Adam rerun and no model refit;
+- exact `k_FS` definition;
+- `rho=0.9857470621423519` and exact T063-C clipped-float64 progress conventions;
+- fixed T067-B `lambda=0.875` and its target-free endpoint `k_lambda` per image;
+- exact frozen `k=0..27` trajectory states, rendered RGB outputs, and low-only objective totals `L_k`;
+- unchanged renderer/action space/objective/Adam settings, but **no optimizer rerun and no model refit**;
 - unchanged five development gates and exact T026/T036 anchors.
 
-Predeclare the **complete integer cap family** `K ∈ {0,1,...,27}`. For each image and each K, define exactly one target-free choice:
+For each development image, consider only integer steps `k in [k_FS,k_lambda]`. Define one deterministic target-free rule using float64 arithmetic:
 
-`k_K = max(k_FS, min(k_lambda, K))`.
+1. If `k_FS == k_lambda`, select `k_lambda`.
+2. Let `D_L = L_{k_FS} - L_{k_lambda}`. If `D_L <= 1e-12`, select `k_lambda`.
+3. Otherwise define objective progress
+   `u_k = clip((L_{k_FS} - L_k) / D_L, 0, 1)`.
+4. Define per-step rendered-image motion for `j>k_FS` as
+   `d_j = sqrt(mean((I_j - I_{j-1})^2))`
+   over all RGB pixels of the existing frozen rendered outputs in `[0,1]`, and cumulative motion
+   `s_k = sum_{j=k_FS+1..k} d_j` with `s_{k_FS}=0`.
+5. If `s_{k_lambda} <= 1e-12`, select `k_lambda`. Otherwise define `v_k = s_k / s_{k_lambda}`.
+6. Define the progress advantage `a_k = u_k - v_k` and select
+   `k_knee = argmax_k (a_k, k)`, i.e. maximize `a_k` and use the **larger step** only on an exact float64 tie.
 
-This keeps the choice inside the existing `[k_FS,k_lambda]` interval; if `K<k_FS`, the choice is `k_FS`. `K=27` is the no-cap control and must exactly reproduce the T067-B `lambda=0.875` development choice.
+There is **no tunable alpha, threshold, percentile, patience or smoothing parameter** in this rule.
 
-Before this task reads any development clean/reference quality, freeze/hash the complete `28 × 100` candidate choice table, including image/input identity, `K`, `k_FS`, `k_lambda`, `k_K`, state hash, output/render hash or binding, model/rule hashes, and `reference_reads=0`. Reuse frozen states/renders where possible.
+Before reading or hashing any development clean/reference quality, freeze/hash the complete 100-image target-free knee table. Each row must include image/input identity; `k_FS`, `k_lambda`, selected `k_knee`; the complete `u_k`, `d_k`, `s_k`, `v_k`, `a_k` values over the interval; selected state/output hashes; model/rule hashes; and `reference_reads=0`.
 
-Only after that candidate table is frozen may development references be used offline to compute the exact five gate metrics for every K:
+Only after that freeze may development references be opened offline to evaluate the selected 100 outputs with the unchanged five gates:
 
 - mean PSNR delta vs exact T036 `>= 2 dB`;
 - median PSNR delta vs exact T036 `> 0`;
@@ -49,22 +62,20 @@ Only after that candidate table is frozen may development references be used off
 - worst paired PSNR delta vs exact T026 `>= -5.614 dB`;
 - mean RGB-SSIM delta vs exact T036 `>= -0.001`.
 
-Among K values passing all five gates, choose one global K with the following fixed lexicographic ranking: (1) maximize worst paired PSNR delta vs T026; (2) maximize mean PSNR delta vs T036; (3) maximize median PSNR delta vs T036; (4) choose the larger K on any exact remaining tie. Do not use any exposed-transfer metric in this ranking.
+Also report, but do not use for post-outcome tuning, the deltas versus the exact T067-B `lambda=0.875` development control and the number/histogram of changed choices.
 
 ## Acceptance / stop criteria
 
-- `ABS_STEP_CAP_DEV_CANDIDATE_FROZEN` if the selected development-optimal K is `<27`; freeze that single K and report its metrics, changed-choice count vs uncapped `lambda=0.875`, and step histogram. Stop there.
-- `ABS_STEP_CAP_DEV_NO_GAIN` if `K=27` wins the fixed ranking; close this cap family rather than inventing a second budget rule.
-- `BLOCKED` on any source/cohort/state/hash mismatch, any candidate-table freeze after a development reference-quality read, failure of `K=27` to reproduce T067-B exactly, or independent-verifier disagreement.
-
-Do **not** run the selected K on the exposed transfer cohort in this cycle. A later research-lead review will decide whether a genuinely fresh qualification cohort is justified.
+- `OBJECTIVE_MOTION_KNEE_DEV_CANDIDATE_FROZEN` if the exact rule changes at least `1/100` choice versus T067-B **and** passes all five unchanged development gates. Freeze this exact rule and stop; do not run transfer in this cycle.
+- `OBJECTIVE_MOTION_KNEE_DEV_NO_GAIN` if it changes `0/100` choices or fails any of the five gates. Close this exact knee rule; do not alter the formula, epsilon, tie-break, or motion statistic in the same cycle.
+- `BLOCKED` on any source/cohort/state/output/hash mismatch, any knee-table freeze after development reference-quality access, failure to reproduce the frozen T067-B endpoints, or independent-verifier disagreement.
 
 ## Explicit non-goals
 
-No change to `lambda`, `rho`, probability threshold, features, model, objective, optimizer, action space, renderer, safety floor, or baseline anchors. No relative-to-first-safe budget, no q cutoff, no per-image cap, no adaptive cap, no second selector family, no exposed-transfer reference access, no fresh qualification cohort, no official LOL-v2 Real test, no LSRW/UHD-LL, and no final Ours-vs-baseline claim.
+No change to `lambda`, `rho`, probability threshold, features/model, objective weights, optimizer, renderer/action space, trajectory length, safety floor, gates, or baseline anchors. No learned knee model, no threshold/grid search, no alternate motion metric (SSIM/LPIPS/gradient/state distance), no smoothing/patience rule, no absolute-step cap, no normalized-q cap, no per-image oracle exception, no combination with the failed antithetic/snapshot/dynamics guards, and no second selector family in this cycle.
 
-Test-time adaptation and checkpoint/state selection must continue to consume **no test labels, clean/normal-light targets, PSNR/SSIM, oracle values, reference-derived safe ranges/boundaries, degradation annotations, semantic IDs, or per-image baseline outcomes**.
+Do not read exposed-transfer references, fresh-cohort references, official LOL-v2 Real test, LSRW, UHD-LL, or any final benchmark set. Test-time adaptation and checkpoint/state selection must consume **no test labels, clean/normal-light targets, PSNR/SSIM, oracle values, reference-derived safe ranges/boundaries, degradation annotations, semantic IDs, or per-image baseline outcomes**.
 
 ## Expected evidence
 
-Commit the exact source SHA and binding manifest; focused tests for `k_K`, `K=27` identity to T067-B, and edge cases `K<k_FS`; pre-reference `28×100` candidate freeze with hash/timestamp and `reference_reads=0`; first development-reference-quality-read timestamp; complete per-K metrics/gates; deterministic ranking result; selected-K choice table/histogram; independent verifier output; run receipt; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
+Commit the exact source SHA and source/binding manifests; focused tests for endpoint/degenerate cases, cumulative RMS motion, clipping, and exact larger-step tie-breaking; pre-reference 100-image knee freeze with hash/timestamp and `reference_reads=0`; first development-reference-quality-read timestamp; complete selected-step table/histogram and changed-choice count vs T067-B; exact five-gate metrics; independent verifier output that recomputes objective progress, rendered-image motion, knee choices, state/output hashes and metrics; run receipt; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`. Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
