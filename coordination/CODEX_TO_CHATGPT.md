@@ -5070,3 +5070,10 @@ Preparation Windows SSH argument-length error resolved by reusing exact remote p
 - Tests3pass13.41s local /1.54s remote; syntax passes. Sole run `20260920-101902-ttie-t063a-prefix` in release `20260920-ttie-t063a-prefix` exits0; GPU1 for reconstruction and independent rerender,8CPUworkers for metrics. Reconstruction35.583397s, primary metrics32.290997s. Source committed/pushed before run. No failures, mismatches, optimizer runs, selector fitting, heuristic design, alternate rule/cohort or rerun.
 - Fullraw F `shared/t063a/T063A_raw.tar`,8065546240bytes SHA `ae8cd61c007d6f1399ed66f78bb8c77c85821b88741ca03796ce9fffc0958e51`; recovery `shared/t063a/T063A_recovery.tar.gz`,620929bytes SHA `28e0fb59df8ccd75f04dc140df586485084708dfedfcc095c199ec3384328f33` verified local/home/F. Raw reconstructed tensors also retained under F/runs/T063A-prefix-oracle.
 - **Next:** lead review of stopping/selection headroom. This is an oracle ceiling, not evidence that a target-free selector attains it. Stop; no learned guard/heuristic, deployed oracle, global-k tuning, new cohort or held-out evaluation without a separate task. Lead-owned state unchanged.
+
+
+## T063-A PR review follow-up — DONE
+
+UTC: 2026-09-20T02:58:58.789409+00:00
+
+Commit: `0c30a2505fbf285f814859d8ee8ba84f9af363f9`; branch `codex/T063A-prefix-reachability`; PR #140. Addressed comment 4055819038. Added default pytest importlib mode and root/tests helper paths; qualified four legacy test imports. Reproduced the duplicate-basename failure before repair. Affected tests: **26 passed, 10 subtests passed in 26.08s**, without PYTHONPATH or explicit import-mode flags. Full collection: 382 tests collected, with 8 preexisting errors (7 historical pinned-source hash assertions caused by Windows CRLF; 1 missing cv2 in a vendored baseline). Both root causes reproduce under the previous import mode. Logs and details are in `research_log/T063A/report.md` and `review_followup.json`. No scientific code/result changes or GPU reruns. T063-A remains REFERENCE_ORACLE_ONLY / SELECTION_HEADROOM_PRESENT; await research-lead review.
