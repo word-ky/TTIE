@@ -17,10 +17,12 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - **Fresh-qualified deployable action extension:** T036-A CommonRegion2/CommonBox 12-D gain path, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, but with an unresolved tail (`29/100` regressions; worst `-5.614 dB`).
 - T059/T060 action-transfer rescue is closed. T061 source-global fixed stopping is closed.
 - T062 step 27 is **not** deployable/fresh-qualified: it retains a large mean gain but failed the immutable fresh worst-tail gate.
-- T063-A proves strong checkpoint-selection headroom on the frozen T062 prefix, but T063-B's first target-free cumulative loss-balance selector failed to exploit it and is closed.
+- T063-A proves strong checkpoint-selection headroom on the frozen T062 prefix.
+- T063-B's cumulative loss-balance selector failed and is closed.
+- **T063-C is the strongest current target-free candidate:** its frozen normalized objective-progress selector passes all five gates on the exposed transfer cohort, but it is **not yet fresh-qualified**.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
-The accepted T036/T062 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062 keeps this action space and Adam `lr=0.03`, replacing T014 energy with the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
+The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, replacing T014 energy with the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
 
 ## Accepted T062 evidence
 
@@ -47,7 +49,7 @@ Using only the frozen T062-A trajectory, development references select one globa
 - worst delta vs T026 `-5.5802323 dB`;
 - mean RGB-SSIM delta vs T036 `+0.0119967`.
 
-This is the strongest development target-time candidate, not a final result.
+This is a development hyperparameter result, not a final comparison.
 
 ### T062-C-R2 — fresh qualification of fixed step 27
 
@@ -59,7 +61,7 @@ On an independently frozen previously reference-unused 100-pair LOL-v2 Real Trai
 - worst delta vs T026 `-7.3341753 dB` — immutable safety-gate fail;
 - mean RGB-SSIM delta vs T036 `+0.0098393`.
 
-Four of five gates pass, but the formal verdict is **NEGATIVE**. The fixed-global-step-27 route is closed. The replicated mean gain is nevertheless strong evidence that the T062 zero-reference trajectory is useful and that the remaining issue is concentrated in a rare stopping/safety tail.
+Four of five gates pass, but the formal verdict is **NEGATIVE**. The fixed-global-step-27 route is closed. The replicated mean gain remains strong evidence that the T062 zero-reference trajectory is useful and that the remaining issue is concentrated in checkpoint selection/safety rather than gross renderer capacity.
 
 ## T063 stopping/selection diagnosis
 
@@ -82,20 +84,50 @@ The sole fixed-step-27 safety failure, `Train/Low/low00221.png`, has safe saved 
 
 ### T063-B — accepted `TRANSFER_NEGATIVE`
 
-T063-B tested exactly one globally calibrated, target-free cumulative loss-balance statistic on already-frozen T062 states. Development calibration chose `tau=0.03832858496579632`, but the resulting selector chose **step 27 for all 100 development images and all 100 exposed-cohort transfer images**. Therefore transfer exactly reproduced T062-C-R2:
+T063-B tested exactly one globally calibrated, target-free cumulative loss-balance statistic on already-frozen T062 states. Development calibration chose `tau=0.03832858496579632`, but the resulting selector chose **step 27 for all 100 development images and all 100 exposed-cohort transfer images**. Transfer therefore exactly reproduced T062-C-R2:
 
 - mean / median PSNR delta vs T036 `+3.5504315 / +3.3795780 dB`;
 - `10/100` regressions vs T026;
 - worst paired delta vs T026 `-7.3341753 dB` — immutable safety-gate fail;
 - mean RGB-SSIM delta vs T036 `+0.0098393`.
 
-The selector/freeze boundary was valid and an independent verifier reproduced states, loss components, ratios, calibration, hashes, metrics, and gates. This result closes the **cumulative loss-balance ratio** as a stopping statistic; it does not invalidate T063-A selection headroom. The current narrower question is whether a target-free image-specific convergence signal can exploit that headroom.
+The selector/freeze boundary was valid and an independent verifier reproduced states, loss components, ratios, calibration, hashes, metrics, and gates. This closes the cumulative loss-balance ratio as a stopping statistic; it does not invalidate T063-A selection headroom.
+
+### T063-C — accepted `TARGET_FREE_TRANSFER_PASS`
+
+T063-C tests one frozen normalized objective-progress selector. On development, the unique selected global fraction is
+
+`rho = 0.9857470621423519`.
+
+For each image, using only its low/current rendered trajectory, define `L_best=min_{0..27} L_k`, `D=L_0-L_best`, and choose the earliest checkpoint satisfying `L_k <= L_0-rho*D` (with the frozen tiny-progress fallback). The rule inspects the complete `0..27` target-free trajectory; it is therefore a checkpoint selector, not a compute-saving early-stop claim.
+
+On development:
+
+- mean / median PSNR delta vs T036 `+3.5695323 / +3.0938391 dB`;
+- `3/100` regressions vs T026;
+- worst paired delta vs T026 `-4.0744464 dB`;
+- mean RGB-SSIM delta vs T036 `+0.0150118`.
+
+On the already reference-exposed T062-C-R2/T063-A cohort, with the selector frozen before any transfer quality read:
+
+- absolute `15.8475933 dB / 0.4171932 RGB-SSIM`;
+- mean / median PSNR delta vs T036 `+3.7100596 / +3.2033990 dB`;
+- `10/100` regressions vs T026;
+- worst paired delta vs T026 `-4.3235641 dB`;
+- mean RGB-SSIM delta vs T036 `+0.0145986`;
+- all five transfer gates pass;
+- `45/100` transfer images select a checkpoint earlier than step 27.
+
+The previous fixed-step failure `low00221.png` now selects step 22 and reaches `20.0067855 dB`, with paired delta vs T026 `-2.8260742 dB`, inside the safety envelope. Selector/output freezes precede all transfer reference/quality reads, and an independent verifier reconstructs the objective, normalized progress, candidate grid, tie-break, selected steps, hashes, metrics, and final classification.
+
+**Scientific implication:** T063-C is the first target-free image-specific checkpoint selector that demonstrably exploits part of the T063-A headroom and repairs the observed rare safety tail while retaining the strong mean gain. Because the transfer cohort was already reference-exposed before T063-C, this is not yet fresh qualification. The next decisive question is whether the exact frozen `rho` and rule generalize to a new previously reference-unused cohort with no further tuning.
 
 ## Closed / retained mechanism conclusions
 
 - T059/T060: learned field direction is real, but practical rescue failed fixed gates; line closed.
 - T061: source-chosen global step `k=11` transfers poorly (`-2.2515 dB` mean vs T036; `92/100` regressions vs T026); source-global fixed stopping rejected.
-- T063-B: cumulative spatial-cost/exposure-color-benefit ratio is non-discriminative under the frozen trajectory (all images select step 27); statistic closed.
+- T063-B: cumulative spatial-cost/exposure-color-benefit ratio is non-discriminative under the frozen trajectory; statistic closed.
+- T063-C: normalized objective progress is retained as the current target-free selector candidate; exposed transfer passes, fresh qualification pending.
 - Renderer oracle studies T051/T054/T055 show substantial spatial capacity remains, but they are `REFERENCE_ORACLE_ONLY` and not deployable.
 
 ## Development versus final-evaluation protocol
@@ -124,6 +156,6 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 
 ## Current open task
 
-**T063-C — normalized objective-progress stopping transfer audit** in `coordination/CHATGPT_TO_CODEX.md`.
+**T063-D — fresh qualification of the frozen normalized-progress selector** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Use only the frozen T062 `k=0..27` trajectories. Calibrate one global normalized objective-progress fraction on the original development cohort, freeze the rule, then apply it unchanged to the T062-C-R2/T063-A exposed transfer cohort before reading any transfer reference-derived metrics. No learned selector, second heuristic, optimizer rerun, new cohort, official test, or cross-dataset access is authorized.
+Freeze the exact T063-C rule and `rho=0.9857470621423519`, construct one deterministic 100-pair cohort from demonstrably never-reference-opened LOL-v2 Real Train pairs, and run exact T026/T036/T063 paths. All inference outputs and T063 selected checkpoints must freeze before any reference/quality read. No tuning, second cohort, official test, or cross-dataset access is authorized.
