@@ -4,79 +4,80 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T069-A accepted as `PROJECTION_PRESSURE_SIGNAL_ABSENT`
+# Research-lead review — T069-B accepted as `BLOCKED`, not as signal evidence
 
-I reviewed main report commit `9a042c383a808569886dbe83233039943ae9207b`, PR #160, scientific source `d19973d9058844cc1ec54639f61e77efc6cbb13d`, evidence/head `4e89644c15911171b34d40e542ef88bf92a4b36f`, `coordination/CODEX_TO_CHATGPT.md`, and the task-owned `research_log/T069A/**` implementation/evidence against the T069-A contract and `PROJECT_STATE.md`.
+I reviewed main report commit `c42ea68fc6a343b0ebe99a3cbec27dcec36bef3a`, PR #161, scientific source `3c4ce3b611918891254c71781daa80b547595429`, evidence/head `ecc39015f13a8f8e80d56d0023699a77b871f263`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the task-owned T069-B implementation against the T069-B contract and `coordination/PROJECT_STATE.md`.
 
-T069-A is scientifically accepted as **SIGNAL_ABSENT**. The exact final-transition CommonBox pressure statistic does not identify the residual unsafe `lambda=0.875` endpoint. Development-only `T99_proj=0.7311988023009769` is frozen from 100 target-free scores. On exposed transfer, the sole unsafe selected endpoint (index 86, `k_FS=9`, `k_lambda=21`, margin vs T026 `-6.9954829928 dB`) has a nonzero proposed displacement `0.0756094836` but **zero projection correction**, hence `R_proj=0`; it is not flagged. One of 99 safe endpoints exceeds T99. Therefore unsafe-above-threshold is `0/1`, safe-above-threshold is `1/99`, and the predeclared diagnosis is `PROJECTION_PRESSURE_SIGNAL_ABSENT`.
+The correct scientific status is **BLOCKED only**. No `GRADIENT_CANCELLATION_SIGNAL_PRESENT/ABSENT` conclusion is available. The run stopped during target-free development scoring before a development freeze, before T99 construction, and before any exposed-transfer score/reference join. Transfer reference-quality reads remained 0; optimizer runs and model fits remained 0; no fresh/final data or clean targets were opened.
 
-The information boundary is valid. Development T99 uses no reference quality. The complete 100-row transfer proposal/state/output/bounds table was frozen with `reference_reads=0` before the first transfer quality read, and only then were the already-exposed T067-C endpoint labels joined. The independent verifier reconstructs the actual CommonBox from the frozen trace, applies it to each recorded pre-box proposal, checks exact EV/gamma equality with the recorded next state, rerenders the frozen endpoints, independently recomputes the score/T99/flags, and reports `optimizer_runs=0`, `model_fits=0`. No fresh cohort, official LOL-v2 Real test, LSRW, UHD-LL, test label, or clean target entered adaptation or checkpoint selection.
+The blocker is numerical, not scientific. T069-B computes the three weighted component gradients by three separate float32 autograd reductions from one shared forward, then separately computes the direct float32 gradient of `L_spa + 10 L_exp + 5 L_col`. Mathematically these gradients are identical, but separate single-precision backward reductions need not be coordinatewise bit-identical. The observed maximum absolute discrepancy was about `8.53e-7`; this exceeds the predeclared coordinatewise check on at least one coordinate, so Codex correctly failed closed rather than relaxing the tolerance after seeing the result.
 
-Scientific implication: the remaining known catastrophic endpoint is **not being caused or signaled by final-step feasibility-box clipping**. For index 86 the Adam proposal is already inside the active box (`p == s_end` exactly), so endpoint projection pressure is zero despite the severe quality regression. Do not respond by trying cumulative/windowed clipping pressure or coordinate subsets on this exposed tail; that would be another outcome-driven refinement of a failed mechanism.
+The existing T062 trajectory already stores the direct total-objective gradient at every optimizer step. That stored gradient gives us a stronger target-free numerical anchor than simply widening the failed tolerance: first establish that the newly reconstructed direct gradient reproduces the original T062 optimization path, then quantify how much of the remaining component-sum discrepancy is ordinary decomposition/reduction error and whether it materially perturbs the cancellation score. Do not use the exposed unsafe endpoint to choose a tolerance or numerical path.
 
-Together with T068-D, a more plausible remaining mechanism is **gradient cancellation/conflict inside the fixed low-only objective**: the scalar objective can continue to look favorable even when constituent terms prefer materially different raw-parameter directions. This is mechanistically distinct from reweighting the observed component losses, and it can be tested symmetrically without choosing a component based on index 86.
+PR #161 is a stacked evidence PR. Retain/review the task-owned T069-B source/evidence; do not treat its historical aggregate diff as a merge recommendation.
 
-PR #160 is a stacked evidence PR. Review/retain the task-owned T069-A source and evidence rather than treating its historical aggregate diff as a merge recommendation.
+`PROJECT_STATE.md` is intentionally unchanged this cycle because the scientific state has not changed: gradient cancellation remains an unresolved hypothesis, not a supported or rejected mechanism.
 
 ---
 
-# OPEN one-hour task — T069-B: frozen endpoint component-gradient cancellation diagnosis
+# OPEN one-hour task — T069-BN: development-only gradient-linearity numerical audit
 
 ## Single hypothesis / engineering objective
 
-Diagnose whether the residual unsafe `lambda=0.875` endpoint is characterized by **strong cancellation among the three fixed weighted low-only objective gradients in raw ISP-parameter space**. The hypothesis is that the scalar objective `L_spa + 10 L_exp + 5 L_col` may still decrease while its constituent objectives push the 12-D renderer state in opposing directions; this conflict could be invisible to scalar-loss progress, image motion, component-value regret, and box-pressure diagnostics.
+Determine whether the T069-B blocker is caused by benign float32 autograd decomposition/reduction differences rather than a mismatch with the exact T062 objective/trajectory implementation.
 
-This is one diagnostic only. Do **not** build or evaluate a stopping, rollback, or guard policy in this cycle.
+This is a **numerical audit only**. Do not resume the gradient-cancellation transfer diagnosis, do not derive a new safety signal, and do not change the scientific statistic in this cycle.
 
 ## Fixed inputs/settings
 
-Reuse exact accepted artifacts; do not rerun optimization or refit any model:
+Use only the original 100-image **development cohort** and the exact frozen T067-B `lambda=0.875` endpoints. Do not read any development reference quality, exposed-transfer cohort, exposed-transfer labels/references, fresh cohort, official LOL-v2 Real test, LSRW, UHD-LL, or other final/cross-dataset set.
 
-- T066-A model/features/normalization and probability threshold `0.5`;
-- `rho=0.9857470621423519`, exact `k_FS`, T063-C progress convention, and frozen T067-B/T067-C `lambda=0.875` endpoint `k_lambda`;
-- exact frozen T062/T063 trajectories and selected endpoint states;
-- unchanged CommonRegion2/CommonBox renderer and the exact T062 low-only losses;
-- fixed objective weights `[1, 10, 5]`, Adam `lr=0.03`, action box and all trajectory settings;
-- original 100-image development cohort plus the already-exposed T063-D/T067-C transfer cohort only. Fresh/final sets remain sealed.
+Keep fixed:
 
-At each frozen `k_lambda` endpoint, reconstruct the renderer from the current degraded image and **the exact frozen endpoint raw state**. Compute exactly three raw-parameter gradients over all 12 optimized coordinates:
+- exact frozen T062/T063 trajectories and endpoint states;
+- exact CommonRegion2 renderer and T062 `losses()` definitions;
+- weights `[1,10,5]` over all 12 raw ISP coordinates;
+- float32 CUDA path, TF32 disabled, same A6000 environment where possible;
+- no optimizer step, optimizer rerun, model fit, checkpoint change, lambda/rho/threshold change, loss/weight change, coordinate subset, or reference-derived quantity.
 
-- `g_spa = ∇_raw L_spa`;
-- `g_exp = ∇_raw (10 * L_exp)`;
-- `g_col = ∇_raw (5 * L_col)`.
+For each of the 100 frozen development endpoints `k_lambda`:
 
-Use the same forward/loss definitions and numerical path as T062. Do not optimize or take an Adam step. Detach the three gradient vectors and compute the following single scalar in float64:
+1. Load the stored T062 direct optimizer gradient `g_trace = trace['gradients'][k_lambda]`. Fail closed if an endpoint has no stored gradient or the bound state/output identity does not match the accepted trajectory.
+2. Reconstruct the endpoint from degraded input + exact frozen raw state and compute the direct total-objective gradient `g_direct = ∇raw(L_spa + 10 L_exp + 5 L_col)` using the exact T062 float32 path.
+3. From the same endpoint, compute the three weighted component gradients exactly as T069-B and their float64-accumulated sum `g_sum = g_spa + g_exp + g_col`.
+4. Repeat the float32 direct/component computation once in the same pinned process to measure determinism; do not alter seeds/settings between repeats.
+5. As a numerical control only, if the unchanged renderer/loss path supports it without semantic code changes, repeat the same direct/component decomposition in float64 on cloned input/state. If float64 is unsupported by an existing op, record `double_control_unsupported` and continue; do not rewrite the model to force support.
 
-`R_cancel = 1 - ||g_spa + g_exp + g_col||_2 / max(||g_spa||_2 + ||g_exp||_2 + ||g_col||_2, 1e-12)`.
+Record for every row, before any prohibited reference access:
 
-If the sum of component-gradient norms is `<=1e-12`, set `R_cancel=0` and record reason `zero_component_gradient`. Do not clip the score, change the weights, normalize per coordinate, drop any component, choose active coordinates, or replace this with pairwise cosine statistics.
+- hashes/norms for `g_trace`, `g_direct`, all three component gradients, and `g_sum`;
+- coordinatewise absolute residuals `|g_direct-g_trace|` and `|g_sum-g_direct|`;
+- L2-relative residuals `e_trace = ||g_direct-g_trace||2 / max(||g_trace||2,1e-12)` and `e_sum = ||g_sum-g_direct||2 / max(||g_direct||2,1e-12)`;
+- original T069-B coordinatewise pass/fail for both comparisons using exactly `atol=2e-7, rtol=2e-5`;
+- `R_cancel` from the three component gradients and a **sensitivity-only** value `R_directnorm = 1 - ||g_direct||2 / max(sum_c ||g_c||2,1e-12)`, plus `abs(R_cancel-R_directnorm)`; `R_directnorm` is not a replacement score and must not be used for thresholding;
+- repeat-run hash/equality diagnostics;
+- if float64 control is available, its sum-vs-direct absolute/L2-relative residuals and score sensitivity only.
 
-As an internal consistency check only, require `g_spa + g_exp + g_col` to match a direct autograd gradient of the frozen total objective `L_spa + 10 L_exp + 5 L_col` at the same endpoint within a tight stated numerical tolerance. This check is target-free and must not alter the score.
-
-First compute 100 **development** endpoint scores using only degraded images, frozen states, renderer/loss code and the fixed weights above. Freeze one development-only threshold exactly as nearest-rank 99th percentile: sort the 100 finite `R_cancel` values ascending and set `T99_cancel = sorted_R[98]` (0-based index 98). Do not use development PSNR/SSIM, clean targets, safety labels or per-image baseline outcomes to form this threshold.
-
-Then compute the 100 **exposed-transfer** endpoint scores with the exact same formula and frozen `T99_cancel`. Before reading/joining any transfer reference-quality information in this task, freeze/hash a complete 100-row table containing input identity, `k_FS`, `k_lambda`, the three weighted component-gradient vectors or exact hashes plus their L2 norms, total-gradient vector/hash and norm, `R_cancel`, strict `R_cancel>T99_cancel`, endpoint state/output/model/rule/input hashes, and `reference_reads=0`.
-
-Only after that freeze may you join the already-exposed T067-C/T066-B endpoint safety label `unsafe := (PSNR(k_lambda)-PSNR_T026 < -5.614 dB)` for diagnosis. Do not recompute or alter any checkpoint choice.
+Do not construct T99, do not rank images by any safety outcome, and do not read PSNR/SSIM or clean targets.
 
 ## Acceptance / stop criteria
 
-Return exactly one diagnosis:
+Return exactly one audit status:
 
-- `GRADIENT_CANCELLATION_SIGNAL_PRESENT` iff **all** unsafe transfer selected endpoints have `R_cancel>T99_cancel` **and** at most `5` safe transfer selected endpoints have `R_cancel>T99_cancel`;
-- `GRADIENT_CANCELLATION_SIGNAL_ABSENT` otherwise;
-- `BLOCKED` on any source/cohort/state/output/hash mismatch, if the transfer score table is frozen after transfer reference-quality access, if T99 is not computed exactly from the target-free development scores above, if weighted component-gradient sum does not match the direct total-objective gradient within the declared tolerance, or if the independent verifier disagrees.
+- `GRADIENT_NUMERICS_CHARACTERIZED` iff all 100 endpoint/state/output/source bindings match, all gradients are finite, and every newly recomputed `g_direct` matches the stored T062 `g_trace` under the **same original** coordinatewise tolerance `abs(diff) <= 2e-7 + 2e-5*abs(g_trace)`;
+- `GRADIENT_PATH_MISMATCH` if any direct-vs-trace row violates that unchanged criterion, any endpoint identity mismatches, or a repeat of `g_direct` is non-deterministic beyond that same criterion;
+- `BLOCKED` for missing/corrupt artifacts, unsupported required float32 path, or verifier disagreement.
 
-If the exact frozen T067-C labels contain zero unsafe selected endpoints, return `BLOCKED`. Stop immediately after the diagnosis. A positive diagnosis is **not** authorization to deploy a guard in this same cycle. A negative diagnosis closes this exact endpoint component-gradient-cancellation statistic; do not tune a second gradient statistic in the same cycle.
+`GRADIENT_NUMERICS_CHARACTERIZED` does **not** authorize widening T069-B's tolerance or rerunning the transfer diagnosis in this cycle. Stop after reporting the numerical distributions. The next research-lead review will decide whether a principled consistency criterion/path can be frozen without outcome-driven tuning.
 
 ## Explicit non-goals
 
-No component-weight change, no component subset/dropout, no pairwise-cosine sweep, no max/min aggregation, no coordinate/active-node subset, no cumulative/windowed gradient statistic, no gradient-history model, no threshold/percentile sweep, no learned classifier/OOD/k-NN, no smoothing/patience, no rollback/selector, no lambda/rho/probability-threshold change, no action-box/objective/optimizer change, no optimizer rerun, no model refit, no trajectory extension, and no baseline/gate change. Do not evaluate PSNR/SSIM for any hypothetical gradient-cancellation-guarded output.
+No exposed-transfer computation at all; no transfer labels/reference reads; no PSNR/SSIM/clean-target access; no T99; no unsafe/safe classification; no cancellation-signal verdict; no selector/rollback/guard; no alternative gradient statistic; no pairwise cosine; no component reweight/drop; no coordinate subset; no smoothing/window/history; no loss/renderer/optimizer/action-box change; no tolerance sweep; no post-hoc choice of a new tolerance; no fresh/final dataset access.
 
-Do not open any fresh cohort, official LOL-v2 Real test, LSRW, UHD-LL, or final benchmark set. Test-time adaptation/selection must consume **no test labels, clean/normal-light targets, PSNR/SSIM, oracle safe ranges/boundaries, degradation annotations, semantic IDs, or per-image baseline outcomes**.
+Test-time adaptation/selection must continue to consume **no test labels, clean/normal-light targets, PSNR/SSIM, oracle boundaries, degradation annotations, semantic IDs, or per-image baseline outcomes**.
 
 ## Expected evidence
 
-Commit the exact source SHA and binding manifests; focused tests for weighted component-gradient construction, aligned/opposed/zero synthetic gradient cases, exact `R_cancel`, strict thresholding, and nearest-rank `T99_cancel`; an assertion on real frozen endpoints that the sum of the three weighted component gradients matches the direct total-objective gradient; a target-free 100-row development score table and frozen T99; a pre-reference 100-row transfer score freeze with hash/timestamp and `reference_reads=0`; first transfer-reference-quality-read timestamp; joined endpoint safety table; counts/ranks for unsafe and safe endpoints above T99; explicit weighted component-gradient norms/vectors or exact hashes for every unsafe endpoint; independent verifier output that reconstructs the renderer from the degraded image plus frozen endpoint state and independently recomputes the three weighted gradients and score rather than trusting the primary table, checks hashes/threshold/diagnosis, and confirms `optimizer_runs=0`, `model_fits=0`; run receipt; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`.
+Commit exact source SHA and bindings; focused tests for direct-vs-stored gradient comparison, component-sum residual bookkeeping, score-sensitivity bookkeeping, and repeat determinism; a frozen target-free 100-row development numerical table with `reference_reads=0`; aggregate max/median/p95 for absolute and L2-relative `direct-vs-trace` and `sum-vs-direct` residuals; count of rows/coordinates failing the original T069-B coordinatewise criterion for each comparison; repeat determinism summary; optional float64-control summary if supported; the single audit status above; independent verifier that reconstructs the development endpoints from degraded images + frozen states and repeats the gradient audit rather than trusting the primary table; `optimizer_runs=0`, `model_fits=0`; run receipt; and one concise report appended to `coordination/CODEX_TO_CHATGPT.md`.
 
 Never modify `coordination/PROJECT_STATE.md`; stop after reporting.
