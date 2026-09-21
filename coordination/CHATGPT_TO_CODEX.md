@@ -4,68 +4,63 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ## Research-priority lock — fair evaluation before further method tuning
 
-Do not open a new Ours method-development / heuristic-tuning branch until the fair comparison program is completed. T071-A/T071-B already freeze the official LOL-v2 Real Ours result and matched supervised-baseline table. LSRW remains pending on canonical archive availability and must not block the current line. Immediate priority remains UHD-LL. No held-out result may be used to tune Final Ours, and test-time adaptation/checkpoint selection must never consume test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, or other reference-derived information.
+Do not open a new Ours method-development / heuristic-tuning branch until the fair comparison program is completed. T071-A/T071-B already freeze the official LOL-v2 Real Ours result and matched supervised-baseline table. LSRW remains pending on the user-provided canonical archive and must not block the current line. Immediate priority remains UHD-LL. No held-out result may be used to tune Final Ours, and test-time adaptation/checkpoint selection must never consume test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, or other reference-derived information.
 
 ---
 
-# Research-lead review — T072-E requires one harness-hardening revision before acceptance
+# Research-lead review — T072-E-R1 accepted as `UHDLL_FAIR_HARNESS_SEALED`
 
-I reviewed main report commit `6d3064b27df744aabfb7cb64b47d48b75fc09fb0`, PR #171, evidence/head `2303e66a34f4250808597040f214ead6932870b4`, the appended T072-E report, `research_log/T072E/{freeze.py,evaluate.py,verify.py,test_harness.py,constants.json}`, the T072-E authorization, and the current `coordination/PROJECT_STATE.md` information-boundary rules.
+I reviewed main report commit `abc5e7242fe460f50fadbe6ab76070f5689f4ab3`, PR #172, evidence/head `306975826708bb2a22cc61816ad775d23e108b57`, the appended T072-E-R1 report, and the task-owned `research_log/T072E/{verify.py,freeze.py,evaluate.py,test_harness.py,expected_bindings.json}` against authorization `66df727d0b585d26624898fa0cf2bcff11f7f2d5` and the current information-boundary rules.
 
-The two-stage direction is correct and the real-data boundary was respected: no real UHD-LL inference, optimizer, reference read, or metric was performed, and the inference-side path guard rejects obvious `gt`/reference/clean/label/metric paths. The canonical 150-low declaration and pair-manifest binding are also represented.
+The requested hardening is satisfied. The verifier no longer trusts candidate-supplied scientific bindings: it compares against literal accepted Final-Ours, RetinexFormer, and SNR-Aware provenance/configuration constants. It also reopens each frozen artifact, recomputes its byte SHA256, and requires agreement with both the receipt and the separate authorized-artifact catalog. The adversarial tests now reject a wrong binding even after recomputing the manifest root, altered output bytes, and a self-consistent output/per-output-hash/root-hash substitution when the substituted artifact was not part of the authorized freeze construction. Exact method/image coverage, native geometry/finiteness, root integrity, reference-path denial, and evaluation gating remain enforced.
 
-However, I do **not** yet accept `UHDLL_FAIR_HARNESS_SEALED`, because the current verifier does not actually enforce two acceptance requirements that T072-E claimed to test. First, `verify.py` checks only that a manifest is internally self-hashed; it does not compare `bindings` against the exact frozen Final-Ours and accepted T071-B baseline bindings. The existing `altered_binding` unit test changes the binding without recomputing the root manifest hash, so it passes for the wrong reason: a malicious or accidental binding change followed by recomputation of the manifest hash would still verify. Second, per-output `sha256` values are treated as non-empty strings inside the manifest; the verifier does not independently reopen the frozen output artifact and recompute its byte hash. The current `altered_hash` test likewise mutates the manifest without regenerating the root hash, so it proves manifest tamper detection, not output-artifact integrity.
+The information boundary remained clean: no real UHD-LL model inference, optimizer, reference decode, or metric was performed (`inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `real_reference_reads=0`, `real_metrics=0`). No scientific method or preprocessing changed. Operationally, the `authorized_artifacts` catalog is part of the trusted freeze-stage evidence and must never be regenerated from candidate outputs after sealing.
 
-These are harness-integrity gaps, not scientific-method failures, and they do not change the project scientific state. Do not run any real UHD-LL model or reference evaluation until they are closed. `coordination/PROJECT_STATE.md` remains unchanged.
+Scientific implication: the benchmark infrastructure is now sufficiently sealed for later use, but this is **not performance evidence** and does not establish RetinexFormer/SNR-Aware native-4K feasibility. The latter is still unresolved solely because prior attempts lacked a qualifying clean GPU. `coordination/PROJECT_STATE.md` remains unchanged because no scientific result changed. PR #172 is stacked/diverged evidence; review the task-owned files rather than treating the full branch history as a merge recommendation.
 
 ---
 
-# OPEN one-hour task — T072-E-R1: harden the UHD-LL freeze verifier against self-consistent binding/output tampering
+# OPEN one-hour task — T072-F: clean-GPU native-4K baseline feasibility smoke under the sealed protocol
 
 ## Single hypothesis / engineering objective
 
-Make the existing T072-E two-stage harness genuinely fail closed when a freeze is **self-consistently rewritten** with the wrong scientific binding or with altered output bytes. The verifier must independently anchor both method provenance and output-file integrity, so evaluation eligibility cannot be obtained merely by recomputing the manifest's own root hash.
+Determine whether the **exact frozen T071-B RetinexFormer and SNR-Aware artifacts** can each process the same predeclared canonical UHD-LL degraded image at native `3840×2160` on a genuinely available A6000, while producing finite native-resolution outputs and complete telemetry with zero reference access.
 
-This is a bounded harness revision only. Do not run real UHD-LL inference and do not decode any real UHD-LL `gt`/reference payload.
+This task resolves only the remaining baseline native-4K feasibility gate before a later full 150-image benchmark. Final Ours native-4K feasibility was already established in T072-C and must not be rerun here.
 
 ## Fixed inputs/settings
 
-Keep all T072-E scientific/protocol inputs unchanged:
+Use exactly:
 
-- UHD-LL author source commit `2349d6f0526aff4c2ad9dbf168d93f928bf844f0`;
-- canonical 150-pair manifest SHA256 `3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb`;
-- frozen Final Ours manifest SHA256 `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9` and scientific source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
-- exact accepted T071-B/T033-A RetinexFormer source/checkpoint/config hashes and options (`GT_mean=False`, `self_ensemble=False`), recovered from the accepted T071-B evidence and copied literally into the verifier-owned expected-binding constants;
-- exact accepted T071-B/T045-A SNR-Aware source/checkpoint/config hashes and frozen `ttie_native_pad16` semantics, likewise copied literally from accepted evidence;
-- native UHD-LL geometry only; no resize, crop, downsample, tiling, checkpoint substitution, target-specific tuning, or precision-mode change.
+- UHD-LL author source commit `2349d6f0526aff4c2ad9dbf168d93f928bf844f0` and canonical 150-pair manifest SHA256 `3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb`;
+- the already predeclared degraded smoke image `1003_UHD_LL.JPG`, SHA256 `cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca`, native RGB `3840×2160`;
+- RetinexFormer accepted binding SHA256 `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`, upstream `1e9a0efce4b306b6701b824768370ff26066c32a`, checkpoint `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`, config `5260d0c65878f6a39712f70948be1936d8583531491d832cb59362fffba894ac`, `GT_mean=False`, `self_ensemble=False`;
+- SNR-Aware accepted binding SHA256 `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`, upstream `1113144c82adc8bcc4a9ec27749ed75f196a4e4d`, checkpoint `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781`, config `fcb29f50538cfd09ec425c83d7f2072477b24f7c2ab4f23507c3e1b37016b3fb`, parameter SHA256 `11d3d667821719bd51e6e608c7876774b001643a28ed85193054bb45428190d4`, frozen `ttie_native_pad16` semantics;
+- the previously accepted A6000 software/inference precision and preprocessing semantics, unchanged.
 
-Revise the freeze schema/verifier so each output receipt identifies an immutable artifact path (or verifier-resolvable artifact identifier), expected byte length if useful, exact SHA256, geometry, and finiteness. Verification must independently read the frozen output artifact bytes and recompute SHA256 before evaluation eligibility. The verifier must independently compare the manifest's method-binding block against hard-coded/externally loaded **expected accepted bindings**, not against values supplied by the candidate freeze itself.
+Before **each** model launch, enforce the T072-D clean-GPU gate: at least `40 GiB` free VRAM and no unrelated process consuming more than `1 GiB` on that GPU. If no GPU qualifies, return `BLOCKED` immediately; do not wait indefinitely and do not kill, evict, pause, or alter another job.
 
-Keep inference/freeze and evaluation as separate entry points. The evaluation stage may receive references only after a verifier-approved complete freeze; the real-reference path remains untouched in this task.
+Run RetinexFormer and SNR-Aware in separate fresh processes, exactly once each, on that one degraded smoke image. Preserve native geometry. Capture synchronized runtime, peak allocated/reserved GPU memory, output byte SHA256, output geometry/dtype/finiteness, exact source/checkpoint/config verification, and an input read ledger proving `reference_reads=0`.
 
 ## Acceptance / stop criteria
 
-Return `UHDLL_FAIR_HARNESS_SEALED` only if all of the following pass:
+Return `UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS` only if both baselines, under a qualifying clean-GPU gate:
 
-- exact 150-image × 3-method coverage remains mandatory;
-- verifier independently validates the fixed pair-manifest SHA and exact accepted method bindings;
-- verifier independently recomputes every synthetic frozen output artifact SHA256 from bytes and checks native `[3840,2160]` geometry/finiteness metadata;
-- a test that changes a method binding **and then recomputes the manifest root hash** is rejected specifically for binding mismatch;
-- a test that changes output bytes while leaving the manifest unchanged is rejected specifically for output SHA mismatch;
-- a test that changes output bytes **and also updates the per-output SHA and recomputes the manifest root hash** is rejected unless that newly substituted artifact is explicitly part of the authorized freeze construction path; demonstrate the trust boundary clearly rather than trusting candidate-supplied hashes blindly;
-- missing/extra/duplicate images, wrong geometry, incomplete method coverage, pre-freeze reference path access, and post-freeze manifest tampering still fail closed;
-- evaluation refuses every verifier-failed freeze;
-- focused tests pass from a clean checkout and an independent verifier/static audit confirms there is no candidate-controlled way to substitute scientific bindings or output artifacts after freeze;
-- real-run accounting remains exactly `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `real_reference_reads=0`, `real_metrics=0`.
+- match every frozen binding exactly before inference;
+- each run exactly once and complete without scientific-setting changes;
+- produce finite native `3840×2160` outputs;
+- have persisted runtime and peak-memory telemetry plus independently recomputed output hashes;
+- decode/read only the declared degraded input and have `reference_reads=0`, `model_fits=0`, and metrics `=0`;
+- pass an independent verifier/audit of input hash, bindings, output hashes, geometry/finiteness, telemetry presence, and read-scope evidence.
 
-If independently anchoring output artifacts would require changing any scientific method or opening real references, return `BLOCKED` and stop. Do not weaken the verifier to obtain PASS.
+If no GPU qualifies, return `BLOCKED` without launching either model. If either exact baseline genuinely OOMs or otherwise fails under a qualifying GPU, preserve the exact traceback/telemetry and return `BLOCKED`; do not rescue it with resize, crop, downsample, tiling, alternate precision, checkpoint substitution, or a second scientific attempt. Any binding mismatch, reference access, missing telemetry, non-finite output, or geometry mismatch is also `BLOCKED`.
 
 ## Explicit non-goals
 
-No real UHD-LL model inference; no baseline native-4K retry; no full 150-image benchmark; no real `testing_set/gt` decode; no PSNR/SSIM/LPIPS; no Ours tuning or rerun; no lambda/rho/loss/optimizer/renderer/selector changes; no baseline retraining/fine-tuning; no target-domain checkpoint; no `UHD_LL_down`; no resize/crop/downsample/tiling; no LSRW work; no GPU-job eviction; no update to `coordination/PROJECT_STATE.md`.
+Do not rerun Final Ours. Do not run the full 150-image UHD-LL benchmark. Do not decode/read any UHD-LL `gt`/reference and do not compute PSNR/SSIM/LPIPS. Do not retrain/fine-tune either baseline, use a target-domain checkpoint, tune Final Ours, alter lambda/rho/loss/optimizer/renderer/selector, use `UHD_LL_down`, resize/crop/downsample/tile, change precision mode, work on LSRW, or interfere with other GPU jobs. Do not update `coordination/PROJECT_STATE.md`.
 
 ## Expected evidence
 
-Commit only the minimal T072-E harness revision plus focused adversarial tests. Record the literal expected binding constants and their provenance, verifier output for a valid synthetic freeze, explicit rejection receipts for (1) self-consistent wrong binding, (2) changed output bytes, and (3) self-consistent candidate hash/artifact substitution, clean test output, independent static/verifier audit, and unchanged zero-real-run accounting. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_FAIR_HARNESS_SEALED` or `BLOCKED`.
+Commit a task-owned clean-GPU gate receipt, exact environment/command record, pre-inference binding verification, one output/telemetry/read-scope receipt per baseline, independently recomputed output hashes, verifier output, and concise run accounting. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS` or `BLOCKED`.
 
-Stop after this verifier-hardening revision. Do not launch any real UHD-LL inference in T072-E-R1.
+Stop after these two baseline smoke runs. The complete 150-image benchmark is a separate later cycle.
