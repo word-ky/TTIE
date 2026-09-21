@@ -1,0 +1,9 @@
+# T069-BR frozen float64 gradient cancellation
+
+Reuse same-repo T069BN compute (afc6fbeb60ef6debb777b2181480c323fe81313d), T069B target-free freeze/label flow (3c4ce3b611918891254c71781daa80b547595429), T062 losses, CommonRegion2, T066A model/features, T067B/C exact frozen endpoints. Existing accepted audit: local9pass1skip10.50s, remote10pass2.88s, independent1200GPUforwards PASS. Original float32 direct gradients match stored traces exactly on development; float64 supported. No dependencies/model/optimizer changes.
+
+Increment1: original float32 direct/trace criterion2e-7+2e-5*abs(trace); fixed float64 sum/direct criterion1e-12+1e-10*abs(direct); exact symmetric score/zero case; nearest-rank T99 and strict flags tests. Increment2: reuse shared-forward float64 gradient computation, independent fresh-forward component/direct verification, exact float32 output/state identity. No float32 component-sum gating. Verify float32 direct vs stored at every endpoint. Record full vectors/hashes/norms, float64 output hash, coordinate residuals and path check. No unsupported-double fallback.
+
+Primary: freeze100 target-free development scores/T99; then freeze100 target-free transfer scores/flags, before hashing/reading separate evaluation-bound label artifacts. Only postfreeze existing endpoint margin labels. All12 rawcoordinates, weights1/10/5; TF32off A6000GPU. No T99 or score tuning, no adaptation or optimizer/model fit.
+
+Independent verifier reconstructs endpoint choices with existing independent_predict/independent_choices, separate forwards for each float64 component and total plus float32 direct. Exact component/direct/output hashes; independent norms/sums via math.fsum/sqrt, score/stat agreement1e-12, exact threshold/flag/verdict rule. Float64 residuals must pass same fixed criterion. No extra quality computations. Report score distributions min/median/p95/max (linear percentile). Stop at one diagnosis.
