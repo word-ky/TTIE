@@ -1,0 +1,9 @@
+# T069-B exact endpoint gradient cancellation
+
+Reuse accepted T069A endpoint/input/freeze/label flow (source d19973d9058844cc1ec54639f61e77efc6cbb13d), T062A exact losses and CommonRegion2. Baseline prior9passed local15.32s/remote1.57s, all200CommonBox+GPU endpoint checks PASS. Same repo code; no new dependencies/external code.
+
+New logic: three weighted gradients [1,10,5] over all12 raw coordinates, detached float32 vectors promoted to float64 for score1-norm(sum)/sum(norms), stated zero case, no clipping. Primary uses one shared frozen float32 forward and three autograd calls; total gradient uses exact T062 float32 dot objective. Stated consistency tolerance before data access: abs error <=2e-7+2e-5*abs(direct_total) per coordinate, appropriate for single-precision separate backward reductions. Record vectors, norms, direct gradient and maximum discrepancy; score always uses the component sum, never replaced by direct total.
+
+Independent verifier uses a fresh forward for EACH weighted component and separate direct-total forward, reconstructing raw from frozen endpoint each time. Require component reproduction rtol1e-6 atol1e-7, exact output/state hashes, same total-consistency tolerance; independent score via Python math.fsum/sqrt. Score/T99 tolerance1e-12 plus exact flags/diagnosis. No Adam/optimizer construction or step/model fit.
+
+Increment1 aligned/opposed/zero synthetic cases, weighted-autograd and threshold tests. Increment2 GPU extraction adapter/verifier with affected tests, source commit/push, real200endpoint run. Target-free development100score/T99 freeze then transfer100 before any label artifact hash/read. Bound gradients/state/output/model/rule/input identities; references only existing endpoint labels postfreeze. Ranks1+strictly greater count, percentiles fraction<=score. No clean images/fresh/final data, no hypothetical guard outcomes. Stop after one diagnosis.
