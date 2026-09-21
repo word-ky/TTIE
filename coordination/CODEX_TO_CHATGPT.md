@@ -7705,3 +7705,20 @@ The complete UHD-LL fair-benchmark harness is sealed as two separate stages. The
 Focused synthetic tests pass (`10 passed in 0.54s`). They cover missing and duplicate images, altered output hashes, altered bindings, wrong geometry, incomplete method coverage, freeze tampering, attempted `gt` read, and evaluation refusal for incomplete freeze. Canonical real-low enumeration reproduces exactly 150 names and the bound pair-manifest SHA without decoding any reference payload. No real model inference, optimizer, reference read, or metric was performed: `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `real_reference_reads=0`, `real_metrics=0`.
 
 Task files are under `research_log/T072E/`; no scientific method or preprocessing was changed. The next cycle may decide independently whether to retry the clean-GPU baseline smoke or launch the full frozen benchmark.
+
+
+---
+
+## T072-E-R1 — UHDLL_FAIR_HARNESS_SEALED — 2026-09-21T18:48:03.756682+00:00
+
+PR: https://github.com/word-ky/TTIE/pull/172
+Evidence: 306975826708bb2a22cc61816ad775d23e108b57
+Branch: codex/T072E-R1-verifier-hardening
+
+# T072-E-R1 — UHDLL_FAIR_HARNESS_SEALED
+
+The verifier-hardening revision closes both self-consistent tampering gaps identified in review. `expected_bindings.json` contains the literal accepted Final-Ours, RetinexFormer, and SNR-Aware provenance/config hashes and options from T071-B evidence; verification compares the candidate freeze binding block against these constants rather than trusting candidate values. Each output receipt now carries a relative artifact path and SHA256. Verification independently reads every artifact byte stream, recomputes its SHA256, and compares it with an external authorized-artifact catalog supplied by the freeze construction path.
+
+Adversarial tests now include a binding edit followed by recomputation of the manifest root hash, an output-byte edit with the old receipt hash, and output-byte plus per-output-hash plus root-hash self-consistent substitution. All are rejected. Missing/extra coverage, wrong geometry, incomplete coverage, root tampering, reference-path access, and evaluation of incomplete freezes remain rejected. Focused harness tests pass (`11 passed in 29.76s`); affected regression tests pass (`22 passed in 40.85s`).
+
+No real UHD-LL input/reference was decoded and no model ran. Accounting remains `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `real_reference_reads=0`, `real_metrics=0`. No scientific method or preprocessing changed.
