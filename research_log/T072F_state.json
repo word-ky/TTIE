@@ -1,0 +1,17 @@
+{
+  "task": "T072-F",
+  "status": "BLOCKED",
+  "classification": "BLOCKED",
+  "branch": "codex/T072F-clean-gpu-native4k",
+  "authorization": "e761b4e1",
+  "utc": "2026-09-22T04:24:25+08:00",
+  "gpu_gate": {
+    "gpu0": {"name": "NVIDIA RTX A6000", "free_mib": 2832, "utilization_percent": 100, "unrelated_processes": [{"pid": 1337099, "name": "VLLM::Worker_TP0", "memory_mib": 44972}, {"pid": 2305513, "name": "TTFL python", "memory_mib": 660}]},
+    "gpu1": {"name": "NVIDIA RTX A6000", "free_mib": 3499, "utilization_percent": 0, "unrelated_processes": [{"pid": 1337100, "name": "VLLM::Worker_TP1", "memory_mib": 44972}]}
+  },
+  "retinexformer": "UNRUN",
+  "snr_aware": "UNRUN",
+  "final_ours": "REUSED T072-C receipt; not rerun",
+  "real_run_accounting": {"inference_runs": 0, "optimizer_runs": 0, "model_fits": 0, "real_reference_reads": 0, "real_metrics": 0},
+  "next_step": "Wait for a qualifying idle A6000; do not kill or evict unrelated jobs."
+}
