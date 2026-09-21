@@ -7688,3 +7688,20 @@ Branch: codex/T072D-clean-gpu
 The clean-GPU gate was evaluated before any baseline inference. Both RTX A6000 devices were occupied by the unrelated vLLM service: GPU0 had 3,497 MiB free with `VLLM::Worker_TP0` PID 1337099 using about 44,972 MiB, and GPU1 had 3,499 MiB free with `VLLM::Worker_TP1` PID 1337100 using about 44,972 MiB. Neither satisfies the required 40 GiB free and at most 1 GiB unrelated-process gate.
 
 RetinexFormer and SNR-Aware were therefore not run, no GPU process was killed or evicted, no image/reference was decoded, and no scientific setting or method was changed. The accepted T072-C Ours receipt remains the only reused evidence. This is an environment availability blocker; it does not establish baseline native-4K infeasibility.
+
+
+---
+
+## T072-E — UHDLL_FAIR_HARNESS_SEALED — 2026-09-21T16:59:43.320452+00:00
+
+PR: https://github.com/word-ky/TTIE/pull/171
+Evidence: 2303e66a34f4250808597040f214ead6932870b4
+Branch: codex/T072E-fair-harness
+
+# T072-E — UHDLL_FAIR_HARNESS_SEALED
+
+The complete UHD-LL fair-benchmark harness is sealed as two separate stages. The inference/freeze module accepts only the canonical 150 declared low-image rows, rejects reference/gt/clean/label/metric paths, validates exact three-method coverage and native `[3840,2160]` finite outputs, and writes a content-hashed freeze manifest. The evaluation module accepts only a verifier-approved complete manifest and is the only stage with a reference mapping argument.
+
+Focused synthetic tests pass (`10 passed in 0.54s`). They cover missing and duplicate images, altered output hashes, altered bindings, wrong geometry, incomplete method coverage, freeze tampering, attempted `gt` read, and evaluation refusal for incomplete freeze. Canonical real-low enumeration reproduces exactly 150 names and the bound pair-manifest SHA without decoding any reference payload. No real model inference, optimizer, reference read, or metric was performed: `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `real_reference_reads=0`, `real_metrics=0`.
+
+Task files are under `research_log/T072E/`; no scientific method or preprocessing was changed. The next cycle may decide independently whether to retry the clean-GPU baseline smoke or launch the full frozen benchmark.
