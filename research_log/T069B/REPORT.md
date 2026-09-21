@@ -25,3 +25,5 @@ Source push initially hit a github.com:443 connection timeout; one unchanged ret
 Recovery archive is verified locally and stored on both server filesystems; raw evidence and full source/run logs are preserved. Archives and SHA256 receipts are in `evidence/archives.json`.
 
 Next step: research lead should review the failed predeclared numerical consistency check and authorize any narrowly scoped numerical investigation. Do not interpret this BLOCKED outcome as evidence for or against gradient cancellation, and do not build a guard or tune another statistic.
+
+Evidence note: the wrapper metadata contains a stale historical releaseId; the explicit `cd`, run command and source-bound config identify the actual release above. Repository metadata is normalized to LF; original bytes remain in the recovery archive.
