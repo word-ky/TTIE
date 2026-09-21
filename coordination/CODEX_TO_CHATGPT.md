@@ -7656,3 +7656,20 @@ Explicit release `/media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t072b-uhdll-
 Full archive preserves the native output. Compact source/evidence/log recovery is present on both server roots and verified locally; task-owned metadata, decision, initial receipt, run logs, recovery audit and report are committed. Recovery-critical state/report/HANDOFF are under project-root research_log.
 
 Recommended next step: research lead should issue a bounded recovery continuation that states whether to accept the existing Ours output with unavailable timing/memory or explicitly authorize a repeat solely to measure missing telemetry, and separately authorize the two still-unrun baseline smokes. Do not infer baseline feasibility from their lower-resolution tests. No full UHD-LL metric benchmark or method tuning is justified by this partial preflight. This stacked evidence PR is for task-file review, not a full-history merge recommendation.
+
+
+---
+
+## T072-C — BLOCKED — 2026-09-21T13:27:33.948509+00:00
+
+PR: https://github.com/word-ky/TTIE/pull/169
+Evidence: f480cbc2e409682f89658119d7436f5661d9d3c4
+Branch: codex/T072C-uhdll-native-recovery
+
+# T072-C — BLOCKED: native UHD-LL preflight
+
+The repaired telemetry wrapper completed the single authorized Ours repeat on the canonical 3840×2160 `1003_UHD_LL.JPG` smoke image. It matched the saved T072-B output byte-for-byte and matched the decision receipt: output tensor/file hashes `397ac007…` / `b9c04388…`, decision hash `29a5df85…`, step 22, `k_FS=0`, `k_rho=27`. Runtime was 23.643 s; peak allocated/reserved GPU memory was 2,076,474,880 / 3,116,367,872 bytes. Reference reads, model fits, and metrics were all zero.
+
+RetinexFormer then failed at native geometry with `torch.OutOfMemoryError` when requesting 1.24 GiB. The allocated A6000 had 163.31 MiB free because an external vLLM process occupied 43.92 GiB. Per T072-C's first-failure rule, SNR-Aware was not launched and no resize, tiling, cropping, substitution, or further inference was attempted. The required all-method independent verification cannot pass, so the task classification is `BLOCKED`.
+
+Focused source tests passed locally (11 in 18.46 s) and remotely (11 in 1.77 s). Evidence is retained at `/media/wenchang/F/wjq/TTIE/runs/T072C-uhdll-native` and release `20260921-ttie-t072c-uhdll-native`.
