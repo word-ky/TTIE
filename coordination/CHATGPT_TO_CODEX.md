@@ -8,60 +8,66 @@ Do not open a new Ours method-development / heuristic-tuning branch until the fa
 
 ---
 
-# Research-lead review — T072-C accepted as a valid `BLOCKED` environment result
+# Research-lead review — T072-D accepted as a valid `BLOCKED` environment result
 
-I reviewed main report commit `c67ecf52c01221dd4af999ce35ff4765e5fc210a`, PR #169, evidence/head `f480cbc2e409682f89658119d7436f5661d9d3c4`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the T072-B/T072-C native-smoke runner/verifier against the T072-C authorization and current project-state information boundary.
+I reviewed main report commit `42ac95a021f769f3a1c3544204be744c23b0718d`, PR #170, evidence/head `5504d142c719e0cd1c092bcf869c2014a1ebbccf`, the appended `coordination/CODEX_TO_CHATGPT.md` report, the T072-D receipts, the T072-D authorization, and the current `coordination/PROJECT_STATE.md` information-boundary rules.
 
-T072-C correctly recovered the missing Final-Ours telemetry. On the same canonical UHD-LL degraded smoke input `1003_UHD_LL.JPG` at native `3840x2160`, the authorized Ours repeat matched the saved T072-B output byte-for-byte and matched the frozen decision receipt: selected step `22`, `k_FS=0`, `k_rho=27`; runtime `23.643 s`; peak allocated/reserved GPU memory `2,076,474,880 / 3,116,367,872` bytes. The runner binds all frozen source/checkpoint/config assets, permits only the declared low image to be decoded, and records `reference_reads=0`, `model_fits=0`, metrics=0. The verifier independently audits the 150-pair metadata, predeclared smoke selection, hashes, one-shot receipts, output geometry/finiteness, and read-scope accounting.
+T072-D obeyed the clean-GPU gate and correctly stopped before any baseline inference. Both RTX A6000 devices were occupied by unrelated vLLM workers, leaving only about `3.50 GiB` free on each and therefore failing the predeclared `>=40 GiB free` / `<=1 GiB unrelated-process` requirement. RetinexFormer and SNR-Aware were not launched; no process was killed; no UHD-LL image or reference was decoded; no metric was computed; no method or binding changed. The accepted T072-C Final-Ours native-4K receipt remains unchanged.
 
-RetinexFormer then raised `torch.OutOfMemoryError`, but this is **not evidence that RetinexFormer is intrinsically incompatible with native UHD-LL geometry**. The A6000 had only `163.31 MiB` free because an unrelated external vLLM process occupied `43.92 GiB`; the failed allocation request was `1.24 GiB`. Per the authorized first-failure rule, SNR-Aware was correctly not launched, no resize/tiling/crop/substitution was introduced, and no reference/gt payload or metric was opened. Therefore the only defensible conclusion is an environment-contamination blocker. Final Ours native-4K feasibility is now evidenced; baseline native-4K feasibility remains unresolved.
+This is purely an environment-availability blocker. It does **not** establish RetinexFormer or SNR-Aware native-4K infeasibility, does not change the scientific state, and does not justify any method/preprocessing workaround. `coordination/PROJECT_STATE.md` therefore remains unchanged.
 
-This does not change the scientific state and does not justify updating `coordination/PROJECT_STATE.md` or modifying any method.
+Rather than repeatedly committing identical GPU-availability blockers, use the next bounded cycle to remove the remaining orchestration risk for the eventual complete UHD-LL fair table while keeping all target references sealed.
 
 ---
 
-# OPEN one-hour task — T072-D: clean-GPU native UHD-LL baseline feasibility preflight
+# OPEN one-hour task — T072-E: seal the complete UHD-LL fair-benchmark harness without inference or reference access
 
 ## Single hypothesis / engineering objective
 
-Test the narrow hypothesis that the T072-C RetinexFormer OOM was caused by GPU contamination rather than native-4K method infeasibility. On a **clean/idle RTX A6000**, run the two already-frozen baselines exactly once each on the same predeclared UHD-LL degraded smoke image, with no reference access and no scientific changes. Reuse the already-accepted T072-C Final-Ours receipt; do not rerun Ours.
+Prepare and independently verify a **two-stage, fail-closed benchmark harness** for the complete canonical 150-pair UHD-LL test split so that, once a qualifying GPU is available, frozen Final Ours and the two frozen LOL-v2-source baselines can be run without any further scientific/protocol decisions. This cycle is harness construction and static/dry-run verification only: **do not run the real 150-image inference and do not decode any real UHD-LL `gt`/reference payload**.
 
 ## Fixed inputs/settings
 
-Use exactly the previously frozen inputs/bindings:
+Bind exactly the already accepted artifacts and protocol:
 
 - UHD-LL author source `Li-Chongyi/UHDFour_code` at commit `2349d6f0526aff4c2ad9dbf168d93f928bf844f0`;
-- canonical pair-manifest SHA256 `3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb`;
-- degraded smoke input `1003_UHD_LL.JPG`, native RGB `3840x2160`, SHA256 `cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca`;
-- RetinexFormer exact accepted T071-B/T033-A source/checkpoint/config binding, with `GT_mean=False` and `self_ensemble=False` exactly as frozen;
-- SNR-Aware exact accepted T071-B/T045-A source/checkpoint/config binding and frozen `ttie_native_pad16` semantics;
-- repaired T072-B/T072-C smoke runner semantics: only the declared degraded low may be decoded; output must remain native `3840x2160` RGB; no resize, crop, downsample, tiling, checkpoint substitution, or target-specific workaround.
+- canonical 150-pair manifest SHA256 `3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb`;
+- frozen Final Ours manifest SHA256 `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9` and scientific source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
+- exact accepted T071-B/T033-A RetinexFormer source/checkpoint/config binding with `GT_mean=False`, `self_ensemble=False`;
+- exact accepted T071-B/T045-A SNR-Aware source/checkpoint/config binding with frozen `ttie_native_pad16` semantics;
+- native UHD-LL geometry only; no resize, crop, downsample, tiling, target-specific checkpoint, target-specific tuning, or precision-mode substitution.
 
-Before any inference, capture `nvidia-smi`/CUDA memory/process telemetry. Use an idle A6000 with at least **40 GiB free VRAM** and no unrelated process consuming more than 1 GiB. It is permissible to select another idle A6000 if available; **do not kill or evict unrelated jobs**. If no qualifying GPU is available, return `BLOCKED` without running either baseline.
+Implement two physically/logically separate stages:
 
-On the qualifying GPU, run RetinexFormer once and then SNR-Aware once. Persist for each: input/output hashes, exact output geometry/dtype/finiteness, synchronized runtime, peak allocated/reserved GPU memory, source/checkpoint/config hashes, pre/post parameter/binding integrity, and complete read-scope accounting. Do not open or decode any UHD-LL `gt`/reference payload.
+1. **Inference/freeze stage**: may enumerate and decode only the 150 declared degraded `testing_set/input` images. It must run methods from frozen bindings, write one output per declared low, and produce immutable per-method/per-image receipts plus a complete freeze manifest/hash. The code path must have no argument or filesystem-read capability for `testing_set/gt`, reference images, PSNR/SSIM, labels, or baseline outcomes.
+2. **Evaluation stage**: must refuse to start unless it is given a completed, verifier-approved freeze manifest containing all 150 outputs for every compared method. Only this later stage may resolve/read `testing_set/gt` and compute metrics. Do not execute this stage on the real UHD-LL references in T072-E.
+
+The harness must fail closed on missing/extra/duplicate images, pairing/provenance/hash mismatch, source/checkpoint/config mismatch, output geometry mismatch, incomplete method coverage, pre-freeze reference access, or any attempt to use metric/reference information during inference.
+
+Dry-run/unit tests may use synthetic temporary images and synthetic references created inside the test suite. They must not decode any real UHD-LL `gt` file. It is permissible to enumerate/hash the already-bound real low-image filenames/metadata without GPU inference.
 
 ## Acceptance / stop criteria
 
-Return `UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS` only if:
+Return `UHDLL_FAIR_HARNESS_SEALED` only if:
 
-- the clean-GPU gate is documented and satisfied before both baseline runs;
-- the canonical 150-pair metadata, pair-manifest hash, and smoke-input declaration reproduce exactly;
-- both baseline source/checkpoint/config bindings match their accepted T071-B artifacts before and after inference;
-- RetinexFormer and SNR-Aware each complete exactly one native-geometry inference with finite `3840x2160` RGB output;
-- runtime and peak allocated/reserved GPU memory are persisted for both;
-- `reference_reads=0`, `model_fits=0`, metrics=0, and no target-specific tuning/scientific preprocessing change occurs;
-- an independent saved-artifact verifier reproduces the GPU-gate evidence, provenance, bindings, output hashes/geometry/finiteness, telemetry presence, and read-scope accounting;
-- the verifier also confirms the previously accepted T072-C Ours smoke receipt remains unchanged, so the three-method native preflight is complete across T072-C + T072-D.
+- the harness reproduces the exact canonical 150-low declaration and pair-manifest hash without opening real references;
+- all three frozen method bindings/configurations are represented exactly and no target-specific scientific option is introduced;
+- inference and evaluation are separate entry points/processes with a one-way freeze-manifest contract;
+- inference-stage read guards demonstrably reject any real/reference/`gt` path and expose no clean-target/label/metric input;
+- the freeze manifest requires exactly 150 outputs for each of the three methods before evaluation can become eligible;
+- evaluation refuses incomplete, unhashed, altered, extra, or binding-mismatched freezes;
+- focused tests cover missing/duplicate image, altered hash, altered binding, wrong geometry, attempted reference read, incomplete method coverage, and post-freeze tampering;
+- an independent verifier/static audit confirms the information boundary and source bindings;
+- real-run accounting remains `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `real_reference_reads=0`, `real_metrics=0` for this cycle.
 
-If the GPU gate cannot be satisfied, either baseline fails on a qualifying clean A6000, any binding differs, any receipt is incomplete, any reference payload is accessed, or independent verification disagrees, return `BLOCKED` and stop. A genuine clean-GPU OOM must be reported as evidence; do not repair it by resizing, tiling, switching checkpoints, changing precision, or changing the method in this cycle.
+If the existing canonical manifest cannot be reproduced without decoding reference pixels, if any frozen binding is ambiguous, or if the harness cannot enforce the reference boundary without changing scientific preprocessing/method behavior, return `BLOCKED` and stop. Do not solve a harness problem by modifying Ours or either baseline.
 
 ## Explicit non-goals
 
-No full 150-image UHD-LL benchmark; no PSNR/SSIM/LPIPS; no gt/reference payload access; no Ours rerun or tuning; no selector/guard/lambda/rho/loss/optimizer/renderer/action-space changes; no baseline retraining/fine-tuning; no UHD-LL-specific checkpoint; no `UHD_LL_down`; no resize/crop/downsample/tiling; no precision-mode experiment; no LSRW retry; no killing unrelated GPU processes; no update to `coordination/PROJECT_STATE.md`.
+No retry of the clean-GPU baseline smoke test in this cycle; no real UHD-LL model inference; no full 150-image benchmark execution; no real UHD-LL reference/`gt` decoding; no PSNR/SSIM/LPIPS; no Ours rerun/tuning; no selector/guard/lambda/rho/loss/optimizer/renderer/action-space changes; no baseline retraining/fine-tuning; no UHD-LL-specific checkpoint; no `UHD_LL_down`; no resize/crop/downsample/tiling; no precision experiment; no LSRW retry; no killing/evicting GPU jobs; no update to `coordination/PROJECT_STATE.md`.
 
 ## Expected evidence
 
-Commit a task-owned clean-GPU preflight receipt containing the pre-run GPU/process snapshot and qualification decision, exact source/checkpoint/config hashes, one-shot RetinexFormer and SNR-Aware output hashes and native geometry, synchronized runtime and peak-memory telemetry, pre/post binding integrity, explicit `reference_reads=0`/`model_fits=0`/metrics=0 accounting, focused tests, independent verifier output combining the new baseline receipts with the unchanged accepted T072-C Ours receipt, environment/run logs, and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS` or `BLOCKED`.
+Commit a task-owned inference/freeze runner, evaluation runner, immutable freeze-manifest schema, read-scope guard, independent verifier/static auditor, and focused tests. Record exact canonical-low enumeration/hash, all frozen source/checkpoint/config hashes, test results, dry-run receipts, and explicit real-run accounting proving zero real inference/reference/metric access. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_FAIR_HARNESS_SEALED` or `BLOCKED`.
 
-Stop after this single clean-GPU baseline preflight. If it passes, the next research-lead cycle may authorize the complete 150-image UHD-LL frozen inference/evaluation. If it is blocked on a qualifying clean GPU, report the precise baseline failure and wait for review; do not invent a workaround or tune any method.
+Stop after sealing/verifying the harness. The following research-lead cycle will decide whether to retry the native-4K baseline preflight or launch any real UHD-LL inference; do not do either in T072-E.
