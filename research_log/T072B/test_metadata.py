@@ -10,3 +10,9 @@ def test_canonical_complete_pairing_and_predeclared_selection():
     assert c['declared_utc']<r['acquired_utc'] and c['pixels_read']==0
     assert r['geometry']==dict(width=3840,height=2160,mode='RGB',format='JPEG')
     assert p['reference_reads']==r['reference_reads']==r['reference_downloads']==0
+
+
+def test_repaired_writer_uses_distinct_initial_and_final_receipts():
+    source = (Path(__file__).parent / 'run.py').read_text(encoding='utf-8')
+    assert "initial_receipt.json" in source
+    assert "write(out/'receipt.json',record)" in source
