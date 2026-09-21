@@ -20,52 +20,52 @@ Because the user's priority is to finish fair experiments quickly, the next cycl
 
 ---
 
-# OPEN one-hour task — T072-B: canonical UHD-LL provenance and native-4K frozen-method feasibility preflight
+# OPEN one-hour task — T072-C: recover UHD-LL native preflight with repaired telemetry and all three frozen methods
+
+## Research-lead review of T072-B
+
+I reviewed the T072-B report in commit `3493615b34433164546aa864d8a8bbbe30f46c71`, PR #168, source `4cd6ab605c0ba8648f78b651ac2d97a269044f90`, evidence `b2b5bce4062619d75d1a23c5f90fd5e8db5ef89d`, the repaired writer `127ad5216f19f032c016e51df43d0937c5e6534e`, and the current project-state/authorization files. The canonical UHD-LL metadata binding is credible: exactly 150 input names and 150 gt names with identical pairing, and the predeclared smoke image `1003_UHD_LL.JPG` is correctly selected at native `3840x2160`. Frozen Final Ours completed one finite native-4K inference with selected step 22, but the task is correctly classified `BLOCKED` because an exclusive receipt-write collision lost runtime/peak-memory telemetry and prevented both baselines from running.
+
+This is an engineering bookkeeping failure, not a method-quality result and not evidence of native-4K incompatibility. The saved Ours output/decision and independent recovery are useful but incomplete. The test-time information boundary remains intact: no gt/reference payloads or metrics were accessed, no method settings changed, and no target-specific tuning occurred.
 
 ## Single hypothesis / engineering objective
 
-Establish, without opening any clean/reference payload, that the **canonical original full-resolution UHD-LL 150-pair testing split can be unambiguously bound and that all three already-frozen methods can process its native 4K degraded input without any scientific preprocessing change**. This is a provenance/feasibility preflight only; do not run the full 150-image benchmark or compute metrics in this cycle.
+Using the minimal repaired T072-B wrapper, complete the same one-image native-geometry preflight for **all three already-frozen methods** and produce a complete, independently verifiable telemetry receipt. This is a recovery/evidence task only; it must not change any scientific method or broaden the dataset scope.
 
 ## Fixed inputs/settings
 
-Use the author-controlled official UHD-LL release only:
+Use exactly the canonical UHD-LL binding and smoke input already established by T072-B:
 
-- upstream repository: `Li-Chongyi/UHDFour_code`;
-- pin commit `2349d6f0526aff4c2ad9dbf168d93f928bf844f0` and archive/record its README hash;
-- canonical dataset is **original `UHD-LL`**, not `UHD_LL_down`;
-- official dataset root is the repository's linked Google Drive folder `1IneTwBsSiSSVXGoXQ9_hE1cO2d4Fd4DN` (Baidu official mirror may be used only as a byte-identical source if needed);
-- expected canonical structure: `testing_set/input` and `testing_set/gt`, exactly 150 paired test names.
+- author source `Li-Chongyi/UHDFour_code` at commit `2349d6f0526aff4c2ad9dbf168d93f928bf844f0`;
+- pair manifest SHA256 `3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb`;
+- predeclared degraded input `1003_UHD_LL.JPG`, native RGB `3840x2160`, input SHA256 `cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca`;
+- repaired task wrapper/source `127ad5216f19f032c016e51df43d0937c5e6534e` or a content-identical descendant;
+- Final Ours exact T070-A manifest `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9` and source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
+- Retinexformer exact T071-B/T033-A source/checkpoint/config binding;
+- SNR-Aware exact T071-B/T045-A source/checkpoint/config binding and `ttie_native_pad16` semantics.
 
-Do not download or decode `testing_set/gt` image payloads in this cycle. Remote directory/file metadata may be used to bind the expected reference filenames, sizes/IDs and one-to-one name pairing, but `reference_reads` must remain zero. Download only the degraded test inputs needed for provenance plus the single predeclared smoke image. If the provider permits obtaining all 150 degraded inputs cheaply, record their hashes; otherwise exact remote file IDs/names/sizes plus the smoke-input hash are sufficient for this preflight.
-
-Freeze the three methods exactly as already accepted:
-
-- Final Ours: T070-A manifest SHA256 `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`, source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
-- Retinexformer: T071-B/T033-A source commit `1e9a0efce4b306b6701b824768370ff26066c32a`, checkpoint SHA256 `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`, `default_no_gt_mean` semantics;
-- SNR-Aware: T071-B/T045-A source commit `1113144c82adc8bcc4a9ec27749ed75f196a4e4d`, checkpoint SHA256 `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781`, accepted `ttie_native_pad16` semantics and parameter hash.
-
-Predeclare the smoke image before reading pixels as the lexicographically first canonical `testing_set/input` filename after metadata enumeration. Run each frozen method exactly once on that same degraded image at **native canonical geometry**. Ours may perform only its frozen degraded-image-only TTT. Record input geometry/hash, output geometry/hash, peak GPU memory, runtime, success/failure and method binding checks. No reference image may be read. Do not resize/crop/downsample just to make a method fit; each method may use only preprocessing already frozen in its accepted binding.
+Run each method exactly once on the same degraded smoke image. A single repeat of Ours is allowed only if needed to capture missing runtime/peak-memory telemetry; if repeated, verify output/decision hashes equal the already-saved T072-B artifacts exactly. No reference image may be downloaded, decoded, or opened. Preserve native geometry and each method's already-frozen preprocessing; do not add resize, crop, downsample, tiling, checkpoint substitution, or environment workaround.
 
 ## Acceptance / stop criteria
 
 Return `UHDLL_NATIVE_PREFLIGHT_PASS` only if:
 
-- official author-controlled provenance is pinned and the canonical original UHD-LL testing split is unambiguously identified as exactly 150 one-to-one input/gt filenames by metadata;
-- the smoke degraded input is chosen by the predeclared lexicographic rule and its native dimensions/hash are recorded;
-- all three source/checkpoint/config bindings exactly match T070-A/T071-B;
-- all three methods process the same native-geometry degraded image successfully with finite outputs of the expected image geometry;
-- Ours inference/selection consumes only the degraded image plus frozen assets;
-- `reference_reads=0`, `model_fits=0`, no metrics, no target-specific tuning/calibration and no method change occur;
-- an independent verifier reproduces provenance/pair-name binding, smoke-image selection, source bindings, output hashes/geometry and reference-read accounting.
+- the existing canonical 150-pair metadata/pair hash and smoke-input declaration are reproduced exactly;
+- all three source/checkpoint/config bindings match the accepted T070-A/T071-B artifacts;
+- Final Ours, Retinexformer, and SNR-Aware each complete one native-geometry smoke inference with finite output of exactly `3840x2160` RGB geometry;
+- runtime and peak GPU memory are persisted for all three methods without receipt collisions;
+- if Ours is repeated, its output/decision/state hashes match the saved T072-B artifacts exactly;
+- `reference_reads=0`, `model_fits=0`, metrics=0, and no target-specific tuning or scientific change occurred;
+- an independent verifier reproduces provenance, smoke selection, binding checks, output geometry/finiteness, telemetry presence, and read-scope accounting.
 
-If canonical 150-pair metadata cannot be bound, the original dataset cannot be accessed, any frozen method cannot process native 4K without a scientific change, any binding differs, or any reference payload is opened, return `BLOCKED` and stop. Record the exact blocker; do not repair it with resize/crop, target-specific settings or a different checkpoint.
+If any method fails, any binding differs, any receipt is incomplete, any reference payload is accessed, or the verifier disagrees, return `BLOCKED` and stop. Do not repair a failure by changing the method or silently changing geometry.
 
 ## Explicit non-goals
 
-No full 150-image benchmark yet; no PSNR/SSIM/LPIPS; no clean/reference payload download or decode; no Ours tuning; no lambda/rho/safety/loss/optimizer/step/action-space change; no new selector/guard; no baseline retraining/fine-tuning; no UHD-LL-specific checkpoint; no use of `UHD_LL_down`; no image resize/crop added for convenience; no LSRW retry in this cycle; no paper-number substitution. Never modify `coordination/CODEX_TO_CHATGPT.md` except Codex's normal append-only completion report, and do not modify `coordination/PROJECT_STATE.md`.
+No full 150-image UHD-LL benchmark; no PSNR/SSIM/LPIPS; no gt/reference payload access; no Ours tuning or selector/guard changes; no lambda/rho/loss/optimizer/renderer/step/action-space changes; no baseline retraining/fine-tuning; no UHD-LL-specific checkpoint; no `UHD_LL_down`; no LSRW retry; no substitution of the missing telemetry with estimates; no modification of `coordination/PROJECT_STATE.md` in this cycle.
 
 ## Expected evidence
 
-Commit task-owned upstream provenance/README hash, official remote listing metadata for the canonical 150 input/gt names, pairing receipt without gt payload reads, degraded-input acquisition receipt, predeclared smoke selection, exact frozen source/checkpoint/config receipts, per-method native-geometry smoke output hashes/runtime/peak-memory records, explicit `reference_reads=0` and `model_fits=0` accounting, focused tests, independent verifier output, environment/run receipt, and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_NATIVE_PREFLIGHT_PASS` or `BLOCKED`.
+Commit the repaired/preflight wrapper if needed, complete canonical provenance/pairing receipt, smoke-input and output hashes, per-method runtime and peak-memory receipt, exact source/checkpoint/config hashes, Ours repeat-equality check if applicable, explicit `reference_reads=0`/`model_fits=0`/metrics=0 accounting, focused tests, independent verifier output, environment/run receipt, and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_NATIVE_PREFLIGHT_PASS` or `BLOCKED`.
 
-Stop after this provenance/native-geometry preflight. The next research-lead cycle will authorize the actual full UHD-LL frozen inference/evaluation only if this preflight passes.
+Stop after this one-hour recovery preflight. If it passes, the next research-lead cycle will authorize the actual full 150-image UHD-LL frozen inference/evaluation; if blocked, report the precise remaining engineering or access blocker and do not open another dataset or tune Ours.
