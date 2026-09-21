@@ -10,13 +10,13 @@ Scientific API: `FinalOurs(manifest).__call__(low)`. The only per-image input is
 
 It reuses the unchanged CommonRegion2/CommonBox12D EV/gamma/gain renderer, identity initialization, T062CR2 exact27-update T062 prefix, Adam lr.03 with accepted defaults, losses [L_spa,10L_exp,5L_col], original CLIP/prototypes/gate, T066A19D features and frozen model, threshold.5, rho.9857470621423519 and exact T067B lambda.875/earliest endpoint conventions. Feature arithmetic remains the accepted float64 path; adaptation stays float32. The energy/baseline model is not loaded.
 
-The immutable `evidence/FINAL_OURS_e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9.json` binds30 inference entries (module hashes plus constants/global resource descriptors), exact source SHA, four global asset hashes, fixed constants, native RGB preprocessing, seed7, TF32off, thread/CUBLAS settings and environment versions. All27 previously bound modules match their accepted T062/T063/T066/T067 hashes. CLIP/prototypes/gate match T036A_assets exactly; probability model SHA is `33f878dd090d5e85ba2d099c0e16bc7e4f1731b41f0c5fd90f2a8a5a30f62be0`. No resources were refit or substituted.
+The immutable `evidence/FINAL_OURS_MANIFEST.json` binds30 inference entries (module hashes plus constants/global resource descriptors), exact source SHA, four global asset hashes, fixed constants, native RGB preprocessing, seed7, TF32off, thread/CUBLAS settings and environment versions. All27 previously bound modules match their accepted T062/T063/T066/T067 hashes. CLIP/prototypes/gate match T036A_assets exactly; probability model SHA is `33f878dd090d5e85ba2d099c0e16bc7e4f1731b41f0c5fd90f2a8a5a30f62be0`. No resources were refit or substituted.
 
 Manifest SHA256: `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`. It was generated before image replay; independently rebuilt content matches, and its hash stayed unchanged. Source commit refers to the executable wrapper; this later manifest/evidence commit avoids circular self-hashing. Runtime loading checks bound source/resources, constants and environment. Audit package binding has52 entries including target-free anchors; per-image anchors are not inference assets.
 
 Operational entry point, using an already authorized degraded image under the frozen environment:
 ```
-python -B -m research_log.T070A.infer --manifest /media/wenchang/F/wjq/TTIE/shared/t070a/FINAL_OURS_e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9.json --low <degraded-image> --out <new-output-directory>
+python -B -m research_log.T070A.infer --manifest /media/wenchang/F/wjq/TTIE/shared/t070a/FINAL_OURS_MANIFEST.json --low <degraded-image> --out <new-output-directory>
 ```
 The entry point persists `output.pt` and the selected decision/state/output hashes. This example does not authorize opening a held-out image in this task.
 
