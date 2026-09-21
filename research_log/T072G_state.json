@@ -1,0 +1,22 @@
+{
+  "task": "T072-G",
+  "status": "BLOCKED",
+  "classification": "BLOCKED",
+  "branch": "codex/T072G-smid-protocol",
+  "dataset": "SMID",
+  "scene_count_from_official_test_list": 49,
+  "test_list_sha256": "cd408769f80576bba9d4057add2d7c99e70bbf62682af4d7207885ab0d631fc3",
+  "reference_reads": 0,
+  "metrics": 0,
+  "inference_runs": 0,
+  "optimizer_runs": 0,
+  "low_payload_files_opened": 0,
+  "blockers": [
+    "SNR-Aware caps each test scene to the first 30 low frames; Retinexformer indexes all low frames.",
+    "Retinexformer code asks for data/SMID/test_list.txt but README asks for text_list.txt under SMID_Long_np.",
+    "Exact RAW-to-RGB ISP parameters are not shipped.",
+    "SMID_LQ_np is absent from checked A6000/TTIE shared paths, so low coverage and hashes cannot be sealed."
+  ],
+  "next_step": "Obtain an authorized SMID RGB low-input payload and an explicit shared test-list/conversion contract; then rerun the low-only manifest verifier before any model inference.",
+  "root_manifest": "research_log/T072G/manifest.json"
+}

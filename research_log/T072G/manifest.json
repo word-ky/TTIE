@@ -1,0 +1,148 @@
+{
+  "task": "T072-G",
+  "dataset": "SMID",
+  "scope": "RGB cross-domain held-out cohort for frozen Ours, RetinexFormer, and SNR-Aware",
+  "status": "BLOCKED",
+  "classification": "BLOCKED",
+  "authorization_source": "coordination/CHATGPT_TO_CODEX.md (T072-G)",
+  "evidence_policy": {
+    "allowed": [
+      "official/public source metadata",
+      "degraded/short-exposure RGB input metadata or payloads"
+    ],
+    "reference_payload_opened": false,
+    "reference_reads": 0,
+    "metrics": 0,
+    "inference_runs": 0,
+    "optimizer_runs": 0,
+    "low_payload_files_opened": 0
+  },
+  "sources": [
+    {
+      "name": "SNR-Aware-Low-Light-Enhance",
+      "repository": "JIA-Lab-research/SNR-Aware-Low-Light-Enhance",
+      "commit": "1113144c82adc8bcc4a9ec27749ed75f196a4e4d",
+      "urls": [
+        "https://github.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/tree/1113144c82adc8bcc4a9ec27749ed75f196a4e4d",
+        "https://raw.githubusercontent.com/JIA-Lab-research/SNR-Aware-Low-Light-Enhance/1113144c82adc8bcc4a9ec27749ed75f196a4e4d/test_list.txt",
+        "https://drive.google.com/drive/folders/1OV4XgVhipsRqjbp8SYr-4Rpk3mPwvdvG?usp=sharing",
+        "https://pan.baidu.com/s/1Qol_4GsIjGDR8UT9IRZbBQ"
+      ],
+      "files": [
+        {
+          "path": "data/dataset_SMID_test.py",
+          "sha256": "bd65ab89083fc6d6491f2b1d09d8764f1e8c5a37aaeb1419aff35379a7aa21a4"
+        },
+        {
+          "path": "data/dataset_SMID_train.py",
+          "sha256": "6e60a6515cd6c7262975f45e004253533b9e2bdf3180765ed7c0b4bfd4d2a7bf"
+        },
+        {
+          "path": "options/test/SMID.yml",
+          "sha256": "9f6cd40b9a29fed058476bf28cc711254d2804590f2c18c3987721e7e857fcd8"
+        },
+        {
+          "path": "test_list.txt",
+          "sha256": "cd408769f80576bba9d4057add2d7c99e70bbf62682af4d7207885ab0d631fc3"
+        }
+      ]
+    },
+    {
+      "name": "Retinexformer",
+      "repository": "caiyuanhao1998/Retinexformer",
+      "commit": "1e9a0efce4b306b6701b824768370ff26066c32a",
+      "urls": [
+        "https://github.com/caiyuanhao1998/Retinexformer/tree/1e9a0efce4b306b6701b824768370ff26066c32a",
+        "https://drive.google.com/file/d/199qrfizUeZfgq3qVjrM74mZ_nlacgwiP/view?usp=sharing",
+        "https://pan.baidu.com/s/1GQfaQLI6tvB0IrTMPOM_9Q?pwd=ggbh"
+      ],
+      "files": [
+        {
+          "path": "basicsr/data/SMID_image_dataset.py",
+          "sha256": "e6d99f51d2a422d84a18662adde37333a2119d850b257cb8f4a43befc7dc8"
+        },
+        {
+          "path": "Options/RetinexFormer_SMID.yml",
+          "sha256": "88fc0322b0b7639ba1dc2830577c06c5a8d1159429e076df6ebd35e0839a1af5"
+        }
+      ]
+    }
+  ],
+  "test_list": {
+    "source": "SNR-Aware-Low-Light-Enhance/test_list.txt",
+    "remote_copy": "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/official/test_list.txt",
+    "sha256": "cd408769f80576bba9d4057add2d7c99e70bbf62682af4d7207885ab0d631fc3",
+    "line_count": 49,
+    "byte_count": 245,
+    "scene_ids": [
+      "0013", "0009", "0020", "0007", "0010", "0012", "0154", "0036", "0037", "0039",
+      "0047", "0048", "0049", "0050", "0051", "0052", "0065", "0066", "0075", "0076",
+      "0078", "0088", "0092", "0099", "0091", "0103", "0104", "0105", "0106", "0107",
+      "0151", "0145", "0147", "0139", "0129", "0083", "0153", "0157", "0180", "0175",
+      "0181", "0196", "0170", "0166", "0172", "0177", "0167", "0169", "0191"
+    ]
+  },
+  "observed_baselines": {
+    "snr_aware": {
+      "loader": "data/dataset_SMID_test.py",
+      "test_list_path_in_code": "/mnt/proj3/xgxu/EDVR/datasets/test_list.txt",
+      "scene_selection": "scene folder name must occur in test_list.txt",
+      "low_frame_order": "sorted glob of each scene folder",
+      "low_frame_cap": "first 30 paths per scene",
+      "temporal_window": 5,
+      "padding": "new_info",
+      "pairing": "each low index is paired with the first filtered GT path; GT is metadata only",
+      "rgb_read": "numpy payload divided by 255 and channel-permuted [2,1,0]",
+      "raw_to_rgb_statement": "README says SMID RAW data are transferred to RGB; no exact parameterized conversion recipe is shipped"
+    },
+    "retinexformer": {
+      "loader": "basicsr/data/SMID_image_dataset.py",
+      "config": "Options/RetinexFormer_SMID.yml",
+      "test_list_path_in_code": "dirname(dataroot_gt)/test_list.txt (data/SMID/test_list.txt for the shipped config)",
+      "readme_auxiliary_file": "README asks for text_list.txt under data/SMID/SMID_Long_np/",
+      "scene_selection": "scene folder name must occur in the sibling test_list.txt",
+      "low_frame_order": "sorted glob of each scene folder",
+      "low_frame_cap": "none; all low paths are indexed",
+      "temporal_window": "config says N_frames=5, but test __getitem__ reads one low path [idx:idx+1]",
+      "pairing": "each low index is paired with the first filtered GT path; GT is metadata only",
+      "rgb_read": "numpy payload divided by 255 and channel-permuted [2,1,0]",
+      "raw_to_rgb_statement": "README says process SMID RAW to RGB but does not specify the exact ISP parameters"
+    }
+  },
+  "candidate_low_only_manifest": {
+    "scene_ids_ordered": [
+      "0013", "0009", "0020", "0007", "0010", "0012", "0154", "0036", "0037", "0039",
+      "0047", "0048", "0049", "0050", "0051", "0052", "0065", "0066", "0075", "0076",
+      "0078", "0088", "0092", "0099", "0091", "0103", "0104", "0105", "0106", "0107",
+      "0151", "0145", "0147", "0139", "0129", "0083", "0153", "0157", "0180", "0175",
+      "0181", "0196", "0170", "0166", "0172", "0177", "0167", "0169", "0191"
+    ],
+    "low_root_name": "SMID_LQ_np",
+    "low_relpath_template": "<scene_id>/<sorted low filename>.npy",
+    "low_payload_enumerated": false,
+    "low_payload_coverage": "unavailable on the A6000 host and in the checked TTIE shared artifacts",
+    "low_sha256": null,
+    "low_geometry_dtype": null,
+    "reference_pair_path_rule_metadata_only": "<scene_id>/<first sorted GT path after .ARW and half filters>",
+    "reference_payload_opened": false
+  },
+  "remote_artifact_probe": {
+    "checked_paths": [
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027a/data/SMID/SMID_LQ_np",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027a/data/SMID/SMID_Long_np",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/official/path_to_datasets/SMID_LQ_np",
+      "/home/wenchang/asdasdsad/wjq/TTIE/shared/t027b/official/path_to_datasets/SMID_Long_np",
+      "/mnt/proj3/xgxu/EDVR/datasets/test_list.txt"
+    ],
+    "dataset_payload_paths_present": false,
+    "official_snr_test_list_present": true,
+    "official_snr_test_list_only": true
+  },
+  "blockers": [
+    "SNR-Aware evaluates only the first 30 low frames per selected scene, while Retinexformer indexes all low frames; the accepted baselines therefore do not define one identical frame cohort.",
+    "Retinexformer code requires data/SMID/test_list.txt, while its README instructs placing text_list.txt under data/SMID/SMID_Long_np; the shipped public instructions do not bind these names to one exact file.",
+    "The public README statements identify RAW-to-RGB processing but do not ship an exact parameterized ISP recipe, so RGB conversion cannot be independently reproduced from metadata alone.",
+    "No SMID_LQ_np payload is present on the checked A6000 host or in TTIE shared artifacts; low coverage, geometry, dtype, and per-file hashes cannot be sealed without obtaining the dataset payload."
+  ],
+  "root_manifest_sha256": "27c72c4e572f65ee15c7e833f5e35bd8be4db1d4e54156fa8b70c8e2da8bf730"
+}
