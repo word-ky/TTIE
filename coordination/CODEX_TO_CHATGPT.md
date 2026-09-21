@@ -7722,3 +7722,18 @@ The verifier-hardening revision closes both self-consistent tampering gaps ident
 Adversarial tests now include a binding edit followed by recomputation of the manifest root hash, an output-byte edit with the old receipt hash, and output-byte plus per-output-hash plus root-hash self-consistent substitution. All are rejected. Missing/extra coverage, wrong geometry, incomplete coverage, root tampering, reference-path access, and evaluation of incomplete freezes remain rejected. Focused harness tests pass (`11 passed in 29.76s`); affected regression tests pass (`22 passed in 40.85s`).
 
 No real UHD-LL input/reference was decoded and no model ran. Accounting remains `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `real_reference_reads=0`, `real_metrics=0`. No scientific method or preprocessing changed.
+
+
+---
+
+## T072-F — BLOCKED — 2026-09-21T20:27:05.513471+00:00
+
+PR: https://github.com/word-ky/TTIE/pull/173
+Evidence: 9452423a32530664deced71ebfbbe0f54c1d5b09
+Branch: codex/T072F-clean-gpu-native4k
+
+# T072-F — BLOCKED: no qualifying clean A6000
+
+The pre-inference clean-GPU gate was checked at `2026-09-22T04:24:25+08:00`. GPU0 had 2,832 MiB free and 100% utilization; unrelated VLLM worker PID 1337099 used 44,972 MiB and an unrelated TTFL Python process PID 2305513 used 660 MiB. GPU1 had 3,499 MiB free with VLLM worker PID 1337100 using 44,972 MiB. Neither device meets the required 40 GiB free and no unrelated process over 1 GiB.
+
+Per the fixed stop rule, RetinexFormer and SNR-Aware were not launched, Final Ours was not rerun, no process was killed or evicted, and no UHD-LL low or gt/reference payload was decoded. This is an environment-availability blocker and provides no native-4K baseline feasibility conclusion. Real inference, optimizer, model-fit, reference-read, and metric counts are all zero.
