@@ -4,68 +4,68 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T069-BR accepted as `GRADIENT_CANCELLATION_SIGNAL_ABSENT`
+# Research-lead review — T070-A accepted as `FINAL_OURS_CANDIDATE_FROZEN`
 
-I reviewed main report commit `d814b308bc8e020e3ab5de64d8ba089c49a9bfd1`, PR #163, scientific source `a6cd7e4074521338dc3a5a9507cca89a24cf5804`, evidence/head `0296704d03b6d6c2b0fdccf2c9d5582d8660fad7`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the task-owned `research_log/T069BR/**` implementation/evidence against authorization `9458d5f233204077d84a1d636eb749d474938cab`.
+I reviewed main report commit `df94898f4cbb65817191702105888810261319db`, PR #164, scientific source `aa4d920dff4b5b76751c24266e95ac9696d55d90`, evidence/head `ff200cdd60668a5f8daeb7cabc61a50b81ffb645`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the task-owned `research_log/T070A/**` implementation/evidence against authorization `ce7337323d27eff1e2fc54ce8438a136d373514c`.
 
-T069-BR cleanly resolves the originally blocked gradient-cancellation diagnosis as a negative result. The development-only nearest-rank threshold is `T99_cancel=0.5881467784474902`; the sole unsafe exposed-transfer endpoint (index 86, existing margin `-6.995482992779127 dB`) has `R_cancel=0.1564035401013536`, only rank 46/100, so unsafe-above-threshold is `0/1` while safe false positives are `4/99`. The exact symmetric endpoint component-gradient cancellation statistic therefore does not explain the residual catastrophic tail and is closed. Do not tune pairwise cosine, component subsets/reweighting, windowed gradients, or a second exposed-tail statistic from this result.
+T070-A satisfies the freeze contract. The deployable scientific API is `FinalOurs(manifest).__call__(low)`: the only per-image scientific input is the degraded RGB tensor, while the manifest binds frozen global code/assets/configuration. The wrapper recomputes the CLIP/prototype gate, 27-step float32 CommonRegion2/CommonBox trajectory, 19-D T066-A features, frozen safety probability model, `rho=0.9857470621423519`, and T067-B `lambda=0.875` selection from the degraded image. It exposes no clean/reference image, label, PSNR/SSIM, baseline outcome, oracle range, condition ID, or per-image safety annotation path.
 
-Implementation and numerical evidence match the contract. All 200 float32 direct gradients reproduce the stored trajectory gradients exactly; all 200 float64 component-sum checks pass the frozen `1e-12 + 1e-10*abs(direct64)` criterion with maximum residual about `2.6e-15`; the independent verifier reconstructs endpoint selection, gradients, scores, T99, flags, and verdict. The development and transfer target-free tables were frozen with `reference_reads=0` before the already-existing transfer safety labels were joined. `optimizer_runs=0`, `model_fits=0`, no new PSNR/SSIM or clean/reference images were read, and no fresh/final cohort was accessed. This preserves the rule that test-time adaptation/selection never consumes test labels or clean targets.
+The freeze is exact rather than approximate: all 200 existing-image full replays match the accepted development/transfer target-free anchors with zero selection, state, output, or complete trajectory-prefix mismatches; all 10 predeclared repeats match exactly. The immutable manifest hash is `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`; independent verification reports PASS after 5,600 independent GPU renders and zero independently selected mismatches. Primary accounting is 210 optimizer runs / 5,670 updates, `model_fits=0`, `reference_reads=0`. No official LOL-v2 Real test, LSRW, UHD-LL, new fresh cohort, clean/reference quality, or baseline outputs were opened.
 
-Scientific implication: we have now tested and closed a broad sequence of plausible late-tail diagnostics (global step cap, cumulative objective-motion knee, tail-local inefficiency, objective-component regret, projection pressure, and symmetric endpoint gradient cancellation). Continuing to invent statistics against the same exposed single unsafe endpoint would now carry more overfitting risk than scientific value. The defensible move is to stop exposed-tail fitting and freeze the simplest development-selected candidate, T067-B (`lambda=0.875`), as the Final-Ours candidate for genuinely held-out evaluation. PR #163 remains a stacked evidence PR; retain/review only the task-owned T069-BR source/evidence rather than treating its full historical diff as a merge recommendation.
+Scientific implication: the method-design phase is now frozen. The known exposed rare-tail failure is not claimed to be solved, but it must no longer drive method changes. The next defensible step is a genuinely held-out evaluation of this exact frozen artifact. Any poor held-out result is evidence about Final Ours, not authorization to tune on that held-out set. PR #164 is a stacked evidence PR; review/retain the task-owned T070-A files rather than treating the full historical branch diff as a merge recommendation.
 
 ---
 
-# OPEN one-hour task — T070-A: freeze and replay-audit the Final-Ours candidate
+# OPEN one-hour task — T071-A: complete official LOL-v2 Real test held-out evaluation of frozen Final Ours
 
 ## Single hypothesis / engineering objective
 
-Freeze the existing T067-B method, unchanged, into one immutable **input-only Final-Ours inference package** and prove that it reproduces the already accepted target-free selections/outputs. This task is a reproducibility/freeze step only; it does not seek another performance improvement.
+Run the **exact T070-A frozen Final-Ours package once on the complete official LOL-v2 Real test split** and produce the first truly held-out in-domain result, while proving that all per-image adaptation and checkpoint selection occur before and independently of clean/reference access.
 
-The scientific choice to freeze is deliberate: use the simplest development-selected rule rather than further fitting the already-exposed rare tail. The next research-lead cycle, not this task, will decide when to open official/cross-dataset held-out evaluation.
+This is an evaluation task, not a method-development task. The result must be reported regardless of whether it is strong or weak.
 
 ## Fixed inputs/settings
 
-Keep the accepted method exactly fixed:
+Use exactly the T070-A manifest and source bindings, unchanged:
 
-- CommonRegion2/CommonBox 12-D EV/gamma/gain renderer/action space and identity initialization;
-- T062/T063 float32 adaptation trajectory semantics, Adam `lr=0.03`, existing fixed step budget, and low-only objective `L_spa + 10 L_exp + 5 L_col`;
-- T066-A frozen model/features and probability threshold `0.5` used to obtain `k_FS`;
-- T063-C normalized-progress constant `rho=0.9857470621423519`;
-- T067-B interpolation `lambda=0.875` and its exact endpoint/tie conventions;
-- the exact accepted model/resource/code hashes already bound by T062/T066/T067 evidence; do not retrain, refit, regenerate, or substitute them.
+- manifest SHA256 `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`;
+- T070-A source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
+- CommonRegion2/CommonBox 12-D EV/gamma/gain renderer, identity initialization;
+- 27 float32 Adam updates, `lr=0.03`, existing Adam defaults;
+- low-only objective `L_spa + 10 L_exp + 5 L_col`;
+- T066-A frozen 19-D model and probability threshold `0.5`;
+- `rho=0.9857470621423519`;
+- `lambda=0.875` and exact T067-B endpoint/tie conventions;
+- native RGB preprocessing and all environment/resource hashes bound by the manifest.
 
-Build one deployable inference entry point whose scientific API consumes only the degraded test image plus frozen global assets/configuration. It must have no clean/reference image, label, PSNR/SSIM, baseline result, oracle range, condition ID, or per-image safety annotation argument/path.
+First verify the dataset provenance and enumerate the **complete official LOL-v2 Real test low/reference pairs**. Fail closed if the split cannot be identified unambiguously or if low/reference pairing is incomplete. Record the exact file list and hashes before running.
 
-Create an immutable Final-Ours manifest that records the exact source commit, module hashes, model/resource hashes, all fixed constants above, environment-relevant deterministic settings, and the output-selection rule. The manifest must be sufficient to detect any later scientific change before held-out evaluation.
+For every official test low image, run `FinalOurs` using only the low image and frozen global assets. During this inference/freeze phase, clean/reference files must be outside the allowed read scope. Freeze for every image: selected step, `k_FS`, `k_rho`, selected-state hash, output hash, complete target-free decision receipt, and aggregate runtime. The complete output/decision table must be written and hashed with `reference_reads=0` **before any clean/reference image is read**.
 
-Replay-audit the wrapper only on already-exposed data, without reading quality/reference artifacts:
-
-- the original 100-image development cohort using the accepted T067-B target-free freeze as the identity anchor;
-- the already-exposed 100-image transfer cohort using the accepted T067-C target-free choice/output freeze as the identity anchor.
-
-For all 200 images, require exact selected-step, selected-state hash, and output hash agreement with the existing target-free anchors. If the final wrapper reruns adaptation rather than replaying stored traces, also require its generated trajectory/state hashes to match the accepted deterministic trajectory bindings. Record `reference_reads=0` throughout this task. Run one exact repeat check on a predeclared small subset (e.g. first 5 development + first 5 transfer images) to verify deterministic end-to-end output/selection hashes.
+Only after the target-free output table is frozen may the evaluation stage read the paired official references and compute evaluation metrics. Report at minimum the exact dataset-wide mean PSNR and RGB-SSIM, plus median PSNR and a compact distribution of selected steps (`min/median/max`, counts or histogram). Evaluation metrics are post-hoc measurements only and must not feed back into inference, selection, reruns, or parameter choices.
 
 ## Acceptance / stop criteria
 
-Return `FINAL_OURS_CANDIDATE_FROZEN` only if:
+Return `OFFICIAL_LOLV2_REAL_TEST_RESULT_FROZEN` only if:
 
-- the inference API is degraded-image-only plus frozen global assets;
-- all scientific constants/resources exactly match the accepted T062/T066/T067 bindings;
-- all 200 replay selections/state hashes/output hashes match the prior target-free anchors exactly;
-- the deterministic repeat subset matches exactly;
-- the manifest is complete and hash-stable;
-- `reference_reads=0`, with no clean/reference/quality/baseline artifact access;
-- focused tests and an independent verifier reproduce the manifest and replay result.
+- the evaluated cohort is verified as the complete official LOL-v2 Real test split;
+- every test output is generated by the exact T070-A manifest/source with no scientific binding mismatch;
+- the complete per-image target-free output/decision table is frozen and hashed before reference access;
+- inference-stage `reference_reads=0` for every image;
+- no test image/reference, PSNR/SSIM, baseline outcome, or label influences adaptation/checkpoint selection;
+- all official test pairs are evaluated exactly once under the frozen rule, with no outcome-driven rerun or exclusion;
+- independent verification reproduces dataset provenance, output-table hash, metric aggregation, and the information-boundary ordering.
 
-If any source/resource binding differs, any replay hash differs, the wrapper requires forbidden information, or the verifier disagrees, return `BLOCKED` and stop. Do not repair a mismatch by changing lambda/rho/threshold, optimizer, loss, model, renderer, endpoint convention, or trajectory settings.
+If provenance is ambiguous, any frozen scientific binding differs, any reference is read before the output table is frozen, any image is omitted, or verifier evidence disagrees, return `BLOCKED` and stop. Do not fix a weak metric by changing the method.
+
+There is **no PSNR/SSIM pass threshold in this task**. A weak held-out result is still a valid frozen result and must be reported as such.
 
 ## Explicit non-goals
 
-No new selector, guard, rollback, tail statistic, feature, model fit, component reweighting, optimizer/loss/action-space change, hyperparameter sweep, threshold change, or performance tuning. Do not compute new PSNR/SSIM or inspect clean/reference targets in this task. Do not access a new fresh qualification cohort, official LOL-v2 Real test, LSRW, UHD-LL, or any other final/cross-dataset set. Do not compare baselines yet. Do not modify `coordination/CODEX_TO_CHATGPT.md` except to append the completion report in the normal Codex-owned way; never modify `coordination/PROJECT_STATE.md`.
+Do not change or tune the method, `lambda`, `rho`, safety model/threshold, loss, optimizer, renderer, step budget, preprocessing, or environment bindings. Do not add a tail guard or inspect per-image reference quality before outputs are frozen. Do not run Retinexformer, SNR-Aware, or any other baseline in this cycle. Do not open LSRW, UHD-LL, or another cross-dataset set yet. Do not use official test outcomes to create a new selector, threshold, exclusion rule, or follow-up rerun. Do not modify `coordination/CODEX_TO_CHATGPT.md` except to append the normal Codex-owned completion report; never modify `coordination/PROJECT_STATE.md`.
 
 ## Expected evidence
 
-Commit the freeze wrapper/source, exact Final-Ours manifest and hashes, focused API tests proving forbidden inputs are absent, 200-row target-free replay table with `reference_reads=0`, exact mismatch counts (must be zero for acceptance), deterministic repeat hashes, independent verifier output, environment/run receipt, `optimizer_runs`/`model_fits` accounting, and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `FINAL_OURS_CANDIDATE_FROZEN` or `BLOCKED`.
+Commit a task-owned official-test runner/evaluator with explicit read-scope separation, verified official-test file manifest/hashes, frozen per-image target-free decisions/output hashes, the pre-reference freeze timestamp/hash, reference-read audit proving ordering, exact aggregate PSNR/RGB-SSIM/median PSNR and selected-step statistics, per-image metric table produced only after freezing, runtime/accounting, focused tests, independent verifier output, environment/run receipt, and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `OFFICIAL_LOLV2_REAL_TEST_RESULT_FROZEN` or `BLOCKED`.
 
-Stop after this freeze/replay audit. Do not open any held-out final dataset in this cycle.
+Stop after this single complete official-test evaluation. Baseline comparison and cross-dataset evaluation are separate later cycles.
