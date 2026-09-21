@@ -1,8 +1,9 @@
 """Inference/freeze stage. It has no reference or metric input surface."""
 from __future__ import annotations
-import hashlib, json
+import hashlib, json, copy
 from pathlib import Path
 from PIL import Image
+from .constants import EXPECTED_BINDINGS
 
 METHODS=("ours","retinexformer","snr_aware")
 FORBIDDEN=("gt","reference","clean","normal","label","metric","psnr","ssim")
@@ -26,7 +27,7 @@ def build_freeze(rows, outputs, bindings):
     for method in METHODS:
         if set(outputs[method])!=set(names): raise ValueError(f"incomplete {method}")
         images[method]={n:outputs[method][n] for n in names}
-    manifest={"schema":"ttie-uhdll-freeze-v1","pairs_manifest_sha256":"3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb","methods":list(METHODS),"bindings":bindings,"images":images,"real_reference_reads":0,"real_metrics":0}
+    manifest={"schema":"ttie-uhdll-freeze-v2","pairs_manifest_sha256":"3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb","methods":list(METHODS),"bindings":copy.deepcopy(bindings),"images":images,"real_reference_reads":0,"real_metrics":0}
     manifest["sha256"]=hashlib.sha256(json.dumps(manifest,sort_keys=True,separators=(",",":")).encode()).hexdigest()
     return manifest
 def write_freeze(path, manifest):
