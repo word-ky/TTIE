@@ -7673,3 +7673,18 @@ The repaired telemetry wrapper completed the single authorized Ours repeat on th
 RetinexFormer then failed at native geometry with `torch.OutOfMemoryError` when requesting 1.24 GiB. The allocated A6000 had 163.31 MiB free because an external vLLM process occupied 43.92 GiB. Per T072-C's first-failure rule, SNR-Aware was not launched and no resize, tiling, cropping, substitution, or further inference was attempted. The required all-method independent verification cannot pass, so the task classification is `BLOCKED`.
 
 Focused source tests passed locally (11 in 18.46 s) and remotely (11 in 1.77 s). Evidence is retained at `/media/wenchang/F/wjq/TTIE/runs/T072C-uhdll-native` and release `20260921-ttie-t072c-uhdll-native`.
+
+
+---
+
+## T072-D — BLOCKED — 2026-09-21T16:18:07.744609+00:00
+
+PR: https://github.com/word-ky/TTIE/pull/170
+Evidence: 5504d142c719e0cd1c092bcf869c2014a1ebbccf
+Branch: codex/T072D-clean-gpu
+
+# T072-D — BLOCKED: no qualifying clean A6000
+
+The clean-GPU gate was evaluated before any baseline inference. Both RTX A6000 devices were occupied by the unrelated vLLM service: GPU0 had 3,497 MiB free with `VLLM::Worker_TP0` PID 1337099 using about 44,972 MiB, and GPU1 had 3,499 MiB free with `VLLM::Worker_TP1` PID 1337100 using about 44,972 MiB. Neither satisfies the required 40 GiB free and at most 1 GiB unrelated-process gate.
+
+RetinexFormer and SNR-Aware were therefore not run, no GPU process was killed or evicted, no image/reference was decoded, and no scientific setting or method was changed. The accepted T072-C Ours receipt remains the only reused evidence. This is an environment availability blocker; it does not establish baseline native-4K infeasibility.
