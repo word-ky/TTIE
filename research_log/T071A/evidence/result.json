@@ -1,0 +1,44 @@
+{
+  "classification": "OFFICIAL_LOLV2_REAL_TEST_RESULT_FROZEN",
+  "images": 100,
+  "mean_psnr": 18.53226686142791,
+  "median_psnr": 18.192788332030815,
+  "mean_rgb_ssim": 0.5734772617839705,
+  "selected_steps": {
+    "min": 17,
+    "median": 22.0,
+    "max": 24,
+    "histogram": {
+      "17": 5,
+      "19": 5,
+      "20": 7,
+      "21": 10,
+      "22": 29,
+      "23": 34,
+      "24": 10
+    }
+  },
+  "ssim": {
+    "data_range": 1.0,
+    "window": 11,
+    "sigma": 1.5,
+    "K1": 0.01,
+    "K2": 0.03,
+    "covariance": "population",
+    "channels": "RGB mean",
+    "crop": 0,
+    "padding": "reflect (half-sample symmetric)",
+    "dtype": "float64"
+  },
+  "psnr_convention": "per-image -10log10 full RGBMSE, float64 over float32[0,1]pixels, no crop/resize/outputquantization",
+  "inference_seconds": 70.03712362400256,
+  "mean_image_seconds": 0.7003712362400256,
+  "output_freeze_sha256": "7b00345e2437b558f40e196eba4ce8114a50c219d24dd856c1da94c2596e32e3",
+  "final_manifest_sha256": "e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9",
+  "inference_reference_reads": 0,
+  "reference_member_reads": 100,
+  "optimizer_runs": 100,
+  "optimizer_updates": 2700,
+  "model_fits": 0,
+  "completed_utc": "2026-09-21T09:23:04.674894+00:00"
+}

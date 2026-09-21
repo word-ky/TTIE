@@ -1,0 +1,6 @@
+{
+  "runId": "20260921-172057-ttie-t071a-official-real",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260921-172057-ttie-t071a-official-real",
+  "command": "cd /media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t071a-official-real && export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_THREADING_LAYER=SEQUENTIAL TTIE_SOURCE_COMMIT=cdabd083ad0853b702f409c4115f73f657d89918 && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m pytest research_log/T071A research_log/T070A -q && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T071A.run --out /media/wenchang/F/wjq/TTIE/runs/T071A-official-real && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T071A.evaluate --out /media/wenchang/F/wjq/TTIE/runs/T071A-official-real && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T071A.verify --out /media/wenchang/F/wjq/TTIE/runs/T071A-official-real"
+}
