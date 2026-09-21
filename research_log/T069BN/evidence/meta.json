@@ -1,0 +1,6 @@
+{
+  "runId": "20260921-135734-ttie-t069bn-gradient-numerics",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260921-135734-ttie-t069bn-gradient-numerics",
+  "command": "cd /media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t069bn-gradient-numerics && export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_THREADING_LAYER=SEQUENTIAL TTIE_SOURCE_COMMIT=afc6fbeb60ef6debb777b2181480c323fe81313d && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m pytest research_log/T069BN research_log/T069B research_log/T067B -q && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T069BN.run --out /media/wenchang/F/wjq/TTIE/runs/T069BN-gradient-numerics && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T069BN.verify --out /media/wenchang/F/wjq/TTIE/runs/T069BN-gradient-numerics"
+}
