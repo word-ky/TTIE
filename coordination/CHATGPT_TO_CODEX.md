@@ -4,65 +4,62 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ## Research-priority lock — fair evaluation before further method tuning
 
-Do not open a new Ours method-development / heuristic-tuning branch until the fair comparison program is completed. T071-A/T071-B already freeze the official LOL-v2 Real Ours result and matched supervised-baseline table. LSRW remains pending on the user-provided canonical archive and must not block the current line. UHD-LL remains the first cross-domain performance target, but its native-4K baseline smoke is temporarily environment-blocked by unavailable clean A6000 capacity. No held-out result may be used to tune Final Ours, and test-time adaptation/checkpoint selection must never consume test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, or other reference-derived information.
+Do not open a new Ours method-development / heuristic-tuning branch until the fair comparison program is completed. T071-A/T071-B already freeze the official LOL-v2 Real Ours result and matched supervised-baseline table. LSRW remains deferred until the user-provided canonical archive is available and must not block the current line. UHD-LL remains the first cross-domain performance target. No held-out result may be used to tune Final Ours, and test-time adaptation/checkpoint selection must never consume test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, or other reference-derived information.
 
 ---
 
-# Research-lead review — T072-F accepted as an environment `BLOCKED`, with no scientific conclusion
+# Research-lead review — T072-G accepted as `BLOCKED`; do not treat SMID as a sealed benchmark
 
-I reviewed main report commit `6e008e1feb66c7a86a814983342e32c262641880`, PR #173, evidence/head `9452423a32530664deced71ebfbbe0f54c1d5b09`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the task-owned `research_log/T072F_{report.md,state.json}` against authorization `e761b4e1b0ca435a008251e4281efc18a8627690` and the current information-boundary rules.
+I reviewed main report commit `c7d910e1ff2841ba595d56ce9dd1d46920180c44`, PR #174, evidence/head `452e8761d8dbe0a06c83d5ed952c81ac2b37e73d`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the task-owned manifest/verifier against the T072-G authorization and current information-boundary rules.
 
-The stop decision is correct. At the pre-inference gate, GPU0 had only `2832 MiB` free and GPU1 `3499 MiB` free because unrelated VLLM workers occupied about `44972 MiB` on each A6000; GPU0 also had an unrelated TTFL process. Therefore neither device satisfied the fixed `>=40 GiB` free/no-unrelated->1-GiB rule. RetinexFormer and SNR-Aware were not launched, Final Ours was not rerun, no process was killed/evicted, and no UHD-LL low or gt/reference payload was decoded. Accounting is `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `real_reference_reads=0`, `real_metrics=0`.
+The `BLOCKED` classification is correct. The accepted SNR-Aware SMID loader hard-codes a test list and truncates each selected scene to the first 30 low frames, whereas the accepted Retinexformer SMID loader uses a sibling `test_list.txt` and indexes all low frames. I independently checked both frozen upstream loader files and confirmed that this is a material cohort mismatch, not merely a documentation difference. The report also correctly records that the processed `SMID_LQ_np` payload is not present on the A6000 host, so low-only coverage/hashes/geometry cannot yet be sealed. Public metadata identifies RAW-to-RGB processing but does not provide one exact common conversion contract that makes the two accepted recipes independently identical.
 
-Scientific implication: this is purely an environment-availability blocker. It neither supports nor refutes native-4K feasibility for either baseline and changes no performance claim. The sealed UHD-LL harness and Final-Ours native-4K evidence remain valid; the full 150-image UHD-LL table is still pending a clean GPU. `coordination/PROJECT_STATE.md` must remain unchanged.
+The information boundary was preserved: `reference_reads=0`, `metrics=0`, `inference_runs=0`, `optimizer_runs=0`, and no clean/long-exposure payload was opened. Therefore no SMID performance claim is authorized, and no choice between the discrepant baseline cohorts may be made opportunistically. This is a protocol/data-availability blocker, not a scientific performance result, so `coordination/PROJECT_STATE.md` remains unchanged.
 
-Because repeatedly spending an hourly cycle on the same unavailable GPU would add no scientific evidence, use this cycle to seal the next cross-domain dataset protocol without running models. This does **not** demote UHD-LL; resume its baseline smoke as soon as a later cycle finds a qualifying GPU.
+UHD-LL is still the highest-priority cross-domain experiment. Return to its native-4K baseline feasibility check now; do not spend this cycle trying to resolve SMID or LSRW.
 
 ---
 
-# OPEN one-hour task — T072-G: seal a canonical SMID RGB cross-domain cohort using metadata and degraded inputs only
+# OPEN one-hour task — T072-H: clean-GPU UHD-LL native-4K baseline feasibility preflight
 
 ## Single hypothesis / engineering objective
 
-Determine whether **SMID can be made into one unambiguous, reproducible RGB cross-domain held-out benchmark** for the already-frozen Final Ours, RetinexFormer, and SNR-Aware methods, using only official dataset/baseline provenance plus degraded-input payloads and **without reading any clean/long-exposure reference pixels**.
+Establish whether the **already-frozen LOL-v2-trained Retinexformer and SNR-Aware baselines can each process the canonical UHD-LL native 4K smoke input once, without any scientific-setting change and without reading any reference/GT payload**.
 
-The output of this task is only a sealed cohort/protocol preflight for a later performance run. It is not a benchmark run and must not produce PSNR/SSIM or any target-derived tuning signal.
+This is only the final feasibility gate before a later full 150-image UHD-LL run. It is not the benchmark run.
 
 ## Fixed inputs/settings
 
-Keep all scientific methods frozen exactly as already accepted:
+Keep all scientific bindings exactly frozen:
 
-- Final Ours immutable manifest SHA256 `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`, scientific source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
-- RetinexFormer accepted upstream `1e9a0efce4b306b6701b824768370ff26066c32a`, checkpoint SHA256 `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`, accepted binding SHA256 `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`;
-- SNR-Aware accepted upstream `1113144c82adc8bcc4a9ec27749ed75f196a4e4d`, checkpoint SHA256 `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781`, accepted binding SHA256 `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`.
+- Final Ours remains frozen at manifest SHA256 `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`; **do not rerun Ours** in this task. Its prior native-4K smoke evidence remains the accepted Ours side of the preflight.
+- RetinexFormer upstream `1e9a0efce4b306b6701b824768370ff26066c32a`, checkpoint SHA256 `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`, accepted binding SHA256 `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`.
+- SNR-Aware upstream `1113144c82adc8bcc4a9ec27749ed75f196a4e4d`, checkpoint SHA256 `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781`, accepted binding SHA256 `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`.
+- Use exactly the previously declared canonical UHD-LL degraded smoke input `1003_UHD_LL.JPG` at native `3840×2160`. Do not substitute another image.
+- Reuse the sealed T072-E-R1 read-scope / freeze-verifier machinery where applicable.
 
-Use **SMID only** in this task. Do not substitute SID, SDSD, LOL-v1/v2, LSRW, UHD-LL, or another dataset.
+Before launching either baseline, perform the same clean-GPU gate: at least `40 GiB` free VRAM on one A6000 and no unrelated process using more than `1 GiB` on that device. If no device satisfies the gate, return `BLOCKED` immediately. Do not kill, pause, or evict unrelated jobs.
 
-Start from the official/public SMID protocol actually referenced by the frozen RetinexFormer and SNR-Aware source trees/configs. Establish, from repository/config/test-list/archive metadata, the intended RGB test cohort, RGB conversion/preprocessing convention, and low↔reference pairing rule. If the two accepted baseline sources imply materially different SMID test cohorts or RGB conversions, do not choose one opportunistically: return `BLOCKED` with the exact discrepancy.
-
-If the canonical SMID data are locally available or can be accessed from the official/public links within the time budget, you may inspect/decode/hash **degraded/short-exposure RGB inputs only**. You may inspect filenames, directory/archive member names, file sizes, public checksums, and pairing metadata for reference/long-exposure members, but do **not** open, decode, hash, summarize, or otherwise consume reference image payload bytes. Treat reference paths as opaque names until a later all-method output freeze.
-
-Create one task-owned low-only target manifest containing at minimum: dataset provenance/source URLs or repository commits, exact test-list provenance, RGB conversion convention, ordered degraded-input relative paths, degraded-input SHA256 where payload access is available, image geometry/dtype from degraded inputs where available, pairing keys/reference path names as metadata only, and a root manifest SHA256. No target-derived method settings may be introduced.
+If the gate passes, run RetinexFormer exactly once and SNR-Aware exactly once on the same native degraded input. Preserve their already-accepted inference semantics. Record synchronized runtime, peak allocated/reserved GPU memory, output geometry/dtype/finiteness, output SHA256, binding integrity, and a read ledger proving that only the degraded input was decoded.
 
 ## Acceptance / stop criteria
 
-Return `SMID_PROTOCOL_PREFLIGHT_PASS` only if all of the following hold within this one-hour task:
+Return `UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS` only if both frozen baselines:
 
-- one official/reproducible SMID RGB test cohort is identified unambiguously from accepted/public source metadata;
-- the exact cohort size, ordering rule, and low↔reference naming/pairing rule are fixed without reading reference pixels;
-- the RGB conversion/preprocessing convention is explicitly traceable to official/public code or metadata and does not require target-specific fitting;
-- every degraded input in the cohort is accounted for with no duplicate/missing IDs; if payloads are accessible, their hashes/geometry are recorded from degraded inputs only;
-- static compatibility review shows that the later frozen three-method runner can consume this RGB cohort without introducing a new target-specific resize/crop/downsample/normalization choice beyond already accepted method semantics;
-- an independent verifier checks the manifest/root hash, cohort uniqueness/completeness, source/test-list provenance, and a read ledger proving `reference_reads=0` and `metrics=0`.
+- start from the exact accepted source/checkpoint/config bindings;
+- complete one native `3840×2160` inference without resize, crop, downsample, tiling, target-specific normalization, or precision-mode workaround;
+- emit finite native-geometry outputs with persisted artifact SHA256 values;
+- have valid runtime and peak-memory telemetry;
+- pass independent binding/output/read-scope verification with `reference_reads=0` and `metrics=0`.
 
-Return `BLOCKED` if the official split/conversion is ambiguous, the two accepted baseline sources materially disagree, the canonical data/test-list cannot be obtained, degraded-input coverage is incomplete, or a reference payload would have to be opened to resolve the cohort. Do not invent a split, silently drop samples, or select whichever variant looks easier.
+Return `BLOCKED` on the first failure if the clean-GPU gate is unavailable, either frozen method OOMs or cannot execute natively, a binding/provenance check fails, telemetry cannot be persisted, output geometry/finiteness is wrong, or any reference/GT access is attempted. Do not make a second scientific attempt under altered settings.
 
 ## Explicit non-goals
 
-Do not run Final Ours, RetinexFormer, or SNR-Aware. Do not run any optimizer/model fit. Do not decode/open/hash any SMID reference/long-exposure target payload. Do not compute PSNR/SSIM/LPIPS or inspect baseline outcomes. Do not retrain/fine-tune, use SMID-trained checkpoints, change checkpoints/configs/precision, tune Final Ours, alter lambda/rho/loss/renderer/selector, or make a target-specific preprocessing choice. Do not work on LSRW or retry the UHD-LL GPU smoke in this cycle. Do not update `coordination/PROJECT_STATE.md`.
+Do not run the full UHD-LL 150-image benchmark. Do not open/decode/hash any UHD-LL GT/reference image and do not compute PSNR/SSIM/LPIPS. Do not rerun or tune Final Ours. Do not change checkpoints, configs, precision, padding semantics, resize/crop/downsample/tiling behavior, batch semantics, or target preprocessing. Do not work on SMID, LSRW, SID, SDSD, or another dataset in this cycle. Do not update `coordination/PROJECT_STATE.md`.
 
 ## Expected evidence
 
-Commit a concise task-owned protocol/provenance report, the low-only SMID manifest and root hash, source/test-list/config citations or exact commit/path references, a pairing/cohort audit, the reference-access read ledger, and independent verifier output. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `SMID_PROTOCOL_PREFLIGHT_PASS` or `BLOCKED`.
+Commit a concise task-owned report and machine-readable receipt containing: pre-run GPU inventory/gate result; exact frozen binding hashes; per-baseline command/config identity; runtime and peak-memory telemetry; output geometry/dtype/finiteness and SHA256; degraded-input-only read ledger; and independent verifier output. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS` or `BLOCKED`.
 
-Stop after sealing or blocking the SMID protocol. Actual model inference and metric evaluation are separate later cycles.
+Stop after this preflight. A complete 150-image UHD-LL run, if authorized, is a separate later cycle.
