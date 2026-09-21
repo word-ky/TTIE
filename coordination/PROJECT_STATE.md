@@ -17,7 +17,7 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - **Fresh-qualified action extension:** T036-A CommonRegion2/CommonBox 12-D gain path, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, with the fixed unresolved tail gate (`29/100` regressions; worst `-5.614 dB`).
 - T062/T063 establish a substantially stronger zero-reference trajectory, roughly `+3.5` to `+3.9 dB` mean PSNR over T036 replicates across independent 100-image cohorts, but rare worst-tail checkpoint selection remains unresolved.
 - T063-A/T064-A show the severe failures are **selection-limited, not trajectory-limited**: safe prefix checkpoints exist for every diagnosed image.
-- Fixed stopping, cumulative loss balance, antithetic sensitivity, snapshot-based safety readouts, the current dynamics rollback guard, exact first-safe stopping, exact global `lambda=0.875` interpolation, a global absolute-step cap, the exact cumulative objective-motion knee, and the exact three-transition endpoint motion/objective inefficiency statistic have all been tested and are insufficient for qualification.
+- Fixed stopping, cumulative loss balance, antithetic sensitivity, snapshot-based safety readouts, the current dynamics rollback guard, exact first-safe stopping, exact global `lambda=0.875` interpolation, a global absolute-step cap, the exact cumulative objective-motion knee, the exact three-transition endpoint motion/objective inefficiency statistic, and the exact aggregate low-only component-regret statistic have all been tested and are insufficient for qualification.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
 The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, using the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
@@ -73,7 +73,17 @@ Versus the exact frozen `lambda=0.875` control, the knee loses `-2.6417328 dB` m
 
 T068-C then tests one strictly local endpoint statistic with a fixed 3-transition window: trailing rendered-image motion share divided by trailing scalar low-only objective-progress share. The development-only nearest-rank threshold is `T99=0.6324473435`. On the exposed transfer cohort, the sole unsafe T067-C selected endpoint (index 86, margin vs T026 `-6.9954830 dB`) has score `R=0.4650582340`, rank `15/100`, so it is not flagged; `0/1` unsafe endpoints and `2/99` safe endpoints exceed T99. Independent verification reproduces the scores, threshold and diagnosis with `optimizer_runs=0`, `model_fits=0`.
 
-**Scientific implication:** both tested scalar-total-objective/image-motion constructions fail for complementary reasons: the cumulative rule fires too early on normal trajectories, while the fixed tail-local ratio does not make the transferred late failure exceptional. These exact constructions are closed; do not tune them on the exposed cohort. The remaining mechanistically distinct question is whether the scalar objective hides **conflict among its own low-only components** as the trajectory approaches the late endpoint.
+**Scientific implication:** both tested scalar-total-objective/image-motion constructions fail for complementary reasons: the cumulative rule fires too early on normal trajectories, while the fixed tail-local ratio does not make the transferred late failure exceptional. These exact constructions are closed; do not tune them on the exposed cohort.
+
+### Aggregate objective-component regret also misses the residual tail
+
+T068-D tests exactly one target-free endpoint regret statistic over the fixed weighted component vector `Z=[L_spa, 10 L_exp, 5 L_col]` on each frozen `[k_FS,k_lambda]` interval. The development-only nearest-rank threshold is `T99_comp=0.1910869733`.
+
+On the exposed transfer cohort, the sole unsafe selected endpoint (index 86, margin vs T026 `-6.9954830 dB`) has `R_comp=0.0419923923`, descending rank `52/100`, so it is not flagged; `0/1` unsafe and `4/99` safe endpoints exceed T99. Independent verification directly recomputes all three low-only components from degraded images plus frozen rendered states, reproduces the score/threshold/diagnosis, and reports `optimizer_runs=0`, `model_fits=0`.
+
+Mechanistically, index 86 reaches the interval minimum of the weighted exposure term at the selected endpoint (`a_exp=0`) while spatial and color regrets are at their interval maxima; the much larger exposure excursion dominates the exact aggregate denominator. This explains why the frozen aggregate score is small, but it does **not** authorize exposed-cohort reweighting, dropping exposure, or switching to a max/subset statistic after seeing the failure.
+
+**Scientific implication:** the exact aggregate component-regret construction is closed. The remaining justified direction should be mechanistically distinct from post-hoc reaggregation of the same objective components. One such untested signal is optimizer **projection pressure**: T062 stores Adam proposals before CommonBox projection, whereas ordinary state/image features observe only the projected state and may hide pressure against the fixed action bounds.
 
 ## Retained mechanism conclusions
 
@@ -81,8 +91,8 @@ T068-C then tests one strictly local endpoint statistic with a fixed 3-transitio
 - Large mean improvement of the zero-reference trajectory has replicated across independent cohorts.
 - `first_safe` and normalized progress are complementary: one gives a lower target-free entry endpoint, the other retains utility. Their global interpolation materially reduces tail harm but still misses a rare transferred tail.
 - Unsafe interval behavior is sparse and can be non-monotone/recovering. Neither a universal normalized-q cutoff nor a universal absolute-step cap is supported.
-- The exact cumulative objective-motion knee and exact three-transition motion/objective endpoint ratio are both closed. Their failures do not prove that every conceivable motion statistic is useless, but there is no justification for further exposed-cohort tuning of this family without a new mechanism.
-- The next justified probe is a **diagnostic of low-only objective-component Pareto regret** using the already-existing target-free `L_spa`, `L_exp` and `L_col` histories. It must remain diagnostic until a frozen signal is demonstrated.
+- The exact cumulative objective-motion knee, exact three-transition motion/objective endpoint ratio, and exact aggregate objective-component regret are closed. Their failures do not prove that every conceivable target-free trajectory statistic is useless, but there is no justification for exposed-cohort tuning/reweighting of these failed constructions.
+- The next justified probe is a **diagnostic of endpoint optimizer projection pressure** using the already-recorded post-Adam/pre-CommonBox proposal versus the post-projection state. It must remain diagnostic until a frozen signal is demonstrated.
 - Reference-oracle diagnostics may motivate only global research choices. Per-image oracle values, safe ranges, PSNR/SSIM, baseline outcomes and clean targets are forbidden from deployable inference.
 
 ## Fixed evaluation gates used in the current development line
@@ -123,6 +133,6 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 
 ## Current open task
 
-**T068-D — frozen low-only objective-component Pareto-regret diagnosis** in `coordination/CHATGPT_TO_CODEX.md`.
+**T069-A — frozen endpoint projection-pressure diagnosis** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Keep T066-A/T067-B/T067-C machinery and the exact low-only objective weights fixed. Over each frozen `[k_FS,k_lambda]` interval, compute exactly one target-free endpoint component-regret score from weighted `L_spa`, `L_exp`, and `L_col`; derive only a target-free development nearest-rank T99 threshold; freeze the exposed-transfer score table before joining already-exposed endpoint safety labels; and diagnose whether the residual unsafe endpoint is an extreme component-regret outlier with low false-positive count. Do not implement a selector/rollback in this cycle. Fresh cohort, official LOL-v2 Real test, LSRW and UHD-LL remain sealed.
+Keep T066-A/T067-B/T067-C machinery, `lambda=0.875`, the accepted trajectories, and all optimizer/action-box settings fixed. At each frozen endpoint, use only the final EV/gamma Adam proposal before CommonBox and the corresponding post-projection state to compute one exact target-free projection-pressure ratio; derive only a target-free development nearest-rank T99 threshold; freeze the exposed-transfer score table before joining already-exposed endpoint safety labels; and diagnose whether the residual unsafe endpoint is an extreme projection-pressure outlier with low false-positive count. Do not implement a selector/rollback in this cycle. Fresh cohort, official LOL-v2 Real test, LSRW and UHD-LL remain sealed.
