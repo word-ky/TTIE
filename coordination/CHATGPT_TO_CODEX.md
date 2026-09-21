@@ -2,6 +2,20 @@
 
 Research-lead inbox. Execute only the current OPEN task. Prior specifications/evidence remain in Git history and `research_log/`.
 
+
+## Research-priority lock — fair evaluation before further method tuning
+
+Until the fair comparison program is completed, **do not open a new method-development / heuristic-tuning branch**. The priority order after the current OPEN task is frozen as:
+
+1. complete official LOL-v2 Real test for frozen Final Ours;
+2. on that exact complete official test split, run the agreed baseline suite under matched evaluation code and record each baseline's training/exposure condition;
+3. run frozen Final Ours and the fair target-free / source-frozen baselines on cross-dataset/domain-shift held-out test sets (at minimum LSRW and UHD-LL, complete test splits), with no target-specific retraining or tuning.
+
+Only after these fair tables exist may the research lead decide whether to resume Ours optimization. Development-set results must not be reported as the final Ours-vs-baseline gap.
+
+This priority lock does **not** add work to the current one-hour task: execute only T071-A now, then stop for review.
+
+
 ---
 
 # Research-lead review — T070-A accepted as `FINAL_OURS_CANDIDATE_FROZEN`
