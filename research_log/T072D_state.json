@@ -1,0 +1,19 @@
+{
+  "task": "T072-D",
+  "status": "BLOCKED",
+  "classification": "BLOCKED",
+  "authorization": "0bfcf3be",
+  "utc": "2026-09-21T16:13:40Z",
+  "reason": "No qualifying clean/idle A6000 was available before inference.",
+  "gpu_gate": {
+    "gpu0": {"name": "NVIDIA RTX A6000", "free_bytes": 3497, "used_mib": 45043, "process": "VLLM::Worker_TP0", "pid": 1337099, "qualifies": false},
+    "gpu1": {"name": "NVIDIA RTX A6000", "free_bytes": 3499, "used_mib": 45041, "process": "VLLM::Worker_TP1", "pid": 1337100, "qualifies": false}
+  },
+  "runs": {"retinexformer": "UNRUN", "snr_aware": "UNRUN"},
+  "ours_receipt_reused": "/media/wenchang/F/wjq/TTIE/runs/T072C-uhdll-native/ours/receipt.json",
+  "pairs_manifest_sha256": "3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb",
+  "smoke": "1003_UHD_LL.JPG",
+  "smoke_sha256": "cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca",
+  "tests": "not applicable: GPU gate failed before inference",
+  "next_step": "Wait for an idle A6000 with at least 40 GiB free and no unrelated process over 1 GiB; then rerun this bounded preflight without rerunning Ours."
+}
