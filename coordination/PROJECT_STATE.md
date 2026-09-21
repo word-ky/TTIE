@@ -8,105 +8,94 @@ This file is the live scientific state. Detailed task history remains in Git his
 
 ## Core scientific question
 
-Can a vision system adapt a compact spatial image-processing state per test image, without test labels or clean/normal-light targets, so that unknown and spatially heterogeneous degradation is corrected by a reference-free test-time optimization field/objective?
+Can a vision system adapt a compact spatial image-processing state per test image, without test labels or clean/normal-light targets, so that unknown and spatially heterogeneous degradation is corrected by a reference-free test-time optimization trajectory with reliable target-free stopping?
 
-## Current deployable / qualification state
+## Frozen Final Ours
 
-- **Broad fresh-qualified Ours-Core:** T014 Sobolev Region2 TTT.
-- **Fixed-validation deployable base:** T026-A, `11.1208764 dB / 0.3737918 RGB-SSIM` on its original validation cohort.
-- **Fresh-qualified action extension:** T036-A CommonRegion2/CommonBox 12-D gain path, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, with the fixed unresolved tail gate (`29/100` regressions; worst `-5.614 dB`).
-- T062/T063 establish a substantially stronger zero-reference trajectory, roughly `+3.5` to `+3.9 dB` mean PSNR over T036 replicates across independent 100-image cohorts.
-- T063-A/T064-A show severe failures are **selection-limited, not trajectory-limited**: safe prefix checkpoints exist for every diagnosed image.
-- **Final-Ours candidate is now frozen by T070-A** as the unchanged T067-B rule: CommonRegion2/CommonBox 12-D trajectory, T066-A first-safe signal, `rho=0.9857470621423519`, and `lambda=0.875` safety–utility interpolation.
-- T070-A immutable manifest SHA256: `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`; scientific source: `aa4d920dff4b5b76751c24266e95ac9696d55d90`.
-- The complete official LOL-v2 Real test is now authorized only under T071-A's frozen held-out protocol. LSRW, UHD-LL, and other cross-dataset held-out sets remain sealed.
+T070-A froze the unchanged T067-B candidate as Final Ours. Immutable manifest SHA256:
 
-The frozen action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. Adaptation uses Adam `lr=0.03`, 27 updates, and the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
+`e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`
 
-## Current scientific state
+Scientific source:
 
-### Strong trajectory utility; rare-tail behavior remains known but no longer drives fitting
+`aa4d920dff4b5b76751c24266e95ac9696d55d90`
 
-T063-C development selected global `rho=0.9857470621423519`. On the later T063-D/T064-A 100-image cohort, normalized progress gave `15.4718452 dB / 0.3978969`, mean/median PSNR delta vs exact T036 `+3.8619303/+3.8144067 dB`, but worst paired delta `-10.3649447 dB`. T064-A proved all `100/100` images had safety-reachable prefix checkpoints.
+The frozen method is:
 
-T066-A target-free dynamics achieved development LOIO unsafe-state recall `73/81 = 0.9012346`, but T066-B/C established that it is mainly a lower safety-entry signal and not a reliable late-stage catastrophic-quality monitor.
+- degraded-image-only scientific input;
+- CommonRegion2/CommonBox 12-D EV/gamma/gain renderer from identity;
+- 27 float32 Adam updates, `lr=0.03`;
+- fixed low-only objective `L_spa + 10 L_exp + 5 L_col`;
+- frozen T066-A 19-D safety model, probability threshold `0.5`, defining first-safe entry;
+- normalized-progress constant `rho=0.9857470621423519`;
+- T067-B safety–utility interpolation `lambda=0.875` with frozen endpoint/tie conventions.
 
-T067-B development-only interpolation between first-safe and normalized progress selected `lambda=0.875` and passed all five development gates:
+No clean/reference target, test label, PSNR/SSIM, baseline outcome, oracle range, degradation annotation or condition ID enters test-time adaptation or checkpoint selection.
 
-- mean / median PSNR delta vs T036 `+2.6360346 / +2.3057191 dB`;
-- `1/100` regressions vs T026;
-- worst paired delta `-2.4273992 dB`;
-- mean RGB-SSIM delta vs T036 `+0.0204407`.
+## Official LOL-v2 Real held-out result — T071-A
 
-T067-C applied that exact frozen rule once to the exposed transfer cohort and preserved strong average utility: absolute `14.4947881 dB / 0.4086309`, mean/median PSNR delta vs T036 `+2.8848732/+2.5733133 dB`, `5/100` regressions, mean RGB-SSIM delta `+0.0291559`. One selected endpoint remained below the unchanged tail floor, with worst paired delta `-6.9954830 dB`.
+T071-A is accepted as `OFFICIAL_LOLV2_REAL_TEST_RESULT_FROZEN`.
 
-That exposed tail motivated several predeclared diagnostics, all now closed as insufficient: global absolute-step cap, cumulative objective-motion knee, tail-local motion/objective inefficiency, aggregate objective-component regret, final CommonBox projection pressure, and symmetric endpoint weighted component-gradient cancellation. Continuing to invent statistics against the same exposed failure would be post-hoc overfitting.
+The exact frozen Final Ours was run once on the complete official 100-image LOL-v2 Real test split, with no exclusions and no scientific-setting changes:
 
-### T070-A freezes Final Ours and ends the method-design phase
+- **Mean PSNR:** `18.53226686142791 dB`
+- **Median PSNR:** `18.192788332030815 dB`
+- **Mean RGB-SSIM:** `0.5734772617839705`
+- **Images:** `100`
+- **Selected step min / median / max:** `17 / 22 / 24`
+- **Total synchronized inference time:** `70.03712362400256 s`
+- **Mean inference time:** `0.7003712362400256 s/image`
 
-T070-A packages the exact T067-B candidate as a degraded-image-only inference API. The per-image scientific input is only the low RGB image; the manifest binds frozen global code/assets/configuration. No clean/reference image, label, PSNR/SSIM, baseline outcome, oracle range, condition ID, or per-image safety annotation enters inference.
+Selected-step histogram: `17:5, 19:5, 20:7, 21:10, 22:29, 23:34, 24:10`.
 
-The freeze/replay audit is exact:
+The complete target-free output/decision table was frozen before any clean-reference payload was opened, with SHA256:
 
-- 100 development + 100 already-exposed transfer full inference replays;
-- zero selected-step mismatches;
-- zero selected-state mismatches;
-- zero output mismatches;
-- zero complete 27-update trajectory-prefix mismatches;
-- 10/10 predeclared deterministic repeats exact;
-- independent verifier PASS after 5,600 GPU renders;
-- `reference_reads=0`, `model_fits=0`;
-- primary `optimizer_runs=210`, `optimizer_updates=5670`.
+`7b00345e2437b558f40e196eba4ce8114a50c219d24dd856c1da94c2596e32e3`
 
-This changes the scientific phase: **Final Ours is frozen for held-out evaluation.** The known exposed rare-tail issue is not claimed solved, but it is no longer permissible to tune the method against that exposed cohort or against any upcoming official/cross-dataset test outcome.
+Inference-stage accounting was exactly 100 low reads and `reference_reads=0`; only after the output freeze were the 100 official normal-light references read for post-hoc metrics. Independent verification reproduced cohort provenance, output-table hash, metric aggregation and the information-boundary ordering to machine precision.
 
-## Retained mechanism conclusions
+**Scientific interpretation:** this is the first genuine held-out in-domain Final-Ours result and is now immutable evaluation evidence. It is not a development signal and cannot authorize method/hyperparameter changes or outcome-driven reruns. The official LOL-v2 Real test has therefore moved from sealed to **evaluation-frozen / forbidden-for-tuning** status.
 
-- The 12-D renderer/trajectory has substantial usable capacity; the main historical bottleneck was target-free checkpoint selection/safety, not reachable-state capacity.
-- Large mean improvement of the zero-reference trajectory replicated across independent cohorts.
-- `first_safe` and normalized progress are complementary: one gives a lower safety-entry point; the other preserves utility. Their frozen global interpolation materially reduces tail harm without eliminating every exposed rare failure.
-- Unsafe behavior can be sparse, non-monotone, and recovering. Neither a universal normalized-q cutoff nor a universal absolute-step cap is supported.
-- Scalar objective progress, rendered-image motion, aggregate component-value regret, endpoint projection pressure, and the exact symmetric component-gradient cancellation score are not validated late-tail guards.
-- Do not tune variants of these failed mechanisms on exposed or held-out evaluation outcomes.
-- Reference-oracle diagnostics may motivate only global development decisions before freezing. Per-image oracle values, safe ranges, PSNR/SSIM, baseline outcomes and clean targets are forbidden from deployable inference.
+## Historical mechanism conclusions retained
 
-## Fixed development gates retained for historical interpretation
+- T062/T063 established a strong zero-reference trajectory, roughly `+3.5` to `+3.9 dB` mean PSNR over T036 replicates across independent internal 100-image cohorts.
+- T063-A/T064-A showed severe historical failures were selection-limited rather than trajectory-capacity-limited: safe prefix checkpoints existed for every diagnosed image.
+- T066-A dynamics are useful primarily as a lower safety-entry signal, not a reliable late-stage catastrophic-quality monitor.
+- T067-B's frozen `lambda=0.875` interpolation between first-safe entry and normalized progress materially improved safety while retaining utility.
+- An already-exposed rare tail motivated several predeclared diagnostics, all closed as insufficient: absolute-step cap, cumulative objective-motion knee, tail-local motion/objective inefficiency, aggregate component-value regret, final projection pressure and symmetric component-gradient cancellation.
+- Continuing to fit exposed or official-test failures would be post-hoc overfitting; the method-design phase remains closed.
 
-From the accepted T063B contract:
+## Fair-comparison program
 
-- mean PSNR delta vs exact T036 `>= 2 dB`;
-- median PSNR delta vs exact T036 `> 0`;
-- regressions vs exact T026 `<= 29/100`;
-- worst paired PSNR delta vs exact T026 `>= -5.614 dB`;
-- mean RGB-SSIM delta vs exact T036 `>= -0.001`.
+The user's stated priority and research-lead lock are now:
 
-These were development gates only. They must not be retrofitted into held-out-test tuning criteria.
+1. frozen Final Ours on complete official LOL-v2 Real test — **completed by T071-A**;
+2. matched baseline evaluation on that exact same complete official split — **current priority**;
+3. later, frozen cross-dataset/domain-shift evaluation on complete held-out sets (at minimum LSRW and UHD-LL), with no target-specific retraining/tuning.
 
-## Development versus final-evaluation protocol
+Development baseline anchors exist (Retinexformer T033-A `21.4787864 / 0.7900612`; SNR-Aware T045-A `23.3963299 / 0.8237644`) but are **diagnostic development numbers only** and must not be compared numerically with the T071-A official-test result as the final Ours-vs-baseline gap.
 
-The original 100-image LOL-v2 Real Train-derived cohort is a **development set**. Exposed transfer cohorts are not fresh qualification once references have been inspected. None of these cohorts may support final Ours-vs-baseline gap claims.
+The matched official-test baseline task must resolve the exact previously accepted Retinexformer and SNR-Aware source/checkpoint/config/training provenance, use the same complete 100-image test manifest and the same T071-A metric implementation, and prohibit test-set retraining/tuning or reference-conditioned inference.
 
-Final comparison rules:
+## Final-evaluation protocol
 
-- Final Ours, model assets, action space, optimizer/stopping/selection rule and all hyperparameters are now frozen by T070-A.
-- Standard in-domain comparison must use the **complete official LOL-v2 Real test split** under the frozen inference protocol.
-- A **cross-dataset/domain-shift held-out evaluation remains required** for the unknown-degradation motivation, e.g. complete LSRW and UHD-LL test splits or equivalent fixed sets.
-- No target-specific retraining/tuning is allowed on held-out sets; only per-image target-free test-time adaptation is permitted.
-- Development baseline anchors are diagnostic only and must not be reported as the final Ours-vs-baseline gap.
-- Held-out outputs/decisions must be frozen before references are read. Reference metrics may be computed only post hoc and may never feed reruns or method changes.
-
-Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.7900612`; SNR-Aware T045-A `23.3963299 / 0.8237644`.
+- Final Ours and all scientific settings are immutable after T070-A.
+- Official-test references are metrics-only evidence after output freeze; official-test outcomes cannot change Ours.
+- A fair baseline comparison must use the exact complete T071-A official split and matched metric semantics, with each baseline's training/exposure condition stated explicitly.
+- Cross-dataset/domain-shift held-out evaluation remains required for the unknown-degradation motivation. LSRW and UHD-LL remain sealed until separately authorized.
+- No target-specific retraining/tuning is allowed on held-out cross-dataset sets; Ours may only perform its already-frozen per-image target-free adaptation.
+- Development or exposed-transfer cohorts may support historical mechanism analysis but cannot support the final Ours-vs-baseline gap.
 
 ## Information-boundary rules
 
 - Test-time adaptation and checkpoint/state selection must never consume test labels, clean/normal-light targets, reference gradients/Jacobians, oracle values, PSNR/SSIM, degradation masks/gain maps, condition IDs, annotations, semantic image IDs, or per-image baseline outcome/harm labels.
-- Quantities computed entirely from the current degraded image/current target-free intermediate image, frozen state, and frozen globally trained/development-only assets are permissible.
-- Held-out clean/reference targets may be read only after the corresponding target-free output/decision table is irrevocably frozen and hashed.
-- Held-out results cannot authorize method tuning, threshold changes, sample exclusion, or reruns with altered scientific settings.
-- Fresh/test runs must fail closed on source/checkpoint/cohort/provenance mismatches.
+- Quantities computed only from the degraded image/current target-free intermediate image, frozen state and frozen global/development-only assets are permissible.
+- Held-out clean/reference targets may be read only after the corresponding output/decision table is irrevocably frozen and hashed.
+- Held-out results cannot authorize method tuning, threshold changes, sample exclusion or reruns with altered scientific settings.
+- Runs fail closed on source/checkpoint/cohort/provenance mismatch.
 
 ## Current open task
 
-**T071-A — complete official LOL-v2 Real test held-out evaluation of frozen Final Ours** in `coordination/CHATGPT_TO_CODEX.md`.
+**T071-B — matched official LOL-v2 Real baseline table** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Run the exact T070-A manifest/source once on the complete official LOL-v2 Real test low images with strict inference-stage `reference_reads=0`. Freeze and hash every target-free output/decision before any reference read, then compute post-hoc PSNR/RGB-SSIM and selected-step statistics over the complete official split. No baseline run, cross-dataset run, method change, or outcome-driven rerun is authorized in this cycle. LSRW and UHD-LL remain sealed.
+Resolve the exact accepted T033-A Retinexformer and T045-A SNR-Aware artifacts/configurations, run them without retraining/tuning on all and only the exact T071-A official low images, freeze outputs before reference evaluation, and compute matched PSNR/RGB-SSIM using the exact T071-A evaluator. Record training/exposure provenance and paired differences relative to the already-frozen Final Ours. Do not modify Ours and do not access LSRW/UHD-LL in this cycle.
