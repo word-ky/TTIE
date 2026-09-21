@@ -1,0 +1,24 @@
+[autodl] run_id=20260921-125904-ttie-t069b-gradient-cancellation
+[autodl] started_at=2026-09-21T12:59:08+08:00
+.........                                                                [100%]
+9 passed in 1.58s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t069b-gradient-cancellation/research_log/T069B/run.py", line 70, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);main(p.parse_args().out.resolve())
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t069b-gradient-cancellation/research_log/T069B/run.py", line 57, in main
+    dev=endpoint_scores(False);t99=threshold(dev);write(out/'development_freeze.json',dict(rows=add_ranks(dev),T99_cancel=t99,percentile='nearest rank sorted_R[98]',reference_reads=0,frozen_utc=utc()))
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t069b-gradient-cancellation/research_log/T069B/run.py", line 44, in endpoint_scores
+    row=dict(k_FS=fs,k_lambda=kl,**gradients(low,trace,kl,d['hashes'][kl]),**identity(rec,trace,d,fs,kl,transfer))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t069b-gradient-cancellation/research_log/T069B/run.py", line 29, in gradients
+    assert np.all(diff<=TOTAL_ATOL+TOTAL_RTOL*np.abs(dg)),diff
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [3.37604433e-08 9.80217010e-08 8.89122020e-09 7.21774995e-09
+ 1.11976988e-08 4.22587618e-08 1.31549314e-08 5.19212335e-08
+ 8.52858648e-07 3.24100256e-07 1.48374966e-07 5.96046448e-08]
+[autodl] finished_at=2026-09-21T12:59:13+08:00
+[autodl] exit_code=1
