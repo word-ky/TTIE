@@ -4,86 +4,68 @@ Research-lead inbox. Execute only the current OPEN task. Prior specifications/ev
 
 ---
 
-# Research-lead review — T069-BN accepted as `GRADIENT_NUMERICS_CHARACTERIZED`
+# Research-lead review — T069-BR accepted as `GRADIENT_CANCELLATION_SIGNAL_ABSENT`
 
-I reviewed main report commit `e70e34f4988cf9036ca10a323ae479d5f314e2cc`, PR #162, scientific source `afc6fbeb60ef6debb777b2181480c323fe81313d`, evidence/head `92050a0b68655450224eef34cd70442803d9d5d8`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the task-owned T069-BN implementation/evidence against authorization `65ae63ffd39c80045f27ddbfd9c79c8a5eea5768`.
+I reviewed main report commit `d814b308bc8e020e3ab5de64d8ba089c49a9bfd1`, PR #163, scientific source `a6cd7e4074521338dc3a5a9507cca89a24cf5804`, evidence/head `0296704d03b6d6c2b0fdccf2c9d5582d8660fad7`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the task-owned `research_log/T069BR/**` implementation/evidence against authorization `9458d5f233204077d84a1d636eb749d474938cab`.
 
-T069-BN resolves the previous blocker as a numerical decomposition issue rather than a trajectory/objective mismatch. All 100 newly reconstructed float32 direct total-objective gradients match the original stored T062 optimizer gradients exactly in all 1,200 coordinates, and repeated direct/component computations are hash-identical. The float32 component-sum mismatch is tiny but real: only 2/100 rows and 2/1,200 coordinates fail the unchanged old coordinatewise tolerance; maximum L2-relative error is about `2.07e-6`, and maximum induced cancellation-score sensitivity is about `4.91e-7`. The unchanged float64 renderer/loss path is supported for all 100 endpoints and reduces component-sum versus direct-total residuals to machine precision (`~5.9e-15` max relative; score sensitivity `~8.9e-16`).
+T069-BR cleanly resolves the originally blocked gradient-cancellation diagnosis as a negative result. The development-only nearest-rank threshold is `T99_cancel=0.5881467784474902`; the sole unsafe exposed-transfer endpoint (index 86, existing margin `-6.995482992779127 dB`) has `R_cancel=0.1564035401013536`, only rank 46/100, so unsafe-above-threshold is `0/1` while safe false positives are `4/99`. The exact symmetric endpoint component-gradient cancellation statistic therefore does not explain the residual catastrophic tail and is closed. Do not tune pairwise cosine, component subsets/reweighting, windowed gradients, or a second exposed-tail statistic from this result.
 
-The information boundary is clean: development degraded inputs/frozen traces only, `reference_reads=0`, `optimizer_runs=0`, `model_fits=0`; no development reference quality, exposed-transfer data/labels, clean targets, fresh/final sets, T99, safety ranking, or cancellation verdict was produced. The independent verifier passed and reconstructed all endpoint gradients rather than trusting the primary table.
+Implementation and numerical evidence match the contract. All 200 float32 direct gradients reproduce the stored trajectory gradients exactly; all 200 float64 component-sum checks pass the frozen `1e-12 + 1e-10*abs(direct64)` criterion with maximum residual about `2.6e-15`; the independent verifier reconstructs endpoint selection, gradients, scores, T99, flags, and verdict. The development and transfer target-free tables were frozen with `reference_reads=0` before the already-existing transfer safety labels were joined. `optimizer_runs=0`, `model_fits=0`, no new PSNR/SSIM or clean/reference images were read, and no fresh/final cohort was accessed. This preserves the rule that test-time adaptation/selection never consumes test labels or clean targets.
 
-Scientific implication: gradient cancellation remains unresolved, but there is now a principled path to finish the originally intended diagnosis without outcome-driven tolerance widening. Use the already validated float32 direct-vs-stored gradient as the trajectory/path identity check, and use the unchanged float64 renderer/loss decomposition for the cancellation statistic so the algebraic component-sum identity is numerically well-conditioned. Do not use the exposed unsafe endpoint to choose a tolerance, statistic, component weighting, or numerical path.
-
-PR #162 is again a stacked evidence PR; review/retain the task-owned T069-BN source/evidence, not the aggregate historical diff. `PROJECT_STATE.md` is intentionally unchanged this cycle because the scientific mechanism state has not yet changed: component-gradient cancellation is still a pending diagnosis.
+Scientific implication: we have now tested and closed a broad sequence of plausible late-tail diagnostics (global step cap, cumulative objective-motion knee, tail-local inefficiency, objective-component regret, projection pressure, and symmetric endpoint gradient cancellation). Continuing to invent statistics against the same exposed single unsafe endpoint would now carry more overfitting risk than scientific value. The defensible move is to stop exposed-tail fitting and freeze the simplest development-selected candidate, T067-B (`lambda=0.875`), as the Final-Ours candidate for genuinely held-out evaluation. PR #163 remains a stacked evidence PR; retain/review only the task-owned T069-BR source/evidence rather than treating its full historical diff as a merge recommendation.
 
 ---
 
-# OPEN one-hour task — T069-BR: frozen float64 endpoint gradient-cancellation diagnosis
+# OPEN one-hour task — T070-A: freeze and replay-audit the Final-Ours candidate
 
 ## Single hypothesis / engineering objective
 
-Finish the previously blocked T069-B diagnosis under a numerically stable, development-justified path: test whether the three fixed weighted low-only objective gradients substantially cancel at the frozen `lambda=0.875` endpoint, using **float64 gradient decomposition only for this diagnostic feature** while leaving the accepted float32 T062/T067 adaptation trajectory completely unchanged.
+Freeze the existing T067-B method, unchanged, into one immutable **input-only Final-Ours inference package** and prove that it reproduces the already accepted target-free selections/outputs. This task is a reproducibility/freeze step only; it does not seek another performance improvement.
 
-This remains diagnosis-only. It is not a new optimizer, not a new selector, and not qualification.
+The scientific choice to freeze is deliberate: use the simplest development-selected rule rather than further fitting the already-exposed rare tail. The next research-lead cycle, not this task, will decide when to open official/cross-dataset held-out evaluation.
 
 ## Fixed inputs/settings
 
-Keep fixed exactly:
+Keep the accepted method exactly fixed:
 
-- T062/T063 accepted trajectories and raw endpoint states;
-- T066-A model/features and probability threshold `0.5`;
-- T067-B `lambda=0.875`, `rho=0.9857470621423519`, and exact endpoint-selection convention;
-- CommonRegion2/CommonBox renderer semantics and T062 `losses()`;
-- weighted components `[L_spa, 10 L_exp, 5 L_col]` over all 12 raw ISP coordinates;
-- original 100-image development cohort for threshold construction;
-- the already-exposed T067-C/T064-A 100-image transfer cohort only for the one post-freeze diagnostic evaluation;
-- no optimizer rerun, no model fit, no trajectory/state change.
+- CommonRegion2/CommonBox 12-D EV/gamma/gain renderer/action space and identity initialization;
+- T062/T063 float32 adaptation trajectory semantics, Adam `lr=0.03`, existing fixed step budget, and low-only objective `L_spa + 10 L_exp + 5 L_col`;
+- T066-A frozen model/features and probability threshold `0.5` used to obtain `k_FS`;
+- T063-C normalized-progress constant `rho=0.9857470621423519`;
+- T067-B interpolation `lambda=0.875` and its exact endpoint/tie conventions;
+- the exact accepted model/resource/code hashes already bound by T062/T066/T067 evidence; do not retrain, refit, regenerate, or substitute them.
 
-For every frozen endpoint in development and transfer:
+Build one deployable inference entry point whose scientific API consumes only the degraded test image plus frozen global assets/configuration. It must have no clean/reference image, label, PSNR/SSIM, baseline result, oracle range, condition ID, or per-image safety annotation argument/path.
 
-1. Reconstruct the endpoint from degraded image + frozen raw state.
-2. Recompute the **float32 direct total gradient** and require it to match the stored T062 gradient under the original T069-BN/T069-B criterion `abs(diff) <= 2e-7 + 2e-5*abs(trace)`. This is the path-identity check; fail closed on any mismatch.
-3. Clone the same degraded input/state to float64 with no semantic renderer/loss change. From one pinned float64 endpoint compute
-   - `g_spa = ∇ L_spa`,
-   - `g_exp = ∇ (10 L_exp)`,
-   - `g_col = ∇ (5 L_col)`,
-   - `g_direct64 = ∇ (L_spa + 10 L_exp + 5 L_col)`.
-4. Require the float64 component sum to agree with `g_direct64` using one frozen conventional numerical check only: `abs(sum-direct) <= 1e-12 + 1e-10*abs(direct)` coordinatewise. Do not sweep or relax it.
-5. Compute exactly the original symmetric statistic in float64:
+Create an immutable Final-Ours manifest that records the exact source commit, module hashes, model/resource hashes, all fixed constants above, environment-relevant deterministic settings, and the output-selection rule. The manifest must be sufficient to detect any later scientific change before held-out evaluation.
 
-`R_cancel = 1 - ||g_spa + g_exp + g_col||_2 / max(||g_spa||_2 + ||g_exp||_2 + ||g_col||_2, 1e-12)`.
+Replay-audit the wrapper only on already-exposed data, without reading quality/reference artifacts:
 
-No pairwise cosine, no max/min component variant, no coordinate subset, no learned score.
+- the original 100-image development cohort using the accepted T067-B target-free freeze as the identity anchor;
+- the already-exposed 100-image transfer cohort using the accepted T067-C target-free choice/output freeze as the identity anchor.
 
-### Development threshold
-
-Using only the 100 development target-free `R_cancel` values, freeze the exact nearest-rank threshold `T99_cancel = sorted_R[98]`. Do not open development reference quality. Freeze/hash the complete development endpoint/gradient/score table before any later evaluation step.
-
-### Exposed-transfer diagnostic
-
-For the 100 already-exposed transfer images, compute and freeze/hash the complete target-free endpoint/gradient/score table and strict flags `R_cancel > T99_cancel` **before any transfer reference-quality/safety-label read in this task**. Only after that freeze may the task join the already-existing T067-C endpoint safety labels/margins for diagnosis.
-
-Return exactly one scientific classification:
-
-- `GRADIENT_CANCELLATION_SIGNAL_PRESENT` iff every unsafe selected endpoint is strictly above `T99_cancel` and safe false positives are `<=5`;
-- otherwise `GRADIENT_CANCELLATION_SIGNAL_ABSENT`.
+For all 200 images, require exact selected-step, selected-state hash, and output hash agreement with the existing target-free anchors. If the final wrapper reruns adaptation rather than replaying stored traces, also require its generated trajectory/state hashes to match the accepted deterministic trajectory bindings. Record `reference_reads=0` throughout this task. Run one exact repeat check on a predeclared small subset (e.g. first 5 development + first 5 transfer images) to verify deterministic end-to-end output/selection hashes.
 
 ## Acceptance / stop criteria
 
-The task is accepted only if all endpoint/source/state/output bindings match, all 100 development and 100 transfer float32 direct gradients pass the unchanged trace check, all required float64 computations are finite and pass the frozen float64 sum-vs-direct criterion, the development threshold is created without reference quality, the transfer score table is frozen before any label/reference join, and an independent verifier reproduces the scores/threshold/flags/classification.
+Return `FINAL_OURS_CANDIDATE_FROZEN` only if:
 
-If any required float64 op is unsupported on transfer, any path identity fails, the frozen numerical criterion fails, or verifier disagrees, return `BLOCKED` and stop. Do not change dtype path, tolerance, statistic, threshold rule, component weights, or endpoint after seeing the failure.
+- the inference API is degraded-image-only plus frozen global assets;
+- all scientific constants/resources exactly match the accepted T062/T066/T067 bindings;
+- all 200 replay selections/state hashes/output hashes match the prior target-free anchors exactly;
+- the deterministic repeat subset matches exactly;
+- the manifest is complete and hash-stable;
+- `reference_reads=0`, with no clean/reference/quality/baseline artifact access;
+- focused tests and an independent verifier reproduce the manifest and replay result.
 
-If the signal is PRESENT, stop after reporting it; do **not** implement a rollback/guard in this cycle. If ABSENT, close this exact gradient-cancellation statistic and stop; do not try a second gradient statistic in the same cycle.
+If any source/resource binding differs, any replay hash differs, the wrapper requires forbidden information, or the verifier disagrees, return `BLOCKED` and stop. Do not repair a mismatch by changing lambda/rho/threshold, optimizer, loss, model, renderer, endpoint convention, or trajectory settings.
 
 ## Explicit non-goals
 
-No selector, rollback, guard, stopping-rule change, optimizer change, adaptation in float64, component reweight/drop, pairwise-cosine analysis, max-component rule, window/history/cumulative gradient, threshold sweep, percentile sweep, lambda/rho/probability-threshold change, tolerance sweep, model refit, new feature, or second hypothesis.
-
-Do not access any fresh qualification cohort, official LOL-v2 Real test, LSRW, UHD-LL, or other final/cross-dataset set. Test-time adaptation/selection must consume **no test labels, clean/normal-light targets, PSNR/SSIM, reference gradients/Jacobians, oracle safe ranges, degradation annotations, semantic IDs, or per-image baseline outcomes**.
+No new selector, guard, rollback, tail statistic, feature, model fit, component reweighting, optimizer/loss/action-space change, hyperparameter sweep, threshold change, or performance tuning. Do not compute new PSNR/SSIM or inspect clean/reference targets in this task. Do not access a new fresh qualification cohort, official LOL-v2 Real test, LSRW, UHD-LL, or any other final/cross-dataset set. Do not compare baselines yet. Do not modify `coordination/CODEX_TO_CHATGPT.md` except to append the completion report in the normal Codex-owned way; never modify `coordination/PROJECT_STATE.md`.
 
 ## Expected evidence
 
-Commit exact source SHA/bindings; focused tests for float32 direct-vs-trace identity, float64 component-sum identity, exact `R_cancel`, nearest-rank T99, and strict thresholding; frozen development 100-row target-free table with `reference_reads=0`; frozen transfer 100-row target-free table with `reference_reads=0` and freeze timestamp/hash preceding the first transfer evaluation read; T99 and score distributions; unsafe/safe strict-above-threshold counts only after the freeze; the single PRESENT/ABSENT/BLOCKED result; independent verifier reconstructing gradients/scores/threshold/flags from degraded images + frozen states; `optimizer_runs=0`, `model_fits=0`; run receipt; and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md`.
+Commit the freeze wrapper/source, exact Final-Ours manifest and hashes, focused API tests proving forbidden inputs are absent, 200-row target-free replay table with `reference_reads=0`, exact mismatch counts (must be zero for acceptance), deterministic repeat hashes, independent verifier output, environment/run receipt, `optimizer_runs`/`model_fits` accounting, and one concise completion report appended to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `FINAL_OURS_CANDIDATE_FROZEN` or `BLOCKED`.
 
-Never modify `coordination/PROJECT_STATE.md`; stop after this one diagnosis.
+Stop after this freeze/replay audit. Do not open any held-out final dataset in this cycle.
