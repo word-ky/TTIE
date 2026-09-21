@@ -22,7 +22,7 @@ def main(method,low,out):
     assert low.name==json.loads((HERE/'smoke_selection.json').read_bytes())['name']
     out.mkdir(parents=True,exist_ok=False)
     record=dict(method=method,source_commit=os.environ['TTIE_SOURCE_COMMIT'],source_binding=binding,started_utc=utc(),low=str(low),input_sha256=sha(low),geometry=receipt['geometry'],reference_reads=0,model_fits=0,attempts=0,gpu=torch.cuda.get_device_name(),cuda_visible_devices=os.environ['CUDA_VISIBLE_DEVICES'],cuda_memory_free_before=torch.cuda.mem_get_info()[0],cuda_memory_total=torch.cuda.mem_get_info()[1])
-    write(out/'receipt.json',record);begin=time.perf_counter();opened=[]
+    write(out/'initial_receipt.json',record);begin=time.perf_counter();opened=[]
     try:
         if method=='ours':
             from research_log.T070A.infer import FinalOurs,native_rgb
