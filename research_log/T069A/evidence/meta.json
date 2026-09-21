@@ -1,0 +1,6 @@
+{
+  "runId": "20260921-115710-ttie-t069a-projection-pressure",
+  "releaseId": "20260918-075511-ttie-t059j-oracle",
+  "sessionName": "autodl-20260921-115710-ttie-t069a-projection-pressure",
+  "command": "cd /media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t069a-projection-pressure && export CUDA_VISIBLE_DEVICES=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_THREADING_LAYER=SEQUENTIAL TTIE_SOURCE_COMMIT=d19973d9058844cc1ec54639f61e77efc6cbb13d && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m pytest research_log/T069A research_log/T068D research_log/T067B -q && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T069A.run --out /media/wenchang/F/wjq/TTIE/runs/T069A-projection-pressure && /home/wenchang/asdasdsad/wjq/TTIE/.venv/bin/python -B -m research_log.T069A.verify --out /media/wenchang/F/wjq/TTIE/runs/T069A-projection-pressure"
+}
