@@ -1,0 +1,77 @@
+{
+  "task": "T072-H",
+  "status": "BLOCKED",
+  "classification": "BLOCKED",
+  "authorization_source": "coordination/CHATGPT_TO_CODEX.md (T072-H)",
+  "checked_at": "2026-09-22T06:56:37+08:00",
+  "dataset": "UHD-LL",
+  "smoke_input": {
+    "relative_name": "1003_UHD_LL.JPG",
+    "geometry": [3840, 2160],
+    "sha256": "cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca",
+    "decoded": false
+  },
+  "frozen_bindings": {
+    "final_ours_manifest_sha256": "e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9",
+    "retinexformer_upstream_commit": "1e9a0efce4b306b6701b824768370ff26066c32a",
+    "retinexformer_checkpoint_sha256": "539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b",
+    "retinexformer_binding_sha256": "a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00",
+    "snr_aware_upstream_commit": "1113144c82adc8bcc4a9ec27749ed75f196a4e4d",
+    "snr_aware_checkpoint_sha256": "432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781",
+    "snr_aware_binding_sha256": "03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875"
+  },
+  "gpu_gate": {
+    "requirements": {
+      "minimum_free_mib": 40960,
+      "maximum_unrelated_process_mib": 1024
+    },
+    "devices": [
+      {
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 45043,
+        "free_mib": 3497,
+        "utilization_percent": 0,
+        "unrelated_processes": [
+          {
+            "pid": 1337099,
+            "name": "VLLM::Worker_TP0",
+            "used_mib": 44972
+          }
+        ],
+        "qualifies": false
+      },
+      {
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 45041,
+        "free_mib": 3499,
+        "utilization_percent": 0,
+        "unrelated_processes": [
+          {
+            "pid": 1337100,
+            "name": "VLLM::Worker_TP1",
+            "used_mib": 44972
+          }
+        ],
+        "qualifies": false
+      }
+    ],
+    "qualifying_device": null
+  },
+  "accounting": {
+    "inference_runs": 0,
+    "optimizer_runs": 0,
+    "model_fits": 0,
+    "reference_reads": 0,
+    "metrics": 0,
+    "smoke_input_decodes": 0,
+    "retinexformer_status": "UNRUN",
+    "snr_aware_status": "UNRUN",
+    "final_ours_status": "REUSED_PRIOR_T072C_RECEIPT_NOT_RERUN"
+  },
+  "gate_command": "nvidia-smi --query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu --format=csv,noheader; nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory --format=csv,noheader",
+  "next_step": "Wait for a qualifying idle A6000; then run each frozen baseline once on the exact smoke input under the authorized native-4K protocol."
+}
