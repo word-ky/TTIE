@@ -9,7 +9,7 @@ from research_log.T071B.common import HERE,PAIRS,OURS,ARCHIVE,METHODS,read,write
 
 def main(out):
     cohort=read(PAIRS);ours=read(OURS);result=read(out/'result.json');first=read(out/'reference_open.json')
-    assert sha(ARCHIVE)==cohort['archive_sha256']
+    assert sha(ARCHIVE)==cohort['provenance']['archive_sha256']
     assert sha(PAIRS)==result['pairs_manifest_sha256'] and sha(OURS)==result['ours_per_image_sha256']
     freezes={m:read(out/m/'freeze.json') for m in METHODS};tables={m:read(out/m/'per_image_metrics.json') for m in METHODS}
     errors=[];values={m:[] for m in METHODS}
