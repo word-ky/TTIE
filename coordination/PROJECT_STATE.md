@@ -17,28 +17,25 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 - **Fresh-qualified action extension:** T036-A CommonRegion2/CommonBox 12-D gain path, `+0.9392571 dB` mean over exact T026-A on its fresh cohort, with the fixed unresolved tail gate (`29/100` regressions; worst `-5.614 dB`).
 - T062/T063 establish a substantially stronger zero-reference trajectory, roughly `+3.5` to `+3.9 dB` mean PSNR over T036 replicates across independent 100-image cohorts, but rare worst-tail checkpoint selection remains unresolved.
 - T063-A/T064-A show the severe failures are **selection-limited, not trajectory-limited**: safe prefix checkpoints exist for every diagnosed image.
-- Fixed stopping, cumulative loss balance, antithetic sensitivity, snapshot-based safety readouts, the current dynamics rollback guard, exact first-safe stopping, exact global `lambda=0.875` interpolation, a global absolute-step cap, the exact cumulative objective-motion knee, the exact three-transition endpoint motion/objective inefficiency statistic, and the exact aggregate low-only component-regret statistic have all been tested and are insufficient for qualification.
 - Official LOL-v2 Real test and all cross-dataset held-out sets remain sealed.
 
 The accepted T036/T062/T063 action family starts from each raw low image with identity state and uses the fixed 12-D EV/gamma/gain CommonRegion2/CommonBox renderer. T062/T063 keep this action space and Adam `lr=0.03`, using the fixed low-only objective `L_spa + 10 L_exp + 5 L_col`.
 
 ## Current scientific state
 
-### Normalized progress is strong on average but has rare catastrophic tails
+### Strong trajectory utility, unresolved rare-tail checkpoint safety
 
-T063-C development selects global `rho=0.9857470621423519`. On an already reference-exposed transfer cohort it passes all five fixed gates with absolute `15.8475933 dB / 0.4171932`, mean/median PSNR delta vs exact T036 `+3.7100596/+3.2033990 dB`, `10/100` regressions vs T026, worst paired delta `-4.3235641 dB`, and mean RGB-SSIM delta `+0.0145986`. This is exposed-cohort development evidence only, not qualification.
+T063-C development selects global `rho=0.9857470621423519`. On the later T063-D/T064-A 100-image cohort, the frozen normalized-progress rule gives absolute `15.4718452 dB / 0.3978969`, mean/median PSNR delta vs exact T036 `+3.8619303/+3.8144067 dB`, `12/100` regressions, and mean RGB-SSIM delta `+0.0184218`, but worst paired delta is `-10.3649447 dB`. T064-A re-rendering proves all `100/100` images have safety-reachable prefix checkpoints, so the dominant problem is checkpoint selection/safety rather than reachable-state capacity.
 
-On the later T063-D/T064-A 100-image cohort, the same normalized-progress logic gives absolute `15.4718452 dB / 0.3978969`, mean/median PSNR delta vs exact T036 `+3.8619303/+3.8144067 dB`, `12/100` regressions, and mean RGB-SSIM delta `+0.0184218`, but worst paired delta is `-10.3649447 dB`. T064-A re-rendering proves all `100/100` images have safety-reachable prefix checkpoints; the problem is therefore checkpoint selection/safety, not reachable-state capacity.
+### Dynamics identify safety entry but not late-stage failure
 
-### Dynamics identify broad safety entry but do not monitor late failure
+T066-A adds target-free trajectory-dynamics features and obtains development LOIO unsafe-state recall `73/81 = 0.9012346`. T066-B transfer still identifies many unsafe states (`77/98` overall; `77/89` inside the normalized-progress prefix) but detects `0/2` unsafe selected base checkpoints. T066-C shows those correctly detected unsafe states occur before the first predicted-safe crossing; after crossing, the two catastrophic images remain predicted safe through their selected late checkpoints.
 
-T066-A adds trajectory-dynamics features and obtains development LOIO unsafe-state recall `73/81 = 0.9012346`. On transfer, T066-B still achieves `77/98` unsafe recall overall and `77/89` within the normalized-progress prefix, but detects `0/2` unsafe selected base checkpoints. T066-C shows all `77` correctly detected unsafe prefix states occur before first predicted-safe crossing; after that crossing the two catastrophic images remain predicted safe through their selected late checkpoints and do not exhibit safe→unsafe→safe re-entry.
+**Implication:** the frozen dynamics model is useful as a lower safety-entry signal, not a reliable late-stage quality monitor.
 
-**Implication:** the frozen dynamics classifier is useful as a lower safety-entry signal, not as a reliable late-stage quality monitor.
+### First-safe and normalized progress are complementary, but one global interpolation is not sufficient
 
-### First-safe and progress are complementary, but the global interval rule is still insufficient
-
-T067-A exact first-safe stopping protects the catastrophic tails but fires much too early globally: `64/100` images stop at step `0` or `1`, with `9.2430042 dB / 0.2483034`, mean/median PSNR delta vs T036 `-2.3669107/-2.8148540 dB`, `75/100` regressions, worst `-6.1126334 dB`, and SSIM delta `-0.1311716`. First-safe is not a quality-optimal stop.
+T067-A exact first-safe stopping protects the known tails but fires much too early globally: `64/100` images stop at step `0` or `1`; mean/median PSNR delta vs T036 is `-2.3669107/-2.8148540 dB`, with `75/100` regressions.
 
 T067-B development-only interpolation between first-safe and normalized progress selects a robustness-first global `lambda=0.875` and passes all five development gates:
 
@@ -47,57 +44,35 @@ T067-B development-only interpolation between first-safe and normalized progress
 - worst paired delta `-2.4273992 dB`;
 - mean RGB-SSIM delta `+0.0204407`.
 
-T067-C applies that exact frozen rule once to the exposed transfer cohort. It preserves strong utility and passes four of five gates: absolute `14.4947881 dB / 0.4086309`, mean/median PSNR delta vs T036 `+2.8848732/+2.5733133 dB`, `5/100` regressions, mean RGB-SSIM delta `+0.0291559`, but worst paired delta `-6.9954830 dB`, below the unchanged `-5.614 dB` floor. Relative to T063-D, interpolation improves the worst tail by about `3.37 dB` but leaves one severe residual failure.
+T067-C applies that exact frozen rule once to the exposed transfer cohort. It preserves strong utility and passes four of five gates: absolute `14.4947881 dB / 0.4086309`, mean/median PSNR delta vs T036 `+2.8848732/+2.5733133 dB`, `5/100` regressions, mean RGB-SSIM delta `+0.0291559`, but worst paired delta remains `-6.9954830 dB`, below the unchanged `-5.614 dB` floor. Only one selected endpoint remains unsafe under the fixed gate: index 86 at `k_FS=9`, `k_lambda=21`.
 
-T067-D diagnoses the frozen interval geometry. Across `2465` inclusive `[k_FS,k_rho]` states there are only `12` reference-unsafe states across `5/100` images; three unsafe intervals later recover. The two non-recovering known tails are safe through absolute step 19 and first become unsafe at step 20, but their normalized boundary locations differ (`q≈0.9779` vs `0.8726`).
+T067-D shows unsafe behavior inside `[k_FS,k_rho]` is sparse and can recover: only `12` unsafe states across `5/100` images, with three unsafe intervals later returning safe. The two non-recovering diagnosed tails are safe through absolute step 19 and first become unsafe at step 20, but their normalized boundary positions differ, so neither a universal normalized-q cutoff nor an absolute-step rule is justified from the exposed cohort.
 
-### Global absolute-step budget is not portable
+### Closed global/trajectory-statistic families
 
-T068-A tests the complete development-only cap family `K=0..27` under `k_K=max(k_FS,min(k_lambda,K))`. The predeclared ranking selects `K=27`, the no-cap control; K=25/26/27 are identical. K=20..27 all pass the fixed gates, but no finite cap improves the ranked robustness objective over uncapped `lambda=0.875`.
+The following exact constructions have been tested and are insufficient for qualification or tail detection under their predeclared contracts:
 
-**Implication:** the exposed step-20 coincidence is diagnostic, not evidence for a portable global optimizer-step budget. The absolute-step-cap family is closed.
+- **T068-A global absolute-step cap:** full development family `K=0..27` selects `K=27`, the no-cap control. The exposed step-20 coincidence is not portable evidence for a global budget.
+- **T068-B cumulative objective-motion knee:** changes `98/100` development choices and loses about `2.64 dB` mean PSNR relative to the frozen `lambda=0.875` control; it fires too early on ordinary trajectories.
+- **T068-C three-transition tail motion/objective inefficiency:** development `T99=0.6324473435`; the sole unsafe transfer endpoint scores `0.4650582340`, rank `15/100`, so unsafe-above-threshold is `0/1` and safe false positives are `2/99`.
+- **T068-D aggregate objective-component regret:** development `T99_comp=0.1910869733`; the sole unsafe transfer endpoint scores `R_comp=0.0419923923`, rank `52/100`; unsafe-above-threshold `0/1`, safe false positives `4/99`. At index 86 the weighted exposure term is at its interval minimum while spatial/color regrets are at their interval maxima, but this does not authorize post-hoc reweighting or component dropping.
+- **T069-A endpoint CommonBox projection pressure:** development `T99_proj=0.7311988023`; the sole unsafe transfer endpoint has nonzero final proposed displacement `0.0756094836` but `p == s_end` exactly, hence zero clipping and `R_proj=0`. Unsafe-above-threshold is `0/1`; safe false positives `1/99`. Independent verification reconstructs the exact CommonBox transition and confirms the result with `optimizer_runs=0`, `model_fits=0`.
 
-### Scalar objective-versus-motion geometry is not a reliable late-tail signal
-
-T068-B tests exactly one parameter-free per-image cumulative knee inside `[k_FS,k_lambda]`: normalized cumulative low-only objective progress `u_k` versus normalized cumulative rendered-image RMS motion `v_k`, selecting `argmax(u_k-v_k)`.
-
-The exact rule changes `98/100` development choices and moves almost all of them earlier. It fails three fixed development gates:
-
-- mean PSNR delta vs T036 `-0.0056982 dB` — fail;
-- median PSNR delta vs T036 `-0.1198571 dB` — fail;
-- regressions vs T026 `25/100` — pass;
-- worst paired delta vs T026 `-2.4273992 dB` — pass;
-- mean RGB-SSIM delta vs T036 `-0.0116460` — fail.
-
-Versus the exact frozen `lambda=0.875` control, the knee loses `-2.6417328 dB` mean PSNR, `-2.3047391 dB` median PSNR, and `-0.0320868` mean RGB-SSIM. The verifier rerenders `2,041` interval states, independently recomputes all `2,800` development quality states, and matches the primary curves/metrics to numerical precision; `optimizer_runs=0`, `model_fits=0`.
-
-T068-C then tests one strictly local endpoint statistic with a fixed 3-transition window: trailing rendered-image motion share divided by trailing scalar low-only objective-progress share. The development-only nearest-rank threshold is `T99=0.6324473435`. On the exposed transfer cohort, the sole unsafe T067-C selected endpoint (index 86, margin vs T026 `-6.9954830 dB`) has score `R=0.4650582340`, rank `15/100`, so it is not flagged; `0/1` unsafe endpoints and `2/99` safe endpoints exceed T99. Independent verification reproduces the scores, threshold and diagnosis with `optimizer_runs=0`, `model_fits=0`.
-
-**Scientific implication:** both tested scalar-total-objective/image-motion constructions fail for complementary reasons: the cumulative rule fires too early on normal trajectories, while the fixed tail-local ratio does not make the transferred late failure exceptional. These exact constructions are closed; do not tune them on the exposed cohort.
-
-### Aggregate objective-component regret also misses the residual tail
-
-T068-D tests exactly one target-free endpoint regret statistic over the fixed weighted component vector `Z=[L_spa, 10 L_exp, 5 L_col]` on each frozen `[k_FS,k_lambda]` interval. The development-only nearest-rank threshold is `T99_comp=0.1910869733`.
-
-On the exposed transfer cohort, the sole unsafe selected endpoint (index 86, margin vs T026 `-6.9954830 dB`) has `R_comp=0.0419923923`, descending rank `52/100`, so it is not flagged; `0/1` unsafe and `4/99` safe endpoints exceed T99. Independent verification directly recomputes all three low-only components from degraded images plus frozen rendered states, reproduces the score/threshold/diagnosis, and reports `optimizer_runs=0`, `model_fits=0`.
-
-Mechanistically, index 86 reaches the interval minimum of the weighted exposure term at the selected endpoint (`a_exp=0`) while spatial and color regrets are at their interval maxima; the much larger exposure excursion dominates the exact aggregate denominator. This explains why the frozen aggregate score is small, but it does **not** authorize exposed-cohort reweighting, dropping exposure, or switching to a max/subset statistic after seeing the failure.
-
-**Scientific implication:** the exact aggregate component-regret construction is closed. The remaining justified direction should be mechanistically distinct from post-hoc reaggregation of the same objective components. One such untested signal is optimizer **projection pressure**: T062 stores Adam proposals before CommonBox projection, whereas ordinary state/image features observe only the projected state and may hide pressure against the fixed action bounds.
+**Scientific implication after T069-A:** the known residual catastrophic endpoint is not explained by final-step action-bound saturation or clipping. Scalar objective progress, rendered-image motion, endpoint component-value regret, and final projection pressure have all failed as exact late-tail diagnostics. The next justified probe is a mechanistically distinct, symmetric test of **weighted component-gradient cancellation** at the frozen endpoint. This must not be turned into component reweighting or an exposed-cohort-tuned selector.
 
 ## Retained mechanism conclusions
 
 - The 12-D renderer/trajectory has substantial usable capacity; the dominant unresolved issue is **target-free checkpoint selection/safety**, not reachable-state capacity.
 - Large mean improvement of the zero-reference trajectory has replicated across independent cohorts.
-- `first_safe` and normalized progress are complementary: one gives a lower target-free entry endpoint, the other retains utility. Their global interpolation materially reduces tail harm but still misses a rare transferred tail.
+- `first_safe` and normalized progress are complementary: one provides a lower target-free entry point, the other preserves utility. Their global interpolation materially reduces tail harm but does not completely remove rare transfer failures.
 - Unsafe interval behavior is sparse and can be non-monotone/recovering. Neither a universal normalized-q cutoff nor a universal absolute-step cap is supported.
-- The exact cumulative objective-motion knee, exact three-transition motion/objective endpoint ratio, and exact aggregate objective-component regret are closed. Their failures do not prove that every conceivable target-free trajectory statistic is useless, but there is no justification for exposed-cohort tuning/reweighting of these failed constructions.
-- The next justified probe is a **diagnostic of endpoint optimizer projection pressure** using the already-recorded post-Adam/pre-CommonBox proposal versus the post-projection state. It must remain diagnostic until a frozen signal is demonstrated.
+- The exact cumulative objective-motion knee, tail-local motion/objective ratio, aggregate objective-component regret, and final-transition projection-pressure statistic are closed. Do not tune variants of these exact failed mechanisms on the exposed transfer cohort.
+- The next diagnostic tests whether the three fixed weighted low-only objective gradients substantially cancel in raw 12-D ISP parameter space at the frozen endpoint. It remains diagnosis-only until a target-free frozen signal is demonstrated.
 - Reference-oracle diagnostics may motivate only global research choices. Per-image oracle values, safe ranges, PSNR/SSIM, baseline outcomes and clean targets are forbidden from deployable inference.
 
 ## Fixed evaluation gates used in the current development line
 
-From the accepted `research_log/T063B/core.py` contract:
+From the accepted T063B contract:
 
 - mean PSNR delta vs exact T036 `>= 2 dB`;
 - median PSNR delta vs exact T036 `> 0`;
@@ -109,7 +84,7 @@ These thresholds must not be changed in response to exposed-cohort outcomes.
 
 ## Development versus final-evaluation protocol
 
-The original 100-image LOL-v2 Real Train-derived cohort is a **development set**. It may be used for method design, global training/hyperparameter selection, ablations and failure analysis. Exposed transfer cohorts may support diagnostics/method development only after explicit freezing; they are not fresh qualification once references have been inspected. None of these cohorts may support final Ours-vs-baseline gap claims.
+The original 100-image LOL-v2 Real Train-derived cohort is a **development set**. It may be used for method design, global training/hyperparameter selection, ablations and failure analysis. Exposed transfer cohorts may support diagnostics/method development only after explicit target-free freezing; they are not fresh qualification once references have been inspected. None of these cohorts may support final Ours-vs-baseline gap claims.
 
 Final comparison rules:
 
@@ -133,6 +108,6 @@ Current development baseline anchors: Retinexformer T033-A `21.4787864 / 0.79006
 
 ## Current open task
 
-**T069-A — frozen endpoint projection-pressure diagnosis** in `coordination/CHATGPT_TO_CODEX.md`.
+**T069-B — frozen endpoint component-gradient cancellation diagnosis** in `coordination/CHATGPT_TO_CODEX.md`.
 
-Keep T066-A/T067-B/T067-C machinery, `lambda=0.875`, the accepted trajectories, and all optimizer/action-box settings fixed. At each frozen endpoint, use only the final EV/gamma Adam proposal before CommonBox and the corresponding post-projection state to compute one exact target-free projection-pressure ratio; derive only a target-free development nearest-rank T99 threshold; freeze the exposed-transfer score table before joining already-exposed endpoint safety labels; and diagnose whether the residual unsafe endpoint is an extreme projection-pressure outlier with low false-positive count. Do not implement a selector/rollback in this cycle. Fresh cohort, official LOL-v2 Real test, LSRW and UHD-LL remain sealed.
+Keep the T066-A/T067-B/T067-C machinery, `lambda=0.875`, accepted trajectories, objective weights `[1,10,5]`, renderer, optimizer/action-box settings and all cohorts fixed. At each frozen endpoint, use only the degraded image and frozen raw state to compute the three fixed weighted low-only objective gradients over all 12 raw ISP parameters and the single symmetric cancellation score specified in the task. Derive only a target-free development nearest-rank T99 threshold; freeze the exposed-transfer score table before joining already-exposed endpoint safety labels; and diagnose whether the residual unsafe endpoint is an extreme gradient-cancellation outlier with low false-positive count. Do not implement a selector/rollback or tune component weights/statistics in this cycle. Fresh cohort, official LOL-v2 Real test, LSRW and UHD-LL remain sealed.
