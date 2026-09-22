@@ -1,0 +1,91 @@
+{
+  "task": "T072-J",
+  "status": "DONE",
+  "classification": "BLOCKED",
+  "classification_options": ["UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS", "BLOCKED"],
+  "purpose": "Clean-A6000 native-4K baseline feasibility smoke",
+  "authorization_main": "c0806324b0a672cde9e4afeb1ade6b3cceb923ae",
+  "branch": "codex/T072J-clean-gpu-native4k",
+  "remote_host": "202.101.162.22",
+  "remote_project": "/home/wenchang/asdasdsad/wjq/TTIE",
+  "gate": {
+    "checked_utc": "2026-09-22T04:52:10.764583842Z",
+    "requirement": {
+      "device": "NVIDIA RTX A6000",
+      "minimum_free_mib": 40960,
+      "maximum_unrelated_process_mib": 1024
+    },
+    "query_gpu_csv": [
+      "0, NVIDIA RTX A6000, 49140 MiB, 46462 MiB, 2078 MiB, 100 %",
+      "1, NVIDIA RTX A6000, 49140 MiB, 45041 MiB, 3499 MiB, 0 %"
+    ],
+    "query_compute_apps_csv": [
+      "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, 1337099, VLLM::Worker_TP0, 44972 MiB",
+      "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, 2427639, /home/wenchang/asdasdsad/wjq/TTFL/.venv/bin/python, 730 MiB",
+      "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, 2428938, /home/wenchang/asdasdsad/wjq/TTFL/.venv/bin/python, 678 MiB",
+      "GPU-9c468c54-b125-4903-1476-77c4d63270be, 1337100, VLLM::Worker_TP1, 44972 MiB"
+    ],
+    "qualifying_devices": [],
+    "failure_reason": "Both A6000 devices have less than 40960 MiB free and each is occupied by an unrelated VLLM worker using 44972 MiB.",
+    "processes_disturbed": false
+  },
+  "smoke_input": {
+    "source_task": "T072-I",
+    "source_manifest": "research_log/T072I/dispatch_manifest.json",
+    "identity_source": "sealed T072-I manifest row; not reopened or decoded in T072-J",
+    "name": "1003_UHD_LL.JPG",
+    "sha256": "cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca",
+    "bytes": 752975,
+    "geometry_wh": [3840, 2160],
+    "mode": "RGB",
+    "remote_path": "/media/wenchang/F/wjq/TTIE/shared/t072i/uhdll/input/1003_UHD_LL.JPG",
+    "payload_opened_t072j": false,
+    "decoded_t072j": false
+  },
+  "bindings": {
+    "retinexformer": {
+      "upstream_commit": "1e9a0efce4b306b6701b824768370ff26066c32a",
+      "checkpoint_sha256": "539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b",
+      "config_sha256": "5260d0c65878f6a39712f70948be1936d8583531491d832cb59362fffba894ac",
+      "accepted_binding_sha256": "a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00",
+      "mode": "default_no_gt_mean",
+      "options": {"GT_mean": false, "self_ensemble": false}
+    },
+    "snr_aware": {
+      "upstream_commit": "1113144c82adc8bcc4a9ec27749ed75f196a4e4d",
+      "checkpoint_sha256": "432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781",
+      "config_sha256": "fcb29f50538cfd09ec425c83d7f2072477b24f7c2ab4f23507c3e1b37016b3fb",
+      "parameter_sha256": "11d3d667821719bd51e6e608c7876774b001643a28ed85193054bb45428190d4",
+      "accepted_binding_sha256": "03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875",
+      "mode": "ttie_native_pad16"
+    }
+  },
+  "accounting": {
+    "retinexformer": {"status": "UNRUN", "allowed_runs": 1, "run_count": 0},
+    "snr_aware": {"status": "UNRUN", "allowed_runs": 1, "run_count": 0},
+    "final_ours": {"status": "NOT_RUN_T072J", "run_count": 0},
+    "inference_runs": 0,
+    "model_launches": 0,
+    "optimizer_runs": 0,
+    "model_fits": 0,
+    "reference_reads": 0,
+    "clean_target_reads": 0,
+    "metrics": 0,
+    "input_payload_reads": 0,
+    "input_decodes": 0
+  },
+  "outputs": [],
+  "read_ledger": {
+    "low_payload": 0,
+    "gt_reference": 0,
+    "clean_reference": 0,
+    "target_normalization": 0,
+    "metrics": 0
+  },
+  "tests": {
+    "independent_verifier": "T072J_BLOCKED_RECEIPT_PASS",
+    "model_tests": "not_run_by_gate",
+    "remote_input_access": "not performed"
+  },
+  "next_step": "Await a fresh clean-A6000 gate; do not retry or workaround within T072-J."
+}
