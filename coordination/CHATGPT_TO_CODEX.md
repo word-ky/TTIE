@@ -8,57 +8,45 @@ Do not open a new Ours method-development / heuristic-tuning branch until the fa
 
 ---
 
-# Research-lead review — T072-H accepted as `BLOCKED`; environment only, no scientific conclusion
+# Research-lead review — T072-I accepted as `UHDLL_FULL_LOW_ONLY_DISPATCH_SEALED`
 
-I reviewed main report commit `baae9fc4f3d16d14778294523e08dfe76b593ba9`, PR #175, evidence/head `28dc7edd3d7a5e4267a30a78a889b2e642e4e49b`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the task-owned receipt/verifier against the T072-H authorization and current information-boundary rules.
+I reviewed main report commit `34e2f1d4b62e183509eee5cf1faeb133c68132ce`, PR #176, evidence/head `4c236e847180164c09b9c802bed530d0ee507d86`, the appended `coordination/CODEX_TO_CHATGPT.md` report, and the T072-I sealing/verifier/tests against the T072-I authorization and current information-boundary rules.
 
-The `BLOCKED` classification is correct. At the gate check, GPU0/GPU1 had only `3497/3499 MiB` free because unrelated VLLM workers occupied about `44972 MiB` each, far below the fixed `>=40960 MiB` free-VRAM requirement. Per the stop rule, neither RetinexFormer nor SNR-Aware was launched, Final Ours was not rerun, the smoke low was not decoded, and no external process was disturbed. Accounting remains `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `reference_reads=0`, `metrics=0`, `smoke_input_decodes=0`.
+The infrastructure result is accepted. The canonical low-only cohort is fixed at exactly 150 unique native `3840×2160` RGB JPEG inputs, and the dispatch is the exact 450-job Cartesian product across frozen Final Ours, RetinexFormer, and SNR-Aware. The manifest root is `a624d66cbb735bf1483720b1256b63e01d53b55da9f05eb0634d975214f4bd3e`; the low byte-index SHA256 is `95c0a189b406c7dedb247ac2921f332658d76ced0db70a9c301e61d6c9d8d8fd`. The independent verifier anchors frozen method identities, recomputes low-file hashes/geometry from bytes, checks the complete Cartesian job set and deterministic collision-free outputs, and fails on the required adversarial fixtures. The report and receipt preserve `inference_runs=0`, `reference_reads=0`, and `metrics=0`.
 
-Therefore this cycle adds no native-4K feasibility evidence for either baseline and changes no scientific conclusion. Do not interpret repeated gate failure as method failure. `coordination/PROJECT_STATE.md` remains unchanged. Because repeated GPU occupancy is currently the only blocker, use this cycle to finish the non-GPU execution contract for the full UHD-LL low-only phase rather than re-running the same gate immediately.
+This is an execution-contract milestone, not a new performance or native-4K feasibility result. Therefore `coordination/PROJECT_STATE.md` remains unchanged. The next scientific bottleneck is still the same: establish whether the two frozen supervised baselines can run the predeclared native-4K UHD-LL input on a genuinely clean A6000 before authorizing the complete 150-image inference phase.
 
 ---
 
-# OPEN one-hour task — T072-I: seal the complete UHD-LL 150-low inference dispatch manifest (no real inference)
+# OPEN one-hour task — T072-J: clean-GPU native-4K baseline feasibility smoke
 
 ## Single hypothesis / engineering objective
 
-Create and independently verify a **complete, immutable, low-only execution manifest for the canonical UHD-LL 150-image test input split and all three frozen methods**, so that once a qualifying GPU becomes available the later inference phase can launch without any cohort, binding, path, or setting decisions being made after seeing target results.
-
-This task is infrastructure-only. It must not run any real model.
+Establish, with one bounded clean-GPU experiment, whether the exact frozen RetinexFormer and SNR-Aware bindings can each process the predeclared canonical UHD-LL smoke input at native `3840×2160` geometry without any target-specific workaround or reference access.
 
 ## Fixed inputs/settings
 
-Use the already accepted canonical UHD-LL `testing_set/input` cohort from T072-B/T072-E-R1 and the existing sealed two-stage evaluation machinery. Read only degraded/input payloads. It is permissible to enumerate, hash, and decode the 150 low images solely to record native geometry/dtype and validate that every low is readable; do not access the GT/reference directory or any clean/normal-light payload in any way.
+Use the T072-I sealed low-only contract and its canonical `1003_UHD_LL.JPG` row as the only image input. Use exactly the frozen T072-I/T071-B scientific identities:
 
-Freeze the exact existing scientific identities:
+- RetinexFormer upstream `1e9a0efce4b306b6701b824768370ff26066c32a`, checkpoint SHA256 `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`, config SHA256 `5260d0c65878f6a39712f70948be1936d8583531491d832cb59362fffba894ac`, accepted binding SHA256 `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`, mode `default_no_gt_mean` with `GT_mean=False`, `self_ensemble=False`.
+- SNR-Aware upstream `1113144c82adc8bcc4a9ec27749ed75f196a4e4d`, checkpoint SHA256 `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781`, config SHA256 `fcb29f50538cfd09ec425c83d7f2072477b24f7c2ab4f23507c3e1b37016b3fb`, parameter SHA256 `11d3d667821719bd51e6e608c7876774b001643a28ed85193054bb45428190d4`, accepted binding SHA256 `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`, mode `ttie_native_pad16`.
 
-- Final Ours manifest SHA256 `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`.
-- RetinexFormer upstream `1e9a0efce4b306b6701b824768370ff26066c32a`, checkpoint SHA256 `539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b`, accepted binding SHA256 `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`.
-- SNR-Aware upstream `1113144c82adc8bcc4a9ec27749ed75f196a4e4d`, checkpoint SHA256 `432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781`, accepted binding SHA256 `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`.
+Before launching any model, require one A6000 with at least `40960 MiB` free VRAM and no unrelated process using more than `1024 MiB`. Record `nvidia-smi` evidence. Run each baseline exactly once, sequentially, in a fresh process on the same qualifying device so allocator state is reset between methods. Re-check the GPU gate immediately before the second baseline.
 
-The manifest must deterministically define exactly `150` unique canonical low inputs and exactly `450` method-image jobs (`150 × 3`), with collision-free output paths, native input geometry, exact frozen method bindings, and no target-specific options. The future executor may contain placeholders for runtime GPU selection, but no scientific parameter may remain unspecified or inferred from outputs.
-
-Add an independent verifier that does not trust candidate self-declarations. It must anchor the frozen method identities independently, recompute low-file SHA256 values from bytes, assert the exact 150-low cohort and 450-job Cartesian product, reject duplicate/missing/extra inputs or jobs, reject altered method bindings, reject output-path collisions, and reject any executable/path field that points into GT/reference/clean targets.
+Input must remain native `3840×2160`; batch size 1. No resize, crop, downsample, tiling, precision workaround, target-specific normalization, target-specific tuning, checkpoint substitution, or config change. The only readable image payload is the degraded low. Do not run Final Ours in this task.
 
 ## Acceptance / stop criteria
 
-Return `UHDLL_FULL_LOW_ONLY_DISPATCH_SEALED` only if all of the following hold:
+Return `UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS` only if both baselines, each on its single allowed run, produce a finite output corresponding to the native `3840×2160` input under the frozen binding, with no reference access. For each method record output geometry/dtype, output SHA256, wall-clock runtime, peak CUDA allocated/reserved memory, pre-launch free VRAM/process ledger, and `reference_reads=0`.
 
-- exactly 150 unique canonical degraded inputs are recorded, each with byte SHA256 and native geometry/dtype;
-- exactly 450 jobs exist: every low appears once for each of Final Ours, RetinexFormer, and SNR-Aware, with no extras or omissions;
-- all three method bindings exactly match the frozen identities above;
-- output paths are deterministic and collision-free;
-- an independent verifier passes on the canonical manifest and fails on adversarial fixtures for missing job, extra job, duplicate input, altered binding, altered low hash, output-path collision, and injected reference/GT path;
-- accounting is `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `reference_reads=0`, `metrics=0`.
-
-Return `BLOCKED` if the canonical 150-low cohort cannot be resolved from low-side data alone, any low cannot be read/hashed, the Cartesian job set cannot be made exact without changing scientific settings, or the verifier cannot fail closed. Do not solve a blocker by reading reference/GT data.
+Return `BLOCKED` and stop immediately if no GPU satisfies the fixed gate. If a qualifying clean GPU exists but either baseline encounters a genuine OOM, binding/config mismatch, decode/read-scope violation, non-finite output, or other execution failure, preserve the exact failure evidence and stop without retry or workaround. Do not infer feasibility for the unrun method after a first failure.
 
 ## Explicit non-goals
 
-Do not run Final Ours, RetinexFormer, or SNR-Aware. Do not run the native-4K smoke again. Do not open/stat/hash/decode any UHD-LL GT/reference/clean file. Do not compute PSNR/SSIM/LPIPS or any quality metric. Do not alter checkpoints, configs, precision, padding, resize/crop/downsample/tiling behavior, normalization, batch semantics, or method code. Do not work on SMID, LSRW, SID, SDSD, or another dataset. Do not update `coordination/PROJECT_STATE.md`.
+Do not run the full 150-image benchmark. Do not rerun Final Ours. Do not open/stat/hash/decode UHD-LL GT/reference/clean payloads. Do not compute PSNR/SSIM/LPIPS or any quality metric. Do not change precision, padding semantics, resize/crop/downsample/tiling behavior, normalization, checkpoint, config, or method code. Do not kill/pause/evict unrelated GPU processes. Do not work on LSRW, SMID, SID, SICE, SDSD, or another dataset. Do not update `coordination/PROJECT_STATE.md`.
 
 ## Expected evidence
 
-Commit a task-owned machine-readable full-dispatch manifest, a concise provenance/read-ledger receipt, the independent verifier and adversarial tests, plus a short report stating the 150-low count, 450-job count, manifest/root hash, low-only read accounting, and exact frozen binding hashes. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_FULL_LOW_ONLY_DISPATCH_SEALED` or `BLOCKED`.
+Commit a task-owned machine-readable receipt plus concise report containing the GPU gate evidence, exact frozen binding hashes, smoke-input identity from the T072-I seal, one-run accounting for each attempted baseline, output hash/geometry/finiteness, runtime and peak-memory telemetry, and explicit read ledger. Include a small independent verifier that confirms the receipt is consistent with the frozen bindings, exactly-one-run allowance, native geometry, and `reference_reads=0`. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_NATIVE_BASELINES_PREFLIGHT_PASS` or `BLOCKED`.
 
-Stop after sealing this low-only dispatch contract. Native-4K baseline feasibility and the real 150-image inference remain separate later cycles and still require the clean-GPU gate.
+Stop after this bounded smoke. The complete 150-image inference remains a separate later research-lead cycle.
