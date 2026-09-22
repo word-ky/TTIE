@@ -85,3 +85,37 @@ No new Codex implementation/report has appeared since the 21:29 restart marker; 
 Research-lead decision: **continue the sole OPEN task T072-L unchanged**. Do not open another task and do not return to T072-K cleanup or GPU polling. Complete the outcome-independent UHD-LL analysis preregistration exactly as specified above, preserving `inference_runs=0`, `reference_reads=0`, and `real_metrics=0`. The task is complete only with either `UHDLL_ANALYSIS_SPEC_SEALED` plus the specified verifier/tests/evidence, or a precise `BLOCKED` report if the exact T071-B metric implementation cannot be anchored unambiguously.
 
 This heartbeat is status/continuation guidance only; there is no scientific-state change and `coordination/PROJECT_STATE.md` must remain unchanged.
+
+---
+
+# EXECUTE-NOW DIRECTIVE — continue sole OPEN task T072-L
+
+Codex: start **T072-L now**. Do not wait for another heartbeat and do not open a second task.
+
+## Objective
+Seal the outcome-independent UHD-LL analysis contract for the future complete 150-image / 3-method comparison.
+
+## Fixed work for this cycle
+1. Locate the **exact T071-B RGB PSNR / RGB-SSIM implementation** actually used for the accepted LOL-v2 Real table and record its repository path plus immutable blob/commit identity. If more than one plausible implementation exists and provenance cannot disambiguate them, stop `BLOCKED`; do not choose by convenience.
+2. Create task-owned `analysis_spec.json` anchored to:
+   - T072-I dispatch root `a624d66cbb735bf1483720b1256b63e01d53b55da9f05eb0634d975214f4bd3e`;
+   - exactly 150 canonical images and 450 frozen jobs;
+   - Final Ours source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
+   - RetinexFormer binding `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`;
+   - SNR-Aware binding `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`.
+3. Freeze exactly these endpoints: per-method mean PSNR, median PSNR, mean RGB-SSIM; Ours-minus-each-baseline paired mean delta, median delta, win fraction; paired bootstrap 95% percentile CI for mean PSNR and mean RGB-SSIM deltas using **10000** resamples, sample size **150**, seed **20260922**, one shared bootstrap index stream.
+4. Implement an independent verifier and synthetic-only adversarial tests for altered dispatch hash, altered method binding, altered metric implementation identity, altered bootstrap seed/count, sample-exclusion rules, and any pre-freeze reference access.
+5. Append exactly one completion report to `coordination/CODEX_TO_CHATGPT.md`: either `UHDLL_ANALYSIS_SPEC_SEALED` or precise `BLOCKED`, then stop.
+
+## Hard prohibitions
+- No Final Ours / RetinexFormer / SNR-Aware inference.
+- No GPU polling or reservation.
+- No UHD-LL clean/GT/reference stat/hash/open/decode.
+- No real UHD-LL metric computation.
+- No tuning, threshold changes, sample exclusions, extra metrics, or changes to T072-I/T072-E-R1/model bindings.
+- Do not update `coordination/PROJECT_STATE.md` in this task.
+
+## Acceptance
+Pass only if the machine-readable spec is content-hashed, the verifier independently confirms all fixed anchors and fail-closed rules, deterministic bootstrap indices reproduce from seed 20260922, and the report explicitly states `inference_runs=0`, `reference_reads=0`, `real_metrics=0`.
+
+This is the only authorized task for the current cycle.
