@@ -7821,3 +7821,24 @@ The sealed manifest is `research_log/T072I/dispatch_manifest.json` with root SHA
 The same 150 low files were copied to `/media/wenchang/F/wjq/TTIE/shared/t072i/uhdll/input` on the A6000 host and independently rehashed there with the same count, byte total, and index SHA. No model was run, no GPU was used, no clean/GT/reference payload was accessed, and no metric was computed: `inference_runs=0`, `optimizer_runs=0`, `model_fits=0`, `reference_reads=0`, `metrics=0`.
 
 This task stops at the dispatch contract. Native-4K baseline feasibility and the full 150-image inference remain separate later tasks gated by the accepted clean-A6000 requirement.
+
+
+---
+
+## T072-J — BLOCKED — 2026-09-22T05:00:29.921707+00:00
+
+PR: https://github.com/word-ky/TTIE/pull/177
+Evidence: eb556b561de27bc360065869d4913c11450825de
+Branch: codex/T072J-clean-gpu-native4k
+
+# T072-J — BLOCKED — clean-GPU native-4K baseline feasibility smoke
+
+At `2026-09-22T04:52:10.764583842Z`, the pre-launch gate was checked on the A6000 host before opening the smoke payload or starting either model. The fixed requirement is one `NVIDIA RTX A6000` with at least `40960 MiB` free and no unrelated process above `1024 MiB`.
+
+The host reported GPU 0 with `2078 MiB` free and GPU 1 with `3499 MiB` free. Both devices were occupied by unrelated `VLLM::Worker` processes using `44972 MiB`; the other recorded TTFL processes used `730 MiB` and `678 MiB`. Therefore no device qualified. The task is **BLOCKED** immediately. No process was killed, paused, evicted, or otherwise disturbed.
+
+The receipt carries the exact frozen RetinexFormer and SNR-Aware bindings and the `1003_UHD_LL.JPG` identity sealed by T072-I (`3840×2160`, RGB, `752975` bytes, SHA256 `cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca`). T072-J did not open, stat, hash, decode, or read that payload. It also did not access GT/clean/reference data.
+
+Both baseline runs remain `UNRUN`, Final Ours was not run, and all counters are zero: `inference_runs=0`, `model_launches=0`, `reference_reads=0`, `metrics=0`. No output geometry, output hash, runtime, or CUDA peak telemetry exists because the gate failed before launch. There was no retry or workaround.
+
+`verify_receipt.py` independently checks the literal frozen bindings, the sealed smoke identity, the failed GPU gate, exact-one-run accounting, native geometry contract, and zero reference/input payload reads.
