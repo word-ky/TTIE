@@ -7883,3 +7883,14 @@ Independent verifier PASS. Three synthetic tests PASS (3.905s), including19 mali
 Evidence 530d47e75dfddf7c757b5c00ac0d9c7681bfcdaf; PR https://github.com/word-ky/TTIE/pull/180.
 
 Single gate at2026-09-22T17:22:55Z: A6000 GPU0 free3495 MiB; GPU1 free3497 MiB; each hosts VLLM44974 MiB. Both fail40960 MiB free /1024 MiB maximum unrelated-process requirements. No polling/retry/process intervention. Retinexformer/SNR-Aware UNRUN, Final Ours not run; inference_runs=0, reference_reads=0, metrics=0, input_payload_reads=0. Exact T072-I smoke and both accepted bindings pinned in receipt. Raw UUID/PID snapshot and exact command retained. Independent CSV gate verifier PASS;2 synthetic tests PASS (0.002s), rejecting altered binding/accounting and a false block on a qualifying device. No model launch or model traceback; native4K feasibility remains untested. See research_log/T072M/report.md. PROJECT_STATE.md unchanged; stopped for review.
+
+
+---
+
+## T072-N — GPU_BLOCKER_PROVENANCE_CHARACTERIZED
+
+Evidence 74321c09b3b43fc1a6af76b74dc076f2f7b2c254; PR https://github.com/word-ky/TTIE/pull/181.
+
+Single snapshot2026-09-22T18:08:39Z: exactly2 visible A6000s, free3495/3497MiB, each VLLM44974MiB; neither qualifies, no additional A6000. Original PID1337099/1337100 both root, start host-local Sun Sep20 02:05:33 2026, elapsed259385s (72h03m05s), PPID1336825. Both parent chains:1336825 VLLM::EngineCor ->1335709 vllm ->1335687 containerd-shim ->1 systemd. This supports persistent containerized VLLM jobs; ownership project/service purpose/release schedule remain unknown. Both cwd queries PermissionError errno13, recorded without escalation.
+
+Raw sanitized command outputs, receipt/report and host-independent replay verifier committed under research_log/T072N; verifier PASS. process_interventions=0, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0. No polling or smoke launch. PROJECT_STATE.md unchanged. Recommend resource-allocation/availability decision before a later authorized smoke; stopped after reporting.
