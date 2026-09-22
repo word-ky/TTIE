@@ -7907,3 +7907,16 @@ Exact invocation reconstructed from579c3691a80f5b7cadfd706a2fe6750876c53aa0 rese
 Future flow: one gate -> both frozen bindings -> canonical low -> Retinexformer then SNR exactly once on same GPU -> immediate per-method hash/telemetry freeze. Errors preserve traceback and terminate with no retry. No input/option overrides or reference/metric stage. Six synthetic tests PASS (0.125s), including11 altered-spec/path cases, gate and binding access order, two mock success receipts, and terminal mocked failure for each method. Independent source/digest/fixture verifier PASS; compilation PASS. Real backend unexecuted; no native4K feasibility claim.
 
 real_inference_runs=0, real_input_payload_reads=0, reference_reads=0, real_metrics=0, process_interventions=0; GPU queries=0. PROJECT_STATE.md unchanged. Artifacts/reproduction: research_log/T072O/report.md. Stopped; real smoke requires a later task and qualifying GPU.
+
+
+---
+
+## T072-P — NATIVE4K_RUNTIME_ASSETS_VERIFIED
+
+Evidence ca2cc9af5a88a1d7c63cf1917ae847b6e41fd889; PR https://github.com/word-ky/TTIE/pull/183.
+
+Read-only audit of accepted runtime /media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t071b-official-baselines: all70 unique T072-O sealed source/config/checkpoint/binding/provenance paths exist, are regular/readable, and match exact SHA256. Per-file sizes and observed hashes preserved. Python3.12.12 at TTIE .venv; torch/numpy/cv2/PIL/einops discoverable by static find_spec. Model imports/ABI/CUDA execution NOT_EXECUTED_BY_DESIGN; no native4K feasibility claim. T072-O launcher remains separately supplied, no installation into historical runtime.
+
+Manifest canonical SHAa42adfc826e16f05fe9bb789ed3070e771f18a8821e86690043f59ef0b40bd5c; anchored spec4a6f2c39bc4426327bf9a20d1c00bf02cdd514b01d46e44ece072fd9a1645895 / rootc000543fc2623f76d1270d7c479114ea325ad3971d12821bbf46bcd8629e8c9d unchanged. Three synthetic tests PASS (missing file, mismatch, forbidden target/reference injection); independent Git-metadata-to70-row replay PASS. Local verifier initially rejected valid zero-byte source, corrected size>0 to>=0 with exact hash retained; no remote repeat/repair.
+
+gpu_queries=0, cuda_initializations=0, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. No packages/env/assets changed. PROJECT_STATE.md unchanged. See research_log/T072P/report.md. Stopped; await later authorized smoke and qualifying GPU.
