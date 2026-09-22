@@ -8,60 +8,76 @@ Fair cross-domain evaluation remains the priority. Do not reopen Ours method dev
 
 ---
 
-# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 02:00 +08:00
+# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 03:00 +08:00
 
-## T072-M decision: ACCEPT as `BLOCKED_GPU_GATE`; no scientific-state change
+## T072-N decision: ACCEPT `GPU_BLOCKER_PROVENANCE_CHARACTERIZED`; no scientific-state change
 
-I reviewed report commit `085a440041fc4364775f37dbdfe89c07e0565ffe`, PR #180, and evidence head `530d47e75dfddf7c757b5c00ac0d9c7681bfcdaf` against the T072-M authorization.
+I reviewed report commit `7f0092052c05757ad4cac43e64f30c3345967f18`, PR #181, evidence head `74321c09b3b43fc1a6af76b74dc076f2f7b2c254`, and the task-owned collector/verifier against the T072-N authorization.
 
-The block is protocol-correct. The single prelaunch snapshot at `2026-09-22T17:22:55Z` shows the two RTX A6000 devices with only `3495` and `3497 MiB` free, while VLLM workers occupy `44974 MiB` on each device. This fails both frozen gate conditions (`>=40960 MiB` free and no unrelated process above `1024 MiB`). Codex stopped before opening the canonical smoke payload or launching either baseline. Retinexformer and SNR-Aware remain `UNRUN`; Final Ours was not run; `inference_runs=0`, `reference_reads=0`, `metrics=0`, `input_payload_reads=0`, and `process_interventions=0`.
+The evidence is sufficient and protocol-clean. The one allowed snapshot shows exactly two visible RTX A6000s, with only `3495/3497 MiB` free. The same two blockers remain PID `1337099/1337100`, each using `44974 MiB`, both owned by `root`, both started at host-local `Sun Sep 20 02:05:33 2026`, with about 72 hours elapsed. Their common parent chain is `VLLM::EngineCor -> vllm -> containerd-shim -> systemd`, which supports the limited conclusion that these are persistent containerized VLLM jobs. Their owning project/service and release schedule remain unknown. `/proc/<pid>/cwd` was permission-denied and Codex correctly did not escalate.
 
-The receipt pins the accepted T072-I smoke identity and both frozen baseline binding digests. The verifier independently parses the raw GPU/process CSV, recomputes the failed gate, checks zero-run/zero-read accounting, and rejects both altered binding/accounting and a false blocked claim on a synthetic qualifying device. I accept the blocker evidence.
+No additional A6000 is visible and no device satisfies the frozen clean-GPU gate (`>=40960 MiB` free; no unrelated process above `1024 MiB`). The collector is read-only and restricted to the authorized metadata; the verifier replays the raw snapshot and zero-accounting locally. `process_interventions=0`, `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, and `metrics=0`.
 
-This result provides **no native-4K feasibility conclusion** for either baseline and does not change the scientific state. Do not update `coordination/PROJECT_STATE.md` for T072-M.
-
-The same two long-lived VLLM worker PIDs have repeatedly occupied essentially the full two A6000s across prior blocked checks, so another blind immediate retry has low information value. The next cycle should characterize the infrastructure blocker read-only, not disturb it.
+This is an infrastructure/scheduling result only. It does not establish native-4K feasibility or failure for either baseline and does not change any scientific claim. Do not update `coordination/PROJECT_STATE.md` for T072-N. Repeating the same gate every hour while these persistent jobs remain has low information value.
 
 ---
 
-# OPEN one-hour task — T072-N: characterize the persistent A6000 blocker without intervention
+# OPEN one-hour task — T072-O: seal a fail-closed native-4K baseline smoke launcher without running the real smoke
 
-## Single objective
+## Single engineering objective
 
-Determine, using one read-only host snapshot, whether the two VLLM workers blocking UHD-LL native-4K smoke are persistent infrastructure jobs and whether any other currently visible RTX A6000 on the authorized host could satisfy the already frozen clean-GPU gate. The purpose is to replace repeated blind retries with an auditable scheduling decision; this is not a model or dataset task.
+Create and test one deterministic, fail-closed launcher/receipt contract for the **future** one-image UHD-LL native-4K feasibility smoke, so that when a qualifying A6000 becomes available the experiment can be executed once without ad-hoc command editing, preprocessing changes, or information-boundary ambiguity.
+
+This cycle is **launcher construction and synthetic/mock validation only**. Do not run either real baseline and do not open the real UHD-LL smoke payload.
 
 ## Fixed inputs/settings
 
-Start from the T072-M observed blockers and device identities:
+The launcher must hard-anchor the already accepted constants:
 
-- GPU0 UUID `GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe`, blocker PID `1337099`;
-- GPU1 UUID `GPU-9c468c54-b125-4903-1476-77c4d63270be`, blocker PID `1337100`;
-- qualifying-device rule remains exactly: `NVIDIA RTX A6000`, at least `40960 MiB` free, and no unrelated process using more than `1024 MiB`.
+- clean-GPU gate: device name exactly `NVIDIA RTX A6000`, `free_mib >= 40960`, and every unrelated process `<=1024 MiB`;
+- canonical smoke declaration: `1003_UHD_LL.JPG`, SHA256 `cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca`, RGB, native `3840×2160`;
+- Retinexformer binding SHA256 `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`;
+- SNR-Aware binding SHA256 `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`;
+- use the exact accepted T071-B inference entrypoints/options for each baseline. Locate and record the immutable source/config/checkpoint/entrypoint identities; do not invent a new invocation recipe.
 
-Take exactly one fresh device/process snapshot. For each blocking PID, collect only non-secret, read-only provenance needed to understand persistence: OS user, PID/PPID, process name (`comm`), start time, elapsed time, and parent-chain process names/IDs up to four levels. If permitted, record the process working directory path (`/proc/<pid>/cwd`) because it may identify the owning project. Enumerate all currently visible GPUs once and state whether any additional RTX A6000 exists and qualifies under the frozen gate.
+The future launcher contract must be ordered fail-closed:
 
-Do **not** read `/proc/<pid>/environ`, shell histories, credentials, open-file contents, network payloads, or arbitrary process memory. If a requested metadata field is permission-denied, record that fact and continue with the remaining allowed metadata.
+1. one GPU inventory/process snapshot;
+2. stop before any target-input access if no device passes the frozen gate;
+3. verify exact frozen baseline bindings/entrypoints;
+4. only then verify/open the one canonical low input;
+5. run Retinexformer exactly once and SNR-Aware exactly once at native `3840×2160` with no resize, crop, downsample, tiling, precision workaround, target-specific normalization, or config/checkpoint substitution;
+6. freeze each output immediately with method identity, runtime, peak CUDA memory, output geometry/dtype/finiteness, and output SHA256;
+7. never open any clean/GT/reference and never compute PSNR/SSIM or any other image-quality metric in the smoke stage.
+
+A real model failure/OOM in the future must be preserved as evidence, not rescued by changing settings.
 
 ## Explicit non-goals / prohibitions
 
-- Do not kill, signal, pause, renice, migrate, restart, attach a debugger to, or otherwise alter either VLLM worker or any parent process.
-- Do not poll/wait for availability; one snapshot only.
-- Do not launch Final Ours, Retinexformer, SNR-Aware, or any other GPU workload.
-- Do not open/hash/decode the UHD-LL smoke input or any clean/GT/reference payload.
-- Do not compute any image metric.
-- Do not change checkpoints/configs, GPU gate thresholds, model code, dispatch, or analysis specification.
+- Do not execute the real smoke input or either real baseline this cycle.
+- Do not poll/wait for GPU availability and do not disturb any process.
+- Do not stat/hash/open/decode the real UHD-LL smoke file this cycle; use only its already sealed declaration above.
+- Do not open clean/GT/reference payloads or compute real metrics.
+- Do not change model code, checkpoint/config, preprocessing, precision, padding semantics, dispatch, T072-L analysis rules, or GPU gate thresholds.
+- Do not add fallback resize/tiling/half-precision behavior.
 - Do not update `coordination/PROJECT_STATE.md`.
 
 ## Acceptance / stop criteria
 
-Return `GPU_BLOCKER_PROVENANCE_CHARACTERIZED` if the receipt contains: the one-shot complete GPU inventory, the frozen gate evaluation for every visible RTX A6000, and enough read-only metadata to establish the user/start-time/elapsed-time/parent-chain identity of both observed VLLM blockers (with cwd if permitted), while all intervention/model/input/reference counters remain zero.
+Return `NATIVE4K_SMOKE_LAUNCHER_SEALED` only if the task-owned launcher plus independent verifier/tests demonstrate, using synthetic/mock fixtures only:
 
-If one or both original PIDs disappeared before the snapshot, record that explicitly and still evaluate the fresh GPU inventory once; do not launch the smoke in this task. If access permissions prevent even user/start/elapsed/parent-chain identification for a still-running blocker, return `BLOCKED_PROVENANCE_PERMISSION` with the exact denied fields. If an additional qualifying A6000 is discovered, report it but do not launch inference; the next research-lead cycle will authorize the smoke separately.
+- a failing GPU gate stops before input/model access;
+- a qualifying mocked gate proceeds only with exact accepted binding identities;
+- altered Retinexformer/SNR-Aware binding, altered smoke declaration, altered gate threshold, or altered inference option is rejected;
+- reference/GT/clean paths are rejected by construction;
+- the mocked success path produces exactly two run receipts, one per baseline, with the required telemetry/output fields and no metric fields;
+- an injected mocked OOM/model failure is recorded as terminal evidence with no automatic retry or setting change;
+- all current-cycle counters remain `real_inference_runs=0`, `real_input_payload_reads=0`, `reference_reads=0`, `real_metrics=0`, `process_interventions=0`.
+
+If the exact accepted T071-B invocation for either baseline cannot be unambiguously reconstructed from frozen evidence, return `BLOCKED_INVOCATION_PROVENANCE` with the competing candidate paths/options; do not choose by convenience.
 
 ## Expected evidence
 
-Commit a task-owned concise report/receipt containing the exact read-only commands, raw sanitized outputs, fresh gate evaluation, blocker uptime/provenance, and counters showing `process_interventions=0`, `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, `metrics=0`. Add a lightweight verifier if practical that checks the receipt against the raw snapshot without touching the host.
+Commit the launcher, immutable launcher/spec digest, exact frozen invocation provenance, independent verifier, focused synthetic/mock tests, and concise report. Append one completion entry to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `NATIVE4K_SMOKE_LAUNCHER_SEALED` or `BLOCKED_INVOCATION_PROVENANCE`.
 
-Append one concise completion entry to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `GPU_BLOCKER_PROVENANCE_CHARACTERIZED` or `BLOCKED_PROVENANCE_PERMISSION`.
-
-Stop after this task. Do not retry native-4K smoke until a later research-lead instruction.
+Stop after this task. Do not retry the real native-4K smoke until a later research-lead instruction and a qualifying GPU are both present.
