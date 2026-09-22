@@ -8,65 +8,67 @@ Fair cross-domain evaluation remains the priority. Do not reopen Ours method dev
 
 ---
 
-# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 04:00 +08:00
+# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 05:00 +08:00
 
-## T072-O decision: ACCEPT `NATIVE4K_SMOKE_LAUNCHER_SEALED`; no scientific-state change
+## T072-P decision: ACCEPT `NATIVE4K_RUNTIME_ASSETS_VERIFIED`; no scientific-state change
 
-I reviewed report commit `e23562a5d3d45cc8ef5a7d107a8e7bbd2850bdc5`, PR #182, evidence head `4eaa37e7fce5dba59a5bb769363d061cc340bac3`, and the task-owned `launcher.py`, `worker.py`, `spec.json`, tests, verifier, and report against the T072-O authorization.
+I reviewed completion commit `ec75347398955e2b19b4f8df8ea2ee73d812e26a`, PR #183, evidence head `ca2cc9af5a88a1d7c63cf1917ae847b6e41fd889`, the task report, collector/manifest/verifier/tests, and the prior sealed T072-O contract.
 
-The launcher satisfies the intended fail-closed control boundary. It validates the sealed spec digest before any backend action; takes exactly one GPU/process snapshot; exits `BLOCKED_GPU_GATE` before binding/input/model access when the frozen A6000 gate fails; verifies accepted bindings and frozen asset hashes before touching the canonical low; allows only the sealed `1003_UHD_LL.JPG`; invokes the unchanged T071-B exporters in separate fresh processes with the accepted argv; freezes each output/telemetry receipt immediately; and terminates on injected OOM/model failure without retry or setting rescue. The mock tests cover gate ordering, binding-before-input ordering, success order/telemetry, terminal failure, contract mutations, and exact invocation reconstruction. The independent verifier anchors T071-B Git blobs plus the sealed evidence root.
+T072-P closes the remaining static runtime-provenance risk cleanly. The audit uses the explicit accepted T071-B release root `/media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t071b-official-baselines`, verifies all 70 unique sealed source/config/checkpoint/binding/provenance paths as regular/readable files, and matches every observed SHA256 to the frozen value. Both accepted checkpoint bytes, both exporter sources, both binding files/configs, and additional pinned upstream assets are present. The recorded Python 3.12.12 environment statically resolves torch/numpy/cv2/PIL/einops. Exporter/model imports, CUDA initialization, and forward execution were intentionally not performed, so this is runtime-asset readiness only, not native-4K feasibility.
 
-The current-cycle evidence remains protocol-clean: `real_inference_runs=0`, `real_input_payload_reads=0`, `reference_reads=0`, `real_metrics=0`, `process_interventions=0`. No real GPU query, model execution, UHD-LL low decode, clean/reference access, or metric calculation occurred. Therefore T072-O establishes execution-contract readiness only; it does **not** establish native-4K feasibility for either baseline and does not change any scientific claim. Do not update `coordination/PROJECT_STATE.md` for T072-O.
+The information boundary remains clean: `gpu_queries=0`, `cuda_initializations=0`, `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, `metrics=0`, `process_interventions=0`. No UHD-LL low or clean/reference payload was touched and no environment/package/source/checkpoint repair occurred. The local verifier correction from `size>0` to `size>=0` is appropriate because the exact SHA256 remains the authoritative identity; it did not require a remote repeat or modify any audited asset.
 
-One residual operational risk remains before a future scarce clean-GPU window: the sealed launcher has not yet verified that the actual authorized A6000 runtime checkout still contains every frozen T071-B source/config/checkpoint asset at the declared path and digest. Resolve that statically now, without GPU or target-input access.
+Therefore accept T072-P. There is no new scientific result and `coordination/PROJECT_STATE.md` remains unchanged. The preparation chain is now complete enough that further static work has lower value than attempting the already-sealed native-4K smoke itself. Do not invent another preparation branch.
 
 ---
 
-# OPEN one-hour task — T072-P: verify the real A6000 runtime asset/provenance closure without GPU or target-input access
+# OPEN one-hour task — T072-Q: execute exactly one sealed native-4K baseline smoke attempt
 
-## Single engineering objective
+## Single objective
 
-On the authorized A6000 host, perform one **read-only, no-GPU, no-target** integrity audit proving that every runtime file needed by the sealed T072-O future smoke is present at the expected location and byte-identical to the accepted T071-B provenance, so a later clean-GPU window will not be wasted on a preventable source/config/checkpoint/path mismatch.
+Execute the already-sealed T072-O launcher **once** on the authorized A6000 host using the T072-P verified runtime root. The purpose is to obtain the first valid native-`3840×2160` feasibility evidence for the two frozen T071-B baselines, or a clean fail-closed blocker if the GPU gate is still unavailable.
 
-This is asset/provenance verification only. Do not launch either baseline and do not inspect any UHD-LL image payload.
+This is not a tuning task and not a full-cohort benchmark.
 
-## Fixed inputs/settings
+## Fixed inputs / execution contract
 
-Use the accepted T072-O seal and nothing else as the contract:
+Use without modification:
 
-- evidence head `4eaa37e7fce5dba59a5bb769363d061cc340bac3`;
+- T072-O evidence head `4eaa37e7fce5dba59a5bb769363d061cc340bac3`;
 - T072-O spec SHA256 `4a6f2c39bc4426327bf9a20d1c00bf02cdd514b01d46e44ece072fd9a1645895`;
 - T072-O launcher/evidence root `c000543fc2623f76d1270d7c479114ea325ad3971d12821bbf46bcd8629e8c9d`;
-- accepted T071-B provenance commit `579c3691a80f5b7cadfd706a2fe6750876c53aa0`;
+- T072-P verified runtime root `/media/wenchang/F/wjq/TTIE/releases/20260921-ttie-t071b-official-baselines`;
+- canonical smoke low `1003_UHD_LL.JPG`, SHA256 `cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca`, native RGB `3840×2160`;
 - Retinexformer binding SHA256 `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`;
 - SNR-Aware binding SHA256 `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`.
 
-Audit the exact runtime checkout/path set that the future launcher will use. For every source/config/checkpoint/binding file enumerated by the sealed T072-O metadata, verify existence, regular-file type, readability, byte size, and SHA256 against the frozen value. Verify the runtime checkout contains the exact pinned exporter source bytes and accepted binding files. Record Python executable/version and import-package availability needed by the two exporters, but **do not import or execute the exporter/model modules themselves** if doing so could initialize CUDA or load model assets. Static module/path resolution is sufficient.
+Run the sealed launcher exactly once with a new exclusive output directory. It must take its one frozen GPU/process snapshot first. A device is eligible only under the already-sealed gate: NVIDIA RTX A6000, at least `40960 MiB` free, and no unrelated process above `1024 MiB`. If no device qualifies, stop immediately before binding/input/model access; do not poll or retry.
 
-Do not stat/hash/open/decode the canonical UHD-LL smoke image in this task; its identity is already sealed by T072-I/T072-O. Do not inspect any clean/GT/reference path.
+If a device qualifies, allow the sealed launcher to verify bindings/assets, then verify/decode only the canonical low and execute Retinexformer then SNR-Aware exactly as T072-O specifies, each in a fresh process on the selected physical GPU. Preserve the unchanged T071-B exporter argv, float32/native geometry, existing padding semantics, deterministic settings, and output-freeze/telemetry behavior.
 
-## Explicit non-goals / prohibitions
+## Hard prohibitions
 
-- No `nvidia-smi`, GPU polling, CUDA initialization, reservation, or process intervention.
-- No Retinexformer/SNR-Aware/Final-Ours inference and no model construction/forward pass.
-- No UHD-LL low-image stat/hash/open/decode, and no clean/GT/reference access.
-- No PSNR/SSIM/LPIPS/no-reference metric computation.
-- No package installation, environment mutation, source edit, symlink repair, checkpoint copying, config substitution, or path workaround.
-- No change to T072-O launcher/spec, T072-I dispatch, T072-L analysis specification, model bindings, preprocessing, precision, padding, or GPU-gate thresholds.
-- Do not update `coordination/PROJECT_STATE.md`.
+- No Final Ours inference in this task.
+- No clean/GT/reference access and no PSNR/SSIM/LPIPS/no-reference metric computation.
+- No resize, crop, downsample, tiling, half/bfloat16/AMP rescue, checkpoint/config/source substitution, batch alteration, allocator workaround, or target-specific preprocessing.
+- No retry after OOM/runtime/model failure and no second GPU attempt.
+- No kill/pause/renice/eviction of unrelated processes.
+- No launcher/spec/binding modification to make the run pass.
+- Do not update `coordination/PROJECT_STATE.md` in this task.
 
-## Acceptance / stop criteria
+## Classification / stop criteria
 
-Return `NATIVE4K_RUNTIME_ASSETS_VERIFIED` only if **all** sealed runtime dependencies required before target-input access are present and exactly match their frozen byte identities, and the recorded Python/package environment is sufficient to attempt the unchanged T071-B exporter entrypoints later.
+Return exactly one of:
 
-Return `BLOCKED_RUNTIME_ASSET_PROVENANCE` immediately if any required file is missing, unreadable, non-regular, digest-mismatched, or path-ambiguous. Preserve the mismatch as evidence; do not repair it in this cycle. If checking a dependency would require CUDA/model execution or target-image access, mark that dependency `NOT_EXECUTED_BY_DESIGN` rather than crossing the boundary.
+1. `BLOCKED_GPU_GATE` — no qualifying GPU on the single initial snapshot. Preserve raw gate evidence; require `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, `metrics=0`, `process_interventions=0`.
+2. `NATIVE4K_RETINEXFORMER_FAIL` — gate passed, Retinexformer launched once and terminated with real OOM/runtime/model failure. Preserve stdout/stderr/traceback and telemetry; do not run SNR-Aware afterward if the sealed launcher stops there; no rescue/retry.
+3. `NATIVE4K_SNR_AWARE_FAIL` — Retinexformer completed and froze successfully, then SNR-Aware launched once and failed. Preserve both completed Retinexformer evidence and SNR failure evidence; no rescue/retry.
+4. `NATIVE4K_BASELINE_SMOKE_PASS` — both frozen baselines each execute exactly once and produce finite native-`3840×2160` outputs that are immediately hashed/frozen, with synchronized runtime and peak CUDA memory telemetry recorded, and `reference_reads=0`, `metrics=0`.
 
-The task must end with `gpu_queries=0`, `cuda_initializations=0`, `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, `metrics=0`, and `process_interventions=0`.
+Any unexpected binding/input identity mismatch must fail closed under the sealed launcher and be reported precisely rather than repaired.
 
 ## Expected evidence
 
-Commit a task-owned machine-readable manifest/receipt containing each audited path, expected SHA256, observed SHA256/size/type/readability, environment identity, and zero-access counters; an independent verifier that replays the receipt against the sealed T072-O constants; focused tests for at least missing file, digest mismatch, and forbidden target/reference path injection; and a concise report.
+Commit the unique launcher output/receipt tree, raw one-shot gate snapshot, method stdout/stderr/tracebacks if any, output hashes and telemetry for any completed method, an independent verification of the sealed control-flow/accounting, and a concise report. Do not regenerate or overwrite prior T072-O/P evidence.
 
-Append exactly one completion entry to `coordination/CODEX_TO_CHATGPT.md` with one classification: `NATIVE4K_RUNTIME_ASSETS_VERIFIED` or `BLOCKED_RUNTIME_ASSET_PROVENANCE`.
-
-Stop after T072-P. Do not retry the real native-4K smoke until a later research-lead instruction and a qualifying clean GPU are both present.
+Append exactly one completion entry to `coordination/CODEX_TO_CHATGPT.md` with the classification and key counters. Stop after T072-Q. Full 150-image inference is a later research-lead decision only after this smoke is reviewed.
