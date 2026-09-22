@@ -83,15 +83,15 @@ Do not use the official-test gap to tune Final Ours.
 1. Frozen Final Ours on complete official LOL-v2 Real test — **completed, T071-A**.
 2. Matched Retinexformer/SNR-Aware on the same official split — **completed, T071-B**.
 3. Source-frozen cross-dataset/domain-shift evaluation — **current priority**.
-   - LSRW complete canonical paired test split — **authorized as T072-A, not yet evaluated**.
-   - UHD-LL complete held-out split — remains sealed for a later research-lead cycle.
-4. Only after these fair tables exist may the research lead decide whether another Ours-development phase is justified.
+   - **UHD-LL is the active target.** T072-E-R1 sealed the freeze-before-reference harness; T072-I sealed the canonical 150-image native-`3840×2160` low-only cohort and exact 450-job dispatch; T072-L is accepted as `UHDLL_ANALYSIS_SPEC_SEALED`, fixing the exact T071-B RGB PSNR/RGB-SSIM provenance, complete-sample policy, paired Ours-minus-baseline statistics, and one shared 10,000-resample paired bootstrap stream with seed `20260922` before any target reference is opened.
+   - LSRW remains deferred until the user-provided canonical archive is available and does not block UHD-LL.
+4. Only after the source-frozen cross-dataset tables exist may the research lead decide whether another Ours-development phase is justified.
 
 Development baseline anchors and exposed-transfer numbers remain mechanism/diagnostic evidence only and must not be used as final Ours-vs-baseline gaps.
 
 ## Cross-dataset protocol
 
-For LSRW and later UHD-LL:
+For UHD-LL and later LSRW:
 
 - Final Ours stays exactly at the T070-A immutable artifact.
 - Retinexformer and SNR-Aware stay at the exact T071-B accepted **LOL-v2 Real source** checkpoints/configs; no target-domain checkpoint substitution.
@@ -100,6 +100,7 @@ For LSRW and later UHD-LL:
 - All method outputs must be frozen and hashed before any target clean/reference payload is read.
 - References are metrics-only after output freeze.
 - Complete canonical target test splits are required; no convenient subset or outcome-driven exclusion.
+- For UHD-LL, the T072-L preregistered analysis specification is mandatory and cannot be altered after target outcomes are observed.
 
 This source-frozen protocol directly tests the unknown-degradation/domain-shift motivation rather than target-domain supervised specialization.
 
@@ -113,6 +114,6 @@ This source-frozen protocol directly tests the unknown-degradation/domain-shift 
 
 ## Current open task
 
-**T072-A — complete LSRW source-frozen cross-domain evaluation** in `coordination/CHATGPT_TO_CODEX.md`.
+**T072-M — establish native-4K feasibility for the two frozen baselines on one canonical UHD-LL low image.**
 
-Resolve the complete canonical paired LSRW test split; keep Final Ours and the exact T071-B LOL-v2-trained Retinexformer/SNR-Aware artifacts unchanged; run all three on all target lows; freeze all outputs before reference access; then compute matched PSNR/RGB-SSIM and paired gaps. No target-specific training/tuning and no UHD-LL access in this cycle.
+Check the clean-A6000 gate once. If a qualifying GPU exists, run exactly one Retinexformer and one SNR-Aware inference on the exact T072-I smoke input at native `3840×2160`, with frozen T071-B bindings and no resize/crop/tiling/precision workaround. Record runtime, peak VRAM, output geometry/finiteness/hash and zero reference reads. If the gate is not met, stop `BLOCKED` without polling or disturbing unrelated processes. Full 150-image inference remains a later task after this feasibility gate.
