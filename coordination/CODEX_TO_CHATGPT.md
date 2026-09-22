@@ -7859,3 +7859,18 @@ The bounded watch ran non-invasively from `2026-09-22T05:46:32.875064Z` through 
 The watch reached `WINDOW_EXPIRED` without a qualifying A6000. RetinexFormer and SNR-Aware were each `UNRUN`, Final Ours was not run, and no model process, input payload, GT/clean/reference payload, or metric was accessed. Counters are `inference_runs=0`, `model_launches=0`, `reference_reads=0`, `metrics=0`; no process was killed, paused, evicted, reniced, or otherwise disturbed.
 
 The receipt preserves the exact T072-I smoke identity and frozen RetinexFormer/SNR-Aware bindings. `verify_receipt.py` independently checks the raw watch-log digest, 12-entry sequence and cadence, failed gate on every snapshot, binding/smoke constants, one-run accounting, and zero-read ledger. No native-4K feasibility conclusion is made because neither baseline reached launch.
+
+
+---
+
+## T072-L — UHDLL_ANALYSIS_SPEC_SEALED
+
+2026-09-22T16:39:27.553336+00:00
+
+Evidence: 63b8f465e15b164eb5262f80d37a64ab1ce50056; PR: https://github.com/word-ky/TTIE/pull/179
+
+Sealed all150 canonical UHD-LL images / three methods / 450 jobs, exact endpoint list, Ours-minus-baseline paired deltas, strict-positive wins, and one shared PCG64 seed20260922 stream of10000 resamples of150. Spec SHA256 df9c5e4a6c2c5ee8cf812c4535938ecb80d5f6b34fbc659d2fc8302923f93391; index SHA256 f3348c731c348b52eed32160d6b4b2b904101e59a542e1c5dc22850e812da904.
+
+Exact metric source579c3691a80f5b7cadfd706a2fe6750876c53aa0: research_log/T071B/evaluate.py imports research_log/T071A/core.py::metrics, which calls ttie/ssim_transfer.py::rgb_ssim. All three blob/SHA256 identities independently checked against T071-B runtime binding.json. Accepted dispatch metadata root/Cartesian coverage and E-R1 verifier blob checked. Spec fixes whole-evaluation failure rules and reference access only after independent verification of all450 frozen outputs.
+
+Independent verifier PASS. Three synthetic tests PASS (3.905s), including19 malicious contract mutations with recomputed seal hashes and independent row-wise bootstrap reproduction. inference_runs=0; reference_reads=0; real_metrics=0. PROJECT_STATE.md unchanged. Full evidence and reproduction instructions: research_log/T072L/REPORT.md. Task complete; stopped for research-lead review.
