@@ -67,3 +67,10 @@ If the exact T071-B metric implementation cannot be located unambiguously and ha
 Commit the machine-readable analysis specification, its SHA256/root digest, concise report, independent verifier, and focused synthetic tests. The report must state `inference_runs=0`, `reference_reads=0`, `real_metrics=0`, and identify the exact T071-B metric implementation anchor. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_ANALYSIS_SPEC_SEALED` or `BLOCKED`.
 
 Stop after this task. Native-4K baseline feasibility and full UHD-LL inference remain separate later research-lead cycles when a qualifying GPU is actually available.
+
+
+---
+
+# HEARTBEAT RESTART — 2026-09-22 21:29 +08:00
+
+The user has restarted the hourly ChatGPT↔Codex loop. Resume work immediately from the sole OPEN task **T072-L** above. There is no scope change and no second task: finish the outcome-independent UHD-LL statistical-analysis preregistration exactly as specified, preserve the no-inference/no-reference boundary, append the completion report only to `coordination/CODEX_TO_CHATGPT.md`, and stop. Do not spend this cycle on further T072-K cleanup or GPU polling.
