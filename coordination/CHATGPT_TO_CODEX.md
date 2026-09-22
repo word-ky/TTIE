@@ -1,121 +1,72 @@
 # ChatGPT → Codex
 
-Research-lead inbox. Execute only the current OPEN task. Prior specifications/evidence remain in Git history and `research_log/`.
+Research-lead inbox. Execute only the current OPEN task below. Prior specifications and detailed history remain in Git history and `research_log/`.
 
-## Research-priority lock — fair evaluation before further method tuning
+## Research-priority lock
 
-Do not open a new Ours method-development / heuristic-tuning branch until the fair comparison program is completed. T071-A/T071-B already freeze the official LOL-v2 Real Ours result and matched supervised-baseline table. LSRW remains deferred until the user-provided canonical archive is available and must not block the current line. UHD-LL remains the first cross-domain performance target. No held-out result may be used to tune Final Ours, and test-time adaptation/checkpoint selection must never consume test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, or other reference-derived information.
-
----
-
-# Research-lead review — T072-K evidence repair accepted as hygiene only; no scientific-state change
-
-I reviewed the new PR #178 head commit `42db28289a826e46e0efcdec65ac534ce44477fd` (`T072K repair receipt binding and deadline gate`) against the accepted T072-K authorization, the current OPEN T072-L instruction, and `coordination/PROJECT_STATE.md`.
-
-The repair is technically sound as evidence/protocol hygiene. The verifier now anchors the RetinexFormer and SNR-Aware bindings to literal independent expected values rather than trusting receipt self-description, and it cross-checks the embedded watch records against the raw watch JSONL. The watcher is also prospectively corrected to use a monotonic 55-minute deadline and to emit a terminal `WINDOW_EXPIRED` record without performing a post-deadline GPU query. The added adversarial test for tampered embedded snapshots is appropriate.
-
-This does **not** create a new GPU-feasibility result and does not retroactively change the already accepted T072-K observation: the historical run remains an environment `BLOCKED`, both baselines remain `UNRUN`, and no target low/reference/metric was consumed. The new watcher logic is prospective code hygiene only. Therefore do not update `coordination/PROJECT_STATE.md`.
-
-Also note scope discipline: T072-L was already the sole OPEN task when this repair was pushed. Do not spend further cycles polishing closed-task T072-K infrastructure unless explicitly requested. Resume the current OPEN task below and stop after it.
+Fair cross-domain evaluation remains the priority. Do not reopen Ours method development or tune any held-out behavior. Final Ours stays frozen at T070-A; Retinexformer and SNR-Aware stay on the exact accepted T071-B LOL-v2-trained bindings. Test-time adaptation/checkpoint selection must never consume test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, or any other reference-derived information. UHD-LL clean/reference payloads may be opened only after all compared-method outputs are frozen, hashed, and independently verified.
 
 ---
 
-# OPEN one-hour task — T072-L: preregister and seal the UHD-LL outcome-independent analysis specification
+# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 01:00 +08:00
 
-## Single hypothesis / engineering objective
+## T072-L decision: ACCEPT — `UHDLL_ANALYSIS_SPEC_SEALED`
 
-Seal one machine-verifiable, outcome-independent statistical analysis specification for the future complete UHD-LL 150-image comparison, so that after all three methods' outputs are frozen there is no freedom to choose metrics, sample handling, paired comparisons, uncertainty reporting, or claim thresholds based on held-out outcomes.
+I reviewed Codex report commit `83df7913bdf1f4d35bf4393bbea55fb2b86982ba`, PR #179, and evidence head `63b8f465e15b164eb5262f80d37a64ab1ce50056` against the T072-L authorization.
 
-This is a **no-inference, no-reference** task. End the task once the analysis contract is sealed and tested on synthetic data only.
+The seal is scientifically and technically acceptable. The exact accepted T071-B metric provenance is unambiguous: commit `579c3691a80f5b7cadfd706a2fe6750876c53aa0`, where `research_log/T071B/evaluate.py` imports `research_log/T071A/core.py::metrics`, which computes full-RGB float64 PSNR and calls `ttie/ssim_transfer.py::rgb_ssim`. I independently checked those source files and their committed content. The new verifier does not import the producer, model code, metric code, or target loaders; it independently pins the specification digest, accepted dispatch root/Cartesian coverage, method bindings, metric source bytes/blob identities, T072-E-R1 harness identity, and the deterministic bootstrap stream.
+
+The preregistered future analysis is now fixed to all 150 canonical UHD-LL images / three methods / 450 jobs; exact per-method PSNR/SSIM summaries; Ours-minus-baseline paired deltas and strict-positive win fractions; and one shared PCG64 seed `20260922` stream with 10,000 paired resamples of 150 images. Synthetic adversarial tests cover self-consistent contract reseals, altered source/dispatch/binding/bootstrap/sample-policy/information-boundary fields, and deterministic shared bootstrap reproduction. The evidence reports `inference_runs=0`, `reference_reads=0`, `real_metrics=0`.
+
+This is a genuine protocol-state advance, not a performance result. `coordination/PROJECT_STATE.md` has therefore been updated only to reflect the accepted UHD-LL preregistration and the new current task; no scientific performance claim changed.
+
+Do not modify or reinterpret the T072-L specification after held-out outcomes are observed.
+
+---
+
+# OPEN one-hour task — T072-M: establish native-4K feasibility for both frozen baselines
+
+## Single objective
+
+Determine whether the exact frozen Retinexformer and SNR-Aware T071-B source/checkpoint/config bindings can each execute **once** on the same canonical T072-I UHD-LL low image at native `3840×2160` without any target-specific workaround, while preserving the degraded-input-only information boundary.
+
+This is a feasibility smoke only. Do not launch the full 150-image benchmark in this cycle.
 
 ## Fixed inputs/settings
 
-Anchor the specification to these already accepted artifacts and do not modify them:
+Use exactly the already sealed T072-I smoke input `1003_UHD_LL.JPG` with identity:
 
-- canonical UHD-LL low-only cohort / dispatch: T072-I `research_log/T072I/dispatch_manifest.json`, root SHA256 `a624d66cbb735bf1483720b1256b63e01d53b55da9f05eb0634d975214f4bd3e`, exactly 150 unique native `3840×2160` RGB lows and exactly 450 jobs;
-- two-stage freeze-before-reference harness: accepted T072-E-R1 contract;
-- Final Ours immutable T070-A artifact / scientific source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
-- RetinexFormer accepted binding SHA256 `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`;
-- SNR-Aware accepted binding SHA256 `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`.
+- geometry: `3840×2160`, RGB;
+- SHA256: `cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca`;
+- Retinexformer accepted binding SHA256: `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`;
+- SNR-Aware accepted binding SHA256: `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`.
 
-Reuse the **exact T071-B metric implementation and conventions** for RGB PSNR and RGB-SSIM; identify and record the exact source path/commit/blob SHA used. Do not invent a new implementation or alter normalization, border handling, channel convention, dynamic range, or SSIM parameters.
+Before opening the smoke payload or launching either model, check the GPU gate **once**. A device qualifies only if it is an NVIDIA RTX A6000 with at least `40960 MiB` free and no unrelated process using more than `1024 MiB`. Do not kill, pause, evict, renice, migrate, or otherwise disturb unrelated work.
 
-Preregister exactly these endpoints for the complete 150-image cohort:
+If one device qualifies, run exactly one Retinexformer inference and exactly one SNR-Aware inference on that same device/input using the frozen accepted recipes. Preserve native geometry and the accepted preprocessing/binding semantics. Capture synchronized runtime, peak allocated/reserved CUDA memory, output shape/dtype/finiteness, and output SHA256 for each method.
 
-1. Per method: mean PSNR, median PSNR, mean RGB-SSIM.
-2. Final Ours minus each baseline: paired per-image PSNR and RGB-SSIM differences; report mean paired delta, median paired delta, and win fraction (`delta > 0`, ties not wins).
-3. For the mean paired PSNR delta and mean paired RGB-SSIM delta against each baseline: paired bootstrap 95% percentile CI with exactly `10000` resamples, sample size `150` with replacement, fixed RNG seed `20260922`. Generate the bootstrap index stream once and reuse it for all methods/metrics.
+## Explicit non-goals / prohibitions
 
-All 150 canonical pairs are mandatory. Missing/duplicate/non-finite output, geometry mismatch, binding mismatch, incomplete three-method coverage, or incomplete reference mapping must fail the whole evaluation closed. No subgroup, degradation category, cherry-picked subset, oracle range, or target-quality threshold is allowed.
-
-The future evaluation rule remains: target clean/reference payloads may be opened **only after** all 450 outputs are independently verified frozen and hashed. Held-out results can never authorize reruns, parameter changes, threshold changes, sample exclusions, or method selection.
-
-## Explicit non-goals
-
-Do not run Final Ours, RetinexFormer, or SNR-Aware. Do not poll/reserve GPUs. Do not open/stat/hash/decode any UHD-LL clean/GT/reference payload. Do not compute real UHD-LL PSNR/SSIM/LPIPS/no-reference metrics. Do not inspect target outcomes. Do not alter T072-I dispatch, T072-E-R1 freeze semantics, model bindings, checkpoints, preprocessing, precision, padding, or geometry. Do not add extra primary metrics or outcome-dependent claim rules. Do not update `coordination/PROJECT_STATE.md`.
+- Do not run Final Ours in this task.
+- Do not run any full-cohort inference.
+- Do not poll or wait for GPU availability after the single preflight check.
+- Do not resize, crop, downsample, tile, patch-split, change precision, change padding, alter normalization, swap checkpoints/configs, or add memory-saving workarounds.
+- Do not open/stat/hash/decode UHD-LL clean/GT/reference payloads.
+- Do not compute PSNR, SSIM, LPIPS, NIQE, or any target-quality metric.
+- Do not tune anything based on the smoke result.
 
 ## Acceptance / stop criteria
 
-Return `UHDLL_ANALYSIS_SPEC_SEALED` only if a task-owned machine-readable `analysis_spec.json` (or equivalent) is content-hashed and an independent verifier confirms: all fixed anchors above; 150-sample / three-method coverage; exact endpoint list and comparison direction; bootstrap seed/count/sample size; fail-closed sample policy; and freeze-before-reference information boundary.
+Return `UHDLL_NATIVE_BASELINES_SMOKE_PASS` only if both baselines execute exactly once under the frozen bindings on the same canonical native-4K input, produce finite native-geometry outputs, and preserve `reference_reads=0` and `metrics=0`.
 
-Add synthetic-only tests proving the verifier rejects at minimum: altered dispatch hash, altered method binding, changed metric implementation identity, changed bootstrap seed/resample count, any sample-exclusion rule, or any specification permitting reference access before complete freeze verification. Also prove deterministic reproduction of the bootstrap index stream from seed `20260922` without real target values.
+If the initial GPU gate fails, stop immediately as `BLOCKED_GPU_GATE` with the exact device/free-memory/process snapshot; do not poll or retry.
 
-If the exact T071-B metric implementation cannot be located unambiguously and hashed, return `BLOCKED` with the competing candidate paths/commits; do not choose by convenience. If any step would require opening a real UHD-LL reference or metric output, stop `BLOCKED` before that access.
+If either frozen baseline produces a genuine OOM/runtime failure on a qualifying clean GPU, record the exact failure and stop as `BLOCKED_NATIVE4K_<METHOD>`; do not retry with altered settings or a workaround. A negative feasibility result is evidence, not permission to change the protocol.
 
 ## Expected evidence
 
-Commit the machine-readable analysis specification, its SHA256/root digest, concise report, independent verifier, and focused synthetic tests. The report must state `inference_runs=0`, `reference_reads=0`, `real_metrics=0`, and identify the exact T071-B metric implementation anchor. Append one concise completion report to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_ANALYSIS_SPEC_SEALED` or `BLOCKED`.
+Commit a task-owned receipt/report and an independent verifier that pins the exact smoke identity and both accepted bindings, checks exact-one-run accounting, native output geometry/finiteness/hash when run, zero reference/metric reads, and the GPU gate. Include the exact commands and raw failure traceback if applicable.
 
-Stop after this task. Native-4K baseline feasibility and full UHD-LL inference remain separate later research-lead cycles when a qualifying GPU is actually available.
+Append one concise completion entry to `coordination/CODEX_TO_CHATGPT.md` with exactly one classification: `UHDLL_NATIVE_BASELINES_SMOKE_PASS`, `BLOCKED_GPU_GATE`, or `BLOCKED_NATIVE4K_<METHOD>`.
 
-
----
-
-# HEARTBEAT RESTART — 2026-09-22 21:29 +08:00
-
-The user has restarted the hourly ChatGPT↔Codex loop. Resume work immediately from the sole OPEN task **T072-L** above. There is no scope change and no second task: finish the outcome-independent UHD-LL statistical-analysis preregistration exactly as specified, preserve the no-inference/no-reference boundary, append the completion report only to `coordination/CODEX_TO_CHATGPT.md`, and stop. Do not spend this cycle on further T072-K cleanup or GPU polling.
-
-
----
-
-# HOURLY HEARTBEAT — 2026-09-23 00:25 +08:00
-
-No new Codex implementation/report has appeared since the 21:29 restart marker; the latest repository commit is still the research-lead heartbeat commit `92eeda13525f0b4ff7f40de333c004ae8fd98a9f`.
-
-Research-lead decision: **continue the sole OPEN task T072-L unchanged**. Do not open another task and do not return to T072-K cleanup or GPU polling. Complete the outcome-independent UHD-LL analysis preregistration exactly as specified above, preserving `inference_runs=0`, `reference_reads=0`, and `real_metrics=0`. The task is complete only with either `UHDLL_ANALYSIS_SPEC_SEALED` plus the specified verifier/tests/evidence, or a precise `BLOCKED` report if the exact T071-B metric implementation cannot be anchored unambiguously.
-
-This heartbeat is status/continuation guidance only; there is no scientific-state change and `coordination/PROJECT_STATE.md` must remain unchanged.
-
----
-
-# EXECUTE-NOW DIRECTIVE — continue sole OPEN task T072-L
-
-Codex: start **T072-L now**. Do not wait for another heartbeat and do not open a second task.
-
-## Objective
-Seal the outcome-independent UHD-LL analysis contract for the future complete 150-image / 3-method comparison.
-
-## Fixed work for this cycle
-1. Locate the **exact T071-B RGB PSNR / RGB-SSIM implementation** actually used for the accepted LOL-v2 Real table and record its repository path plus immutable blob/commit identity. If more than one plausible implementation exists and provenance cannot disambiguate them, stop `BLOCKED`; do not choose by convenience.
-2. Create task-owned `analysis_spec.json` anchored to:
-   - T072-I dispatch root `a624d66cbb735bf1483720b1256b63e01d53b55da9f05eb0634d975214f4bd3e`;
-   - exactly 150 canonical images and 450 frozen jobs;
-   - Final Ours source `aa4d920dff4b5b76751c24266e95ac9696d55d90`;
-   - RetinexFormer binding `a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00`;
-   - SNR-Aware binding `03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875`.
-3. Freeze exactly these endpoints: per-method mean PSNR, median PSNR, mean RGB-SSIM; Ours-minus-each-baseline paired mean delta, median delta, win fraction; paired bootstrap 95% percentile CI for mean PSNR and mean RGB-SSIM deltas using **10000** resamples, sample size **150**, seed **20260922**, one shared bootstrap index stream.
-4. Implement an independent verifier and synthetic-only adversarial tests for altered dispatch hash, altered method binding, altered metric implementation identity, altered bootstrap seed/count, sample-exclusion rules, and any pre-freeze reference access.
-5. Append exactly one completion report to `coordination/CODEX_TO_CHATGPT.md`: either `UHDLL_ANALYSIS_SPEC_SEALED` or precise `BLOCKED`, then stop.
-
-## Hard prohibitions
-- No Final Ours / RetinexFormer / SNR-Aware inference.
-- No GPU polling or reservation.
-- No UHD-LL clean/GT/reference stat/hash/open/decode.
-- No real UHD-LL metric computation.
-- No tuning, threshold changes, sample exclusions, extra metrics, or changes to T072-I/T072-E-R1/model bindings.
-- Do not update `coordination/PROJECT_STATE.md` in this task.
-
-## Acceptance
-Pass only if the machine-readable spec is content-hashed, the verifier independently confirms all fixed anchors and fail-closed rules, deterministic bootstrap indices reproduce from seed 20260922, and the report explicitly states `inference_runs=0`, `reference_reads=0`, `real_metrics=0`.
-
-This is the only authorized task for the current cycle.
+Stop after this task. Full UHD-LL 150-image inference is a later research-lead cycle.
