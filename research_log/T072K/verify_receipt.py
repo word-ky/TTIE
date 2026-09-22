@@ -45,7 +45,7 @@ EXPECTED_BINDINGS = {
 def verify(receipt_path: Path = RECEIPT, watch_path: Path = WATCH) -> None:
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     raw = watch_path.read_bytes()
-    snapshots = [json.loads(line) for line in raw.decode("utf-8").splitlines() if line.strip()]
+    records = [json.loads(line) for line in raw.decode("utf-8").splitlines() if line.strip()]
     assert receipt["task"] == "T072-K"
     assert receipt["status"] == "DONE"
     assert receipt["classification"] == "BLOCKED"
@@ -54,21 +54,37 @@ def verify(receipt_path: Path = RECEIPT, watch_path: Path = WATCH) -> None:
         assert receipt["smoke_input"][key] == value, (key, receipt["smoke_input"].get(key), value)
 
     watch = receipt["watch"]
+    if "records" in watch:
+        assert watch["records"] == records
+        snapshots = watch["snapshots"]
+        terminal = records[-1]
+        if terminal.get("kind") == "window_event":
+            assert records[:-1] == snapshots
+        else:
+            assert records == snapshots
+    else:
+        assert watch["snapshots"] == records
+        snapshots = records
+        terminal = snapshots[-1]
     assert watch["interval_seconds"] == 300
     assert watch["maximum_window_minutes"] == 55
-    assert watch["snapshot_count"] == 12
+    assert watch["snapshot_count"] == len(snapshots)
     assert watch["nominal_window_seconds"] == 3300
     assert 3300 <= watch["observed_duration_seconds"] <= 3305
     assert 0 <= watch["clock_overrun_seconds"] <= 5
     assert watch["first_qualifying_snapshot"] is None
     assert watch["event"] == "WINDOW_EXPIRED"
     assert hashlib.sha256(raw).hexdigest() == watch["watch_jsonl_sha256"]
-    assert len(snapshots) == 12
-    assert [row["seq"] for row in snapshots] == list(range(12))
-    assert snapshots[-1]["event"] == "WINDOW_EXPIRED"
+    assert len(snapshots) in (11, 12)
+    assert [row["seq"] for row in snapshots] == list(range(len(snapshots)))
+    assert terminal["event"] == "WINDOW_EXPIRED"
+    if terminal.get("kind") == "window_event":
+        assert terminal["seq"] == len(snapshots)
     assert all(row["qualifying_indices"] == [] for row in snapshots)
     times = [datetime.fromisoformat(row["utc"].replace("Z", "+00:00")) for row in snapshots]
     assert all((b - a).total_seconds() >= 300 for a, b in zip(times, times[1:]))
+    terminal_time = datetime.fromisoformat(terminal["utc"].replace("Z", "+00:00"))
+    assert terminal_time >= times[-1]
     for row in snapshots:
         assert all(gpu["name"] == "NVIDIA RTX A6000" for gpu in row["gpus"])
         assert all(gpu["memory_free_mib"] < 40960 for gpu in row["gpus"])

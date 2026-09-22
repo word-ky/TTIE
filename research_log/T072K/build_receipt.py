@@ -48,12 +48,15 @@ BINDINGS = {
 
 def main() -> None:
     raw = WATCH.read_bytes()
-    snapshots = [json.loads(line) for line in raw.decode("utf-8").splitlines() if line.strip()]
-    assert len(snapshots) == 12
-    assert snapshots[-1]["event"] == "WINDOW_EXPIRED"
+    records = [json.loads(line) for line in raw.decode("utf-8").splitlines() if line.strip()]
+    separate_terminal = records[-1].get("kind") == "window_event"
+    snapshots = records[:-1] if separate_terminal else records
+    terminal = records[-1]
+    assert len(snapshots) in (11, 12)
+    assert terminal["event"] == "WINDOW_EXPIRED"
     assert all(not row["qualifying_indices"] for row in snapshots)
     first = datetime.fromisoformat(snapshots[0]["utc"].replace("Z", "+00:00"))
-    last = datetime.fromisoformat(snapshots[-1]["utc"].replace("Z", "+00:00"))
+    last = datetime.fromisoformat(terminal["utc"].replace("Z", "+00:00"))
     observed_seconds = (last - first).total_seconds()
     receipt = {
         "task": "T072-K",
@@ -73,13 +76,20 @@ def main() -> None:
             "nominal_window_seconds": 3300,
             "observed_duration_seconds": observed_seconds,
             "clock_overrun_seconds": max(0.0, observed_seconds - 3300.0),
-            "timing_note": "The final closure query followed the nominal 55-minute deadline by scheduler/query overhead; all snapshot gaps remained at least 300 seconds.",
+            "timing_note": (
+                "The terminal event was written at the monotonic deadline without a post-deadline query; "
+                "all snapshot gaps remained at least 300 seconds."
+                if separate_terminal
+                else "The final closure query followed the nominal 55-minute deadline by scheduler/query overhead; all snapshot gaps remained at least 300 seconds."
+            ),
             "first_snapshot_utc": snapshots[0]["utc"],
             "last_snapshot_utc": snapshots[-1]["utc"],
+            "terminal_event_utc": terminal["utc"],
             "first_qualifying_snapshot": None,
-            "event": snapshots[-1]["event"],
+            "event": terminal["event"],
             "watch_jsonl_sha256": hashlib.sha256(raw).hexdigest(),
             "snapshots": snapshots,
+            "records": records,
         },
         "smoke_input": SMOKE,
         "bindings": BINDINGS,
@@ -107,7 +117,7 @@ def main() -> None:
         },
         "tests": {
             "independent_verifier": "pending",
-            "watch_parser": "12 snapshots; WINDOW_EXPIRED",
+            "watch_parser": f"{len(snapshots)} snapshots; WINDOW_EXPIRED",
             "model_tests": "not_run_by_gate",
             "remote_input_access": "not performed",
         },

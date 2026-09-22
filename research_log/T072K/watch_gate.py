@@ -16,6 +16,7 @@ from pathlib import Path
 
 INTERVAL_SECONDS = 300
 MAX_SNAPSHOTS = 12  # t=0 through t=55 minutes
+WINDOW_SECONDS = INTERVAL_SECONDS * (MAX_SNAPSHOTS - 1)
 FREE_MIN_MIB = 40960
 PROCESS_MAX_MIB = 1024
 
@@ -113,21 +114,45 @@ def snapshot(seq: int) -> dict[str, object]:
     }
 
 
+def write_record(output: Path, record: dict[str, object]) -> None:
+    with output.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, sort_keys=True) + "\n")
+
+
+def expiration_record(seq: int) -> dict[str, object]:
+    return {
+        "seq": seq,
+        "utc": utc_now(),
+        "kind": "window_event",
+        "event": "WINDOW_EXPIRED",
+        "qualifying_indices": [],
+    }
+
+
 def main() -> None:
     output = Path(__file__).with_name("watch.jsonl")
     output.parent.mkdir(parents=True, exist_ok=True)
+    start = time.monotonic()
+    deadline = start + WINDOW_SECONDS
     for seq in range(MAX_SNAPSHOTS):
+        scheduled = start + seq * INTERVAL_SECONDS
+        if seq:
+            wait_seconds = scheduled - time.monotonic()
+            if wait_seconds > 0:
+                time.sleep(wait_seconds)
+        if time.monotonic() >= deadline:
+            write_record(output, expiration_record(seq))
+            return
         item = snapshot(seq)
         if item["qualifying_indices"]:
             item["event"] = "FIRST_QUALIFYING"
-            output.open("a", encoding="utf-8").write(json.dumps(item, sort_keys=True) + "\n")
+            write_record(output, item)
             return
         if seq == MAX_SNAPSHOTS - 1:
             item["event"] = "WINDOW_EXPIRED"
-            output.open("a", encoding="utf-8").write(json.dumps(item, sort_keys=True) + "\n")
+            write_record(output, item)
             return
-        output.open("a", encoding="utf-8").write(json.dumps(item, sort_keys=True) + "\n")
-        time.sleep(INTERVAL_SECONDS)
+        write_record(output, item)
 
 
 if __name__ == "__main__":

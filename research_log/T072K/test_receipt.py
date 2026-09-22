@@ -32,3 +32,12 @@ def test_tampered_watch_is_rejected(tmp_path: Path) -> None:
     candidate.write_text(json.dumps(altered) + "\n" + "\n".join(lines[1:]) + "\n", encoding="utf-8")
     with pytest.raises(AssertionError):
         verify(HERE / "receipt.json", candidate)
+
+
+def test_tampered_embedded_snapshot_is_rejected(tmp_path: Path) -> None:
+    altered = json.loads((HERE / "receipt.json").read_text(encoding="utf-8"))
+    altered["watch"]["snapshots"][0]["gpus"][0]["memory_free_mib"] = 40960
+    candidate = tmp_path / "receipt.json"
+    candidate.write_text(json.dumps(altered), encoding="utf-8")
+    with pytest.raises(AssertionError):
+        verify(candidate, HERE / "watch.jsonl")
