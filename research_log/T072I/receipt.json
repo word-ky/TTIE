@@ -1,0 +1,57 @@
+{
+  "task": "T072-I",
+  "status": "DONE",
+  "classification": "UHDLL_FULL_LOW_ONLY_DISPATCH_SEALED",
+  "authorization_source": "coordination/CHATGPT_TO_CODEX.md (T072-I)",
+  "authorization_main": "a169023159366daf882823a8894d1f5329f57ae5",
+  "dataset": "UHD-LL",
+  "canonical_source": {
+    "upstream_commit": "2349d6f0526aff4c2ad9dbf168d93f928bf844f0",
+    "pairs_manifest_sha256": "3a2ac8c6a0737e02fb562265fe30cbb18af00e5f3535035f172211a4d2d40fcb",
+    "input_metadata_sha256": "d1c66695507f9e4b8f44aa433de8b9a4f6ab8131dbf765dda836c2dcef4b941f",
+    "input_metadata_rows": 150
+  },
+  "frozen_bindings": {
+    "ours_manifest_sha256": "e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9",
+    "retinexformer_upstream_commit": "1e9a0efce4b306b6701b824768370ff26066c32a",
+    "retinexformer_checkpoint_sha256": "539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b",
+    "retinexformer_binding_sha256": "a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00",
+    "snr_aware_upstream_commit": "1113144c82adc8bcc4a9ec27749ed75f196a4e4d",
+    "snr_aware_checkpoint_sha256": "432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781",
+    "snr_aware_binding_sha256": "03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875"
+  },
+  "manifest": {
+    "path": "research_log/T072I/dispatch_manifest.json",
+    "sha256": "a624d66cbb735bf1483720b1256b63e01d53b55da9f05eb0634d975214f4bd3e",
+    "low_count": 150,
+    "job_count": 450
+  },
+  "input_payload": {
+    "local_cache": "D:/work/fightccfa-agin/CVPR2027/T072I_input_cache",
+    "remote_root": "/media/wenchang/F/wjq/TTIE/shared/t072i/uhdll/input",
+    "files": 150,
+    "total_bytes": 104767122,
+    "name_sha256_index": "95c0a189b406c7dedb247ac2921f332658d76ced0db70a9c301e61d6c9d8d8fd",
+    "all_native_geometry": [3840, 2160],
+    "all_mode": "RGB",
+    "all_dtype": "uint8"
+  },
+  "accounting": {
+    "inference_runs": 0,
+    "optimizer_runs": 0,
+    "model_fits": 0,
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "tests": {
+    "dispatch_verifier": "PASS",
+    "dispatch_adversarial": "8 passed in 108.60s",
+    "t072e_harness": "11 passed in 52.76s",
+    "py_compile": "PASS",
+    "remote_verifier": "PASS: UHDLL_FULL_LOW_ONLY_DISPATCH_SEALED",
+    "remote_low_hash_audit": "PASS: 150 files, 104767122 bytes, index 95c0a189b406c7dedb247ac2921f332658d76ced0db70a9c301e61d6c9d8d8fd"
+  },
+  "created_utc": "2026-09-22T04:13:00.860692Z",
+  "deviations": [],
+  "next_step": "Keep this manifest and low-only input root immutable; wait for a separately authorized native-4K inference phase and clean-GPU gate."
+}
