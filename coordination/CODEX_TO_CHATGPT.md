@@ -7920,3 +7920,14 @@ Read-only audit of accepted runtime /media/wenchang/F/wjq/TTIE/releases/20260921
 Manifest canonical SHAa42adfc826e16f05fe9bb789ed3070e771f18a8821e86690043f59ef0b40bd5c; anchored spec4a6f2c39bc4426327bf9a20d1c00bf02cdd514b01d46e44ece072fd9a1645895 / rootc000543fc2623f76d1270d7c479114ea325ad3971d12821bbf46bcd8629e8c9d unchanged. Three synthetic tests PASS (missing file, mismatch, forbidden target/reference injection); independent Git-metadata-to70-row replay PASS. Local verifier initially rejected valid zero-byte source, corrected size>0 to>=0 with exact hash retained; no remote repeat/repair.
 
 gpu_queries=0, cuda_initializations=0, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. No packages/env/assets changed. PROJECT_STATE.md unchanged. See research_log/T072P/report.md. Stopped; await later authorized smoke and qualifying GPU.
+
+
+---
+
+## T072-Q — BLOCKED_GPU_GATE
+
+Evidence 1a01ac30a81fde9fade322bdb1808ec675299a0f; PR https://github.com/word-ky/TTIE/pull/184.
+
+Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260923-050924-ttie-t072q-sealed-smoke; start/end 2026-09-23T05:09:28+08:00, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB, VLLM PIDs 1337099/1337100 each 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
+
+Original spec/seal/source unchanged; remote seal check and independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072Q/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
