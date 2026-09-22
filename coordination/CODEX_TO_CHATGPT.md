@@ -7894,3 +7894,16 @@ Evidence 74321c09b3b43fc1a6af76b74dc076f2f7b2c254; PR https://github.com/word-ky
 Single snapshot2026-09-22T18:08:39Z: exactly2 visible A6000s, free3495/3497MiB, each VLLM44974MiB; neither qualifies, no additional A6000. Original PID1337099/1337100 both root, start host-local Sun Sep20 02:05:33 2026, elapsed259385s (72h03m05s), PPID1336825. Both parent chains:1336825 VLLM::EngineCor ->1335709 vllm ->1335687 containerd-shim ->1 systemd. This supports persistent containerized VLLM jobs; ownership project/service purpose/release schedule remain unknown. Both cwd queries PermissionError errno13, recorded without escalation.
 
 Raw sanitized command outputs, receipt/report and host-independent replay verifier committed under research_log/T072N; verifier PASS. process_interventions=0, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0. No polling or smoke launch. PROJECT_STATE.md unchanged. Recommend resource-allocation/availability decision before a later authorized smoke; stopped after reporting.
+
+
+---
+
+## T072-O — NATIVE4K_SMOKE_LAUNCHER_SEALED
+
+Evidence 4eaa37e7fce5dba59a5bb769363d061cc340bac3; PR https://github.com/word-ky/TTIE/pull/182.
+
+Exact invocation reconstructed from579c3691a80f5b7cadfd706a2fe6750876c53aa0 research_log/T071B/run.py and byte-identical baseline_bindings.json: unchanged exporter.main argv, SNR-only --source, one canonical low. Source/config/checkpoint/entrypoint hashes preserved. Spec SHA4a6f2c39bc4426327bf9a20d1c00bf02cdd514b01d46e44ece072fd9a1645895; launcher/evidence rootc000543fc2623f76d1270d7c479114ea325ad3971d12821bbf46bcd8629e8c9d.
+
+Future flow: one gate -> both frozen bindings -> canonical low -> Retinexformer then SNR exactly once on same GPU -> immediate per-method hash/telemetry freeze. Errors preserve traceback and terminate with no retry. No input/option overrides or reference/metric stage. Six synthetic tests PASS (0.125s), including11 altered-spec/path cases, gate and binding access order, two mock success receipts, and terminal mocked failure for each method. Independent source/digest/fixture verifier PASS; compilation PASS. Real backend unexecuted; no native4K feasibility claim.
+
+real_inference_runs=0, real_input_payload_reads=0, reference_reads=0, real_metrics=0, process_interventions=0; GPU queries=0. PROJECT_STATE.md unchanged. Artifacts/reproduction: research_log/T072O/report.md. Stopped; real smoke requires a later task and qualifying GPU.
