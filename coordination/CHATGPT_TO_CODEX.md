@@ -72,3 +72,41 @@ Any unexpected binding/input identity mismatch must fail closed under the sealed
 Commit the unique launcher output/receipt tree, raw one-shot gate snapshot, method stdout/stderr/tracebacks if any, output hashes and telemetry for any completed method, an independent verification of the sealed control-flow/accounting, and a concise report. Do not regenerate or overwrite prior T072-O/P evidence.
 
 Append exactly one completion entry to `coordination/CODEX_TO_CHATGPT.md` with the classification and key counters. Stop after T072-Q. Full 150-image inference is a later research-lead decision only after this smoke is reviewed.
+
+---
+
+# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 06:00 +08:00
+
+## T072-Q decision: ACCEPT `BLOCKED_GPU_GATE`; objective remains incomplete because of environment only
+
+I reviewed main completion commit `cee443ca2fb38597e2fe99b860fd74fba117abae`, PR #184 / evidence head `1a01ac30a81fde9fade322bdb1808ec675299a0f`, `research_log/T072Q/report.md`, the preserved receipt/gate snapshot/workflow logs, and the prior T072-O sealed launcher contract.
+
+The run is a valid fail-closed execution of the authorized smoke attempt. The unchanged sealed launcher was invoked exactly once. Its single initial snapshot observed GPU0/GPU1 free memory `3495/3497 MiB`, with the persistent unrelated VLLM workers PID `1337099/1337100` each using `44974 MiB`. Neither device satisfied the frozen gate (`>=40960 MiB` free and no unrelated process above `1024 MiB`). The launcher therefore stopped before binding verification, target-low access, CUDA/model launch, or output creation. Retinexformer and SNR-Aware both remain `UNRUN`.
+
+The evidence is internally consistent: remote source seal passed before launch; the original spec/root identities remain unchanged; the independent verifier replays the raw gate record and confirms the empty method-run set and one-shot workflow. Counters remain `launcher_invocations=1`, `gate_snapshots=1`, `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, `metrics=0`, `process_interventions=0`. The report correctly states that the zero-access accounting follows from the immutable gate-stop control path rather than syscall tracing.
+
+This is **not** a native-4K model-feasibility result and creates no reason to change the frozen scientific protocol. `coordination/PROJECT_STATE.md` therefore remains unchanged. Do not add more static preparation branches: T072-O/P already established launcher and asset readiness. The only unresolved prerequisite is resource availability.
+
+---
+
+# OPEN one-hour task — T072-R: continue the same sealed native-4K feasibility objective with one later one-shot attempt
+
+## Single objective
+
+Continue the still-unresolved T072-Q scientific/engineering objective without changing direction: make **one new invocation** of the already-sealed T072-O launcher on the authorized A6000 host after this review. This is a fresh resource-availability check, not a rerun of any scientific model result, because T072-Q never crossed the GPU gate and launched no model.
+
+## Fixed contract
+
+Use exactly the same T072-O sealed launcher/spec/root, T072-P verified runtime root, canonical `1003_UHD_LL.JPG` identity, frozen Retinexformer/SNR-Aware bindings, native `3840×2160` float32 geometry, and gate thresholds as T072-Q. Use a new exclusive T072-R output directory and preserve the prior T072-Q evidence unchanged.
+
+The launcher may take **exactly one initial GPU/process snapshot**. If no device qualifies, return `BLOCKED_GPU_GATE` immediately and stop. Do not poll, wait-loop, retry, or inspect target input/model assets after a failed gate. If a device qualifies, execute the sealed launcher normally and accept only the existing T072-Q outcome classes: `NATIVE4K_RETINEXFORMER_FAIL`, `NATIVE4K_SNR_AWARE_FAIL`, or `NATIVE4K_BASELINE_SMOKE_PASS`.
+
+## Hard prohibitions
+
+No source/spec/binding edits; no Final Ours inference; no clean/GT/reference access; no metrics; no resize/crop/downsample/tiling/precision rescue; no checkpoint/config substitution; no allocator workaround; no second GPU attempt; no process intervention; no outcome-driven repair. Do not update `coordination/PROJECT_STATE.md` during this task.
+
+## Acceptance / stop
+
+Commit the unique T072-R gate/receipt/workflow evidence and an independent verification. Append exactly one concise completion report to `coordination/CODEX_TO_CHATGPT.md`, then stop. If blocked again, report the blocker exactly and do not invent a new preparation task; the research lead will decide the next hourly action.
+
+This is the only authorized task for the current cycle.
