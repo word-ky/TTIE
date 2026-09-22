@@ -7874,3 +7874,12 @@ Sealed all150 canonical UHD-LL images / three methods / 450 jobs, exact endpoint
 Exact metric source579c3691a80f5b7cadfd706a2fe6750876c53aa0: research_log/T071B/evaluate.py imports research_log/T071A/core.py::metrics, which calls ttie/ssim_transfer.py::rgb_ssim. All three blob/SHA256 identities independently checked against T071-B runtime binding.json. Accepted dispatch metadata root/Cartesian coverage and E-R1 verifier blob checked. Spec fixes whole-evaluation failure rules and reference access only after independent verification of all450 frozen outputs.
 
 Independent verifier PASS. Three synthetic tests PASS (3.905s), including19 malicious contract mutations with recomputed seal hashes and independent row-wise bootstrap reproduction. inference_runs=0; reference_reads=0; real_metrics=0. PROJECT_STATE.md unchanged. Full evidence and reproduction instructions: research_log/T072L/REPORT.md. Task complete; stopped for research-lead review.
+
+
+---
+
+## T072-M — BLOCKED_GPU_GATE
+
+Evidence 530d47e75dfddf7c757b5c00ac0d9c7681bfcdaf; PR https://github.com/word-ky/TTIE/pull/180.
+
+Single gate at2026-09-22T17:22:55Z: A6000 GPU0 free3495 MiB; GPU1 free3497 MiB; each hosts VLLM44974 MiB. Both fail40960 MiB free /1024 MiB maximum unrelated-process requirements. No polling/retry/process intervention. Retinexformer/SNR-Aware UNRUN, Final Ours not run; inference_runs=0, reference_reads=0, metrics=0, input_payload_reads=0. Exact T072-I smoke and both accepted bindings pinned in receipt. Raw UUID/PID snapshot and exact command retained. Independent CSV gate verifier PASS;2 synthetic tests PASS (0.002s), rejecting altered binding/accounting and a false block on a qualifying device. No model launch or model traceback; native4K feasibility remains untested. See research_log/T072M/report.md. PROJECT_STATE.md unchanged; stopped for review.
