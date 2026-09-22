@@ -1,0 +1,160 @@
+{
+  "blocked": {
+    "events": [
+      "snapshot"
+    ],
+    "receipt": {
+      "task": "T072-O-future-smoke",
+      "runs": [],
+      "reference_reads": 0,
+      "metrics": 0,
+      "classification": "BLOCKED_GPU_GATE"
+    }
+  },
+  "bad_binding": {
+    "events": [
+      "snapshot",
+      "bindings"
+    ],
+    "receipt": {
+      "task": "T072-O-future-smoke",
+      "runs": [],
+      "reference_reads": 0,
+      "metrics": 0,
+      "device": 1,
+      "classification": "BLOCKED_PREFLIGHT",
+      "error_type": "ValueError",
+      "error": "synthetic binding mismatch",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T072O-work\\research_log\\T072O\\launcher.py\", line 70, in launch\n    backend.bindings(spec,bindings)\n  File \"D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T072O-work\\research_log\\T072O\\test_launcher.py\", line 12, in bindings\n    if self.bad_binding:raise ValueError('synthetic binding mismatch')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: synthetic binding mismatch\n"
+    }
+  },
+  "success": {
+    "events": [
+      "snapshot",
+      "bindings",
+      "input",
+      "retinexformer",
+      "snr_aware"
+    ],
+    "receipt": {
+      "task": "T072-O-future-smoke",
+      "runs": [
+        {
+          "method": "retinexformer",
+          "run_count": 1,
+          "status": "FROZEN",
+          "output": {
+            "method": "retinexformer",
+            "shape": [
+              2160,
+              3840,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "output_sha256": "5f08e9e997b9c86db9178eefdee1e1f68bbe0998fd026d85d115ef830b6b8cba",
+            "file_sha256": "b3cc0475bb78a5026098858e9889acf666d31062d513d303314eca31d36e72f2",
+            "runtime_s": 1.0,
+            "peak_allocated_bytes": 512,
+            "peak_reserved_bytes": 1024
+          }
+        },
+        {
+          "method": "snr_aware",
+          "run_count": 1,
+          "status": "FROZEN",
+          "output": {
+            "method": "snr_aware",
+            "shape": [
+              2160,
+              3840,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "output_sha256": "0be654119ee1c5b34ae53efdb171d0804bcdc94bddff4ce2e398daf426d3b218",
+            "file_sha256": "b3cc0475bb78a5026098858e9889acf666d31062d513d303314eca31d36e72f2",
+            "runtime_s": 1.0,
+            "peak_allocated_bytes": 512,
+            "peak_reserved_bytes": 1024
+          }
+        }
+      ],
+      "reference_reads": 0,
+      "metrics": 0,
+      "device": 1,
+      "classification": "UHDLL_NATIVE_BASELINES_SMOKE_PASS"
+    }
+  },
+  "failure_retinexformer": {
+    "events": [
+      "snapshot",
+      "bindings",
+      "input",
+      "retinexformer"
+    ],
+    "receipt": {
+      "task": "T072-O-future-smoke",
+      "runs": [
+        {
+          "method": "retinexformer",
+          "run_count": 1,
+          "status": "FAILED"
+        }
+      ],
+      "reference_reads": 0,
+      "metrics": 0,
+      "device": 1,
+      "classification": "BLOCKED_NATIVE4K_RETINEXFORMER",
+      "error_type": "RuntimeError",
+      "error": "injected CUDA out of memory",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T072O-work\\research_log\\T072O\\launcher.py\", line 77, in launch\n    result=backend.run(method,device,spec,bindings[method],method_out)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T072O-work\\research_log\\T072O\\test_launcher.py\", line 16, in run\n    if method==self.fail:raise RuntimeError('injected CUDA out of memory')\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: injected CUDA out of memory\n"
+    }
+  },
+  "failure_snr_aware": {
+    "events": [
+      "snapshot",
+      "bindings",
+      "input",
+      "retinexformer",
+      "snr_aware"
+    ],
+    "receipt": {
+      "task": "T072-O-future-smoke",
+      "runs": [
+        {
+          "method": "retinexformer",
+          "run_count": 1,
+          "status": "FROZEN",
+          "output": {
+            "method": "retinexformer",
+            "shape": [
+              2160,
+              3840,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "output_sha256": "5f08e9e997b9c86db9178eefdee1e1f68bbe0998fd026d85d115ef830b6b8cba",
+            "file_sha256": "b3cc0475bb78a5026098858e9889acf666d31062d513d303314eca31d36e72f2",
+            "runtime_s": 1.0,
+            "peak_allocated_bytes": 512,
+            "peak_reserved_bytes": 1024
+          }
+        },
+        {
+          "method": "snr_aware",
+          "run_count": 1,
+          "status": "FAILED"
+        }
+      ],
+      "reference_reads": 0,
+      "metrics": 0,
+      "device": 1,
+      "classification": "BLOCKED_NATIVE4K_SNR_AWARE",
+      "error_type": "RuntimeError",
+      "error": "injected CUDA out of memory",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T072O-work\\research_log\\T072O\\launcher.py\", line 77, in launch\n    result=backend.run(method,device,spec,bindings[method],method_out)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\work\\fightccfa-agin\\CVPR2027\\TTT-ImageEnhancement\\.autodl\\T072O-work\\research_log\\T072O\\test_launcher.py\", line 16, in run\n    if method==self.fail:raise RuntimeError('injected CUDA out of memory')\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: injected CUDA out of memory\n"
+    }
+  }
+}
