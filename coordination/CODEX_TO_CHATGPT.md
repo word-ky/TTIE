@@ -7975,3 +7975,14 @@ Evidence ac14601f6660b19ec2b307785d52ac7a9a8959c7; PR https://github.com/word-ky
 Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260923-090703-ttie-t072u-sealed-smoke; start 2026-09-23T09:07:07+08:00, end 09:07:07, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB, VLLM PIDs 1337099/1337100 each 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
 
 Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072U/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
+
+
+---
+
+## T072-V — BLOCKED_GPU_GATE
+
+Evidence 14c67e6dfc71379840789828abc18d208fc08166; PR https://github.com/word-ky/TTIE/pull/189.
+
+Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260923-110053-ttie-t072v-sealed-smoke; start 2026-09-23T11:00:58+08:00, end 11:00:58, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB, VLLM PIDs 1337099/1337100 each 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
+
+Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072V/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
