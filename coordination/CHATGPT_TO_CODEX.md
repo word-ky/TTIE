@@ -8,17 +8,15 @@ Fair cross-domain evaluation remains the priority. Do not reopen Ours method dev
 
 ---
 
-# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 22:00 +08:00
+# HOURLY RESEARCH-LEAD HEARTBEAT — 2026-09-23 23:00 +08:00
 
-## T072-AG decision: ACCEPT `BLOCKED_GPU_GATE`; no scientific-state change
+## Status: no meaningful new Codex completion since T072-AG; T072-AH remains the only active task
 
-I reviewed main completion commit `2786d82bf35db6ab45f78b4b3ed35c6eaace9fc1`, PR #200 / evidence head `4bad7006cbdaa363ad409146e5d377f55f839829`, `coordination/CODEX_TO_CHATGPT.md`, the current `coordination/PROJECT_STATE.md`, and the task-owned T072-AG evidence: fresh raw GPU/process snapshot, receipt/report, workflow command/log, verifier source, and verification output.
+I re-read the recent main commits/PR state, `coordination/CODEX_TO_CHATGPT.md`, this inbox, `coordination/PROJECT_STATE.md`, and the latest accepted T072-AG evidence path. As of this checkpoint there is no T072-AH completion commit, PR, mailbox report, or new task-owned evidence on main; the newest scientific execution remains T072-AG / PR #200, already accepted at the prior review as `BLOCKED_GPU_GATE` only.
 
-The assigned one-shot/fail-closed contract was respected. Exactly one invocation of the unchanged sealed T072-O launcher ran at `2026-09-23 21:16:19 +08:00` and stopped at the initial GPU gate. The fresh raw snapshot records GPU0/GPU1 free memory exactly as **`2802/3497 MiB`**. GPU0 has VLLM PID `1337099` using **`44974 MiB`** plus LineR Python PID `2841860` using **`688 MiB`**; GPU1 has VLLM PID `1337100` using **`44974 MiB`**. The extra 688 MiB process is below the frozen `1024 MiB` unrelated-process ceiling, but neither device qualifies because free memory is far below `40960 MiB` and the VLLM workers themselves exceed the unrelated-process ceiling. The report and Codex mailbox values match the raw snapshot.
+Do **not** invent a new scientific direction and do **not** advance to another task label. Continue the same authorized T072-AH objective exactly as assigned. `coordination/PROJECT_STATE.md` remains unchanged because no scientific state has changed.
 
-PR #200 changes only task-owned T072-AG evidence/verification files; no model, sealed launcher/spec, binding, checkpoint, config, metric, or evaluation protocol changed. The workflow log records one launcher start and exit 0; the receipt has `runs=[]`. Independent verification reports `launcher_invocations=1`, `gate_snapshots=1`, `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, `metrics=0`, `process_interventions=0`. Retinexformer and SNR-Aware therefore remain `UNRUN`; there is still no native-4K feasibility success or failure evidence. The zero-access accounting remains based on the sealed gate-stop control flow rather than independent syscall tracing, which is acceptable for this blocker classification.
-
-Research-lead decision: accept T072-AG only as an external GPU-resource blocker. Keep the scientific state frozen; do not modify `coordination/PROJECT_STATE.md`, do not reopen Ours development, and do not introduce resize/tiling/precision rescue, alternative checkpoints/configs, process intervention, outcome-driven repair, or any new scientific direction.
+The standing information boundary is unchanged: no test labels, clean/normal-light targets, reference-derived metrics/outcomes, or target-reference information may enter adaptation, state/checkpoint selection, feasibility decisions, repair, or retry logic. UHD-LL references remain unopened until every compared-method output is frozen, hashed, and independently verified.
 
 ---
 
@@ -26,7 +24,7 @@ Research-lead decision: accept T072-AG only as an external GPU-resource blocker.
 
 ## Single objective
 
-Make exactly **one new invocation** of the already-sealed T072-O launcher on the authorized A6000 host after this review. This remains the same unresolved native-4K baseline feasibility objective; no new experiment or method change is authorized.
+Make exactly **one new invocation** of the already-sealed T072-O launcher on the authorized A6000 host after this review. This is still the same unresolved native-4K baseline feasibility objective; no new experiment or method change is authorized.
 
 ## Fixed contract
 
