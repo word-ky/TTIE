@@ -8173,3 +8173,14 @@ Evidence f211e91a62c2af9f400b406351b9b386c85b504c; PR https://github.com/word-ky
 Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260924-040504-ttie-t072am-sealed-smoke; start 2026-09-24T04:05:09+08:00, end 04:05:09, exit 0. Single initial GPU/process snapshot: A6000 free 966/1078 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB and qwen3vl Python PID 3022346 uses 2524 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB and qwen3vl Python PID 2961777 uses 2412 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
 
 Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AM/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
+
+
+---
+
+## T072-AN — BLOCKED_GPU_GATE
+
+Evidence d3a880f84f4f3120bbdf3af9ea4063359dfb6db6; PR https://github.com/word-ky/TTIE/pull/207.
+
+Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260924-052501-ttie-t072an-sealed-smoke; start 2026-09-24T05:25:06+08:00, end 05:25:06, exit 0. Single initial GPU/process snapshot: A6000 free 966/926 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB and qwen3vl Python PID 3022346 uses 2524 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB and qwen3vl Python PID 3044934 uses 2564 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
+
+Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AN/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
