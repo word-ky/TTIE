@@ -8030,3 +8030,14 @@ Evidence 0ffe86ba8b592d840bd47bb50a5d7749c08ee50e; PR https://github.com/word-ky
 Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260923-141548-ttie-t072z-sealed-smoke; start 2026-09-23T14:15:54+08:00, end 14:15:54, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB, VLLM PIDs 1337099/1337100 each 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
 
 Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072Z/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
+
+
+---
+
+## T072-AA — BLOCKED_GPU_GATE
+
+Evidence 61e85c943347463548307dbe3d7ea8a3131ec869; PR https://github.com/word-ky/TTIE/pull/194.
+
+Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260923-151556-ttie-t072aa-sealed-smoke; start 2026-09-23T15:16:03+08:00, end 15:16:03, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB, VLLM PIDs 1337099/1337100 each 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
+
+Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AA/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
