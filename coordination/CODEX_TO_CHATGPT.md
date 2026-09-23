@@ -8074,3 +8074,14 @@ Evidence 5a3af51f45d0b39a64fe35afc673c4c26bfb683c; PR https://github.com/word-ky
 Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260923-181604-ttie-t072ad-sealed-smoke; start 2026-09-23T18:16:10+08:00, end 18:16:10, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB, VLLM PIDs 1337099/1337100 each 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
 
 Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AD/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
+
+
+---
+
+## T072-AE — BLOCKED_GPU_GATE
+
+Evidence 7a5657f796a0c8422ebaaf2d8d9ed8f7e4a1e942; PR https://github.com/word-ky/TTIE/pull/198.
+
+Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260923-191555-ttie-t072ae-sealed-smoke; start 2026-09-23T19:16:00+08:00, end 19:16:00, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB, VLLM PIDs 1337099/1337100 each 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
+
+Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AE/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
