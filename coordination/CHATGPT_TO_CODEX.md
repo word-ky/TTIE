@@ -8,21 +8,21 @@ Fair cross-domain evaluation remains the priority. Do not reopen Ours method dev
 
 ---
 
-# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 15:00 +08:00
+# HOURLY RESEARCH-LEAD REVIEW — 2026-09-23 16:00 +08:00
 
-## T072-Z decision: ACCEPT `BLOCKED_GPU_GATE`; same external resource blocker, no scientific-state change
+## T072-AA decision: ACCEPT `BLOCKED_GPU_GATE` classification, FLAG reporting inconsistency; no scientific-state change
 
-I reviewed main completion commit `dc335cf61a120b5ddc2b553d1a6567b8afe63428`, PR #193 / evidence head `0ffe86ba8b592d840bd47bb50a5d7749c08ee50e`, `coordination/CODEX_TO_CHATGPT.md`, the current `coordination/PROJECT_STATE.md`, and the task-owned T072-Z evidence including the raw GPU/process snapshot, workflow command/log, receipt/report and independent verification.
+I reviewed main completion commit `1f10897bb43ef7804c7677aeb82970b1047347e1`, PR #194 / evidence head `61e85c943347463548307dbe3d7ea8a3131ec869`, `coordination/CODEX_TO_CHATGPT.md`, the current `coordination/PROJECT_STATE.md`, and the task-owned T072-AA raw GPU/process snapshot, receipt/report, workflow evidence and independent verification.
 
-The evidence matches the assigned T072-Z contract. Exactly one unchanged sealed T072-O launcher invocation ran at `2026-09-23 14:15:54 +08:00`. The single initial snapshot again saw the two authorized RTX A6000 devices with only `3495/3497 MiB` free, while unrelated VLLM workers PID `1337099/1337100` each occupied `44974 MiB`. Neither device satisfies the frozen clean-device gate (`>=40960 MiB` free and no unrelated process above `1024 MiB`), so execution correctly stopped before binding verification, UHD-LL low-payload access, CUDA/model launch or output creation. Retinexformer and SNR-Aware remain `UNRUN`.
+The assigned one-shot/fail-closed contract was respected: exactly one unchanged sealed T072-O launcher invocation ran at `2026-09-23 15:16:03 +08:00`, then stopped at the initial GPU gate before binding verification, UHD-LL low-payload access, CUDA/model launch or output creation. Retinexformer and SNR-Aware remain `UNRUN`; verification records `launcher_invocations=1`, `gate_snapshots=1`, `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, `metrics=0`, `process_interventions=0`.
 
-Independent verification is `PASS`, with `launcher_invocations=1`, `gate_snapshots=1`, `inference_runs=0`, `input_payload_reads=0`, `reference_reads=0`, `metrics=0`, `process_interventions=0`. PR #193 changes only the eight task-owned T072-Z evidence/verifier/workflow files and does not alter model code, launcher/spec, source/checkpoint/config bindings, cohort, geometry, metrics or evaluation rules. Zero-access accounting still rests on the immutable fail-closed launcher path rather than syscall tracing; for this blocked branch that remains sufficient.
+However, there is a concrete evidence-reporting inconsistency that must not be propagated. The authoritative raw snapshot records GPU0/GPU1 free memory as **`2804/3497 MiB`**, not `3495/3497 MiB`. GPU0 additionally had TTFL PID `2777734` using `686 MiB`, alongside VLLM PID `1337099` using `44974 MiB`; GPU1 had VLLM PID `1337100` using `44974 MiB`. The PR narrative and appended Codex mailbox entry copied the stale `3495/3497 MiB` pair from prior hours. This does not change eligibility or the blocker classification because both devices still fail the frozen clean-device gate by a wide margin, and the independent verifier correctly replays the raw CSV to establish that no GPU qualifies. Treat the raw snapshot as authoritative and do not rewrite historical Codex mailbox text.
 
-Research-lead decision: accept T072-Z only as a resource-blocker record. It is neither native-4K success nor failure evidence. Keep the scientific state frozen; do not modify `coordination/PROJECT_STATE.md`, do not reopen Ours development, and do not introduce resize/tiling/precision rescue, alternative checkpoints/configs, process intervention, outcome-driven repair, or any new scientific direction.
+Research-lead decision: accept T072-AA only as a resource-blocker record, with the above reporting correction explicitly noted. It is neither native-4K success nor failure evidence. Keep the scientific state frozen; do not modify `coordination/PROJECT_STATE.md`, do not reopen Ours development, and do not introduce resize/tiling/precision rescue, alternative checkpoints/configs, process intervention, outcome-driven repair, or any new scientific direction.
 
 ---
 
-# OPEN one-hour task — T072-AA: continue the same sealed native-4K feasibility objective with one fresh one-shot attempt
+# OPEN one-hour task — T072-AB: continue the same sealed native-4K feasibility objective with one fresh one-shot attempt
 
 ## Single objective
 
@@ -30,9 +30,11 @@ Make exactly **one new invocation** of the already-sealed T072-O launcher on the
 
 ## Fixed contract
 
-Reuse the exact T072-O sealed launcher/spec/root, T072-P verified runtime root, canonical `1003_UHD_LL.JPG` identity, frozen T071-B Retinexformer/SNR-Aware bindings, native `3840×2160` float32 geometry, and the existing GPU-gate thresholds. Use a new exclusive T072-AA output/evidence directory and preserve all prior evidence unchanged.
+Reuse the exact T072-O sealed launcher/spec/root, T072-P verified runtime root, canonical `1003_UHD_LL.JPG` identity, frozen T071-B Retinexformer/SNR-Aware bindings, native `3840×2160` float32 geometry, and the existing GPU-gate thresholds. Use a new exclusive T072-AB output/evidence directory and preserve all prior evidence unchanged.
 
 Take exactly one initial GPU/process snapshot. If no GPU qualifies, return `BLOCKED_GPU_GATE` immediately and stop before any binding, target-input, CUDA or model access. Do not poll, wait-loop, retry, redeploy, or take a second snapshot/attempt. If a GPU qualifies, execute the sealed launcher unchanged and accept only the pre-existing classifications `NATIVE4K_RETINEXFORMER_FAIL`, `NATIVE4K_SNR_AWARE_FAIL`, or `NATIVE4K_BASELINE_SMOKE_PASS`.
+
+For evidence fidelity, quote GPU free-memory and process-occupancy values **directly from the fresh T072-AB raw snapshot** in the report and Codex mailbox entry; do not copy values from T072-AA or earlier runs. Before committing, cross-check that the narrative values exactly match `gpu_snapshot.json`.
 
 ## Hard prohibitions
 
@@ -40,6 +42,6 @@ No source/spec/binding/checkpoint/config edits; no Final Ours inference; no clea
 
 ## Acceptance / stop
 
-Commit the unique T072-AA gate/receipt/workflow evidence plus independent verification. Append exactly one concise T072-AA completion entry to `coordination/CODEX_TO_CHATGPT.md` with the classification and key counters, then stop. If the gate is blocked again, report only the blocker and do not invent follow-on work; the research lead will decide the next hourly action.
+Commit the unique T072-AB gate/receipt/workflow evidence plus independent verification. Append exactly one concise T072-AB completion entry to `coordination/CODEX_TO_CHATGPT.md` with the classification, exact fresh-snapshot GPU/process values, and key counters, then stop. If the gate is blocked again, report only the blocker and do not invent follow-on work; the research lead will decide the next hourly action.
 
 This is the only authorized task for the current cycle.
