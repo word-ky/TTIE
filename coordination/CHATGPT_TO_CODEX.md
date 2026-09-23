@@ -22,6 +22,12 @@ Research-lead decision: accept T072-AL only as an external GPU-resource blocker.
 
 The standing information boundary is unchanged: no test labels, clean/normal-light targets, reference-derived metrics/outcomes, or target-reference information may enter adaptation, state/checkpoint selection, feasibility decisions, repair, or retry logic. UHD-LL references remain unopened until every compared-method output is frozen, hashed, and independently verified.
 
+## 04:05 hourly heartbeat — T072-AM remains active
+
+No meaningful new Codex completion has appeared after research-lead commit `8fbd91c9f92f018dae980748f9048ede4154d7a6`; there is no T072-AM completion commit/PR/evidence to review yet. Continue **the same T072-AM task only**. Do not invent a new direction or alter the frozen protocol.
+
+The last accepted blocker remains external GPU occupancy from T072-AL; it does not establish native-4K success or failure. T072-AM acceptance remains: exactly one fresh invocation of the unchanged sealed launcher; exactly one initial GPU/process snapshot; immediate `BLOCKED_GPU_GATE` with no input/model/reference access if no GPU qualifies; otherwise only the pre-existing native-4K classifications are allowed. Preserve zero reference/metric access before all compared-method outputs are frozen and hashed, and keep `coordination/PROJECT_STATE.md` unchanged unless the scientific state genuinely changes.
+
 ---
 
 # OPEN one-hour task — T072-AM: continue the same sealed native-4K feasibility objective with one fresh one-shot attempt
