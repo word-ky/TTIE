@@ -12,7 +12,7 @@ Can a vision system adapt a compact spatial image-processing state per test imag
 
 ## Frozen Final Ours
 
-T070-A froze the unchanged T067-B candidate as Final Ours. Immutable manifest SHA256:
+T070-A froze the unchanged T067-B candidate as Final Ours for the current Phase-1 fair-evaluation program. Immutable manifest SHA256:
 
 `e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9`
 
@@ -63,11 +63,25 @@ Both baselines reused exact previously accepted source/checkpoint/config binding
 
 ### Scientific interpretation
 
-The current Final Ours is **not competitive with target-domain supervised LOL-v2 Real checkpoints in-domain** on PSNR/SSIM. No in-domain superiority claim is supported. This result is nevertheless not the decisive test of the unknown-degradation motivation because Retinexformer and SNR-Aware use paired supervised LOL-v2 Real source checkpoints, while Ours can adapt per target image using only the degraded target image.
+The current T070-A method is **not competitive with target-domain supervised LOL-v2 Real checkpoints in-domain** on PSNR/SSIM. No in-domain superiority claim is supported. This result is nevertheless not the decisive test of the unknown-degradation motivation because Retinexformer and SNR-Aware use paired supervised LOL-v2 Real source checkpoints, while T070-A can adapt per target image using only the degraded target image.
 
-The next decisive comparison is therefore source-frozen domain transfer: keep Final Ours and the exact LOL-v2-trained baseline checkpoints unchanged, move all methods to a different target dataset, allow only Ours' already-frozen degraded-image-only per-image TTT, and prohibit all target-specific retraining/tuning.
+The next decisive Phase-1 comparison is therefore source-frozen domain transfer: keep T070-A and the exact LOL-v2-trained baseline checkpoints unchanged, move all methods to a different target dataset, allow only T070-A's already-frozen degraded-image-only per-image TTT, and prohibit all target-specific retraining/tuning.
 
-Do not use the official-test gap to tune Final Ours.
+Do not use the official-test gap to tune T070-A.
+
+## Revised paper acceptance criterion — 2026-09-24
+
+The user now requires the eventual paper method to be strong **both in-domain and under unknown-domain shift**. Therefore T070-A remains immutable historical/fair-evaluation evidence, but it is no longer assumed to be the final paper architecture if its in-domain ceiling remains far below modern supervised restoration methods.
+
+This change does **not** reopen the exposed LOL-v2 official test for tuning. After the Phase-1 cross-dataset evidence is frozen and reviewed, a separate Phase-2 method-development branch may be opened with these constraints:
+
+- preserve the paper's central idea: target-free per-image adaptation to unknown/spatially heterogeneous degradation;
+- add sufficient source-trained restoration capacity so the identity/no-shift operating point can match a strong supervised LLIE model rather than relying only on a 12-D photometric renderer;
+- develop/tune only on source train/dev and explicitly designated development transfers; never select architecture, losses, stopping rules or checkpoints from LOL-v2 official-test per-image outcomes;
+- freeze the Phase-2 model before any confirmatory held-out evaluation;
+- keep target-time adaptation/state selection strictly free of labels, clean targets, PSNR/SSIM, baseline outcomes and reference-derived information.
+
+The working Phase-2 direction is a **strong source-supervised restoration backbone + compact spatial test-time adapter/ISP state**: train the backbone for high in-domain fidelity, keep the backbone frozen at test time, and adapt only a small spatial photometric/feature-control state from degraded-image-only objectives. The scientific goal is to avoid the current trade-off where zero-reference adaptability is purchased at the cost of a low-capacity in-domain restoration ceiling.
 
 ## Historical mechanism conclusions retained
 
@@ -76,16 +90,16 @@ Do not use the official-test gap to tune Final Ours.
 - T066-A dynamics are useful primarily as a lower safety-entry signal, not a reliable late-stage catastrophic-quality monitor.
 - T067-B's frozen `lambda=0.875` interpolation materially improved safety while retaining utility.
 - Predeclared late-tail diagnostics were closed as insufficient: absolute-step cap, cumulative objective-motion knee, tail-local motion/objective inefficiency, aggregate component-value regret, final projection pressure and symmetric component-gradient cancellation.
-- Continuing to fit development/exposed/official-test failures is post-hoc overfitting; method design remains closed until the fair cross-dataset program is completed and reviewed.
+- Continuing to fit development/exposed/official-test failures is post-hoc overfitting; T070-A method design remains closed during the Phase-1 fair cross-dataset program.
 
 ## Fair-comparison program
 
-1. Frozen Final Ours on complete official LOL-v2 Real test — **completed, T071-A**.
+1. Frozen T070-A on complete official LOL-v2 Real test — **completed, T071-A**.
 2. Matched Retinexformer/SNR-Aware on the same official split — **completed, T071-B**.
 3. Source-frozen cross-dataset/domain-shift evaluation — **current priority**.
    - **UHD-LL is the active target.** T072-E-R1 sealed the freeze-before-reference harness; T072-I sealed the canonical 150-image native-`3840×2160` low-only cohort and exact 450-job dispatch; T072-L is accepted as `UHDLL_ANALYSIS_SPEC_SEALED`, fixing the exact T071-B RGB PSNR/RGB-SSIM provenance, complete-sample policy, paired Ours-minus-baseline statistics, and one shared 10,000-resample paired bootstrap stream with seed `20260922` before any target reference is opened.
    - LSRW remains deferred until the user-provided canonical archive is available and does not block UHD-LL.
-4. Only after the source-frozen cross-dataset tables exist may the research lead decide whether another Ours-development phase is justified.
+4. After the Phase-1 source-frozen cross-dataset tables exist, review them and then open the separate Phase-2 in-domain-SOTA-capable architecture line under the revised acceptance criterion above.
 
 Development baseline anchors and exposed-transfer numbers remain mechanism/diagnostic evidence only and must not be used as final Ours-vs-baseline gaps.
 
@@ -93,10 +107,10 @@ Development baseline anchors and exposed-transfer numbers remain mechanism/diagn
 
 For UHD-LL and later LSRW:
 
-- Final Ours stays exactly at the T070-A immutable artifact.
+- T070-A stays exactly at the immutable artifact for Phase-1 evaluation.
 - Retinexformer and SNR-Aware stay at the exact T071-B accepted **LOL-v2 Real source** checkpoints/configs; no target-domain checkpoint substitution.
 - No target-specific retraining, fine-tuning, calibration, threshold selection or hyperparameter tuning is allowed.
-- Ours may only perform its already-frozen per-image degraded-image-only test-time adaptation.
+- T070-A may only perform its already-frozen per-image degraded-image-only test-time adaptation.
 - All method outputs must be frozen and hashed before any target clean/reference payload is read.
 - References are metrics-only after output freeze.
 - Complete canonical target test splits are required; no convenient subset or outcome-driven exclusion.
@@ -114,6 +128,6 @@ This source-frozen protocol directly tests the unknown-degradation/domain-shift 
 
 ## Current open task
 
-**T072-M — establish native-4K feasibility for the two frozen baselines on one canonical UHD-LL low image.**
+**T072-AY — complete the missing source-frozen UHD-LL Retinexformer + SNR-Aware output sets on the newly user-authorized paid GPU host.**
 
-Check the clean-A6000 gate once. If a qualifying GPU exists, run exactly one Retinexformer and one SNR-Aware inference on the exact T072-I smoke input at native `3840×2160`, with frozen T071-B bindings and no resize/crop/tiling/precision workaround. Record runtime, peak VRAM, output geometry/finiteness/hash and zero reference reads. If the gate is not met, stop `BLOCKED` without polling or disturbing unrelated processes. Full 150-image inference remains a later task after this feasibility gate.
+Credentials were supplied out-of-band and must never be committed. Verify one clean GPU with at least `40960 MiB` free and no unrelated process above `1024 MiB`; verify the exact frozen code/checkpoints/T072-I low-only cohort without touching references; run the canonical native-4K float32 smoke for both baselines and, if both pass, immediately continue to all 150 low images for both methods in the same task to minimize paid-GPU time. Freeze/hash exactly 150 outputs per baseline and independently verify source/checkpoint/cohort/geometry/output completeness with `reference_reads=0`. No reference metrics are authorized until the full compared-method output set is frozen.
