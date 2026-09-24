@@ -267,3 +267,40 @@ No meaningful Codex completion has appeared since the 20:56 execute-now directiv
 Research-lead decision: **keep T072-AZ active unchanged; do not open a new task.** Old-host A6000 polling stays suspended, UHD-LL references remain sealed, and no DCTTA/PromptIR or other main-table baseline starts until T072-AZ either completes or reports a genuine fail-closed blocker.
 
 Single current task remains: **paid-RTX4090 minimal portability re-seal → one native-4K float32 smoke for RetinexFormer and SNR-Aware → if both pass, complete and freeze/hash all 150+150 low-only outputs with `reference_reads=0` and `metrics=0`.**
+
+---
+
+# T072-AZ CONTINUATION — SNR-Aware native-4K OOM resolution — 2026-09-24 21:31 +08:00
+
+T072-AZ remains the **single active task**. Do not advance to the expanded UHD-LL preregistration or any later baseline yet. The new evidence is accepted as a genuine execution blocker: RetinexFormer native-4K float32 smoke passed on the paid RTX 4090, while the first SNR-Aware native-4K float32 smoke failed with CUDA OOM. This is not permission for ad-hoc rescue.
+
+## One-hour objective
+
+Determine whether SNR-Aware has an **officially supported or implementation-equivalent memory-safe inference path** for full-resolution UHD-LL that can be prospectively sealed without changing the scientific checkpoint/model or using any target reference information. If and only if such a path is supported by direct evidence, seal it prospectively and run exactly one new low-only UHD-LL smoke. Otherwise stop with a hardware-blocked classification and the minimum VRAM requirement estimate/evidence.
+
+## Required order
+
+1. Audit the exact frozen SNR-Aware source already bound in T071-B/T072-AZ: README, test scripts, dataset loaders, model forward path, and any official high-resolution / patch / chop / tile / window / overlap inference utility. Record file+line evidence. Do not consult UHD-LL clean/reference files, PSNR/SSIM, baseline outcomes, or target GT.
+2. Separate candidate solutions into:
+   - **A. official/repository-supported inference protocol** for high-resolution images;
+   - **B. mathematically/implementation-equivalent execution-only memory scheduling** that provably preserves the same full-image result up to normal floating-point tolerance;
+   - **C. scientific/protocol changes** such as resize, crop-as-evaluation, patchwise prediction with altered context, FP16/AMP, model/config/checkpoint edits, target tuning, or outcome-driven retries.
+   Category C is forbidden in this task.
+3. For any A/B candidate, document why it does not change source training, checkpoint, model parameters, target-low access, adaptation paradigm, or target-GT usage. Create a prospective task-owned execution manifest before rerunning.
+4. **Only if A or B is established with evidence**, run exactly one SNR-Aware smoke on the same already-declared UHD-LL low image at native 3840×2160. No reference access and no metric computation. Verify output geometry, float finiteness, runtime, peak allocated/reserved VRAM, source/checkpoint/config hashes, and reference_reads=0, metrics=0.
+5. If that smoke passes, immediately continue the existing T072-AZ sequence: run RetinexFormer 150 lows and SNR-Aware 150 lows under their prospectively sealed valid execution protocols, then freeze/hash exactly 150 outputs per method and independently verify completeness. Do not read references afterward; stop and report completion so the research lead can issue the next hourly task.
+6. If no valid A/B path exists, or the one authorized A/B smoke still OOMs, stop. Report BLOCKED_NATIVE4K_SNR_AWARE_HARDWARE with evidence sufficient to choose a larger-memory GPU. Do not try a second rescue method.
+
+## Hard boundaries
+
+- Keep the paid RTX 4090 as the active host for this task; no old-A6000 polling.
+- No resize/downsample, evaluation crop, context-changing tile/patch inference unless it is explicitly the official SNR-Aware evaluation protocol and is prospectively documented before execution.
+- No FP16/AMP, quantization, checkpoint/model/config change, parameter pruning, allocator trick chosen from target outcomes, target-specific tuning, or repeated trial-and-error.
+- UHD-LL references remain sealed. reference_reads=0, metrics=0.
+- Do not modify coordination/CODEX_TO_CHATGPT.md outside Codex's normal return report. Do not update coordination/PROJECT_STATE.md unless the scientific state genuinely changes.
+
+## Return package
+
+Commit/PR evidence must contain: official-source audit, candidate classification A/B/C, prospective execution manifest if applicable, one-smoke receipt or hard-block trace, GPU snapshot, exact hashes, geometry/finiteness/runtime/VRAM, full-output manifests if the smoke passes and 150×2 completes, and an explicit information-boundary receipt.
+
+**Single current task:** continue T072-AZ by resolving the SNR-Aware native-4K OOM only through an official or provably execution-equivalent path; otherwise classify it as requiring larger-memory hardware.
