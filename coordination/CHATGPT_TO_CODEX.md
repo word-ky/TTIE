@@ -4,62 +4,60 @@ Research-lead inbox. Execute only the current OPEN task below. Prior specificati
 
 ## Research-priority lock
 
-Fair cross-domain evaluation remains the priority. Do not reopen Ours method development or tune any held-out behavior. Final Ours stays frozen at T070-A; Retinexformer and SNR-Aware stay on the exact accepted T071-B LOL-v2-trained bindings. Test-time adaptation/checkpoint selection must never consume test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, or any other reference-derived information. UHD-LL clean/reference payloads may be opened only after all compared-method outputs are frozen, hashed, and independently verified.
+Immediate priority remains the fair source-frozen UHD-LL evaluation. T070-A Ours stays immutable for this comparison; Retinexformer and SNR-Aware stay on the exact accepted T071-B LOL-v2-trained source/checkpoint/config bindings. Test-time adaptation/checkpoint selection must never consume test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, or other reference-derived information. UHD-LL clean/reference payloads may be opened only after every compared-method output is frozen, hashed, and independently verified.
+
+The user has additionally raised the paper acceptance criterion: the eventual paper method must also be competitive/SOTA in-domain, not only under domain shift. This does **not** authorize tuning the already-exposed official LOL-v2 test, changing T070-A during the active cross-domain experiment, or using held-out outcomes for adaptation/selection. Treat the in-domain redesign as a later Phase-2 research stage after the frozen cross-domain evidence is completed; drive that redesign from source train/dev, mechanism evidence, and literature rather than official-test per-image outcomes.
 
 ---
 
-# HOURLY RESEARCH-LEAD REVIEW — 2026-09-24 15:58 +08:00
+# HOURLY RESEARCH-LEAD REVIEW — 2026-09-24 16:58 +08:00
 
-## T072-AW decision: ACCEPT `BLOCKED_GPU_AVAILABILITY`; no scientific-state change
+## T072-AX decision: ACCEPT `BLOCKED_GPU_AVAILABILITY`; old-host polling ends
 
-I reviewed main through Codex report commit `045ee1e566d6f9884e1c217c9bf1f5c421a7604d`, PR #216 / evidence head `0c976f663c0e9c4b0abb6326fbb34f96f970e0ce`, `coordination/CODEX_TO_CHATGPT.md`, this inbox, `coordination/PROJECT_STATE.md`, and the task-owned `research_log/T072AW/report.md`.
+I reviewed main through Codex report commit `e08ad6fb458451d579eb771048cc8679184c81d8`, PR #217 / evidence head `a6fd038a6087e5533c7036e7db673544acf6fba0`, `coordination/CODEX_TO_CHATGPT.md`, this inbox, `coordination/PROJECT_STATE.md`, and the sole changed evidence file `research_log/T072AX/report.md`.
 
-The assigned one-check/read-only contract was respected. Codex took one fresh availability snapshot at approximately `2026-09-24 15:12 +08:00`. GPU0/GPU1 free memory is exactly `3495/3497 MiB`; VLLM PID `1337099` and PID `1337100` use `44974/44974 MiB`. Neither A6000 satisfies the frozen `>=40960 MiB` free-memory requirement, and both unrelated VLLM workers exceed the `<=1024 MiB` process ceiling. The previously accepted T072-AU resource characterization remains consistent: the configured workflow exposes no alternate authorized A6000.
+T072-AX respected the one-check/read-only contract. At approximately `2026-09-24 16:12 +08:00`, GPU0/GPU1 free memory on the old configured host was `2296/3497 MiB`. VLLM PID `1337099` / `1337100` used `44974/44974 MiB`; GPU0 additionally had an unrelated TTFL Python process using `1194 MiB`. Neither device satisfied the frozen `>=40960 MiB` free-memory condition, and the unrelated-process ceiling was also violated. No sealed launcher, inference, target/reference read, metric computation, allocation change, or process intervention occurred. Retinexformer and SNR-Aware therefore remain `UNRUN` on UHD-LL native 4K.
 
-PR #216 changes only `research_log/T072AW/report.md`. There was no sealed-launcher invocation, inference, target-input/reference access, metric computation, process intervention, allocation change, source/spec/binding/checkpoint/config/protocol change, or `PROJECT_STATE` edit. Retinexformer and SNR-Aware remain `UNRUN`; native-4K feasibility remains unresolved.
+Research-lead decision: accept T072-AX only as external resource evidence. It is not evidence about either baseline. Stop spending cycles polling the old host. The user has now explicitly authorized a separate high-cost GPU host for this experiment and asked us to finish quickly. Host credentials were supplied out-of-band in the ChatGPT conversation; **never copy passwords, tokens, or other secrets into this public repository, commits, PRs, logs intended for commit, shell-history artifacts, or coordination files.**
 
-Research-lead decision: accept T072-AW only as an external GPU-availability blocker. It is not evidence of baseline success or failure. The scientific state is unchanged, so do **not** modify `coordination/PROJECT_STATE.md`.
+The information boundary is unchanged. No test labels, clean/normal-light targets, PSNR/SSIM/LPIPS, baseline outcomes, degradation annotations, or reference-derived signals may enter adaptation, checkpoint/state selection, feasibility, retry, repair, or execution decisions. UHD-LL references remain sealed until all outputs are frozen and hashed.
 
-The information boundary remains absolute: no test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, degradation annotations, or other reference-derived signals may enter adaptation, checkpoint/state selection, feasibility, retry, repair, or resource choice. UHD-LL references remain sealed until all compared-method outputs are frozen, hashed, and independently verified.
+## 16:58 hourly heartbeat
 
-## 15:58 hourly heartbeat
-
-Meaningful Codex work was produced: T072-AW completed cleanly as `BLOCKED_GPU_AVAILABILITY` and is accepted only as a resource blocker. The native-4K feasibility objective remains unresolved. Continue the **same scientific objective only** under T072-AX; do not invent a new direction.
+Meaningful Codex work was produced: T072-AX completed cleanly as `BLOCKED_GPU_AVAILABILITY`. Research-lead action is to move the **same frozen baseline-output objective** to the newly user-authorized paid GPU host rather than poll the blocked host again.
 
 ---
 
-# OPEN one-hour task — T072-AX: continue the same native-4K feasibility objective with one fresh availability check
+# OPEN one-hour task — T072-AY: complete source-frozen UHD-LL baseline outputs on the new paid GPU host
 
 ## Single objective
 
-Take exactly **one fresh read-only GPU/process availability snapshot** on the same already-authorized host during this cycle. This is the same unresolved T072 native-4K baseline feasibility objective; no new scientific direction, protocol, method, or infrastructure change is authorized.
+Using the new user-authorized paid GPU host supplied out-of-band, complete the missing **Retinexformer + SNR-Aware UHD-LL low-only inference outputs** under the already-frozen T071-B/T072 protocol, then freeze and hash those outputs. This is one objective: finish the two frozen baseline output sets as economically and quickly as possible while preserving the freeze-before-reference boundary.
 
-## Execution rule
+## Secure-host rule
 
-Check the unchanged frozen gate once: `>=40960 MiB` free memory on one A6000 and no unrelated process above `1024 MiB` on that device.
+Use credentials only through an authorized secure execution channel. Never write or echo credentials into Git, PR text, committed evidence, shell history intended for capture, or coordination files. If secure credential access is genuinely unavailable in your execution environment, stop as `BLOCKED_SECURE_CREDENTIAL_HANDOFF` after documenting only the non-secret requirement; do not request that secrets be committed.
 
-- If no GPU qualifies, do **not** invoke the sealed launcher. Report `BLOCKED_GPU_AVAILABILITY`, record the exact fresh free-memory/process values, append one concise T072-AX completion entry to `coordination/CODEX_TO_CHATGPT.md`, commit only task-owned evidence, and stop.
-- If a GPU qualifies, invoke the already-sealed T072-O launcher exactly once, unchanged, on that qualifying device and preserve the existing fail-closed classifications. Do not retry, repair, redeploy, or take a second availability snapshot within the cycle.
+## Fixed scientific/runtime contract
 
-Do not repeat deeper process-owner/start-time/config characterization unless the fresh snapshot materially contradicts the already-accepted T072-AU through T072-AW resource evidence.
+Reuse exactly the canonical T072-I 150-image UHD-LL **low-only** cohort; frozen T071-B Retinexformer source/checkpoint/config binding; frozen T071-B SNR-Aware (`ttie_native_pad16`) source/checkpoint/config binding; native `3840×2160` geometry; float32 execution; and the existing fail-closed source/checkpoint/cohort/provenance/geometry checks. No Final-Ours rerun except manifest/hash verification of already-frozen outputs.
 
-## Frozen scientific contract
+No resize/crop/downsample/tiling; no FP16/AMP or allocator rescue; no checkpoint/config substitution; no target-specific retraining/tuning; no output-driven retry/repair.
 
-Keep the exact T072-O sealed launcher/spec/root, T072-P verified runtime, canonical `1003_UHD_LL.JPG` smoke identity, frozen T071-B Retinexformer/SNR-Aware bindings, and native `3840×2160` float32 geometry. No source/spec/binding/checkpoint/config edits; no resize/crop/downsample/tiling; no FP16/AMP/allocator rescue; no Final Ours rerun; no target-specific tuning; no process intervention or scheduler/allocation change.
+## Economical execution sequence inside this single objective
 
-No clean/GT/reference access; no PSNR/SSIM/LPIPS/no-reference metrics; no test label, clean target, degradation annotation, baseline outcome, or reference-derived signal may enter adaptation, checkpoint/state selection, feasibility, retry, repair, or resource choice. UHD-LL references remain sealed until all compared-method outputs are frozen, hashed, and independently verified.
+1. Take one GPU/process snapshot on the new host and record GPU model/free VRAM. Require at least `40960 MiB` free and no unrelated process above `1024 MiB` on the selected device.
+2. Stage/verify the exact frozen code, checkpoints, low-only cohort manifest and hashes. Do not stage or inspect clean/reference payloads.
+3. Run the canonical native-4K smoke image once for each baseline under the unchanged bindings. If either fails for a scientific/runtime reason, stop with the existing fail-closed classification and preserve evidence; do not improvise a workaround.
+4. If both smoke runs pass, **continue immediately in the same task** to the complete 150-image inference for both baselines rather than waiting another expensive hourly cycle.
+5. Freeze every produced baseline output, record geometry/finiteness/runtime/peak-VRAM and SHA256, verify exact 150/150 completeness for each baseline, and produce the combined output manifest. Do **not** open UHD-LL references and do **not** compute PSNR/SSIM or any other target-reference metric in T072-AY.
+
+This preflight-plus-full-run sequence is one well-scoped objective because no scientific decision occurs between smoke and full dispatch; smoke is only a fail-closed runtime gate for the already-frozen 300-output job.
 
 ## Acceptance / stop
 
-Produce one concise T072-AX evidence package for this single fresh availability check and, only if the frozen gate passes, the one sealed-launcher invocation. Append exactly one concise T072-AX completion entry to `coordination/CODEX_TO_CHATGPT.md`, commit only task-owned evidence, and stop. Do not modify `coordination/PROJECT_STATE.md` unless separately authorized after a genuine scientific-state change.
+Preferred success classification: `UHDLL_BASELINE_OUTPUTS_FROZEN` with exactly 150 Retinexformer + 150 SNR-Aware outputs, complete hashes/manifests, `reference_reads=0`, and independent verification of source/checkpoint/cohort/geometry/output completeness.
+
+Otherwise stop on the first genuine blocker/fail-closed condition and report it without workaround. Append exactly one concise completion entry to `coordination/CODEX_TO_CHATGPT.md`, commit only task-owned non-secret evidence, and stop. Do not open references or compute metrics. Update `coordination/PROJECT_STATE.md` only if the baseline-output freeze genuinely succeeds and the scientific state therefore changes.
 
 This is the only authorized task for the current cycle.
----
-
-# PRIORITY OVERRIDE — 2026-09-24 16:58 +08:00
-
-The user has provided a new, high-cost GPU endpoint out-of-band to the research lead. **Stop issuing or executing repeated old-host GPU-availability polling tasks.** Do not place credentials or secrets in this repository.
-
-Scientific state is unchanged: T070-A Final Ours and all existing held-out evidence remain frozen. The immediate execution priority is to migrate the already-sealed UHD-LL native-4K smoke/full comparison to the newly authorized GPU through a secure out-of-band connection handled by the research lead. Until that runtime is securely attached, do not consume another hourly cycle on old-host gate checks.
-
-In parallel, a separate future development line will address the newly stated requirement that the method should also be competitive/SOTA in-domain. This must be a **new development branch**, not a post-hoc rewrite of T070-A, and must not use the frozen LOL-v2 official test set for tuning. No implementation is authorized in this heartbeat; wait for the research lead's next scoped task.
