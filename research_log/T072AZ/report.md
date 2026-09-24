@@ -1,0 +1,13 @@
+# T072-AZ — BLOCKED_NATIVE4K_SNR_AWARE
+
+The paid RTX 4090 portability re-seal and independent pre-inference audit succeeded, but the first and only SNR-Aware native-4K smoke failed with genuine CUDA OOM. Per the stop condition, no full-set baseline inference was started. There are zero of the requested 300 full-set outputs; do not classify this task as complete.
+
+- GPU: one NVIDIA GeForce RTX 4090, 49140 MiB total, 48510 MiB free at sealed launch, no listed compute process. Raw snapshot: `remote_receipts/smoke/gpu_snapshot.json`.
+- Binding: `verify_port.py` passed 70/70 frozen asset hashes and all 150 T072-I low-only input names, byte hashes, RGB mode, and 3840×2160 geometry. The task-owned `seal/port_manifest.json` identifies the device-name/path substitutions and consequential SHA changes. Source/checkpoint/config bytes and accepted binding-file digests remained unchanged; Retinexformer architecture config's prior absolute path resolves via a task-owned host symlink.
+- Retinexformer smoke: one process, FROZEN; `[2160,3840,3]` float32 finite output, array SHA256 `15207631c2c5445a0b59a90880d948509e7319e63a375189219471dbc45d11c0`, file SHA256 `05d21966e9f74ba747152c702f1f5f7f6a150bf0f843115603865557156c47d0`, 2.285935 s, peak allocated 20,347,442,176 bytes, peak reserved 27,525,120,000 bytes. Output remains at `/root/autodl-fs/TTIE/T072AZ/runs/smoke/retinexformer/outputs/1003_UHD_LL.npy` on the paid host.
+- SNR-Aware smoke: one process, FAILED; `torch.cuda.OutOfMemoryError` while applying the official transformer attention mask at `Modules.py:19`, with a 31.29 GiB allocation request. Raw traceback in `remote_receipts/smoke/snr_aware/process.json` and `remote_receipts/smoke/receipt.json`. No second attempt, source/config edit, reduced precision, tiling, resize, crop, or allocator intervention.
+- Full runs: neither baseline started; `find full -type f` returned 0 and `status.json` records `full=[]`. `reference_reads=0`, `metrics=0` throughout. No PROJECT_STATE update. GPU compute-app list empty after stop.
+
+The paid-host runtime used preinstalled Torch 2.3.0+cu121, NumPy 1.26.4 and Pillow 10.3.0; OpenCV 4.11.0 and einops 0.8.1 were installed before model execution to satisfy missing imports. This version difference is recorded, not used to justify an unauthorized retry. Raw remote evidence is preserved in `stop_evidence.tar.gz` (SHA256 `5be683784f1b86509040337cf6109ea6154422bc23bc42d97ccd0bcce88daab1`) and extracted under `remote_receipts/`. No credentials are included.
+
+Research-lead action needed: decide whether to change the native-4K SNR-Aware protocol/hardware requirement or exclude it prospectively; this task must not unilaterally retry or alter the scientific method.
