@@ -69,19 +69,20 @@ The next decisive Phase-1 comparison is therefore source-frozen domain transfer:
 
 Do not use the official-test gap to tune T070-A.
 
-## Revised paper acceptance criterion — 2026-09-24
+## Paper positioning update — 2026-09-24
 
-The user now requires the eventual paper method to be strong **both in-domain and under unknown-domain shift**. Therefore T070-A remains immutable historical/fair-evaluation evidence, but it is no longer assumed to be the final paper architecture if its in-domain ceiling remains far below modern supervised restoration methods.
+The paper is **not** positioned as an in-domain LLIE SOTA method. Its primary question is deployment robustness under source-to-target degradation shift: can a frozen source method adapt at test time to an unseen target distribution using only degraded target images and no clean/reference information?
 
-This change does **not** reopen the exposed LOL-v2 official test for tuning. After the Phase-1 cross-dataset evidence is frozen and reviewed, a separate Phase-2 method-development branch may be opened with these constraints:
+Therefore:
 
-- preserve the paper's central idea: target-free per-image adaptation to unknown/spatially heterogeneous degradation;
-- add sufficient source-trained restoration capacity so the identity/no-shift operating point can match a strong supervised LLIE model rather than relying only on a 12-D photometric renderer;
-- develop/tune only on source train/dev and explicitly designated development transfers; never select architecture, losses, stopping rules or checkpoints from LOL-v2 official-test per-image outcomes;
-- freeze the Phase-2 model before any confirmatory held-out evaluation;
-- keep target-time adaptation/state selection strictly free of labels, clean targets, PSNR/SSIM, baseline outcomes and reference-derived information.
+- the official LOL-v2 Real result remains an honest **source-domain reference / sanity check**, not a headline superiority claim;
+- no in-domain rescue or SOTA-targeting branch is required for the current paper;
+- the decisive evidence is source-frozen cross-domain performance on complete unseen target datasets;
+- the main competitor set should emphasize TTA / cross-domain / zero-shot or generalization-oriented restoration methods, while Retinexformer and SNR-Aware remain useful fixed-source anchors;
+- Ours-static vs Ours-TTT is required on target domains to isolate the gain caused by test-time adaptation itself;
+- no official-test result may be used to tune T070-A.
 
-The working Phase-2 direction is a **strong source-supervised restoration backbone + compact spatial test-time adapter/ISP state**: train the backbone for high in-domain fidelity, keep the backbone frozen at test time, and adapt only a small spatial photometric/feature-control state from degraded-image-only objectives. The scientific goal is to avoid the current trade-off where zero-reference adaptability is purchased at the cost of a low-capacity in-domain restoration ceiling.
+This positioning is intentionally narrower than universal LLIE SOTA: source-domain specialization may outperform T070-A in-domain, while the paper claims value only if T070-A demonstrates superior or clearly stronger robustness/adaptation under unseen degradation shift.
 
 ## Historical mechanism conclusions retained
 
@@ -99,7 +100,7 @@ The working Phase-2 direction is a **strong source-supervised restoration backbo
 3. Source-frozen cross-dataset/domain-shift evaluation — **current priority**.
    - **UHD-LL is the active target.** T072-E-R1 sealed the freeze-before-reference harness; T072-I sealed the canonical 150-image native-`3840×2160` low-only cohort and exact 450-job dispatch; T072-L is accepted as `UHDLL_ANALYSIS_SPEC_SEALED`, fixing the exact T071-B RGB PSNR/RGB-SSIM provenance, complete-sample policy, paired Ours-minus-baseline statistics, and one shared 10,000-resample paired bootstrap stream with seed `20260922` before any target reference is opened.
    - LSRW remains deferred until the user-provided canonical archive is available and does not block UHD-LL.
-4. After the Phase-1 source-frozen cross-dataset tables exist, review them and then open the separate Phase-2 in-domain-SOTA-capable architecture line under the revised acceptance criterion above.
+4. After the source-frozen cross-dataset tables exist, review whether the cross-domain/TTA claim is sufficiently supported; do not open an in-domain-SOTA rescue branch unless the user explicitly changes the paper objective again.
 
 Development baseline anchors and exposed-transfer numbers remain mechanism/diagnostic evidence only and must not be used as final Ours-vs-baseline gaps.
 
