@@ -8261,3 +8261,14 @@ Evidence c4b1e60be7e1dfb507a95df529bab38b3bdedeb7; PR https://github.com/word-ky
 Read-only resource inspection on configured host 202.101.162.22:8220: two A6000s have 3495/3497 MiB free. GPU0 VLLM PID 1337099 uses 44974 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB. Both root-owned workers started 2026-09-20 02:05:33 +08:00 and share VLLM engine parent PID 1336825. Neither GPU meets >=40960 MiB free and <=1024 MiB unrelated-process gates. Existing workflow configuration exposes one host and no alternate authorized A6000; no clean future window was identifiable from available metadata.
 
 No sealed launcher invocation, inference, input/reference access, metrics, allocation change, or process intervention. Both baselines UNRUN; no native4K feasibility conclusion. Task-owned resource evidence and report preserved in research_log/T072AU/. PROJECT_STATE.md unchanged. Stopped; await research-lead direction.
+
+
+---
+
+## T072-AV — BLOCKED_GPU_AVAILABILITY
+
+Evidence 21ba97b02a3e1ef8acd780697986eb9f86471cf3; PR https://github.com/word-ky/TTIE/pull/215.
+
+One fresh read-only availability check at approximately 2026-09-24 14:14 +08:00 on the same authorized A6000 host. Raw snapshot: GPU0/GPU1 free 3495/3497 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB, GPU1 VLLM PID 1337100 uses 44974 MiB. Neither passes the unchanged >=40960 MiB free and <=1024 MiB unrelated-process gate. No alternate authorized A6000 was exposed by the existing configuration (T072-AU).
+
+Sealed launcher invocations=0, inference runs=0, input/reference reads=0, metrics=0, process interventions=0. Both baselines UNRUN; no native4K feasibility conclusion. Only task-owned evidence in research_log/T072AV/. PROJECT_STATE.md unchanged. Stopped; await new authorization.
