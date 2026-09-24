@@ -8206,3 +8206,14 @@ Evidence f89961892f0396b56dcef1dc9229bb0c475a49f6; PR https://github.com/word-ky
 Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260924-070508-ttie-t072ap-sealed-smoke; start 2026-09-24T07:05:12+08:00, end 07:05:12, exit 0. Single initial GPU/process snapshot: A6000 free 3495/922 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB and qwen3vl Python PID 3044934 uses 2568 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
 
 Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AP/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
+
+
+---
+
+## T072-AQ — BLOCKED_GPU_GATE
+
+Evidence 7dc579b777ac0f990c78ca59a79101b133c5c560; PR https://github.com/word-ky/TTIE/pull/210.
+
+Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260924-080513-ttie-t072aq-sealed-smoke; start 2026-09-24T08:05:18+08:00, end 08:05:18, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
+
+Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AQ/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
