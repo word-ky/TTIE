@@ -1,0 +1,21 @@
+{
+  "classification": "UHDLL_EXPANDED_MAIN_TABLE_PREREG_SEALED",
+  "task": "T073-A",
+  "base_commit": "d5fd1ac63a64cce46f815d50925561834dc984c3",
+  "artifacts_sha256": {
+    "analysis_spec.md": "6432e3e66ddd5a6eb4eccb07bd4a00dc7f79686cf8d0301fea95b81f63fe91d5",
+    "method_registry.json": "a18204bc7b87d9d661bb41dc49a1fb85a265777d98ed65681f46849022af2204",
+    "metric_plan.json": "1ee07d9dc9112f83087c957e6e614853775355c8f2caa1c717ab277f5b6068b6",
+    "verify.py": "c07eaef4853753de22f5301101093ac8d6168a4e614646b94f1f0dd838814ecd",
+    "test_verify.py": "3e043de6db920d20384201279e1a5dd1bdaa9b5f76c82566e99f6a573ad9ccbe"
+  },
+  "immutable_inputs_sha256": {
+    "historical_T072L_spec": "df9c5e4a6c2c5ee8cf812c4535938ecb80d5f6b34fbc659d2fc8302923f93391",
+    "accepted_T072AZB_output_manifest": "73c8d304c8bb88c4612a13598b5d4dd76378e0c3107bd97011941037a4427001"
+  },
+  "verification": {"positive": "PASS", "rejected_mutations": 11, "declared_rows": 10, "frozen_rows": ["retinexformer", "snr_aware"], "pending_rows": 8},
+  "reference_reads": 0,
+  "metrics": 0,
+  "model_runs": 0,
+  "notes": "Pending source artifacts require exact prospective binding before their separate execution task; no pending row is presented as a completed output or measured result."
+}
