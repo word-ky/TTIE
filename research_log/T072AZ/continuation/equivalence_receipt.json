@@ -1,0 +1,15 @@
+{
+  "task": "T072-AZ-continuation",
+  "test": "frozen official ScaledDotProductAttention versus fixed 512-query-row schedule",
+  "environment": "local PyTorch 2.13.0+cpu; float32; eval; dropout=0",
+  "synthetic_lengths": [31, 513, 1025],
+  "synthetic_masks": ["none", "mixed", "all_zero"],
+  "cases": 9,
+  "atol": 0.000001,
+  "rtol": 0.00001,
+  "max_abs_difference": 1.1920928955078125e-7,
+  "classification": "PASS_QUERY_ROW_EQUIVALENCE",
+  "uhdll_input_reads": 0,
+  "reference_reads": 0,
+  "metrics": 0
+}

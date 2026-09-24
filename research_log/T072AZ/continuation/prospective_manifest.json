@@ -1,0 +1,39 @@
+{
+  "task": "T072-AZ-continuation",
+  "sealed_before_target_smoke": true,
+  "candidate": "B: implementation-equivalent query-row attention scheduling",
+  "host_device": "NVIDIA GeForce RTX 4090",
+  "query_rows": 512,
+  "attention": {
+    "source_file_sha256": "133a98da73d33bd9b88deaa4f01334ae55588199bdd117fc7b96b86a5cb53b5d",
+    "schedule_file_sha256": "147bddc3f5957cb550a490b9ead1206ebd8a14fdac660e1edd40d69f79dd402d",
+    "all_keys_and_values_retained": true,
+    "mask_fill": -1000000000.0,
+    "softmax_axis": -1,
+    "precision": "float32",
+    "attention_return_omitted_only_where_caller_discards_it": true
+  },
+  "source_checkpoint_config": {
+    "accepted_binding_sha256": "03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875",
+    "checkpoint_sha256": "432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781",
+    "config_sha256": "fcb29f50538cfd09ec425c83d7f2072477b24f7c2ab4f23507c3e1b37016b3fb",
+    "parameter_sha256": "11d3d667821719bd51e6e608c7876774b001643a28ed85193054bb45428190d4",
+    "mode": "ttie_native_pad16"
+  },
+  "cohort": {
+    "count": 150,
+    "smoke_name": "1003_UHD_LL.JPG",
+    "smoke_sha256": "cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca",
+    "geometry_hw": [2160, 3840],
+    "name_sha256_index": "95c0a189b406c7dedb247ac2921f332658d76ced0db70a9c301e61d6c9d8d8fd"
+  },
+  "sequence": [
+    "reverify source/checkpoint/config and low cohort",
+    "one new SNR-Aware native-4K low-only smoke using query-row schedule",
+    "if and only if smoke passes: one Retinexformer 150-low full process and one SNR-Aware 150-low full process",
+    "independently freeze and verify 150+150 outputs"
+  ],
+  "forbidden": ["reference access", "metrics", "resize", "crop", "context-changing tile", "fp16", "amp", "quantization", "checkpoint edit", "model parameter edit", "target tuning", "retry"],
+  "reference_reads": 0,
+  "metrics": 0
+}
