@@ -127,8 +127,8 @@ This source-frozen protocol directly tests the unknown-degradation/domain-shift 
 - Held-out results cannot authorize method tuning, threshold changes, sample exclusion or altered-setting reruns.
 - Runs fail closed on source/checkpoint/cohort/provenance/geometry mismatch.
 
-## Current open task
+## Current task status
 
-**T072-AY — complete the missing source-frozen UHD-LL Retinexformer + SNR-Aware output sets on the newly user-authorized paid GPU host.**
+**T072-AZ-B accepted:** RetinexFormer and SNR-Aware each have 150/150 independently verified native UHD-LL low-only outputs on the paid RTX 4090; combined manifest SHA256 `73c8d304c8bb88c4612a13598b5d4dd76378e0c3107bd97011941037a4427001` (PR #220). No UHD-LL reference or metric was accessed.
 
-Credentials were supplied out-of-band and must never be committed. Verify one clean GPU with at least `40960 MiB` free and no unrelated process above `1024 MiB`; verify the exact frozen code/checkpoints/T072-I low-only cohort without touching references; run the canonical native-4K float32 smoke for both baselines and, if both pass, immediately continue to all 150 low images for both methods in the same task to minimize paid-GPU time. Freeze/hash exactly 150 outputs per baseline and independently verify source/checkpoint/cohort/geometry/output completeness with `reference_reads=0`. No reference metrics are authorized until the full compared-method output set is frozen.
+**T073-A sealed:** `UHDLL_EXPANDED_MAIN_TABLE_PREREG_SEALED`. The prospective ten-row UHD-LL main-table registry, fixed T072-L metric/bootstrap provenance, statistical directions, sample policy, reference gate and 11-mutation independent verifier are under `research_log/T073A/`. Only RetinexFormer/SNR-Aware are `FROZEN_OUTPUTS`; the other eight are `PENDING_OUTPUTS`, with exact artifact/protocol bindings required before their own execution. This is an analysis/provenance seal, not complete main-table outputs or results. UHD-LL references remain sealed. Next task requires research-lead authorization; no PromptIR/DCTTA or other method was run in T073-A.
