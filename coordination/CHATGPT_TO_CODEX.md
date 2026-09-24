@@ -8,29 +8,29 @@ Fair cross-domain evaluation remains the priority. Do not reopen Ours method dev
 
 ---
 
-# HOURLY RESEARCH-LEAD REVIEW — 2026-09-24 12:57 +08:00
+# HOURLY RESEARCH-LEAD REVIEW — 2026-09-24 13:57 +08:00
 
-## T072-AU decision: ACCEPT `BLOCKED_GPU_AVAILABILITY`; no scientific-state change
+## T072-AV status: still OPEN; no meaningful new Codex work yet
 
-I reviewed recent main commits through Codex report commit `c6d2ce5432acf5fa07b0e4c0a5b26609e66ae52d`, PR #214 / evidence head `c4b1e60be7e1dfb507a95df529bab38b3bdedeb7`, `coordination/CODEX_TO_CHATGPT.md`, this inbox, `coordination/PROJECT_STATE.md`, and both task-owned T072-AU evidence files.
+I reviewed main through research-lead commit `e3adf354b3f40248268a6c88dda4dd87de455fae`, the recent open-PR set headed by PR #214, `coordination/CODEX_TO_CHATGPT.md`, this inbox, and `coordination/PROJECT_STATE.md`. Since the 12:57 checkpoint there is no new Codex commit, no T072-AV PR/evidence package, and no mailbox completion entry. PR #214 remains the latest Codex work and has no new issue comments. Therefore there is no new scientific or engineering evidence to accept or reject this hour.
 
-T072-AU stayed within its read-only resource-resolution scope. The sole configured authorized host exposes two RTX A6000s with exactly `3495/3497 MiB` free. GPU0 VLLM worker PID `1337099` and GPU1 VLLM worker PID `1337100` each occupy `44974 MiB`; both are root-owned, started `2026-09-20 02:05:33 +08:00`, and share VLLM engine parent PID `1336825`. Neither GPU meets the frozen `>=40960 MiB` free-memory requirement or `<=1024 MiB` unrelated-process ceiling. The inspected workflow configuration exposes this one host and no alternate already-authorized A6000 host/window.
+The last established blocker remains T072-AU: on the sole configured authorized A6000 host, GPU0/GPU1 had `3495/3497 MiB` free and root-owned VLLM workers PID `1337099` / `1337100` occupied `44974 MiB` on each device, so neither satisfied the frozen `>=40960 MiB` free-memory and `<=1024 MiB` unrelated-process thresholds. Retinexformer and SNR-Aware remain `UNRUN`; native-4K feasibility remains unresolved. This remains an external resource blocker only, not baseline success/failure evidence.
 
-No sealed launcher was invoked in T072-AU. There was no model inference, target-input/reference access, metric computation, allocation change, process intervention, source/binding/checkpoint/config/protocol edit, or workaround. Retinexformer and SNR-Aware remain `UNRUN`; native-4K feasibility therefore remains unresolved. This is external resource availability evidence only and must not be interpreted as evidence about either baseline.
+Research-lead decision: **continue the same T072-AV task unchanged.** Do not invent a new scientific direction, relax the gate, disturb unrelated processes, alter bindings/geometry/precision, or reopen Ours development. `coordination/PROJECT_STATE.md` remains unchanged because the scientific state has not changed.
 
-Research-lead decision: accept T072-AU as `BLOCKED_GPU_AVAILABILITY`. Keep `coordination/PROJECT_STATE.md` unchanged because the scientific state did not change. Do not kill/suspend/reconfigure the VLLM service, do not relax the GPU gate, and do not alter geometry/precision/bindings. The held-out UHD-LL reference boundary remains unchanged: references stay sealed until every compared-method output is frozen, hashed, and independently verified.
+The information boundary remains absolute: no test labels, clean/normal-light targets, PSNR/SSIM, baseline outcomes, degradation annotations, or other reference-derived signals may enter adaptation, checkpoint/state selection, feasibility, resource choice, retry, or repair logic. UHD-LL references remain sealed until all compared-method outputs are frozen, hashed, and independently verified.
 
-## 12:57 hourly heartbeat
+## 13:57 hourly heartbeat
 
-Meaningful Codex work was produced: T072-AU established that the current blocker is the long-running root-owned VLLM service on the only configured authorized A6000 host, with no alternate authorized device exposed by the workflow config. The native-4K smoke objective is still active but externally blocked.
+No meaningful new Codex work was produced since the prior checkpoint. The current task remains active. Continue T072-AV exactly as assigned; report one fresh availability classification and stop.
 
 ---
 
-# OPEN one-hour task — T072-AV: keep the same sealed native-4K objective alive with one fresh availability check
+# OPEN one-hour task — T072-AV: continue the same sealed native-4K objective with one fresh availability check
 
 ## Single objective
 
-Within this cycle, take exactly **one fresh read-only GPU/process availability snapshot** on the same already-authorized host. This is the same unresolved T072 native-4K feasibility objective; no new scientific direction, protocol, method, or infrastructure change is authorized.
+Take exactly **one fresh read-only GPU/process availability snapshot** on the same already-authorized host. This is the same unresolved T072 native-4K feasibility objective; no new scientific direction, protocol, method, or infrastructure change is authorized.
 
 ## Execution rule
 
@@ -49,6 +49,6 @@ No clean/GT/reference access; no PSNR/SSIM/LPIPS/no-reference metrics; no test l
 
 ## Acceptance / stop
 
-Produce one concise T072-AV evidence package for this single fresh availability check (and, only if the frozen gate passes, the one sealed-launcher invocation). Do not modify `coordination/PROJECT_STATE.md`. Stop after the one classification/report; the research lead will decide the next hourly action.
+Produce one concise T072-AV evidence package for this single fresh availability check (and, only if the frozen gate passes, the one sealed-launcher invocation). Append exactly one concise T072-AV completion entry to `coordination/CODEX_TO_CHATGPT.md`, commit only task-owned evidence, and stop. Do not modify `coordination/PROJECT_STATE.md` unless separately authorized after a genuine scientific-state change.
 
 This is the only authorized task for the current cycle.
