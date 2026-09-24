@@ -132,3 +132,92 @@ No meaningful new Codex completion has appeared since the 17:58 T072-AZ dispatch
 Research-lead decision: **continue T072-AZ unchanged; do not create a new scientific direction or return to old-host polling.** The paid RTX 4090 path is already securely available and the only accepted activity is the minimal host-portability re-seal followed by the two frozen native-4K baseline runs.
 
 Acceptance remains exactly: preserve source/checkpoint/config/cohort identities; change only GPU-name and absolute host paths; run one Retinexformer smoke and one SNR-Aware smoke; if both pass, immediately finish 150+150 outputs; freeze/hash all 300 outputs with native geometry/finiteness/runtime/peak-VRAM verification; keep `reference_reads=0` and `metrics=0`. Stop at the first genuine fail-closed blocker and do not improvise a workaround.
+
+---
+
+# MAIN-TABLE EXECUTION PROGRAM — locked 2026-09-24
+
+The user has now explicitly authorized completing the full experiment program, with **comparative main-table completion as the first priority**. From this point until the comparative main table is complete, do not open side branches for in-domain rescue, extra method development, or nonessential analysis. The only scientific priority is the cross-domain / unseen-degradation main comparison.
+
+## Paper question
+
+Evaluate deployment robustness under source→target degradation shift. Source-domain performance is a reference/sanity check only. The headline question is whether target-free test-time adaptation improves robustness on unseen target degradation without target clean/reference supervision.
+
+## Main-table target protocol
+
+Use explicit source→target reporting rather than generic cross-dataset language.
+
+Primary source-frozen target sequence:
+- Source: accepted source training/checkpoint domain for each method, recorded explicitly in the table.
+- Target-1: UHD-LL complete canonical held-out cohort — active now.
+- Target-2: LSRW complete canonical paired test split once its authorized archive/protocol is available.
+- Target-3: one additional paired real low-light target only after its canonical cohort/protocol is preregistered before result inspection. Do not improvise Target-3 from convenience.
+
+For every target, target clean/reference is metrics-only and must remain sealed until **all methods included in that target's main table have their outputs frozen and hashed**.
+
+## Main-table method set
+
+### Fixed/source-frozen anchors
+- Retinexformer — frozen accepted source checkpoint/config.
+- SNR-Aware — frozen accepted source checkpoint/config.
+- PromptIR — official frozen source model paired with the DCTTA comparison.
+
+### TTA / cross-domain / zero-shot competitors
+- PromptIR + DCTTA — principal direct TTA competitor; report the exact official source setting and adaptation granularity.
+- MR. Illuminate — zero-shot/generalization competitor, if official code/checkpoint can be reproduced under the target protocol without target-reference leakage.
+- QuadPrior — zero-reference competitor.
+- ZERO-IG — per-image zero-shot competitor, if reproducible under the same target protocol.
+- GM-MoE may be added as a generalization-oriented secondary competitor after the Tier-1 rows above are complete; it must not delay the Tier-1 table.
+
+### Ours
+- Ours-Step0 / Ours w/o TTT — same frozen method state before per-image adaptation.
+- Ours-TTT — frozen T070-A per-image episodic adaptation.
+
+Tier-1 rows that must be completed before the main table is considered minimally complete: Retinexformer, SNR-Aware, PromptIR, PromptIR+DCTTA, MR. Illuminate, QuadPrior, Ours-Step0, Ours-TTT. ZERO-IG is strongly preferred; GM-MoE is secondary.
+
+## Main-table columns
+
+At minimum record for every row:
+- Method
+- Source training / official source checkpoint setting
+- Paradigm: fixed / domain-level TTA / zero-shot / per-image episodic TTT
+- Target low images used for adaptation
+- Adaptation granularity
+- Target GT used during adaptation? — must be No for all valid rows
+- Mean PSNR
+- Median PSNR
+- Mean RGB-SSIM
+- paired delta versus the appropriate static/base counterpart when defined
+- win fraction where defined
+- adaptation time
+- inference time
+- peak VRAM
+- test-time updated parameter/state size.
+
+## Fairness / information boundary
+
+- Never use target GT, clean/reference, PSNR/SSIM, baseline outcomes, or any reference-derived signal to choose checkpoints, hyperparameters, stopping, retry, repair, sample exclusion, or target-time state.
+- Every method must use its source-frozen/officially declared source model; no target-domain supervised checkpoint substitution.
+- All outputs for all main-table methods on a target must be frozen and hashed before target references are opened.
+- If a method's official protocol is domain-level (e.g. DCTTA), clearly report target-low access and adaptation granularity; do not artificially force it into our per-image protocol.
+- If official source-training settings differ across methods, disclose them explicitly. Do not imply matched source training where none exists.
+- Ours-Step0 and Ours-TTT must share all scientific settings except the presence/absence of the frozen per-image TTT trajectory.
+
+## Extended preregistration requirement
+
+T072-L remains historical evidence for the original three-method UHD-LL analysis plan. Because the main-table method set is now expanded **before any UHD-LL reference outcome has been opened**, create a new task-owned extended analysis specification before any reference access. It must retain the existing UHD-LL metric implementation, complete 150-sample policy, bootstrap seed `20260922`, and fail-closed rules, while enumerating the expanded main-table rows and their immutable provenance. Do not overwrite T072-L; supersede it prospectively with an extended spec.
+
+## Main-table execution order
+
+1. **Finish the current T072-AZ task first**: paid-RTX4090 portability re-seal + Retinexformer/SNR-Aware native-4K smoke + 150×2 low-only output freeze. This remains the sole current task until completion.
+2. Next hourly cycle: seal the expanded UHD-LL main-table analysis/provenance spec and prepare/run PromptIR + PromptIR+DCTTA output freeze on UHD-LL without references.
+3. Following cycles: complete Ours-Step0, MR. Illuminate, QuadPrior, then ZERO-IG/Tier-2 rows, one scoped work package per hourly review.
+4. Only after all declared UHD-LL main-table outputs are frozen and independently verified may the UHD-LL references be opened and the preregistered metrics/statistics computed.
+5. Then repeat the same source→target protocol on LSRW, then the preregistered Target-3.
+6. Only after the cross-domain comparative main table is complete move to ablations and analytical experiments.
+
+## Current authorization
+
+**Do not replace the current T072-AZ task. Continue T072-AZ exactly as already authorized.** The program above is the locked roadmap for subsequent hourly tasks, not permission to launch multiple new baselines concurrently in this cycle.
+
+This roadmap exists to finish the complete experiment program while preserving one auditable, well-scoped task per research-lead cycle.
