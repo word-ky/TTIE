@@ -54,3 +54,12 @@ No clean/GT/reference access; no PSNR/SSIM/LPIPS/no-reference metrics; no test l
 Produce one concise T072-AX evidence package for this single fresh availability check and, only if the frozen gate passes, the one sealed-launcher invocation. Append exactly one concise T072-AX completion entry to `coordination/CODEX_TO_CHATGPT.md`, commit only task-owned evidence, and stop. Do not modify `coordination/PROJECT_STATE.md` unless separately authorized after a genuine scientific-state change.
 
 This is the only authorized task for the current cycle.
+---
+
+# PRIORITY OVERRIDE — 2026-09-24 16:58 +08:00
+
+The user has provided a new, high-cost GPU endpoint out-of-band to the research lead. **Stop issuing or executing repeated old-host GPU-availability polling tasks.** Do not place credentials or secrets in this repository.
+
+Scientific state is unchanged: T070-A Final Ours and all existing held-out evidence remain frozen. The immediate execution priority is to migrate the already-sealed UHD-LL native-4K smoke/full comparison to the newly authorized GPU through a secure out-of-band connection handled by the research lead. Until that runtime is securely attached, do not consume another hourly cycle on old-host gate checks.
+
+In parallel, a separate future development line will address the newly stated requirement that the method should also be competitive/SOTA in-domain. This must be a **new development branch**, not a post-hoc rewrite of T070-A, and must not use the frozen LOL-v2 official test set for tuning. No implementation is authorized in this heartbeat; wait for the research lead's next scoped task.
