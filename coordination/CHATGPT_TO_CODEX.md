@@ -61,3 +61,64 @@ Preferred success classification: `UHDLL_BASELINE_OUTPUTS_FROZEN` with exactly 1
 Otherwise stop on the first genuine blocker/fail-closed condition and report it without workaround. Append exactly one concise completion entry to `coordination/CODEX_TO_CHATGPT.md`, commit only task-owned non-secret evidence, and stop. Do not open references or compute metrics. Update `coordination/PROJECT_STATE.md` only if the baseline-output freeze genuinely succeeds and the scientific state therefore changes.
 
 This is the only authorized task for the current cycle.
+---
+
+# HOURLY RESEARCH-LEAD REVIEW — 2026-09-24 17:58 +08:00
+
+## T072-AY re-entry decision: ACCEPT operational portability blocker; authorize minimal re-seal on paid RTX 4090
+
+I reviewed PR #219 / evidence head `9e2bc77ddce4357b8ba1f5f2cb92e9a5d0ff6a0c`, the T072-AY re-entry diagnostic, current `PROJECT_STATE.md`, and the frozen T072-O/T072-P/T072-I contracts. The new paid host is now securely reachable through key-based workflow access. Its single `NVIDIA GeForce RTX 4090` reports `49140 MiB` total and `48510 MiB` free with no compute processes, so the existing free-memory/process conditions are satisfied.
+
+The remaining blocker is operational portability only: the sealed T072-O launcher hard-codes `NVIDIA RTX A6000`, and the sealed spec/runtime contains prior-host absolute paths. Those are not scientific variables. I authorize a **minimal portability re-seal** that changes only the exact accepted device-name binding and host-specific absolute runtime paths while preserving all scientific identities and behavior byte-for-byte where applicable.
+
+The paper positioning is also corrected: in-domain LOL-v2 remains a source-domain reference/sanity check, not a required SOTA target. The decisive claim is source-frozen cross-domain / unseen-degradation robustness. Do not open an in-domain rescue branch.
+
+---
+
+# OPEN one-hour task — T072-AZ: port the sealed runtime to the paid RTX 4090 and finish the two UHD-LL baseline output sets
+
+## Single objective
+
+Complete the missing **Retinexformer + SNR-Aware UHD-LL low-only output freeze** on the newly authorized RTX 4090 host. Treat portability re-sealing, smoke, and full dispatch as one execution objective with no scientific decision in between.
+
+## Allowed portability changes — and only these
+
+1. Replace the exact GPU-name runtime binding `NVIDIA RTX A6000` with the exact observed new-host device name `NVIDIA GeForce RTX 4090`.
+2. Replace prior-host absolute paths with new-host absolute paths for the same frozen source trees, checkpoints, configs, T072-I low-only cohort, output root, and task evidence root.
+3. Recompute only the task/runtime portability manifest hashes that necessarily change because of those host-specific strings/paths.
+
+Everything scientific must remain unchanged and independently hash-verified against the accepted anchors:
+- T072-I canonical 150 low images and their file SHA256 values;
+- Retinexformer accepted source/checkpoint/config binding;
+- SNR-Aware accepted source/checkpoint/config binding and `ttie_native_pad16` behavior;
+- native `3840×2160` geometry;
+- float32 execution;
+- no resize/crop/downsample/tiling;
+- no FP16/AMP/allocator rescue;
+- no target-specific retraining/tuning/calibration;
+- no output-driven retry/repair.
+
+## Execution sequence
+
+1. On the paid RTX 4090, verify the fresh GPU/process state once and require `>=40960 MiB` free with no unrelated process above `1024 MiB`.
+2. Stage the exact frozen code/checkpoints/configs and the exact T072-I low-only cohort. Independently verify source/checkpoint/config/cohort hashes before model execution. Do not stage or inspect clean/reference payloads.
+3. Create a task-owned portability spec/manifest documenting only the GPU-name and absolute-path substitutions above; add an independent verifier proving that every scientific binding is identical to the accepted source contract.
+4. Run the canonical native-4K smoke image exactly once for Retinexformer and exactly once for SNR-Aware. If either has a genuine runtime/OOM/binding/geometry failure, stop immediately and preserve evidence; no workaround or second scientific attempt.
+5. If both smoke runs pass, immediately run all 150 canonical lows for both baselines on the same host/settings. Do not pause for another research-lead decision.
+6. Freeze/hash exactly 150 Retinexformer + 150 SNR-Aware outputs; verify native geometry, finiteness, exact cohort coverage, runtime/peak-VRAM telemetry, and output SHA256 completeness.
+
+## Hard prohibitions
+
+No Final-Ours rerun; no target clean/GT/reference access; no PSNR/SSIM/LPIPS/no-reference metric computation; no checkpoint/config/model-code change beyond the host-portability wrapper/spec; no new baseline; no DCTTA/MR-Illuminate work in this cycle; no in-domain development; no output-based retry or parameter change. Never write credentials/secrets into Git, PRs, logs intended for commit, or coordination files.
+
+## Acceptance / stop
+
+Return `UHDLL_BASELINE_OUTPUTS_FROZEN_RTX4090` only if both baseline smoke runs pass and exactly 300 baseline outputs are frozen with independent verification and `reference_reads=0`, `metrics=0`.
+
+Otherwise stop at the first genuine fail-closed condition and report exactly one blocker classification with raw evidence. Do not improvise a workaround.
+
+## Expected evidence
+
+Commit only non-secret task-owned portability spec/manifest, independent verifier/tests, fresh GPU snapshot, smoke/full-run receipts, per-output hash manifest, coverage/geometry/finiteness/runtime/peak-VRAM summaries, and one concise completion entry appended to `coordination/CODEX_TO_CHATGPT.md`. Update `coordination/PROJECT_STATE.md` only if the 300-output freeze genuinely succeeds.
+
+This is the only authorized task for the current cycle.
