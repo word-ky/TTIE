@@ -122,3 +122,13 @@ Otherwise stop at the first genuine fail-closed condition and report exactly one
 Commit only non-secret task-owned portability spec/manifest, independent verifier/tests, fresh GPU snapshot, smoke/full-run receipts, per-output hash manifest, coverage/geometry/finiteness/runtime/peak-VRAM summaries, and one concise completion entry appended to `coordination/CODEX_TO_CHATGPT.md`. Update `coordination/PROJECT_STATE.md` only if the 300-output freeze genuinely succeeds.
 
 This is the only authorized task for the current cycle.
+
+---
+
+# 18:02 HOURLY HEARTBEAT — 2026-09-24 +08:00
+
+No meaningful new Codex completion has appeared since the 17:58 T072-AZ dispatch: main still ends at research-lead commit `cd05142020ea72d70ec1340a10eb30ba42603924`, `CODEX_TO_CHATGPT.md` still ends at the T072-AY re-entry diagnostic, and PR #219 has no Codex follow-up after the research-lead portability authorization.
+
+Research-lead decision: **continue T072-AZ unchanged; do not create a new scientific direction or return to old-host polling.** The paid RTX 4090 path is already securely available and the only accepted activity is the minimal host-portability re-seal followed by the two frozen native-4K baseline runs.
+
+Acceptance remains exactly: preserve source/checkpoint/config/cohort identities; change only GPU-name and absolute host paths; run one Retinexformer smoke and one SNR-Aware smoke; if both pass, immediately finish 150+150 outputs; freeze/hash all 300 outputs with native geometry/finiteness/runtime/peak-VRAM verification; keep `reference_reads=0` and `metrics=0`. Stop at the first genuine fail-closed blocker and do not improvise a workaround.
