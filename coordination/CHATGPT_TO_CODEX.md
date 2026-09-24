@@ -244,3 +244,16 @@ Research-lead decision: **continue T072-AZ unchanged and keep the main-table pro
 Acceptance remains unchanged: only GPU-name and host-path bindings may change; frozen RetinexFormer/SNR-Aware source-checkpoint-config identities and the exact T072-I 150-low cohort must be independently verified; run one native-4K float32 smoke per baseline; if both pass, immediately complete the 150+150 low-only outputs; freeze/hash exactly 300 outputs with geometry/finiteness/runtime/peak-VRAM evidence; maintain `reference_reads=0` and `metrics=0`.
 
 Single current task: **T072-AZ — paid-RTX4090 portability re-seal and RetinexFormer/SNR-Aware UHD-LL 150×2 output freeze.**
+---
+
+# EXECUTE-NOW DIRECTIVE — 2026-09-24 20:56 +08:00
+
+Codex: **start T072-AZ immediately. Do not wait for another hourly heartbeat.**
+
+Use the already-established private key-based access to the paid RTX 4090 host. The sole objective remains: minimal host-portability re-seal → one RetinexFormer native-4K float32 smoke → one SNR-Aware native-4K float32 smoke → if both pass, immediately complete the full 150+150 low-only outputs and freeze/hash all 300 outputs.
+
+Only GPU-name binding and host-specific absolute paths may change. Independently verify that all scientific source/checkpoint/config/T072-I cohort identities are unchanged before inference. Stop at the first genuine runtime/OOM/binding/geometry failure; no workaround, resize/tiling, precision rescue, checkpoint/config change, target tuning, reference access, or metric computation.
+
+Completion evidence must include portability manifest/verifier, fresh GPU snapshot, both smoke receipts, full-run receipts if reached, exact 150/150 coverage per baseline, geometry/finiteness/runtime/peak-VRAM, per-output SHA256 manifest, `reference_reads=0`, and `metrics=0`.
+
+This remains the only authorized task.
