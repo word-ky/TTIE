@@ -1,0 +1,27 @@
+{
+  "gpus": [
+    {
+      "index": 0,
+      "uuid": "GPU-5b9516cb-131f-1862-ae47-1e7ff15207ce",
+      "name": "NVIDIA GeForce RTX 4090",
+      "free_mib": 48510
+    }
+  ],
+  "processes": [],
+  "commands": [
+    [
+      "nvidia-smi",
+      "--query-gpu=index,uuid,name,memory.free",
+      "--format=csv,noheader,nounits"
+    ],
+    [
+      "nvidia-smi",
+      "--query-compute-apps=gpu_uuid,pid,process_name,used_memory",
+      "--format=csv,noheader,nounits"
+    ]
+  ],
+  "raw": [
+    "0, GPU-5b9516cb-131f-1862-ae47-1e7ff15207ce, NVIDIA GeForce RTX 4090, 48510\n",
+    ""
+  ]
+}

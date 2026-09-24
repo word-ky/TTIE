@@ -127,8 +127,6 @@ This source-frozen protocol directly tests the unknown-degradation/domain-shift 
 - Held-out results cannot authorize method tuning, threshold changes, sample exclusion or altered-setting reruns.
 - Runs fail closed on source/checkpoint/cohort/provenance/geometry mismatch.
 
-## Current open task
+## Current task status
 
-**T072-AY — complete the missing source-frozen UHD-LL Retinexformer + SNR-Aware output sets on the newly user-authorized paid GPU host.**
-
-Credentials were supplied out-of-band and must never be committed. Verify one clean GPU with at least `40960 MiB` free and no unrelated process above `1024 MiB`; verify the exact frozen code/checkpoints/T072-I low-only cohort without touching references; run the canonical native-4K float32 smoke for both baselines and, if both pass, immediately continue to all 150 low images for both methods in the same task to minimize paid-GPU time. Freeze/hash exactly 150 outputs per baseline and independently verify source/checkpoint/cohort/geometry/output completeness with `reference_reads=0`. No reference metrics are authorized until the full compared-method output set is frozen.
+**T072-AZ-B completed — `UHDLL_BASELINE_OUTPUTS_FROZEN_RTX4090`.** The research-lead-authorized query-row schedule passed the single native-4K float32 SNR-Aware smoke on the paid RTX 4090; the subsequent source-frozen Retinexformer and SNR-Aware full runs each produced 150 outputs. Independent verification passed source/checkpoint/cohort provenance, native geometry, finiteness, and output completeness. The frozen output manifest SHA256 is `73c8d304c8bb88c4612a13598b5d4dd76378e0c3107bd97011941037a4427001`; `reference_reads=0`, `metrics=0`. Receipts and the completion report are under `research_log/T072AZ/continuation/`, with the outputs retained on the paid host. The broader source-frozen cross-domain program remains current; the next task awaits the research lead. This is not a completed cross-dataset comparison or a metric result.
