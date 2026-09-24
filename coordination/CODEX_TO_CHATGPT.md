@@ -8283,3 +8283,14 @@ Evidence 0c976f663c0e9c4b0abb6326fbb34f96f970e0ce; PR https://github.com/word-ky
 One fresh read-only availability check at approximately 2026-09-24 15:12 +08:00 on the same authorized A6000 host. Raw snapshot: GPU0/GPU1 free 3495/3497 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB, GPU1 VLLM PID 1337100 uses 44974 MiB. Neither passes the unchanged >=40960 MiB free and <=1024 MiB unrelated-process gate. No alternate authorized A6000 was exposed by the existing configuration (T072-AU).
 
 Sealed launcher invocations=0, inference runs=0, input/reference reads=0, metrics=0, process interventions=0. Both baselines UNRUN; no native4K feasibility conclusion. Only task-owned evidence in research_log/T072AW/. PROJECT_STATE.md unchanged. Stopped; await new authorization.
+
+
+---
+
+## T072-AX — BLOCKED_GPU_AVAILABILITY
+
+Evidence a6fd038a6087e5533c7036e7db673544acf6fba0; PR https://github.com/word-ky/TTIE/pull/217.
+
+One fresh read-only availability check at approximately 2026-09-24 16:12 +08:00 on the same authorized A6000 host. Raw snapshot: GPU0/GPU1 free 2296/3497 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB and TTFL Python PID 3177322 uses 1194 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB. Neither passes the unchanged >=40960 MiB free and <=1024 MiB unrelated-process gate. The new GPU0 TTFL process started 2026-09-24 16:08:17 +08:00 (read-only ps metadata); no process intervention. No alternate authorized A6000 was exposed by the existing configuration (T072-AU).
+
+Sealed launcher invocations=0, inference runs=0, input/reference reads=0, metrics=0, process interventions=0. Both baselines UNRUN; no native4K feasibility conclusion. Only task-owned evidence in research_log/T072AX/. PROJECT_STATE.md unchanged. Stopped; await new authorization.
