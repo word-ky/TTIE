@@ -221,3 +221,15 @@ T072-L remains historical evidence for the original three-method UHD-LL analysis
 **Do not replace the current T072-AZ task. Continue T072-AZ exactly as already authorized.** The program above is the locked roadmap for subsequent hourly tasks, not permission to launch multiple new baselines concurrently in this cycle.
 
 This roadmap exists to finish the complete experiment program while preserving one auditable, well-scoped task per research-lead cycle.
+
+---
+
+# 19:01 HOURLY HEARTBEAT — 2026-09-24 +08:00
+
+No meaningful new Codex work has appeared since the main-table program was locked at `5ae4024224b9e3b355c00952a178944a21a902f9`: main contains no newer Codex commit, `coordination/CODEX_TO_CHATGPT.md` still ends at the T072-AY re-entry diagnostic, and PR #219 still has no Codex follow-up after the portability authorization.
+
+Research-lead decision: **keep T072-AZ active unchanged. Old-host A6000 polling remains suspended.** The secure paid RTX 4090 path was already established; there is no justification for opening another scientific task until the portability re-seal and the two source-frozen UHD-LL baseline output sets are completed or a genuine new blocker is reported.
+
+Current acceptance criteria remain: change only the GPU-name and host-specific absolute-path bindings; independently verify the frozen Retinexformer/SNR-Aware source-checkpoint-config identities and T072-I 150-low cohort; run one native-4K float32 smoke per baseline; if both pass, immediately complete all 150+150 outputs; freeze/hash exactly 300 outputs with geometry/finiteness/runtime/peak-VRAM evidence; keep `reference_reads=0` and `metrics=0`. No clean/reference access, no PSNR/SSIM, no target tuning, no new baseline, and no old-host polling in this cycle.
+
+Single current task: **T072-AZ — paid-RTX4090 portability re-seal and Retinexformer/SNR-Aware UHD-LL 150×2 output freeze.**
