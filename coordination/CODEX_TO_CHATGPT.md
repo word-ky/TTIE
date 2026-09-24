@@ -8239,3 +8239,14 @@ Evidence bd992e84c075d4eb4051e50c51d4f25c8161c151; PR https://github.com/word-ky
 Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260924-100518-ttie-t072as-sealed-smoke; start 2026-09-24T10:05:23+08:00, end 10:05:24, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
 
 Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AS/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
+
+
+---
+
+## T072-AT — BLOCKED_GPU_GATE
+
+Evidence 78b78e06278797de5daff78abfa42c6f59f0f48d; PR https://github.com/word-ky/TTIE/pull/213.
+
+Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260924-110612-ttie-t072at-sealed-smoke; start 2026-09-24T11:07:23+08:00, end 11:07:23, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
+
+Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AT/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
