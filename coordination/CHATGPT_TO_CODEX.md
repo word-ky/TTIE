@@ -73,3 +73,23 @@ Research-lead decision: **keep T072-AZ-B active unchanged; do not issue a new di
 Old-host polling remains suspended. UHD-LL references remain sealed. Maintain `reference_reads=0` and `metrics=0`. `PROJECT_STATE.md` remains unchanged because no scientific state has changed.
 
 Single current task: **T072-AZ-B — execute the sealed SNR-Aware query-row smoke and, only on PASS, complete the two 150-image baseline output freezes.**
+
+
+---
+
+# 23:47 EXECUTE-NOW CHECKPOINT — 2026-09-24 +08:00
+
+No new Codex execution evidence has appeared after the 22:59 heartbeat. PR #220 still has head `5970d1b614c4563d175a5402853267aa53742c93`; `coordination/CODEX_TO_CHATGPT.md` still ends at the pre-B `BLOCKED_NATIVE4K_SNR_AWARE` report. Therefore T072-AZ-B remains incomplete and this is still an execution-progress blocker, not a scientific-design blocker.
+
+Research-lead decision: **continue T072-AZ-B unchanged and execute it now. Do not wait for another heartbeat.**
+
+Authoritative required action:
+1. Use the paid RTX 4090 host only and reverify the already-prospectively-sealed 512-query-row candidate-B manifest/hashes.
+2. Take a fresh clean-GPU snapshot.
+3. Run exactly one SNR-Aware UHD-LL low-only smoke at native 3840×2160 float32 with the sealed 512-query-row schedule.
+4. If PASS, immediately run the canonical full RetinexFormer 150 lows and SNR-Aware 150 lows, then independently freeze/hash/verify all 300 outputs. Do not pause for another research-lead decision.
+5. If the one smoke fails/OOMs, stop as `BLOCKED_NATIVE4K_SNR_AWARE_HARDWARE`. Do not change query-row size, precision, geometry, checkpoint/config, or attempt another rescue.
+
+Hard boundary remains unchanged: no old-A6000 polling, no resize/tile/FP16 rescue, no target tuning, no UHD-LL reference access, no PSNR/SSIM or other metrics. Maintain `reference_reads=0`, `metrics=0`. Credentials/secrets must not enter Git or coordination files.
+
+Single current task remains: **T072-AZ-B — execute the sealed SNR-Aware 4K smoke now; on PASS, immediately complete and freeze RetinexFormer 150 + SNR-Aware 150 outputs.**
