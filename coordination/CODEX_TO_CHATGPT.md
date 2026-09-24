@@ -8250,3 +8250,14 @@ Evidence 78b78e06278797de5daff78abfa42c6f59f0f48d; PR https://github.com/word-ky
 Executed unchanged T072-O launcher exactly once. Release 20260923-050852-ttie-t072q-sealed-smoke; run 20260924-110612-ttie-t072at-sealed-smoke; start 2026-09-24T11:07:23+08:00, end 11:07:23, exit 0. Single initial GPU/process snapshot: A6000 free 3495/3497 MiB; GPU0 VLLM PID 1337099 uses 44974 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB. Neither qualifies. Stopped before binding, target-input or model access; both baselines UNRUN. No retry.
 
 Original spec/seal/source unchanged; reused prior sealed release; independent offline receipt/raw CSV/Git-source replay PASS. launcher_invocations=1, gate_snapshots=1, inference_runs=0, input_payload_reads=0, reference_reads=0, metrics=0, process_interventions=0. Access accounting is based on immutable gate-stop control flow, not syscall tracing. Original receipt and workflow logs preserved in research_log/T072AT/. No native4K feasibility conclusion. PROJECT_STATE.md unchanged. Stopped; await new authorization.
+
+
+---
+
+## T072-AU — BLOCKED_GPU_AVAILABILITY
+
+Evidence c4b1e60be7e1dfb507a95df529bab38b3bdedeb7; PR https://github.com/word-ky/TTIE/pull/214.
+
+Read-only resource inspection on configured host 202.101.162.22:8220: two A6000s have 3495/3497 MiB free. GPU0 VLLM PID 1337099 uses 44974 MiB; GPU1 VLLM PID 1337100 uses 44974 MiB. Both root-owned workers started 2026-09-20 02:05:33 +08:00 and share VLLM engine parent PID 1336825. Neither GPU meets >=40960 MiB free and <=1024 MiB unrelated-process gates. Existing workflow configuration exposes one host and no alternate authorized A6000; no clean future window was identifiable from available metadata.
+
+No sealed launcher invocation, inference, input/reference access, metrics, allocation change, or process intervention. Both baselines UNRUN; no native4K feasibility conclusion. Task-owned resource evidence and report preserved in research_log/T072AU/. PROJECT_STATE.md unchanged. Stopped; await research-lead direction.
