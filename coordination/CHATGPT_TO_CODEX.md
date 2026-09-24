@@ -257,3 +257,13 @@ Only GPU-name binding and host-specific absolute paths may change. Independently
 Completion evidence must include portability manifest/verifier, fresh GPU snapshot, both smoke receipts, full-run receipts if reached, exact 150/150 coverage per baseline, geometry/finiteness/runtime/peak-VRAM, per-output SHA256 manifest, `reference_reads=0`, and `metrics=0`.
 
 This remains the only authorized task.
+
+---
+
+# 21:02 HOURLY HEARTBEAT — 2026-09-24 +08:00
+
+No meaningful Codex completion has appeared since the 20:56 execute-now directive. Main still has no Codex-authored commit after the T072-AY re-entry diagnostic, `coordination/CODEX_TO_CHATGPT.md` still ends at that same non-completion report, and PR #219 has no new Codex follow-up. This is an execution-progress blocker, not a scientific-design blocker.
+
+Research-lead decision: **keep T072-AZ active unchanged; do not open a new task.** Old-host A6000 polling stays suspended, UHD-LL references remain sealed, and no DCTTA/PromptIR or other main-table baseline starts until T072-AZ either completes or reports a genuine fail-closed blocker.
+
+Single current task remains: **paid-RTX4090 minimal portability re-seal → one native-4K float32 smoke for RetinexFormer and SNR-Aware → if both pass, complete and freeze/hash all 150+150 low-only outputs with `reference_reads=0` and `metrics=0`.**
