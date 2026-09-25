@@ -1,0 +1,73 @@
+{
+  "task": "T072-O",
+  "gate": {
+    "name": "NVIDIA GeForce RTX 4090",
+    "free_mib": 40960,
+    "process_max_mib": 1024
+  },
+  "smoke": {
+    "path": "/root/autodl-tmp/TTIE/T072AZ/input/T072I_input_cache/1003_UHD_LL.JPG",
+    "sha256": "cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca",
+    "shape": [
+      2160,
+      3840,
+      3
+    ],
+    "mode": "RGB"
+  },
+  "bindings": {
+    "retinexformer": "a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00",
+    "snr_aware": "03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875"
+  },
+  "entrypoints": {
+    "retinexformer": "ttie.retinex_exporter",
+    "snr_aware": "ttie.snr_exporter"
+  },
+  "argv_template": [
+    "--low",
+    "SMOKE",
+    "--checkpoint",
+    "ACCEPTED_CHECKPOINT",
+    "--config",
+    "ACCEPTED_CONFIG",
+    "--out",
+    "METHOD_OUTPUT"
+  ],
+  "snr_extra": [
+    "--source",
+    "ACCEPTED_SOURCE"
+  ],
+  "options": {
+    "resize": false,
+    "crop": false,
+    "tiling": false,
+    "precision_override": false,
+    "normalization_override": false,
+    "GT_mean": false,
+    "self_ensemble": false
+  },
+  "sources": {
+    "research_log/T071B/run.py": {
+      "commit": "579c3691a80f5b7cadfd706a2fe6750876c53aa0",
+      "blob": "ae313cb054bc2c34973f56ca51e534775e55175c",
+      "sha256": "5dc79c9b360c8c59b5d6966d5fac8ad77e068f80203efb84c0aa2dcc6b43ff5d"
+    },
+    "research_log/T071B/baseline_bindings.json": {
+      "commit": "579c3691a80f5b7cadfd706a2fe6750876c53aa0",
+      "blob": "17ed5bf4653e1b17d7359c0507b312e6fdd020ab",
+      "sha256": "36cd7cdf3a2e8b885948b2ee420ffae459ef3c6a457477021653052cd01da012"
+    },
+    "ttie/retinex_exporter.py": {
+      "commit": "579c3691a80f5b7cadfd706a2fe6750876c53aa0",
+      "blob": "6e74f857543f485f783fff9825e4fb4bca1d4220",
+      "sha256": "dc6649d2f577b3b6c0c458e4ff52d3956cb5eb3fd64385ec2b659737dbc4246c"
+    },
+    "ttie/snr_exporter.py": {
+      "commit": "579c3691a80f5b7cadfd706a2fe6750876c53aa0",
+      "blob": "59014a2e626d944f24c23c7684097b25b644c34e",
+      "sha256": "72a8bdec919d1c35056f549aca3c2bfcca7a1a2960999a7bfa0727434a766b61"
+    }
+  },
+  "reference_reads": 0,
+  "metrics": 0
+}
