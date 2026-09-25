@@ -196,8 +196,11 @@ def list_sdsd(root, subset, frames):
         if frames:
             lows, gts = lows[:frames], gts[:frames]
         assert lows and len(lows) == len(gts), f"Different number of images in LQ and GT folders: {name}"
+        # Official rule pairs LQ[idx] with GT[idx] positionally after sorted(glob(...)) (dataset_SDSD_test.py
+        # [idx:idx+1]); the two cameras' own frame counters need not agree (verified: on the real SDSD_indoor
+        # mirror, every pair has one constant per-video LQ-GT filename-number offset, e.g. pair1 = +2,
+        # pair11 = -54), so basename equality is not part of the official rule and is not required here.
         for low, gt in zip(lows, gts):
-            assert osp.basename(low) == osp.basename(gt), f"frame name mismatch {low} vs {gt}"
             items.append(_item(f"{name}__{Path(low).stem}.png", name.split("_2")[0], low, gt))
     return items
 
