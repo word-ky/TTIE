@@ -1,0 +1,9 @@
+# T073-C Ours-TTT complete-case blocker (2026-09-25 15:21 +08)
+
+Status: `BLOCKED_SCIENTIFIC_NO_ACTIVE_GATE` for the 150-image UHD-LL Ours-TTT row; not a frozen output row. Target references/metrics remain unopened.
+
+The exact frozen T070-A `FinalOurs.__call__` invokes `research_log/T062CR2/core.py::trajectory`, whose line 8 asserts `gate.active.any()`. The full low-only batch produced the first image `1003_UHD_LL.JPG`, then stopped on the second canonical image `1009_UHD_LL.JPG` with that assertion. `uhdll_ttt_full_failure.log` SHA256 `27d37da9e6a39392e2e7335c77ab3ccd7f199f7bb29b585747efb18d09eaf922` records the traceback; remote exit receipt is `1`. One output does not meet complete-case acceptance.
+
+The separately frozen 150-image Step0 output manifest records `active=[false,false,false,false]` on `1009_UHD_LL.JPG` (frozen low SHA256 `7503bd0865610d12cea2f236b6a6eebfbe1722972f83c3a8c34fb10b14f3cffc`). Across the entire canonical low-only cohort, 49/150 have no active region and 101/150 have one or more (active-region counts 0:49, 1:26, 2:21, 3:21, 4:33). These gate counts are target-low-only pre-output diagnostic data, not quality outcomes. Running the unmodified frozen T070-A CLI in a fresh process on `1009_UHD_LL.JPG` reproduced the same assertion before creating any output. This rules out the task-owned compact persistence/batch reuse as the cause.
+
+Do not silently return Step0/identity on inactive images, skip the 49 images, alter gate thresholds, or rewrite frozen T070-A: each would change the prespecified scientific protocol or complete-case policy. The research lead must decide prospectively how to classify or amend this frozen-method no-active case before any Ours-TTT retry. Other independent Tier-1 rows may proceed; UHD-LL references remain sealed until the required output gate is validly resolved. Paid GPU job is stopped, not idling on a failed loop.

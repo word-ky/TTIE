@@ -1,0 +1,23 @@
+2026-09-25T07:20:18Z START
+/root/miniconda3/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+1/150 1003_UHD_LL.JPG 18.808s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/autodl-tmp/TTIE/T073C/recovery/source/research_log/T073C/run_ours_ttt_batch.py", line 51, in <module>
+    main()
+  File "/root/autodl-tmp/TTIE/T073C/recovery/source/research_log/T073C/run_ours_ttt_batch.py", line 31, in main
+    record = run_one(
+             ^^^^^^^^
+  File "/root/autodl-tmp/TTIE/T073C/recovery/source/research_log/T073C/run_ours_ttt.py", line 21, in run_one
+    result = model(native_rgb(low_path))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/TTIE/T073C/recovery/source/research_log/T070A/infer.py", line 38, in __call__
+    x=low.cuda();gate=FixedObjective(self.scorer,x,self.gate);trace=trajectory(x,gate)
+                                                                    ^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/TTIE/T073C/recovery/source/research_log/T062CR2/core.py", line 8, in trajectory
+    assert model.raw.numel()==12 and gate.active.any()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+2026-09-25T07:20:41Z EXIT 1
