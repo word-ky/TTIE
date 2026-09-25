@@ -9,9 +9,13 @@ frozen Ours source root (FinalOurs binds cwd-relative paths), with the frozen pr
   exactly once); everything else (CLIP gate, renderer, CommonBox, features, probability model, rho) is the
   frozen code object itself. The default setting runs first and must reproduce the frozen Ours-TTT row's
   output tensors bit for bit, or the harness stops.
-* Every setting tried is appended to a hash-chained JSONL log (knobs, per-image metrics, means, hashes).
-* Selection: highest image-mean PSNR; settings within PSNR_TIE_DB of the best tie and are ranked by mean
-  RGB-SSIM, then by L1 distance from the defaults in grid-range-normalised knob space, then setting id.
+* Every setting tried is appended to a hash-chained JSONL log (knobs, round, grid SHA, per-image metrics, means,
+  hashes). The default-reproduction check reruns at every process start, before any GT decode.
+* Rounds share one --work directory: ``--grid tuning_grid_round1.json`` (round 1; a re-run may use a superset),
+  ``--round2`` (grid built from the round-1 log by ``round2_grid``), then ``--materialize`` once.
+* Selection (global, over the union of all rounds' COMPLETE records): highest image-mean PSNR; settings within
+  PSNR_TIE_DB of the best tie and are ranked by mean RGB-SSIM, then by L1 distance from the defaults with each
+  scalar component normalised by its range over the union of declared settings, then setting id.
   The selected outputs become the separate row ``ours_ttt_target_tuned`` with its own output manifest.
 """
 
@@ -91,13 +95,16 @@ def canonical_knobs(overrides):
     k["q_joint"] = _float(k["q_joint"], "q_joint")
     require(isinstance(k["tau"], list) and len(k["tau"]) == 2, "tau must be a 2-list")
     k["tau"] = [_float(v, "tau") for v in k["tau"]]
+    # phase34_decisions.md: tau is not tuned (its calibration maxima would become inconsistent)
+    require(k["tau"] == DEFAULTS["tau"], "tau is fixed at the frozen calibration")
     k["probability_threshold"] = _float(k["probability_threshold"], "probability_threshold")
     require(0 < k["probability_threshold"] <= 1, "probability_threshold must be in (0, 1]")
     k["lambda_value"] = _float(k["lambda_value"], "lambda_value")
     require(k["lambda_value"] in LAMBDA_GRID, "lambda_value must be a T067B GRID value")
     k["lr"] = _float(k["lr"], "lr")
     require(k["lr"] > 0, "lr must be > 0")
-    require(isinstance(k["updates"], int) and not isinstance(k["updates"], bool) and k["updates"] >= 1, "updates must be int >= 1")
+    require(isinstance(k["updates"], int) and not isinstance(k["updates"], bool) and 1 <= k["updates"] <= 27,
+            "updates must be an int in [1, 27] (frozen T065A step_fraction feature is k/27)")
     require(isinstance(k["loss_weights"], list) and len(k["loss_weights"]) == 3, "loss_weights must be a 3-list")
     k["loss_weights"] = [_float(v, "loss_weights") for v in k["loss_weights"]]
     require(min(k["loss_weights"]) >= 0 and max(k["loss_weights"]) > 0, "loss_weights must be >= 0, not all 0")
@@ -111,8 +118,11 @@ def setting_id(knobs):
 
 
 def expand_grid(spec):
-    """Declared settings: explicit list and/or cartesian product; defaults first; duplicates refused."""
+    """Declared settings: explicit list, one-factor-at-a-time ({knob: values}, each value alone at defaults)
+    and/or cartesian product; defaults first; duplicates of the defaults dropped, other duplicates refused."""
     raw = list(spec.get("settings", []))
+    for name, values in spec.get("one_factor", {}).items():
+        raw += [{name: value} for value in values]
     product = spec.get("product", {})
     names = sorted(product)
     raw += [dict(zip(names, combo)) for combo in itertools.product(*(product[n] for n in names))]
@@ -130,7 +140,10 @@ def flat(knobs):
 
 
 def distance(knobs, settings):
-    """L1 distance from the defaults; each scalar component divided by its range over the declared grid."""
+    """L1 distance from the defaults; each scalar component divided by its range over the declared grid.
+
+    Vector knobs count per component: a loss_weights change adds one term per changed weight (tau is fixed).
+    """
     columns = list(zip(*(flat(s) for s in settings)))
     default = flat(canonical_knobs({}))
     return float(sum(abs(v - d) / (max(c) - min(c)) for v, d, c in zip(flat(knobs), default, columns) if max(c) > min(c)))
@@ -143,6 +156,51 @@ def select(records, settings):
     window = [r for r in complete if r["summary"]["mean_psnr"] >= best - PSNR_TIE_DB]
     chosen = min(window, key=lambda r: (-r["summary"]["mean_rgb_ssim"], distance(r["knobs"], settings), r["setting_id"]))
     return chosen, [r["setting_id"] for r in window]
+
+
+def union_settings(records):
+    """Every declared-and-logged setting across rounds (COMPLETE or FAILED), first occurrence order."""
+    seen, out = set(), []
+    for r in records:
+        if r["setting_id"] not in seen:
+            seen.add(r["setting_id"])
+            out.append(r["knobs"])
+    return out
+
+
+def round2_grid(records, round1_settings):
+    """Round-2 settings from the round-1 log (rule fixed by the research lead, 2026-09-26).
+
+    For each knob varied alone in round 1: gain = max mean PSNR over its COMPLETE one-factor settings (default
+    included) - default mean PSNR. Up to 3 knobs with the largest strictly positive gain (ties: higher SSIM of
+    that knob's best setting, then knob name). Per selected knob, its top-2 values by mean PSNR among the same
+    settings (ties: SSIM, then smaller normalised distance from default over the round-1 grid). Grid = full
+    product of those values, all other knobs at default (a loss_weights vector is one value). FAILED settings
+    are never counted. Returns (settings, explanation).
+    """
+    defaults = canonical_knobs({})
+    r1 = {r["setting_id"]: r for r in records if r["round"] == 1 and r["status"] == "COMPLETE"}
+    default = r1.get(setting_id(defaults))
+    require(default is not None, "round 1 has no COMPLETE default setting")
+    members = {}
+    for r in r1.values():
+        changed = [k for k in DEFAULTS if r["knobs"][k] != defaults[k]]
+        if len(changed) == 1:
+            members.setdefault(changed[0], [default]).append(r)
+
+    def rank(r):
+        return (-r["summary"]["mean_psnr"], -r["summary"]["mean_rgb_ssim"], distance(r["knobs"], round1_settings))
+
+    gains = {}
+    for knob, rs in members.items():
+        best = min(rs, key=rank)
+        gains[knob] = (best["summary"]["mean_psnr"] - default["summary"]["mean_psnr"], best["summary"]["mean_rgb_ssim"])
+    chosen = sorted((k for k, (g, _) in gains.items() if g > 0), key=lambda k: (-gains[k][0], -gains[k][1], k))[:3]
+    values = {k: [r["knobs"][k] for r in sorted(members[k], key=rank)[:2]] for k in chosen}
+    settings = [canonical_knobs(dict(zip(chosen, combo))) for combo in itertools.product(*(values[k] for k in chosen))] \
+        if chosen else []
+    explanation = {"gains": {k: g for k, (g, _) in gains.items()}, "selected_knobs": chosen, "values": values}
+    return settings, explanation
 
 
 # ---------------------------------------------------------------- derivation from frozen source
@@ -308,6 +366,7 @@ def materialize(work, chosen, window, ctx, records, settings, execution_manifest
         "no_active_abstentions": chosen["summary"]["abstentions"],
         "selection": {
             "rule": "max image-mean PSNR; within PSNR_TIE_DB: max mean RGB-SSIM, then min normalised L1 knob distance, then setting id",
+            "scope": "union of all rounds' COMPLETE records; L1 ranges over the union of declared settings",
             "psnr_tie_db": PSNR_TIE_DB,
             "settings_declared": len(settings),
             "settings_complete": sum(r["status"] == "COMPLETE" for r in records),
@@ -323,7 +382,69 @@ def materialize(work, chosen, window, ctx, records, settings, execution_manifest
     return manifest
 
 
+def round_file(work, number):
+    return Path(work) / f"round{number}_grid.json"
+
+
+def store_round(work, number, settings, source_sha256, explanation=None):
+    """Persist a round's declared settings. Round 1 may only grow (superset) before round 2 exists;
+    round 2 must equal the rule applied to the log. Returns the SHA256 of the stored round file."""
+    path, ids = round_file(work, number), [setting_id(s) for s in settings]
+    if path.exists():
+        old, _ = load_json(path)
+        if number == 1:
+            require(not round_file(work, 2).exists(), "round 1 cannot change after round 2 started")
+            require(set(old["setting_ids"]) <= set(ids), "a new round-1 grid must be a superset of the stored one")
+        else:
+            require(old["setting_ids"] == ids, "round-2 grid differs from the rule applied to the log")
+            return sha256_file(path)
+    payload = {"round": number, "source_sha256": source_sha256, "setting_ids": ids, "settings": settings,
+               "explanation": explanation}
+    tmp = Path(str(path) + ".tmp")
+    tmp.write_text(json.dumps(payload, indent=2, allow_nan=False))
+    os.replace(tmp, path)
+    return sha256_file(path)
+
+
+def check_default_reproduction(model, lows, frozen_rows, binding, device="cuda:0"):
+    """N2: at every process start (incl. resume), the default setting must reproduce the frozen Ours-TTT
+    output tensors bit for bit. No GT is decoded before this passes."""
+    knobs = canonical_knobs({})
+    variant = {"id": "default", "knobs": knobs, "derived": derive(knobs, binding)[0]}
+    for low, row in zip(lows, frozen_rows):
+        image, _ = run_group(model.scorer, model.gate, model.model, low, [variant], device)["default"]
+        require(image is not None and sha256_bytes(image.contiguous().numpy().tobytes()) == row["output_tensor_sha256"],
+                f"default setting does not reproduce the frozen Ours-TTT row at {row['low_name']}; stopping")
+
+
+def static_context(ctx):
+    return {"target": ctx.target, "gate_receipt_sha256": ctx.receipt_sha256, "low_receipt_sha256": ctx.low_sha256,
+            "reference_opaque_manifest_sha256": ctx.opaque_sha256, "ours_tuning.py": sha256_file(__file__),
+            "metrics.py": sha256_file(metrics_mod.__file__), "psnr_tie_db": PSNR_TIE_DB}
+
+
+def materialize_global(work, ctx, records, log_path):
+    """Once, after round 1 and round 2 are complete: global selection over the union of all rounds."""
+    require(records, "empty tuning log")
+    done = {r["setting_id"] for r in records}
+    for r in records:
+        require(r["context"] == records[0]["context"], "tuning log mixes contexts")
+    base = static_context(ctx)
+    require({k: records[0]["context"][k] for k in base} == base, "tuning log was written under other code/inputs")
+    round1, _ = load_json(round_file(work, 1))
+    require(set(round1["setting_ids"]) <= done, "round 1 incomplete")
+    require(round_file(work, 2).exists(), "round 2 not run (run --round2 even when its grid is empty)")
+    round2, _ = load_json(round_file(work, 2))
+    rebuilt, _ = round2_grid(records, round1["settings"])
+    require(round2["setting_ids"] == [setting_id(s) for s in rebuilt], "round-2 grid differs from the rule applied to the log")
+    require(set(round2["setting_ids"]) <= done, "round 2 incomplete")
+    union = union_settings(records)
+    chosen, window = select(records, union)
+    return materialize(work, chosen, window, ctx, records, union, records[0]["context"]["execution_manifest_sha256"], log_path)
+
+
 def main():
+    require(__debug__, "run without -O: the frozen code's assert statements are part of the method")
     sys.path.insert(0, os.getcwd())  # frozen Ours source root
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--target", required=True)
@@ -334,12 +455,34 @@ def main():
     p.add_argument("--rows-dir", type=Path)
     p.add_argument("--stage-target", type=Path)
     p.add_argument("--manifest", type=Path, required=True, help="frozen T070-A execution manifest")
-    p.add_argument("--grid", type=Path, required=True, help="declared search space (settings list and/or product)")
-    p.add_argument("--work", type=Path, required=True)
+    mode = p.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--grid", type=Path, help="round 1: declared grid (tuning_grid_round1.json)")
+    mode.add_argument("--round2", action="store_true", help="round 2: grid built from the round-1 log")
+    mode.add_argument("--materialize", action="store_true", help="global selection -> ours_ttt_target_tuned (once)")
+    p.add_argument("--work", type=Path, required=True, help="one work directory for all rounds")
     a = p.parse_args()
     ctx = metrics_mod.Context(a.target, a.low_receipt, a.opaque_manifest, a.gate_receipt, a.rows_dir, a.stage_target)
-    grid_spec, grid_sha = load_json(a.grid)
-    settings = expand_grid(grid_spec)
+    a.work.mkdir(parents=True, exist_ok=True)
+    log_path = a.work / "tuning_log.jsonl"
+    records = read_log(log_path)
+    done = {r["setting_id"] for r in records}
+    if a.materialize:
+        manifest = materialize_global(a.work, ctx, records, log_path)
+        print(json.dumps({k: manifest[k] for k in ("setting_id", "knobs", "no_active_abstentions", "selection")}, indent=2))
+        print(f"TUNED_ROW_MANIFEST_SHA256 {sha256_file(a.work / TUNED_ROW / 'output_manifest.json')}", flush=True)
+        return
+    if a.grid is not None:
+        round_no = 1
+        grid_spec, grid_sha = load_json(a.grid)
+        settings = expand_grid(grid_spec)
+        store_round(a.work, 1, settings, grid_sha)
+    else:
+        round_no = 2
+        round1, _ = load_json(round_file(a.work, 1))
+        require(set(round1["setting_ids"]) <= done, "round 1 incomplete; finish it before --round2")
+        settings, explanation = round2_grid(records, round1["settings"])
+        grid_sha = store_round(a.work, 2, settings, sha256_file(round_file(a.work, 1)), explanation)
+        print(json.dumps({"round2": explanation, "settings": len(settings)}), flush=True)
 
     from research_log.T070A.infer import FinalOurs
     from ttie.lolv2_gamma_core import native_rgb
@@ -355,32 +498,26 @@ def main():
         path = a.low_dir / item["name"]
         require(sha256_file(path) == item["sha256"], f"low changed: {item['name']}")
         lows.append(native_rgb(path))
-
-    a.work.mkdir(parents=True, exist_ok=True)
-    candidates = a.work / "candidates"
-    candidates.mkdir(exist_ok=True)
-    log_path = a.work / "tuning_log.jsonl"
-    records = read_log(log_path)
-    context = {"target": a.target, "gate_receipt_sha256": ctx.receipt_sha256, "low_receipt_sha256": ctx.low_sha256,
-               "reference_opaque_manifest_sha256": ctx.opaque_sha256, "execution_manifest_sha256": model.manifest_sha256,
-               "grid_sha256": grid_sha, "ours_tuning.py": sha256_file(__file__), "metrics.py": sha256_file(metrics_mod.__file__),
-               "derivation_sha256": derive(DEFAULTS, model.manifest["source_binding"])[1], "psnr_tie_db": PSNR_TIE_DB}
+    binding = model.manifest["source_binding"]
+    context = dict(static_context(ctx), execution_manifest_sha256=model.manifest_sha256,
+                   derivation_sha256=derive(DEFAULTS, binding)[1])
     for r in records:
         require(r["context"] == context, "tuning log written under a different context; use a new --work directory")
-    done = {r["setting_id"] for r in records}
+    check_default_reproduction(model, lows, frozen_ttt["rows"], binding)
+
+    candidates = a.work / "candidates"
+    candidates.mkdir(exist_ok=True)
     for d in list(candidates.iterdir()):
         if d.name not in done:
             shutil.rmtree(d)  # partial outputs of a setting that never reached the log
     references = {}
-
     groups = {}
     for knobs in settings:
         sid = setting_id(knobs)
         if sid in done:
             continue
         key = json.dumps({n: knobs[n] for n in TRAJECTORY_KNOBS}, sort_keys=True)
-        derived, _ = derive(knobs, model.manifest["source_binding"])
-        groups.setdefault(key, []).append({"id": sid, "knobs": knobs, "derived": derived})
+        groups.setdefault(key, []).append({"id": sid, "knobs": knobs, "derived": derive(knobs, binding)[0]})
     for variants in groups.values():
         started = time.perf_counter()
         results = {v["id"]: [] for v in variants}
@@ -390,10 +527,11 @@ def main():
             print(f"group of {len(variants)} settings: {index + 1}/{len(lows)}", flush=True)
         for v in variants:
             body = {"setting_id": v["id"], "knobs": v["knobs"], "is_default": v["knobs"] == canonical_knobs({}),
-                    "context": context, "utc": utc(), "runtime_seconds": time.perf_counter() - started}
+                    "round": round_no, "grid_sha256": grid_sha, "context": context, "utc": utc(),
+                    "runtime_seconds": time.perf_counter() - started}
             hashes = [None if image is None else sha256_bytes(image.contiguous().numpy().tobytes())
                       for image, _ in results[v["id"]]]
-            if body["is_default"]:  # before any GT decode, and never logged as a mere failed setting
+            if body["is_default"]:
                 for item, row, digest in zip(ctx.files, frozen_ttt["rows"], hashes):
                     require(digest == row["output_tensor_sha256"],
                             f"default setting does not reproduce the frozen Ours-TTT row at {item['name']}; stopping")
@@ -418,12 +556,8 @@ def main():
             prune(candidates, records)
             print(json.dumps({"setting_id": v["id"], **summary}), flush=True)
     records = read_log(log_path)
-    require({r["setting_id"] for r in records} >= {setting_id(s) for s in settings}, "grid incomplete")
-    chosen, window = select(records, settings)
-    manifest = materialize(a.work, chosen, window, ctx, records, settings, model.manifest_sha256, log_path)
-    print(json.dumps({k: manifest[k] for k in ("setting_id", "knobs", "no_active_abstentions", "selection")}, indent=2))
-    print(f"TUNED_ROW_MANIFEST_SHA256 {sha256_file(a.work / TUNED_ROW / 'output_manifest.json')}", flush=True)
-
+    require({r["setting_id"] for r in records} >= {setting_id(s) for s in settings}, f"round {round_no} incomplete")
+    print(f"ROUND {round_no} COMPLETE: {len(settings)} declared, {len(records)} log records", flush=True)
 
 if __name__ == "__main__":
     main()

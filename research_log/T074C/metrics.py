@@ -42,6 +42,8 @@ METRICS = ("psnr", "rgb_ssim")
 HEADLINE = "ours_ttt"
 ADAPTATION_PAIRS = (("promptir_dctta", "promptir"), ("ours_ttt", "ours_step0"))
 TUNED = gate_mod.TUNED_ROW
+TUNED_NOTE = ("knobs selected on these same test images' GT (user decision T074-A); "
+              "point estimates and CIs are optimistic, not held-out")
 
 
 # ---------------------------------------------------------------- frozen code
@@ -229,7 +231,8 @@ def row_sources(ctx, tuned_dir=None):
                 and manifest["low_receipt_sha256"] == ctx.low_sha256, "tuned row count/low binding mismatch")
         for item, row in zip(ctx.files, manifest["rows"]):
             require(row["low_name"] == item["name"] and row["low_sha256"] == item["sha256"], "tuned row/low mismatch")
-        sources[TUNED] = (manifest, digest, Path(tuned_dir), {"no_active_abstentions": manifest["no_active_abstentions"]})
+        sources[TUNED] = (manifest, digest, Path(tuned_dir), {"no_active_abstentions": manifest["no_active_abstentions"],
+                                                              "tuned_on_test_gt": True, "note": TUNED_NOTE})
     return sources
 
 
@@ -270,6 +273,7 @@ def evaluate(ctx, tuned_dir=None):
                       "interval": "95% percentile", "quantiles": list(QUANTILES), "quantile_method": "linear"},
         "rows": {r: {"output_manifest_sha256": sources[r][1], **sources[r][3], **row_summary(tables[r])} for r in row_ids},
         "comparisons": [{"a": a, "b": b, "direction": f"{a} - {b}", "families": fam,
+                         **({"tuned_on_test_gt": True, "note": TUNED_NOTE} if TUNED in (a, b) else {}),
                          **paired(tables[a], tables[b], position, sizes, indices)}
                         for (a, b), fam in comparisons(row_ids).items()],
         "per_image": tables,
@@ -293,7 +297,7 @@ def markdown(result):
              f"Gate receipt `{result['gate_receipt_sha256']}`. Outputs clipped to [0,1]; frozen T071-A metrics.", "",
              "| Row | N | Mean PSNR | Median PSNR | Mean RGB-SSIM | No-active abstentions |", "|---|---|---|---|---|---|"]
     for r, s in result["rows"].items():
-        lines.append(f"| {r} | {s['images']} | {s['mean_psnr']:.4f} | {s['median_psnr']:.4f} | {s['mean_rgb_ssim']:.4f} | "
+        lines.append(f"| {r}{' (tuned on test GT)' if s.get('tuned_on_test_gt') else ''} | {s['images']} | {s['mean_psnr']:.4f} | {s['median_psnr']:.4f} | {s['mean_rgb_ssim']:.4f} | "
                      f"{s.get('no_active_abstentions', 'N/A')} |")
     lines += ["", "| Comparison | Metric | Mean Δ | Median Δ | Win fraction | 95% cluster CI | Families |",
               "|---|---|---|---|---|---|---|"]
@@ -303,6 +307,8 @@ def markdown(result):
             lines.append(f"| {comp['direction']} | {m} | {v['mean_delta']:+.4f} | {v['median_delta']:+.4f} | "
                          f"{v['win_fraction']:.3f} ({v['wins']}/{v['n']}) | [{v['ci95'][0]:+.4f}, {v['ci95'][1]:+.4f}] | "
                          f"{', '.join(comp['families'])} |")
+    if TUNED in result["rows"]:
+        lines += ["", f"Note: `{TUNED}`: {TUNED_NOTE}."]
     return "\n".join(lines) + "\n"
 
 

@@ -194,6 +194,49 @@ def test_gate_refuses_tampering(tmp_path, victim):
     assert not t.receipt.exists()
 
 
+def reseal_verification(t, row_id, mutate):
+    """Rewrite a row's verification consistently (local + remote copy + freeze hashes/classification), so only
+    the 'verification must have passed' checks can catch the mutation."""
+    local = t.rows_dir / row_id / "verification.json"
+    data = json.loads(local.read_bytes())
+    mutate(data)
+    digest = write_json(local, data)
+    shutil.copyfile(local, Path(str(t.runs / row_id) + ".verify.json"))
+    freeze_path = t.rows_dir / row_id / "freeze_receipt.json"
+    freeze = json.loads(freeze_path.read_bytes())
+    freeze.update(independent_verification_sha256=digest, verification_classification=data["classification"])
+    write_json(freeze_path, freeze)
+
+
+@pytest.mark.parametrize("mutation, message", [
+    (lambda v: v.update(classification="T074B_PROMPTIR_OUTPUTS_FAILED"), "did not pass"),
+    (lambda v: v.update(failures=[{"row": 3, "reason": "hash"}]), "lists failures"),
+    (lambda v: v.update(pass_count=11, expected_count=12), "pass_count"),
+    (lambda v: v.update(observed_row_count=11), "observed_row_count"),
+    (lambda v: v.update(count=11), "count"),
+])
+def test_gate_requires_a_passing_verification(tmp_path, mutation, message):
+    t = build_target(tmp_path, name="SYNTH_VERIFY")
+    reseal_verification(t, "promptir", mutation)
+    with pytest.raises(rg.GateError, match=message):
+        open_gate(t)
+    assert not t.receipt.exists()
+
+
+def test_gate_accepts_quadprior_style_passing_verification(tmp_path):
+    t = build_target(tmp_path, name="SYNTH_VERIFY_OK")
+    reseal_verification(t, "promptir", lambda v: v.update(
+        classification="QUADPRIOR_OUTPUTS_VERIFIED", failures=[], expected_count=12, observed_row_count=12, pass_count=12))
+    open_gate(t)
+
+
+def test_optimised_python_is_refused():
+    import subprocess
+
+    out = subprocess.run([sys.executable, "-O", "-c", "import reference_gate"], cwd=HERE, capture_output=True, text=True)
+    assert out.returncode != 0 and "without -O" in out.stderr
+
+
 # ---------------------------------------------------------------- metrics refusal
 
 
@@ -516,9 +559,10 @@ def test_run_group_defaults_match_frozen_pipeline_and_abstention(ours):
 def test_grid_expansion_and_knob_validation():
     import ours_tuning as tuning
 
-    settings = tuning.expand_grid({"product": {"lambda_value": [0.75, 0.875], "updates": [27, 40]}})
+    settings = tuning.expand_grid({"product": {"lambda_value": [0.75, 0.875], "updates": [18, 27]}})
     assert settings[0] == tuning.canonical_knobs({}) and len(settings) == 4  # defaults deduplicated
-    for bad in ({"lambda_value": 0.8}, {"unknown": 1}, {"updates": 2.0}, {"tau": [1.0]}, {"exposure_target": 1.5}):
+    for bad in ({"lambda_value": 0.8}, {"unknown": 1}, {"updates": 2.0}, {"tau": [1.0]}, {"exposure_target": 1.5},
+                {"updates": 28}, {"tau": [0.03, 0.001673370413482167]}):
         with pytest.raises(rg.GateError):
             tuning.canonical_knobs(bad)
     with pytest.raises(rg.GateError, match="duplicate"):
@@ -529,7 +573,7 @@ def test_grid_expansion_and_knob_validation():
 def test_selection_rule():
     import ours_tuning as tuning
 
-    settings = tuning.expand_grid({"settings": [{"lr": 0.05}, {"lr": 0.09}, {"updates": 40}, {"lambda_value": 0.5}]})
+    settings = tuning.expand_grid({"settings": [{"lr": 0.05}, {"lr": 0.09}, {"updates": 18}, {"lambda_value": 0.5}]})
     ids = [tuning.setting_id(s) for s in settings]
 
     def rec(i, psnr, ssim, status="COMPLETE"):
@@ -604,3 +648,128 @@ def test_tuned_row_materialises_and_enters_metrics(evaluated, tmp_path):
     families = {(c["a"], c["b"]): c["families"] for c in result["comparisons"]}
     assert families[(rg.TUNED_ROW, "ours_ttt")] == ["tuned_headline"]
     assert result["rows"][rg.TUNED_ROW]["no_active_abstentions"] == 0
+    assert result["rows"][rg.TUNED_ROW]["tuned_on_test_gt"] is True and "optimistic" in result["rows"][rg.TUNED_ROW]["note"]
+    assert all(c.get("tuned_on_test_gt") is (True if rg.TUNED_ROW in (c["a"], c["b"]) else None) for c in result["comparisons"])
+    assert "optimistic" in mt.markdown(result) and "(tuned on test GT)" in mt.markdown(result)
+    assert "tuned_on_test_gt" not in result["rows"]["ours_ttt"]
+
+
+# ---------------------------------------------------------------- multi-round search (B1, M1)
+
+
+def test_round1_grid_file_matches_decisions():
+    import ours_tuning as tuning
+
+    spec = json.loads((HERE / "tuning_grid_round1.json").read_bytes())
+    settings = tuning.expand_grid(spec)
+    defaults = tuning.canonical_knobs({})
+    assert settings[0] == defaults and len(settings) == 23  # 2+2+8+2+2+2+4 one-factor settings + defaults
+    assert spec["one_factor"]["lambda_value"] == list(tuning.LAMBDA_GRID)
+    changed = [[k for k in tuning.DEFAULTS if s[k] != defaults[k]] for s in settings[1:]]
+    assert all(len(c) == 1 for c in changed) and "tau" not in {c[0] for c in changed}
+    assert max(s["updates"] for s in settings) == 27
+
+
+def r1_record(tuning, knobs, psnr, ssim, status="COMPLETE", round_no=1):
+    knobs = tuning.canonical_knobs(knobs)
+    return {"setting_id": tuning.setting_id(knobs), "knobs": knobs, "status": status, "round": round_no,
+            "summary": None if status != "COMPLETE" else {"mean_psnr": psnr, "mean_rgb_ssim": ssim}}
+
+
+def test_round2_rule():
+    import ours_tuning as tuning
+
+    records = [r1_record(tuning, {}, 20.0, 0.70),
+               r1_record(tuning, {"lr": 0.015}, 20.5, 0.71), r1_record(tuning, {"lr": 0.04}, 20.5, 0.71),
+               r1_record(tuning, {"lr": 0.06}, 19.0, 0.70),
+               r1_record(tuning, {"updates": 9}, 20.2, 0.72), r1_record(tuning, {"updates": 18}, 20.3, 0.60),
+               r1_record(tuning, {"exposure_target": 0.5}, 20.3, 0.75), r1_record(tuning, {"exposure_target": 0.7}, 20.3, 0.74),
+               r1_record(tuning, {"lambda_value": 0.5}, 20.1, 0.70),
+               r1_record(tuning, {"q_joint": 0.35266535990213066}, None, None, "FAILED"),
+               r1_record(tuning, {"loss_weights": [1, 20, 5]}, 20.3, 0.70),
+               r1_record(tuning, {"probability_threshold": 0.3}, 19.9, 0.90),
+               r1_record(tuning, {"lr": 0.05}, 99.0, 0.99, round_no=2)]  # round-2 records never feed the rule
+    round1 = [r["knobs"] for r in records if r["round"] == 1]
+    settings, why = tuning.round2_grid(records, round1)
+    assert "q_joint" not in why["gains"] and why["gains"]["probability_threshold"] == 0.0
+    # gains: lr 0.5; exposure/loss_weights/updates 0.3 each -> SSIM of best setting 0.75 > 0.70 > 0.60
+    assert why["selected_knobs"] == ["lr", "exposure_target", "loss_weights"]
+    assert why["values"]["lr"] == [0.04, 0.015]  # PSNR and SSIM tie -> nearer the default first
+    assert why["values"]["exposure_target"] == [0.5, 0.7]  # PSNR tie -> higher SSIM
+    assert why["values"]["loss_weights"] == [[1.0, 20.0, 5.0], [1.0, 10.0, 5.0]]  # vector is one value
+    assert len(settings) == 8 and len({tuning.setting_id(s) for s in settings}) == 8
+    assert all(s["updates"] == 27 and s["q_joint"] == tuning.DEFAULTS["q_joint"] for s in settings)
+    flat_records = [r1_record(tuning, {}, 20.0, 0.7), r1_record(tuning, {"lr": 0.06}, 19.0, 0.8)]
+    assert tuning.round2_grid(flat_records, [r["knobs"] for r in flat_records])[0] == []
+
+
+def test_round2_takes_at_most_three_knobs_and_breaks_gain_ties_by_name():
+    import ours_tuning as tuning
+
+    records = [r1_record(tuning, {}, 20.0, 0.7)] + [r1_record(tuning, {k: v}, 20.5, 0.7) for k, v in
+                                                     (("updates", 18), ("lr", 0.06), ("exposure_target", 0.5), ("probability_threshold", 0.3))]
+    _, why = tuning.round2_grid(records, [r["knobs"] for r in records])
+    assert why["selected_knobs"] == ["exposure_target", "lr", "probability_threshold"]
+
+
+def test_round_files_superset_and_immutability(tmp_path):
+    import ours_tuning as tuning
+
+    small = tuning.expand_grid({"one_factor": {"lr": [0.015]}})
+    big = tuning.expand_grid({"one_factor": {"lr": [0.015, 0.06]}})
+    tuning.store_round(tmp_path, 1, small, "a")
+    tuning.store_round(tmp_path, 1, big, "b")  # superset accepted
+    with pytest.raises(rg.GateError, match="superset"):
+        tuning.store_round(tmp_path, 1, small[1:], "c")
+    tuning.store_round(tmp_path, 2, [big[1]], "r1")
+    with pytest.raises(rg.GateError, match="after round 2"):
+        tuning.store_round(tmp_path, 1, big, "b")
+    with pytest.raises(rg.GateError, match="round-2 grid differs"):
+        tuning.store_round(tmp_path, 2, [big[2]], "r1")
+
+
+def test_materialize_global_over_union_of_rounds(evaluated, tmp_path):
+    import ours_tuning as tuning
+
+    t, ctx, _ = evaluated
+    work = tmp_path / "work"
+    (work / "candidates").mkdir(parents=True)
+    context = dict(tuning.static_context(ctx), execution_manifest_sha256="e" * 64, derivation_sha256="d" * 64)
+    round1 = tuning.expand_grid({"one_factor": {"lr": [0.05], "updates": [18]}})
+    tuning.store_round(work, 1, round1, "g1")
+    rng = np.random.default_rng(11)
+    records = []
+    for knobs, psnr, round_no in ((round1[0], 20.0, 1), (round1[1], 21.0, 1), (round1[2], 20.5, 1)):
+        sid = tuning.setting_id(knobs)
+        images, per_image = [], []
+        for item in t.files:
+            image = torch.from_numpy(rng.uniform(0, 1, (1, 3, 512, 960)).astype(np.float32))
+            images.append((item["name"], image))
+            per_image.append({"name": item["name"], "status": "TTT_EXECUTED", "output_tensor_sha256":
+                              hashlib.sha256(image.numpy().tobytes()).hexdigest()})
+        tuning.write_outputs(work / "candidates" / sid, images, per_image)
+        tuning.append_log(work / "tuning_log.jsonl", records, {
+            "setting_id": sid, "knobs": knobs, "status": "COMPLETE", "round": round_no, "grid_sha256": "g1",
+            "context": context, "per_image": per_image,
+            "summary": {"mean_psnr": psnr, "mean_rgb_ssim": 0.5, "abstentions": 0}})
+    with pytest.raises(rg.GateError, match="round 2 not run"):
+        tuning.materialize_global(work, ctx, records, work / "tuning_log.jsonl")
+    settings2, _ = tuning.round2_grid(records, round1)
+    assert len(settings2) == 4  # lr {0.05, 0.03} x updates {18, 27}
+    tuning.store_round(work, 2, settings2, "r1")
+    with pytest.raises(rg.GateError, match="round 2 incomplete"):
+        tuning.materialize_global(work, ctx, records, work / "tuning_log.jsonl")
+    combo = tuning.canonical_knobs({"lr": 0.05, "updates": 18})
+    sid = tuning.setting_id(combo)
+    images = [(item["name"], torch.zeros(1, 3, 512, 960)) for item in t.files]
+    per_image = [{"name": n, "status": "TTT_EXECUTED", "output_tensor_sha256": hashlib.sha256(i.numpy().tobytes()).hexdigest()}
+                 for n, i in images]
+    tuning.write_outputs(work / "candidates" / sid, images, per_image)
+    tuning.append_log(work / "tuning_log.jsonl", records, {
+        "setting_id": sid, "knobs": combo, "status": "COMPLETE", "round": 2, "grid_sha256": "g2", "context": context,
+        "per_image": per_image, "summary": {"mean_psnr": 21.5, "mean_rgb_ssim": 0.5, "abstentions": 0}})
+    manifest = tuning.materialize_global(work, ctx, records, work / "tuning_log.jsonl")
+    assert manifest["setting_id"] == sid and manifest["selection"]["settings_declared"] == 4
+    assert manifest["selection"]["tie_window"] == [sid]
+    with pytest.raises(FileExistsError):  # materialize only once
+        tuning.materialize_global(work, ctx, records, work / "tuning_log.jsonl")

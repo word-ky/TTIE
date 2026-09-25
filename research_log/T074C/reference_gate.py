@@ -49,6 +49,9 @@ def require(condition, message):
         raise GateError(message)
 
 
+require(__debug__, "run without -O: the frozen code's assert statements must stay active")
+
+
 def sha256_bytes(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -142,6 +145,11 @@ def check_row(row_id, rows_dir, spec, low_files, low_sha, verify_outputs):
     verification, verification_sha = load_json(directory / "verification.json")
     require(verification_sha == freeze["independent_verification_sha256"], f"{row_id}: local verification SHA mismatch")
     require(verification["classification"] == freeze["verification_classification"], f"{row_id}: verification classification")
+    require(verification["classification"].endswith("_OUTPUTS_VERIFIED"), f"{row_id}: verification did not pass")
+    require(verification.get("failures", []) == [], f"{row_id}: verification lists failures")
+    for key in ("count", "expected_count", "observed_row_count", "pass_count"):
+        require(verification.get(key, spec["expected_count"]) == spec["expected_count"],
+                f"{row_id}: verification {key} != {spec['expected_count']}")
     require(verification["output_manifest_sha256"] == manifest_sha, f"{row_id}: verification bound to another manifest")
     require(verification["low_receipt_sha256"] == low_sha, f"{row_id}: verification bound to another low receipt")
     require(verification["reference_reads"] == 0 and verification["metrics"] == 0,
