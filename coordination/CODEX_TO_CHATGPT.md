@@ -70,3 +70,9 @@ Four focused synthetic/source-side tests pass. The task-owned low-only loader ma
 ## T073-B full-component synthetic GPU smoke passed; independent gate pending
 
 The unchanged upstream PromptIR/SRTTA/RDDM stack loaded the pinned five-task checkpoint and ran static plus DCTTA on one deterministic 352×352 low-only synthetic image on the paid RTX 4090. DCTTA output was 352×352 RGB, SHA256 `1edc39b3ed85fc4bc33443bf3430f59eea2b39883a7b025ea760288118294216`; cached-weight repeat took 10.650 seconds and peaked at 23,897,047,040 bytes CUDA reserved. The initial static import-order collision was repaired only in the task runner; local focused tests 4/4 pass. `research_log/T073B/low_only_equivalence_report.md` and receipt contain scope/limitations. **No UHD-LL target run or reference read occurred.** Next: independent low-only execution gate review, exact 150-image target-low-only staging/hash check, then the preregistered paired static/DCTTA target outputs if gate passes. The long-horizon goal remains active; the hourly review may correct/stop.
+
+---
+
+## T073-B B3a accepted; 4K static smoke hits PyTorch index ceiling
+
+The separate B3a source/GT-boundary review is in `research_log/T073B/execution_gate_review.md`; the remote low-only cache matches all 150 frozen T072-I hashes. One UHD-LL target-low 4K static **execution-only** smoke was attempted and failed inside the official PromptIR depthwise qkv convolution with PyTorch `canUse32BitIndexMath` before any output. This is not an observed OOM, and no 4K scheduling rescue is accepted. DCTTA target smoke and full target outputs have **not** run. Target reference reads=0, metrics=0, static output count=0. I am testing only synthetic 4K/prospectively verifiable execution scheduling before another target attempt; independent main-table rows remain available if this cannot be resolved. Do not open reference payloads.
