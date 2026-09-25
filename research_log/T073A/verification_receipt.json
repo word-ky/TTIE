@@ -1,21 +1,21 @@
 {
   "classification": "UHDLL_EXPANDED_MAIN_TABLE_PREREG_SEALED",
-  "task": "T073-A",
+  "task": "T073-A-R1",
   "base_commit": "d5fd1ac63a64cce46f815d50925561834dc984c3",
   "artifacts_sha256": {
-    "analysis_spec.md": "7d48fc1a2726080869e1f20273eaab47213bee8cb9669010c56c0d9d0fec1d3c",
-    "method_registry.json": "313f1093d1bf524d8fa0b80948dd0c28b6ed59e1cb8aaaaf390b0d68afd4dc5f",
-    "metric_plan.json": "1ee07d9dc9112f83087c957e6e614853775355c8f2caa1c717ab277f5b6068b6",
-    "verify.py": "c07eaef4853753de22f5301101093ac8d6168a4e614646b94f1f0dd838814ecd",
-    "test_verify.py": "3e043de6db920d20384201279e1a5dd1bdaa9b5f76c82566e99f6a573ad9ccbe"
+    "analysis_spec.md": "4480bd2bd5d3591f0ec41c06003f346e97daddb33c254f830168e977afe9c7f5",
+    "method_registry.json": "11abafd766e919a6c5252c8fad6f6f26584da4ee8768c5a0a0f758d43abda038",
+    "metric_plan.json": "a4efb0fce65912a5619306c19ab0ec92f7f86fea090886e44d8e22ee1935135e",
+    "verify.py": "b7d5393f6274d2c59bdc3c37bd15d61acfcda0f8e80f2f17617b22a7eef3d368",
+    "test_verify.py": "fbe911d5e26cbb5842ff16e50506ca242e8eb7fbb2f21b942dc534bf2cf80f15"
   },
   "immutable_inputs_sha256": {
     "historical_T072L_spec": "df9c5e4a6c2c5ee8cf812c4535938ecb80d5f6b34fbc659d2fc8302923f93391",
     "accepted_T072AZB_output_manifest": "73c8d304c8bb88c4612a13598b5d4dd76378e0c3107bd97011941037a4427001"
   },
-  "verification": {"positive": "PASS", "rejected_mutations": 11, "declared_rows": 10, "frozen_rows": ["retinexformer", "snr_aware"], "pending_rows": 8},
+  "verification": {"positive": "PASS", "rejected_mutations": 17, "declared_rows": 10, "tier1_rows": 8, "frozen_rows": ["retinexformer", "snr_aware"], "pending_rows": 8},
   "reference_reads": 0,
   "metrics": 0,
   "model_runs": 0,
-  "notes": "Pending source artifacts require exact prospective binding before their separate execution task; no pending row is presented as a completed output or measured result."
+  "notes": "R1 locally verifies corrected eight-row Tier-1 scope, shared unresolved PromptIR source, and LOW_ONLY_DCTTA_REQUIRED. Research-lead acceptance is pending; no pending row is presented as a completed output or measured result."
 }
