@@ -1,0 +1,70 @@
+{
+  "method_id": "ours_ttt_target_tuned",
+  "method": "Ours-TTT (target-tuned): frozen T070-A code, knobs selected on target GT",
+  "target_gt_used_for_selection": true,
+  "count": 180,
+  "low_receipt_sha256": "19138a9c1fef4e1d3a6ffcf6f0bf9dcb3b5b64453682f7424a3ea5f749512978",
+  "gate_receipt_sha256": "a21eb87d10c36fce75988b4414bd8c74fe687b6fe4c8965c47b8c5580eb70360",
+  "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+  "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+  "knobs": {
+    "exposure_target": 0.7,
+    "lambda_value": 0.875,
+    "loss_weights": [
+      1.0,
+      10.0,
+      5.0
+    ],
+    "lr": 0.03,
+    "probability_threshold": 0.5,
+    "q_joint": 0.35266535990213066,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "updates": 27
+  },
+  "defaults": {
+    "q_joint": 1.053775168916056,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "probability_threshold": 0.5,
+    "lambda_value": 0.875,
+    "lr": 0.03,
+    "updates": 27,
+    "loss_weights": [
+      1.0,
+      10.0,
+      5.0
+    ],
+    "exposure_target": 0.6
+  },
+  "knob_locations": {
+    "q_joint": "gate asset T022A_gate.json q_joint (FinalOurs.gate) -> ttie/joint_gate.py both_gates: active iff evidence > q_joint",
+    "tau": "gate asset T022A_gate.json calibration.tau -> ttie/clip_signal.py decisions, ttie/joint_gate.py winning_evidence",
+    "probability_threshold": "research_log/T067B/core.py choices: first step with probabilities[k]>=.5 (k_FS)",
+    "lambda_value": "research_log/T070A/infer.py select_trajectory: c['lambda_value']==.875 (T067B GRID values only)",
+    "lr": "research_log/T062CR2/core.py trajectory: Adam lr=.03",
+    "updates": "research_log/T062CR2/core.py trajectory: range(28), step==27, selected=27",
+    "loss_weights": "research_log/T062CR2/core.py trajectory: parts @ [1.,10.,5.] (spatial, exposure, colour)",
+    "exposure_target": "research_log/T062A/core.py losses: (avg_pool16 mean - .60)^2"
+  },
+  "no_active_abstentions": 0,
+  "selection": {
+    "rule": "max image-mean PSNR; within PSNR_TIE_DB: max mean RGB-SSIM, then min normalised L1 knob distance, then setting id",
+    "scope": "union of all rounds' COMPLETE records; L1 ranges over the union of declared settings",
+    "psnr_tie_db": 0.01,
+    "settings_declared": 29,
+    "settings_complete": 28,
+    "settings_failed": 1,
+    "tie_window": [
+      "0a6a1f753dfeaa2c6c32f65efc644205991ed0353d93db95a64170578eddd7b0",
+      "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd"
+    ],
+    "selected_record_sha256": "dd344dfac0ec68e8b4bcb0b6e80ce35aeb3ff5ab83edf2bb03ba97daaa14e51a",
+    "tuning_log_sha256": "4a8e979c28b1b815b99dc796fdd4400eb027f14d75e0f04588102b3f388d39a5"
+  },
+  "tuned_row_manifest_sha256": "dfc341dc553fe3419ca7ef830418e8a32f4ebf9b97f23232712051e0de4e7ce8"
+}

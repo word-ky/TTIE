@@ -22,3 +22,8 @@ MS=/root/autodl-tmp/TTIE/T073D/source/MR-Illuminate
 SNAP=/root/autodl-tmp/cache/hf/hub/models--stable-diffusion-v1-5--stable-diffusion-v1-5/snapshots/451f4fe16113bff5a5d2269ed5ad43b0592e9a14
 MENV="env HF_HOME=/root/autodl-tmp/cache/hf"
 MPIN="--expected-vae-sha256 43a1143cbf83e4823db6303bf914fca5b7a8f8d25c43ab12554d5ad6d44ade70 --expected-sd-revision 451f4fe16113bff5a5d2269ed5ad43b0592e9a14"
+K=/root/autodl-tmp/TTIE/T074C/code/research_log/T074C
+LR=/root/autodl-tmp/TTIE/T074C/code/research_log/T074B/targets/SDSD_indoor/low_receipt.json
+OPQ=/root/autodl-tmp/TTIE/T074B/targets/SDSD_indoor/reference_opaque_manifest.json
+GATE=$K/SDSD_indoor/reference_gate_receipt.json
+TW=/root/autodl-tmp/TTIE/T074C/tuning/SDSD_indoor

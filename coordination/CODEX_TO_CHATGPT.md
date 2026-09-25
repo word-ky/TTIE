@@ -160,3 +160,11 @@ The project owner decided (2026-09-25 ~23:00 +08) to narrow the paper scope to e
 ## T074-A addendum — USER DECISION: Ours may be tuned on target test data (with GT) and reported on the same images
 
 The project owner decided that, on the new near-black targets, Ours thresholds/hyperparameters may be developed on the target test images including GT/metrics and results reported on the same images, with explicit disclosure in the paper. Safeguards: all non-tuned rows (including frozen-T070-A Ours-Step0/Ours-TTT) are frozen and verified before any target GT is opened; the full tuning search is logged; frozen and tuned Ours are reported as separate rows; an optional scene-disjoint two-fold check is offered. Record: `research_log/T074A/ours_target_tuning_decision.md`. Research-lead review requested.
+
+---
+
+## T074-C SDSD-indoor complete: 8 frozen rows → reference gate → metrics → Ours target tuning
+
+All 8 non-tuned rows were frozen and independently verified before any GT access; reference gate receipt SHA256 `a21eb87d10c36fce75988b4414bd8c74fe687b6fe4c8965c47b8c5580eb70360`. N=180 frames, G=6 videos (low power; cluster CIs unreliable). Mean PSNR / mean RGB-SSIM: RetinexFormer 19.13/0.787, PromptIR+DCTTA 18.69/0.774, PromptIR 18.33/0.764, Ours-TTT (frozen T070-A, 0/180 abstentions) 18.24/0.641, SNR-Aware 18.05/0.770, MR. Illuminate 17.80/0.787, QuadPrior 17.54/0.790, Ours-Step0 7.40/0.319. Frozen Ours-TTT vs comparators: PSNR within about ±0.9 dB (only vs QuadPrior is the cluster CI above 0), SSIM lower than every baseline by 0.12–0.15 (all CIs exclude 0). Ours-TTT gains +10.84 dB over Step0; DCTTA gains +0.36 dB over PromptIR.
+
+Target-tuned Ours (tuned and reported on the same test GT per the user's decision; optimistic): 29 settings (28 complete, 1 failed: lr 0.06), selected q_joint p80 + exposure_target 0.7 → 19.03 PSNR / 0.625 SSIM (−0.10 dB vs RetinexFormer, SSIM still lower). Full search log committed. SID-sRGB still blocked by Google Drive quota; SMID and LSRW failed the sealed darkness criterion. Records: `research_log/T074C/SDSD_indoor/`.

@@ -1,0 +1,6551 @@
+{
+  "method_id": "ours_ttt_target_tuned",
+  "method": "Ours-TTT (target-tuned): frozen T070-A code, knobs selected on target GT",
+  "target_gt_used_for_selection": true,
+  "count": 180,
+  "low_receipt_sha256": "19138a9c1fef4e1d3a6ffcf6f0bf9dcb3b5b64453682f7424a3ea5f749512978",
+  "gate_receipt_sha256": "a21eb87d10c36fce75988b4414bd8c74fe687b6fe4c8965c47b8c5580eb70360",
+  "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+  "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+  "knobs": {
+    "exposure_target": 0.7,
+    "lambda_value": 0.875,
+    "loss_weights": [
+      1.0,
+      10.0,
+      5.0
+    ],
+    "lr": 0.03,
+    "probability_threshold": 0.5,
+    "q_joint": 0.35266535990213066,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "updates": 27
+  },
+  "defaults": {
+    "q_joint": 1.053775168916056,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "probability_threshold": 0.5,
+    "lambda_value": 0.875,
+    "lr": 0.03,
+    "updates": 27,
+    "loss_weights": [
+      1.0,
+      10.0,
+      5.0
+    ],
+    "exposure_target": 0.6
+  },
+  "knob_locations": {
+    "q_joint": "gate asset T022A_gate.json q_joint (FinalOurs.gate) -> ttie/joint_gate.py both_gates: active iff evidence > q_joint",
+    "tau": "gate asset T022A_gate.json calibration.tau -> ttie/clip_signal.py decisions, ttie/joint_gate.py winning_evidence",
+    "probability_threshold": "research_log/T067B/core.py choices: first step with probabilities[k]>=.5 (k_FS)",
+    "lambda_value": "research_log/T070A/infer.py select_trajectory: c['lambda_value']==.875 (T067B GRID values only)",
+    "lr": "research_log/T062CR2/core.py trajectory: Adam lr=.03",
+    "updates": "research_log/T062CR2/core.py trajectory: range(28), step==27, selected=27",
+    "loss_weights": "research_log/T062CR2/core.py trajectory: parts @ [1.,10.,5.] (spatial, exposure, colour)",
+    "exposure_target": "research_log/T062A/core.py losses: (avg_pool16 mean - .60)^2"
+  },
+  "no_active_abstentions": 0,
+  "selection": {
+    "rule": "max image-mean PSNR; within PSNR_TIE_DB: max mean RGB-SSIM, then min normalised L1 knob distance, then setting id",
+    "scope": "union of all rounds' COMPLETE records; L1 ranges over the union of declared settings",
+    "psnr_tie_db": 0.01,
+    "settings_declared": 29,
+    "settings_complete": 28,
+    "settings_failed": 1,
+    "tie_window": [
+      "0a6a1f753dfeaa2c6c32f65efc644205991ed0353d93db95a64170578eddd7b0",
+      "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd"
+    ],
+    "selected_record_sha256": "dd344dfac0ec68e8b4bcb0b6e80ce35aeb3ff5ab83edf2bb03ba97daaa14e51a",
+    "tuning_log_sha256": "4a8e979c28b1b815b99dc796fdd4400eb027f14d75e0f04588102b3f388d39a5"
+  },
+  "rows": [
+    {
+      "low_name": "pair11__0177.png",
+      "low_sha256": "809474d34b6ade9673cec077469107053ea6a68ef2ef7bc74cc3333a69a31922",
+      "name": "pair11__0177.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "83da9c33acb28bd043fe45c174bdf0306675b309f6cecec32f9e53a58e63a8e6",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7037602069005798,
+        "r_target": 0.9504987052371303,
+        "selected_step": 24
+      },
+      "psnr": 17.88993969774798,
+      "rgb_ssim": 0.6025303603814594,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c8938c4d34f1c82dbc75f21021c6d7f90d4a6b3ec1aca262796982541e6d75c1"
+    },
+    {
+      "low_name": "pair11__0178.png",
+      "low_sha256": "fdaa9f324afb81cb3316cd2e7eb9b57d642f6dcff24ea6b771cb070726ea5a1a",
+      "name": "pair11__0178.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "af736a6175e7f8b11d6db02eb479657838334ee6f85279db5e82764a874dd913",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7058767710778184,
+        "r_target": 0.9507632757592852,
+        "selected_step": 24
+      },
+      "psnr": 17.88977848761545,
+      "rgb_ssim": 0.6470316158489696,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "30985674a7214586d0a9c7960948f341825083f2c28c66b2b7fa58bb2ecdc0eb"
+    },
+    {
+      "low_name": "pair11__0179.png",
+      "low_sha256": "5e9fed7cb760821edb91a6156fd054df2ed04c2e547e388f955bec1693c742e7",
+      "name": "pair11__0179.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "7ce3772c32b7308d47e3a937c4d6d635980ae48aaad5c05c33adc3f551138a6f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7063590160746192,
+        "r_target": 0.9508235563838853,
+        "selected_step": 24
+      },
+      "psnr": 17.877935101039558,
+      "rgb_ssim": 0.6480326801170716,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "432fb66d03790e9453f8bdf8706d404430a0bdfe64d58732dc5e70f0b584ad21"
+    },
+    {
+      "low_name": "pair11__0180.png",
+      "low_sha256": "5c71c90f1bb9ae8f821365616cac772579b333e13a08c7ecf1328261f5250911",
+      "name": "pair11__0180.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "6a6597c8bfae993fdaff95b45b4a288b1c2ee299240f408410c4bad38d673e4c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.705253709495021,
+        "r_target": 0.9506853930614355,
+        "selected_step": 24
+      },
+      "psnr": 17.842248758440554,
+      "rgb_ssim": 0.6011462939873278,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "aab19ba4704d034419b94dee851c833afff62fe6c8dd5b1c4e1226da515e0d09"
+    },
+    {
+      "low_name": "pair11__0181.png",
+      "low_sha256": "05ce13d76f62ae2e0c6a18e9cc5d98d9597c4346032a9a3658309ca2dd7aec57",
+      "name": "pair11__0181.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "69682877d23bacc3bc585059d8528e404af3b13dd060f2727ed90c38ee0e45ba",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7061812445693845,
+        "r_target": 0.9508013349457309,
+        "selected_step": 24
+      },
+      "psnr": 17.82630315023846,
+      "rgb_ssim": 0.6237772662534081,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "2174e60e7bcdfb42f23af1d0eeb49e8af050032cf8d9913bceabcf42050eb1e4"
+    },
+    {
+      "low_name": "pair11__0182.png",
+      "low_sha256": "7de8a02dd588f390983fd5001f1e7b1668dc2f9546d397b9f7bb162503aa00fc",
+      "name": "pair11__0182.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "4b1796fdc2eed35ad4fcae7559c080faba6b8c15da3703f956e524ef88c41d5c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7073938788333612,
+        "r_target": 0.9509529142287281,
+        "selected_step": 23
+      },
+      "psnr": 18.14640566807235,
+      "rgb_ssim": 0.6466150862018417,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "70b8bffacea3d9231b98e47a2f3995eca87e374b120ce031d43f636a3e669e3b"
+    },
+    {
+      "low_name": "pair11__0183.png",
+      "low_sha256": "183229be8678d176ce3b5ce6c1cb9d3f29e1ee31ff15b46a7bacf058a90af3f9",
+      "name": "pair11__0183.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "387501cd7e56042f1f7f0eb5e01630178221e873525780f50646bffaedce2fcc",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7063052714026582,
+        "r_target": 0.9508168382998902,
+        "selected_step": 24
+      },
+      "psnr": 17.764302934711537,
+      "rgb_ssim": 0.6010215374425699,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c4726f6f402cc1ca0089860d9b7044e1ab242fca6f4a3ef4e5f043230531bfdf"
+    },
+    {
+      "low_name": "pair11__0184.png",
+      "low_sha256": "c216f007ccd8128787e1418e1470f21e6690e06c65071cad0d49b532e32152b3",
+      "name": "pair11__0184.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "54b78131180d1aecd54956ae00f2695cbe6d679ac8d7ec7d729e8e66fe2035b8",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.708452069264115,
+        "r_target": 0.9510851880325722,
+        "selected_step": 23
+      },
+      "psnr": 18.09882107013229,
+      "rgb_ssim": 0.6558072908111555,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6229eeb07dac671d38a60ae426d1be504d44cd1d2a7eaa7b7a1e0d7b5d9d4173"
+    },
+    {
+      "low_name": "pair11__0185.png",
+      "low_sha256": "572c1f153c8d04714780731deff0dbce7ddb4182b8969c118b860161a0c0a82a",
+      "name": "pair11__0185.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "c20372fd9465ef2353f45139c2171888d066ced387ccab90bddd8eceb89fc22e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7093126118962254,
+        "r_target": 0.951192755861586,
+        "selected_step": 23
+      },
+      "psnr": 18.074648910911822,
+      "rgb_ssim": 0.6573379318714203,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e5eafce866247ccdca3f772ccfa3dcfd6b6a84c70c7f61d83fdca03f8e626706"
+    },
+    {
+      "low_name": "pair11__0186.png",
+      "low_sha256": "5cf5f006902ab707da2a423258f2efb61146ec50e58d76654b2299f0109ffb8a",
+      "name": "pair11__0186.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "296c497f5b993346fc2ac2273ab68428b16cf7197f281ef8892ced3b2535024b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7086264906024274,
+        "r_target": 0.9511069906998613,
+        "selected_step": 23
+      },
+      "psnr": 18.02869830867984,
+      "rgb_ssim": 0.6135935837903164,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8930e952763cc278000c19f0849ebd08bd8561698b424603a9b7d257e56fd201"
+    },
+    {
+      "low_name": "pair11__0187.png",
+      "low_sha256": "cdd6463756d4ba974fe3d86e30f727d1c7dd126604603d719db631960f3fc8ea",
+      "name": "pair11__0187.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "fb635f1425578d01219b49353b6691c6ffda0edbefb7f58eeee54a5bfaf60436",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7108234396496814,
+        "r_target": 0.9513816093307681,
+        "selected_step": 23
+      },
+      "psnr": 18.054816574435776,
+      "rgb_ssim": 0.6573015688472186,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "0d877a47aca44aa8243f7c003943d4d8dbd31eea3de57fa58c9d697b278f98ae"
+    },
+    {
+      "low_name": "pair11__0188.png",
+      "low_sha256": "281a09e7a91598cb1b5020eb2fc51d461dca372e96040019ce27bb5045938fcc",
+      "name": "pair11__0188.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "e723b674964730a2ae7272a730ce24a66f2cb4c314c39fdb649909a1daa04a13",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7113036778765274,
+        "r_target": 0.9514416391091238,
+        "selected_step": 23
+      },
+      "psnr": 18.027454155258923,
+      "rgb_ssim": 0.6554265407811566,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "40462526ee791b84332480a8843bb42645263e4e6af6b65ef023c4ff0f7e8e26"
+    },
+    {
+      "low_name": "pair11__0189.png",
+      "low_sha256": "5a97095bcfff790fbf5d4246004b177e469a17c024b679c06ba311d71bd46ed6",
+      "name": "pair11__0189.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "45c281c32dac44bfe628a890f7689974135791cde69e114ce170470691d3fb34",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7099014985514625,
+        "r_target": 0.9512663666934906,
+        "selected_step": 23
+      },
+      "psnr": 17.97328293697496,
+      "rgb_ssim": 0.6118191024625355,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f3bce5d3ae01374de9aa4685b7010a263d1aba0a105a623ba09b307ccecaefe5"
+    },
+    {
+      "low_name": "pair11__0190.png",
+      "low_sha256": "c8232f6ec976b569da6033d368a2a63a462f07e79f0eb86c4293bf29c2a6a130",
+      "name": "pair11__0190.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "8edcd225cb26796552c99720efe1bd809f12109b90fd3288f2b6e964086699b9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7122231802615833,
+        "r_target": 0.9515565769072558,
+        "selected_step": 23
+      },
+      "psnr": 17.982662554737885,
+      "rgb_ssim": 0.6568846500315335,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "df00858daa6deb6ebd8b0ac6403394fc87012282d3e59d453dff45e5ea66b723"
+    },
+    {
+      "low_name": "pair11__0191.png",
+      "low_sha256": "fd8389c46fcd01d8e598c3dc4b709303d595be2c0eaf02778511820601bfac18",
+      "name": "pair11__0191.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "bbf537cd4bf3f1fd9792b9782ccfdb8b1646ce207dd19598b58b61777b8dcee4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7127433800022542,
+        "r_target": 0.9516216018748397,
+        "selected_step": 23
+      },
+      "psnr": 17.980179612312025,
+      "rgb_ssim": 0.6583745687642347,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4605c6aee854e9dac68769e8de6c4a855e53414514ca1003904f3c451191b12d"
+    },
+    {
+      "low_name": "pair11__0192.png",
+      "low_sha256": "293abf2f9c6729a007fe341006efd1e8a999cd3776e6c4892015fa7ad73a10d2",
+      "name": "pair11__0192.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "1ab4132f114fa868a8168c60db7a9e1016a6751ba9ae5a5a7f9679b41d85b96d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.708429007273989,
+        "r_target": 0.9510823052838064,
+        "selected_step": 23
+      },
+      "psnr": 17.976161397360553,
+      "rgb_ssim": 0.6133608289398578,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e7a0e2bc4d785d9058de057ebb309fd5c37e61e193f15056fda7b172f5c73a02"
+    },
+    {
+      "low_name": "pair11__0193.png",
+      "low_sha256": "7f0a407ed70213a692312c37e21d363174daa1706aaf8f54ce910681c75142da",
+      "name": "pair11__0193.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "2b14c958bbe2ca81f0f7ca540717aa7cb4772a15cd20aef0d68b7e194be011c3",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.7063757554423472,
+        "r_target": 0.9508256488048512,
+        "selected_step": 24
+      },
+      "psnr": 17.743322824296644,
+      "rgb_ssim": 0.6246762884021352,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "27b3e27ee330341371286c46544116aa78136656e0ea84b4d785e204fa4539ab"
+    },
+    {
+      "low_name": "pair11__0194.png",
+      "low_sha256": "58f231cf302d141498fcf4fdc9fd44f61cdccf44c77ddcc48403952b83601f79",
+      "name": "pair11__0194.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "93f2d6f669006e3234909838bf51bdb2a03f48ad4469f0a8bacd9952671eb485",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 26,
+        "r_FS": 0.705257642277254,
+        "r_target": 0.9506858846592146,
+        "selected_step": 24
+      },
+      "psnr": 17.773754893702,
+      "rgb_ssim": 0.6341234151383324,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "575d8dd728b1d233c7851aef2174ae390eef5dd54795202781c4a5b191f5e759"
+    },
+    {
+      "low_name": "pair11__0195.png",
+      "low_sha256": "140b48442f0f36b37ab8cb6f3e2e23b9ddf35eb0da6b5777ec4669d2f4f2645b",
+      "name": "pair11__0195.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "5462edb7454a4e510521de6c2bb13d15f27891e29847af21d107b73fda843082",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6574160770912139,
+        "r_target": 0.9447056890109596,
+        "selected_step": 23
+      },
+      "psnr": 18.058838191309782,
+      "rgb_ssim": 0.612090145612473,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "328e14f6519d5dbc69877fc7a8af72d9497003d913ca9357e84004c0cfb96ba5"
+    },
+    {
+      "low_name": "pair11__0196.png",
+      "low_sha256": "6768b2ff8ccf75ffb4655e4dca590c9424e34c1e7b5480747e0972e5f8b2d013",
+      "name": "pair11__0196.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "7622fd227decdd5a6a4709a2de7b93a186e8a09363a6aff4633355c16791ef85",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6569255312715047,
+        "r_target": 0.944644370783496,
+        "selected_step": 23
+      },
+      "psnr": 18.117981671636873,
+      "rgb_ssim": 0.6583137687415656,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "3dcb8e966df109d059cb3c791de0e0b16fd087fba18d4bcfe89e904727af0383"
+    },
+    {
+      "low_name": "pair11__0197.png",
+      "low_sha256": "d52052adcac80e9968cd41246c00fa72c6daf23819280566d3535d6ac5ef1ea3",
+      "name": "pair11__0197.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "cc29dba2a922802fbce291c0d2a9619ce57073c2a48c9be7f12ff33666cafb85",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6550683270619558,
+        "r_target": 0.9444122202573024,
+        "selected_step": 23
+      },
+      "psnr": 18.15151724339251,
+      "rgb_ssim": 0.6575135729547257,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8c63e923e4adb68ad98cdac1596904b83bc0b35f3d22d96eb1b2151411a0aa92"
+    },
+    {
+      "low_name": "pair11__0198.png",
+      "low_sha256": "d3faa1ff7353f8064cc468a115ba098f3db989581b21b7993e2d6e33ecc4b899",
+      "name": "pair11__0198.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "8fba60dc961155d98d947adeb163bd81494b4f4f562d65942607d955c36081a7",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6516353238010251,
+        "r_target": 0.943983094849686,
+        "selected_step": 23
+      },
+      "psnr": 18.127665104457225,
+      "rgb_ssim": 0.6235524186543454,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "45a2e65cf6f55d64e837832caed72230c00f0dd258e3910b4ef1cd82eb9a1a70"
+    },
+    {
+      "low_name": "pair11__0199.png",
+      "low_sha256": "6f2bdf8d43fb9008818643cb468fbedf3c41cabd2a4f39c4467323c727525d4d",
+      "name": "pair11__0199.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "1d6b9c0cb881a34ddbc4a10bc81ce5bd1b234e14a5979795d15e08b6d814d522",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6504364271500948,
+        "r_target": 0.9438332327683197,
+        "selected_step": 23
+      },
+      "psnr": 18.180248605613272,
+      "rgb_ssim": 0.6626659186512656,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f0ea1e2756c43258d4cbaa0ae2eb0cd4ef5e74916f0d8ec24297cdc3940837b9"
+    },
+    {
+      "low_name": "pair11__0200.png",
+      "low_sha256": "88ccce852a1fcfa5231a38f79bb2717378671fa36e82f63283a967533ef7411f",
+      "name": "pair11__0200.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "d66927288a50be4cf82e179dfa8abd3dfef485a2208748e43b7710a99d9a9d6b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6487611684361403,
+        "r_target": 0.9436238254290754,
+        "selected_step": 23
+      },
+      "psnr": 18.198828422986516,
+      "rgb_ssim": 0.6625888256630562,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "dcfb2dd68e6933b850ce4ab246998967aa6757e394f60dc70eb446361e9d0cf4"
+    },
+    {
+      "low_name": "pair11__0201.png",
+      "low_sha256": "22383a125a0dbeca4a46c492ad0ad14f4600cc73818794503c12aba68e3218f8",
+      "name": "pair11__0201.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "bf974c277f31f88d8d2b0250b0b9cd1ba93d66e9c5cac1091f058e3230b66225",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6455430567352957,
+        "r_target": 0.9432215614664698,
+        "selected_step": 23
+      },
+      "psnr": 18.12758557857972,
+      "rgb_ssim": 0.6257913102601103,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1d7677f6195a9b8f0a913ce4f48aa6d616b2ed80d6287b4d48812e4c15014cb5"
+    },
+    {
+      "low_name": "pair11__0202.png",
+      "low_sha256": "5642acd0f0d1e5fc7c98579aa235d579b1b3dd5e49fb728ba24c3fac4e0e2b2a",
+      "name": "pair11__0202.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "56e75e26f162e7b163adadc7c80c86e931c1589abaf86ea7ff8d40d75c1d63de",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6453817789236422,
+        "r_target": 0.9432014017400132,
+        "selected_step": 23
+      },
+      "psnr": 18.20223605456253,
+      "rgb_ssim": 0.6615756411001558,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "11ac4fb4dbc86e423ae845d0da649de30ba84c7c9a357c5a32bdf4685b5c82e3"
+    },
+    {
+      "low_name": "pair11__0203.png",
+      "low_sha256": "10bae4f72fece93fa75c540277f3d7f3f4d5c41678eeb3f37961b55e18457501",
+      "name": "pair11__0203.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "b5834c8bdb82bbc5f59fa565837fa6f07393ae42f99cf8c47db025c75d3d8647",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6441028170040027,
+        "r_target": 0.9430415315000582,
+        "selected_step": 23
+      },
+      "psnr": 18.198459411024018,
+      "rgb_ssim": 0.6610905320272853,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "971680cdeeba1415a1959a3dec18a778268a8b92f3f0cd96234a67e5e2b6d259"
+    },
+    {
+      "low_name": "pair11__0204.png",
+      "low_sha256": "9b7839c54c0e3c3eaf7a1bb1b54f5ee7af779911cbda45da3504fa8b53c06a6c",
+      "name": "pair11__0204.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "b6641829d520608a9e88e5c9d7b5f3e4628574ef3a897420bcc5405e1cad83e1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6416774337103653,
+        "r_target": 0.9427383585883535,
+        "selected_step": 23
+      },
+      "psnr": 18.125712857302428,
+      "rgb_ssim": 0.6214242450658982,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "0e305e7a0737ecc4fecd0f51181b50d0e1153280634898ed3f7e583fe67fc170"
+    },
+    {
+      "low_name": "pair11__0205.png",
+      "low_sha256": "5357cea9a5d8daa4c5db34561e21c7894ef1136ffdfebd23b792375a20c35909",
+      "name": "pair11__0205.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "ab99999eabdbf01c3f984051331091d625ab4627354ff445a4a668182ff3beef",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 14,
+        "k_rho": 26,
+        "r_FS": 0.6399747973734554,
+        "r_target": 0.9425255290462398,
+        "selected_step": 23
+      },
+      "psnr": 18.13921662053427,
+      "rgb_ssim": 0.638789275272295,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "77484bf320b1a9ef4a468c3e94a6545a413460b84f30ac11a7de7ea3d2a5337a"
+    },
+    {
+      "low_name": "pair11__0206.png",
+      "low_sha256": "ec521b3b83eddb37e95fc169cf72f32bda699de638f21627791d87be4f18fa05",
+      "name": "pair11__0206.png",
+      "cluster": "pair11",
+      "output_tensor_sha256": "1fe7eee1192ddb33c5761f6a1717aec2afda0de020649422ad9cc197eb8bd475",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 26,
+        "r_FS": 0.5925008599447504,
+        "r_target": 0.9365912868676517,
+        "selected_step": 23
+      },
+      "psnr": 18.171511843428853,
+      "rgb_ssim": 0.6488450982672984,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "80fb1004a0b60f3cf1c12c15b6241317fb412fa2b0719b98e5206fce6598c4ce"
+    },
+    {
+      "low_name": "pair19__0156.png",
+      "low_sha256": "d9d5ff20e234a39b335fb89f30568f376b604e6080354f84df1d85bb7b983519",
+      "name": "pair19__0156.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "a8be60653b6174dc6233222382a187e4dbe3df5f5cc70bdb5aa1fb9f528b815e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.4834955088948142,
+        "r_target": 0.9229656179864096,
+        "selected_step": 23
+      },
+      "psnr": 20.17421753211011,
+      "rgb_ssim": 0.6224376028613462,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6b696ca841884e0b1e7dfbf1b0774d0f94f061448cdb01a95244b966d1c5f9ca"
+    },
+    {
+      "low_name": "pair19__0157.png",
+      "low_sha256": "4c8e9f2a5ff52b2bcf2fbaa45fad8faefd57cecc24e020c01346cbe61dd8cd5e",
+      "name": "pair19__0157.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "1834811bbd7c73c567961dd485f257cb999bf8e781cdb52cc4a0862ebd1eebd7",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.4828372663079696,
+        "r_target": 0.9228833376630541,
+        "selected_step": 23
+      },
+      "psnr": 20.322934114665827,
+      "rgb_ssim": 0.6427579789527561,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "926d52f7020df9c770c15c9f8e467e7f42704f4d944378f409b3c2131122f714"
+    },
+    {
+      "low_name": "pair19__0158.png",
+      "low_sha256": "44027a23909e6e08826be036cfc63d181acda4a0869cc502facf1fec311a55c1",
+      "name": "pair19__0158.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "6b9d44c4d245cd95086179074c0a4c6991194b47fc4d33742d1736e7e3ab56b2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.4827960857099501,
+        "r_target": 0.9228781900883016,
+        "selected_step": 23
+      },
+      "psnr": 20.360490475970153,
+      "rgb_ssim": 0.6511943378758018,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "63841714d48fb42a4a382203be3efd460e1c5b9b207cb6215f49bdc869fcf705"
+    },
+    {
+      "low_name": "pair19__0159.png",
+      "low_sha256": "f2d3e8f3b7d09c4ffc0d6646c490d410f6cf0941b3ea8d073dab17d4cc3a4b63",
+      "name": "pair19__0159.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "1f4b770fe94465e0992f94e162f7b22d45a020fbdfeff7bca180b7a25d314bf1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.4827104802751592,
+        "r_target": 0.9228674894089528,
+        "selected_step": 23
+      },
+      "psnr": 20.313633320891576,
+      "rgb_ssim": 0.6292653514032078,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4f91dc4bce62bd41c47b2fe1c13371b3f03a05806b09259ed7e3c53147e6598b"
+    },
+    {
+      "low_name": "pair19__0160.png",
+      "low_sha256": "5b4d6f766a374d7cd5c2728c7092c6dba0db01aa512f9594d8934607ed3674a3",
+      "name": "pair19__0160.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "89c7d6ebbd34958192eb1f05be41fa5959ec1a6b7ac36ffeeb98b4fe325b2e79",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.482516384667882,
+        "r_target": 0.9228432274580431,
+        "selected_step": 23
+      },
+      "psnr": 20.506844141063976,
+      "rgb_ssim": 0.6584909201889187,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "41e6c625acdb380f5c878c918a55c655bc54fa860cd6a4273b4aa14c2dca7a68"
+    },
+    {
+      "low_name": "pair19__0161.png",
+      "low_sha256": "7cf7e1cf2fb2c81eb4b863c65ed23be2a2e5db3d8543d4b41e5cf39403375f71",
+      "name": "pair19__0161.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "b4a91bfc290c18f11be948c914068d67eeedc7a15c64dae9ed34a4639af60337",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.4825870886116548,
+        "r_target": 0.9228520654510147,
+        "selected_step": 23
+      },
+      "psnr": 20.517086953749416,
+      "rgb_ssim": 0.6603634463206407,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "9fc8c0b574168906b60592d0280b35796aa81a81875f6511b0afc5812ad2f36e"
+    },
+    {
+      "low_name": "pair19__0162.png",
+      "low_sha256": "95aa9f1bf6a8cf2bb62757da7b4ac7cb1a0d13596928f971f3f80e7e11792c4c",
+      "name": "pair19__0162.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "2dd32bbc70c42402ee3aee33f3c958a0e078600dd343df68598c87577a08e264",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.4809370376871192,
+        "r_target": 0.9226458090854479,
+        "selected_step": 23
+      },
+      "psnr": 20.379645038045307,
+      "rgb_ssim": 0.6346064697123972,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "fe93ce1319378ddd8cdd89697b1bd5940265051cfc2e39e56337a15e7293cebe"
+    },
+    {
+      "low_name": "pair19__0163.png",
+      "low_sha256": "2a6a0387097f383ebb24e8f74c347bcfe2f6250c70fe629cc1d172b51ddae5f2",
+      "name": "pair19__0163.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "a6e1e853ed09d26d96771c397b790fdb53d0f0b1712f8071aaa035a7aee18987",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.48117127858979736,
+        "r_target": 0.9226750891982826,
+        "selected_step": 23
+      },
+      "psnr": 20.598183426167594,
+      "rgb_ssim": 0.6638921275550984,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f09262e6935ad8a79fc6fcd32ac642103622f1f06c638a2d65e3aca720235f00"
+    },
+    {
+      "low_name": "pair19__0164.png",
+      "low_sha256": "e11580f75c1df2642e7d44f8ffd86413d0fddac634525a0eb87beda83cd835d2",
+      "name": "pair19__0164.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "4cae881fe98a7b538db87313c7fdbee873a4ad858e806785b4bf9621bc06a5b1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.4800988610908998,
+        "r_target": 0.9225410370109204,
+        "selected_step": 23
+      },
+      "psnr": 20.5899638013439,
+      "rgb_ssim": 0.6656113827402976,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "7977d2e7f3f8048a208789ef950e80698acea3003c60686f921a2569542dff80"
+    },
+    {
+      "low_name": "pair19__0165.png",
+      "low_sha256": "534692ce7fbfcb3a0a072357fd6971529fc0cd5d5c6a697ba54a50ee2d662f5a",
+      "name": "pair19__0165.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "d0d173336866e17a1e151ba1b16964806b6f890a220edb4cbb5f77536507b72f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.47926783668880135,
+        "r_target": 0.922437158960658,
+        "selected_step": 23
+      },
+      "psnr": 20.450301336890814,
+      "rgb_ssim": 0.6333636223312111,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "889188a4898637071acb4ea18f496c394ebb323167b8e0fbcc3165bf299b95bb"
+    },
+    {
+      "low_name": "pair19__0166.png",
+      "low_sha256": "87240d20f8d18e4702c7bc2b9cfaf30048cda0be864201ae71ef1a7062c4d1df",
+      "name": "pair19__0166.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "c117441ce879ba6b374e1a3384bac5aa91966ef864dc4edd613310c7fd9f3191",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.4797589825616666,
+        "r_target": 0.9224985521947662,
+        "selected_step": 23
+      },
+      "psnr": 20.699456329182958,
+      "rgb_ssim": 0.6666624839443163,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "a4e14c5cc7daea5fd7abbbd3b26966cc79b8e1cb947a76ccf1989cea8e5caa46"
+    },
+    {
+      "low_name": "pair19__0167.png",
+      "low_sha256": "98ccbc607e8b8faa142acf11437851a902b07c63c10d216c5377f4a4909ceab9",
+      "name": "pair19__0167.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "e94cafb62e60f9f728cb1a60e95e574bd4d70213a932ea2ceab77fab08041586",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.47897730030422553,
+        "r_target": 0.9224008419125862,
+        "selected_step": 23
+      },
+      "psnr": 20.635451714568298,
+      "rgb_ssim": 0.6659116622159059,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "dcae929315e9a1f207297b6c8030faeca243c54835656dcbf29e47d31fd48724"
+    },
+    {
+      "low_name": "pair19__0168.png",
+      "low_sha256": "1170ee0d418cb4101b2b31a4fee0b8703969a7f926ba1dba2b91438cd4274c04",
+      "name": "pair19__0168.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "b21019badb126db253a50ea4f2a3bcbe6b60ebb72a3b70da2f42ec073a311dd3",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.4300306636787281,
+        "r_target": 0.916282512334399,
+        "selected_step": 23
+      },
+      "psnr": 20.45165445906527,
+      "rgb_ssim": 0.6323759809924343,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "be8ebb3829e45fdd93e9ebe783c597b7a09f83cd1cbb69891ef88bf5035b6d2f"
+    },
+    {
+      "low_name": "pair19__0169.png",
+      "low_sha256": "937e7ce406034e2b3899258b75462e8fc82a3f9614a77b428db1ce558c47315e",
+      "name": "pair19__0169.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "8beb233324c5c9eebb302dd19a814b5716c471bce74a1fcb426e264118cd430a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42984561392331494,
+        "r_target": 0.9162593811149723,
+        "selected_step": 23
+      },
+      "psnr": 20.540854521580236,
+      "rgb_ssim": 0.6522224631880518,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "2f6b9b0f250a69fc2e7962d7e030c5745bf2d2a69f62ab08ed4478623d620468"
+    },
+    {
+      "low_name": "pair19__0170.png",
+      "low_sha256": "3cc81eeed333b102a1e58dd74a42bdb2483b6c53384e550e6d3ddc6c7d9e10ec",
+      "name": "pair19__0170.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "9a04848c8700801bb145ee33bc57672e8175596dc73c99bebf14b5325bc0bfaa",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42948149271236963,
+        "r_target": 0.9162138659636041,
+        "selected_step": 23
+      },
+      "psnr": 20.566918633268806,
+      "rgb_ssim": 0.6591351191269433,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1422c7b330a9af1af1baca029a62f1ebb40f2f072698ecea1aef5b468701da15"
+    },
+    {
+      "low_name": "pair19__0171.png",
+      "low_sha256": "d0f9915253a1e09beebe68168f131a76253b985e01abda917f224c5ce6026401",
+      "name": "pair19__0171.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "18b61485194f3c0b7b8ea42226c4a9dce77634b1ccd0dbc3db22a39cda3d9408",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.4293412238572645,
+        "r_target": 0.9161963323567159,
+        "selected_step": 23
+      },
+      "psnr": 20.509607286047906,
+      "rgb_ssim": 0.6392862154928872,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "7a605050ffcbe410f73648f76925fa21b62b717b778488a123e1e610c5efd29a"
+    },
+    {
+      "low_name": "pair19__0172.png",
+      "low_sha256": "606c1661ec3ec1ef6f6e6deebdbf58b56eb8a7c6ec3ad38c7303a90172536c7f",
+      "name": "pair19__0172.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "e49b796ae5afe79888269f72e2c2ad4c2e055d46fb9fd74b64fb4fc5e235925f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42937151588891354,
+        "r_target": 0.9162001188606721,
+        "selected_step": 23
+      },
+      "psnr": 20.779884428011588,
+      "rgb_ssim": 0.6704034232429352,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6ac3307622a59a18a53f221c68fb7127f245907380855e2c92fa78160f93759c"
+    },
+    {
+      "low_name": "pair19__0173.png",
+      "low_sha256": "86501be8456d1c6cb078f8c39cb54fe8111e60206f2e1aeda4be0d6c034b1ceb",
+      "name": "pair19__0173.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "08b017e1e92a574cd7d4f3f3d18b7ba3c7b7dae3f5cf402c5e098d459075a55d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42910548042172153,
+        "r_target": 0.916166864427273,
+        "selected_step": 23
+      },
+      "psnr": 20.76641629726272,
+      "rgb_ssim": 0.6717288517600561,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "b976530df2faad5c60b493b5a008eff2c917bc0683b8c91b24dfdeffb1a65613"
+    },
+    {
+      "low_name": "pair19__0174.png",
+      "low_sha256": "fa49170fb8410b43da36cf7da9d5b680214e96ff688f89b59950a2234fcf3611",
+      "name": "pair19__0174.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "681921e54e6138b3be0af45c6e8084b8f09c671532d15c54748c4bcec24704b4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42802919104194276,
+        "r_target": 0.9160323282548009,
+        "selected_step": 23
+      },
+      "psnr": 20.57214980467314,
+      "rgb_ssim": 0.6427331397752756,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d246412804616826ca4dd6f3998a0090df5b2793316d4e07fa6d1e47876cdfe8"
+    },
+    {
+      "low_name": "pair19__0175.png",
+      "low_sha256": "b8d7b62e1252745512435eb89153acefd5330c1be0c95463571546b7449ebca0",
+      "name": "pair19__0175.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "f462829e6fab7fdf8ceb4dc9f9fa8c01ba3550bcc2029cdaedfab586163e7f60",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.4277839633006473,
+        "r_target": 0.9160016747871388,
+        "selected_step": 23
+      },
+      "psnr": 20.800557859396697,
+      "rgb_ssim": 0.6705462259081391,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "66abcc225e12e057a01675b144ef111932795e7ffcf78252729a95c4051d920e"
+    },
+    {
+      "low_name": "pair19__0176.png",
+      "low_sha256": "c2d736273ffeaed333506514118d154c3993ce8e10809e9d71224cd4df4f7f9d",
+      "name": "pair19__0176.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "e03625e2e3f956f8e50fb510b6c3b80954a5ca32bb8df057e8ded701dd86bf2d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42744372644977724,
+        "r_target": 0.91595914518078,
+        "selected_step": 23
+      },
+      "psnr": 20.83874011749209,
+      "rgb_ssim": 0.674647897801971,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1d16c80a6c81f2b77cc684f1f79f7218c886b609179deabb3ed574765925da91"
+    },
+    {
+      "low_name": "pair19__0177.png",
+      "low_sha256": "263223851d327d7d75325d40569d10a95adb3eee0fc342f5b0a21f00fb31d619",
+      "name": "pair19__0177.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "96359780f9985e7982414e8d7eb9a8c55b6a722098e8091c104215ce0322a4f2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42606743520853313,
+        "r_target": 0.9157871087756244,
+        "selected_step": 23
+      },
+      "psnr": 20.648501445183168,
+      "rgb_ssim": 0.6426621926711088,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c45588387c2b2668dbae4d1c4c5db92a97da74811a0bbab9f305b5d0353e216c"
+    },
+    {
+      "low_name": "pair19__0178.png",
+      "low_sha256": "a3ed35cf2626d5b43a9b96539dafca4add02562547520f41b3ca5a49065a3f25",
+      "name": "pair19__0178.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "b397dc6f34c85307a78e49588cd5a448c40e8a99ade63e428d46b1c4d698375d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.4263084524653876,
+        "r_target": 0.9158172359327313,
+        "selected_step": 23
+      },
+      "psnr": 20.857276210403434,
+      "rgb_ssim": 0.6722233866266933,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c4f7a8585cf5687a71c997f87d525f6780a8d89566e0b53a64c99b2666be30f0"
+    },
+    {
+      "low_name": "pair19__0179.png",
+      "low_sha256": "93b69b5e0edfa80f4cc8f2bae56b27c74ec79857371d2eba203d1ce857bfbad4",
+      "name": "pair19__0179.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "f2720fe0a58da43d1ac96efeaddc108114d7f62c0aa6cc6bf7a08f3a087a6a67",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42570866832432025,
+        "r_target": 0.9157422629150979,
+        "selected_step": 23
+      },
+      "psnr": 20.882544640216217,
+      "rgb_ssim": 0.6782975373119433,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "27dcb18b035b73cf6420226f5d2d5dc701618858eb12c9af57345ec1a3eef821"
+    },
+    {
+      "low_name": "pair19__0180.png",
+      "low_sha256": "e255ebf4ea108129c9931bdddb5931544f47fc0f7e963e006d8dcea7fcf8462c",
+      "name": "pair19__0180.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "85a012e813c82eb97a12a343092a681fee7ae7e4966f1b021c0953ca2215c826",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42521189485913596,
+        "r_target": 0.9156801662319499,
+        "selected_step": 23
+      },
+      "psnr": 20.62739148751168,
+      "rgb_ssim": 0.6411222214497213,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "a6c09a48c34540f193ddc6e53c5b5e636b5c09682a874d94ec5389655bd81b78"
+    },
+    {
+      "low_name": "pair19__0181.png",
+      "low_sha256": "8ebd113b61a7b19fc140112b5e3571129379a62df1a36199dd14c084d43494c8",
+      "name": "pair19__0181.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "ab5193a98f78ed88b83144791e6f8cfa06ee8bb6a9c671c77a33ce895f3ae31a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42486929744434965,
+        "r_target": 0.9156373415551016,
+        "selected_step": 23
+      },
+      "psnr": 20.75596389467314,
+      "rgb_ssim": 0.6599315940485321,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d3c7fb3e47ffe5e6c30cc89e0da0c63c883dcfb37fd3a9f0cf9da74416e1f733"
+    },
+    {
+      "low_name": "pair19__0182.png",
+      "low_sha256": "e9fe41a686aef07904ff5b4d2057e971974da7a02da2e04e42bdf71de77db2ba",
+      "name": "pair19__0182.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "05a5dc3e0a569eb1e3303b8cab537067dd35eeb500b328a608796cbb4339ed04",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.4238810714265572,
+        "r_target": 0.9155138133028775,
+        "selected_step": 23
+      },
+      "psnr": 20.786123721143355,
+      "rgb_ssim": 0.6694768635439515,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c24bc48392273ffc486b740f7d244f63d9f012fc069bf26186a2cb6542d0312e"
+    },
+    {
+      "low_name": "pair19__0183.png",
+      "low_sha256": "d5ab78c3a6689b9e421f480b6f6ab89e27326e6b041cd5d0e7bfcf020d3cb02d",
+      "name": "pair19__0183.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "03959b60f0e4e0fa8036a8e3603d83843f4c3c3f0d86ba5cb5ede5f78294750b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.42351231631201053,
+        "r_target": 0.9154677189135592,
+        "selected_step": 23
+      },
+      "psnr": 20.649614802857354,
+      "rgb_ssim": 0.64481336754103,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f2c7b1cbf9f8093e3e9b9f2e4f7b2299c64861a47b29cb8ede2157f94c277350"
+    },
+    {
+      "low_name": "pair19__0184.png",
+      "low_sha256": "b27e6c6c4718b21587dce5cc5679a77efdb4579135bfdec459df1570bbcdc98a",
+      "name": "pair19__0184.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "6eb016669987a4e5be52859d586eda7e4c18d1c2e6894eef570f786df7be6693",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.4233688592788957,
+        "r_target": 0.9154497867844198,
+        "selected_step": 23
+      },
+      "psnr": 20.86468802191235,
+      "rgb_ssim": 0.6754544681495575,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "ed3342810f93c196b22f81127b63bb1a53c6013c00ee468fcee5342ee0ee0333"
+    },
+    {
+      "low_name": "pair19__0185.png",
+      "low_sha256": "3aca2b06a9cc5c9af3b2ce3dbeaf886d02a31d0c7b8826db1ee055945f3efeeb",
+      "name": "pair19__0185.png",
+      "cluster": "pair19",
+      "output_tensor_sha256": "d1f7046e958f4b18453da8623aa3bd09e2dbcd732e66773b6860fcea2837ae2a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.4232592719271501,
+        "r_target": 0.9154360883654515,
+        "selected_step": 23
+      },
+      "psnr": 20.87069436508578,
+      "rgb_ssim": 0.6774432999843392,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4232571cb9e70183bbf5e73f6463efcdaa1acf3a969957d4dcf1d6fd25730818"
+    },
+    {
+      "low_name": "pair1__0186.png",
+      "low_sha256": "aaba988d2f9d88fac0e755e95d0c6c5f7d518d620ee872b015d867e60aab6dc7",
+      "name": "pair1__0186.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "80d8d46d637338a8969c40c4bfc43eee77a76d6a3d03b7101470d01727531195",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4831769282176341,
+        "r_target": 0.922925795401762,
+        "selected_step": 22
+      },
+      "psnr": 18.67075655004593,
+      "rgb_ssim": 0.563590506010602,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "a0e7bf7c6470408856b57354b70bea1d476b95882c462d0dfbf0bb7605ebf52a"
+    },
+    {
+      "low_name": "pair1__0187.png",
+      "low_sha256": "fa19361e70b04a426d07c927892a4a26dfcfac9e5c68d9ddb64cd3956eb3399e",
+      "name": "pair1__0187.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "d8b7f5058c0168688b7e90fe2f2452ac907769f3958bde2b1c494a5ad874f4a2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.48240888459255404,
+        "r_target": 0.9228297899486271,
+        "selected_step": 22
+      },
+      "psnr": 18.78730923182099,
+      "rgb_ssim": 0.5974796940320205,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1a62d13aa17cbbed71a0c53335569d5f2fc59e26f83b98fe38242e6fa6ea2847"
+    },
+    {
+      "low_name": "pair1__0188.png",
+      "low_sha256": "a6563eb93c1156117ab63ca0f5b18f08c80ea445477c8e9c477ba1d8a6a5f509",
+      "name": "pair1__0188.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "9cecb89c3418d94583afbc47985d8f08163ad1aead0452f60ffd71fca0ed211a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.5339117476893226,
+        "r_target": 0.9292676478357231,
+        "selected_step": 22
+      },
+      "psnr": 18.720894781023027,
+      "rgb_ssim": 0.5938801350331784,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "07d09044064a0b673cd24673b53de93abf99e3c7e651699f84109bf83a40268d"
+    },
+    {
+      "low_name": "pair1__0189.png",
+      "low_sha256": "78b41001a31287c6d2d3a92c78500712594d82ac1c2019620cd5c78edcd21ac4",
+      "name": "pair1__0189.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "745caaedb94b475c1b27a7736fddf8b1cf0ae6b2899b7278c0effb4987134ea0",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4836875003896736,
+        "r_target": 0.922989616923267,
+        "selected_step": 22
+      },
+      "psnr": 18.725205628155408,
+      "rgb_ssim": 0.5636598951216679,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8c6fd0bea9da7baa2c3a780fa07cf3681a7f53361342fb5326d1e4ad7a83b65d"
+    },
+    {
+      "low_name": "pair1__0190.png",
+      "low_sha256": "17872c63d357eedb8b18613b8be6e3c5a11b74cd45e59c72dbb4fe09ce65aa9d",
+      "name": "pair1__0190.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "710a60ffdafbc4f948e5122164f85ec2f7d76b2b62e816dac4597016fceba8a5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.5341743512398457,
+        "r_target": 0.9293004732795386,
+        "selected_step": 22
+      },
+      "psnr": 18.719278658172797,
+      "rgb_ssim": 0.5932026595489397,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "5ad00d11764f8449b1f7733d14b9a576b4ffffd77d5b7b129541486ec3b06935"
+    },
+    {
+      "low_name": "pair1__0191.png",
+      "low_sha256": "089dd732d7844d0699229db39f38eafef2400e256315d02662e444d9f10916a6",
+      "name": "pair1__0191.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "d82c56b39223e4fe26382f3e0a21a24bc3aff49353aab75dbc3264459e8ed12e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.5346374720854187,
+        "r_target": 0.9293583633852351,
+        "selected_step": 22
+      },
+      "psnr": 18.770595644610736,
+      "rgb_ssim": 0.5942257329572451,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "064915a5144c4de6e436a6489ba3a23fb54d7dac8c4fbd142137d77ae70c4a26"
+    },
+    {
+      "low_name": "pair1__0192.png",
+      "low_sha256": "aa16a3a70673c30d517b1895254ab2f7f8b73bba7d38d048d11d5581a8e32483",
+      "name": "pair1__0192.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "1678b9cc7519f84de481d8721821f4061f6f8d705814f556ecc8bf74ca001ccc",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.48397495964491877,
+        "r_target": 0.9230255493301727,
+        "selected_step": 22
+      },
+      "psnr": 18.680677620709538,
+      "rgb_ssim": 0.5605181674507103,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "3a8bc3054882cec6bc97686b0f21427f9402c7c722610533efa78dc9704626ce"
+    },
+    {
+      "low_name": "pair1__0193.png",
+      "low_sha256": "1f0f2234891fda6ede06b5d7cd219adcbcd45bc037b72a45630c162b8bd7f478",
+      "name": "pair1__0193.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "b19f0c55fb98f35ec8b8eaad3357e22f05a9c20f6461500a4417c5eaaa5b0513",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.48334792494218654,
+        "r_target": 0.9229471699923311,
+        "selected_step": 22
+      },
+      "psnr": 18.71547431464643,
+      "rgb_ssim": 0.576483812997142,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "7d6da4a18a544d657f57ce314f0b165389415fca45548e3ee2f7062b287a18ff"
+    },
+    {
+      "low_name": "pair1__0194.png",
+      "low_sha256": "9361b4e10856d73045c75943533a951dc33dbb011acc2e14e400f5a8da73ffb7",
+      "name": "pair1__0194.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "0bcbfa8e5af3e586ccf97a1d62875c6a1bc88cc3421c80b5f9039a9a685d7b61",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.483203655702203,
+        "r_target": 0.9229291363373333,
+        "selected_step": 22
+      },
+      "psnr": 18.762466652096922,
+      "rgb_ssim": 0.5831014073204018,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c64b062d2a624222cb2a3b2ef744493f114238033b3c42114fdb99a4004c552e"
+    },
+    {
+      "low_name": "pair1__0195.png",
+      "low_sha256": "39ce093ba11feaa789131df68682f60fc6243f0fa0b91de6d918e508df86a9d6",
+      "name": "pair1__0195.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "32c3002ba5f2a662b940e02c2cea4d64a6bd9c63c14798407ffe933c5691af73",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4844573981645131,
+        "r_target": 0.9230858541451221,
+        "selected_step": 22
+      },
+      "psnr": 18.7013055035976,
+      "rgb_ssim": 0.5605561571475239,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f5bdfe8ea7cb06f6f1e60124237df5fcbcd74178cc1740c2b08569af45dade69"
+    },
+    {
+      "low_name": "pair1__0196.png",
+      "low_sha256": "b0c365c05ad0ba581209f35b5b4bddbb1a424980851fab5a1bd211d952364579",
+      "name": "pair1__0196.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "6baeb944e4fb4875649156d42cd658dd8ec6bc98455bb3e1363023d8756e12be",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.53490189330642,
+        "r_target": 0.9293914160378604,
+        "selected_step": 22
+      },
+      "psnr": 18.771299508839054,
+      "rgb_ssim": 0.5900878067403446,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "859661622294386139c8c5dd4423ca4f330cbfd825bff0d3574a147614f5b93b"
+    },
+    {
+      "low_name": "pair1__0197.png",
+      "low_sha256": "bc9216564b05d18f6f6b1431e104aef08ce2fd8fb149000e90bbdd4f4a6fa924",
+      "name": "pair1__0197.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "be016f4c9328a438d20487785e70e236c7dc289cb225139079b86a6d46f3a4c1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.5349282553965123,
+        "r_target": 0.9293947112991219,
+        "selected_step": 22
+      },
+      "psnr": 18.73159826361693,
+      "rgb_ssim": 0.5888337115876032,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "31e6877ffdaa9147f3d378c561780121e54ce0ab9a124a9f91027a134640e86b"
+    },
+    {
+      "low_name": "pair1__0198.png",
+      "low_sha256": "9c88595df54d0889927216a79c576e4b6597101f4853a04032843098f01689a4",
+      "name": "pair1__0198.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "b0d20b6e465e1c189c2ccc805f558d07487c06f3205eec7738b3295b6efe0796",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.48372254317807123,
+        "r_target": 0.9229939972718169,
+        "selected_step": 22
+      },
+      "psnr": 18.766147622441604,
+      "rgb_ssim": 0.5636419800772747,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "03054ce5b22aad661b6d38294058eb8b9d5cfd98a840881878080d359acf2bac"
+    },
+    {
+      "low_name": "pair1__0199.png",
+      "low_sha256": "ae41baf4449961b0bdfebf097d3e89a930715b4e0c7f5cc1f74978a043a72ea5",
+      "name": "pair1__0199.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "f43f9e0507dca39541c4807d71cd5ce2e4c18b913cf7f88438effc92a4dfcb56",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.5338350180885516,
+        "r_target": 0.9292580566356268,
+        "selected_step": 22
+      },
+      "psnr": 18.677930410485416,
+      "rgb_ssim": 0.5870887782798958,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "43cdd9cc2b754e589061abb17663d1e9500027e13ba730cd3654dbcb7e7318e1"
+    },
+    {
+      "low_name": "pair1__0200.png",
+      "low_sha256": "7b09f4571fe512661c2d0e260c10f7d1b7a7cfe959c4b75e6b37aaaee1493817",
+      "name": "pair1__0200.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "a19c1ad49c0def2e01f8b9978700c77f0abb0b984c4d0294e7e9f7f16a5272b9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.5336065346750282,
+        "r_target": 0.9292294962089365,
+        "selected_step": 22
+      },
+      "psnr": 18.819905196147534,
+      "rgb_ssim": 0.59428053596676,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "66a5851ce1f93db49c067d8611446b86ed33e139a9356fd07f6e2a5cda62c3d7"
+    },
+    {
+      "low_name": "pair1__0201.png",
+      "low_sha256": "5582b6d36e6979968ab9b90bb32c7dcdb4c40cdff80021d870f5e25c2d504350",
+      "name": "pair1__0201.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "631605d8e476b510f052a3af5766338a670aa860810b2831dc9d74ae6fec1dbe",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4835603649198348,
+        "r_target": 0.9229737249895372,
+        "selected_step": 22
+      },
+      "psnr": 18.666657514317397,
+      "rgb_ssim": 0.5561563976907099,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d62a4f89c90b3d2e14fa8c120138423397a3d7c498048683c38becc6f343f6e5"
+    },
+    {
+      "low_name": "pair1__0202.png",
+      "low_sha256": "462cbb51ea2d197c648c9301c8affa719015441c2b3f17ba5290869e3f282069",
+      "name": "pair1__0202.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "d76c1325be66d1e2039eda7c8673e0ce7f672d9f4a660768390f6fca54422591",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.48320014262190314,
+        "r_target": 0.9229286972022958,
+        "selected_step": 22
+      },
+      "psnr": 18.81063480714588,
+      "rgb_ssim": 0.5934769375684188,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e23d11f887f6017a4405f9561fc46b063b85cfd8cc178a82e18e3c2ed5e8083e"
+    },
+    {
+      "low_name": "pair1__0203.png",
+      "low_sha256": "a9e2f786814e945f6c9a6333da2c7dcbfb8b56404a3fc20ce0f3aaa0f3cc5142",
+      "name": "pair1__0203.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "21e13d69a60c2279bfa7783dd595e0d2afce0da9ec0764371ae1e1e246d00b8c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4827832605784884,
+        "r_target": 0.9228765869468689,
+        "selected_step": 22
+      },
+      "psnr": 18.80219625210529,
+      "rgb_ssim": 0.5907898331572484,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "48c2d40baed399e60a3dd915ce5e413e353ed355c09760579036a3c43b74f714"
+    },
+    {
+      "low_name": "pair1__0204.png",
+      "low_sha256": "cb199947473e53e7e59fa1442e025f3aa83b9cd44a8be948c741a55f6805870f",
+      "name": "pair1__0204.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "1e3c49c10282491af93bfd28c415a343683175791339519bcaf9d6efb3211df5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4828405733377838,
+        "r_target": 0.9228837510417809,
+        "selected_step": 22
+      },
+      "psnr": 18.675551586017754,
+      "rgb_ssim": 0.5546269607413248,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "39d1d3f959a9e5ea2e88bcdc79a4e479435baa683101a70243f2ef3709c31eac"
+    },
+    {
+      "low_name": "pair1__0205.png",
+      "low_sha256": "bd81b983f79f9afd92e68d513ee517c3203fc3e5bf48caa1b721a816d4ef857b",
+      "name": "pair1__0205.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "7d34ddb5003f842797ca2dc5832db4b53930d73d80efd486eca5b0f91fe7a71d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4822537280031408,
+        "r_target": 0.9228103953749505,
+        "selected_step": 22
+      },
+      "psnr": 18.711764610589288,
+      "rgb_ssim": 0.5720465344080498,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "379000c0c14e24c7f85bcca863b9446b70340b1ea82c715e519113e93cc890b8"
+    },
+    {
+      "low_name": "pair1__0206.png",
+      "low_sha256": "7203e5cd4515cee792d8a356aed8e4bd05401c3a19b247ebe315148648880553",
+      "name": "pair1__0206.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "06d155f775e2c0badb7a45fe484c22fd2b10e902bbe22a2801a5916f5d4d6d09",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4820894312568894,
+        "r_target": 0.922789858281669,
+        "selected_step": 22
+      },
+      "psnr": 18.713337856555313,
+      "rgb_ssim": 0.5769417641476479,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d2ed234ba7e7ebb10d08e034eb4dd2b26a770fb9b4f6dc723c7592dbc498a6bc"
+    },
+    {
+      "low_name": "pair1__0207.png",
+      "low_sha256": "a1f7605b4aaf2f61d6388fd9c0def318ce8f1763422e1ab8226e4d631bc564d6",
+      "name": "pair1__0207.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "651660303cc323ddc2b43d023a1aa9ad807fd1e9d0baaf471e9708ffdf5a637c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.483099947301566,
+        "r_target": 0.9229161727872537,
+        "selected_step": 22
+      },
+      "psnr": 18.725614037629065,
+      "rgb_ssim": 0.5562069369012843,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f53bb33c48650b21cf8f846d33657e0954feedf84abfa20b82af2b9c5ae1b95c"
+    },
+    {
+      "low_name": "pair1__0208.png",
+      "low_sha256": "9c3eb342b099bc86f06fe1138f424b7a4f2f3fc205855858a6e8861500874cff",
+      "name": "pair1__0208.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "4b65bf773be9ad4b7966e068f914074cce6210307fa6615355a7bb007a49e136",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4817453872690657,
+        "r_target": 0.922746852783191,
+        "selected_step": 22
+      },
+      "psnr": 18.706851118576147,
+      "rgb_ssim": 0.5822693299192983,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "0ee893d19c88831e6f859121b774d617201379fe35d6303c78c3182102510f87"
+    },
+    {
+      "low_name": "pair1__0209.png",
+      "low_sha256": "1e6949694dc39d1b05b5136de61fa0a96da2c0272ba80473927ce1050b91639a",
+      "name": "pair1__0209.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "ddaa0118a342685ec37f77a98e85c6f8361d03e2cb6f9c84ff9279ca2ebdfbb6",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4817585811850267,
+        "r_target": 0.9227485020226862,
+        "selected_step": 22
+      },
+      "psnr": 18.809885577584332,
+      "rgb_ssim": 0.588257022937406,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "73438c427480fefc74a2c76ede60bb01bb5c7e506f548c158d07f6aecb42e3ec"
+    },
+    {
+      "low_name": "pair1__0210.png",
+      "low_sha256": "292a23332762a171b5db20975431b911910d503eb1f4ce1fb732b24bb3196265",
+      "name": "pair1__0210.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "374e47e6f17c847bc918687f7d0dcee534c0eb351e885f90f12f871b45b5f5d0",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4818992810526488,
+        "r_target": 0.9227660895061389,
+        "selected_step": 22
+      },
+      "psnr": 18.632837382524734,
+      "rgb_ssim": 0.5511807791768085,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "558f209d11909406e125421340340563311b09af3076425d9356f1d3f3bbe046"
+    },
+    {
+      "low_name": "pair1__0211.png",
+      "low_sha256": "5079ba242836ba5c53e7f792e375089cb1300a843deeccc584352fb8510502e4",
+      "name": "pair1__0211.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "83ce6e335a5dc3273098d844a061944d73216d13adde9f1d8546f01cf59d7ac1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4813356425825412,
+        "r_target": 0.9226956346973755,
+        "selected_step": 22
+      },
+      "psnr": 18.830027783449676,
+      "rgb_ssim": 0.5886565836713038,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4dca92770c2d74675b582e24af3fb29fc81ab5309a6c28ec43084d92d85d3d6e"
+    },
+    {
+      "low_name": "pair1__0212.png",
+      "low_sha256": "10d0e9c7c6e49bbddafca4066ae983f87568748c869ea7852f026e779d4b833e",
+      "name": "pair1__0212.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "c0a37dc4bbfce8c243fe43d366ac2ab6438fb02f27397f7053b506e836aac34c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.48205275019052757,
+        "r_target": 0.9227852731483738,
+        "selected_step": 22
+      },
+      "psnr": 18.70616712455082,
+      "rgb_ssim": 0.5809767968069395,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "7afb414c942ae9da3e6c501731eed74db693c09076e42b13484dde6ffb5b61d5"
+    },
+    {
+      "low_name": "pair1__0213.png",
+      "low_sha256": "a6a3953c8687543efe9a6923e59d8d8d90ddf2391a9dbed1e70a1a0cde4e3849",
+      "name": "pair1__0213.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "902c394107edf12af6f6717d2d62606cb4b6bcc2158ea4cda89d223580783c63",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4820176582858898,
+        "r_target": 0.9227808866602941,
+        "selected_step": 22
+      },
+      "psnr": 18.763199992721617,
+      "rgb_ssim": 0.5550262757513,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e65f20f752c5a7849cd07230eb585f89ba774b7723432e096bac7f0e7b0c17e0"
+    },
+    {
+      "low_name": "pair1__0214.png",
+      "low_sha256": "9902f3176810584f0aed8b76ca23622ed16bd4528d53c97e2c25cda5fdca1e48",
+      "name": "pair1__0214.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "ef56b3b79cda185882cd61ca23cb6b3628b25c9d43cd4f3434b448d38f01a8d9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4810026197542486,
+        "r_target": 0.9226540068438389,
+        "selected_step": 22
+      },
+      "psnr": 18.780243075488936,
+      "rgb_ssim": 0.5836571934491809,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c7946828477123c80f35a679fde8e1afd93cf4c453df06735ade129049111e74"
+    },
+    {
+      "low_name": "pair1__0215.png",
+      "low_sha256": "fcd69f1737f62d94c52666ab5c87c8cdc58d85037ca16740bec3ee0b95dcf37e",
+      "name": "pair1__0215.png",
+      "cluster": "pair1",
+      "output_tensor_sha256": "5c25ee5628f6bf42c111c0eb38d36c1e99f30585cf8ecd840f1bc0268123746b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.4807761359604587,
+        "r_target": 0.9226256963696151,
+        "selected_step": 22
+      },
+      "psnr": 18.865142341535996,
+      "rgb_ssim": 0.5870908604823317,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "15923596abb708f079d4c70362383d59734716a1ed322bc1b4c795d72b938beb"
+    },
+    {
+      "low_name": "pair21__0210.png",
+      "low_sha256": "f4b5988320886ac9f9334c9c0cbbdd142873c30233effc8d0b13bb5c2d36e848",
+      "name": "pair21__0210.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "0ca20b634ed279ae16f5610cec31e4d7833715122593a84919692b77f3c93db2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.32766135319424,
+      "rgb_ssim": 0.6166562923395197,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "0f9162d4e5e8fed449c2b171ddd8b95a6d870049b2929176d85ab307ef4e77fd"
+    },
+    {
+      "low_name": "pair21__0211.png",
+      "low_sha256": "97ffcbbc651bc389e3757de89dcea8b8c91cf6efc9c75e4fe1ef70527279919c",
+      "name": "pair21__0211.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "bccef541a53c085a4a9ccf55abfff273e72ccab0178075038eff9bd2cd8a3402",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.2272001183188,
+      "rgb_ssim": 0.6438509942316877,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1d1b15bbb8f0c5151f013151d6c632fadb80016a028228f2d8bb178504feecb7"
+    },
+    {
+      "low_name": "pair21__0212.png",
+      "low_sha256": "0b1eda7dcbc44a4161a2844bb7a9cf33950b6befd4b4b973c7af08a32fd03efa",
+      "name": "pair21__0212.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "00c8650311a4f55c8bcf4ccb21b620a0cc605cae05f6a6b44dc031028209f52f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.28439022887444,
+      "rgb_ssim": 0.6459483404889663,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "778430e380948c871d1b686ea63894c62c9a9d8883557792855d6ccb2b172b22"
+    },
+    {
+      "low_name": "pair21__0213.png",
+      "low_sha256": "0b9c7347444015ce62e59c34df1017fb598ae3212e84063d9c66755dc351cb5c",
+      "name": "pair21__0213.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "e94bcfbc1b7d91b8dea529ad35333505fa955e670f35273e18fcc885acbd1a42",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.362973617662632,
+      "rgb_ssim": 0.6166921898307466,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "46b795cfa7e6dc99958f54bdb18ffd56f0c8e493d17bb2f23bd65faf90eaf799"
+    },
+    {
+      "low_name": "pair21__0214.png",
+      "low_sha256": "daee30934f60054d90e90bd5d560867e789e2d45a66f0c2c37cdb3391bbcf0e0",
+      "name": "pair21__0214.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "def5d1f47d73d776468d8734015b23bff3682704c0f0692bb289191adcd45f9d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.394148772817992,
+      "rgb_ssim": 0.6503301423629821,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "ac5bf6b8d04be45aa76d61b68e21047eda57fd0a80d9a89291c1d708a0a3fe7a"
+    },
+    {
+      "low_name": "pair21__0215.png",
+      "low_sha256": "f7168da26b8161ed31965841908f5d771b5dc41f0a7af14e448fde3c81496f8b",
+      "name": "pair21__0215.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "a9e257ece5b18349ddcbda2d77e24c0473186f632617c2f7570b629822727cdf",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.393059937965308,
+      "rgb_ssim": 0.6508608138176938,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "a60038b0fd6f66c31267a9695f042a4405531a7d4a0c3970d06322b400ca1970"
+    },
+    {
+      "low_name": "pair21__0216.png",
+      "low_sha256": "1276d4c6b41c0dcb9765ea12981792d753e3a904843f6d95e6d7532ceaa0a137",
+      "name": "pair21__0216.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "16e23bd19c137faeb919c8aa3173bceeb20b7ae6e984f80736d4dd61bf13227a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.285584868505524,
+      "rgb_ssim": 0.6157235882574418,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "7ffe1a743d7963623e288686b9f7571e89949b5cb1435a0bf7c47033f077d005"
+    },
+    {
+      "low_name": "pair21__0217.png",
+      "low_sha256": "c39bd5d40539204962ee97aed738098d75e51fbd2d9b78c86cecd284490d9af8",
+      "name": "pair21__0217.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "5136d7dceb72dc29b1ade46c7efe8e8507f9b5265e1e057632ce84471897aefe",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.564298904340774,
+      "rgb_ssim": 0.6439545386468624,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1213bca032da9d6243d076236242f29d81c4f335cfbe2e1c1d24739fa9079740"
+    },
+    {
+      "low_name": "pair21__0218.png",
+      "low_sha256": "52733e61d550a82ce0989cb05f755858d117befaeb0e815aa6fbd797d2d25bb2",
+      "name": "pair21__0218.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "dea384c930b22a4d7d3cdb14173bc7879aae54d49f3f22029c42deb4ec667e1f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.561200177512035,
+      "rgb_ssim": 0.6512148457879199,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e320423497ea6fc67201aea518cc23099b08cc21d5cd50730c22db4e313d31ff"
+    },
+    {
+      "low_name": "pair21__0219.png",
+      "low_sha256": "98ce0f74d6e58c66953f1b4f23febb1dc2c49662f34b61a3402c952fee760819",
+      "name": "pair21__0219.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "aa3d9fafc688c8bd3d7406a682c7679a34e22807b09a3ad77ef3814a47191bfc",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.5073684568013,
+      "rgb_ssim": 0.6298363697292857,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "b14b107047bfb7336ba6cdcb6280ba1df75dd4e877136e263284a5dd9466b32e"
+    },
+    {
+      "low_name": "pair21__0220.png",
+      "low_sha256": "48ce1e9d306576fe51b493be3b7fbda234232894b25fe62126625fafe54868db",
+      "name": "pair21__0220.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "117916c95cd008920169ad4be1ce2f9713ae33b9616ff8290abfcec3a0074cc8",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.590524833276692,
+      "rgb_ssim": 0.6624959604805463,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "cd215da8f2af323186b7802658b766e8984b6a7e961aa237dac9bb58ae72ccb4"
+    },
+    {
+      "low_name": "pair21__0221.png",
+      "low_sha256": "b9dfb219458f5dece5791090352c3202528c024079be3921ecfa61b4822b85ef",
+      "name": "pair21__0221.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "ef6832aeb2ca8ed1eac97c5e43397c834372226f336939ec3628e3cee6c77d97",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.517532738895724,
+      "rgb_ssim": 0.6603739539793972,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "0fd8469a124d7d74517912e4b90a3347e8109da59a021e3ebc61778e89190bfd"
+    },
+    {
+      "low_name": "pair21__0222.png",
+      "low_sha256": "343076081d42e05974255786a0b5f78fc07d9267645a1d770b359a24ad909a65",
+      "name": "pair21__0222.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "193044ba4a8ab10f5647ac989340b884b8d3c8279106f944db1ab7432f525858",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.541448050110716,
+      "rgb_ssim": 0.6340349969696139,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d0f877b6426a327d9f98f55380ba8b1e4a8f829ba970a99c933b5f8748f3d766"
+    },
+    {
+      "low_name": "pair21__0223.png",
+      "low_sha256": "23363162efe80ee8d73c829d895427ec11e345f774ba477f1cb0a58ee140a039",
+      "name": "pair21__0223.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "655ddd6ba66b7834df9249bdfea3de6a55e58f5be6b088525f4e350f027dd8c9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.49203554997687,
+      "rgb_ssim": 0.6630831688167852,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c25e8a2667c6a4dba2c39e560fefe1e7c7f0c3288ea913c39665d1b00f66d93f"
+    },
+    {
+      "low_name": "pair21__0224.png",
+      "low_sha256": "de19240a5c205694e80ba6134af87ef6af2f970f0dae5aab3e7b1268b7fcfef2",
+      "name": "pair21__0224.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "5da06c192b9e2a28981595cbd6c2594c664c3fea973300862908bccde0c091d8",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.345018985699863,
+      "rgb_ssim": 0.6572010045472377,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c22bcaf995b02cbb14405a8c438e19a3b2bab1ee40ca45c84ffbec7d6c6a0844"
+    },
+    {
+      "low_name": "pair21__0225.png",
+      "low_sha256": "ba1a2fd4c34c82822a80e2fee200913d77b78b3d684484619c7a528f1eea0846",
+      "name": "pair21__0225.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "6b157eb275bb8ddc4101089612845c7dbc1a5922f5752f80226aebeb0c432520",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.371332174449122,
+      "rgb_ssim": 0.6264887582943994,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d11faf3a25d36a67c69c9121701c6af9451cf43ccbe3eb4c172bb731dc29309d"
+    },
+    {
+      "low_name": "pair21__0226.png",
+      "low_sha256": "3cfb50956ead0cda775fe71342e7840d01b4faf9377989527cce56412c25bf5b",
+      "name": "pair21__0226.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "3ff98edf25f4ff6b10b791b75debf6cc0c3cc7fac23e3a70cdfa747e28a0c57a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.425770869179694,
+      "rgb_ssim": 0.66126863624387,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e2ec3bca0ded55c509e84ce983d9a5c20b37bd61e945cbd472c41b6e68ef9140"
+    },
+    {
+      "low_name": "pair21__0227.png",
+      "low_sha256": "20b8113093d1159e4464c90f64238c2b6ed273e7f09c6e72e1e25f80083c31eb",
+      "name": "pair21__0227.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "d321d7065a2bd6d01fda67866cd909d7fb376032bfa53783653cbac7a3599e8d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.430479400670553,
+      "rgb_ssim": 0.6628759967708121,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "2f3607385d3a5e36f20e33d46b5b3697ae931f736b9b9b4e3f75da355576693d"
+    },
+    {
+      "low_name": "pair21__0228.png",
+      "low_sha256": "fb5e430def402be8b61fe9e6ac3ac303a97f0f7e72751c78ef70d4899f86903a",
+      "name": "pair21__0228.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "7e9c37f8a7b5c388581da909ef6ffb1fcf972f4d1549c9228d6dfdb80f023435",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.57159862375667,
+      "rgb_ssim": 0.6341924107600053,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "a445346078f5f2e61b6e070dbbcda9b48a4d8112408be36a21c97a4ac00e4453"
+    },
+    {
+      "low_name": "pair21__0229.png",
+      "low_sha256": "dd284381869b5856644b1c85146591b02575d930c7fe0995b760d210372a0389",
+      "name": "pair21__0229.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "584dbcae24241c2467941a76f3cb9aa265c44f5d28514f0b786d53ba6453c59b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.75879443701669,
+      "rgb_ssim": 0.66067248247927,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e8fcf273e49be8fb05bd21b9b61e66906359b90775b9929a7b034728a0c41987"
+    },
+    {
+      "low_name": "pair21__0230.png",
+      "low_sha256": "bdb3a0eace4dc1dc2611d3c8ea39a25729a829a4132ef977ce0d678584446481",
+      "name": "pair21__0230.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "2460e9469cc2aa81d09918dc6777e4018476531e2478720d0432a91d0d1f264e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.71462483845091,
+      "rgb_ssim": 0.6636535084339706,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "812aa434f792cf896a5f261940912681d793d4635e993e3a5bc95e049475e75e"
+    },
+    {
+      "low_name": "pair21__0231.png",
+      "low_sha256": "f86ff8d37a2cb6e590609fb7d3b9bd191c7a3b30829bbd21c1de6a1f8f750d8f",
+      "name": "pair21__0231.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "4f11d5430903668f4905d4d74796b73d351af26d00bea30c208f20e693b96224",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.74178322427141,
+      "rgb_ssim": 0.6453721350067417,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8d7304a202dbe4c19263b06e56b9308e3e3ca297d3210545aa43d0b897afdcc2"
+    },
+    {
+      "low_name": "pair21__0232.png",
+      "low_sha256": "396a01a5d63de2ae733d8124bb9f980c00b3933b1e52bbd717237e3508ba556a",
+      "name": "pair21__0232.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "ae9c25341a1ee08b368b8bea99b45ade0d0516aa10621982347428d693027a2b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.76759056688509,
+      "rgb_ssim": 0.6759209100405625,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "bcc35818c0a40d71ad8125b0d2293329c006d08edbab9e18febd59afa014aaea"
+    },
+    {
+      "low_name": "pair21__0233.png",
+      "low_sha256": "8804c3be4abee954ef8bdacd769b669c375ccbca3d56369731c97b094926039c",
+      "name": "pair21__0233.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "91fae27ba8323de3a093e1d41e57116e179d541cd63de8e2596bd70d0b2b811e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.757594962818978,
+      "rgb_ssim": 0.6764383507063825,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6ac431cc0ce6a87043e48411751ff61c381abfc4ad7b0de0684d392169e88ad2"
+    },
+    {
+      "low_name": "pair21__0234.png",
+      "low_sha256": "acacebc45901b74d8567845717ba4427838f1fc218e0c495e1b64952403834d0",
+      "name": "pair21__0234.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "ec34a461e34296dacbed9c576b3193dfb09e62951c52e59b6afaf750e33ebfbb",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.826941528568423,
+      "rgb_ssim": 0.6514602214355217,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f18ac30ac9779199817f019a2ef8040fd96eafa52eb8624af3ff9cb8af0d80f3"
+    },
+    {
+      "low_name": "pair21__0235.png",
+      "low_sha256": "6327047cd31c70053a831107943ff247efd306fe9f3fe1d1f1aace84695d9f87",
+      "name": "pair21__0235.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "45fc38daa542c549955ca237eef1fe916c6078ca573de9b0f95f703e2b4f5970",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.90778179286015,
+      "rgb_ssim": 0.6835277009064777,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "48540cf2b05003b247cb7e4e809700981a23e744de3befa2027743d980ad0509"
+    },
+    {
+      "low_name": "pair21__0236.png",
+      "low_sha256": "126487222cf73f8f95104d576e0731aca657396d6f2142794b427744f7fc0fb2",
+      "name": "pair21__0236.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "402057f316faf60c6940955992964d67c3412e7b9659a72569e29651424f0c28",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 23.881908740061174,
+      "rgb_ssim": 0.6841115973541068,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "71e17a9a2fbe110ec44d0f66972d952eeed3866e26344193ac3cc75f72003e61"
+    },
+    {
+      "low_name": "pair21__0237.png",
+      "low_sha256": "baeee3252c4b017a72ef27ff6a42958facba434c34d895d01cef8c2f19d1fbe1",
+      "name": "pair21__0237.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "2dcdd9b2c560c1d666d7c64e127fdebcfd64bf7272174197f6a96d148fa9bbfc",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 24.049418492279276,
+      "rgb_ssim": 0.6571522956912516,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d958eb7e85ac974684d201d7ecfaa1cf8b449da4d807d3b15c5aaff48edbf755"
+    },
+    {
+      "low_name": "pair21__0238.png",
+      "low_sha256": "de46c42276914307fadd57aab9dc1cb19a2f0d16e24504cd5f9e45e8f4f57af9",
+      "name": "pair21__0238.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "53006435fb5c4bc7218ca2bdf1d87a6854abe86edfbbf6cf0c52eadfea04aac8",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 24.065614377752954,
+      "rgb_ssim": 0.6891253485107538,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "5f613fd82e020ed5c7fc2da4459ddbcddb8a48a3ce16f9e061f67915978c2332"
+    },
+    {
+      "low_name": "pair21__0239.png",
+      "low_sha256": "9eabf238545b6de1768f3fa86acd2d0bc4ac68e3a0a0ebd569b9536885d0a3ed",
+      "name": "pair21__0239.png",
+      "cluster": "pair21",
+      "output_tensor_sha256": "6419c2af0582926190341b4a7883ec9d548f61ca84bdb9831d9e7a457801011e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 24.1000420176055,
+      "rgb_ssim": 0.6904722971135808,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d04ce9af7ae1b3fa82eacf8ab0c62d43a08c57f64261bcb4b4599db6fa7fa9fc"
+    },
+    {
+      "low_name": "pair4__0173.png",
+      "low_sha256": "306bca1df82ac46a879174b109a14853d18886a35563df06060c25fcde356fd1",
+      "name": "pair4__0173.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "df8d88846c0bb130878f9ffa960952edcb6f3e573b9aec4d4968d006170eff3d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6403308568617514,
+        "r_target": 0.9425700364822768,
+        "selected_step": 24
+      },
+      "psnr": 16.046674002141778,
+      "rgb_ssim": 0.5592118093304198,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "731d48a1a46a9811b9b04b69a309dbe68ded758ed83dc16cf27d7c5cbc973acf"
+    },
+    {
+      "low_name": "pair4__0174.png",
+      "low_sha256": "e30503bb528779c1b41c17421e8d17348d2bd243614ae1dd557b37d6bb1f961f",
+      "name": "pair4__0174.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "13b27b1a04c512a575bd40aa15e5ff93217d48dbafd0c987356b3eaadc1122ee",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6407874421722836,
+        "r_target": 0.9426271096460933,
+        "selected_step": 24
+      },
+      "psnr": 15.992714401632341,
+      "rgb_ssim": 0.5242663962139481,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f12af24b08cf4ac12d8c3795376c87de61b57f3590a41f4369e95caa2f57b29b"
+    },
+    {
+      "low_name": "pair4__0175.png",
+      "low_sha256": "f8d6d08fe36289a97498d474a3cd1584a9f2d365803d3f66b4f9baff9ce31fd0",
+      "name": "pair4__0175.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "557703fc091e4508716531bd3dff7f58ba19fa453a8d0f196758840e66eb484a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6407711906536989,
+        "r_target": 0.9426250782062702,
+        "selected_step": 24
+      },
+      "psnr": 16.079976153732275,
+      "rgb_ssim": 0.5574472087890877,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "7879b659046716594967cc2b85ec8e20907572ab12d066d88c7500fe908e155a"
+    },
+    {
+      "low_name": "pair4__0176.png",
+      "low_sha256": "897be41d1d39271549b8d0bc76458a0e4a22f884751f45861616f2841523ad21",
+      "name": "pair4__0176.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "d8d8071e3c4b03bb0db7a26efbc62e638ff6cbad94504126fabc6552bf350a5e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6400359889698592,
+        "r_target": 0.9425331779957903,
+        "selected_step": 24
+      },
+      "psnr": 16.044568422211686,
+      "rgb_ssim": 0.5540709451445781,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "455f3ca886be4745146c978d693c002f3d9dd566b641f89cfda114f81aa48633"
+    },
+    {
+      "low_name": "pair4__0177.png",
+      "low_sha256": "9decccdfa27c2776454f7f5aa229e7681702246ba47dce4850d5a08aff5147e3",
+      "name": "pair4__0177.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "efd69dcfce2ac1cd92c0375b46bff5fdc0318418b4ea7400ab4988d8aea2a2dd",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6404792268135445,
+        "r_target": 0.942588582726251,
+        "selected_step": 24
+      },
+      "psnr": 16.048513235472033,
+      "rgb_ssim": 0.5242478631326286,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "fe6de5144c4507ef4f1b3c2c8fb81d7f138ee3ec0b52d09d9f60f0e63ff8d5ce"
+    },
+    {
+      "low_name": "pair4__0178.png",
+      "low_sha256": "3dcca951ab182ba1240b398fb8a561a55c32ede185fda2feb70c504f7a237f1f",
+      "name": "pair4__0178.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "a64473f73ec09b17debf58eea902366cbb4bcb6cb858ff3f56daeb6901b76987",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6404145433773775,
+        "r_target": 0.94258049729673,
+        "selected_step": 24
+      },
+      "psnr": 16.08878208961372,
+      "rgb_ssim": 0.5572101380471203,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "de7c531bf2235aa6b3f474b563b686c3106df60c162fe396ebd3a56072fccc69"
+    },
+    {
+      "low_name": "pair4__0179.png",
+      "low_sha256": "606bbf2524aeb70a4e151e1d6313793a173a79c1aab1d2d95ae1d42b609ef23a",
+      "name": "pair4__0179.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "1897e12a8cc70fd9b3d8d4a60ed92ff9242f39621c7bfdd26b0fe6f0efbef602",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.640901784082031,
+        "r_target": 0.9426414023848118,
+        "selected_step": 24
+      },
+      "psnr": 16.18461815011247,
+      "rgb_ssim": 0.56159819659314,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "bf6377ca861894e3630ccc038fd7abc8fb429b5d0b7840547e546b47771acb8a"
+    },
+    {
+      "low_name": "pair4__0180.png",
+      "low_sha256": "6462e40ac76a949929b48e6a05fb6b5d53be513991f1ce8baee36d98d9b7e552",
+      "name": "pair4__0180.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "5e42005f67bdc1cf4af77efec4d52eb2f0cdddbe96ad17899e1fd26406b44e73",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6405920796015618,
+        "r_target": 0.9426026893247531,
+        "selected_step": 24
+      },
+      "psnr": 16.16814082914067,
+      "rgb_ssim": 0.5248761904728372,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "2fc9bf714c0b049318dff7a239437fd1ffe86779781c4b146a4a71b524c0148c"
+    },
+    {
+      "low_name": "pair4__0181.png",
+      "low_sha256": "110ed90e63e8cb7eeeed88472fa6d2a509cec0d58f61b46de62032070d9c94e5",
+      "name": "pair4__0181.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "6af31d2673dc1b7314c29fa781ae8f078c3403ba0377baefb075e27608baf89c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6412039837414385,
+        "r_target": 0.9426791773422377,
+        "selected_step": 24
+      },
+      "psnr": 16.278634790011868,
+      "rgb_ssim": 0.5478072574656232,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8d0aa13cfe5ed942ac6533a2ad3a54968984e5b34fdc23017861e1692b6af3c5"
+    },
+    {
+      "low_name": "pair4__0182.png",
+      "low_sha256": "0a1e0ea3b65aa704f24558869f74c90510857fbe1719b4266242066db4aa133e",
+      "name": "pair4__0182.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "05bedef003102ff9ccdc8928906c359c87ce776dcd63e4705dd567aba6a772eb",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.640832383134639,
+        "r_target": 0.9426327272663877,
+        "selected_step": 24
+      },
+      "psnr": 16.31794371733921,
+      "rgb_ssim": 0.5572850856102508,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8a5f2c80ebec204de8fa2c8d8c03b7077ea835b5da4411857120a7538bb33b70"
+    },
+    {
+      "low_name": "pair4__0183.png",
+      "low_sha256": "56ba6e5ee0489fe838a62e7eec6f6d52d603fef45742e94f4236013c227e9d45",
+      "name": "pair4__0183.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "f61ef3fa0a5db574093bf1439e616729558c48c062996153c30b9231da1bca5a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5956166602252787,
+        "r_target": 0.9369807619027177,
+        "selected_step": 24
+      },
+      "psnr": 16.336292609738997,
+      "rgb_ssim": 0.5281182776976149,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "a9a079dec15256a1f266d5549eeabc95e2b29b936f7916a56359b2ac9a1d1e55"
+    },
+    {
+      "low_name": "pair4__0184.png",
+      "low_sha256": "748e7a3bd50a24b108bf54d2eb7398a97deffaf74cd92f0746e805afa3335ed3",
+      "name": "pair4__0184.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "4f50546855095ce8a007df1610fd1c0ac6c0a53586e57645bfecb2d4d638eba9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 27,
+        "r_FS": 0.6406225696563834,
+        "r_target": 0.9426065005816058,
+        "selected_step": 24
+      },
+      "psnr": 16.492927612514137,
+      "rgb_ssim": 0.5676825841489959,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "b5a71d44dd11cf8efdb1e0ed1090ecf50e6c5c7089e1e3bf1d921bd57939f3d3"
+    },
+    {
+      "low_name": "pair4__0185.png",
+      "low_sha256": "8508a386fbeabac0eb46a8c51de57383d660f9a911c3f758d41f97bbb9024065",
+      "name": "pair4__0185.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "770c44d64fb5cb85c38335f9bb86afe34f9d493d82efcb87dd5a5b2edc5cd7c5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5951296565316126,
+        "r_target": 0.9369198864410094,
+        "selected_step": 24
+      },
+      "psnr": 16.51977464472311,
+      "rgb_ssim": 0.5679648859642917,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "3397958559b6f47625ff845ccc807055d698438ec2f1af236665c5cf7976115c"
+    },
+    {
+      "low_name": "pair4__0186.png",
+      "low_sha256": "53718de9ba8d9c1abf78f881072bd51bea889c5520902a8ef0ff5c4c51b3d46b",
+      "name": "pair4__0186.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "9eee6f83a6880cfa4bcc2afac2d02ede2ae1b274e240147c0ea8134442332937",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5957706980078484,
+        "r_target": 0.937000016625539,
+        "selected_step": 24
+      },
+      "psnr": 16.541730970049112,
+      "rgb_ssim": 0.5321852825895821,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c88c229f453708484308f28df98c793fe25f1bb014e4ab55ea16a1ab800c5f4f"
+    },
+    {
+      "low_name": "pair4__0187.png",
+      "low_sha256": "bfb3e7fcaf5faa95ca3c28164c3afae10dc556f2d0728142f456ce43e35390ad",
+      "name": "pair4__0187.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "be924ded3a735ff3e6ceaed1c64cb1ae03c215746b2d72be11d2fd585bf82bfb",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5955622811079916,
+        "r_target": 0.9369739645130568,
+        "selected_step": 24
+      },
+      "psnr": 16.672274013785792,
+      "rgb_ssim": 0.5679340947097018,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4e08f470078d0dc9fe0c7d28c53d3ce4ac3f541d91e7a765e37141db44a0d33a"
+    },
+    {
+      "low_name": "pair4__0188.png",
+      "low_sha256": "23fc96bc37c5cd32a2eb94649c21c6b6065dcaa3275e116aedf346e27cb27053",
+      "name": "pair4__0188.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "db2fc5e38ff1ad550791d69e541ad85279b197e52a5e3678cf46c27f4169be04",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5962414000326521,
+        "r_target": 0.9370588543786393,
+        "selected_step": 24
+      },
+      "psnr": 16.692539226354107,
+      "rgb_ssim": 0.5670704596907308,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "fcd254318c556e0cba540f606c873c1487c173c1d5c7a5933a9bf105801ed2bd"
+    },
+    {
+      "low_name": "pair4__0189.png",
+      "low_sha256": "6eabea2f50f101183e800bc27d8d45ace68b3cc0b7a6b45d180be1227e7ea353",
+      "name": "pair4__0189.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "7c162842286a9ed47ff9048d6efaa72bd9797fa73d6082fc7bdbcd4c55b3ca89",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5966941235459103,
+        "r_target": 0.9371154448177967,
+        "selected_step": 24
+      },
+      "psnr": 16.669010637015212,
+      "rgb_ssim": 0.5297925485356255,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "a7e1a7f5c70210996476fa146e5e3165467d0d93bc67385c80631a2a5680076c"
+    },
+    {
+      "low_name": "pair4__0190.png",
+      "low_sha256": "bc2c94b8545569abafc422c50eea193f3108569bd1e34506547c5a4fb1e517ea",
+      "name": "pair4__0190.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "dd161d293440b02421d10fc4bd921cb55330f8aa3f0e432cbc55330068876e2b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 8,
+        "k_rho": 27,
+        "r_FS": 0.34734442187533743,
+        "r_target": 0.905946732108975,
+        "selected_step": 23
+      },
+      "psnr": 15.335543788832442,
+      "rgb_ssim": 0.5835063178843718,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "9ee06aa8dfbc6cc9a223370cbc6557cdf1a66544aa4dbf633207ccf2e3f3cc40"
+    },
+    {
+      "low_name": "pair4__0191.png",
+      "low_sha256": "507b876b05bd144dacf1ed056555dc7bcecc26d185dc9603cbada386660bf81b",
+      "name": "pair4__0191.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "c629c819570445ded2d606acc21900761e75d2765051f03dcc8bf385843fa902",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5970033662262164,
+        "r_target": 0.937154100152835,
+        "selected_step": 24
+      },
+      "psnr": 16.80503163489842,
+      "rgb_ssim": 0.5657652459383709,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "41105b063a47dc3be352538d8d3fdb2401b6199a2db0b8d7bddfb43802f8fa10"
+    },
+    {
+      "low_name": "pair4__0192.png",
+      "low_sha256": "1215e4557f943ed26996c72df629c642aa5a9dca455b150b9a929187bf0457da",
+      "name": "pair4__0192.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "4092e25ac121aeeda29e62ea51bfc6ace8689fea23a6f5b8861e92e4cfb1b286",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 26,
+        "r_FS": 0.5971134339541971,
+        "r_target": 0.9371678586188326,
+        "selected_step": 23
+      },
+      "psnr": 16.667712864985294,
+      "rgb_ssim": 0.5351300313605866,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "97dd006721955911f3a2acea8b321fb02440982d6f458a4debba2db7d7e7f982"
+    },
+    {
+      "low_name": "pair4__0193.png",
+      "low_sha256": "5c08a187b89633f88079ebad71eac6e245488e4b70628b3eef36b64f29543263",
+      "name": "pair4__0193.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "fcb8136ce192cae927b8ec76351cb4d577a71770dabe1f6df16f61f5947c6da5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5975706257375193,
+        "r_target": 0.9372250075917478,
+        "selected_step": 24
+      },
+      "psnr": 16.838703355993992,
+      "rgb_ssim": 0.5488566340751422,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "bc9297b84f6fc6e10f7fd547de12ec5ec309923120c77e8339a2baaeda6695d7"
+    },
+    {
+      "low_name": "pair4__0194.png",
+      "low_sha256": "a0731b58a746f4029dd4bb71008f04bb1afcca314d9bae75f967b0a3cebe0675",
+      "name": "pair4__0194.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "50a084f87767a1c5cc23d33000b199317cfefec2762ec8d6f4f8ac5b4dae6d2f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5974339091773883,
+        "r_target": 0.9372079180217314,
+        "selected_step": 24
+      },
+      "psnr": 16.875399546263267,
+      "rgb_ssim": 0.5602819935555744,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "31cbc481855981c7e0581992eba6393359f34b50247b9b4678836d557e753c52"
+    },
+    {
+      "low_name": "pair4__0195.png",
+      "low_sha256": "772fedbdfa11c3dcf7c5584139c99bd3f5f9fc1a62c34336b7b4ac53bb2969dd",
+      "name": "pair4__0195.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "33a9f317d182f9d44e08356258aaf645f7611e9425b6a1d4823a7f379c9cfc93",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 26,
+        "r_FS": 0.5984828925471299,
+        "r_target": 0.9373390409429492,
+        "selected_step": 23
+      },
+      "psnr": 16.748751309307657,
+      "rgb_ssim": 0.53772677158636,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4480c9bc0c6ca0596cb20c74a73a3e0f2ad6f13e3b52dfcb66ddfa562278f638"
+    },
+    {
+      "low_name": "pair4__0196.png",
+      "low_sha256": "c1a55bc5160bfe6f2ad32b2400503219f4756c8cac8ece1149de304badbffd2f",
+      "name": "pair4__0196.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "1c94477dadbb66bdc8dc685f328197548d4309f92f2224e3c2c2e2a578e5eff0",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 26,
+        "r_FS": 0.5984114802005776,
+        "r_target": 0.9373301143996301,
+        "selected_step": 24
+      },
+      "psnr": 16.952354266824422,
+      "rgb_ssim": 0.5700296568361921,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6b7b8b2c23f427977e2b30bd2dc2e6661b85a182a5850f4b7d1a77c47454b75e"
+    },
+    {
+      "low_name": "pair4__0197.png",
+      "low_sha256": "f849738ed0bd65a280632a3f0d92ac754d72ab12341a9ba71d035b617a9c4d39",
+      "name": "pair4__0197.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "9b235ed5a459c959ae8650a9b0316dba1ba776490298bd610a336fae40a86bcc",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5984761543818184,
+        "r_target": 0.9373381986722852,
+        "selected_step": 24
+      },
+      "psnr": 16.961929122784912,
+      "rgb_ssim": 0.5679463490794673,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "85015cf4a3f4f6f89d5e0f72f7265f819e55c0cab0d32594d718ac3569520eb5"
+    },
+    {
+      "low_name": "pair4__0198.png",
+      "low_sha256": "5cd92df5c33ed5ee6aef6b0e2fd92a9a26455c8b24db70f84be7149b13fd1906",
+      "name": "pair4__0198.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "83bace0362f22d4d265799c63f77998a43c2657e0e1fb98bab63c755dbdbb05a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 27,
+        "r_FS": 0.5511678068930735,
+        "r_target": 0.931424655236192,
+        "selected_step": 23
+      },
+      "psnr": 16.86532377318488,
+      "rgb_ssim": 0.5396744946798169,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e72c5a12fa8844f0088466f5e3558546833d4a5c4cfcced33656f162d86a0dae"
+    },
+    {
+      "low_name": "pair4__0199.png",
+      "low_sha256": "45eaad970b603ec8554a56650765c763775b1cbe9b61d846bc3feef77735bb1d",
+      "name": "pair4__0199.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "39c8ae18afc9270d51736acdbb79a628a69519ebfbff2dd1b4ae369cfefcf0c4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 26,
+        "r_FS": 0.5990029744807716,
+        "r_target": 0.9374040511846543,
+        "selected_step": 24
+      },
+      "psnr": 17.009615006368538,
+      "rgb_ssim": 0.5675578640545271,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "20eecec03e03ea14f860841592bd6a06c3f61c1b03dbc2ced52ee1f3e5acfe58"
+    },
+    {
+      "low_name": "pair4__0200.png",
+      "low_sha256": "be7ba88de0aeafdf47bc681085abd415ffff0462d1f6949e236ac07337beb37b",
+      "name": "pair4__0200.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "d4867869eda2f13f7edba4c502d26b8f98a0f61b5f0d4c2f3483a634301386a6",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.551364638488738,
+        "r_target": 0.9314492591856501,
+        "selected_step": 23
+      },
+      "psnr": 16.960227710262778,
+      "rgb_ssim": 0.574305532933583,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1de29d3879abeb5874f0a74c3f29769f8f64ddde1099759997e5205c9d191244"
+    },
+    {
+      "low_name": "pair4__0201.png",
+      "low_sha256": "ec40639d573eb7d31fd0a17c2def82dcfbef2e3b49346b4b8f813883806c8dab",
+      "name": "pair4__0201.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "6664a7c9747f815736df20989fc030cd9686ee13eb7ddc1d06ed169df6ea4ba1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5992461917478338,
+        "r_target": 0.9374344533430371,
+        "selected_step": 24
+      },
+      "psnr": 16.997464881065497,
+      "rgb_ssim": 0.5325287766172276,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "7556985c9c8215a4aa3a9ccbd06ae9450082050c906e347c56168db847163731"
+    },
+    {
+      "low_name": "pair4__0202.png",
+      "low_sha256": "7d69512b52626ea4ae5697017f7284bbb95755dd43b9a1d70a331f2a2c0e321a",
+      "name": "pair4__0202.png",
+      "cluster": "pair4",
+      "output_tensor_sha256": "c71880966eef04415e03a4e8b64ccdc0c682c5ac913b58fab50bb00a7d6dd13b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 26,
+        "r_FS": 0.5990400269336142,
+        "r_target": 0.9374086827412597,
+        "selected_step": 24
+      },
+      "psnr": 17.067115680293675,
+      "rgb_ssim": 0.5679722439491979,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "91077dbb0e2b99649d986e6eaca8df53a715a36df9baf21bcba521dc9b7f0e75"
+    },
+    {
+      "low_name": "pair9__0191.png",
+      "low_sha256": "5ce0aa0b472d2a93f3bdc1c900a24937d90e318a69eeae964eefe40eff675b84",
+      "name": "pair9__0191.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "3bc3fd6118aacae4c2aba508a1bd246d8c0e6b77ab165d755e8c5ecfcb5c086d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8904288850085327,
+        "r_target": 0.9738322900006244,
+        "selected_step": 21
+      },
+      "psnr": 16.529113342843107,
+      "rgb_ssim": 0.6982587623109318,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "82c933243ece3ab3beb69c06b819152de40fef8482f166eaaf19849843e0c75a"
+    },
+    {
+      "low_name": "pair9__0192.png",
+      "low_sha256": "9b271a9d1e66ca443e7a0b674d74a2bd63a5d975b984c9a60095cf268e99ff94",
+      "name": "pair9__0192.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "25f85e3e8d9fe49cfde1656da6ef87ca8b18eeb5ccdc2d27a0ae482914596512",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8896117191523001,
+        "r_target": 0.9737301442685954,
+        "selected_step": 21
+      },
+      "psnr": 16.565516883041866,
+      "rgb_ssim": 0.6587128239909271,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "686eba9c7f0311e81a1adeaba9e0d4d860b81ad31f12fd2edb666a56e06841e6"
+    },
+    {
+      "low_name": "pair9__0193.png",
+      "low_sha256": "374790c3227ff38b773e73e0a7f2c6f54d5e0607761edcbbba565c6abb612f79",
+      "name": "pair9__0193.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "aa06fcdf9a789dd7f643c092ba0a25fc8869a930cd4ba27aaba1f12f139f8eb5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8894881165513069,
+        "r_target": 0.9737146939434712,
+        "selected_step": 21
+      },
+      "psnr": 16.59236240323779,
+      "rgb_ssim": 0.674617907174761,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "523f01214406d1bb86c379e4f9e28f15aeedf77babdbc29fbe2c4f6d785a16ac"
+    },
+    {
+      "low_name": "pair9__0194.png",
+      "low_sha256": "fb4bb449de063c4fce05ea874248fb58324d3d1be480d11c809308a87b9df433",
+      "name": "pair9__0194.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "368a7307ddfd9a4dfb3f1b1bd6e7da3b162d8c23e37837beb2e01a07b620e1b5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8883193454489734,
+        "r_target": 0.9735685975556796,
+        "selected_step": 21
+      },
+      "psnr": 16.621192595006104,
+      "rgb_ssim": 0.6829267995615976,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "158491bdfae6ec2c76b848b15f512f612085567a3bb8e54e2871a8d3c1fea9c1"
+    },
+    {
+      "low_name": "pair9__0195.png",
+      "low_sha256": "72157c979187c5c81005df7104c510b54f636d49c1303221940d0a713a7d9f36",
+      "name": "pair9__0195.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "8665338ace8a3ef72e873c2517e8a1f97e9dbfa5ea6f499f36583131c5ffac74",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8876580900318368,
+        "r_target": 0.9734859406285374,
+        "selected_step": 21
+      },
+      "psnr": 16.637493892890834,
+      "rgb_ssim": 0.6580679490794954,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f306436dd0572945215ecb76b5dbd1b263e188a888b4e72e1ab2c67ecdb50c5f"
+    },
+    {
+      "low_name": "pair9__0196.png",
+      "low_sha256": "39f771ad90bb9d4e102e483b9f30c9acfc710b0d3905eae520d31756cb1b4952",
+      "name": "pair9__0196.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "71195412e58cd6d36385654133f61c4cd9a813e54f9db16bb6fab883ad36ee50",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8869827450916511,
+        "r_target": 0.9734015225110143,
+        "selected_step": 21
+      },
+      "psnr": 16.65487515936766,
+      "rgb_ssim": 0.6949142965113064,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4c872073b8b4bc4dc9972e1d35992394041d8ce5fb98a596e72781c72fb6ac7f"
+    },
+    {
+      "low_name": "pair9__0197.png",
+      "low_sha256": "d1182167198a150c77ac27f68d705c442447e884b8f6ff1f7ea7cee51d03d1a4",
+      "name": "pair9__0197.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "a048bbd69fc05b06da284cdbea45e749cec48f00eae30cc1e8c51018a132d13d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8863610183541186,
+        "r_target": 0.9733238066688227,
+        "selected_step": 21
+      },
+      "psnr": 16.665525469473177,
+      "rgb_ssim": 0.6950052599344748,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "42c073d20ba8c530a503ebab2951949261ae81997640576aba17390ad1c5353f"
+    },
+    {
+      "low_name": "pair9__0198.png",
+      "low_sha256": "fee0894997d829a6185f75198c6d88fe6e22d1a82587d161966e5939db919f4e",
+      "name": "pair9__0198.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "e9d2bf82ddc04102f21895e3692df34dcb31fb1d3cb9c14f1ff3613958966ef1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 20,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 22,
+        "r_FS": 0.8522604572465773,
+        "r_target": 0.96906123653038,
+        "selected_step": 20
+      },
+      "psnr": 17.266623201641856,
+      "rgb_ssim": 0.6711607777342198,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c73426556832ccf867b808ffc431ed8604cbcd4a7445a4e001781e2169f83c5b"
+    },
+    {
+      "low_name": "pair9__0199.png",
+      "low_sha256": "b997397b58bf74fc5e96aea06407191a8b44580c982447b74e1bdacbe3e71f82",
+      "name": "pair9__0199.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "d0429da59e09fc2674fe0cfb0cb657f571e248993a6e886cf8ddae934a94ad52",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8852129080425767,
+        "r_target": 0.97318029287988,
+        "selected_step": 21
+      },
+      "psnr": 16.722143046558095,
+      "rgb_ssim": 0.6950992190854927,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d65921dedb75bea5874e6f5bfccfa9d6dc707bdd70760ff7de7431481b51f35a"
+    },
+    {
+      "low_name": "pair9__0200.png",
+      "low_sha256": "a4b5383f6d269acaf912826635da555df40b45d4d5b0309aaa864d5a13ba8e7c",
+      "name": "pair9__0200.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "1efba489314e83466173d3575e69a3258e87432c0fd8b13942445a6495411308",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 22,
+        "r_FS": 0.8832242112431705,
+        "r_target": 0.9729317057799542,
+        "selected_step": 21
+      },
+      "psnr": 16.74997164955924,
+      "rgb_ssim": 0.6951018065845939,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4973f8700d27cda4392c773a85501ff14e655aeb49a612892a42a84dda41e4eb"
+    },
+    {
+      "low_name": "pair9__0201.png",
+      "low_sha256": "83799c4ce00af70a1a360970e4a34ec50eab328e3f273580942587359e3a6415",
+      "name": "pair9__0201.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "7b614190e118f1e6ecac9bc0e707a10ab5f072c7f575bc961307cf087f53e6d4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8484211082987453,
+        "r_target": 0.968581317911901,
+        "selected_step": 21
+      },
+      "psnr": 16.809274321811817,
+      "rgb_ssim": 0.6555920284561993,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "742027c2fa473bcdbc3ae56ebbf93608a5a38a90de83399dc11bf1128b5275e5"
+    },
+    {
+      "low_name": "pair9__0202.png",
+      "low_sha256": "5d6bad9b971ee4b4162068f69551daac0840862802f0777bd0c37aa9969f744e",
+      "name": "pair9__0202.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "f92503f5e6a9b56c7a79625c180030952d411b95734750827a94a3a7d2db0893",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 23,
+        "r_FS": 0.8815852568448924,
+        "r_target": 0.9727268364801694,
+        "selected_step": 21
+      },
+      "psnr": 16.808528776283534,
+      "rgb_ssim": 0.6951027455524585,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "9c3a02f168872a99f48b413bf78b2f809ff9c215aa8b5ad88c94487d69c0cbd5"
+    },
+    {
+      "low_name": "pair9__0203.png",
+      "low_sha256": "921b90156e73a85981ff410d4056df45bb449241a730dcb0e50c213f196bc271",
+      "name": "pair9__0203.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "e335001b8eef34016f963b7312d927b27d53ca61d4d62f81b27307d7c0b28c60",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 16,
+        "k_rho": 23,
+        "r_FS": 0.880878742160726,
+        "r_target": 0.9726385221446486,
+        "selected_step": 21
+      },
+      "psnr": 16.846667870926225,
+      "rgb_ssim": 0.6954325824196189,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e9066090293a628980cfba84351fad8b41618d298c025e20dc0ee1ec7288fbe0"
+    },
+    {
+      "low_name": "pair9__0204.png",
+      "low_sha256": "885c9ef95d9b19ffc92aa3138fee7b3186b42a8c77d69513621263832700f17c",
+      "name": "pair9__0204.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "3eb8bf63b076add6fee4d021638d1f219d2a806a8eb2188713a8f78f0c1bf2c3",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8460187234864109,
+        "r_target": 0.9682810198103593,
+        "selected_step": 21
+      },
+      "psnr": 16.89631119052371,
+      "rgb_ssim": 0.6542370975937569,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "fea952020e85b06bc51d24926dd01cb07bf170ec5f11ec411c2f42d1de87f6d0"
+    },
+    {
+      "low_name": "pair9__0205.png",
+      "low_sha256": "a720592c7ae3edf13d99d733433fb364f488952b301d621d8a108673516dd04c",
+      "name": "pair9__0205.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "2c848beae23efad48dfdfa6d6c430ecaf16940f5c13d2cc850862033c147184f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8448954842182422,
+        "r_target": 0.9681406149018381,
+        "selected_step": 21
+      },
+      "psnr": 16.9287001308028,
+      "rgb_ssim": 0.6707814298209459,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "3eea2f781f796b3eedde4f3284d558f773285012dfa79bb431a99933152e24af"
+    },
+    {
+      "low_name": "pair9__0206.png",
+      "low_sha256": "8d34dec5a143f6d39b6b7d11abf622926ca70fe8e332882c91862ad534f45fd4",
+      "name": "pair9__0206.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "c83ac9387172264c91e157ac0b3e1c6f8af3249b60336e48b8106ad4f37fc4d1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8431311403670414,
+        "r_target": 0.967920071920438,
+        "selected_step": 21
+      },
+      "psnr": 16.957699875462144,
+      "rgb_ssim": 0.680297335919862,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c96634d73d0db322807729f7f9d9edf6a32f4a27ba2eccdcb28c6bca396999fb"
+    },
+    {
+      "low_name": "pair9__0207.png",
+      "low_sha256": "3edfd9ac22aace4aa1778452756767c915162f5cc0597ec4b250abca44a7902f",
+      "name": "pair9__0207.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "f22eb7c555cd5a82e6871d254248028c00f7382975628cbc39da1ed0e3432544",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8420401888892601,
+        "r_target": 0.9677837029857154,
+        "selected_step": 21
+      },
+      "psnr": 16.99366981463027,
+      "rgb_ssim": 0.65262835619086,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "96ddbe85d9ed19c07ec99ba65ff34e8d85bbc4e5ab2bf88fd012db09fd10c6da"
+    },
+    {
+      "low_name": "pair9__0208.png",
+      "low_sha256": "083fc257b769b62c750c9475045ef2a648e4198efc603898604efed312fb4741",
+      "name": "pair9__0208.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "1468dae97a638e7755be06db10cfb188cd5c40af6958c22e398f48d225981cb5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8411075251354584,
+        "r_target": 0.9676671200164901,
+        "selected_step": 21
+      },
+      "psnr": 16.982228236405007,
+      "rgb_ssim": 0.6876735227970493,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "58de049fc345d7c96da3251aa722146c3bf23a68d18b3243fb149a68f3336aac"
+    },
+    {
+      "low_name": "pair9__0209.png",
+      "low_sha256": "39c3fc6e008ad9825277e78956bc183e1574a32522cfbf6c10de4aedfa5a400c",
+      "name": "pair9__0209.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "43d5430e2a99a73f6f393da96ec3aecb9576fd936ebcc8a6cbeca6d36acf821f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8432509505974308,
+        "r_target": 0.9679350481992367,
+        "selected_step": 21
+      },
+      "psnr": 16.954393606953143,
+      "rgb_ssim": 0.6907546795922569,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "319be074d275b60f7550950dec4faff08929ef644e164cc53bcb1226fed739ee"
+    },
+    {
+      "low_name": "pair9__0210.png",
+      "low_sha256": "18cb3c76c85163c9d413b653739791197d06d8ee1e0f82eb7e0d539887fe1c7c",
+      "name": "pair9__0210.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "292f64834f3660314b6708bc1561020b3b476f3d195198c54e18eaf3629b146b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.845403454314412,
+        "r_target": 0.9682041111638594,
+        "selected_step": 21
+      },
+      "psnr": 16.91402231817041,
+      "rgb_ssim": 0.6524608147526593,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "38e97a057c19742f391ddd0335c6d5b1b9c09f54880979824ba93e3d82fb3c7a"
+    },
+    {
+      "low_name": "pair9__0211.png",
+      "low_sha256": "be9ecb61382cf97db7ea2f5ce7dd517cfa6998d32ae093ef106c0b314444fac4",
+      "name": "pair9__0211.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "376699b81abc53d64e875269894733ac13a86860ef952d5c2078ec4b926efce5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8469880927655784,
+        "r_target": 0.9684021909702552,
+        "selected_step": 21
+      },
+      "psnr": 16.80837448738316,
+      "rgb_ssim": 0.6877652191110349,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d83825c27d05e698766e5542a2df12063058feb50f34347fbb0730192732f8c6"
+    },
+    {
+      "low_name": "pair9__0212.png",
+      "low_sha256": "d281d47b0dd8133f2209cc3950844dc2b15a8729bef8cfee387e6f9870356668",
+      "name": "pair9__0212.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "4f4ce2cc06694a6d59705033cf906fa1708c421166b58469513c21a41d9ad014",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8487300031834604,
+        "r_target": 0.9686199297724905,
+        "selected_step": 21
+      },
+      "psnr": 16.765092639843957,
+      "rgb_ssim": 0.6904897528037651,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "ba1bb5853b1e86b7743c40cc0837fad5c19a71c68337414980f9fae38c250b04"
+    },
+    {
+      "low_name": "pair9__0213.png",
+      "low_sha256": "9fba3bb6b3773306138a855a4a296a735999a1fc968046e546d912d66ec671c9",
+      "name": "pair9__0213.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "51538056deee7279ceb3d3565fdc999aae80f426ed07498c7789715f5292a5dc",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8501106799194478,
+        "r_target": 0.9687925143644889,
+        "selected_step": 21
+      },
+      "psnr": 16.7284483388451,
+      "rgb_ssim": 0.6465657514847872,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "ded3884485237413904446014b091bc5e528b38285cfe5d506bd5eddb197f510"
+    },
+    {
+      "low_name": "pair9__0214.png",
+      "low_sha256": "49dda961a7d32a903acb4e776bc0e45e547d3773b3914c620ffdf40e70b2bf77",
+      "name": "pair9__0214.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "227b0b1f8382be19ef85d9fb1a54ffefa4840589888851bbaaaabe594870b692",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8530431523557507,
+        "r_target": 0.9691590734190267,
+        "selected_step": 21
+      },
+      "psnr": 16.62377813987762,
+      "rgb_ssim": 0.6843249212110448,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "58856a893ae87790bd0d6379ad74585af7a1ba8466fff862625d788966604702"
+    },
+    {
+      "low_name": "pair9__0215.png",
+      "low_sha256": "ab22ac3632079eeb37719277f6f6797beebb1dd162da33dff4718f6199b35006",
+      "name": "pair9__0215.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "9428ee49b3df2ff658f4d965673407f8d10cd997f74a8ab5bb3451285a199577",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.854598296798483,
+        "r_target": 0.9693534664743683,
+        "selected_step": 21
+      },
+      "psnr": 16.5842924203457,
+      "rgb_ssim": 0.6851327621009167,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "b85f48dd71514954646ae8ff432afb3bd80cb15cfbb3d40276e31f2481228572"
+    },
+    {
+      "low_name": "pair9__0216.png",
+      "low_sha256": "339d53bb71635ca24c6935293c24500d74c99367f4f69e70ada63f8d8bfbb49a",
+      "name": "pair9__0216.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "9368d9269cf7b42bfa641065fb20e59faf48315b755d58dea88e737a0310494e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.856409008601177,
+        "r_target": 0.969579805449705,
+        "selected_step": 21
+      },
+      "psnr": 16.551728577862555,
+      "rgb_ssim": 0.640476730405113,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "3c8563720f8b8d79d1855f0083cbb7849fa703b086a2afcf88f48d92d5d667e6"
+    },
+    {
+      "low_name": "pair9__0217.png",
+      "low_sha256": "d88fd890a68d48a1c9fef73a6dbd946a0bd281173e0799d3a684f56ec1b133a4",
+      "name": "pair9__0217.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "0ef7eb99b102202c5e8e39acab517ce29ba986b7d9eafda73175acf3775f5c14",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8585057891310355,
+        "r_target": 0.9698419030159373,
+        "selected_step": 21
+      },
+      "psnr": 16.45837568517233,
+      "rgb_ssim": 0.6546890537781573,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "af95c4c6c79e95ef8bdac0ee3cbe5c6fc73e499cf8dd45b81cc0ddcc83f3d4ca"
+    },
+    {
+      "low_name": "pair9__0218.png",
+      "low_sha256": "b5b3f199047d845ea955288db9db39c19dd8a1be26491738dfcbe550c111e118",
+      "name": "pair9__0218.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "0adb6accb357188bc5104e25b5ca44f669709d7ada4fc4d5c1a9b7073efd99b9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8587091834277234,
+        "r_target": 0.9698673273030233,
+        "selected_step": 21
+      },
+      "psnr": 16.431402503072974,
+      "rgb_ssim": 0.6629902853195735,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "fe38eab50a770a0927f2ab018a7e1b3fb1394428fb48e0cb8da1ef8f6d7e3e13"
+    },
+    {
+      "low_name": "pair9__0219.png",
+      "low_sha256": "3216e91d30f43b25f6f207bc72f818e068ca84a3eeb79c2e5d9e5b5b6d9b74a7",
+      "name": "pair9__0219.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "cb6258f9f58f7dfe96d753e4853bb58d8b9c54e42d69fa070dd89eb2b79ba6aa",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8605860630840256,
+        "r_target": 0.9701019372600611,
+        "selected_step": 21
+      },
+      "psnr": 16.40924291947598,
+      "rgb_ssim": 0.6332714609805384,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "ba8599b4b4633b4e1b33367450d46d75e74f2033caa4794c21c10a2269517cba"
+    },
+    {
+      "low_name": "pair9__0220.png",
+      "low_sha256": "3923d378e782d62300237468e52b6af84663a856b84d92ee01f9d3045abb3c22",
+      "name": "pair9__0220.png",
+      "cluster": "pair9",
+      "output_tensor_sha256": "78b01c3551a73c3064e5316e5a21e38b29b21e995cf8cdfe311b308786ac1661",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 15,
+        "k_rho": 23,
+        "r_FS": 0.8601488665255138,
+        "r_target": 0.9700472876902471,
+        "selected_step": 21
+      },
+      "psnr": 16.37772433115164,
+      "rgb_ssim": 0.6707011145878463,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d5526384f7d384f86625a8229a0b6ec73010eded5afa7af18b5d861c2577b027"
+    }
+  ]
+}
