@@ -1,0 +1,606 @@
+"""Synthetic tests for the T074-C reference gate, metrics and phase-4 harness (no real target data)."""
+
+import argparse
+import gzip
+import hashlib
+import importlib.util
+import json
+import os
+import re
+import shutil
+import stat
+import sys
+from pathlib import Path
+from types import SimpleNamespace
+
+import numpy as np
+import pytest
+import torch
+
+HERE = Path(__file__).resolve().parent
+OURS_SRC = Path(os.environ.get("OURS_SRC", "/root/autodl-tmp/TTIE/T073C/recovery/source"))
+if (OURS_SRC / "ttie" / "common_gain.py").is_file():
+    # As in production (ours_tuning runs from the Ours root): the Ours ttie package must win over the
+    # vendored metric-only ttie copy, whose ssim_transfer.py / __init__.py bytes are identical.
+    sys.path.insert(0, str(OURS_SRC))
+sys.path.insert(0, str(HERE))
+import reference_gate as rg  # noqa: E402
+import metrics as mt  # noqa: E402
+
+STAGE_PATH = HERE.parent / "T074B" / "stage_target.py"
+STAGE_SHA = rg.TARGETS["SDSD_indoor"]["stage_script_sha256"]
+ROWS = ["retinexformer", "promptir", "promptir_dctta", "ours_step0", "ours_ttt"]
+T073A_INDICES_SHA256 = "f3348c731c348b52eed32160d6b4b2b904101e59a542e1c5dc22850e812da904"
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def load_stage():
+    spec = importlib.util.spec_from_file_location("test_stage_target", STAGE_PATH)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def write_json(path, obj):
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    Path(path).write_text(json.dumps(obj, indent=2))
+    return sha(path)
+
+
+def save_output(path, tensor):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with gzip.open(path, "wb", compresslevel=1) as stream:
+        torch.save(tensor, stream)
+
+
+def build_target(tmp, name="SYNTH", rows=ROWS, frames=2, seed=0):
+    """SDSD-like npy target staged with the real stager, plus frozen-looking rows."""
+    stage = load_stage()
+    rng = np.random.default_rng(seed)
+    root = tmp / "data"
+    for video in stage.SDSD_TEST_DIRS["sdsd_in"]:
+        for index in range(frames):
+            low = rng.integers(0, 40, (48, 90, 3), dtype=np.uint8)
+            gt = rng.integers(0, 256, (48, 90, 3), dtype=np.uint8)
+            (root / "input" / video).mkdir(parents=True, exist_ok=True)
+            (root / "GT" / video).mkdir(parents=True, exist_ok=True)
+            np.save(root / "input" / video / f"{index:04d}.npy", low)
+            np.save(root / "GT" / video / f"{index + 7:04d}.npy", gt)
+    staged = tmp / "staged"
+    stage.stage(argparse.Namespace(dataset="sdsd_in", root=root, out=staged, geometry="snr960x512",
+                                   frames_per_sequence=0, smid_test_list=None, expected_count=6 * frames,
+                                   list_only=False))
+    low_receipt, opaque = staged / "low_receipt.json", staged / "reference_opaque_manifest.json"
+    files = json.loads(low_receipt.read_bytes())["files"]
+    low_sha = sha(low_receipt)
+    rows_dir, runs = tmp / "rows", tmp / "runs"
+    manifest_shas = {}
+    for row_id in rows:
+        remote = runs / row_id
+        manifest = {"method": row_id, "count": len(files), "low_receipt_sha256": low_sha,
+                    "reference_reads": 0, "metrics": 0, "rows": []}
+        for item in files:
+            tile = rng.uniform(-0.05, 1.05, (1, 3, 16, 24)).astype(np.float32)  # tiled: fast gzip, still varied
+            tensor = torch.from_numpy(np.ascontiguousarray(np.tile(tile, (1, 1, 32, 40))))
+            path = remote / Path(item["name"]).stem / "output.pt.gz"
+            save_output(path, tensor)
+            manifest["rows"].append({"low_name": item["name"], "low_sha256": item["sha256"], "shape": [1, 3, 512, 960],
+                                     "dtype": "torch.float32", "output_file_sha256": sha(path),
+                                     "output_tensor_sha256": hashlib.sha256(tensor.numpy().tobytes()).hexdigest()})
+        freeze = {"task": "T074-C", "method_id": row_id, "target": name, "classification": "FROZEN_OUTPUTS",
+                  "output_count": len(files), "canonical_low_receipt_sha256": low_sha,
+                  "verification_classification": f"T074B_{row_id.upper()}_OUTPUTS_VERIFIED",
+                  "remote_output_root": str(remote), "target_reference_reads": 0, "target_metrics": 0,
+                  "preregistration_changed": False, "quality_inspection_of_outputs": False}
+        if row_id == "ours_ttt":
+            manifest["step0_output_manifest_sha256"] = manifest_shas["ours_step0"]
+            freeze["expected_step0_manifest_sha256"] = manifest_shas["ours_step0"]
+            freeze["ttt_abstain_no_active_gate_count"] = 0
+        if row_id == "promptir_dctta":
+            order_sha = write_json(rows_dir / row_id / "adaptation_order.json", {"order": [f["name"] for f in files]})
+            manifest["expected_order_sha256"] = freeze["sealed_adaptation_order_sha256"] = order_sha
+        msha = write_json(remote / "output_manifest.json", manifest)
+        (rows_dir / row_id).mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(remote / "output_manifest.json", rows_dir / row_id / "output_manifest.json")
+        manifest_shas[row_id] = msha
+        verification = {"classification": freeze["verification_classification"], "count": len(files),
+                        "output_manifest_sha256": msha, "low_receipt_sha256": low_sha, "reference_reads": 0, "metrics": 0}
+        vsha = write_json(Path(str(remote) + ".verify.json"), verification)
+        shutil.copyfile(Path(str(remote) + ".verify.json"), rows_dir / row_id / "verification.json")
+        write_json(rows_dir / row_id / "freeze_receipt.json",
+                   dict(freeze, output_manifest_sha256=msha, independent_verification_sha256=vsha))
+    rg.TARGETS[name] = {"display_name": name, "dataset": "sdsd_in", "geometry": "snr960x512",
+                        "expected_count": len(files), "low_receipt_sha256": low_sha,
+                        "reference_opaque_manifest_sha256": sha(opaque), "stage_script_sha256": STAGE_SHA,
+                        "required_rows": list(rows)}
+    return SimpleNamespace(name=name, root=root, rows_dir=rows_dir, runs=runs, low_receipt=low_receipt, opaque=opaque,
+                           files=files, receipt=rows_dir / "reference_gate_receipt.json", tmp=tmp)
+
+
+def open_gate(t):
+    return rg.write_receipt(rg.evaluate(t.name, t.rows_dir, t.low_receipt, t.opaque), t.receipt)
+
+
+def context(t):
+    return mt.Context(t.name, t.low_receipt, t.opaque, t.receipt, t.rows_dir, STAGE_PATH)
+
+
+@pytest.fixture(scope="module")
+def evaluated(tmp_path_factory):
+    t = build_target(tmp_path_factory.mktemp("t074c"), name="SYNTH_EVAL")
+    open_gate(t)
+    ctx = context(t)
+    return t, ctx, mt.evaluate(ctx)
+
+
+# ---------------------------------------------------------------- gate
+
+
+def test_gate_opens_once_and_receipt_is_immutable(tmp_path):
+    t = build_target(tmp_path, name="SYNTH_GATE")
+    receipt = open_gate(t)
+    assert receipt["classification"] == rg.CLASSIFICATION and receipt["required_rows"] == ROWS
+    assert receipt["low_receipt_sha256"] == sha(t.low_receipt)
+    assert receipt["reference_opaque_manifest_sha256"] == sha(t.opaque)
+    assert receipt["rows"]["ours_ttt"]["output_manifest_sha256"] == sha(t.rows_dir / "ours_ttt" / "output_manifest.json")
+    assert stat.S_IMODE(os.stat(t.receipt).st_mode) == 0o444
+    with pytest.raises(FileExistsError):
+        open_gate(t)
+    rg.validate_receipt(t.receipt, t.name, t.rows_dir, t.low_receipt, t.opaque)
+
+
+def test_gate_refuses_missing_required_row(tmp_path):
+    t = build_target(tmp_path, name="SYNTH_MISSING")
+    write_json(t.rows_dir / "mr_illuminate" / "status.json", {"classification": "PENDING_NOT_RUN"})
+    rg.TARGETS[t.name]["required_rows"].insert(4, "mr_illuminate")
+    with pytest.raises(rg.GateError, match="mr_illuminate: .*PENDING_NOT_RUN"):
+        open_gate(t)
+    assert not t.receipt.exists()
+
+
+@pytest.mark.parametrize("victim", ["local_manifest", "local_verification", "remote_manifest", "remote_output",
+                                    "freeze_classification", "opaque", "step0_binding"])
+def test_gate_refuses_tampering(tmp_path, victim):
+    t = build_target(tmp_path, name=f"SYNTH_TAMPER_{victim}")
+    if victim == "local_manifest":
+        path = t.rows_dir / "promptir" / "output_manifest.json"
+        path.write_text(path.read_text().replace('"metrics": 0', '"metrics": 0 '))
+    elif victim == "local_verification":
+        path = t.rows_dir / "retinexformer" / "verification.json"
+        path.write_text(path.read_text() + " ")
+    elif victim == "remote_manifest":
+        path = t.runs / "ours_step0" / "output_manifest.json"
+        path.write_text(path.read_text() + "\n")
+    elif victim == "remote_output":
+        path = t.runs / "promptir_dctta" / Path(t.files[3]["name"]).stem / "output.pt.gz"
+        raw = bytearray(path.read_bytes())
+        raw[len(raw) // 2] ^= 0xFF
+        path.write_bytes(bytes(raw))
+    elif victim == "freeze_classification":
+        path = t.rows_dir / "ours_ttt" / "freeze_receipt.json"
+        path.write_text(path.read_text().replace("FROZEN_OUTPUTS", "SMOKE_OUTPUTS"))
+    elif victim == "opaque":
+        t.opaque.write_text(t.opaque.read_text().replace('"reference_decodes": 0', '"reference_decodes": 1'))
+    elif victim == "step0_binding":
+        path = t.rows_dir / "ours_ttt" / "freeze_receipt.json"
+        data = json.loads(path.read_bytes())
+        data["expected_step0_manifest_sha256"] = "0" * 64
+        path.write_text(json.dumps(data))
+    with pytest.raises(rg.GateError):
+        open_gate(t)
+    assert not t.receipt.exists()
+
+
+# ---------------------------------------------------------------- metrics refusal
+
+
+def test_metrics_refuse_without_gate_receipt(tmp_path, monkeypatch):
+    t = build_target(tmp_path, name="SYNTH_NORECEIPT")
+    decoded = []
+    monkeypatch.setattr(np, "load", lambda *a, **k: decoded.append(a) or pytest.fail("GT decoded"))
+    with pytest.raises(rg.GateError, match="no reference gate receipt"):
+        context(t)
+    assert not decoded
+
+
+def test_metrics_refuse_if_bound_file_changes_after_gate(tmp_path):
+    t = build_target(tmp_path, name="SYNTH_POSTGATE")
+    open_gate(t)
+    path = t.rows_dir / "ours_step0" / "verification.json"
+    path.write_text(path.read_text() + " ")
+    with pytest.raises(rg.GateError):
+        context(t)
+
+
+def test_metrics_refuse_forged_receipt(tmp_path):
+    t = build_target(tmp_path, name="SYNTH_FORGED")
+    receipt = rg.evaluate(t.name, t.rows_dir, t.low_receipt, t.opaque)
+    receipt["rows"]["promptir"]["output_manifest_sha256"] = "f" * 64
+    t.receipt.write_text(json.dumps(dict(receipt, created_utc="x", output_files_rehashed=True)))
+    with pytest.raises(rg.GateError, match="rows"):
+        context(t)
+
+
+def test_metrics_refuse_changed_gt_bytes(tmp_path):
+    t = build_target(tmp_path, name="SYNTH_GTBYTES")
+    open_gate(t)
+    ctx = context(t)
+    gt = t.root / json.loads(t.opaque.read_bytes())["pairs"][0]["gt_relpath"]
+    array = np.load(gt)
+    array[0, 0, 0] ^= 1
+    np.save(gt, array)
+    with pytest.raises(rg.GateError, match="GT raw bytes changed"):
+        ctx.reference(0)
+
+
+# ---------------------------------------------------------------- metric fidelity
+
+
+def independent_reference(t, index):
+    """T073-A reference conversion on the official-loader uint8: uint8/255 in float64 -> float32 -> float64."""
+    import cv2
+
+    pair = json.loads(t.opaque.read_bytes())["pairs"][index]
+    array = cv2.resize(np.load(t.root / pair["gt_relpath"]), (960, 512))[:, :, [2, 1, 0]]
+    return (array.astype(np.float64) / 255).astype(np.float32).astype(np.float64)
+
+
+def test_per_image_metrics_equal_direct_frozen_call(evaluated):
+    t, ctx, result = evaluated
+    core = mt.import_frozen_metric()
+    for index, item in enumerate(t.files[:4]):
+        y = independent_reference(t, index)
+        assert np.array_equal(ctx.reference(index).astype(np.float64), y)
+        for row_id in ("ours_ttt", "promptir"):
+            manifest = json.loads((t.rows_dir / row_id / "output_manifest.json").read_bytes())
+            with gzip.open(t.runs / row_id / Path(item["name"]).stem / "output.pt.gz", "rb") as stream:
+                tensor = torch.load(stream, weights_only=True)
+            # T071-B convention: C-contiguous HWC float64 (np.load'ed npy), then the preregistered clip
+            x = np.clip(np.ascontiguousarray(tensor[0].permute(1, 2, 0).numpy(), dtype=np.float64), 0, 1)
+            direct = core.metrics(x, y)
+            got = result["per_image"][row_id][index]
+            assert got["psnr"] == direct["psnr"] and got["rgb_ssim"] == direct["rgb_ssim"]
+            assert got["clipped_below"] > 0 and got["clipped_above"] > 0
+            assert manifest["rows"][index]["low_name"] == got["name"]
+
+
+def test_result_structure_and_statistics(evaluated):
+    t, ctx, result = evaluated
+    assert result["n"] == 12 and result["clusters"]["G"] == 6 and result["clusters"]["low_power"]
+    assert result["clusters"]["order"] == sorted({f["cluster"] for f in t.files})
+    pairs = {(c["a"], c["b"]): c for c in result["comparisons"]}
+    assert set(pairs) == {("ours_ttt", r) for r in ROWS if r != "ours_ttt"} | {("promptir_dctta", "promptir")}
+    assert pairs[("ours_ttt", "ours_step0")]["families"] == ["headline", "adaptation_gain"]
+    comp = pairs[("ours_ttt", "promptir")]
+    d = np.asarray([a["psnr"] - b["psnr"] for a, b in zip(result["per_image"]["ours_ttt"], result["per_image"]["promptir"])])
+    assert comp["psnr"]["mean_delta"] == float(d.mean()) and comp["psnr"]["win_fraction"] == float((d > 0).sum() / 12)
+    for r in ROWS:
+        ps = [x["psnr"] for x in result["per_image"][r]]
+        assert result["rows"][r]["mean_psnr"] == float(np.mean(ps)) and result["rows"][r]["median_psnr"] == float(np.median(ps))
+    assert result["rows"]["ours_ttt"]["no_active_abstentions"] == 0
+    idx = mt.bootstrap_indices(6)
+    assert result["bootstrap"]["indices_sha256"] == hashlib.sha256(idx.tobytes()).hexdigest()
+    json.dumps(result, allow_nan=False)
+    assert "ours_ttt - promptir" in mt.markdown(result)
+
+
+def test_output_clip_is_applied():
+    core = mt.import_frozen_metric()
+    rng = np.random.default_rng(3)
+    y = rng.uniform(0, 1, (40, 56, 3)).astype(np.float32)
+    x = rng.uniform(-0.2, 1.2, (40, 56, 3)).astype(np.float32)
+    got = mt.score(x, y, core)
+    clipped = core.metrics(np.clip(x.astype(np.float64), 0, 1), y.astype(np.float64))
+    raw = core.metrics(x.astype(np.float64), y.astype(np.float64))
+    assert got["psnr"] == clipped["psnr"] and got["rgb_ssim"] == clipped["rgb_ssim"]
+    assert got["psnr"] != raw["psnr"] and got["rgb_ssim"] != raw["rgb_ssim"]
+    # clipping after widening == widening after clipping (0 and 1 are exact in both dtypes)
+    assert np.array_equal(np.clip(x.astype(np.float64), 0, 1), np.clip(x, 0, 1).astype(np.float64))
+
+
+def test_score_fixes_c_contiguous_layout():
+    """The frozen PSNR (np.mean) is layout-sensitive at one ulp; score() must not depend on the caller's strides."""
+    core = mt.import_frozen_metric()
+    rng = np.random.default_rng(8)
+    chw = rng.uniform(-0.1, 1.1, (3, 64, 96)).astype(np.float32)
+    y = np.ascontiguousarray(rng.uniform(0, 1, (64, 96, 3)).astype(np.float32).astype(np.float64))
+    strided = chw.transpose(1, 2, 0)
+    contiguous = np.ascontiguousarray(strided)
+    assert not strided.flags["C_CONTIGUOUS"]
+    got_strided, got_contiguous = mt.score(strided, y, core), mt.score(contiguous, y, core)
+    assert got_strided == got_contiguous
+    direct = core.metrics(np.clip(contiguous.astype(np.float64), 0, 1), y)
+    assert got_contiguous["psnr"] == direct["psnr"] and got_contiguous["rgb_ssim"] == direct["rgb_ssim"]
+
+
+def test_psnr_uses_unit_data_range():
+    core = mt.import_frozen_metric()
+    rng = np.random.default_rng(4)
+    y = rng.uniform(0, 1, (32, 48, 3))
+    x = np.clip(y + rng.normal(0, 0.05, y.shape), 0, 1)
+    assert abs(mt.score(x, y, core)["psnr"] - 10 * np.log10(1.0 / np.mean((x - y) ** 2))) < 1e-10
+    assert core.rgb_ssim(y, y) == 1.0
+    with pytest.raises(rg.GateError, match="nonfinite"):  # identical images: PSNR inf fails closed
+        mt.score(y, y, core)
+
+
+def test_official_loader_unit_conversion_equals_t073a_conversion_exhaustively():
+    stage = load_stage()
+    values = np.arange(256, dtype=np.uint8).reshape(16, 16, 1).repeat(3, axis=2)
+    official = stage.to_unit(values)
+    t073a = (values.astype(np.float64) / 255).astype(np.float32)
+    assert official.dtype == np.float32 and np.array_equal(official, t073a)
+    assert np.array_equal(official.view(np.uint32), t073a.view(np.uint32))
+
+
+def test_frozen_metric_pins_match_t073a_plan():
+    plan_path = HERE.parent / "T073A" / "metric_plan.json"
+    if not plan_path.exists():
+        pytest.skip("metric_plan.json not staged")
+    plan = json.loads(plan_path.read_bytes())["metric_source"]["source_sha256"]
+    assert plan["research_log/T071A/core.py"] == mt.FROZEN_METRIC_SHA256["research_log/T071A/core.py"]
+    assert plan["ttie/ssim_transfer.py"] == mt.FROZEN_METRIC_SHA256["ttie/ssim_transfer.py"]
+    core = mt.import_frozen_metric()
+    assert sha(core.__file__) == plan["research_log/T071A/core.py"]
+
+
+# ---------------------------------------------------------------- bootstrap
+
+
+def test_rng_convention_reproduces_t073a_index_matrix_hash():
+    indices = mt.bootstrap_indices(150)
+    assert indices.shape == (10000, 150) and indices.dtype == np.int64 and indices.flags["C_CONTIGUOUS"]
+    assert hashlib.sha256(indices.tobytes()).hexdigest() == T073A_INDICES_SHA256
+
+
+@pytest.mark.parametrize("n", [1, 7, 150])
+def test_singleton_clusters_reduce_exactly_to_t073a_image_bootstrap(n):
+    rng = np.random.default_rng(n)
+    deltas = rng.normal(0.3, 1.0, n)
+    names = [f"img{i:04d}.png" for i in range(n)]
+    order, position, sizes = mt.cluster_layout(names, names)
+    boot, stats = mt.cluster_bootstrap(deltas, position, sizes, mt.bootstrap_indices(len(order)))
+    image_idx = np.random.Generator(np.random.PCG64(20260922)).integers(0, n, size=(10000, n), dtype=np.int64)
+    image_stats = deltas[image_idx].mean(axis=1)
+    assert np.array_equal(stats, image_stats)
+    assert boot["ci95"] == np.quantile(image_stats, [0.025, 0.975], method="linear").tolist()
+
+
+def test_cluster_ratio_statistic_matches_explicit_resampling():
+    rng = np.random.default_rng(5)
+    clusters = ["b"] * 3 + ["a"] * 5 + ["c"] * 1 + ["d"] * 4
+    deltas = rng.normal(0, 1, len(clusters))
+    order, position, sizes = mt.cluster_layout([f"{i}" for i in range(len(clusters))], clusters)
+    assert order == ["a", "b", "c", "d"] and sizes.tolist() == [5, 3, 1, 4]
+    indices = mt.bootstrap_indices(4)
+    _, stats = mt.cluster_bootstrap(deltas, position, sizes, indices)
+    for b in range(0, 10000, 997):
+        chosen = [deltas[i] for c in indices[b] for i in range(len(clusters)) if clusters[i] == order[c]]
+        assert stats[b] == pytest.approx(np.mean(chosen), rel=0, abs=1e-12)
+
+
+def test_singleton_order_guard():
+    with pytest.raises(rg.GateError):
+        mt.cluster_layout(["pair11__a.png", "pair1__b.png"], ["pair11", "pair1"])
+
+
+# ---------------------------------------------------------------- phase-4 harness
+
+
+def ours_available():
+    return (OURS_SRC / "research_log" / "T070A" / "infer.py").is_file()
+
+
+needs_ours = pytest.mark.skipif(not ours_available(), reason="frozen T070-A source not present")
+
+
+@pytest.fixture(scope="module")
+def ours():
+    if str(OURS_SRC) not in sys.path:
+        sys.path.insert(0, str(OURS_SRC))
+    cwd = os.getcwd()
+    os.chdir(OURS_SRC)
+    threads = torch.get_num_threads()
+    # FinalOurs.__init__ pins one thread; with many CPU threads even two frozen trajectory() calls differ.
+    torch.set_num_threads(1)
+    import ours_tuning
+
+    binding = json.loads((OURS_SRC / "research_log" / "T070A" / "inference_binding.json").read_bytes())
+    yield ours_tuning, binding
+    torch.set_num_threads(threads)
+    os.chdir(cwd)
+
+
+def synthetic_low(seed=0, h=64, w=96):
+    g = torch.Generator().manual_seed(seed)
+    base = torch.linspace(0.02, 0.12, w).repeat(h, 1)
+    return (base[None, None].repeat(1, 3, 1, 1) * (0.8 + 0.4 * torch.rand(1, 3, h, w, generator=g))).clamp(0, 1)
+
+
+def fake_gate():
+    return SimpleNamespace(active=torch.tensor([True, True, False, True]), winner=torch.tensor([0, 0, 1, 0]))
+
+
+@needs_ours
+def test_derivation_substitutions_and_default_equivalence(ours):
+    tuning, binding = ours
+    from research_log.T062CR2.core import trajectory
+    from research_log.T070A.infer import select_trajectory
+
+    derived, _ = tuning.derive(tuning.DEFAULTS, binding)
+    model = json.loads((OURS_SRC / "research_log" / "T066A" / "evidence" / "model.json").read_bytes())
+    compared = 0
+    for seed in range(3):
+        x = synthetic_low(seed)
+        frozen = trajectory(x, fake_gate())
+        mine = derived["research_log.T062CR2.core.trajectory"](x, fake_gate())
+        for key in ("images", "states", "components", "gradients", "pre_box"):
+            assert torch.equal(frozen[key], mine[key]), key
+        assert frozen["values"] == mine["values"] and frozen["selected_step"] == mine["selected_step"] == 27
+        try:
+            expected = select_trajectory(x, frozen, model)[0]
+        except AssertionError as exc:
+            with pytest.raises(AssertionError, match=re.escape(str(exc)) if str(exc) else None):
+                derived["research_log.T070A.infer.select_trajectory"](x, mine, model)
+            continue
+        assert derived["research_log.T070A.infer.select_trajectory"](x, mine, model)[0] == expected
+        compared += 1
+    assert compared > 0
+
+
+@needs_ours
+def test_knob_overrides_take_effect(ours):
+    tuning, binding = ours
+    x = synthetic_low(1)
+    base = tuning.derive(tuning.canonical_knobs({}), binding)[0]["research_log.T062CR2.core.trajectory"](x, fake_gate())
+    for override, check in (({"updates": 5}, lambda tr: len(tr["images"]) == 6 and tr["selected_step"] == 5),
+                            ({"lr": 0.06}, lambda tr: not torch.equal(tr["states"][1], base["states"][1])),
+                            ({"loss_weights": [1, 0, 5]}, lambda tr: tr["values"][0] != base["values"][0]),
+                            ({"exposure_target": 0.5}, lambda tr: not torch.equal(tr["components"][0], base["components"][0]))):
+        derived = tuning.derive(tuning.canonical_knobs(override), binding)[0]
+        assert check(derived["research_log.T062CR2.core.trajectory"](x, fake_gate())), override
+
+
+class FakeScorer:
+    """Stands in for the CLIP scorer: fixed per-region (dark, bright) scores."""
+
+    def __init__(self, scores):
+        self.scores = torch.tensor(scores, dtype=torch.float32)
+
+    def __call__(self, image):
+        return self.scores.to(image.device)
+
+
+def frozen_gate_json():
+    return {"q_joint": 1.053775168916056,
+            "calibration": {"tau": [0.027419920079410076, 0.001673370413482167],
+                            "scale": [0.07507099353490992, 0.057845398696933635]}}
+
+
+@needs_ours
+def test_run_group_defaults_match_frozen_pipeline_and_abstention(ours):
+    tuning, binding = ours
+    from ttie.semantic_ttt import FixedObjective
+    from research_log.T062CR2.core import trajectory
+    from research_log.T070A.infer import select_trajectory
+
+    model = json.loads((OURS_SRC / "research_log" / "T066A" / "evidence" / "model.json").read_bytes())
+    scorer = FakeScorer([[0.2, 0.0], [0.3, 0.0], [0.0, 0.0], [0.25, 0.0]])
+    gate = frozen_gate_json()
+    compared = 0
+    for seed in range(4):
+        x = synthetic_low(seed)
+        knobs = tuning.canonical_knobs({})
+        variants = [{"id": "d", "knobs": knobs, "derived": tuning.derive(knobs, binding)[0]}]
+        image, record = tuning.run_group(scorer, gate, model, x, variants, "cpu")["d"]
+        objective = FixedObjective(scorer, x, gate)
+        assert record["active"] == objective.active.tolist() and any(record["active"])
+        try:
+            trace = trajectory(x, objective)
+            expected = trace["images"][select_trajectory(x, trace, model)[0]["selected_step"]]
+        except AssertionError:
+            assert record["status"] == "REJECTED"
+            continue
+        assert record["status"] == "TTT_EXECUTED" and torch.equal(image, expected)
+        compared += 1
+    assert compared > 0
+    knobs = tuning.canonical_knobs({"q_joint": 1e9})
+    variants = [{"id": "q", "knobs": knobs, "derived": tuning.derive(knobs, binding)[0]}]
+    image, record = tuning.run_group(scorer, gate, model, synthetic_low(0), variants, "cpu")["q"]
+    assert record["status"] == "TTT_ABSTAIN_NO_ACTIVE_GATE" and torch.equal(image, synthetic_low(0))
+
+
+def test_grid_expansion_and_knob_validation():
+    import ours_tuning as tuning
+
+    settings = tuning.expand_grid({"product": {"lambda_value": [0.75, 0.875], "updates": [27, 40]}})
+    assert settings[0] == tuning.canonical_knobs({}) and len(settings) == 4  # defaults deduplicated
+    for bad in ({"lambda_value": 0.8}, {"unknown": 1}, {"updates": 2.0}, {"tau": [1.0]}, {"exposure_target": 1.5}):
+        with pytest.raises(rg.GateError):
+            tuning.canonical_knobs(bad)
+    with pytest.raises(rg.GateError, match="duplicate"):
+        tuning.expand_grid({"settings": [{"lr": 0.05}, {"lr": 0.05}]})
+    assert set(tuning.KNOB_LOCATIONS) == set(tuning.DEFAULTS)
+
+
+def test_selection_rule():
+    import ours_tuning as tuning
+
+    settings = tuning.expand_grid({"settings": [{"lr": 0.05}, {"lr": 0.09}, {"updates": 40}, {"lambda_value": 0.5}]})
+    ids = [tuning.setting_id(s) for s in settings]
+
+    def rec(i, psnr, ssim, status="COMPLETE"):
+        return {"setting_id": ids[i], "knobs": settings[i], "status": status,
+                "summary": {"mean_psnr": psnr, "mean_rgb_ssim": ssim}}
+
+    records = [rec(0, 20.0, 0.70), rec(1, 20.995, 0.80), rec(2, 21.0, 0.80), rec(3, 21.004, 0.60), rec(4, 30.0, 0.9, "FAILED")]
+    chosen, window = tuning.select(records, settings)
+    assert set(window) == {ids[1], ids[2], ids[3]}
+    assert chosen["setting_id"] == ids[1]  # SSIM tie with ids[2] (lr 0.09); lr 0.05 is nearer the defaults
+    assert tuning.distance(settings[1], settings) == pytest.approx(0.02 / 0.06)
+    assert tuning.distance(settings[2], settings) == pytest.approx(1.0)
+
+
+def test_log_chain_detects_tampering(tmp_path):
+    import ours_tuning as tuning
+
+    path, records = tmp_path / "log.jsonl", []
+    for i in range(3):
+        tuning.append_log(path, records, {"setting_id": str(i), "status": "COMPLETE", "summary": {"mean_psnr": float(i)}})
+    assert [r["setting_id"] for r in tuning.read_log(path)] == ["0", "1", "2"]
+    lines = path.read_text().splitlines()
+    path.write_text("\n".join([lines[0], lines[1].replace('"mean_psnr":1.0', '"mean_psnr":9.0'), lines[2]]) + "\n")
+    with pytest.raises(rg.GateError):
+        tuning.read_log(path)
+    path.write_text("\n".join([lines[0], lines[2]]) + "\n")
+    with pytest.raises(rg.GateError, match="chain"):
+        tuning.read_log(path)
+
+
+def test_harness_refuses_to_start_without_gate_receipt(tmp_path, monkeypatch):
+    import ours_tuning as tuning
+
+    t = build_target(tmp_path, name="SYNTH_TUNE_NORECEIPT")
+    (tmp_path / "grid.json").write_text("{}")
+    monkeypatch.setattr(sys, "argv", ["ours_tuning.py", "--target", t.name, "--low-receipt", str(t.low_receipt),
+                                      "--low-dir", str(tmp_path / "staged" / "low"), "--opaque-manifest", str(t.opaque),
+                                      "--gate-receipt", str(t.receipt), "--rows-dir", str(t.rows_dir),
+                                      "--stage-target", str(STAGE_PATH), "--manifest", str(tmp_path / "none.json"),
+                                      "--grid", str(tmp_path / "grid.json"), "--work", str(tmp_path / "work")])
+    with pytest.raises(rg.GateError, match="no reference gate receipt"):
+        tuning.main()
+    assert not (tmp_path / "work").exists()
+
+
+def test_tuned_row_materialises_and_enters_metrics(evaluated, tmp_path):
+    import ours_tuning as tuning
+
+    t, ctx, _ = evaluated
+    settings = tuning.expand_grid({"settings": [{"lr": 0.05}]})
+    sid = tuning.setting_id(settings[1])
+    rng = np.random.default_rng(9)
+    images, per_image = [], []
+    for item in t.files:
+        image = torch.from_numpy(rng.uniform(0, 1, (1, 3, 512, 960)).astype(np.float32))
+        images.append((item["name"], image))
+        per_image.append({"name": item["name"], "status": "TTT_EXECUTED", "selected_step": 3, "active": [True] * 4,
+                          "shape": [1, 3, 512, 960], "dtype": "torch.float32",
+                          "output_tensor_sha256": hashlib.sha256(image.numpy().tobytes()).hexdigest()})
+    work = tmp_path / "work"
+    (work / "candidates").mkdir(parents=True)
+    tuning.write_outputs(work / "candidates" / sid, images, per_image)
+    records = []
+    record = tuning.append_log(work / "log.jsonl", records, {"setting_id": sid, "knobs": settings[1], "status": "COMPLETE",
+                                                             "per_image": per_image,
+                                                             "summary": {"mean_psnr": 1.0, "mean_rgb_ssim": 0.5, "abstentions": 0}})
+    manifest = tuning.materialize(work, record, [sid], ctx, records, settings, "e" * 64, work / "log.jsonl")
+    assert manifest["method_id"] == rg.TUNED_ROW and manifest["gate_receipt_sha256"] == ctx.receipt_sha256
+    with pytest.raises(FileExistsError):
+        tuning.materialize(work, record, [sid], ctx, records, settings, "e" * 64, work / "log.jsonl")
+    result = mt.evaluate(ctx, work / rg.TUNED_ROW)
+    families = {(c["a"], c["b"]): c["families"] for c in result["comparisons"]}
+    assert families[(rg.TUNED_ROW, "ours_ttt")] == ["tuned_headline"]
+    assert result["rows"][rg.TUNED_ROW]["no_active_abstentions"] == 0
