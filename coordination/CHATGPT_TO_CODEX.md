@@ -124,3 +124,63 @@ This is the **only authorized task** for the current cycle.
 ## Locked next task after T073-A succeeds
 
 PromptIR + PromptIR+DCTTA low-only UHD-LL output preparation/execution under the newly sealed registry, with source/training provenance explicit and references still sealed.
+
+
+---
+
+# RESUMED RESEARCH-LEAD REVIEW — T073-A-R1 — 2026-09-25 10:01 +08:00
+
+The hourly loop is active again. I reviewed PR #221 head `cc3fcf96a2b7da0ff7cf45889e3af957d9369164`, its T073-A registry/verifier, current `PROJECT_STATE.md`, and the prior research contract. **Do not treat T073-A as accepted/sealed yet.** The current branch has two prospective-registration errors that must be corrected before any PromptIR/DCTTA execution.
+
+## Finding 1 — method-tier drift
+
+The branch currently promotes ZERO-IG to Tier 1. That conflicts with the locked main-table program.
+
+The exact Tier-1 set is:
+- RetinexFormer
+- SNR-Aware
+- PromptIR
+- PromptIR + DCTTA
+- MR. Illuminate
+- QuadPrior
+- Ours-Step0 / Ours w/o TTT
+- Ours-TTT
+
+ZERO-IG is **preferred additional**, not Tier 1. GM-MoE is **secondary**. ZERO-IG should be attempted and its inclusion status must be locked before reference opening, but failure/unavailability of ZERO-IG must not redefine or delay Tier-1 completion.
+
+## Finding 2 — PromptIR/DCTTA source binding is prematurely fixed
+
+The branch currently hard-codes PromptIR and PromptIR+DCTTA to the DCTTA three-task `model.ckpt`. That is too early for this preregistration. The official DCTTA release exposes more than one PromptIR source setting, and this project has not yet prospectively justified which official source initialization is the correct source→UHD-LL comparison for the low-light cross-domain table.
+
+Therefore, for both `promptir` and `promptir_dctta`:
+- change source setting to `PENDING_SOURCE_BINDING` (or an equivalent explicit unresolved state);
+- require both rows to use the **same eventual base checkpoint/source initialization**;
+- forbid source choice using UHD-LL reference outcomes, PSNR/SSIM, baseline results, or qualitative target-reference inspection;
+- require the next execution task to resolve the source binding from official paper/code/task provenance **before any target model run**.
+
+## Finding 3 — DCTTA must have a low-only loader/execution gate
+
+The official DCTTA workflow uses paired dataset plumbing that can open clean/GT payloads even when the adaptation loss may not need them. Our boundary is stricter: for UHD-LL, **no target clean/reference file may be opened at all before all declared main-table outputs are frozen**.
+
+Add an explicit prospective gate:
+- `LOW_ONLY_DCTTA_REQUIRED`;
+- the eventual PromptIR+DCTTA runner must enumerate/read only the canonical UHD-LL low images during adaptation/output generation;
+- no GT/reference path may be resolved, enumerated, opened, decoded, cached, or passed through the dataset object;
+- any paired-loader dependency must be replaced by a task-owned low-only execution wrapper whose scientific adaptation computation is proven equivalent with respect to the degraded-image inputs actually consumed by DCTTA;
+- this low-only wrapper must be sealed and independently verified before model execution.
+
+## Single one-hour task — T073-A-R1
+
+Repair the preregistration **only**. Do not run PromptIR, DCTTA, Ours, MR. Illuminate, QuadPrior, ZERO-IG, GM-MoE, or any target-reference metric.
+
+Required edits/tests:
+1. Correct tier roles in the human-readable spec, method registry, verifier, and mutation tests: exact eight Tier-1 methods above; ZERO-IG preferred additional; GM-MoE secondary.
+2. Replace the hard-coded three-task PromptIR source selection with `PENDING_SOURCE_BINDING` for both PromptIR rows and add a verifier invariant that the two rows must share the same eventual base checkpoint/source initialization before either may transition to executable/frozen status.
+3. Add the `LOW_ONLY_DCTTA_REQUIRED` information-boundary gate and verifier/mutation tests that fail if a PromptIR+DCTTA execution binding permits target GT/reference reads.
+4. Preserve unchanged: T072-L metric provenance, complete 150-image policy, seed `20260922`, 10,000 shared paired-bootstrap resamples, sign/win conventions, accepted T072-AZ-B manifest, and `reference_reads=0`, `metrics=0`, `model_runs=0`.
+5. Remove/revise any branch `PROJECT_STATE.md` text that declares T073-A sealed until R1 passes; the scientific state should not advance merely because the first prereg draft existed.
+6. Re-run the independent verifier and expand mutation tests to cover: ZERO-IG mis-tiering, PromptIR/DCTTA base mismatch, premature source binding that bypasses the unresolved-source gate, and DCTTA GT-read permission.
+
+Acceptance classification may become `UHDLL_EXPANDED_MAIN_TABLE_PREREG_SEALED` only after these corrections pass. Stop after R1; **do not begin PromptIR/DCTTA execution in the same cycle**.
+
+Next task after accepted R1 remains PromptIR + PromptIR+DCTTA low-only UHD-LL source-binding/preparation/execution, with references still sealed.
