@@ -8,7 +8,8 @@
   "task_code_sha256": {
     "low_only_loader.py": "f7f8bd4194a5a1055226ea1e0985ebefc155d4a3b4dce0173b5f7cb143ace547",
     "run_low_only.py": "4ee1eb2ca7542a40ec7e594791c36512578cf058013c09fa0c456ce36e1969ca",
-    "make_synthetic_low.py": "7d5b0c7ec9ec19b8c6619a6e4320d1a9750b05285ed2b0e08e0f2f1410b9df2b",
+    "make_synthetic_low.py": "f4d4e4f885a84b5efec77dbfa88a45500c7f654f423c68fa13ef4add65bbe33a",
+    "run_no_cudnn_probe.py": "4baac7364530f635bd108709c9f4fb076e343ca7bf97cd30cf607968c4d63011",
     "test_low_only_loader.py": "96b593220a214cfb07ebd2183950e0a19c7f5b7ae7504b62b980955c7b652479",
     "test_run_low_only.py": "96256fe27fcc3da8e742a2e6fc25b89db6da0d3012b27491b3bebab70da99aad",
     "test_source_equivalence.py": "03dff1fe49afa5cbb2fe4b567259cea06c32bf53c9c4918a7dc958278c684760"
@@ -18,6 +19,7 @@
   "real_full_component_adaptation_smoke": "PASS: one 352x352 low-only synthetic RGB image; static and DCTTA outputs 352x352 RGB; DCTTA output SHA256 1edc39b3ed85fc4bc33443bf3430f59eea2b39883a7b025ea760288118294216; whole run 10.650 seconds; CUDA peak reserved 23897047040 bytes; target input absent",
   "independent_execution_review": "research_log/T073B/execution_gate_review.md: B3a low-only binding accepted; native-4K B3b smoke pending",
   "canonical_low_cache_hash_audit": "150 expected; 150 remote; zero SHA256 mismatches against T072-I download_receipt.json",
+  "native_4k_execution": "STATIC_SMOKE_FAILED: official qkv depthwise convolution exceeds PyTorch 32-bit index math; zero outputs; cuDNN-disabled synthetic 4K probe reproduces same failure; no accepted rescue",
   "target_model_runs": 0,
   "target_reference_reads": 0,
   "target_metrics": 0,
