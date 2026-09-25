@@ -40,3 +40,9 @@ User-authorized `origin/main` `b381ddc6` now supersedes the prior stop-after-R1 
 ## T073-A-R1 source selection sealed; T073-B wrapper gate remains
 
 Official DCTTA five-task `epoch=80.ckpt` was acquired from the author link and hashed (426,058,955 bytes; SHA256 `206baf0dd10f636f025b33b5ee7eb63a353fcbf4d50858b62f9480a6d4be9d4a`); both PromptIR registry rows now bind to it and source commit `0526bf7b87c2a54574ae1cb3af916fd5568fc0b1`. R1 verifier passes with 19 rejected mutations, unchanged T072-L/T072-AZ-B provenance and `reference_reads=0`, `metrics=0`, `model_runs=0`. Official paired-loader GT reads were confirmed, so **no target model execution yet**: Phase B must first seal an independently verified low-only wrapper with degraded-input computation equivalence. Source receipt: `research_log/T073B/source_receipt.json`. User-approved long-horizon continuation is active; hourly research-lead review may correct/stop.
+
+---
+
+## T073-B low-only dataset seam verified; full execution gate pending
+
+The task-owned `research_log/T073B/low_only_loader.py` has no GT-directory argument. On three equal-size synthetic source-side pairs, its complete degraded-patch sequence is bitwise identical to the official paired `PromptTrainDataset_Simple`; the focused test instrumented image opens and observed LQ only. This is a narrow green increment, **not** a claim that the full DCTTA runner is low-only/sealed. Next integrate and independently test the adaptation/output path and GT-read boundary before any target run. `reference_reads=0`, `metrics=0`, `model_runs=0`; no paid GPU started.
