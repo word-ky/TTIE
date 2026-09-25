@@ -1,0 +1,83 @@
+{
+  "task": "T074-C",
+  "method_id": "mr_illuminate",
+  "target": "SDSD-indoor",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 180,
+  "preregistration": "research_log/T074C/prereg.md",
+  "canonical_low_receipt_sha256": "19138a9c1fef4e1d3a6ffcf6f0bf9dcb3b5b64453682f7424a3ea5f749512978",
+  "runner": "research_log/T073D/run_mri_native_batch.py",
+  "runner_sha256": "83e0d9d958ddc50851a83ad565cfd76c2f3acca767ab4f412e963b1dfac862fd",
+  "runner_revision_note": "cycle-safe post-run state check (pre-run state_dict(keep_vars=True) references re-hashed after the run + identity sets of parameters()/buffers()); official computation unchanged. The previous runner 14598bf6... failed the synthetic probe with RecursionError after processing (official setattr(attn, 'our_pipeline', model) creates a module cycle); no target image was run with it",
+  "execution_gate": "research_log/T073D/native_gate.md",
+  "official_source_commit": "013e013e0ab2112dfa5d43f2dc87d34aee4ee328 (joshua-cho-story/MR-Illuminate), 48 pinned files verified",
+  "runner_env": "/root/autodl-tmp/envs/mri (python 3.9.25, torch 2.0.1+cu117, xformers 0.0.20, diffusers 0.17.1), HF_HOME=/root/autodl-tmp/cache/hf, hub offline",
+  "official_config": {
+    "seed": 1,
+    "target_avg": 30.0,
+    "n_timesteps": 25,
+    "guidance_scale": 1.0,
+    "prompt": "",
+    "enable_xformers": true,
+    "adain_generator_seed": 145
+  },
+  "attention_processors": [
+    "XFormersAttnProcessor"
+  ],
+  "geometry": "native 960x512 (multiple of 8, no official resize-back); output unclipped float32(v)/255",
+  "weight_dtype": "torch.float16",
+  "sd15_repo": "stable-diffusion-v1-5/stable-diffusion-v1-5 (runwayml alias resolves to the same revision)",
+  "sd15_revision": "451f4fe16113bff5a5d2269ed5ad43b0592e9a14",
+  "sd15_receipt_path": "/root/autodl-tmp/TTIE/T073D/sd15_receipt.json",
+  "sd15_receipt_sha256": "e718b84b1506848929e5def6ffc5409bdcf8e959b9dc97dbc6da2bdde712de28",
+  "vae_checkpoint": "main-epoch=00-step=7000.ckpt",
+  "vae_checkpoint_sha256": "43a1143cbf83e4823db6303bf914fca5b7a8f8d25c43ab12554d5ad6d44ade70",
+  "vae_key_report": {
+    "missing_keys": 0,
+    "unexpected_keys": 0,
+    "loaded_value_mismatches": 0
+  },
+  "model_state_sha256": {
+    "unet": "3de2907950968d0e2d4f5b3799f7d23a0c997a623d534d4d9cb931b6a00bb1a5",
+    "text_encoder": "cab0594eac4b98790427b79c8f72d0a41384ab6fe72d3136e0247a13468da554",
+    "custom_vae": "50713a2e495394bbbfccd5f9d851368473e58159f86a5ea35fd4b19a08fe3e32"
+  },
+  "model_state_unchanged": true,
+  "global_rng_unchanged_all_images": true,
+  "offline_cpu_load_check": "OK (StableDiffusionPipeline.from_pretrained(snapshot, torch_dtype=float16), HF_HUB_OFFLINE=1)",
+  "synthetic_probe_512x960": {
+    "summary_path": "research_log/T074C/SDSD_indoor/mr_illuminate/synthetic_probe_512x960_summary.json",
+    "repeats": 2,
+    "peak_reserved_bytes": [
+      8575254528,
+      8503951360
+    ],
+    "bitwise_repeatable": true,
+    "prequant_dtype": "torch.float32"
+  },
+  "smoke_one_manifest_sha256": "827b83cb73d3e10f4b0d40520f11152c22193ac35058e4e9cb3999ec5d3675f5",
+  "smoke_first_row_tensor_sha256": "4a1a4da8dd0e9b8cccd0ed8c65177ac5e67b40d50c30872f4e5b349e9e159fea",
+  "first_row_frozen_smoke_verified": true,
+  "smoke_promotable": false,
+  "full_run_utc": [
+    "2026-09-25T20:14:46Z",
+    "2026-09-25T20:33:48Z"
+  ],
+  "verifier": "research_log/T073D/verify_mri_full.py (base env /root/miniconda3/bin/python, --require-promotable, --expected-output-manifest-sha256, --first-row-tensor-sha256)",
+  "verifier_sha256": "8006e9416e29783ff2a081189112083f9d7bada1b591a84285037fbeca94938d",
+  "verifier_pass_count": 180,
+  "output_manifest_path": "research_log/T074C/SDSD_indoor/mr_illuminate/output_manifest.json",
+  "output_manifest_sha256": "1a19abcf0f7dafdd445011eb3c7effb9a4ba97c638670dd196a716a61f9e5cae",
+  "independent_verification_path": "research_log/T074C/SDSD_indoor/mr_illuminate/verification.json",
+  "independent_verification_sha256": "686003a9812410967b93d93f9b05905d74395346d5d1ca08016a1796a00f4359",
+  "verification_classification": "MR_ILLUMINATE_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 5.957301523012575,
+  "per_image_seconds_sum": 1072.4670188459568,
+  "max_per_image_peak_reserved_gpu_bytes": 8577351680,
+  "compressed_output_bytes": null,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/mri",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false
+}
