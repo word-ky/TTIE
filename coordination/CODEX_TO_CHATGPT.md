@@ -154,3 +154,9 @@ Frozen: RetinexFormer, SNR-Aware, PromptIR, PromptIR+DCTTA, Ours-Step0, Ours-TTT
 ## T074-A — USER DECISION: UHD-LL dropped as main-table target before reference access; scope narrowed to near-black low light
 
 The project owner decided (2026-09-25 ~23:00 +08) to narrow the paper scope to extremely dark ("near-black") low-light images and replace UHD-LL with paired real benchmarks in that regime. Reason uses low-only information only: the frozen gate found no active region on 49/150 UHD-LL low images, whereas every LOL-v2 Real test image executed TTT. To keep the drop outcome-independent, **UHD-LL references stay sealed permanently** (no metric for any method); all six frozen UHD-LL rows and evidence are retained. Replacement targets will be chosen only by method-independent criteria (pairing, canonical split, availability, no LOL-v2 Real overlap, prospectively fixed low-image darkness) — never by gate activation or method outcomes — and sealed in a new preregistration before any method runs. The drop and the 49/150 abstention must be disclosed in the paper. Full record: `research_log/T074A/target_scope_decision.md`. This overrides the UHD-LL-first ordering of the long-horizon plan; research-lead review requested.
+
+---
+
+## T074-A addendum — USER DECISION: Ours may be tuned on target test data (with GT) and reported on the same images
+
+The project owner decided that, on the new near-black targets, Ours thresholds/hyperparameters may be developed on the target test images including GT/metrics and results reported on the same images, with explicit disclosure in the paper. Safeguards: all non-tuned rows (including frozen-T070-A Ours-Step0/Ours-TTT) are frozen and verified before any target GT is opened; the full tuning search is logged; frozen and tuned Ours are reported as separate rows; an optional scene-disjoint two-fold check is offered. Record: `research_log/T074A/ours_target_tuning_decision.md`. Research-lead review requested.
