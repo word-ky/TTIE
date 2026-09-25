@@ -6,7 +6,6 @@ import the upstream paired-data entrypoints or accept a reference path.
 
 import argparse
 import logging
-import os
 import random
 import sys
 from pathlib import Path
@@ -46,7 +45,7 @@ def run(args):
         lr=2e-4,
         betas=(0.9, 0.999),
         batch_size=1,
-        num_workers=16,
+        num_workers=args.num_workers,
         patch_size=320,
         iterations=1,
         compute_fisher=1,
@@ -106,6 +105,7 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--mode", choices=("static", "dctta"), required=True)
     parser.add_argument("--smoke-one", action="store_true")
+    parser.add_argument("--num-workers", type=int, default=16)
     run(parser.parse_args())
 
 
