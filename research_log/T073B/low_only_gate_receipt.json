@@ -1,6 +1,6 @@
 {
   "task": "T073-B",
-  "classification": "SOURCE_SIDE_EQUIVALENCE_TESTED_REAL_EXECUTION_GATE_PENDING",
+  "classification": "LOW_ONLY_BINDING_ACCEPTED_NATIVE_4K_SMOKE_PENDING",
   "source_commit": "0526bf7b87c2a54574ae1cb3af916fd5568fc0b1",
   "checkpoint_sha256": "206baf0dd10f636f025b33b5ee7eb63a353fcbf4d50858b62f9480a6d4be9d4a",
   "upstream_tta_sha256": "d101d7f55d69efe90c2b79b6a0b530079c7da4dca0a235490a1df9d552084f95",
@@ -16,6 +16,8 @@
   "focused_tests": "4/4 PASS; synthetic/source-side only",
   "gt_open_mutation": "REJECTED",
   "real_full_component_adaptation_smoke": "PASS: one 352x352 low-only synthetic RGB image; static and DCTTA outputs 352x352 RGB; DCTTA output SHA256 1edc39b3ed85fc4bc33443bf3430f59eea2b39883a7b025ea760288118294216; whole run 10.650 seconds; CUDA peak reserved 23897047040 bytes; target input absent",
+  "independent_execution_review": "research_log/T073B/execution_gate_review.md: B3a low-only binding accepted; native-4K B3b smoke pending",
+  "canonical_low_cache_hash_audit": "150 expected; 150 remote; zero SHA256 mismatches against T072-I download_receipt.json",
   "target_model_runs": 0,
   "target_reference_reads": 0,
   "target_metrics": 0,
