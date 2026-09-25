@@ -199,3 +199,37 @@ Starting point remains T073-A-R1. After R1 passes, continue autonomously through
 Important acceleration rule: if one independent method is blocked, record the blocker and continue other independent rows; do not open target references until the required gate is satisfied. All information-boundary and fail-closed rules in the long-horizon plan remain absolute.
 
 Immediate work: finish T073-A-R1, including the exact tier repair, five-task shared PromptIR/DCTTA source binding justified prospectively for low-light, and LOW_ONLY_DCTTA_REQUIRED gate; then continue to PromptIR + DCTTA execution without waiting for another routine approval.
+
+
+---
+
+# RESEARCH-LEAD UNBLOCK — 2026-09-25 16:35 +08:00
+
+I reviewed the active PR #221 branch evidence through T073B/T073C and accept that the project is already in active execution, not merely preparation. Continue the long-horizon plan without waiting for another routine approval.
+
+## 1. Accept PromptIR native-4K execution schedule for full static run
+
+The prospectively published operator-level schedule that preserves full-image global attention, source weights, float32 precision and native geometry is accepted as an execution-equivalent implementation for this evaluation. The small deterministic numerical delta observed on synthetic comparison (max abs about 2.12e-4) is treated as normal floating-point scheduling variance, not a scientific model change, because no target quality/reference outcome informed the choice and the schedule was sealed before the target smoke.
+
+The one canonical target-low static smoke already passed. Therefore proceed immediately with the complete 150-image PromptIR static low-only run under exactly the same sealed schedule, then freeze/hash/independently verify the row. Do not alter schedule, checkpoint, precision or geometry after seeing target outputs.
+
+Then perform one DCTTA native-4K smoke using the same frozen base checkpoint and the already-verified LOW_ONLY_DCTTA path. If it passes, immediately complete the full DCTTA target-low output row and freeze/hash/verify it. No target reference access or metrics.
+
+## 2. Prospectively define the frozen-method no-active semantics for Ours-TTT
+
+The unmodified T070-A implementation is undefined when all gate regions are inactive because both trajectory and selector assert. This is an execution-domain hole revealed entirely by target-low structure before any reference metric. To preserve complete-case evaluation without changing active-case behavior, adopt the following prospective abstention rule for all current and future target datasets:
+
+- Condition: if and only if frozen T070-A gate evaluation returns zero active regions for the current low image.
+- Action: emit the exact frozen Ours-Step0 output/state for that image; perform zero optimizer updates; mark decision status TTT_ABSTAIN_NO_ACTIVE_GATE and selected_step=0.
+- No threshold, gate, loss, optimizer, selector, lambda, rho or renderer setting is changed.
+- For any image with >=1 active gate region, run the exact original frozen T070-A TTT/selector with no fallback.
+- The fallback condition uses target-low data only and is not permitted to depend on output quality, GT/reference, PSNR/SSIM or baseline outcome.
+- Apply this same rule prospectively on UHD-LL, LSRW and Target-3; disclose abstention counts in the paper/runtime table.
+
+This amendment completes the previously undefined input case; it is not permission to retune Final Ours. Seal the rule and its verifier before restarting the UHD-LL Ours-TTT full batch. Reuse the already frozen Step0 tensors for abstention cases when hashes/provenance match; do not recompute them unnecessarily. Then complete 150/150 Ours-TTT decisions/outputs and independently freeze/hash/verify the row.
+
+## 3. Continue independent Tier-1 rows in parallel
+
+MR. Illuminate and QuadPrior remain blocked on exact official weight acquisition. Continue obtaining only the official assets; do not substitute checkpoints. In the meantime, do not idle GPU/engineering work: finish PromptIR/DCTTA and Ours-TTT first. ZERO-IG remains preferred-additional and GM-MoE secondary; neither may delay Tier-1.
+
+UHD-LL references remain sealed. Maintain reference_reads=0 and metrics=0 until all required Tier-1 output rows satisfy the gate.
