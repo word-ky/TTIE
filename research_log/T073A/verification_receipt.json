@@ -3,19 +3,19 @@
   "task": "T073-A-R1",
   "base_commit": "d5fd1ac63a64cce46f815d50925561834dc984c3",
   "artifacts_sha256": {
-    "analysis_spec.md": "4480bd2bd5d3591f0ec41c06003f346e97daddb33c254f830168e977afe9c7f5",
-    "method_registry.json": "11abafd766e919a6c5252c8fad6f6f26584da4ee8768c5a0a0f758d43abda038",
+    "analysis_spec.md": "15a4c187c9a9dd4fcbbe877f054b32ec7df2371ed05ff4d1306ef70e74bec9ac",
+    "method_registry.json": "45b3c693f492ceb7df01cfc0e33316b442c12d09af0e4869a2d6f9b06f0af008",
     "metric_plan.json": "a4efb0fce65912a5619306c19ab0ec92f7f86fea090886e44d8e22ee1935135e",
-    "verify.py": "b7d5393f6274d2c59bdc3c37bd15d61acfcda0f8e80f2f17617b22a7eef3d368",
-    "test_verify.py": "fbe911d5e26cbb5842ff16e50506ca242e8eb7fbb2f21b942dc534bf2cf80f15"
+    "verify.py": "b49f0c78e3614020779c492aa75efae3a918be1b8fe299e67c98d8d377a4a5c7",
+    "test_verify.py": "51b983330d11091b2da46c8206d4910f23c6122b708ce3ad25da907982d89086"
   },
   "immutable_inputs_sha256": {
     "historical_T072L_spec": "df9c5e4a6c2c5ee8cf812c4535938ecb80d5f6b34fbc659d2fc8302923f93391",
     "accepted_T072AZB_output_manifest": "73c8d304c8bb88c4612a13598b5d4dd76378e0c3107bd97011941037a4427001"
   },
-  "verification": {"positive": "PASS", "rejected_mutations": 17, "declared_rows": 10, "tier1_rows": 8, "frozen_rows": ["retinexformer", "snr_aware"], "pending_rows": 8},
+  "verification": {"positive": "PASS", "rejected_mutations": 19, "declared_rows": 10, "tier1_rows": 8, "frozen_rows": ["retinexformer", "snr_aware"], "pending_rows": 8},
   "reference_reads": 0,
   "metrics": 0,
   "model_runs": 0,
-  "notes": "R1 locally verifies corrected eight-row Tier-1 scope, shared unresolved PromptIR source, and LOW_ONLY_DCTTA_REQUIRED. Research-lead acceptance is pending; no pending row is presented as a completed output or measured result."
+  "notes": "R1 locally verifies corrected eight-row Tier-1 scope, the prospectively chosen shared official five-task PromptIR checkpoint, and LOW_ONLY_DCTTA_REQUIRED. The later low-only execution wrapper is not yet sealed; no pending row is presented as a completed output or measured result."
 }

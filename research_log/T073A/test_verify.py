@@ -28,7 +28,9 @@ def main():
         ("reference read", "plan", lambda x: x["accounting"].update(reference_reads=1)),
         ("ZERO-IG mis-tiering", "registry", lambda x: x["rows"][8].update(tier=1)),
         ("PromptIR/DCTTA base mismatch", "registry", lambda x: x["rows"][3].update(shared_base_checkpoint_id="different_base")),
-        ("premature source binding", "registry", lambda x: x["rows"][2].update(source_setting="model.ckpt", source_binding_state="BOUND", checkpoint_sha256="a" * 64)),
+        ("unresolved source", "registry", lambda x: [row.update(source_setting="PENDING_SOURCE_BINDING", source_binding_state="PENDING_SOURCE_BINDING", checkpoint_sha256=None) for row in x["rows"][2:4]]),
+        ("three-task source substitution", "registry", lambda x: [row.update(source_setting="official three-task model.ckpt") for row in x["rows"][2:4]]),
+        ("wrong official checkpoint hash", "registry", lambda x: [row.update(checkpoint_sha256="a" * 64) for row in x["rows"][2:4]]),
         ("DCTTA GT permission", "registry", lambda x: x["rows"][3].update(target_reference_access="ALLOW_GT")),
         ("DCTTA plan GT permission", "plan", lambda x: x["dctta_execution_gate"].update(target_reference_access="ALLOW_GT")),
     ]
@@ -43,7 +45,7 @@ def main():
     bound_base = copy.deepcopy(registry["rows"][2])
     bound_adapted = copy.deepcopy(registry["rows"][3])
     for row in (bound_base, bound_adapted):
-        row.update(source_binding_state="BOUND", source_setting="official source A", checkpoint_sha256="a" * 64)
+        row.update(source_binding_state="BOUND", source_setting=verify.EXPECTED_PROMPTIR_SOURCE_SETTING, checkpoint_sha256=verify.EXPECTED_PROMPTIR_CHECKPOINT_SHA, source_code_commit=verify.EXPECTED_PROMPTIR_SOURCE_COMMIT)
     verify.check_promptir_shared_base(bound_base, bound_adapted)
     bound_adapted["checkpoint_sha256"] = "b" * 64
     try:

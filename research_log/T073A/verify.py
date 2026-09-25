@@ -12,6 +12,9 @@ EXPECTED_IDS = (
 )
 EXPECTED_FROZEN = {"retinexformer", "snr_aware"}
 EXPECTED_TIER1 = set(EXPECTED_IDS[:8])
+EXPECTED_PROMPTIR_SOURCE_COMMIT = "0526bf7b87c2a54574ae1cb3af916fd5568fc0b1"
+EXPECTED_PROMPTIR_CHECKPOINT_SHA = "206baf0dd10f636f025b33b5ee7eb63a353fcbf4d50858b62f9480a6d4be9d4a"
+EXPECTED_PROMPTIR_SOURCE_SETTING = "official DCTTA five-task PromptIR epoch=80.ckpt; includes LOL low-light source training, not matched to LOL-v2 Real anchors"
 EXPECTED_MANIFEST_SHA = "73c8d304c8bb88c4612a13598b5d4dd76378e0c3107bd97011941037a4427001"
 EXPECTED_METRIC_SHA = {
     "research_log/T071B/evaluate.py": "39ae608a0253f506dcd6412b8f4a83b3f966cdb12154c3c6409007865cebc9e7",
@@ -36,8 +39,9 @@ def check_promptir_shared_base(base, adapted):
         assert base["binding_sha256"] is adapted["binding_sha256"] is None
     else:
         assert base["source_binding_state"] == adapted["source_binding_state"] == "BOUND"
-        assert base["checkpoint_sha256"] and base["checkpoint_sha256"] == adapted["checkpoint_sha256"]
-        assert base["source_setting"] and base["source_setting"] == adapted["source_setting"]
+        assert base["checkpoint_sha256"] == adapted["checkpoint_sha256"] == EXPECTED_PROMPTIR_CHECKPOINT_SHA
+        assert base["source_setting"] == adapted["source_setting"] == EXPECTED_PROMPTIR_SOURCE_SETTING
+        assert base["source_code_commit"] == adapted["source_code_commit"] == EXPECTED_PROMPTIR_SOURCE_COMMIT
 
 
 def check(registry, plan, historical, manifest):
@@ -88,7 +92,7 @@ def check(registry, plan, historical, manifest):
     assert by_id["gm_moe"]["tier"] == 2
     base, adapted = by_id["promptir"], by_id["promptir_dctta"]
     check_promptir_shared_base(base, adapted)
-    assert base["source_binding_state"] == adapted["source_binding_state"] == "PENDING_SOURCE_BINDING"
+    assert base["source_binding_state"] == adapted["source_binding_state"] == "BOUND"
     assert adapted["reference_access_gate"] == plan["dctta_execution_gate"]["status"] == "LOW_ONLY_DCTTA_REQUIRED"
     assert plan["dctta_execution_gate"]["target_reference_access"] == "NONE"
     assert adapted["target_reference_access"] == "NONE: no GT/reference path resolution, enumeration, open, decode, cache, or dataset-object pass-through"
