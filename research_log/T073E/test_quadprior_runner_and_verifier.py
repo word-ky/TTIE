@@ -132,7 +132,7 @@ def purge_fake_modules():
             del sys.modules[key]
 
 
-def build(root, extra_file=False):
+def build(root, extra_file=False, xformers_available=False):
     src = root / "src"
     write(src / "test.py", FAKE_TEST_PY)
     write(src / "ldm" / "__init__.py", "")
@@ -142,8 +142,15 @@ def build(root, extra_file=False):
     write(src / "ldm" / "models" / "diffusion" / "dpm_solver" / "__init__.py",
           "from .sampler import DPMSolverSampler\n")
     write(src / "ldm" / "models" / "diffusion" / "dpm_solver" / "sampler.py", FAKE_SAMPLER)
+    write(src / "ldm" / "modules" / "__init__.py", "")
+    write(src / "ldm" / "modules" / "attention.py", f"XFORMERS_IS_AVAILBLE = {xformers_available}\n")
+    write(src / "ldm" / "modules" / "diffusionmodules" / "__init__.py", "")
+    write(src / "ldm" / "modules" / "diffusionmodules" / "model.py",
+          f"XFORMERS_IS_AVAILBLE = {xformers_available}\n")
     write(src / "my_vae" / "__init__.py", "")
-    write(src / "my_vae" / "models.py", "import torch\n\nclass Encoder(torch.nn.Conv2d):\n    pass\n")
+    write(src / "my_vae" / "models.py",
+          f"import torch\n\nXFORMERS_IS_AVAILBLE = {xformers_available}\n\n"
+          "class Encoder(torch.nn.Conv2d):\n    pass\n")
     write(src / "annotator" / "__init__.py", "")
     write(src / "annotator" / "util.py", FAKE_UTIL)
     write(src / "models" / "cldm_v15.yaml", "model: {}\n")
@@ -272,6 +279,12 @@ class RunnerTests(unittest.TestCase):
             manifest = run_fake(args)
             self.assertEqual([r["low_name"] for r in manifest["rows"]], ["syn0_low.png"])
             self.assertEqual(sorted(os.listdir(args.workdir / "input")), ["syn0_low.png"])
+
+    def test_xformers_available_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            args = build(Path(tmp), xformers_available=True)
+            with self.assertRaisesRegex(AssertionError, "XFORMERS_IS_AVAILBLE is True"):
+                run_fake(args)
 
 
 class VerifierMutationTests(unittest.TestCase):

@@ -38,7 +38,12 @@ It re-hashes the low images against the receipt and checks:
 
 ## Tests (CPU, host base env torch 2.3.0)
 
-`test_mri_runner_and_verifier.py`: 15/15 pass. A stub official module reproduces main.py's quantize and /8 resize-back code on a 8×16 image and a 10×18 image. Runner tests cover: the happy path plus the verifier; stray file; wrong low hash; missing VAE key; tampered official uint8; unplanned decode; promotable run without pins; smoke-one. Verifier mutations cover: tensor hash; map-back; bin violation; NaN; low mutation; `reference_reads`; VAE pin.
+`test_mri_runner_and_verifier.py`: 16/16 pass. A stub official module reproduces main.py's quantize and /8 resize-back code on a 8×16 image and a 10×18 image. Runner tests cover: the happy path plus the verifier; stray file; wrong low hash; missing VAE key; tampered official uint8; unplanned decode; promotable run without pins; smoke-one; a wrong diffusers version fails the run closed unless `--accept-env-drift`, which then records the drift in the manifest. Verifier mutations cover: tensor hash; map-back; bin violation; NaN; low mutation; `reference_reads`; VAE pin.
+
+### Changed file hashes (LF SHA256, this revision)
+
+- `run_mri_native_batch.py`: `14598bf6ef54debbfc7b5e32b5994df17ef1e9a47589a50914b5d9b8a77ebb89`
+- `test_mri_runner_and_verifier.py`: `4130806035457f2f10498b537cf41e9bf5995b82bec67d1a767cb8d9873759ec`
 
 ## Pending research-lead decisions
 
@@ -46,6 +51,7 @@ It re-hashes the low images against the receipt and checks:
 2. **Cross-row clip rule at metric time.** The frozen RetinexFormer/SNR exports are clamped to [0,1]; PromptIR/DCTTA and this row's native case are raw. The recommendation is to clip every row to [0,1] at metric time. That is idempotent for the clamped rows and equals each official saturation. It must be locked before any reference is opened.
 3. Input decoding differs by row: PIL here, cv2 for the other rows. Files with an EXIF rotation tag stop the run (see stop conditions).
 4. If the VAE key report shows unexpected keys, the official behaviour ignores them. Record and accept, or review.
+5. At metric time, assert low and GT sizes are equal for each pair: this runner's map-back targets the low geometry, but official paired-metrics resizes to GT size. Clip-at-metric proposal: every row clipped to [0,1] at metric time (pending research-lead confirmation).
 
 ## Stop conditions (no automatic rescue)
 
@@ -54,6 +60,8 @@ It re-hashes the low images against the receipt and checks:
 - A nonzero exit.
 
 No resize, tiling, precision or allocator change is allowed without a prospectively proven equivalent schedule. Memory estimate at 4K: about 21.8 GB of fp32 attention-feature buffer (25 steps × up-block self-attention, still live during VAE decode), plus several 4 GB full-resolution VAE activations, plus encoder skips. This is plausibly 40 GB or more. Images above 8.3 MP, such as SID-sRGB at about 12 MP, are at higher OOM risk. Measure with `probe_mri_synthetic.py --sizes <dataset max HxW>` before selecting a dataset.
+
+Peer VRAM estimate (independent pass): at ~12 MP (4256×2848), ≈31.8 GB fp32 attention buffer + ≈11 GB encoder skip features + ≈2 GB weights before ≈6 GB decoder activations → OOM near-certain on the 48 GB card; at 4K, borderline. Run the probe first; no tiling or precision changes.
 
 ## Execution order once unblocked
 

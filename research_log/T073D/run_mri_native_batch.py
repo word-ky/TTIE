@@ -287,7 +287,38 @@ def build_parser():
     parser.add_argument("--expected-vae-sha256")
     parser.add_argument("--expected-sd-revision")
     parser.add_argument("--synthetic", action="store_true", help="synthetic probe inputs; never promotable")
+    parser.add_argument("--accept-env-drift", action="store_true",
+                        help="allow torch/xformers/diffusers versions to differ from the official pins "
+                             "(main_utils.py:10,73,157); the drift is recorded in the manifest instead of "
+                             "stopping the run. Off by default.")
     return parser
+
+
+def check_environment_versions(accept_drift):
+    """Official pins: torch startswith 2.0.1, xformers 0.0.20, diffusers 0.17.1 (main_utils.py:10,73,157)."""
+    versions = {"torch": torch.__version__}
+    for name in ("xformers", "diffusers"):
+        try:
+            versions[name] = __import__(name).__version__
+        except Exception as exc:  # noqa: BLE001 - recorded either way
+            versions[name] = f"unavailable: {exc}"
+    matched = {
+        "torch": versions["torch"].startswith("2.0.1"),
+        "xformers": versions["xformers"] == "0.0.20",
+        "diffusers": versions["diffusers"] == "0.17.1",
+    }
+    drift = not all(matched.values())
+    if drift and not accept_drift:
+        mismatched = {name: versions[name] for name, ok in matched.items() if not ok}
+        raise AssertionError(f"environment version drift from official pins {mismatched} "
+                             "(pass --accept-env-drift to override)")
+    return {
+        "required": {"torch": "startswith 2.0.1", "xformers": "0.0.20", "diffusers": "0.17.1"},
+        "actual": versions,
+        "matched": matched,
+        "drift": drift,
+        "accept_env_drift": accept_drift,
+    }
 
 
 def run(args, official=None, require_cuda=True):
@@ -301,6 +332,7 @@ def run(args, official=None, require_cuda=True):
         assert torch.cuda.is_available(), "CUDA required"
 
     # ---------------- preflight (fail closed) ----------------
+    env_version_check = check_environment_versions(args.accept_env_drift)
     source_record = verify_source_pin(args.source_root) if official is None else {"stub": True}
     all_files, selected, geometry = preflight_low(
         args.low_dir, args.low_receipt, args.expected_count, args.smoke_one)
@@ -562,6 +594,7 @@ def run(args, official=None, require_cuda=True):
         "construction_warnings": sorted({str(w.message)[:500] for w in construction_warnings}),
         "first_image_warnings": first_image_warnings,
         "environment": environment_record(),
+        "environment_version_check": env_version_check,
         "model_state_sha256": state_before,
         "model_state_unchanged": unchanged,
         "global_rng_unchanged_all_images": rng_unchanged_all,

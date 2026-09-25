@@ -287,6 +287,23 @@ def run(args, require_cuda=True, pin_path=PIN_FILE):
     sampler_cls = getattr(importlib.import_module(HOOKS["sampler"][0]), HOOKS["sampler"][1])
     assert str(Path(sys.modules[HOOKS["decode_owner"][0]].__file__).resolve()).startswith(str(source_root) + os.sep)
 
+    # Official non-xformers attention path: each of these modules defines the same
+    # try/except XFORMERS_IS_AVAILBLE flag (official spelling) at import time
+    # (ldm/modules/attention.py:13-17, ldm/modules/diffusionmodules/model.py:12-14,
+    # my_vae/models.py:12-16). ATTN_PRECISION governs attention.py's cross-attn softmax.
+    attention_modules = {
+        "ldm.modules.attention": importlib.import_module("ldm.modules.attention"),
+        "ldm.modules.diffusionmodules.model": importlib.import_module("ldm.modules.diffusionmodules.model"),
+        "my_vae.models": importlib.import_module("my_vae.models"),
+    }
+    attention_backend = {f"{name}.XFORMERS_IS_AVAILBLE": mod.XFORMERS_IS_AVAILBLE
+                         for name, mod in attention_modules.items()}
+    for key, value in attention_backend.items():
+        assert value is False, f"{key} is True: official non-xformers attention path not active"
+    attention_backend["ATTN_PRECISION"] = os.environ.get("ATTN_PRECISION", "fp32")
+    assert attention_backend["ATTN_PRECISION"] == "fp32", (
+        f"ATTN_PRECISION={attention_backend['ATTN_PRECISION']!r}, official default is fp32")
+
     input_dir = (args.workdir / "input").resolve()
     planned = {item["name"]: item for item in selected}
     state = {"current": None, "model": None, "state_before": None, "load_seconds": None,
@@ -465,6 +482,7 @@ def run(args, require_cuda=True, pin_path=PIN_FILE):
                                       "scale": 9.0, "seed_per_image": 0, "eta": 0.0, "strength": 1.0,
                                       "guess_mode": False, "dmp_order": 3, "num_samples": 1},
         "official_processing_order": order,
+        "attention_backend": attention_backend,
         "first_stage_encoder_module": state.get("first_stage_encoder_module"),
         "model_load_seconds": state["load_seconds"],
         "weights_loaded_peak_reserved_bytes": state["weights_peak"],

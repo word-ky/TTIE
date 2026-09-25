@@ -10,9 +10,11 @@ import gzip
 import hashlib
 import json
 import logging
+import sys
 import tempfile
 import types
 import unittest
+import unittest.mock
 from pathlib import Path
 
 import einops
@@ -148,8 +150,33 @@ def build(root, drop_key=False, extra_file=False):
     args = argparse.Namespace(
         source_root=root, vae_checkpoint=ckpt, sd_snapshot=snap, low_dir=low, low_receipt=receipt,
         out=root / "out", smoke_one=False, expected_vae_sha256=None, expected_sd_revision=None,
-        synthetic=True, expected_count=2)
+        synthetic=True, expected_count=2,
+        # These runner-mechanics tests use a stub `official` module and a CPU torch build
+        # that need not match the official pins checked by check_environment_versions();
+        # only EnvironmentVersionTests below exercises that gate.
+        accept_env_drift=True)
     return args
+
+
+def patch_versions(torch_version, xformers_version, diffusers_version):
+    """Deterministically control what check_environment_versions() sees, regardless of
+    what is actually installed locally."""
+    saved = {}
+    for name, version in (("xformers", xformers_version), ("diffusers", diffusers_version)):
+        saved[name] = sys.modules.get(name)
+        sys.modules[name] = types.SimpleNamespace(__version__=version)
+    torch_patch = unittest.mock.patch.object(runner.torch, "__version__", torch_version)
+    torch_patch.start()
+    return torch_patch, saved
+
+
+def unpatch_versions(torch_patch, saved):
+    torch_patch.stop()
+    for name, module in saved.items():
+        if module is None:
+            sys.modules.pop(name, None)
+        else:
+            sys.modules[name] = module
 
 
 def verifier_args(run_args, root):
@@ -243,6 +270,26 @@ class RunnerTests(unittest.TestCase):
             args.smoke_one = True
             manifest = runner.run(args, official=make_official(), require_cuda=False)
             self.assertEqual([r["low_name"] for r in manifest["rows"]], ["syn0_low.png"])
+
+    def test_wrong_diffusers_version_fails_unless_accept_env_drift(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            args = build(root)
+            torch_patch, saved = patch_versions("2.0.1+cu118", "0.0.20", "0.19.0")
+            try:
+                args.accept_env_drift = False
+                with self.assertRaisesRegex(AssertionError, "diffusers"):
+                    runner.run(args, official=make_official(), require_cuda=False)
+                args.accept_env_drift = True
+                args.out = root / "out2"
+                manifest = runner.run(args, official=make_official(), require_cuda=False)
+                check = manifest["environment_version_check"]
+                self.assertTrue(check["drift"])
+                self.assertFalse(check["matched"]["diffusers"])
+                self.assertTrue(check["matched"]["torch"])
+                self.assertTrue(check["matched"]["xformers"])
+            finally:
+                unpatch_versions(torch_patch, saved)
 
 
 class VerifierMutationTests(unittest.TestCase):

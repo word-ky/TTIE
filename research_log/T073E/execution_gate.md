@@ -14,9 +14,9 @@
 
   Per image:
   - `cv2.imread` (BGR);
-  - `resize_image(HWC3, 512)`: short side 512, both sides rounded to multiples of 64, INTER_AREA when downscaling (annotator/util.py:28-37);
+  - `resize_image(HWC3, 512)`: short side 512, both sides rounded to multiples of 64, INTER_AREA when downscaling and INTER_LANCZOS4 when upscaling (short side < 512) (annotator/util.py:37);
   - `seed_everything(0)`;
-  - DPM-Solver++ with order 3, 10 steps, scale 9 (a no-op), eta 0;
+  - DPM-Solver++ with order 3, 10 steps, scale 9, eta 0 (cond and uncond halves are identical inputs, so classifier-free guidance has no effect when they are bitwise equal);
   - `decode_new_first_stage`.
 
   Only `--checkpoint`, `--same_folder` and `--input_folder` are passed. The runner asserts `use_float16=True` and `save_memory=False`.
@@ -54,17 +54,23 @@ It checks:
 
 ## Tests (CPU, host base env)
 
-`test_quadprior_runner_and_verifier.py`: 13/13 pass. A fake source tree mirrors the hooked module paths, and a fake `test.py` copies the official resize/quantize/save code. It runs on 20×36 (native 512×896) and 24×24 (native 512×512) images.
+`test_quadprior_runner_and_verifier.py`: 14/14 pass. A fake source tree mirrors the hooked module paths, and a fake `test.py` copies the official resize/quantize/save code. It runs on 20×36 (native 512×896) and 24×24 (native 512×512) images.
 
-- Runner tests cover: the happy path plus the verifier, including the RGB order check and native unclipped vs output saturated; unplanned read denied; tampered uint8; stray low file; an existing output directory; a promotable run without pins; smoke-one.
+- Runner tests cover: the happy path plus the verifier, including the RGB order check and native unclipped vs output saturated; unplanned read denied; tampered uint8; stray low file; an existing output directory; a promotable run without pins; smoke-one; an available xformers flag in any of `ldm.modules.attention`/`ldm.modules.diffusionmodules.model`/`my_vae.models` fails the run closed.
 - Verifier mutations cover: tensor hash; map-back; bin violation; low mutation; weight pin; missing official PNG.
 - Both runners also compile under the target Python versions: 3.8 for quadprior, 3.9 for mri.
+
+### Changed file hashes (LF SHA256, this revision)
+
+- `run_quadprior_batch.py`: `b8d1c5eb40016f106489543884ba8904de11c5d350bde3d86b482d7e7e1fa959`
+- `test_quadprior_runner_and_verifier.py`: `d22e92992d720ee88c743d2b48c3c5babcd81dfa393937f57ce61815b2edefd3`
 
 ## Pending research-lead decisions
 
 1. Keep the official 512-short-side inference plus bilinear map-back to the low geometry, as implemented. The alternative is an unofficial native-resolution run. Disclose the aspect change from rounding to multiples of 64: about 1.6% at 16:9.
 2. The same cross-row metric-time clip rule as in T073-D. This row's metric artifact is already in [0,1].
 3. cv2 applies EXIF orientation and PIL does not, so the runner stops on any orientation tag outside {None, 1}.
+4. At metric time, assert low and GT sizes are equal for each pair: QuadPrior's map-back targets the low geometry, but the official paired-metrics script resizes to GT size (paired-metrics.py:72-74). Clip-at-metric proposal: every row clipped to [0,1] at metric time (pending research-lead confirmation).
 
 ## Stop conditions
 
@@ -77,3 +83,5 @@ Any assertion (pins, receipt, EXIF, geometry, official-uint8 identity, non-finit
 3. `--smoke-one` on the chosen dataset, once authorized.
 4. The full run with `--expected-count` and all three `--expected-*-sha256`.
 5. `verify_quadprior_full.py --require-promotable --expected-output-manifest-sha256 <logged>`.
+
+Note: `verify_quadprior_full.py` runs in the host base env (torch 2.3), not the `quadprior` env (torch 1.12 lacks `weights_only`); this also keeps the verifier environment independent of the runner.
