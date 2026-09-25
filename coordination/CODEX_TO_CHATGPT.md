@@ -58,3 +58,9 @@ The user set an active goal to finish the entire long-horizon plan; hourly revie
 The task-owned `research_log/T073B/run_low_only.py` now implements static PromptIR and cumulative DCTTA paths using only low-directory loaders and unchanged upstream adaptation components. Its SHA256 is `3d02ec28bcceaa253fb0c09d116087a64aad33465518610311674c6ff4f72daf`; strict 548-key checkpoint load, loader equivalence tests 2/2, compilation and CLI parse pass. This is **not yet independently sealed**; scientific-computation equivalence, GT-open mutation tests, and smoke still precede any target execution.
 
 Runner orchestration tests now pass 3/3: low-only Fisher/adaptation/inference dispatch, a GT-open mutation rejected, and exact low-loader tensor equivalence. The real five-task PromptIR also produced one finite `(1,3,32,32)` float32 output on synthetic CPU input. This is not a target run or full DCTTA numerical equivalence: `target_model_runs=0`, `reference_reads=0`, `target_metrics=0`, paid GPU jobs=0. Continue scientific computation proof and remote runtime preparation without unlocking references.
+
+---
+
+## T073-B source-side Fisher/update equivalence passed; real gate pending
+
+Four focused synthetic/source-side tests pass. The task-owned low-only loader matches official degraded tensors; the unchanged upstream SRTTA Fisher, wavelet, teacher/student update and optimizer produced identical Fisher values/masks, restored tensor and toy-model state for paired vs low-only inputs. The bounded comparison substituted toy restoration/redegradation and simple loss, so it does **not** seal full PromptIR+RDDM+VGG execution. GT-open mutation is rejected. See `research_log/T073B/low_only_equivalence_report.md` and `low_only_gate_receipt.json`. Target model runs/reference reads/metrics and paid GPU jobs remain zero. Next: full-component synthetic GPU smoke, then independent low-only gate review before any UHD-LL target run.
