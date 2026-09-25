@@ -92,6 +92,9 @@ FAKE_DDPM = textwrap.dedent('''
 
         @torch.no_grad()
         def decode_new_first_stage(self, z, hs, predict_cids=False, force_not_quantize=False):
+            # Robustness check: a parent registered as its own child's submodule makes
+            # state_dict() recurse; the runner's post-run check must not depend on it.
+            self.control_model.parent_ref = self
             return z
 ''')
 
@@ -271,6 +274,23 @@ class RunnerTests(unittest.TestCase):
             args.synthetic = False
             with self.assertRaisesRegex(AssertionError, "requires all three weight pins"):
                 run_fake(args)
+
+    def test_module_cycle_created_during_run_is_handled(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            args = build(Path(tmp))
+            manifest = run_fake(args)
+            self.assertTrue(manifest["model_state_unchanged"])
+            sys.path.insert(0, str(args.source_root))
+            try:
+                from ldm.models.diffusion.ddpm import LatentDiffusion
+                model = LatentDiffusion()
+                model.decode_new_first_stage(torch.zeros(1, 3, 2, 2), None)
+                with self.assertRaises(RecursionError):  # what a post-run state_dict() would hit
+                    model.state_dict()
+                self.assertTrue(runner.tensor_identity(model)["parameters"])
+            finally:
+                sys.path.remove(str(args.source_root))
+                purge_fake_modules()
 
     def test_smoke_one(self):
         with tempfile.TemporaryDirectory() as tmp:

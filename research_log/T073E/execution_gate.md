@@ -54,16 +54,17 @@ It checks:
 
 ## Tests (CPU, host base env)
 
-`test_quadprior_runner_and_verifier.py`: 14/14 pass. A fake source tree mirrors the hooked module paths, and a fake `test.py` copies the official resize/quantize/save code. It runs on 20×36 (native 512×896) and 24×24 (native 512×512) images.
+`test_quadprior_runner_and_verifier.py`: 15/15 pass. A fake source tree mirrors the hooked module paths, and a fake `test.py` copies the official resize/quantize/save code. It runs on 20×36 (native 512×896) and 24×24 (native 512×512) images.
 
 - Runner tests cover: the happy path plus the verifier, including the RGB order check and native unclipped vs output saturated; unplanned read denied; tampered uint8; stray low file; an existing output directory; a promotable run without pins; smoke-one; an available xformers flag in any of `ldm.modules.attention`/`ldm.modules.diffusionmodules.model`/`my_vae.models` fails the run closed.
+- Cycle safety: the post-run state check re-hashes `state_dict(keep_vars=True)` references captured at sampler construction and compares the `parameters()`/`buffers()` identity sets, mirroring the T073-D fix. The fake creates a parent->child module cycle during the run, and a test shows that `state_dict()` would recurse on it. No such cycle is known in official QuadPrior, whose samplers are plain objects.
 - Verifier mutations cover: tensor hash; map-back; bin violation; low mutation; weight pin; missing official PNG.
 - Both runners also compile under the target Python versions: 3.8 for quadprior, 3.9 for mri.
 
 ### Changed file hashes (LF SHA256, this revision)
 
-- `run_quadprior_batch.py`: `b8d1c5eb40016f106489543884ba8904de11c5d350bde3d86b482d7e7e1fa959`
-- `test_quadprior_runner_and_verifier.py`: `d22e92992d720ee88c743d2b48c3c5babcd81dfa393937f57ce61815b2edefd3`
+- `run_quadprior_batch.py`: `3e361db1893807a77cfa5b9b46786ed4e6f598f1d4660699616166f969eaae42`
+- `test_quadprior_runner_and_verifier.py`: `8d6b9eee196dc45fc7c86be5e56deb878806893eee3234d418738ed040050bfa`
 
 ## Pending research-lead decisions
 

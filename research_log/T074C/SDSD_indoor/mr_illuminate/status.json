@@ -2,14 +2,29 @@
   "task": "T074-C",
   "method_id": "mr_illuminate",
   "target": "SDSD-indoor",
-  "classification": "PENDING_NOT_RUN",
-  "checked_at": "2026-09-26T03:00+08:00",
-  "reason": [
-    "/root/autodl-tmp/envs/mri incomplete: torch 2.0.1+cu117 imports, but xformers, diffusers and transformers are not installed (ModuleNotFoundError)",
-    "no SD1.5 snapshot and no sd15_receipt.json under /root/autodl-tmp/TTIE/T073D/ (none found anywhere on the host)"
-  ],
+  "classification": "BLOCKED_PROBE_FAILED_RUNNER_BUG",
+  "checked_at": "2026-09-26T04:10+08:00",
+  "prerequisites": {
+    "mri_env": "torch 2.0.1+cu117, xformers 0.0.20, diffusers 0.17.1 (orchestrator import test)",
+    "sd15_receipt": "/root/autodl-tmp/TTIE/T073D/sd15_receipt.json (SD15_OK attempt 2; 29 files, 23322263319 bytes)",
+    "sd15_revision": "451f4fe16113bff5a5d2269ed5ad43b0592e9a14 (stable-diffusion-v1-5/stable-diffusion-v1-5; runwayml alias resolves to the same revision)",
+    "offline_cpu_load": "OK: HF_HUB_OFFLINE=1 StableDiffusionPipeline.from_pretrained(snapshot, torch_dtype=float16) -> UNet2DConditionModel fp16, 859,520,964 params"
+  },
+  "probe": {
+    "command": "probe_mri_synthetic.py --sizes 512x960 --repeats 2 --vae-checkpoint /root/autodl-tmp/TTIE/weights/main-epoch=00-step=7000.ckpt (runner run_mri_native_batch.py LF 14598bf6...)",
+    "remote_dir": "/root/autodl-tmp/TTIE/T074C/runs/mri_probe_synth",
+    "exit_codes": [1],
+    "synthetic_image_processed": true,
+    "peak_reserved_bytes": 8535408640,
+    "peak_allocated_bytes": 6242335744,
+    "process_seconds": 6.284,
+    "error": "RecursionError: maximum recursion depth exceeded (run_mri_native_batch.py:561 state_after = {'unet': state_sha256(model.unet)} -> module.state_dict() recursion)",
+    "cause": "official main_utils.py:109/195 register_attention_feature_capture/injection do setattr(attn_module, 'our_pipeline', model) where model is DiffusionPriorEnhancer(nn.Module) (main.py:115) that owns the unet; this registers the enhancer as a submodule inside the unet, creating a module cycle, so unet.state_dict() never terminates. The pre-run hash (line 394) is taken before process() registers the hooks, so it succeeds. The CPU tests use a stub official module and did not exercise this.",
+    "not_an_oom": true
+  },
+  "action_taken": "stopped per no-rescue rule; no smoke-one or full run on target lows; runner not modified",
+  "proposed_fix_for_review": "make the post-run state check cycle-safe without touching the official computation, e.g. take state_dict(keep_vars=True) tensor references before process() and re-hash those same tensors afterwards, plus assert the identity set of module.parameters()/buffers() (memo-deduplicated, cycle-safe) is unchanged; needs a runner revision + test + peer check before rerunning the probe",
   "model_runs_on_target": 0,
   "target_reference_reads": 0,
-  "target_metrics": 0,
-  "next_steps": "when env + SD1.5 receipt exist: probe_mri_synthetic.py at 512x960, then smoke-one -> full 180 -> verify_mri_full.py -> freeze"
+  "target_metrics": 0
 }

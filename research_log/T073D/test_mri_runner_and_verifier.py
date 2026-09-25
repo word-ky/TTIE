@@ -64,13 +64,16 @@ def make_official(mode="ok"):
             for key, value in runner.OFFICIAL_DEFAULTS.items():
                 setattr(self, key, value)
 
-    class Enhancer:
+    class Enhancer(torch.nn.Module):  # nn.Module like the official DiffusionPriorEnhancer
         def __init__(self, config):
+            super().__init__()
             self.config = config
             self.weight_dtype = torch.float32
             self.vae = StubVAE()
             self.pipeline = types.SimpleNamespace(vae=self.vae)
             self.unet = torch.nn.Linear(2, 2)
+            self.unet.attn1 = torch.nn.Linear(1, 1, bias=False)
+            self.unet.register_buffer("steps", torch.zeros(1))
             self.unet.attn_processors = {"a": XFormersAttnProcessor()}
             self.text_encoder = torch.nn.Linear(2, 2)
             self.scheduler = types.SimpleNamespace(config={"num_train_timesteps": 1000})
@@ -86,6 +89,13 @@ def make_official(mode="ok"):
             if mode == "extra_open":
                 PIL.Image.open(Path(path).with_name("not_planned.png"))
             self.original_image_size = pil.size
+            # main_utils.py:109/195: the enhancer becomes a submodule of its own UNet (a cycle).
+            setattr(self.unet.attn1, "our_pipeline", self)
+            if mode == "replace_param":
+                self.unet.weight = torch.nn.Parameter(self.unet.weight.detach().clone())
+            if mode == "mutate_param":
+                with torch.no_grad():
+                    self.unet.weight.add_(1.0)
             rounded = tuple(-(-v // 8) * 8 for v in pil.size)
             self.should_resize_output_back = rounded != pil.size
             if self.should_resize_output_back:
@@ -263,6 +273,33 @@ class RunnerTests(unittest.TestCase):
             args.expected_count = None
             with self.assertRaisesRegex(AssertionError, "requires the published"):
                 runner.run(args, official=make_official(), require_cuda=False)
+
+    def test_official_module_cycle_is_handled(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            args = build(Path(tmp))
+            official = make_official()
+            manifest = runner.run(args, official=official, require_cuda=False)
+            self.assertTrue(manifest["model_state_unchanged"])
+            # The stub reproduces the official self-reference, so the old post-run
+            # state_dict() hash recurses.
+            config = official.InferenceConfig(str(args.vae_checkpoint), str(args.low_dir), "x", "y")
+            model = official.DiffusionPriorEnhancer(config)
+            model.process(args.low_dir / "syn0_low.png")
+            with self.assertRaises(RecursionError):
+                runner.state_sha256(model.unet)
+            self.assertIsInstance(runner.tensor_identity(model)["parameters"], frozenset)
+
+    def test_in_place_parameter_change_detected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            args = build(Path(tmp))
+            with self.assertRaisesRegex(AssertionError, "model state changed"):
+                runner.run(args, official=make_official("mutate_param"), require_cuda=False)
+
+    def test_parameter_replacement_detected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            args = build(Path(tmp))
+            with self.assertRaisesRegex(AssertionError, "replaced during inference"):
+                runner.run(args, official=make_official("replace_param"), require_cuda=False)
 
     def test_smoke_one_processes_first_only(self):
         with tempfile.TemporaryDirectory() as tmp:

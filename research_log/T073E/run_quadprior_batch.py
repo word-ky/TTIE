@@ -77,11 +77,24 @@ def self_sha256_lf():
     return hashlib.sha256(Path(__file__).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
-def state_hashes(module):
-    """One pass over the state dict: total digest plus one digest per top-level child."""
+def capture_state_refs(module):
+    """Name -> tensor references taken once, before any image, while the graph is acyclic.
+    The post-run check re-hashes these references rather than calling state_dict() again,
+    which would recurse forever if anything registered a parent module as a child."""
+    return dict(module.state_dict(keep_vars=True))
+
+
+def tensor_identity(module):
+    """Identity sets via parameters()/buffers() (memoised traversal, cycle-safe)."""
+    return {"parameters": frozenset(id(t) for t in module.parameters()),
+            "buffers": frozenset(id(t) for t in module.buffers())}
+
+
+def state_hashes(refs):
+    """One pass over captured references: total digest plus one digest per top-level child."""
     total = hashlib.sha256()
     parts = {}
-    for key, value in sorted(module.state_dict().items()):
+    for key, value in sorted(refs.items()):
         array = value.detach().cpu().contiguous()
         blob = key.encode() + str(array.dtype).encode() + str(tuple(array.shape)).encode()
         data = array.numpy().tobytes()
@@ -349,7 +362,12 @@ def run(args, require_cuda=True, pin_path=PIN_FILE):
         state["load_seconds"] = time.perf_counter() - run_started
         state["weights_peak"] = torch.cuda.max_memory_reserved() if require_cuda else None
         state["model"] = model
-        state["state_before"] = state_hashes(model)
+        state["state_refs"] = capture_state_refs(model)
+        state["state_before"] = state_hashes(state["state_refs"])
+        state["identity_before"] = tensor_identity(model)
+        hashed_ids = {id(t) for t in state["state_refs"].values()}
+        live = state["identity_before"]["parameters"] | state["identity_before"]["buffers"]
+        assert hashed_ids <= live, "hashed tensors are not the model's live parameters/buffers"
         state["first_stage_encoder_module"] = type(model.first_stage_model.encoder).__module__
 
     def guarded_imwrite(path, image, *call_args, **call_kwargs):
@@ -456,8 +474,10 @@ def run(args, require_cuda=True, pin_path=PIN_FILE):
     assert official_args["use_float16"] is True and official_args["save_memory"] is False, official_args
     model = final_globals["model"]
     assert model is state["model"], "sampler hook saw a different model"
-    state_after = state_hashes(model)
-    unchanged = state_after == state["state_before"]
+    state_after = state_hashes(state["state_refs"])
+    identity_unchanged = tensor_identity(model) == state["identity_before"]
+    assert identity_unchanged, "parameter/buffer tensor objects were replaced during inference"
+    unchanged = state_after == state["state_before"] and identity_unchanged
     assert unchanged, "model state changed during inference"
     rows = [rows_by_name[item["name"]] for item in selected]
     manifest = {
@@ -489,6 +509,8 @@ def run(args, require_cuda=True, pin_path=PIN_FILE):
         "environment": environment_record(),
         "model_state_sha256": state["state_before"],
         "model_state_unchanged": unchanged,
+        "model_state_check": ("state_dict(keep_vars=True) references captured at sampler construction, "
+                              "re-hashed after the run; parameters()/buffers() identity sets unchanged"),
         "execution_only_differences": [
             "task-owned cwd with symlinks for cwd-relative official paths and a planned-only input folder",
             "observers on cv2.imread/cv2.imwrite/decode_new_first_stage/DPMSolverSampler.__init__; PIL denied",

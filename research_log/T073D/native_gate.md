@@ -38,12 +38,26 @@ It re-hashes the low images against the receipt and checks:
 
 ## Tests (CPU, host base env torch 2.3.0)
 
-`test_mri_runner_and_verifier.py`: 16/16 pass. A stub official module reproduces main.py's quantize and /8 resize-back code on a 8×16 image and a 10×18 image. Runner tests cover: the happy path plus the verifier; stray file; wrong low hash; missing VAE key; tampered official uint8; unplanned decode; promotable run without pins; smoke-one; a wrong diffusers version fails the run closed unless `--accept-env-drift`, which then records the drift in the manifest. Verifier mutations cover: tensor hash; map-back; bin violation; NaN; low mutation; `reference_reads`; VAE pin.
+`test_mri_runner_and_verifier.py`: 19/19 pass. A stub official module reproduces main.py's quantize and /8 resize-back code on a 8×16 image and a 10×18 image. Runner tests cover: the happy path plus the verifier; stray file; wrong low hash; missing VAE key; tampered official uint8; unplanned decode; promotable run without pins; smoke-one; a wrong diffusers version fails the run closed unless `--accept-env-drift`, which then records the drift in the manifest. Also covered: the stub reproduces the official `our_pipeline` self-reference, the old post-run `state_sha256(model.unet)` raises `RecursionError` while the runner passes, and in-place parameter changes and parameter-object replacement are each detected. Verifier mutations cover: tensor hash; map-back; bin violation; NaN; low mutation; `reference_reads`; VAE pin.
+
+### Module-cycle fix (2026-09-26)
+
+The first real synthetic probe (512x960, real VAE, SD1.5 rev `451f4fe`) processed its image in 6.28 s at 8.54 GB reserved. It then crashed with `RecursionError` in the post-run `state_sha256(model.unet)`.
+
+Cause: the official hooks set `attn.our_pipeline = model` (main_utils.py:109,195). This registers the `DiffusionPriorEnhancer` (an `nn.Module`) as a submodule of its own UNet, so after the first `process()` any `state_dict()` recurses forever.
+
+Fix (execution-only; the official computation is unchanged):
+- Before the loop, while the graph is still acyclic, the runner captures `state_dict(keep_vars=True)` references for the unet, text encoder and custom VAE. It asserts they are live parameters or buffers of the enhancer.
+- After the loop it re-hashes those same tensor objects.
+- It asserts that the identity sets of `DiffusionPriorEnhancer.parameters()` and `buffers()` are unchanged. Their module traversal is memoised, so it is safe on a cycle.
+
+The only other `state_dict()` in the runner (`vae_key_report`) runs before any hook, on the VAE, which is outside the cycle. The verifier and probe never touch module graphs.
 
 ### Changed file hashes (LF SHA256, this revision)
 
-- `run_mri_native_batch.py`: `14598bf6ef54debbfc7b5e32b5994df17ef1e9a47589a50914b5d9b8a77ebb89`
-- `test_mri_runner_and_verifier.py`: `4130806035457f2f10498b537cf41e9bf5995b82bec67d1a767cb8d9873759ec`
+- `run_mri_native_batch.py`: `83e0d9d958ddc50851a83ad565cfd76c2f3acca767ab4f412e963b1dfac862fd`
+- `test_mri_runner_and_verifier.py`: `b58ec0e832ab6b732e84067a00b934d689ebc418cf461d3511c32b2fc4344827`
+- unchanged: `verify_mri_full.py` `8006e9416e29783ff2a081189112083f9d7bada1b591a84285037fbeca94938d`, `probe_mri_synthetic.py` `6ff7313b73478ad9579e496d7d0217144bc428edd5e26533f7c0041e01476ed6`, `mri_source_pin.json` `7372e4d009d76e508745c71bee7716fa89fe02619a3ded216ffba03cec69af96`
 
 ## Pending research-lead decisions
 

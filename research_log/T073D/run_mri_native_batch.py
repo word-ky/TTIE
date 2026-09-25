@@ -86,15 +86,37 @@ def self_sha256_lf():
     return hashlib.sha256(Path(__file__).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
-def state_sha256(module):
+def capture_state_refs(module):
+    """Name -> tensor references, taken while the module graph is still acyclic.
+
+    The official hooks (main_utils.py:109,195) set `attn.our_pipeline = model`, which
+    registers the DiffusionPriorEnhancer as a submodule of its own UNet. After the
+    first `process()`, `state_dict()` and `named_modules(remove_duplicate=False)`
+    recurse forever, so the post-run check re-hashes these same references instead.
+    """
+    return dict(module.state_dict(keep_vars=True))
+
+
+def refs_sha256(refs):
     digest = hashlib.sha256()
-    for key, value in sorted(module.state_dict().items()):
+    for key, value in sorted(refs.items()):
         array = value.detach().cpu().contiguous()
         digest.update(key.encode())
         digest.update(str(array.dtype).encode())
         digest.update(str(tuple(array.shape)).encode())
         digest.update(array.numpy().tobytes())
     return digest.hexdigest()
+
+
+def state_sha256(module):
+    """Only valid on an acyclic module graph (before the official hooks run)."""
+    return refs_sha256(capture_state_refs(module))
+
+
+def tensor_identity(module):
+    """Identity sets via parameters()/buffers(), whose module traversal is memoised (cycle-safe)."""
+    return {"parameters": frozenset(id(t) for t in module.parameters()),
+            "buffers": frozenset(id(t) for t in module.buffers())}
 
 
 def rng_digest():
@@ -390,11 +412,14 @@ def run(args, official=None, require_cuda=True):
     key_report = vae_key_report(model.vae, args.vae_checkpoint, model.weight_dtype)
     assert not key_report["missing_keys"], "VAE missing keys: stop for research-lead review"
     assert not key_report["loaded_value_mismatches"], "loaded VAE values differ from checkpoint"
-    state_before = {
-        "unet": state_sha256(model.unet),
-        "text_encoder": state_sha256(model.text_encoder),
-        "custom_vae": state_sha256(model.vae),
-    }
+    state_refs = {"unet": capture_state_refs(model.unet),
+                  "text_encoder": capture_state_refs(model.text_encoder),
+                  "custom_vae": capture_state_refs(model.vae)}
+    state_before = {name: refs_sha256(refs) for name, refs in state_refs.items()}
+    identity_before = tensor_identity(model)
+    hashed_ids = {id(t) for refs in state_refs.values() for t in refs.values()}
+    assert hashed_ids <= identity_before["parameters"] | identity_before["buffers"], (
+        "hashed tensors are not the model's live parameters/buffers")
     scheduler_config = {k: (v if isinstance(v, (int, float, str, bool, type(None), list)) else str(v))
                         for k, v in dict(model.scheduler.config).items()}
 
@@ -557,12 +582,11 @@ def run(args, official=None, require_cuda=True):
     assert len(rows) == len(selected), "row count mismatch"
     written = sorted(p.name for p in (args.out / "official_output").iterdir())
     assert written == sorted(item["name"] for item in selected), "official output set mismatch"
-    state_after = {
-        "unet": state_sha256(model.unet),
-        "text_encoder": state_sha256(model.text_encoder),
-        "custom_vae": state_sha256(model.vae),
-    }
-    unchanged = state_after == state_before
+    # Cycle-safe post-run check: same tensor objects re-hashed, same live tensor identity sets.
+    state_after = {name: refs_sha256(refs) for name, refs in state_refs.items()}
+    identity_unchanged = tensor_identity(model) == identity_before
+    assert identity_unchanged, "parameter/buffer tensor objects were replaced during inference"
+    unchanged = state_after == state_before and identity_unchanged
     assert unchanged, "model state changed during inference"
     manifest = {
         "method": "MR-Illuminate-official-native" + ("" if promotable else "-NONFINAL"),
@@ -597,6 +621,10 @@ def run(args, official=None, require_cuda=True):
         "environment_version_check": env_version_check,
         "model_state_sha256": state_before,
         "model_state_unchanged": unchanged,
+        "model_state_check": ("pre-run state_dict(keep_vars=True) references re-hashed after the run; "
+                              "identity sets of DiffusionPriorEnhancer.parameters()/buffers() unchanged"),
+        "live_parameter_count": len(identity_before["parameters"]),
+        "live_buffer_count": len(identity_before["buffers"]),
         "global_rng_unchanged_all_images": rng_unchanged_all,
         "execution_only_differences": [
             "no per-image exception swallowing (official main.py:614)",
