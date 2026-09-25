@@ -47,3 +47,30 @@ class LowOnlyPromptTrainDataset(Dataset):
         random.randint(0, width - self.patch_size)
         degraded = self.to_tensor(patch)
         return name, degraded, degraded
+
+
+class LowOnlyPromptTestDataset(Dataset):
+    """Low-only counterpart of the official paired PromptIR inference loader."""
+
+    def __init__(self, lq_dir):
+        self.lq_dir = lq_dir
+        self.names = sorted(
+            name for name in os.listdir(lq_dir)
+            if name.lower().endswith((".png", ".jpg", ".jpeg"))
+        )
+        self.to_tensor = ToTensor()
+
+    def __len__(self):
+        return len(self.names)
+
+    def __getitem__(self, index):
+        name = self.names[index]
+        low = np.array(Image.open(os.path.join(self.lq_dir, name)).convert("RGB"))
+        height, width = low.shape[:2]
+        extra_h, extra_w = height % 16, width % 16
+        low = low[
+            extra_h // 2:height - extra_h + extra_h // 2,
+            extra_w // 2:width - extra_w + extra_w // 2,
+            :,
+        ]
+        return name, self.to_tensor(low)
