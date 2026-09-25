@@ -48,3 +48,9 @@ Official DCTTA five-task `epoch=80.ckpt` was acquired from the author link and h
 The task-owned `research_log/T073B/low_only_loader.py` has no GT-directory argument. On three equal-size synthetic source-side pairs, its complete degraded-patch sequence is bitwise identical to the official paired `PromptTrainDataset_Simple`; the focused test instrumented image opens and observed LQ only. This is a narrow green increment, **not** a claim that the full DCTTA runner is low-only/sealed. Next integrate and independently test the adaptation/output path and GT-read boundary before any target run. `reference_reads=0`, `metrics=0`, `model_runs=0`; no paid GPU started.
 
 The second increment adds a low-only inference loader: its RGB/center-crop/ToTensor tensor matched the official paired inference loader bitwise on a synthetic non-multiple-of-16 image. Focused suite 2/2 passes; GT was never opened by the adapter. Full runner equivalence and independent execution-gate verification remain pending, so no target run is authorized yet.
+
+---
+
+## T073-B source import/checkpoint gate passed; full runner pending
+
+The user set an active goal to finish the entire long-horizon plan; hourly review is supervisory rather than a stop point. Official PromptIR import encountered absent `mmcv.ops` in local and paid-4090 environments. `research_log/T073B/mmcv_lazy_import.patch` defers only the unused DCN import; the adaptation algorithm is unchanged. Its SHA256 is `10d3b4d2329397bd8677d278d37f06412e625eefa33a3ee5c07714afdc81c4cb`. The source clone now imports `tta`, `PromptIR`, and `ResidualDiffusionModel` locally after installing observed requirements. The five-task checkpoint SHA256 was reconfirmed and loaded into `PromptIR(decoder=True)` with 548 keys, zero missing/unexpected. No target model run, reference read, metric, or paid-GPU job yet. Next: build and independently test the full low-only adaptation/output runner, then execution-only smoke.
