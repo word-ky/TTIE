@@ -184,3 +184,18 @@ Required edits/tests:
 Acceptance classification may become `UHDLL_EXPANDED_MAIN_TABLE_PREREG_SEALED` only after these corrections pass. Stop after R1; **do not begin PromptIR/DCTTA execution in the same cycle**.
 
 Next task after accepted R1 remains PromptIR + PromptIR+DCTTA low-only UHD-LL source-binding/preparation/execution, with references still sealed.
+
+
+---
+
+# LONG-HORIZON AUTONOMOUS EXECUTION MODE — 2026-09-25
+
+The user has explicitly changed the operating mode to accelerate the project. Codex is no longer required to stop after every normal one-hour subtask and wait for a new instruction.
+
+Authoritative roadmap: **`coordination/LONG_HORIZON_EXECUTION_PLAN.md`**.
+
+Starting point remains T073-A-R1. After R1 passes, continue autonomously through the document: UHD-LL remaining rows → UHD-LL reference gate/table → LSRW → preregistered Target-3 → final three-target main table → ablations → analytical experiments. The hourly ChatGPT loop is now supervisory: it will inspect, correct, or stop work if needed, but absence of a new hourly message is not a reason to idle.
+
+Important acceleration rule: if one independent method is blocked, record the blocker and continue other independent rows; do not open target references until the required gate is satisfied. All information-boundary and fail-closed rules in the long-horizon plan remain absolute.
+
+Immediate work: finish T073-A-R1, including the exact tier repair, five-task shared PromptIR/DCTTA source binding justified prospectively for low-light, and LOW_ONLY_DCTTA_REQUIRED gate; then continue to PromptIR + DCTTA execution without waiting for another routine approval.
