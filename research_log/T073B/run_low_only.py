@@ -8,6 +8,7 @@ import argparse
 import logging
 import random
 import sys
+import time
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -29,9 +30,9 @@ def load_promptir(checkpoint_path):
 
 
 def run(args):
+    started = time.perf_counter()
     sys.path.insert(0, str(args.source_root))
     import tta
-    from RDDM.net import ResidualDiffusionModel
     from utils.image_io import save_image_tensor
 
     random.seed(23)
@@ -55,6 +56,8 @@ def run(args):
     model = load_promptir(args.checkpoint).cuda()
 
     if args.mode == "dctta":
+        from RDDM.net import ResidualDiffusionModel
+
         trainset = LowOnlyPromptTrainDataset(args.low_dir, patch_size=options.patch_size)
         if args.smoke_one:
             trainset = Subset(trainset, [0])
@@ -95,6 +98,8 @@ def run(args):
         with torch.no_grad():
             restored = model(degraded.cuda())
         save_image_tensor(restored, str(args.output_dir / (Path(names[0]).stem + ".png")))
+    print(f"whole_run_seconds={time.perf_counter() - started:.3f}")
+    print(f"peak_gpu_memory_bytes={torch.cuda.max_memory_reserved()}")
 
 
 def main():

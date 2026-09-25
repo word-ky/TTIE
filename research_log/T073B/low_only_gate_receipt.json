@@ -7,16 +7,17 @@
   "wavelet_sha256": "8b153d20d0d677f93721b7ee81f2ba9736dabf86bf125e62612ae47e2e87e5ac",
   "task_code_sha256": {
     "low_only_loader.py": "f7f8bd4194a5a1055226ea1e0985ebefc155d4a3b4dce0173b5f7cb143ace547",
-    "run_low_only.py": "df59762223254d9fecefc8748b194f24c7130bd8799263c0aa0431b5e3c84fa2",
+    "run_low_only.py": "4ee1eb2ca7542a40ec7e594791c36512578cf058013c09fa0c456ce36e1969ca",
+    "make_synthetic_low.py": "7d5b0c7ec9ec19b8c6619a6e4320d1a9750b05285ed2b0e08e0f2f1410b9df2b",
     "test_low_only_loader.py": "96b593220a214cfb07ebd2183950e0a19c7f5b7ae7504b62b980955c7b652479",
     "test_run_low_only.py": "96256fe27fcc3da8e742a2e6fc25b89db6da0d3012b27491b3bebab70da99aad",
     "test_source_equivalence.py": "03dff1fe49afa5cbb2fe4b567259cea06c32bf53c9c4918a7dc958278c684760"
   },
   "focused_tests": "4/4 PASS; synthetic/source-side only",
   "gt_open_mutation": "REJECTED",
-  "real_full_component_adaptation_smoke": "NOT_RUN",
+  "real_full_component_adaptation_smoke": "PASS: one 352x352 low-only synthetic RGB image; static and DCTTA outputs 352x352 RGB; DCTTA output SHA256 1edc39b3ed85fc4bc33443bf3430f59eea2b39883a7b025ea760288118294216; whole run 10.650 seconds; CUDA peak reserved 23897047040 bytes; target input absent",
   "target_model_runs": 0,
   "target_reference_reads": 0,
   "target_metrics": 0,
-  "paid_gpu_jobs": 0
+  "paid_gpu_jobs": "4 synthetic-only invocations: one failed static import, one successful static, two successful DCTTA"
 }
