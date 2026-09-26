@@ -187,7 +187,8 @@ def main():
     if not args.order_only and not args.smoke_one:
         assert args.expected_order is not None, "promotable run requires the sealed --expected-order"
     if not args.order_only:
-        assert shutil.disk_usage(args.out.parent).free >= OUTPUT_BYTES_PER_IMAGE * len(expected) + 2**30
+        assert shutil.disk_usage(args.out.parent).free >= sum(
+            i["height"] * i["width"] * 15 + 2**20 for i in expected) + 2**30
         assert shutil.disk_usage(Path.cwd()).free >= 2 * 2**30
     args.out.mkdir(parents=True, exist_ok=False)
     logging.basicConfig(

@@ -83,6 +83,11 @@ SPECS = {
         ('method="PromptIR+DCTTA-five-task-domain-level-native-schedule"',
          'memory_schedule=bool(args.memory_schedule),\n'
          '        method="PromptIR+DCTTA-five-task-domain-level-generic"'),
+        # T075-B (user-approved, execution-only): disk preflight bound from receipt geometry
+        # (float32 raw x 1.25 + 1 MiB per image) instead of the inherited 4K constant.
+        ('        assert shutil.disk_usage(args.out.parent).free >= OUTPUT_BYTES_PER_IMAGE * len(expected) + 2**30\n',
+         '        assert shutil.disk_usage(args.out.parent).free >= sum(\n'
+         '            i["height"] * i["width"] * 15 + 2**20 for i in expected) + 2**30\n'),
     ]),
     "run_ours_step0_generic.py": ("T073C/run_step0_batch.py", [
         ('"""Run frozen zero-update Ours on the preregistered UHD-LL low-only cohort."""\n',
