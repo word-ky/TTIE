@@ -1,0 +1,7 @@
+# T072-K — BLOCKED — bounded clean-GPU availability watch + native-4K smoke
+
+The bounded watch ran non-invasively from `2026-09-22T05:46:32.875064Z` through `2026-09-22T06:41:34.381829Z`, with 12 `nvidia-smi` snapshots spaced at least five minutes apart. The final closure query was 1.506765 seconds after the nominal 55-minute deadline because of scheduler/query overhead; this timing deviation is preserved in the receipt and no snapshot was taken more frequently than authorized. No snapshot contained a qualifying device. GPU0 stayed at 2758–3497 MiB free and GPU1 at 3497–3499 MiB free, below the fixed `40960 MiB` requirement. Every snapshot also recorded a VLLM worker using `44972` or `44974 MiB`, above the allowed `1024 MiB` unrelated-process limit.
+
+The watch reached `WINDOW_EXPIRED` without a qualifying A6000. RetinexFormer and SNR-Aware were each `UNRUN`, Final Ours was not run, and no model process, input payload, GT/clean/reference payload, or metric was accessed. Counters are `inference_runs=0`, `model_launches=0`, `reference_reads=0`, `metrics=0`; no process was killed, paused, evicted, reniced, or otherwise disturbed.
+
+The receipt preserves the exact T072-I smoke identity and frozen RetinexFormer/SNR-Aware bindings. `verify_receipt.py` independently checks the raw watch-log digest, 12-entry sequence and cadence, failed gate on every snapshot, binding/smoke constants, one-run accounting, and zero-read ledger. No native-4K feasibility conclusion is made because neither baseline reached launch.
