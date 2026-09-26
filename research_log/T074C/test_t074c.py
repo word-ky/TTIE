@@ -56,23 +56,57 @@ def save_output(path, tensor):
         torch.save(tensor, stream)
 
 
-def build_target(tmp, name="SYNTH", rows=ROWS, frames=2, seed=0):
-    """SDSD-like npy target staged with the real stager, plus frozen-looking rows."""
+KINDS = {"sdsd": ("sdsd_in", "snr960x512"), "lsrw": ("lsrw", "native"), "smid": ("smid", "snr960x512")}
+LSRW_SIZES = {"Huawei": (48, 72), "Nikon": (64, 72)}  # mixed native geometry, like 960x720 / 960x640
+
+
+def make_data(stage, kind, root, frames, rng):
+    """Synthetic source layout for the real stager; returns (count, smid test list or None)."""
+    if kind == "sdsd":
+        for video in stage.SDSD_TEST_DIRS["sdsd_in"]:
+            for index in range(frames):
+                low = rng.integers(0, 40, (48, 90, 3), dtype=np.uint8)
+                gt = rng.integers(0, 256, (48, 90, 3), dtype=np.uint8)
+                (root / "input" / video).mkdir(parents=True, exist_ok=True)
+                (root / "GT" / video).mkdir(parents=True, exist_ok=True)
+                np.save(root / "input" / video / f"{index:04d}.npy", low)
+                np.save(root / "GT" / video / f"{index + 7:04d}.npy", gt)
+        return 6 * frames, None
+    if kind == "lsrw":
+        from PIL import Image
+
+        count = 0
+        for camera, (h, w) in LSRW_SIZES.items():
+            for side in ("low", "high"):
+                (root / camera / side).mkdir(parents=True, exist_ok=True)
+            for index in range(3 if camera == "Huawei" else 2):
+                Image.fromarray(rng.integers(0, 40, (h, w, 3), dtype=np.uint8)).save(root / camera / "low" / f"{index:03d}.jpg")
+                Image.fromarray(rng.integers(0, 256, (h, w, 3), dtype=np.uint8)).save(root / camera / "high" / f"{index:03d}.jpg")
+                count += 1
+        return count, None
+    sequences = ["0003", "0011", "0027"]
+    for seq in sequences:
+        (root / "SMID_LQ_np" / seq).mkdir(parents=True)
+        (root / "SMID_Long_np" / seq).mkdir(parents=True)
+        for index in range(frames):
+            np.save(root / "SMID_LQ_np" / seq / f"{index + 1:04d}.npy", rng.integers(0, 40, (40, 60, 3), dtype=np.uint8))
+        np.save(root / "SMID_Long_np" / seq / "0001_5.npy", rng.integers(0, 256, (40, 60, 3), dtype=np.uint8))
+    test_list = root.parent / "test_list.txt"
+    test_list.write_text("".join(f"{seq}\n" for seq in sequences))
+    return len(sequences) * frames, test_list
+
+
+def build_target(tmp, name="SYNTH", rows=ROWS, frames=2, seed=0, kind="sdsd"):
+    """Synthetic target staged with the real stager (SDSD-, LSRW- or SMID-like), plus frozen-looking rows."""
     stage = load_stage()
     rng = np.random.default_rng(seed)
     root = tmp / "data"
-    for video in stage.SDSD_TEST_DIRS["sdsd_in"]:
-        for index in range(frames):
-            low = rng.integers(0, 40, (48, 90, 3), dtype=np.uint8)
-            gt = rng.integers(0, 256, (48, 90, 3), dtype=np.uint8)
-            (root / "input" / video).mkdir(parents=True, exist_ok=True)
-            (root / "GT" / video).mkdir(parents=True, exist_ok=True)
-            np.save(root / "input" / video / f"{index:04d}.npy", low)
-            np.save(root / "GT" / video / f"{index + 7:04d}.npy", gt)
+    dataset, geometry = KINDS[kind]
+    count, test_list = make_data(stage, kind, root, frames, rng)
     staged = tmp / "staged"
-    stage.stage(argparse.Namespace(dataset="sdsd_in", root=root, out=staged, geometry="snr960x512",
-                                   frames_per_sequence=0, smid_test_list=None, expected_count=6 * frames,
-                                   list_only=False))
+    stage.stage(argparse.Namespace(dataset=dataset, root=root, out=staged, geometry=geometry,
+                                   frames_per_sequence=30 if kind == "smid" else 0, smid_test_list=test_list,
+                                   expected_count=count, list_only=False))
     low_receipt, opaque = staged / "low_receipt.json", staged / "reference_opaque_manifest.json"
     files = json.loads(low_receipt.read_bytes())["files"]
     low_sha = sha(low_receipt)
@@ -84,10 +118,11 @@ def build_target(tmp, name="SYNTH", rows=ROWS, frames=2, seed=0):
                     "reference_reads": 0, "metrics": 0, "rows": []}
         for item in files:
             tile = rng.uniform(-0.05, 1.05, (1, 3, 16, 24)).astype(np.float32)  # tiled: fast gzip, still varied
-            tensor = torch.from_numpy(np.ascontiguousarray(np.tile(tile, (1, 1, 32, 40))))
+            h, w = item["height"], item["width"]
+            tensor = torch.from_numpy(np.ascontiguousarray(np.tile(tile, (1, 1, h // 16, w // 24))))
             path = remote / Path(item["name"]).stem / "output.pt.gz"
             save_output(path, tensor)
-            manifest["rows"].append({"low_name": item["name"], "low_sha256": item["sha256"], "shape": [1, 3, 512, 960],
+            manifest["rows"].append({"low_name": item["name"], "low_sha256": item["sha256"], "shape": [1, 3, h, w],
                                      "dtype": "torch.float32", "output_file_sha256": sha(path),
                                      "output_tensor_sha256": hashlib.sha256(tensor.numpy().tobytes()).hexdigest()})
         freeze = {"task": "T074-C", "method_id": row_id, "target": name, "classification": "FROZEN_OUTPUTS",
@@ -112,7 +147,7 @@ def build_target(tmp, name="SYNTH", rows=ROWS, frames=2, seed=0):
         shutil.copyfile(Path(str(remote) + ".verify.json"), rows_dir / row_id / "verification.json")
         write_json(rows_dir / row_id / "freeze_receipt.json",
                    dict(freeze, output_manifest_sha256=msha, independent_verification_sha256=vsha))
-    rg.TARGETS[name] = {"display_name": name, "dataset": "sdsd_in", "geometry": "snr960x512",
+    rg.TARGETS[name] = {"display_name": name, "dataset": dataset, "geometry": geometry,
                         "expected_count": len(files), "low_receipt_sha256": low_sha,
                         "reference_opaque_manifest_sha256": sha(opaque), "stage_script_sha256": STAGE_SHA,
                         "required_rows": list(rows)}
@@ -773,3 +808,135 @@ def test_materialize_global_over_union_of_rounds(evaluated, tmp_path):
     assert manifest["selection"]["tie_window"] == [sid]
     with pytest.raises(FileExistsError):  # materialize only once
         tuning.materialize_global(work, ctx, records, work / "tuning_log.jsonl")
+
+
+# ---------------------------------------------------------------- T075 targets: LSRW (mixed native geometry), SMID
+
+
+import targets_t075 as t075  # noqa: E402
+
+
+def t073a_reference_png_jpeg(path):
+    """T071-B / T073-A reference conversion for image files: PIL RGB uint8 / 255 in float64 -> float32 -> float64."""
+    from PIL import Image
+
+    with Image.open(path) as image:
+        return (np.asarray(image.convert("RGB"), dtype=np.float64) / 255).astype(np.float32).astype(np.float64)
+
+
+def test_t075_registry_pins_and_sdsd_untouched():
+    sdsd_before = json.dumps(rg.TARGETS["SDSD_indoor"], sort_keys=True)
+    t075.register()
+    t075.register()  # idempotent
+    assert json.dumps(rg.TARGETS["SDSD_indoor"], sort_keys=True) == sdsd_before
+    for name, spec in t075.T075_TARGETS.items():
+        assert rg.TARGETS[name] == spec and spec["required_rows"] == rg.TARGETS["SDSD_indoor"]["required_rows"]
+        assert t075.default_rows_dir(name) == HERE.parent / "T075B" / name
+        folder = HERE.parent / "T074B" / "targets" / name
+        if not (folder / "reference_opaque_manifest.json").exists():
+            pytest.skip("target receipts not staged")
+        low, low_sha, opaque, opaque_sha = rg.check_low_and_opaque(spec, folder / "low_receipt.json",
+                                                                  folder / "reference_opaque_manifest.json")
+        assert low_sha == spec["low_receipt_sha256"] and opaque_sha == spec["reference_opaque_manifest_sha256"]
+    clusters = [f["cluster"] for f in json.loads((HERE.parent / "T074B/targets/LSRW/low_receipt.json").read_bytes())["files"]]
+    assert len(set(clusters)) == len(clusters) == 50
+    mt.cluster_layout(clusters, clusters)  # singleton guard holds: exact T073-A reduction for LSRW
+    smid = json.loads((HERE.parent / "T074B/targets/SMID/low_receipt.json").read_bytes())["files"]
+    assert len({f["cluster"] for f in smid}) == 49
+    with pytest.raises(rg.GateError, match="different spec"):
+        rg.TARGETS["LSRW"] = dict(rg.TARGETS["LSRW"], expected_count=51)
+        t075.register()
+    rg.TARGETS["LSRW"] = t075.T075_TARGETS["LSRW"]
+
+
+def test_t075_default_rows_dir_injection():
+    assert t075._with_rows_dir(["--target", "LSRW", "--x", "1"])[-2:] == ["--rows-dir", str(HERE.parent / "T075B" / "LSRW")]
+    assert t075._with_rows_dir(["--target", "SMID", "--rows-dir", "r"]) == ["--target", "SMID", "--rows-dir", "r"]
+    assert t075._with_rows_dir(["--target", "SDSD_indoor"]) == ["--target", "SDSD_indoor"]
+
+
+@pytest.fixture(scope="module")
+def lsrw(tmp_path_factory):
+    t = build_target(tmp_path_factory.mktemp("lsrw"), name="SYNTH_LSRW", kind="lsrw")
+    open_gate(t)
+    ctx = context(t)
+    return t, ctx, mt.evaluate(ctx)
+
+
+def test_lsrw_mixed_geometry_metrics_equal_direct_frozen_call(lsrw):
+    t, ctx, result = lsrw
+    shapes = {(f["height"], f["width"]) for f in t.files}
+    assert shapes == set(LSRW_SIZES.values())  # really mixed
+    core = mt.import_frozen_metric()
+    opaque = json.loads(t.opaque.read_bytes())
+    for index, item in enumerate(t.files):
+        y = t073a_reference_png_jpeg(t.root / opaque["pairs"][index]["gt_relpath"])
+        assert y.shape == (item["height"], item["width"], 3)
+        assert np.array_equal(ctx.reference(index).astype(np.float64), y)
+        for row_id in ("ours_ttt", "promptir"):
+            with gzip.open(t.runs / row_id / Path(item["name"]).stem / "output.pt.gz", "rb") as stream:
+                tensor = torch.load(stream, weights_only=True)
+            x = np.clip(np.ascontiguousarray(tensor[0].permute(1, 2, 0).numpy(), dtype=np.float64), 0, 1)
+            direct = core.metrics(x, y)
+            got = result["per_image"][row_id][index]
+            assert got["psnr"] == direct["psnr"] and got["rgb_ssim"] == direct["rgb_ssim"]
+
+
+def test_lsrw_singleton_clusters_give_the_t073a_image_bootstrap(lsrw):
+    t, ctx, result = lsrw
+    n = len(t.files)
+    assert result["clusters"]["G"] == n and result["clusters"]["sizes"] == [1] * n
+    comp = next(c for c in result["comparisons"] if (c["a"], c["b"]) == ("ours_ttt", "promptir"))
+    d = np.asarray([a["psnr"] - b["psnr"] for a, b in zip(result["per_image"]["ours_ttt"], result["per_image"]["promptir"])])
+    idx = np.random.Generator(np.random.PCG64(20260922)).integers(0, n, size=(10000, n), dtype=np.int64)
+    assert comp["psnr"]["ci95"] == np.quantile(d[idx].mean(axis=1), [0.025, 0.975], method="linear").tolist()
+
+
+def test_lsrw_geometry_checks_are_per_image(lsrw):
+    t, ctx, _ = lsrw
+    tall = next(i for i, f in enumerate(t.files) if f["height"] == 64)
+    short = next(i for i, f in enumerate(t.files) if f["height"] == 48)
+    manifest = json.loads((t.rows_dir / "promptir" / "output_manifest.json").read_bytes())
+    manifest["rows"][tall]["shape"] = manifest["rows"][short]["shape"]
+    with pytest.raises(rg.GateError, match="geometry"):
+        rg._check_manifest_rows("promptir", manifest, t.files, sha(t.low_receipt))
+    row = json.loads((t.rows_dir / "promptir" / "output_manifest.json").read_bytes())["rows"][tall]
+    path = t.runs / "promptir" / Path(t.files[tall]["name"]).stem / "output.pt.gz"
+    assert mt.load_output(path, row, t.files[tall]).shape == (64, 72, 3)
+    wrong_item = dict(t.files[tall], height=48)
+    with pytest.raises(rg.GateError, match="geometry"):
+        mt.load_output(path, row, wrong_item)
+    with pytest.raises(rg.GateError, match="shape mismatch"):
+        mt.score(np.zeros((48, 72, 3)), ctx.reference(tall), ctx.core)
+
+
+def test_smid_shared_sequence_gt_and_clusters(tmp_path):
+    t = build_target(tmp_path, name="SYNTH_SMID", kind="smid", rows=["promptir", "ours_step0", "ours_ttt"])
+    opaque = json.loads(t.opaque.read_bytes())
+    assert opaque["count"] == 6 and opaque["unique_gt_count"] == 3
+    open_gate(t)
+    ctx = context(t)
+    refs = [ctx.reference(i) for i in range(len(t.files))]
+    for i, j in ((0, 1), (2, 3), (4, 5)):
+        assert t.files[i]["cluster"] == t.files[j]["cluster"] and np.array_equal(refs[i], refs[j])
+        assert refs[i].shape == (512, 960, 3)
+    result = mt.evaluate(ctx)
+    assert result["clusters"]["G"] == 3 and result["clusters"]["sizes"] == [2, 2, 2]
+    assert result["clusters"]["order"] == ["0003", "0011", "0027"]
+
+
+def test_t075_wrapper_gate_and_metrics(tmp_path):
+    t = build_target(tmp_path, name="SYNTH_WRAP", kind="lsrw", rows=["promptir", "ours_step0", "ours_ttt"])
+    common = ["--target", t.name, "--low-receipt", str(t.low_receipt), "--opaque-manifest", str(t.opaque),
+              "--rows-dir", str(t.rows_dir)]
+    t075.main(["gate"] + common)
+    receipt = json.loads(t.receipt.read_bytes())
+    assert receipt["target_registry"]["sha256"] == sha(HERE / "targets_t075.py")
+    with pytest.raises(rg.GateError, match="immutable"):
+        t075.main(["gate"] + common)
+    t075.main(["metrics"] + common + ["--gate-receipt", str(t.receipt), "--stage-target", str(STAGE_PATH),
+                                      "--out", str(tmp_path / "metrics")])
+    result = json.loads((tmp_path / "metrics" / "metrics_result.json").read_bytes())
+    assert result["n"] == 5 and set(result["rows"]) == {"promptir", "ours_step0", "ours_ttt"}
+    with pytest.raises(rg.GateError, match="usage"):
+        t075.main(["bogus"])
