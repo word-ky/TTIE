@@ -7,6 +7,8 @@ Kinds:
           (own Immerkaer implementation by array slicing, tolerance 1e-9 relative on sigma_hat; then OpenCV NLM with
           the recorded h must give the stored tensor bit for bit) on every ``--recompute-stride``-th image.
   knobs   ``ours_ttt_sdsd_knobs``: schema, hashes, fixed knobs / setting id, execution-manifest binding to the frozen
+          ours_ttt row; rows with decision_status KNOBS_REJECTED_FALLBACK_DEFAULT (declared fallback, v2_freeze.md
+          amendment) must be byte-identical copies of the frozen ours_ttt output for that image (checked on disk);
           ours_ttt row, decision fields and abstention consistency.
 Does not import the producers.
 """
@@ -23,6 +25,7 @@ import numpy as np
 KNOBS_SETTING_ID = "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd"
 KNOB_OVERRIDES = {"q_joint": 0.35266535990213066, "exposure_target": 0.7}
 KAPPA = 6.0
+FALLBACK = "KNOBS_REJECTED_FALLBACK_DEFAULT"
 
 
 def sha256_bytes(data):
@@ -130,7 +133,7 @@ def verify(kind, method_id, low_receipt, outputs, expected_count, source_dir=Non
         check(manifest["frozen_ours_ttt_manifest_sha256"] == sha256_file(frozen_path), "frozen ours_ttt binding")
         check(manifest["execution_manifest_sha256"] == frozen["execution_manifest_sha256"], "execution manifest")
         check(manifest["default_reproduction_images"] >= 1, "no default reproduction recorded")
-    total, recomputed, abstained = 0, 0, 0
+    total, recomputed, abstained, fallbacks = 0, 0, 0, 0
     for index, (item, row) in enumerate(zip(files, manifest["rows"])):
         if kind == "knobs":
             check(row["execution_manifest_sha256"] == manifest["execution_manifest_sha256"] and row["setting_id"] == KNOBS_SETTING_ID,
@@ -138,6 +141,17 @@ def verify(kind, method_id, low_receipt, outputs, expected_count, source_dir=Non
             check(len(row["active"]) == 4 and all(isinstance(v, bool) for v in row["active"]), "active")
             if row["decision_status"] == "TTT_EXECUTED":
                 check(0 <= row["selected_step"] <= 27 and any(row["active"]), f"executed row {item['name']}")
+            elif row["decision_status"] == FALLBACK:
+                f_row = frozen["rows"][index]
+                stem = Path(item["name"]).stem
+                check(f_row["low_name"] == item["name"] and row["output_file_sha256"] == f_row["output_file_sha256"]
+                      and row["output_tensor_sha256"] == f_row["output_tensor_sha256"], f"fallback row not the frozen output {item['name']}")
+                check(sha256_file(Path(frozen_ours_ttt) / stem / "output.pt.gz") == f_row["output_file_sha256"]
+                      and Path(outputs, stem, "output.pt.gz").read_bytes() == Path(frozen_ours_ttt, stem, "output.pt.gz").read_bytes(),
+                      f"fallback file not byte-identical to frozen ours_ttt {item['name']}")
+                check(row["selected_step"] == f_row["decision"]["selected_step"] and "rejection_error" in row,
+                      f"fallback fields {item['name']}")
+                fallbacks += 1
             else:
                 check(row["decision_status"] == "TTT_ABSTAIN_NO_ACTIVE_GATE" and row["selected_step"] == 0
                       and not any(row["active"]), f"abstention row {item['name']}")
@@ -148,7 +162,9 @@ def verify(kind, method_id, low_receipt, outputs, expected_count, source_dir=Non
         recomputed += did
     if kind == "knobs":
         check(manifest["no_active_abstentions"] == abstained, "abstention count")
-        extra = {"no_active_abstentions": abstained, "ttt_executed_count": expected_count - abstained}
+        check(manifest.get("knobs_rejected_fallback_count", 0) == fallbacks, "fallback count")
+        extra = {"no_active_abstentions": abstained, "knobs_rejected_fallback_count": fallbacks,
+                 "ttt_executed_count": expected_count - abstained - fallbacks}
     else:
         extra["recomputed_images"] = recomputed
     return {"classification": f"T075A_{kind.upper()}_OUTPUTS_VERIFIED", "method_id": method_id, "count": expected_count,

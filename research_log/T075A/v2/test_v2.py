@@ -292,3 +292,62 @@ def test_gate_refuses_missing_v2_row(v2_target, tmp_path):
 def test_registry_refuses_conflicting_spec():
     with pytest.raises(rg.GateError):
         gm.register("LSRW", dict(rg.TARGETS.get("SDSD_indoor"), required_rows=["x"]))
+
+
+# ---------------------------------------------------------------- declared knobs-rejection fallback
+
+
+def fake_frozen_ttt(t, root):
+    rows = []
+    for i, item in enumerate(t.files):
+        tensor = noisy(50 + i, item["height"], item["width"]).clamp(0, 1)
+        d = root / Path(item["name"]).stem
+        d.mkdir(parents=True)
+        dd.save_tensor(d / "output.pt.gz", tensor)
+        rows.append({"low_name": item["name"], "low_sha256": item["sha256"], "shape": [1, 3, item["height"], item["width"]],
+                     "dtype": "torch.float32", "decision_status": "TTT_EXECUTED", "decision": {"selected_step": 19},
+                     "execution_manifest_sha256": "e" * 64, "output_tensor_sha256": tsha(tensor),
+                     "output_file_sha256": sha(d / "output.pt.gz")})
+    (root / "output_manifest.json").write_text(json.dumps({"execution_manifest_sha256": "e" * 64, "rows": rows}))
+    return rows
+
+
+def test_knobs_rejection_fallback_is_bitwise_frozen_output(target, tmp_path):
+    import run_ours_knobs as rk
+
+    t = target
+    frozen_dir = tmp_path / "frozen_ttt"
+    frozen_rows = fake_frozen_ttt(t, frozen_dir)
+    out = tmp_path / "knobs"
+    manifest = fake_knobs_row(t, out, frozen_dir / "output_manifest.json")
+    item, d = t.files[0], out / Path(t.files[0]["name"]).stem
+    (d / "output.pt.gz").unlink()
+    image, extra = rk.fallback_copy(frozen_rows[0], frozen_dir, item, d)
+    assert tsha(image) == frozen_rows[0]["output_tensor_sha256"]
+    row = dict(manifest["rows"][0], decision_status=rk.FALLBACK, selected_step=19, rejection_error="AssertionError()",
+               output_tensor_sha256=tsha(image), output_file_sha256=sha(d / "output.pt.gz"), **extra)
+    manifest["rows"][0] = row
+    manifest["knobs_rejected_fallback_count"] = 1
+    (d / "decision.json").write_text(json.dumps(row, indent=2))
+    (out / "output_manifest.json").write_text(json.dumps(manifest, indent=2))
+    r = vv.verify("knobs", "ours_ttt_sdsd_knobs", t.low_receipt, out, len(t.files), frozen_ours_ttt=frozen_dir)
+    assert r["knobs_rejected_fallback_count"] == 1 and r["ttt_executed_count"] == len(t.files) - 1
+    # a fallback row that is not the frozen output fails, even with self-consistent hashes
+    other = noisy(99, item["height"], item["width"]).clamp(0, 1)
+    dd.save_tensor(d / "output.pt.gz", other)
+    row = dict(row, output_tensor_sha256=tsha(other), output_file_sha256=sha(d / "output.pt.gz"))
+    manifest["rows"][0] = row
+    (d / "decision.json").write_text(json.dumps(row, indent=2))
+    (out / "output_manifest.json").write_text(json.dumps(manifest, indent=2))
+    with pytest.raises(AssertionError, match="fallback row not the frozen output"):
+        vv.verify("knobs", "ours_ttt_sdsd_knobs", t.low_receipt, out, len(t.files), frozen_ours_ttt=frozen_dir)
+    # undeclared count fails
+    manifest["knobs_rejected_fallback_count"] = 0
+    (out / "output_manifest.json").write_text(json.dumps(manifest, indent=2))
+    with pytest.raises(AssertionError):
+        vv.verify("knobs", "ours_ttt_sdsd_knobs", t.low_receipt, out, len(t.files), frozen_ours_ttt=frozen_dir)
+    # the producer refuses a changed frozen source
+    dd.save_tensor(frozen_dir / Path(t.files[1]["name"]).stem / "output.pt.gz", other)
+    (tmp_path / "x").mkdir()
+    with pytest.raises(RuntimeError, match="frozen ours_ttt file changed"):
+        rk.fallback_copy(frozen_rows[1], frozen_dir, t.files[1], tmp_path / "x")

@@ -13,7 +13,10 @@ Run from the frozen Ours source root with the frozen process environment (CUBLAS
 * Before the run, the default knobs are run on the first ``--repro-count`` images and must reproduce this target's
   frozen ``ours_ttt`` output tensors bit for bit (fails closed otherwise). ``--expect-manifest`` optionally requires
   every output tensor to equal a given row (used on SDSD-indoor against ``ours_ttt_target_tuned``).
-* An image the frozen code rejects (AssertionError) stops the run: there is no fallback rule.
+* Rejection fallback (v2_freeze.md amendment, declared 2026-09-26 before any SMID GT): if the frozen code rejects an
+  image under the knobs (AssertionError -> run_group status REJECTED), that image's output is a bitwise copy of this
+  target's frozen default-knob ``ours_ttt`` output (file and tensor hashes checked against the frozen manifest), with
+  decision_status = KNOBS_REJECTED_FALLBACK_DEFAULT; the count is reported in the manifest.
 """
 
 import os
@@ -35,6 +38,7 @@ sys.path.insert(0, str(T074C))
 METHOD_ID = "ours_ttt_sdsd_knobs"
 KNOBS = {"q_joint": 0.35266535990213066, "exposure_target": 0.7}  # v2_freeze.md; T074-C selected setting 75f046d9...
 SDSD_SETTING_ID = "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd"
+FALLBACK = "KNOBS_REJECTED_FALLBACK_DEFAULT"
 
 
 def sha256_bytes(data):
@@ -48,6 +52,26 @@ def sha256_file(path):
 def fail(condition, message):
     if not condition:
         raise RuntimeError(message)
+
+
+def fallback_copy(frozen_row, frozen_dir, item, directory):
+    """Declared rejection fallback: bitwise copy of the frozen default-knob ours_ttt output for this image."""
+    import torch
+
+    shape = [1, 3, item["height"], item["width"]]
+    fail(frozen_row["low_name"] == item["name"] and frozen_row["low_sha256"] == item["sha256"]
+         and frozen_row["shape"] == shape, f"frozen ours_ttt row mismatch at {item['name']}")
+    source = Path(frozen_dir) / Path(item["name"]).stem / "output.pt.gz"
+    fail(sha256_file(source) == frozen_row["output_file_sha256"], f"frozen ours_ttt file changed: {item['name']}")
+    shutil.copyfile(source, Path(directory) / "output.pt.gz")
+    fail(sha256_file(Path(directory) / "output.pt.gz") == frozen_row["output_file_sha256"], "fallback copy differs")
+    with gzip.open(Path(directory) / "output.pt.gz", "rb") as stream:
+        image = torch.load(stream, map_location="cpu", weights_only=True)
+    fail(sha256_bytes(image.contiguous().numpy().tobytes()) == frozen_row["output_tensor_sha256"],
+         f"frozen ours_ttt tensor changed: {item['name']}")
+    return image, {"fallback_source": "frozen default-knob ours_ttt",
+                   "fallback_source_decision_status": frozen_row["decision_status"],
+                   "fallback_source_selected_step": frozen_row["decision"]["selected_step"]}
 
 
 def save_tensor(path, tensor):
@@ -121,21 +145,28 @@ def main():
         torch.cuda.reset_peak_memory_stats()
         started = time.perf_counter()
         image, record = OT.run_group(model.scorer, model.gate, model.model, low(index), [variant], "cuda:0")["knobs"]
-        fail(image is not None and record["status"] in ("TTT_EXECUTED", "TTT_ABSTAIN_NO_ACTIVE_GATE"),
-             f"frozen code rejected {item['name']} under the knobs: {record}; no fallback, stopping")
         shape = [1, 3, item["height"], item["width"]]
+        directory = partial / Path(item["name"]).stem
+        directory.mkdir()
+        extra = {}
+        if record["status"] == "REJECTED":
+            fail(image is None, f"rejected image carries an output: {item['name']}")
+            image, extra = fallback_copy(frozen["rows"][index], a.frozen_ours_ttt, item, directory)
+            extra["rejection_error"] = record.get("error")
+            record = {"status": FALLBACK, "selected_step": extra["fallback_source_selected_step"], "active": record["active"]}
+        fail(image is not None and record["status"] in ("TTT_EXECUTED", "TTT_ABSTAIN_NO_ACTIVE_GATE", FALLBACK),
+             f"unexpected record at {item['name']}: {record}")
         fail(list(image.shape) == shape and image.dtype == torch.float32 and bool(torch.isfinite(image).all()),
              f"output geometry at {item['name']}")
         digest = sha256_bytes(image.contiguous().numpy().tobytes())
         if expect is not None:
             fail(digest == expect["rows"][index]["output_tensor_sha256"], f"expected row not reproduced at {item['name']}")
-        directory = partial / Path(item["name"]).stem
-        directory.mkdir()
-        save_tensor(directory / "output.pt.gz", image)
+        if record["status"] != FALLBACK:
+            save_tensor(directory / "output.pt.gz", image)
         row = {"method": "Ours-TTT (SDSD-selected knobs)", "low_name": item["name"], "low_sha256": item["sha256"],
                "execution_manifest_sha256": model.manifest_sha256, "setting_id": SDSD_SETTING_ID,
                "decision_status": record["status"], "selected_step": record["selected_step"], "active": record["active"],
-               **({"decision": record["decision"]} if "decision" in record else {}),
+               **({"decision": record["decision"]} if "decision" in record else {}), **extra,
                "shape": shape, "dtype": "torch.float32", "output_tensor_sha256": digest,
                "output_file_sha256": sha256_file(directory / "output.pt.gz"),
                "whole_run_seconds": time.perf_counter() - started,
@@ -148,7 +179,9 @@ def main():
                 "knobs": knobs, "setting_id": SDSD_SETTING_ID, "knob_overrides": KNOBS,
                 "frozen_ours_ttt_manifest_sha256": sha256_file(frozen_path), "default_reproduction_images": repro,
                 "expected_manifest_sha256": sha256_file(a.expect_manifest) if a.expect_manifest else None,
-                "no_active_abstentions": sum(r["decision_status"] != "TTT_EXECUTED" for r in rows),
+                "no_active_abstentions": sum(r["decision_status"] == "TTT_ABSTAIN_NO_ACTIVE_GATE" for r in rows),
+                "knobs_rejected_fallback_count": sum(r["decision_status"] == FALLBACK for r in rows),
+                "fallback_rule": "v2_freeze.md amendment: rejected image -> bitwise copy of frozen default-knob ours_ttt output",
                 "producer": "research_log/T075A/v2/run_ours_knobs.py", "producer_sha256": sha256_file(__file__),
                 "ours_tuning_sha256": sha256_file(OT.__file__), "promotable": not a.smoke_count,
                 "reference_reads": 0, "metrics": 0, "rows": rows}

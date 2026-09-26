@@ -77,6 +77,7 @@ def make(target, row, outputs, source_freeze, out, prefix):
                         "setting_id": man["setting_id"], "default_reproduction_images": man["default_reproduction_images"],
                         "ttt_abstain_no_active_gate_count": ver["no_active_abstentions"],
                         "ttt_executed_count": ver["ttt_executed_count"],
+                        "knobs_rejected_fallback_count": ver.get("knobs_rejected_fallback_count", 0),
                         "process_env": "CUBLAS_WORKSPACE_CONFIG, OMP/MKL/OPENBLAS_NUM_THREADS, MKL_THREADING_LAYER unset",
                         "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock"})
     (out / "freeze_receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
