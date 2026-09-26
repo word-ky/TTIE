@@ -1,0 +1,51 @@
+{
+  "task": "T075-B",
+  "method_id": "ours_step0",
+  "target": "LSRW",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 50,
+  "preregistration": "research_log/T074C/prereg.md + research_log/T075A/plan_and_amendments.md",
+  "canonical_low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+  "runner": "research_log/T074B/run_ours_step0_generic.py",
+  "runner_sha256": "5dad90e8e348179f2840a00622316a08f4936e29268003e43fd9f51df7e5876e",
+  "smoke_manifest_sha256": "09acc74126a77e66295ef11b5bac78591ef5361da67a6e098c1537b73fd47fd4",
+  "smoke_promotable": false,
+  "manifest_scalars": {
+    "method": "Ours-Step0",
+    "count": 50,
+    "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+    "low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock",
+  "process_env": "CUBLAS_WORKSPACE_CONFIG, OMP/MKL/OPENBLAS_NUM_THREADS, MKL_THREADING_LAYER unset (as frozen UHD-LL runs)",
+  "gate_active_images": 49,
+  "gate_inactive_images": 1,
+  "verifier": "research_log/T074B/verify_generic_outputs.py",
+  "verifier_sha256": "de2b3c51db7e5c2bf2ac9111720dbcad6f0fc6f6e76e9662781989fa339196e5",
+  "output_manifest_path": "research_log/T075B/LSRW/ours_step0/output_manifest.json",
+  "output_manifest_sha256": "97e40368673098f64073153b5157aee0ff202c076c07efc80f1a753260a00493",
+  "independent_verification_path": "research_log/T075B/LSRW/ours_step0/verification.json",
+  "independent_verification_sha256": "8c1dceba2585135fe636bc15b2f6c057c2bf8b60ccb866677e87b6e9d30d0cd4",
+  "verification_classification": "T074B_OURS_STEP0_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 0.07574866598588414,
+  "per_image_seconds_sum": 3.7969197800266556,
+  "max_per_image_peak_reserved_gpu_bytes": 727711744,
+  "compressed_output_bytes": 59767669,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/LSRW/ours_step0",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false,
+  "host_load_context": {
+    "full_run_window_utc": [
+      "2026-09-26T04:50:05Z",
+      "2026-09-26T04:50:12Z"
+    ],
+    "loadavg_1min_samples": 0,
+    "loadavg_1min_min_max": null,
+    "monitor": "no samples (monitor not running)",
+    "gpu_exclusive": "flock /root/autodl-tmp/TTIE/gpu.lock (GPU jobs serialized); CPU shared with other agents' jobs"
+  }
+}

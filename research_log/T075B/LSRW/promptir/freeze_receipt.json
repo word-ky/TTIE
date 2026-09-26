@@ -1,0 +1,55 @@
+{
+  "task": "T075-B",
+  "method_id": "promptir",
+  "target": "LSRW",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 50,
+  "preregistration": "research_log/T074C/prereg.md + research_log/T075A/plan_and_amendments.md",
+  "canonical_low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+  "runner": "research_log/T074B/run_promptir_static_generic.py",
+  "runner_sha256": "1adaea1ca0aeb96d72621fc0e688f1d47f3148ca087b7f0e7fb217a0cc005004",
+  "smoke_manifest_sha256": "f770c6dafe98de16c8ee7b657fb6edc45c97c5781c4413f195c88ccb9e50824e",
+  "smoke_promotable": false,
+  "manifest_scalars": {
+    "method": "PromptIR-static-five-task-generic",
+    "memory_schedule": false,
+    "count": 50,
+    "checkpoint_sha256": "206baf0dd10f636f025b33b5ee7eb63a353fcbf4d50858b62f9480a6d4be9d4a",
+    "low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+    "model_state_unchanged": true,
+    "state_key_count": 548,
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock",
+  "process_env": "CUBLAS_WORKSPACE_CONFIG, OMP/MKL/OPENBLAS_NUM_THREADS, MKL_THREADING_LAYER unset (as frozen UHD-LL runs)",
+  "verifier": "research_log/T074B/verify_generic_outputs.py",
+  "verifier_sha256": "de2b3c51db7e5c2bf2ac9111720dbcad6f0fc6f6e76e9662781989fa339196e5",
+  "output_manifest_path": "research_log/T075B/LSRW/promptir/output_manifest.json",
+  "output_manifest_sha256": "444779a4c9924f74f3c1614669ca99c2da4c8843421dc4320df81a525b050ffc",
+  "independent_verification_path": "research_log/T075B/LSRW/promptir/verification.json",
+  "independent_verification_sha256": "0611572cf6b79b4a6e0cccc89f2b62eddbadb91f5636e46c167ef19e6a4133ea",
+  "verification_classification": "T074B_PROMPTIR_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 0.8817479165154509,
+  "per_image_seconds_sum": 42.73411528998986,
+  "max_per_image_peak_reserved_gpu_bytes": 8208252928,
+  "compressed_output_bytes": 354387207,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/LSRW/promptir",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false,
+  "host_load_context": {
+    "full_run_window_utc": [
+      "2026-09-26T05:27:43Z",
+      "2026-09-26T05:28:30Z"
+    ],
+    "loadavg_1min_samples": 3,
+    "loadavg_1min_min_max": [
+      6.35,
+      6.71
+    ],
+    "monitor": "logs/load_monitor.log (60 s samples; started 2026-09-26T05:21:58Z)",
+    "gpu_exclusive": "flock /root/autodl-tmp/TTIE/gpu.lock (GPU jobs serialized); CPU shared with other agents' jobs"
+  }
+}
