@@ -1,0 +1,1031 @@
+{
+  "method": "ours_step0 + D",
+  "method_id": "ours_step0_plus_D",
+  "count": 50,
+  "low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+  "source_row": "ours_step0",
+  "source_output_manifest_sha256": "97e40368673098f64073153b5157aee0ff202c076c07efc80f1a753260a00493",
+  "source_freeze_receipt_sha256": "36be5ecffa8ea9ab0db8b4d9d762b7a2f198329560096c172ee73490c1bae602",
+  "d_spec": {
+    "denoiser": "cv2.fastNlMeansDenoisingColored(u8_bgr, None, h, h, 7, 21)",
+    "h_rule": "h = hColor = kappa * 255 * sigma_hat; sigma_hat = Immerkaer estimate of clip(float64 output, 0, 1)",
+    "kappa": 6.0,
+    "template_window": 7,
+    "search_window": 21,
+    "quantisation": "u8 = uint8(np.round(clip(x,0,1) * 255)) before D; output = float32(u8_denoised) / float32(255)",
+    "spec_document": "research_log/T075A/v2_freeze.md"
+  },
+  "producer": "research_log/T075A/v2/denoise_d.py",
+  "producer_sha256": "c9434b7b3d1f8f82298e308affaaefc6d7d9cc5b5d48237c11c93de79de9d54c",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "cv2": "4.11.0"
+  },
+  "workers": 4,
+  "promotable": true,
+  "reference_reads": 0,
+  "metrics": 0,
+  "rows": [
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2037.png",
+      "low_sha256": "8d37655a947dce0754d20555be5f9220c8fba24107c3cee48249567a1b9f0b9a",
+      "source_output_tensor_sha256": "d45e086414736d1fedea1172e8146df89328cf19a781b05b3a719b0bfacd526e",
+      "source_output_file_sha256": "eadcf91b5cb4a5eceaa20ddb0000dc040587ace098424bde51173f80da6bd2f4",
+      "sigma_hat": 0.00212980085603222,
+      "h": 3.258595309729297,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2dc6f752a25d1a7ffe61ce823faeea6442fe1c6779f155d143b458e8bc9a7514",
+      "output_file_sha256": "cb58ee8998d53667e1e43b83f40be338c6bb0f6df5da68ebb2f8cadff72b04b3",
+      "whole_run_seconds": 1.3746958990232088,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2038.png",
+      "low_sha256": "b249ec9ceaed0adfbe2980262a09acf16df4686dafc575861446b7f68b5be652",
+      "source_output_tensor_sha256": "f720c11346927f0f1b12976e64e3fbc4834793e55cd8df8b688bdd183881d357",
+      "source_output_file_sha256": "a3391945a9e48bf3194e61afce7b4a280ae7e9c36d33cfa14982836babeed556",
+      "sigma_hat": 0.0011436730543309664,
+      "h": 1.7498197731263785,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1deccbaca59fe4f45cad90af0ce478b8d078ec405aa167e63f37a610fe71eb63",
+      "output_file_sha256": "6b51a68b76130710a5370ad683eb9c08ea6272fde526670b0416fdcbaeb29a3a",
+      "whole_run_seconds": 1.336042994982563,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2039.png",
+      "low_sha256": "e4b69e0bf0f6fac2d77d442429d58cebaaeaacaedc9c7e8f95b90d1075d6d320",
+      "source_output_tensor_sha256": "2102ca0ad4d7edd08b4e7bcc78b3c8f6e3a10810f3eef13f57d5c00bf189d8ec",
+      "source_output_file_sha256": "046249f9d638819fa6cb8928e806c439b2a429404fd618cb94297efe9fb4e1a2",
+      "sigma_hat": 0.0034106074130356412,
+      "h": 5.218229341944531,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bd5b1ed285781f345f7e02d4f6c655d5b755d974cd8a734c7dcd5e20921b23c7",
+      "output_file_sha256": "250aa54636de8483598a2984eb7817da2ebf2a53ec066016282a86be7eab3209",
+      "whole_run_seconds": 1.4231048880028538,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2040.png",
+      "low_sha256": "7ba85cd2f67f5d6e12959bd25bd4c63fe87a4c40b121cb4b3f0cd252600bf38e",
+      "source_output_tensor_sha256": "83c3ed2fcaa3053aa621392d89b65767d14123cae06e63f12c1f85c6525f6a80",
+      "source_output_file_sha256": "3f2f7937942939e3f7569b65aa87c950cd708586c5302522773c90150edae87c",
+      "sigma_hat": 0.0016623941248018654,
+      "h": 2.543463010946854,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "672bd10b5aa39a3786b67e88bac39ef0e89c75c43c2ea99bc79f087779a715fe",
+      "output_file_sha256": "093c5caed9da13ff4f873e07004c053460df35cb0c0248a89594ad20ed2b27af",
+      "whole_run_seconds": 1.3937905359780416,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2041.png",
+      "low_sha256": "69d6c06dc8710b2634e187f34d6649dff12e4023ac5ce461b0795d6596493119",
+      "source_output_tensor_sha256": "fa15507c740d81e04acc57206d6e276857d48d767591cdff7cfa72be3936c86c",
+      "source_output_file_sha256": "9795cfafa4289e2eeee860fc4874a447837c3e36676774c377533066a6e229bc",
+      "sigma_hat": 0.001187116620597172,
+      "h": 1.8162884295136732,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "925647ad5e907ae8e7b5b27dcf2471286920c8c26e1ec0433695e09282a2ea65",
+      "output_file_sha256": "84e08d96131eb9b74c32d3ce95edd528115334eb98ea66dbe638ca662f555af4",
+      "whole_run_seconds": 1.2500587970134802,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2042.png",
+      "low_sha256": "5e5204dfe383b7f617be6a12dbba1db6fcf1515b69c07231dc745f38c62ab78e",
+      "source_output_tensor_sha256": "a50376dc56978e0cf4d2ea68e823828c8c6b4682def63933f33e61ec7f97ff40",
+      "source_output_file_sha256": "7e25927c12a900dd172af66a80b6b74fd1f2bae47250a5a424186ca79683f854",
+      "sigma_hat": 0.0015230188170575504,
+      "h": 2.330218790098052,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9e55c22b381adf04ab35db3130f805d0241ee4ba1fb6ea4a013783c76845f80f",
+      "output_file_sha256": "0fc582a619166f764dac8953c5975035a1a2aca7f863780ff8a2525507f6a58f",
+      "whole_run_seconds": 1.2617215809877962,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2043.png",
+      "low_sha256": "7c974cfac36376753bc8d4b157e3d35c41ab392606a83e9e15b306aad04edfc9",
+      "source_output_tensor_sha256": "1d6e2388654be37619d61f1b76980abbad339bcf162868d995ca72d3b23e62ba",
+      "source_output_file_sha256": "d0eca4e395557bdd152fdf4b2b69761914acd9c380e9231591016641702dd33f",
+      "sigma_hat": 0.0012524292338008068,
+      "h": 1.9162167277152344,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c449d68946dc0482ebdc4f2a7c763b62fd066ebdc6b749b866e6395daa43650e",
+      "output_file_sha256": "9cbf2656bfcf9e141e4072248d638f555cbf6d807ea1041a5c0a651a6f91ccc6",
+      "whole_run_seconds": 1.2454207160044461,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2044.png",
+      "low_sha256": "ab1139650e069418a7c53b7ba1f5a36d43e66f9443de1865f8934092ab888d5d",
+      "source_output_tensor_sha256": "161ec58001299ade2ce9084e22d52191b533714c8468c09189af7908d8ec2ff2",
+      "source_output_file_sha256": "753817098528b7d779dc8b7374f01ff372aaa04705e7502b085b469e046bf1bd",
+      "sigma_hat": 0.0010729969815173681,
+      "h": 1.6416853817215733,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "07a306b3d6d6eb163573ec9456b5b3d855f7feffb1b46a35dce26d8ad5333365",
+      "output_file_sha256": "595d6f4072931fda2fd8b9e336c64a65fed4a32f5af07cec052acf3554565861",
+      "whole_run_seconds": 1.2495588239980862,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2045.png",
+      "low_sha256": "1dbaf73ed9be824afcc19e31f8225df6bfdb3507499b8790dce6e187e0fccab2",
+      "source_output_tensor_sha256": "8ec893cebe4a90113cd46da13d6ab6de3d629c0e0d777b1c5814a6d8efa5660a",
+      "source_output_file_sha256": "203351301819124604fc09948f05f6df53cf55c1130023c1c8e6fcfcff5b4145",
+      "sigma_hat": 0.0016260518808349446,
+      "h": 2.487859377677465,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c6071458d0b6faab53786ebe37923bab61ce5e366b2d12b6b060360888db5a87",
+      "output_file_sha256": "29fd0320e3091f9083fe7b16c08ce20b9676161d24de74b3acff271edca69322",
+      "whole_run_seconds": 1.291031431988813,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2046.png",
+      "low_sha256": "f54530d34f29f1cccf0c4ab747af5e017feafa8aefa0762e0412b2c590abb130",
+      "source_output_tensor_sha256": "51150a0c5edca21c98049fa8c1efaea1824f38aa43d5b921b1c6c5fa60993a13",
+      "source_output_file_sha256": "eeafb22d55efaaf0fffb1ebf304342e99e84f54005a65e32d13dc110fd22dfbd",
+      "sigma_hat": 0.001233561677409419,
+      "h": 1.887349366436411,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ed838419ad3b55e9ea887ffb10a4d30596bab40fbbc168e040cfd7a2aa66aeb8",
+      "output_file_sha256": "cb2a92b3ef0657ad6abd8c27445087acfeefc78fc3c46e9a93f1bff28ec51a67",
+      "whole_run_seconds": 1.2809045200119726,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2047.png",
+      "low_sha256": "6c7a4bb6ea09da543a7373df8826d01414743d60a6a1b0fa4b188a90bcc3a641",
+      "source_output_tensor_sha256": "ce602903abf48feb7b2873f98dfbef76c1df2cb7b00f7815cf309c969f315653",
+      "source_output_file_sha256": "c3f20d13efcd2baff06f23967f6dc6586e4fae18dacdf976f7ae01abeb7bca2c",
+      "sigma_hat": 0.00442745719997141,
+      "h": 6.774009515956258,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c4f534c27700b21f1c81eabca4fc54a3426216f404703ae708c3c3ab18bd80f2",
+      "output_file_sha256": "24ce565732fa3eb3b526f0d698370b4324ab250eb74e433dc8f23f8f6f3a2722",
+      "whole_run_seconds": 1.3401906910003163,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2048.png",
+      "low_sha256": "7aa251d264677bb574833395136bf0d18a91de542bb61ba86ce9d7e0351f5fa7",
+      "source_output_tensor_sha256": "2328e7d3f7f2e9c6a9122a63de3daa70e9bbac03c26f4b5b4bfcd15c7c8bd1e5",
+      "source_output_file_sha256": "088416654b02892c58a56aa36fe625579d024357f13339f104871a2e0cb47907",
+      "sigma_hat": 0.002720945052404836,
+      "h": 4.163045930179399,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "23d97e3737429567f45ad48fe1de7f86203c9bb03d4b42490c095ba1ffff6b2b",
+      "output_file_sha256": "fa3de079fec03f9f813148f5834ad7eda0f74fdbc9062329d250a775e532f1d6",
+      "whole_run_seconds": 1.3268307840335183,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2049.png",
+      "low_sha256": "5b4d4f7e9d12061ab7c4da13e212f43054c89b50ec9013a6f65903affce0ddc4",
+      "source_output_tensor_sha256": "4708e57b430e36550e9b43ea39bb468e96aaacbec80594884378257ca5a8e933",
+      "source_output_file_sha256": "1e3f641bbee7ddf4916bd77831f9773d873ab65c910a81ebbb8577c3b1f99788",
+      "sigma_hat": 0.0025805865028683383,
+      "h": 3.9482973493885574,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7294ec030548ef1241e2a89cc09845a312934da37d71072a13c681e78466c470",
+      "output_file_sha256": "d1c7ed7869115578e4c77e9892a0781b1b82915133b735bc221dac11df3a27a0",
+      "whole_run_seconds": 1.2957068760297261,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2050.png",
+      "low_sha256": "eee2f6ae44c072d2740f61fa56e6cf3ef5424f64d745b4fe238a5a54bf6c5207",
+      "source_output_tensor_sha256": "987b4ae976860e7610ea28c618f83fb51345e57e7635d6a16535e0fc65a06cd3",
+      "source_output_file_sha256": "c839c6ca30d8ead05910db558244ddafc4f2d4325108a3bbb614998fcafc0cef",
+      "sigma_hat": 0.004054787067876133,
+      "h": 6.203824213850484,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2847f86242bea7ae07eb35e6c3b4e4de51679868a65cd1dd0145093e137787a7",
+      "output_file_sha256": "75ec3f653c5a738c9f773222e3970f6591d9fffdbd0ae1c0b6df0053a4088c32",
+      "whole_run_seconds": 1.2566994059598073,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2051.png",
+      "low_sha256": "3729659f78827798400a44176e2f5c23031980cd3d4092ad17558f33203adcf2",
+      "source_output_tensor_sha256": "2b090a29aec51a342372b4e47cd217a7cd2af14c961ddd26807b75b2bb014f23",
+      "source_output_file_sha256": "7436fcf33df33a4002220f87036250c351fb2505534ae71f8a5bb8b71d559591",
+      "sigma_hat": 0.002037561014647389,
+      "h": 3.1174683524105054,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f11cb1623a50359745cc9a3cdd7628fc2561fb90fada77cb2159af91410f448a",
+      "output_file_sha256": "2b5addebeb6defd70f2c93a1c760d170d46253001eb7570b2201811f54f5f422",
+      "whole_run_seconds": 1.3616544069955125,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2052.png",
+      "low_sha256": "547ab7c9267fc2548e39780270c17f8d7c00dd3140f7ffa7aa46271d60ed83e6",
+      "source_output_tensor_sha256": "5e6d79eb5bdd577272c92f52851b1fcba4fc1c64a9369565fdc4f869696d90ea",
+      "source_output_file_sha256": "f8a6b2f1389b1716560da60c8759f841ddab048c0f181d0dd30885c3691936c6",
+      "sigma_hat": 0.0013935848823069402,
+      "h": 2.1321848699296186,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8e06475ab1600ac4f08bb9778c274d058028f4fa72cd8eb24c416f7c716cf0f5",
+      "output_file_sha256": "c62d1e8259b8d0b0769943b79760cb9fbc0c093708b9ce3e55ba87eeddad33b7",
+      "whole_run_seconds": 1.3657923769787885,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2053.png",
+      "low_sha256": "01fdb67c783aeda094f606c58eebc370a3dedbe63e4cb3586bc7220ba13ed2e0",
+      "source_output_tensor_sha256": "0aae02c2b234db9107c18559b37a6ae9caf4efd08abaced1de7b70fbcab6f2eb",
+      "source_output_file_sha256": "4261d4c090e35176ab2c68d581071136ef057f7e33a57e90b6e0c2d39fcb2458",
+      "sigma_hat": 0.0011697571336627566,
+      "h": 1.7897284145040178,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f51ba71cdd55738f63df209be74145f13dc15fcd77b71452309435651cfbcf07",
+      "output_file_sha256": "3e4611f93ecaf7d1cb224b5a577742923d862cd9c0fb08e2e2dc9d6974a82626",
+      "whole_run_seconds": 1.2587324340129271,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2054.png",
+      "low_sha256": "b72c0f32f1d008575e44efdc98ca2513fa5cd0f5f31c2b56bb4769152d31ba07",
+      "source_output_tensor_sha256": "4856708f396ceebd533cf8afdeff88e3f03bff572404422cc35581b0c040c7c6",
+      "source_output_file_sha256": "93fb1503f3344e928e6a980aee88ef48a530e4e81f97714ebc56e881a2399dcb",
+      "sigma_hat": 0.001531290072909985,
+      "h": 2.342873811552277,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "414a5a36d49a0458b93270f3fb94c4e6212c27612ad8b598c7bfa71dd4f591b8",
+      "output_file_sha256": "e1b223735fd38dcb74875437d79760564a5d237a98a3557b9db6effd68ec0b15",
+      "whole_run_seconds": 1.3652765689766966,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2055.png",
+      "low_sha256": "6b04dd81721b298ad47ce41e748d62e67c563bd229622cf4862496f92e7c3511",
+      "source_output_tensor_sha256": "320f6153f1fcc4fc5c8118e04e22485a1d829fd4b192e925672374883d60c44f",
+      "source_output_file_sha256": "cdb899d71157e9a5478f1cde84e13198b8feae451bee4386bc82d8df74516384",
+      "sigma_hat": 0.0014106415119558861,
+      "h": 2.158281513292506,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6a706e981887cac4c3d8c77df402d6b5903d6f2890cdcbf5b0cefe5956cbfc7b",
+      "output_file_sha256": "326d1c882019587f4e4f109d116d184d1e4e0edb74fa202f8f890eb86b65c157",
+      "whole_run_seconds": 1.3068245069589466,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2056.png",
+      "low_sha256": "1ffdde79da975e72d855c61ee98a2ec5b864b47da3a6a3036e85c7e2cec35a5d",
+      "source_output_tensor_sha256": "ec48e3ea21330fcbe5c2c7ac4bff2f961d9ba184d9bc76089f07741b2d39c0f2",
+      "source_output_file_sha256": "6e550a3a34e41e5f47e0cc6192de311cb8e3f85c4c28cdaa49ca3a7e9a326e50",
+      "sigma_hat": 0.0008305739825584592,
+      "h": 1.2707781933144426,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "255016b97fb1db8e5925d9a9b3e392bee8a1e50937fd2e5e86f51bab3a324b91",
+      "output_file_sha256": "c1423ffdbb3855a1889436b6fa71d88d2546880fbfaabdcc311e08e34d612f38",
+      "whole_run_seconds": 1.2456065269652754,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2057.png",
+      "low_sha256": "4cde9691f70f68cbade2da98a8a8214cb83b0b8f27bc7d3ae8599b516c50bc69",
+      "source_output_tensor_sha256": "e9bb5233a7a82f7a3cc1bf93dde1faf99bc09b7d27e66386e616117e2b229934",
+      "source_output_file_sha256": "c4a857873572448f70c40c5043ccb22bfbe452ee6c1d6b27efbe2f563c4a9c91",
+      "sigma_hat": 0.0012095041141448137,
+      "h": 1.8505412946415651,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bb9b455f37d7a80339fcf507e6be30b28733a07bd8b683ac239a379ad225d229",
+      "output_file_sha256": "719c232ee9e258e53493d3ccc02f78f6220a2d8fa9b2eeedf34bda2cc8b17954",
+      "whole_run_seconds": 1.3413184499950148,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2058.png",
+      "low_sha256": "853a8a0623530b86b4ca9f5f08a3670f13cd366b30cecb63205d63b92b917377",
+      "source_output_tensor_sha256": "8442b73d36c660f4ad9bd1c851275ac58af6bab6ce69b1b325a790a7b3d212ac",
+      "source_output_file_sha256": "ea283aec0202e126a46d2ea8d89e5f3d00391eb9f2fe3cfad18f7f1368348b97",
+      "sigma_hat": 0.00110218615615251,
+      "h": 1.6863448189133403,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e9fadcd382d90de41d810177fea96cf70a0fdcf48806eb98be83c9d8bf63de02",
+      "output_file_sha256": "a81605506906d0dc4cc09d9e1c47dda853bcedea88413255ef3e168daa7455bc",
+      "whole_run_seconds": 1.268067218014039,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2059.png",
+      "low_sha256": "520b022391e31e2ef872d0f8088d3b66ac23d1c5972e8fc38d6ef21bbedbfcb7",
+      "source_output_tensor_sha256": "a9c5f146470e520e0c0a273842e2e05a9d2c6f1e9c3fe6798cf8859226619ed6",
+      "source_output_file_sha256": "26ee06f0819d89a1027667d66ac32a9bb47fa01eefb6e5928857cb078b26764d",
+      "sigma_hat": 0.0013696789748446356,
+      "h": 2.0956088315122923,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bba22f13d4038226b3e8fca7220ac655baa4d939ef0bb8565d3941065fa92caf",
+      "output_file_sha256": "1b07b7b435bcd9b9bb8fa3f209c6737102cbd8182d2880de22c12057f8ee2f98",
+      "whole_run_seconds": 1.2785637829802,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2060.png",
+      "low_sha256": "af6ed62fa46ee22441ac921e0e1c74f2d949397248e82fb77b49c49a917686df",
+      "source_output_tensor_sha256": "f2d339cf097021925c215e904fc238cd8ca0ccc446d33c2cfc8160f9e45b2f89",
+      "source_output_file_sha256": "0e75a372957edc50c9dcd3008608f9e1105146053bfd906e40abfce46e8a9826",
+      "sigma_hat": 0.0023218515009637655,
+      "h": 3.552432796474561,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0f911e10afef51b83bb7073d7fab2a9294938cf793bb202fc1ada4a466009c55",
+      "output_file_sha256": "4bbfe68dab7d8907e06fd2504a4730dce25e3f495b09649af58612372e6dca0f",
+      "whole_run_seconds": 1.3299349850276485,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2061.png",
+      "low_sha256": "8cbd19f24914734a11f4669f38c02044c6e8effca801c050fc57088f0c2034a8",
+      "source_output_tensor_sha256": "e7c18404447b2f1b04ffbc751dd4a8bcf3abf8f15bec525ff83e75cd28e0bcd1",
+      "source_output_file_sha256": "af58d496f8736927982e8eaeec6f6393bd029d3ad9478dcd330875463e921332",
+      "sigma_hat": 0.001385622068659026,
+      "h": 2.12000176504831,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "10bbd1bdd51771e70468c6ac34cb81e2ee52bb9b360453a4b18050292a30ad1e",
+      "output_file_sha256": "5349c1b8cef27f4ac701606530ff510cf0b6ff75badf05bd20956515a500b7d3",
+      "whole_run_seconds": 1.2725786420051008,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2062.png",
+      "low_sha256": "9c213ac3b593c0cdd96df0c97bfd214a2c47012cc8a70b23a927ca8f0ce8dd0c",
+      "source_output_tensor_sha256": "75e5ce4f748a55bdac8df3b2dc123f894eb2d3c9721d1b76bfd3c73946d8e6c7",
+      "source_output_file_sha256": "ad0765d955c5189cf1e9934eb014bebc505fc71ab9a33d61b0b8c3b9f364d7df",
+      "sigma_hat": 0.0037491294921261176,
+      "h": 5.73616812295296,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "578924872564b3a88208f2003f47b4a8d9ba46493e4208bb5d5c036dec95b92d",
+      "output_file_sha256": "510f771ea31ba8e2f0fe369672556e5d8abc7244ca05151767c6e1e7fff29284",
+      "whole_run_seconds": 1.3504720439668745,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2063.png",
+      "low_sha256": "0c329c0e1377e754f46648cf93deb8570be3ad1143475cdbbb866e41262f4e08",
+      "source_output_tensor_sha256": "de0ad80bae29d51e58348c1e5cfe9ecccd49e4173de84e7246d1041eee6e8dd2",
+      "source_output_file_sha256": "e21f6b6b65c96f57fe357bad60cc8ba120ee9ee4130ff5bd3c001d4de377487d",
+      "sigma_hat": 0.0014160823416951576,
+      "h": 2.166605982793591,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "aeb29fdd25d9d252a0457cd456ae75edabef78f8f8f9354e931d0c88efb221fc",
+      "output_file_sha256": "7e2cc430fe8536de793c3e3e6cf8fd1a8112d75b71eed148610ae210c14a99a2",
+      "whole_run_seconds": 1.2702290739980526,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2064.png",
+      "low_sha256": "9416aa71188e4fa74cca785968b4da2e904a9628b4b4d303b07e11014b55c3a6",
+      "source_output_tensor_sha256": "4cbfbbe49d299623e80c9d5c62d969d3cdfb8011728a925733472f37e6176d7d",
+      "source_output_file_sha256": "0817eb09faa3b357227311a1f0a92fb5880086184f7400fdc41ebd64125a8fe7",
+      "sigma_hat": 0.0035600328300930636,
+      "h": 5.446850230042387,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e29f02b293160d8cc342c67aea3521d94a9ed28bb42e8e2e4f889be1b2890cea",
+      "output_file_sha256": "f46181c515704246cde1b2f3669277ffa2c2193a09c9078cd2979c66b7d03729",
+      "whole_run_seconds": 1.4011795459664427,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2065.png",
+      "low_sha256": "bec4d631f0504c2f9f8d9599f227b1e7f28e4437ee26ea66072cd6529107c995",
+      "source_output_tensor_sha256": "e0eb43299a9d7f58435ec352836af793456eebd775981c1429043d3269917425",
+      "source_output_file_sha256": "a1a5558a4514d2f6df166f945185e026246e054c425f3510649a0d505115b034",
+      "sigma_hat": 0.011764715650016954,
+      "h": 18.00001494452594,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8365d3541b7c6fc779ee49f58b9684ca7761ae67c19b2f8c295714b64ca82da5",
+      "output_file_sha256": "632a4f5dcc16a9dfcf3d740bea9b08f17b203f5d012feea6e1567d6c51b596fd",
+      "whole_run_seconds": 1.2370207579806447,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Huawei__2066.png",
+      "low_sha256": "6f9879eb22bf7e29b6bfd28a3aaefcec4b66b74e92039fd732e4b3c480a03913",
+      "source_output_tensor_sha256": "591fc4ec89f690b365cdebbf9c6c49c9a3f968054f5bdabdfd287eecfe8ee197",
+      "source_output_file_sha256": "365dcc283e6146cea82854c404daa07650dac55ffd5500721106a6f9e454f468",
+      "sigma_hat": 0.0055951354521525075,
+      "h": 8.560557241793337,
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "488fb54a01d2e048ab741ba94b319230c2b272a17193c032e7dc50854b0d4141",
+      "output_file_sha256": "fa89f576f812ce43b06a0718429115f78203bc178609e561c2842d9601997049",
+      "whole_run_seconds": 1.2922510089701973,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3001.png",
+      "low_sha256": "5b925c47e452d6b275061631ae774116b750e966511422f7f7702d77cd192897",
+      "source_output_tensor_sha256": "a4216916bf24500cf69c598ab310b77a524281badaf99cda54ccbba6185e74a5",
+      "source_output_file_sha256": "ff4da51420869fa2920a3a9a684df6f93d5a2192aef59ccdada369868ca06abf",
+      "sigma_hat": 0.003993010934244882,
+      "h": 6.109306729394669,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "854058fd4e27bd8724285adf123f1f30d9f152882ea5420c3de222c926827ce6",
+      "output_file_sha256": "912a94c1cbf97a2ee982cbb24ed9943bef98a8c0c1c2302b37329d21c633da58",
+      "whole_run_seconds": 1.1793202830012888,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3002.png",
+      "low_sha256": "b5313bda24706769f4dc27daf35f4f6f3b5be4436ba3324dbfbf3037c96b4f89",
+      "source_output_tensor_sha256": "c85db6b18c6346fa826fe9a4d4d1d46910d02344f5b48244b3fec23b973b327d",
+      "source_output_file_sha256": "86b6180ad37f178f60299cf0ae678d33c80c19f32321b9b939e4a713a781d73a",
+      "sigma_hat": 0.011685946166015192,
+      "h": 17.879497634003243,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b8ee728e2d8afe78a84fec9257d107c35c15dad18c2d8a693ff9ec1f8b1e858e",
+      "output_file_sha256": "942b93f5e9b5f3721816b7e2f069efbeceb99b449a9f797c14c648ee36e2dc58",
+      "whole_run_seconds": 1.1751560720149428,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3003.png",
+      "low_sha256": "7918122f2dfb1b88f072fedcf18db7cd85bfed0a2b9f76dfaf179c43304143b7",
+      "source_output_tensor_sha256": "2ccf29dcb4e6e9200f99003175e06e162a36225a5d2cd4582d83af8595c07b0b",
+      "source_output_file_sha256": "45677989c5f0f1453aee562ae7c177fdecfb6d002ee052138a86d18a591e3145",
+      "sigma_hat": 0.0032788174372426052,
+      "h": 5.016590678981186,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a61be2df2bb861efb243fb156bf2fd5c9ea08003fa617b631bb7d0832e6d30df",
+      "output_file_sha256": "16a6a8b4b2d120867ebd9bae918c3d910299550b95b545a27be07cac4d5107bf",
+      "whole_run_seconds": 1.1228880300186574,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3004.png",
+      "low_sha256": "ce0f34bde6bc15a18efd0ea558672ddc9ac452be8b2e7cf03e7b4d88ec69060f",
+      "source_output_tensor_sha256": "78834586d283fe4510e405923c878015ef2c2dac5aa189892a33719adad687ec",
+      "source_output_file_sha256": "506359736b34be6b49350f563ada0aa26905a532ab804eee9ce11481455b8c52",
+      "sigma_hat": 0.004395693326511497,
+      "h": 6.72541078956259,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ac86f9b802f11687da81bc6782d1e6743e89ff560b9e42310e4147bb66bcc09b",
+      "output_file_sha256": "7b5acb06a215f3eff974ed32d61143b0d5fb449409251bedae0cef7f275787fc",
+      "whole_run_seconds": 1.1955204839468934,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3005.png",
+      "low_sha256": "544558ae0f06094d188e1371d3aa1dd1ec06559720d744ae50904c18b2b42c52",
+      "source_output_tensor_sha256": "0e1d9996caaee82339842eb2973e7157cdc386fda5a9374dd4328969aafe6bd0",
+      "source_output_file_sha256": "6e34496fd826454bfe2a16bebbe00ce8e78395a6c11d184251f21e033b3a685c",
+      "sigma_hat": 0.009642296694298598,
+      "h": 14.752713942276854,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2e981b6ceab639f05a75588fa2d822e6b536176f8a7d3310e0b1810e5ceb8ce1",
+      "output_file_sha256": "7560274d640ba8ba526959973e9daebdfafa6bef78abcd83ab474fc5280fc377",
+      "whole_run_seconds": 1.136333080008626,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3006.png",
+      "low_sha256": "2c8439ba18532578c1fcf71fb04fd2e322673e53a4e8e74e3ed6487d9d0684f5",
+      "source_output_tensor_sha256": "e1d0af55780f19d62b45c13d1fa147787eaf4af5b5ff793dee952c34e3307c67",
+      "source_output_file_sha256": "9e75ac29a3ed711d984703d46d6dc4148bc42922b4bb35748ec38df9143bdc43",
+      "sigma_hat": 0.007006036036589236,
+      "h": 10.719235135981531,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6607f2fed9b55eb306e33e88d11b5400d4ee600360a5724645c5d797f6b9f87d",
+      "output_file_sha256": "abde46f4e2f6b1f35b4c5a58cdcdf613efe8be9c7d9abff4054a642749d21ce3",
+      "whole_run_seconds": 1.1240874200011604,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3007.png",
+      "low_sha256": "25814cc0d1282ab915f3808d5ce46e880d4cb3740e0ba92d4f3379f377086028",
+      "source_output_tensor_sha256": "475edfc9b5a72bcd236880b33454871d57a82e662b1f3487f343266c58a4ab5a",
+      "source_output_file_sha256": "34e0674ad6d142a670cdaf3fb1826719e143ddf0e9fdd9029dc95be78507c3d6",
+      "sigma_hat": 0.006550485038679388,
+      "h": 10.022242109179464,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4e91a42e96e387db5e297e19c7e019b344b2180502e688cf0e51fdc2c4349360",
+      "output_file_sha256": "7b6253ac10f73b7cedf0e01499d75a3c19e8b3639463c77e779af54b0edc93d9",
+      "whole_run_seconds": 1.1611436980310827,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3008.png",
+      "low_sha256": "d685e5cf5448c7e107cf8a383e33e0f259720867fd711b48ba5335843ac38c93",
+      "source_output_tensor_sha256": "11cb527af7181073cc656598f545eaaf27e06d901bf49f503ba25b3c7e4d556d",
+      "source_output_file_sha256": "bd6ba0210d6d5535614873a8893ad76ab43d3b0b5b8e735a31729e45fee69a88",
+      "sigma_hat": 0.009205314310331333,
+      "h": 14.08413089480694,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c734b56c9c34280f84c001c62751f7f8bb39ada0d648076e9f2bf090bb335aab",
+      "output_file_sha256": "ec2d4c858179e05485bd3774b05cafe90669a5fd405e374c2cfbb14b9fae6ee0",
+      "whole_run_seconds": 1.1568693219451234,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3009.png",
+      "low_sha256": "0ca1136107045289cb442359711e83c5b7f2058be58cfae792d03510c41b3bb3",
+      "source_output_tensor_sha256": "7c9f698920b735eb7e7f4581effc0164cc9b9453b0298e8cf92c52d04a3930ef",
+      "source_output_file_sha256": "616e6f53a6396fdb0bb7bd6df9c35a5da05dce12864d4f31c0efc8dcfb8e9b00",
+      "sigma_hat": 0.011545699497157544,
+      "h": 17.664920230651042,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "99c58545c08a0d196e19fc37af97e5223b176b869b27dbd949f2c57779017b8e",
+      "output_file_sha256": "344f83f7f5e6057cb0701110eded20f400cb68d4a482c95eaa7c51c52c90e506",
+      "whole_run_seconds": 1.1778980150120333,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3010.png",
+      "low_sha256": "ab1706bcb801107be2185335413302dfb13082bb904a7c87ca2a21775dfbe803",
+      "source_output_tensor_sha256": "be2a4106992327634a68a92b5e1e8371496b088f89c5b5ed9ace6562d26a7737",
+      "source_output_file_sha256": "fd3e0a0874ebb587cff5481cc03e054194b55c96e581fd65f9cd291c30cf2d6e",
+      "sigma_hat": 0.0028163796148730643,
+      "h": 4.309060810755788,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "874f53b37c08f74fe7238689bf443e31d56d846384bba1ccd82356b3980f0c4c",
+      "output_file_sha256": "2ef8256fa0c7f9fcb0a5eb397279ff75d6078e409bb294c5db212911e209edd7",
+      "whole_run_seconds": 1.1120169569621794,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3011.png",
+      "low_sha256": "a877a8c5bf9fc5625203575339b536faf59e8de8482982627095177c08183280",
+      "source_output_tensor_sha256": "24635d5b75fcf0d0481cae16d99626f54f512346e20eb7f05775c3e4b5f8699d",
+      "source_output_file_sha256": "479749b7597fb04c1e5522632453a72e2f634e58ff1058be6f469f971f2c2389",
+      "sigma_hat": 0.004640997790993352,
+      "h": 7.100726620219829,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "47b51670e75748c32ab72a75bbf6e5819567ad561425940073710d645e65831e",
+      "output_file_sha256": "45c49e5db1fd3ac9d0fcb430a2da9e7725554bf631e46ca03df8a794153eadc5",
+      "whole_run_seconds": 1.084995072975289,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3012.png",
+      "low_sha256": "78f9c0e2cd8224806b93c29fb20951d06772b06246ad2a110f05a462732e2f5b",
+      "source_output_tensor_sha256": "a3135e599654974c2566367f748a75f7cbdcf30cb09e9f34e79357f8d4716fe8",
+      "source_output_file_sha256": "feecdac220aa528d6b48c579ec8d0d423cde7c41e0e8e8564b35181b2d4ea8bd",
+      "sigma_hat": 0.00891854327572454,
+      "h": 13.645371211858546,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "72ee8737309a5899f7c7194e375b78cc68bfeb4d0eb331c390fd2eacf48c8198",
+      "output_file_sha256": "16e3e1fe3c19dc87fd23480eed45a2eb9f0abdecd04ccae62408cc29efa57963",
+      "whole_run_seconds": 1.0824889470241033,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3013.png",
+      "low_sha256": "0b97ee46503d6e584017dbefc68565521b37c2bf0aaf886e9dec2bc2b53b9782",
+      "source_output_tensor_sha256": "acd6e081aba2bacd7efc20830cc453741f7feffa22adf841bdf5716cd34426bd",
+      "source_output_file_sha256": "6db27f24068e7237b9e85410c5908ebf33999b2408e2a8a8f7af1f8f0f15d29e",
+      "sigma_hat": 0.0023009525610838866,
+      "h": 3.5204574184583466,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1d134592255ea6642df45042ef86211ffc0a089a00b432a0f61b31f27607ddbd",
+      "output_file_sha256": "fd215bd85ecec5f196c2dc67758c419e57ddc59caf8ffd81823afaa7491820e2",
+      "whole_run_seconds": 1.0426859270082787,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3014.png",
+      "low_sha256": "a3029d7263cae5634f87d4dd992c487fdac9d597d45f6b576460a795a1a9700d",
+      "source_output_tensor_sha256": "c6a7563f5efa28e5361db9864c46704a45b19db71d21cbb46282ae4170c6c907",
+      "source_output_file_sha256": "8d81e58ad5da976652568c981a8082a58c51f23cfdc03d616572591c94bf4d90",
+      "sigma_hat": 0.0018019068427049436,
+      "h": 2.7569174693385636,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "88c3eea59696861361749ba14f82bd2bc7823a56454ee127df58e5111966428d",
+      "output_file_sha256": "1d9c6e7094f324a0e90a73eda17de2ccc2a2ead8c555c6866b0946ba043dbf0b",
+      "whole_run_seconds": 1.0641915290034376,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3015.png",
+      "low_sha256": "e5e0a4a9806bdc35767cb3b50e145075a580b09b39918dc51edf58ce7539b6bd",
+      "source_output_tensor_sha256": "6b5c8993c61657ade311a17a77e3fa8fae8f6c5b543878ee3ce5cb45c1f670be",
+      "source_output_file_sha256": "649943e44446535b3eb7ddb3e1ef3ed5a93309ae67effcfd74c45bf011873862",
+      "sigma_hat": 0.008700279542960182,
+      "h": 13.311427700729078,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bff4d36033b71af0342eed7439a7ab49c0436976edf5861b0fd192a187de84eb",
+      "output_file_sha256": "b96ed258c4d2299c27a543535bf611002cdfd2b0f5c20cfeb62b8b5cc7534361",
+      "whole_run_seconds": 1.0306461369618773,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3016.png",
+      "low_sha256": "25906cffb1ce06b2732638e4825c818406284ff9b4c353bce3e1841479553425",
+      "source_output_tensor_sha256": "d5ad793d1a092f2f8c239b333e8f0f1d971797d5708b697729f0d8aa6214f88c",
+      "source_output_file_sha256": "57f655ee0d1e86e55eb73e9efdcb45bc55b7407605bea441c42396bebff27547",
+      "sigma_hat": 0.010057230260709262,
+      "h": 15.38756229888517,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "35d21b38009ba16d483177ec20e3ab03e4a9b7535e4e9f270d9ede6b6331d3ef",
+      "output_file_sha256": "d96120676a325d3c014a72f620004c25c68faaed818249285594cd1a97329d4d",
+      "whole_run_seconds": 1.0387204039725475,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3017.png",
+      "low_sha256": "66b0cbfbd4779302faa11f2cc186e69e32771833a443e76b561bf6226e6d753a",
+      "source_output_tensor_sha256": "45f7f13be0dacb987d92fc3620cdc18a3e874a2b60fb0644dc0c2b87e703e46f",
+      "source_output_file_sha256": "d11bbfcd97e3e68c62350fc192f1262f8fb3256092d822848615d32312e469f3",
+      "sigma_hat": 0.005950764431978413,
+      "h": 9.104669580926972,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9467eade7380d4b946362572090fbabed1b6ccd0207216d0d4af0fcbd1448fc5",
+      "output_file_sha256": "a8e61a778f52e40d2f269abfa3e9b2b35f736f6f9056163773362796fe276f69",
+      "whole_run_seconds": 1.0378842689679004,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3018.png",
+      "low_sha256": "353b86d7f992a7cc53b6a6809771106eee7fefe270405cd6593c27184f17712d",
+      "source_output_tensor_sha256": "c5e5a030677a76fbcc3a0a8862aa2aa58f69c64baa60d8ea4d877c2636100773",
+      "source_output_file_sha256": "691b9e018253c6b423e9f914d0dfa5753edb0e93c041d92450dd762285663d80",
+      "sigma_hat": 0.003390606973034727,
+      "h": 5.187628668743132,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "738a213924c50ce22bf871eaf2bdfe916bcc2481f44335f03f3817250802866f",
+      "output_file_sha256": "27f6ebffbf5402ce07327d861a5997758d0f1436c3ec88b1ff1aa5e542d8a202",
+      "whole_run_seconds": 0.9839418749907054,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3019.png",
+      "low_sha256": "e4f3997cdde3d58dc387f39753c7a14066f5b264682b19bf904f46b49370773a",
+      "source_output_tensor_sha256": "07ac266557e106eb2f468713441295454985d2452b340494db294bf90457fa9d",
+      "source_output_file_sha256": "1e7555b90d37cadd45a7df59782ac198383cf6ce3aa84ff99e69faed90319646",
+      "sigma_hat": 0.002611497226788957,
+      "h": 3.995590756987104,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "23ef47826fed3bc1c59cf585832151da751222afd43ca2025a9ea08f55cdf536",
+      "output_file_sha256": "f6b8a3923e793ff2c2031f2b18bef731591a9151abbe8957c600359b00cb1fa3",
+      "whole_run_seconds": 0.9909379910095595,
+      "peak_gpu_memory_bytes": 0
+    },
+    {
+      "method": "ours_step0 + D",
+      "low_name": "Nikon__3020.png",
+      "low_sha256": "b39e45530942cb938fb2d2dee6828c9473a9f06480c3e52516694518624e4b00",
+      "source_output_tensor_sha256": "ec47a023879e87fe4ae434a58559d3830bc48ab1f6cd1b36fb225b3d97ab3241",
+      "source_output_file_sha256": "e7da2e7f66a2fafe6007466a23c777aa66bcc9f6e34ff11f1d1f33b39265df7d",
+      "sigma_hat": 0.0022147497391768168,
+      "h": 3.38856710094053,
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f5d8474aa1c7e36bb942d461ec5603e9ab28cd88cb9abaeae8469c1d8955ec7a",
+      "output_file_sha256": "1fc52337f9e3003904ca3ea6e57053736e50f568d61e3fada4695f9e672b5851",
+      "whole_run_seconds": 1.0231854890007526,
+      "peak_gpu_memory_bytes": 0
+    }
+  ]
+}

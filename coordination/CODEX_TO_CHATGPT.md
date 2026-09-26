@@ -16,3 +16,155 @@ New-host GPU snapshots=0, staging=0, sealed launcher invocations=0, baseline inf
 ## T072-AY re-entry diagnostic — sealed GPU model gate
 
 Evidence 9e2bc77ddce4357b8ba1f5f2cb92e9a5d0ff6a0c; PR https://github.com/word-ky/TTIE/pull/219. This is a non-completion addendum to the earlier secure-handoff report. User-provided access to the new paid host was established securely with private key-based workflow access; no credential is in the repository or this note. One preflight found one NVIDIA GeForce RTX 4090 with 49140 MiB total, 48510 MiB free, and no listed compute processes. Free-memory/process thresholds pass, but the unchanged sealed T072-O launcher requires the exact device name NVIDIA RTX A6000, so it cannot select this host. Original sealed spec also contains prior-host absolute paths. No code/data staging, launcher invocation, inference, reference read, metric, or PROJECT_STATE change occurred. Explicit research-lead/user authorization is needed for a minimal new-host re-seal/port, or an original-spec A6000 host.
+
+---
+
+## T073-A — UHDLL_EXPANDED_MAIN_TABLE_PREREG_SEALED
+
+Accepted T072-AZ-B output manifest from PR #220 was verified at SHA256 `73c8d304c8bb88c4612a13598b5d4dd76378e0c3107bd97011941037a4427001`. The prospective ten-row registry and metric plan under `research_log/T073A/` preserve T072-L's exact T071-B RGB metric provenance and one shared PCG64 seed `20260922` / 10,000-resample paired stream, with immutable comparison signs, strict-positive wins, complete 150-image policy, and reference gate. Only RetinexFormer/SNR-Aware are `FROZEN_OUTPUTS`; eight rows remain `PENDING_OUTPUTS` and require exact prospective source/artifact/protocol bindings before execution. Independent verifier passed Git-object SHA256 checks and 11 fail-closed mutations; task counters `reference_reads=0`, `metrics=0`, `model_runs=0`. No PromptIR/DCTTA or other pending method was executed. UHD-LL references remain sealed until all final Tier-1 outputs are independently frozen and ZERO-IG/GM-MoE inclusion is locked; next task awaits the research lead.
+
+---
+
+## T073-A-R1 — corrected preregistration, research-lead acceptance pending
+
+The original T073-A seal claim above is superseded by R1 review at `origin/main` `cbd79646`. Revised PR #221 fixes exactly eight Tier-1 methods (ZERO-IG preferred additional, GM-MoE secondary), holds PromptIR and PromptIR+DCTTA at a shared unresolved `PENDING_SOURCE_BINDING`, and requires `LOW_ONLY_DCTTA_REQUIRED` with an independently verified low-only wrapper/equivalence before model execution. T072-L provenance, complete 150-image policy, seed `20260922`/10,000 shared resamples, comparison conventions and T072-AZ-B manifest SHA256 are unchanged. Independent verifier passes with 17 rejected mutations; `reference_reads=0`, `metrics=0`, `model_runs=0`. `PROJECT_STATE.md` now says R1 locally verified, not lead-accepted. No pending method was run; stop here and review R1 before authorizing PromptIR/DCTTA execution.
+
+---
+
+## Long-horizon handoff — T073-B acquisition in progress
+
+User-authorized `origin/main` `b381ddc6` now supersedes the prior stop-after-R1 instruction. Hourly heartbeat ID 20 replaced the 20-minute schedule. The official DCTTA five-task `epoch=80.ckpt` is prospectively selected for both PromptIR rows by the new plan, but exact bytes/hash are still being acquired, so no executable binding is claimed. Official repository HEAD `0526bf7b87c2a54574ae1cb3af916fd5568fc0b1` was observed. See `research_log/T073B/progress.md` for recovery. No GPU job, reference read, metric or target model run; next step is source artifact/loader audit, not target execution.
+
+---
+
+## T073-A-R1 source selection sealed; T073-B wrapper gate remains
+
+Official DCTTA five-task `epoch=80.ckpt` was acquired from the author link and hashed (426,058,955 bytes; SHA256 `206baf0dd10f636f025b33b5ee7eb63a353fcbf4d50858b62f9480a6d4be9d4a`); both PromptIR registry rows now bind to it and source commit `0526bf7b87c2a54574ae1cb3af916fd5568fc0b1`. R1 verifier passes with 19 rejected mutations, unchanged T072-L/T072-AZ-B provenance and `reference_reads=0`, `metrics=0`, `model_runs=0`. Official paired-loader GT reads were confirmed, so **no target model execution yet**: Phase B must first seal an independently verified low-only wrapper with degraded-input computation equivalence. Source receipt: `research_log/T073B/source_receipt.json`. User-approved long-horizon continuation is active; hourly research-lead review may correct/stop.
+
+---
+
+## T073-B low-only dataset seam verified; full execution gate pending
+
+The task-owned `research_log/T073B/low_only_loader.py` has no GT-directory argument. On three equal-size synthetic source-side pairs, its complete degraded-patch sequence is bitwise identical to the official paired `PromptTrainDataset_Simple`; the focused test instrumented image opens and observed LQ only. This is a narrow green increment, **not** a claim that the full DCTTA runner is low-only/sealed. Next integrate and independently test the adaptation/output path and GT-read boundary before any target run. `reference_reads=0`, `metrics=0`, `model_runs=0`; no paid GPU started.
+
+The second increment adds a low-only inference loader: its RGB/center-crop/ToTensor tensor matched the official paired inference loader bitwise on a synthetic non-multiple-of-16 image. Focused suite 2/2 passes; GT was never opened by the adapter. Full runner equivalence and independent execution-gate verification remain pending, so no target run is authorized yet.
+
+---
+
+## T073-B source import/checkpoint gate passed; full runner pending
+
+The user set an active goal to finish the entire long-horizon plan; hourly review is supervisory rather than a stop point. Official PromptIR import encountered absent `mmcv.ops` in local and paid-4090 environments. `research_log/T073B/mmcv_lazy_import.patch` defers only the unused DCN import; the adaptation algorithm is unchanged. Its SHA256 is `10d3b4d2329397bd8677d278d37f06412e625eefa33a3ee5c07714afdc81c4cb`. The source clone now imports `tta`, `PromptIR`, and `ResidualDiffusionModel` locally after installing observed requirements. The five-task checkpoint SHA256 was reconfirmed and loaded into `PromptIR(decoder=True)` with 548 keys, zero missing/unexpected. No target model run, reference read, metric, or paid-GPU job yet. Next: build and independently test the full low-only adaptation/output runner, then execution-only smoke.
+
+The task-owned `research_log/T073B/run_low_only.py` now implements static PromptIR and cumulative DCTTA paths using only low-directory loaders and unchanged upstream adaptation components. Its SHA256 is `3d02ec28bcceaa253fb0c09d116087a64aad33465518610311674c6ff4f72daf`; strict 548-key checkpoint load, loader equivalence tests 2/2, compilation and CLI parse pass. This is **not yet independently sealed**; scientific-computation equivalence, GT-open mutation tests, and smoke still precede any target execution.
+
+Runner orchestration tests now pass 3/3: low-only Fisher/adaptation/inference dispatch, a GT-open mutation rejected, and exact low-loader tensor equivalence. The real five-task PromptIR also produced one finite `(1,3,32,32)` float32 output on synthetic CPU input. This is not a target run or full DCTTA numerical equivalence: `target_model_runs=0`, `reference_reads=0`, `target_metrics=0`, paid GPU jobs=0. Continue scientific computation proof and remote runtime preparation without unlocking references.
+
+---
+
+## T073-B source-side Fisher/update equivalence passed; real gate pending
+
+Four focused synthetic/source-side tests pass. The task-owned low-only loader matches official degraded tensors; the unchanged upstream SRTTA Fisher, wavelet, teacher/student update and optimizer produced identical Fisher values/masks, restored tensor and toy-model state for paired vs low-only inputs. The bounded comparison substituted toy restoration/redegradation and simple loss, so it does **not** seal full PromptIR+RDDM+VGG execution. GT-open mutation is rejected. See `research_log/T073B/low_only_equivalence_report.md` and `low_only_gate_receipt.json`. Target model runs/reference reads/metrics and paid GPU jobs remain zero. Next: full-component synthetic GPU smoke, then independent low-only gate review before any UHD-LL target run.
+
+---
+
+## T073-B full-component synthetic GPU smoke passed; independent gate pending
+
+The unchanged upstream PromptIR/SRTTA/RDDM stack loaded the pinned five-task checkpoint and ran static plus DCTTA on one deterministic 352×352 low-only synthetic image on the paid RTX 4090. DCTTA output was 352×352 RGB, SHA256 `1edc39b3ed85fc4bc33443bf3430f59eea2b39883a7b025ea760288118294216`; cached-weight repeat took 10.650 seconds and peaked at 23,897,047,040 bytes CUDA reserved. The initial static import-order collision was repaired only in the task runner; local focused tests 4/4 pass. `research_log/T073B/low_only_equivalence_report.md` and receipt contain scope/limitations. **No UHD-LL target run or reference read occurred.** Next: independent low-only execution gate review, exact 150-image target-low-only staging/hash check, then the preregistered paired static/DCTTA target outputs if gate passes. The long-horizon goal remains active; the hourly review may correct/stop.
+
+---
+
+## T073-B B3a accepted; 4K static smoke hits PyTorch index ceiling
+
+The separate B3a source/GT-boundary review is in `research_log/T073B/execution_gate_review.md`; the remote low-only cache matches all 150 frozen T072-I hashes. One UHD-LL target-low 4K static **execution-only** smoke was attempted and failed inside the official PromptIR depthwise qkv convolution with PyTorch `canUse32BitIndexMath` before any output. This is not an observed OOM, and no 4K scheduling rescue is accepted. DCTTA target smoke and full target outputs have **not** run. Target reference reads=0, metrics=0, static output count=0. I am testing only synthetic 4K/prospectively verifiable execution scheduling before another target attempt; independent main-table rows remain available if this cannot be resolved. Do not open reference payloads.
+
+The subsequent 3840×2160 **synthetic** probe with cuDNN disabled reproduced the identical 32-bit indexing error; that switch is rejected. Whole-image tiling would change global attention normalization and is not an accepted equivalent schedule. B3b is now provisionally `BLOCKED_EXECUTION_4K_INDEX` with no valid output; other independent Tier-1 rows are next while an operation-level, validated equivalent schedule remains possible. References remain sealed.
+
+---
+
+## T073-C Ours source/asset binding and synthetic Step0/TTT execution pass
+
+Proceeding independently with B4. Exact T070-A frozen source (30 bound files), original manifest and four assets are staged on the paid RTX 4090 with matching hashes. The new-card execution manifest `research_log/T073C/execution_manifest.json` SHA256 `e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2` records different GPU/PyTorch environment and rebinds asset paths only; this is not falsely claimed to be old A6000 bitwise replay. Original relevant suite 7/7 passes. Step0's task-owned exact zero-update renderer matches frozen trajectory step 0 bitwise on active-region synthetic input; 4K synthetic execution is finite at native shape. Original Ours-TTT 27-step synthetic execution succeeds, and compact lossless persistence matches its decision/state/output hashes exactly while avoiding accidental serialization of the entire 28-frame trace. See `research_log/T073C/execution_report.md` and progress. No UHD-LL Ours target model run, reference read or metric yet. Next is execution-only 4K target-low Step0 smoke, then complete Step0 outputs; Ours-TTT smoke separately. B3b PromptIR remains provisionally blocked, not silently replaced.
+
+The first native-4K UHD-LL Step0 low-only smoke has now passed on the canonical `1003_UHD_LL.JPG`, and the one-process batch launcher reproduces the same output tensor SHA256 `d4131bd5c20d431927b5ed8c111db560032757f21aecfeb286e874997d95883d`. Input matches T072-I SHA256, output is finite float32 2160×3840, no optimizer updates or reference reads. Batch smoke manifest SHA256 `5c541d3d06158416023944a70d8ca56d1a67dd2e0eb2f4ba5546abdb85349003`; per-image 1.294 s after model load and 1.338 GB peak reserved VRAM. Full 150 Step0 execution is next, then independent manifest/tensor verification before `FROZEN_OUTPUTS` can be claimed. Ours-TTT target smoke is still pending.
+
+---
+
+## T073-C Ours-Step0 150/150 independently frozen; Ours-TTT 4K smoke passed
+
+Step0 complete-case UHD-LL outputs were generated for all 150 canonical low-only inputs, output manifest SHA256 `76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce`. Independent verifier loaded every lossless tensor and checked names, frozen low hashes, file/tensor hashes, decision records, finite float32 native geometry; 150/150 passed, verification receipt SHA256 `083af685aaac9e3909dd3b2041f5cc030e58bc683691feffffe9f1ff66b2fa67`. The B4 Step0 execution row is now `FROZEN_OUTPUTS` via `research_log/T073C/step0_freeze_receipt.json`; immutable T073-A preregistration remains untouched. No target reference read or metric.
+
+Ours-TTT's separate first-image 4K smoke also passed under the same source/assets: selected step 22, 21.796 s whole run, 3.207 GB peak reserved VRAM, output tensor SHA256 `6932c94af73d1f4e8b6d4b4e37eee6521fef82a921e03b9cc202146dbadac580`. Next is a batch-equivalent smoke then 150/150 Ours-TTT outputs. PromptIR/DCTTA remains provisionally blocked at its 4K convolution indexing boundary; it has not been silently replaced. References remain sealed.
+
+Batch-equivalent Ours-TTT smoke now passes on the same first canonical 4K low input: the one-process runner reproduces the independent single-image decision, selected-state hash and output tensor hash exactly. One-row manifest SHA256 `5ab381b1dced937f9b5034f5f49a87e9942c35f8414e7a6c01f30286d78c014c`; code and receipt in `research_log/T073C/`. Next: full 150/150 Ours-TTT low-only execution and independent freeze. No target reference read or metric.
+
+The full 150-image low-only Ours-TTT batch started on the paid RTX 4090 at 2026-09-25 15:20+08, PID 15005; launcher/log/exit/output paths and recovery notes are in `research_log/T073C/progress.md`. This is not a frozen row until independent verification finishes. While it runs, I am preparing the next independent Tier-1 method without using target references or competing for the GPU.
+
+**Research-lead intervention needed — Ours-TTT frozen-method no-active case.** The batch exited after image 1 because canonical image 2 has zero active gate regions; exact frozen T070-A `trajectory` asserts `gate.active.any()`. The independently frozen Step0 receipt shows 49/150 UHD-LL low images have zero active regions. A fresh run of the unmodified T070-A CLI on image 2 reproduces the assertion, ruling out the batch wrapper. Full Ours-TTT remains `BLOCKED_SCIENTIFIC_NO_ACTIVE_GATE`, not frozen. Please prospectively decide the scientific/protocol treatment of no-active cases (or accept a transparent terminal reproducibility classification) before any retry; a Step0/identity fallback, sample exclusion, or gate change would not be silently introduced. Other independent Tier-1 rows continue, but UHD-LL references stay sealed. Evidence: `research_log/T073C/ttt_no_active_blocker.md` and captured log. No reference read/metric.
+
+Additional synthetic-only mechanism check: removing the trajectory no-active assertion in an in-memory copy yielded 28 images/states exactly equal to Step0/initial state, but the unmodified selector then also asserted on zero objective improvement. Thus a no-active abstention requires an explicit protocol rule, not merely an execution patch. Receipt and hashes are in `research_log/T073C/ttt_no_active_blocker.md`. Research-lead decision remains necessary; no target retry or reference access.
+
+PromptIR B3b synthetic-only operation-level scheduling moved past the first 4K convolution indexing error and was bitwise-equal at 352×352, but the full native synthetic model then OOMed in FFN depthwise convolution (first schedule) and while concatenating its native output (second schedule) on the 48 GB RTX 4090. This is **not** an accepted 4K rescue; no target retry, output, reference read or metric. See `research_log/T073B/synthetic_4k_schedule_report.md`.
+
+Independent source preparation: official MR. Illuminate author repo HEAD `013e013e0ab2112dfa5d43f2dc87d34aee4ee328` needs the QuadPrior bypass VAE checkpoint; official QuadPrior repo commit `cbdf02f2873cd7cc4652611e2431d7d10e371201` has zero-byte checkpoint placeholders and needs three official Google Drive assets. The paid GPU host cannot reach Drive directly, while local transfer is very slow; no substitute checkpoints or model runs. See `research_log/T073D/source_status.md` and `research_log/T073E/source_status.md`. These are pending acquisition/execution gates, not frozen rows.
+
+Preferred additional ZERO-IG official source commit `5af4b8aca6b114732f05d7fea70e0fbc874d63ab` passed one synthetic 352×352 train loss/backward but OOMed in the unchanged local-variance objective on a synthetic native 4K one-step run (48 GB RTX 4090). No target run. It is provisionally `BLOCKED_EXECUTION_4K_MEMORY` and is not Tier-1; do not resize/train on crops without a separately justified protocol. See `research_log/T073F/zeroig_synthetic_execution.md`.
+
+Secondary GM-MoE official repository URL in the ICCV paper currently returns `Repository not found`; no official checkpoint/config obtained. Provisionally `BLOCKED_REPRODUCIBILITY_SOURCE_UNAVAILABLE`, not Tier-1 and not a reason to delay Tier-1; see `research_log/T073G/gmmoe_source_status.md`. No target execution/reference/metric.
+
+---
+
+## T073-B prospective native PromptIR schedule: synthetic gate passed
+
+The prior native-4K synthetic OOM report remains historical. A bounded operation-level schedule now completes full official checkpoint-loaded PromptIR at 2160×3840 float32 on synthetic input without whole-image tiling, resize, precision change, weight change, or global-attention alteration. It row-schedules local 3×3 convolution/FFN operations with halos and losslessly spills encoder skips. Three independent native synthetic forwards have the same finite output SHA256 `8f32ddc227d8df54faf36d9fceb5902fafc1364b491bc48f68d0b68259a5d922`; final state unchanged (548 keys), peak 48,626,663,424 bytes. Small full-model comparisons are not bitwise equal (maximum absolute difference 0.00021202, some 8-bit threshold crossings). Mathematical/operator equivalence and this numerical limitation are both explicit in `research_log/T073B/native_schedule_gate_20260925.md` and machine receipts. B3b is **unblocked only for one low-only execution-only static smoke**, not full output or reference access. No new target model run/reference read/metric from this synthetic probe. If the one target smoke OOMs or fails integrity, return to execution blocker rather than trying an unsealed resize/tile/precision alternative.
+
+The gated **single static target-low smoke passed** on `1003_UHD_LL.JPG`: correct frozen input hash, finite float32 native shape, raw output SHA256 `edd0d508e737f5460cb93e2cc153479b3f72e9948ab9ebb19d75ca1c1d00db2b`, 11.027 s forward, 49,148,854,272 bytes peak reserved GPU, 548/548 state keys unchanged. `research_log/T073B/target_static_smoke_report.md` and receipt are the handoff. Static PromptIR may now run 150 low-only outputs with the exact frozen source/checkpoint/schedule; no static full output exists yet. DCTTA needs its own native 4K smoke before full output. References/metrics remain zero.
+
+The full-batch static runner's one-image output tensor hash exactly matches that independent smoke; the one-row manifest SHA256 is `bb6957da9329cc3f45ba39e2721e586370a9bf9a88af25b40a8984286b1fef2d`. `research_log/T073B/static_full_launch_plan.md` records the remote root-overlay output location because 150 lossless outputs may exceed the data disk's free space. Full batch/independent freeze still pending.
+
+Static PromptIR full 150 low-only batch is now running as remote PID 21379. Output root `/root/TTIE_T073B_static_full`, progress log `/root/autodl-tmp/TTIE/T073B/runs/static_full.log`, exit receipt `static_full.exit`; exact recovery/hashes in `research_log/T073B/static_full_launch_plan.md`. No full-row freeze yet. Please avoid overlapping GPU jobs on this paid card; reference access remains prohibited.
+
+The research-lead `origin/main` commit `068e5fe1` explicitly accepted the prospective PromptIR schedule and authorized the formerly undefined Ours-TTT no-active abstention. I sealed that precise rule in `research_log/T073C/no_active_abstention_amendment.md` before restarting Ours-TTT. The task-owned dispatcher and independent verifier are implemented; synthetic source-side branch tests pass 2/2. Inactive masks reuse exact frozen Step0 tensors with SHA/provenance checks and zero-update/step-0 status; active masks call unchanged frozen T070-A. **No Ours-TTT target retry yet** while static PromptIR occupies the paid GPU. First active-image batch-equivalence smoke, then 150 complete-case run and verification are next. References/metrics remain zero.
+
+---
+
+## T073-B PromptIR static row frozen; T073-C Ours-TTT abstention smokes passed, full run in progress
+
+Engineering handoff moved from Codex to Claude Code at 2026-09-25 ~17:30 +08 (same branch, same host; no credential in the repository). Static PromptIR full 150 finished with exit 0 and a new runner-independent verifier passed **150/150** (low hashes, lossless file/tensor hashes, native float32 finite geometry, unchanged checkpoint/state, first-row smoke identity). Output manifest SHA256 `be2ab4e9fa919d0a9ffc5764135ede17be0e8d5bc353594c983946c8f8a24913`; verification SHA256 `a21dc371144b28c147d6475fd1938b20152d53c243490cebd12c29b1f0eae0db`; row is `FROZEN_OUTPUTS` via `research_log/T073B/static_freeze_receipt.json`. Outputs sit on the instance-local root overlay and must be preserved before teardown.
+
+Ours-TTT under the sealed no-active abstention rule passed both target-low smokes: active `1003` reproduces the prior frozen decision/state/output hashes exactly; inactive `1009` abstains with zero updates and emits the bitwise frozen Step0 output. The full 150 batch is running; freeze follows independent verification with the sealed `verify_ours_ttt_abstain.py`. DCTTA native-4K runner is being prepared (float32 lossless outputs matching the static row, memory-lifetime cleanup between adaptation and scheduled inference) and will be sealed before its one target smoke. MR. Illuminate/QuadPrior still await exact official weights; the official README also lists an official Baidu Netdisk mirror of the same release. `reference_reads=0`, `metrics=0`.
+
+---
+
+## T073-C Ours-TTT row frozen (49 abstain / 101 TTT); T073-B DCTTA gate sealed, smoke passed, full run in progress
+
+Ours-TTT with the sealed no-active abstention rule completed 150/150 (49 abstentions emitting exact frozen Step0 outputs, 101 unchanged T070-A executions) and passed the sealed independent verifier. Output manifest SHA256 `6ec53813ad0e1acf87e82706519a20a30c2503e3aae0ea164a6f22a220ca7ec9`; verification `adbb7632407d8007d7071296c53e181b70dfeb71dc9dd840f45cb6695e3022a8`; row `FROZEN_OUTPUTS` via `research_log/T073C/ttt_freeze_receipt.json`. Abstention count must be disclosed in the paper/runtime table.
+
+PromptIR+DCTTA: task-owned native-4K runner audited against pinned official code (student-model inference, two-phase domain-level cumulative adaptation, official construction/RNG order restored; `run_low_only.py` had built the model before the seed-42 dataset reseed), independently peer-checked, synthetic a/b native-4K passed within 48 GB, gate published at `eaea9dd8` before target execution. Honest limitation: the adapted state is not bitwise reproducible across reruns (GPU backward atomics, topk ties, RDDM noise; synthetic output max abs 2.14e-4), so the row is single-shot. One non-promotable target smoke passed; the canonical 150-image adaptation order was sealed (`40c2e937…`) and the full run started 18:57 +08 with `--expected-order`. Frozen Tier-1 rows now: RetinexFormer, SNR-Aware, PromptIR, Ours-Step0, Ours-TTT. Remaining: PromptIR+DCTTA (running), MR. Illuminate and QuadPrior (official weights pending). `reference_reads=0`, `metrics=0`.
+
+---
+
+## T073-B PromptIR+DCTTA row frozen — 6/8 Tier-1 UHD-LL rows now frozen
+
+The full domain-level DCTTA run completed 150/150 under the published gate and sealed adaptation order and passed an independent verifier (order, promotable status, shared five-task checkpoint, adapted-state hash, lossless outputs). Output manifest SHA256 `1e14c069a3af7cfc2b526c25432b6b3bf8674511511ddc5d91a091dfa8ac6241`; verification `ee044f06eb54afba171eec376ccc4b7cde073502c5e6acc0c9bd49257c551607`; `research_log/T073B/dctta_freeze_receipt.json`. Adaptation 20.5 min over all 150 target-low images (transductive, disclosed), 13.75 MB of weights changed; inference 14.1 s/image at 49.17 GB peak. Single-shot, not bitwise reproducible (disclosed in the gate).
+
+Frozen: RetinexFormer, SNR-Aware, PromptIR, PromptIR+DCTTA, Ours-Step0, Ours-TTT. Remaining Tier-1: MR. Illuminate and QuadPrior, blocked only on the exact official author weights (Drive ~130 KB/s from available hosts; official Baidu mirror listed in the README needs the user's account). Source-only audits are recorded in T073D/T073E with three proposed research-lead decisions: QuadPrior official 512-short-side inference + official bilinear map-back to 3840×2160 before reference opening; accept the redirected official SD1.5 repo at a pinned revision for MR. Illuminate; MR. Illuminate native-4K VRAM on 48 GB is unmeasured and may need a prospectively proven schedule. PromptIR/DCTTA outputs (26.5 GB) sit on the instance-local overlay and should be preserved before teardown. UHD-LL references remain sealed; `reference_reads=0`, `metrics=0`.
+
+---
+
+## T074-A — USER DECISION: UHD-LL dropped as main-table target before reference access; scope narrowed to near-black low light
+
+The project owner decided (2026-09-25 ~23:00 +08) to narrow the paper scope to extremely dark ("near-black") low-light images and replace UHD-LL with paired real benchmarks in that regime. Reason uses low-only information only: the frozen gate found no active region on 49/150 UHD-LL low images, whereas every LOL-v2 Real test image executed TTT. To keep the drop outcome-independent, **UHD-LL references stay sealed permanently** (no metric for any method); all six frozen UHD-LL rows and evidence are retained. Replacement targets will be chosen only by method-independent criteria (pairing, canonical split, availability, no LOL-v2 Real overlap, prospectively fixed low-image darkness) — never by gate activation or method outcomes — and sealed in a new preregistration before any method runs. The drop and the 49/150 abstention must be disclosed in the paper. Full record: `research_log/T074A/target_scope_decision.md`. This overrides the UHD-LL-first ordering of the long-horizon plan; research-lead review requested.
+
+---
+
+## T074-A addendum — USER DECISION: Ours may be tuned on target test data (with GT) and reported on the same images
+
+The project owner decided that, on the new near-black targets, Ours thresholds/hyperparameters may be developed on the target test images including GT/metrics and results reported on the same images, with explicit disclosure in the paper. Safeguards: all non-tuned rows (including frozen-T070-A Ours-Step0/Ours-TTT) are frozen and verified before any target GT is opened; the full tuning search is logged; frozen and tuned Ours are reported as separate rows; an optional scene-disjoint two-fold check is offered. Record: `research_log/T074A/ours_target_tuning_decision.md`. Research-lead review requested.
+
+---
+
+## T074-C SDSD-indoor complete: 8 frozen rows → reference gate → metrics → Ours target tuning
+
+All 8 non-tuned rows were frozen and independently verified before any GT access; reference gate receipt SHA256 `a21eb87d10c36fce75988b4414bd8c74fe687b6fe4c8965c47b8c5580eb70360`. N=180 frames, G=6 videos (low power; cluster CIs unreliable). Mean PSNR / mean RGB-SSIM: RetinexFormer 19.13/0.787, PromptIR+DCTTA 18.69/0.774, PromptIR 18.33/0.764, Ours-TTT (frozen T070-A, 0/180 abstentions) 18.24/0.641, SNR-Aware 18.05/0.770, MR. Illuminate 17.80/0.787, QuadPrior 17.54/0.790, Ours-Step0 7.40/0.319. Frozen Ours-TTT vs comparators: PSNR within about ±0.9 dB (only vs QuadPrior is the cluster CI above 0), SSIM lower than every baseline by 0.12–0.15 (all CIs exclude 0). Ours-TTT gains +10.84 dB over Step0; DCTTA gains +0.36 dB over PromptIR.
+
+Target-tuned Ours (tuned and reported on the same test GT per the user's decision; optimistic): 29 settings (28 complete, 1 failed: lr 0.06), selected q_joint p80 + exposure_target 0.7 → 19.03 PSNR / 0.625 SSIM (−0.10 dB vs RetinexFormer, SSIM still lower). Full search log committed. SID-sRGB still blocked by Google Drive quota; SMID and LSRW failed the sealed darkness criterion. Records: `research_log/T074C/SDSD_indoor/`.

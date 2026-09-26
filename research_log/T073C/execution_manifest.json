@@ -1,0 +1,122 @@
+{
+  "name": "Final-Ours T067B lambda.875",
+  "source_commit": "aa4d920dff4b5b76751c24266e95ac9696d55d90",
+  "source_binding": {
+    "research_log/T036A_assets.json": "7ddc20fd95987c9dc2da7f7a33a0e6aa26ad5d279ecaceacab1b7ed3c0c2c33d",
+    "research_log/T062A/core.py": "30c70dcb825ab0694e1f678687b450efc90d74fd40ce7b76710492efee20a91a",
+    "research_log/T062CR2/core.py": "dd68d618272147ec5c5e54a8fde2f3863de4ce1f6448615db14d7733bb28dc94",
+    "research_log/T063A/common.py": "7531c2f1f34dac797ce1b4ae7364d21b2efab1250e11bfdcf550587ed29e311c",
+    "research_log/T063B/core.py": "7efadd1d32b12f0f4970223c3a4286df5b003362bc018bb57a6971ebbb936675",
+    "research_log/T063C/core.py": "e51af1ca7353051c9256c00daa25978f64751a0260957cf1decb14466f4d1c56",
+    "research_log/T065A/core.py": "fec15f6f2cb430377c1c52e2316a1036a1c6878a16ec37bdf113293017a0487f",
+    "research_log/T066A/core.py": "5663cd4d429878e8431c6f5c96f01a7b8f360278326e9cef0a79b706a75186bd",
+    "research_log/T066A/evidence/model.json": "33f878dd090d5e85ba2d099c0e16bc7e4f1731b41f0c5fd90f2a8a5a30f62be0",
+    "research_log/T067B/core.py": "f7645118b2aeaff64f68891f4eb89c9f6784f103987fed9b6b5766bb5322cd61",
+    "research_log/T070A/constants.json": "e483da0f9d7fe7ca93b50017c27fe1676b4bf343163564b2bd01b3106e8e3801",
+    "research_log/T070A/infer.py": "51db415e3699239d50f6d3a19c30baf39ea1ade764b6fb67b8294f59097f2c05",
+    "research_log/T070A/manifest.py": "d4aa74320779554c22f21f500d3f515925fefdbef6145e88d11849886dfc808b",
+    "ttie/__init__.py": "4de7703189366591a75bc1f59f8d0a02da9cf1ba06999293141560c0949512c6",
+    "ttie/clip_signal.py": "8a9b3647f4eb26304f338163cf151d593f7680f64c5059caebdde68115b91ed8",
+    "ttie/common_gain.py": "f06cb28c69cbb8edd9d48e248e051f8525c2d0fe637aecfbd4cde7d0e186bfb7",
+    "ttie/energy_model.py": "c6c230c23e8758fc4be76e104cdbe121e343f269d55b41cab95c8503243fdcc4",
+    "ttie/ev_range_box.py": "97f72e3f4b33ff3281439cdb65036c69a6229f823d2aab21d490a1cf2ba289cb",
+    "ttie/gamma_range_box.py": "554dbcd8e8fe649191bb1640477e3fbaa9d3c49c34909b2c4ee1b3d28237b8bf",
+    "ttie/gamma_range_ttt.py": "e463cd49e1cbd1f3022817ac51eeef359df6522021f02a69aa8e639d4b4bbc32",
+    "ttie/isp.py": "6a17ddc92aac0df68353d1910b08bdaabc25a30d8b3571688b3509d56dfdcbb9",
+    "ttie/joint_gate.py": "7f5f983d7cabac4bc16f93515f924fb4009374fa038113ad49984b74f4b5637f",
+    "ttie/learned_prototypes.py": "062cb21f65e5611839802ad8dbe86bde883b14c75d50dc5116766e5c903f8eec",
+    "ttie/lolv2_gamma_core.py": "fa8e2abf9d4453c9f91fecd381d69c6192aabdd91f5b6efe65215400c04d76e2",
+    "ttie/natural.py": "bfc8cbf8d5c2f92e7e4dfdb49f5c0fc217cb25167be2a8b7a16a0322996fb94e",
+    "ttie/projected_ttt.py": "f5fb68a742ee4038b903bf62ae37ae0b3011762ce3035ba09a3b9609a25a6457",
+    "ttie/semantic_ttt.py": "83c06b448a7afd86ee1305348cc8289afea70f7133a0490f42712d5325d47a72",
+    "ttie/stop_quality.py": "4e6816898e6924732cf2409619c05212a412aab13da15cac5678c7bc6243c19a",
+    "ttie/stop_receipt.py": "f81a20de0808cfebd3321176ed74f9e3bd3ec58df29d63cf937d00c362b81ed4",
+    "ttie/stop_trajectory.py": "38965a15430d383b429086ec4460fff2dd3c500a7d162f39b705c40ae4b23ce7"
+  },
+  "assets": {
+    "clip": {
+      "path": "/root/autodl-tmp/TTIE/T073C/shared/open_clip_pytorch_model.bin",
+      "sha256": "1bd3c7172de5b207ceac554f5ab5266166f3b9baccc9af5989bc801016d080ad"
+    },
+    "prototypes": {
+      "path": "/root/autodl-tmp/TTIE/T073C/shared/prototypes.pt",
+      "sha256": "b4b32dbd96c65dcf606ee38d7450ebf348f5731823503b9c71ba15ec78217ac7"
+    },
+    "gate": {
+      "path": "/root/autodl-tmp/TTIE/T073C/shared/T022A_gate.json",
+      "sha256": "b7458c51466fd89c1bfa8e7c4bf1dd820ddf56e33c12c406f6625ac64361a4ce"
+    },
+    "probability_model": {
+      "path": "research_log/T066A/evidence/model.json",
+      "sha256": "33f878dd090d5e85ba2d099c0e16bc7e4f1731b41f0c5fd90f2a8a5a30f62be0"
+    }
+  },
+  "constants": {
+    "renderer": "CommonRegion2/CommonBox",
+    "raw_shape": [
+      1,
+      3,
+      2,
+      2
+    ],
+    "initialization": "identity",
+    "updates": 27,
+    "states": 28,
+    "optimizer": {
+      "name": "Adam",
+      "lr": 0.03,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false
+    },
+    "loss_weights": [
+      1,
+      10,
+      5
+    ],
+    "exposure_target": 0.6,
+    "pools": [
+      4,
+      16
+    ],
+    "rho": 0.9857470621423519,
+    "lambda_value": 0.875,
+    "probability_threshold": 0.5,
+    "feature_count": 19,
+    "selection": "T067B choices lambda.875; first >=.5 through k_rho; earliest progress crossing; exact existing tie conventions",
+    "dtype": "float32",
+    "feature_dtype": "float64",
+    "seed": 7,
+    "threads": 1,
+    "tf32": false,
+    "deterministic_algorithms": false,
+    "cublas_workspace_config": ":4096:8",
+    "preprocessing": "native_rgb PIL convert RGB; float32 CHW /255; no resize except frozen CLIP preprocessing"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "packages": {
+      "torch": "2.3.0+cu121",
+      "torchvision": "0.18.0+cu121",
+      "numpy": "1.26.4",
+      "Pillow": "10.3.0",
+      "open_clip_torch": "2.26.1"
+    },
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cublas_workspace_config": null,
+    "omp_num_threads": null,
+    "mkl_num_threads": null,
+    "openblas_num_threads": null,
+    "mkl_threading_layer": null
+  },
+  "execution_origin": {
+    "frozen_manifest_sha256": "e7f129d931d27531e5f6a14cd72e8c94734c474c40c3c403959cc8f5764e5ab9",
+    "change": "asset paths and execution environment only; source, constants and asset bytes unchanged"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "classification": "UHDLL_EXPANDED_MAIN_TABLE_PREREG_SEALED",
+  "task": "T073-A-R1",
+  "base_commit": "d5fd1ac63a64cce46f815d50925561834dc984c3",
+  "artifacts_sha256": {
+    "analysis_spec.md": "15a4c187c9a9dd4fcbbe877f054b32ec7df2371ed05ff4d1306ef70e74bec9ac",
+    "method_registry.json": "45b3c693f492ceb7df01cfc0e33316b442c12d09af0e4869a2d6f9b06f0af008",
+    "metric_plan.json": "a4efb0fce65912a5619306c19ab0ec92f7f86fea090886e44d8e22ee1935135e",
+    "verify.py": "b49f0c78e3614020779c492aa75efae3a918be1b8fe299e67c98d8d377a4a5c7",
+    "test_verify.py": "51b983330d11091b2da46c8206d4910f23c6122b708ce3ad25da907982d89086"
+  },
+  "immutable_inputs_sha256": {
+    "historical_T072L_spec": "df9c5e4a6c2c5ee8cf812c4535938ecb80d5f6b34fbc659d2fc8302923f93391",
+    "accepted_T072AZB_output_manifest": "73c8d304c8bb88c4612a13598b5d4dd76378e0c3107bd97011941037a4427001"
+  },
+  "verification": {"positive": "PASS", "rejected_mutations": 19, "declared_rows": 10, "tier1_rows": 8, "frozen_rows": ["retinexformer", "snr_aware"], "pending_rows": 8},
+  "reference_reads": 0,
+  "metrics": 0,
+  "model_runs": 0,
+  "notes": "R1 locally verifies corrected eight-row Tier-1 scope, the prospectively chosen shared official five-task PromptIR checkpoint, and LOW_ONLY_DCTTA_REQUIRED. The later low-only execution wrapper is not yet sealed; no pending row is presented as a completed output or measured result."
+}

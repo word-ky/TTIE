@@ -1,0 +1,4540 @@
+{
+  "checkpoint_sha256": "206baf0dd10f636f025b33b5ee7eb63a353fcbf4d50858b62f9480a6d4be9d4a",
+  "low_receipt_sha256": "19138a9c1fef4e1d3a6ffcf6f0bf9dcb3b5b64453682f7424a3ea5f749512978",
+  "wavelet_sha256": "8b153d20d0d677f93721b7ee81f2ba9736dabf86bf125e62612ae47e2e87e5ac",
+  "options": {
+    "lr": 0.0002,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "batch_size": 1,
+    "num_workers": 16,
+    "patch_size": 320,
+    "iterations": 1,
+    "compute_fisher": 1,
+    "fisher_ratio": 0.6,
+    "teacher_weight": 5
+  },
+  "seeds": {
+    "official_set_seed": 23,
+    "train_dataset_reseed": 42
+  },
+  "adaptation_scope": "all_target_low_domain_level",
+  "torch_version": "2.3.0+cu121",
+  "accelerate_env": {},
+  "inference_numerics": {
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false
+  },
+  "memory_schedule": false,
+  "method": "PromptIR+DCTTA-five-task-domain-level-generic",
+  "promotable": true,
+  "count": 180,
+  "expected_order_sha256": "c96b15a1fcf17ab8361db1c82fc771207ae3fbf445f327804c4d2fd746c3ab4b",
+  "fisher_order": [
+    [
+      "pair21__0235.png",
+      "3412da0accda17ed9ac8a976e11c3131f82ced950488b048d8ff5ac17c942028"
+    ],
+    [
+      "pair4__0191.png",
+      "a8e3aaa35d4d185e5e8060f34485d1148e853dc6102f405a082c6a323256f6ad"
+    ],
+    [
+      "pair1__0198.png",
+      "39f63d80adabb31657f9e1ffaae7531d016170a2a93985d9d945a43dbb61a2b9"
+    ],
+    [
+      "pair11__0202.png",
+      "d06aec4ea844bd1c87df36229c664426351e9e38b5c7d8c5c5511b0fde0b2061"
+    ],
+    [
+      "pair21__0226.png",
+      "ef8f59c2f48f5628fb45e022e13e29ec986018014f5f3a8135d36272603874bc"
+    ],
+    [
+      "pair4__0179.png",
+      "5632db54c2c8805796911cfe85670fb9b4352b5b57315e203672d4e16fd19866"
+    ],
+    [
+      "pair1__0204.png",
+      "582cf2b4ff50fb05366e7dbf79d2643a16465461057fc6c95dc25259d83e1f8b"
+    ],
+    [
+      "pair21__0228.png",
+      "4c0247d998eee4286ac6af18d50284f39b3f14e7f3410b69eea50f924c97d29d"
+    ],
+    [
+      "pair9__0206.png",
+      "ca5f27e357e0ddd8295d23b6bc91e13e5ef24f422ab3eb8df143e41ec6b61bf7"
+    ],
+    [
+      "pair1__0212.png",
+      "842968d8019a5783417325335069a21c5110ad98085508482640558abfb6c3e5"
+    ],
+    [
+      "pair11__0188.png",
+      "370fda0d7fe06e679db8e68a3af9192b2f4fa4fecd7b83fdee19fb892b0020bd"
+    ],
+    [
+      "pair19__0159.png",
+      "fa8c51ff857ae2b1dc0b2cbb38bcd3cc503105bd1d7d857d07763bc1f852d191"
+    ],
+    [
+      "pair9__0205.png",
+      "2398e5930daf7cad1cd9c0730ceeea27af86714cd910771c242ca7ae1484204c"
+    ],
+    [
+      "pair9__0201.png",
+      "b4536937f52ff705b787f4fbe9a2deafe332fa4b5dc07165b7b2fcb41728b4cc"
+    ],
+    [
+      "pair1__0210.png",
+      "9940032b3d66c4c09ed2c8d6b5f6171f0d3de95c11f461894dd75ac50b63ce15"
+    ],
+    [
+      "pair21__0236.png",
+      "8190c624b3587c3c552d648664c899660b356fd7c76a97b66fafd8aeca5ae7a6"
+    ],
+    [
+      "pair21__0229.png",
+      "83f91760ddcc1084698afdeb9f202c3c7ca315759ffcf29401dc3e00e277408b"
+    ],
+    [
+      "pair1__0199.png",
+      "06aad3b2139ba7dc47cb0d57d0bc1cccba4fec1b05504dd2921962a643c72cf4"
+    ],
+    [
+      "pair21__0239.png",
+      "f8d1f519eea235e88ba7cea8c26cdb74a45adaa45de1d644d12c81551f30a65d"
+    ],
+    [
+      "pair11__0204.png",
+      "8e9b3e5d58a0428c5df9013bd23f7f60646a0f7717e4c2baca52ea743762cf2a"
+    ],
+    [
+      "pair9__0218.png",
+      "d61e3fc2d6fb65912f19cb8f62968878ed6bfc5073dc9437803c17ca4c387481"
+    ],
+    [
+      "pair21__0220.png",
+      "82e42bccb8d7af59168487c9ad0a235a13717960869c9220f14b6b37f2546848"
+    ],
+    [
+      "pair19__0173.png",
+      "1f3952bd73d4372783203ad4d3fb583e62e62a3cc2d8d1c5ff88cb61553b174b"
+    ],
+    [
+      "pair1__0203.png",
+      "f80991a3cc14a9f8bb58517327092bbc18048ca783e6e7c1b802cdaf2efb2ecb"
+    ],
+    [
+      "pair11__0194.png",
+      "b344e76847eede9c0827efdba59c660090b8e04620d2a34600f0cb762133d42f"
+    ],
+    [
+      "pair11__0203.png",
+      "2e3c9f640bb186c382a2443c868fdeb78bca96b9221922bb7f62bab877edf3ec"
+    ],
+    [
+      "pair1__0191.png",
+      "69f2fdfc41af4b6aefb83f375b05a0b1027db0e3802d59a6ce4552634bfcb530"
+    ],
+    [
+      "pair9__0207.png",
+      "81f2d4bb4440a167be591b32344981b0cfc5493c7ee9cc66ede7248bebc464ba"
+    ],
+    [
+      "pair4__0184.png",
+      "7c1b8ac5a6db95e6bf829fa578b6000c06c18058b1b7b1c0af014577c752cfd8"
+    ],
+    [
+      "pair21__0216.png",
+      "6ed3a4d86e1f05a3b998b5aa2030cff63871f9af8c97e011bc44afa8e6c11a24"
+    ],
+    [
+      "pair9__0214.png",
+      "3ac7b148405d1f1d46379ec9a14cdfb4ce82acd91b3a83fcaa2a73983b411467"
+    ],
+    [
+      "pair21__0221.png",
+      "5c29b8147a36b34d35b07626650f7b715c19183f9c9340298a797f2253715717"
+    ],
+    [
+      "pair11__0198.png",
+      "30cf3871e75acf6d0785c021ca3e3933bcc14eee2efb0ccba41c34fddd7136b0"
+    ],
+    [
+      "pair9__0219.png",
+      "114f6f12c835162053639e5e266001ed40191794a310acc863553fe3332b8817"
+    ],
+    [
+      "pair21__0215.png",
+      "391d133fc9f4d4dee721fbf1f8af6c5c3c045afda5855317a5f758ba34a869fe"
+    ],
+    [
+      "pair9__0210.png",
+      "8ee63a407d343b605a17e89cef2472bd340ddb76fa98247d88937632c0481853"
+    ],
+    [
+      "pair19__0157.png",
+      "fc4b393f37f7aade69034c94687d53d8209745d2c2508fdcac497b22fefe2238"
+    ],
+    [
+      "pair11__0196.png",
+      "8b729403a5c2fe03a6f7cae1348c0bd53f2a6579eccc48ba737517e9f6c5458b"
+    ],
+    [
+      "pair1__0190.png",
+      "a448d804385eb19ba11a6e5114e9708dfc7c9eb7c6daf6de5164391bdc378c8b"
+    ],
+    [
+      "pair4__0173.png",
+      "5f9676ab9956f0700041bb8868b05e0753caed3b407f3401aaa4a397ee5b6ca3"
+    ],
+    [
+      "pair19__0163.png",
+      "3c883ab02f8f625cc9d0a219ba3412dcbe49a11e320d2380e610b4f45ac8f51b"
+    ],
+    [
+      "pair19__0175.png",
+      "c1078556a7d56c8680969456083057cd217110b554522822938bf1f9eb9d5d97"
+    ],
+    [
+      "pair4__0195.png",
+      "65f73a57d427a27534a69f8bcb80f9b233de019655111b5ee566f2241d8d99cf"
+    ],
+    [
+      "pair19__0182.png",
+      "7b8163af64f873e149719691db20f88cd82a958ca4af65f803c2d5f265fb41a7"
+    ],
+    [
+      "pair4__0199.png",
+      "31cad4c325c816389f3537ddee036c99b628e512bdae7fe8e0b58fdfa600f218"
+    ],
+    [
+      "pair21__0213.png",
+      "acd5936c1cee8256b166798c480b168986b73f8244bf33fdc0f9f859d925a02a"
+    ],
+    [
+      "pair4__0183.png",
+      "0e5d20a53e7286143cc2a3b6652e4e9ef28fc516a7e0e32bf6093099d6d0fc13"
+    ],
+    [
+      "pair1__0213.png",
+      "a676a6416ac4d375f6bed6d86022c03991118ee024dee2bed94012e50b1d1696"
+    ],
+    [
+      "pair9__0204.png",
+      "46d5dcbe6c05edfd7852cdf33b7a28fbcd67be70fc2805199453b6d9948a218e"
+    ],
+    [
+      "pair11__0192.png",
+      "2ecf703af6a7e57e18ddf9c9c3995d1c7c4a0276bb54eeb702ab34e02051e981"
+    ],
+    [
+      "pair4__0202.png",
+      "db56e521655c915a2d89ae4d8f0a5ae5a8301c06ee482880651dbdfae48c39b7"
+    ],
+    [
+      "pair1__0192.png",
+      "f7cdd7a42cf9ae9e6f5014b8b7b95aa0e4fbb5f1e626495a2d1a93e1ee4d3f25"
+    ],
+    [
+      "pair19__0183.png",
+      "87ef002923237e205678ca10484d52c94ac28e2ff9302ed3b462a3ae96a20b15"
+    ],
+    [
+      "pair11__0200.png",
+      "f47cb90599fa75605f12110c55c4a40afd04e6d61153183ef7b5968da4e94562"
+    ],
+    [
+      "pair1__0207.png",
+      "c0e8087c6665909d68716223627a84db1f3771d6c62f596cebc6f101e699a96c"
+    ],
+    [
+      "pair21__0223.png",
+      "6dadd599944a3af05ceb01620f0edd7709ec2f6dd918fa162fb347bf554b3209"
+    ],
+    [
+      "pair4__0180.png",
+      "d95a3b5da74b2186d60d40a19b5ac906af6c7450557054c7d6265c3fec2464e1"
+    ],
+    [
+      "pair4__0186.png",
+      "de59b8bc54ca04344a0ad4d2724d2b756a7ab425bb91311dbb6496b24a696eb4"
+    ],
+    [
+      "pair4__0190.png",
+      "ac38b1841837a0cf53a737b16f6a57cd1ed90a73677cd5d2940bef818d650ff7"
+    ],
+    [
+      "pair11__0183.png",
+      "19c688ab9f7a4bc241d8ef53d279dddb20664af6657b9255ea8edb8e8e405482"
+    ],
+    [
+      "pair1__0211.png",
+      "24a2cffeb3e41656453f46449cdc476d77938f0a83bdc4ab8a51dd00fd86841a"
+    ],
+    [
+      "pair1__0188.png",
+      "69ac379611b55a4795acf7675e860076a90236a750bc67cc0f3b8c90dcb6d2e2"
+    ],
+    [
+      "pair4__0181.png",
+      "e72f513b2e2888fb5c342c4d6d504e192fd8f2d7fc7dfb288bf908e7e4c3eb30"
+    ],
+    [
+      "pair9__0213.png",
+      "feaab5afa61cad8e9a092a35bd4a338e2d76c13028b6538dc3449e02ce2498e5"
+    ],
+    [
+      "pair11__0206.png",
+      "ecd9ac2046f0ca59ecdc9763bb100735e64e2362d546ff0a01291337efef883c"
+    ],
+    [
+      "pair19__0185.png",
+      "c8cffe9dca2498a6a92b5261187aaac331b51b75d466bccbe72b419fcf316ced"
+    ],
+    [
+      "pair1__0202.png",
+      "5110a440ce4c1510d426ae528eb58222eaa49f37c518a9d656e863149cc65dc7"
+    ],
+    [
+      "pair11__0201.png",
+      "19ec280fb31534904bbb69b0783e7315ca661f1359a25aa153d931b79bdcc962"
+    ],
+    [
+      "pair19__0184.png",
+      "e74c371cc2187912a4c7435ed5b9a58c3d1f141f403fb8c4182eeee217848f3a"
+    ],
+    [
+      "pair21__0219.png",
+      "348708ed0edb184d1d37470a97185b36d0f015547d56c582e691e1239903d720"
+    ],
+    [
+      "pair11__0189.png",
+      "6a69a6b75c78296be9bdf88cfce3a89b5c1abffbaa195497d18cb5caa7f89f4c"
+    ],
+    [
+      "pair21__0231.png",
+      "4bd1237b45b3b63230a2f921ba3375dfec2b1fcf00e259f948b4f8816e252c85"
+    ],
+    [
+      "pair4__0200.png",
+      "48f7f49b2afee0daf18b36f1d9d54535c59570d3e0a35e58c9ea96cdd7d9218c"
+    ],
+    [
+      "pair11__0187.png",
+      "3fe5f572699017637400ab9894f338bf790ea6414d81b17211a1191dba15267f"
+    ],
+    [
+      "pair19__0180.png",
+      "33547741f910575d81bc439fe73e228aa2b1bb3d5eabb9b9cc6eeb8cccaaf039"
+    ],
+    [
+      "pair11__0185.png",
+      "4f26a8204a273ddfadf245a7553736d9bcb93e7b1ad703ad2da264c573299e47"
+    ],
+    [
+      "pair19__0174.png",
+      "cfabb244d589077d0802011ae27f7d0c43c997a4314e08fb59cc8cd8f729d159"
+    ],
+    [
+      "pair11__0181.png",
+      "65a45299eb37b88d48db831bd2f42c007c537f0488056187faf4e60e0ccdfec2"
+    ],
+    [
+      "pair1__0209.png",
+      "9e640898b52f03b2390e94d03236cc64d5d71026ea5f74cded5943f80ea4b3fa"
+    ],
+    [
+      "pair4__0176.png",
+      "39a24f26b94197ae60b8c58f36c3d7ab60a11c8ab64b8edeb68c0722b5fa786d"
+    ],
+    [
+      "pair19__0181.png",
+      "b59b8dd120c957b435e7ef42239b8b86b3c318c9de1f24da692dfa8e8ec46f47"
+    ],
+    [
+      "pair11__0186.png",
+      "195f4f5a0523cd5daa7704b9878ee0d839dfda1217bbe5f20cf72dc3fcdeaba8"
+    ],
+    [
+      "pair21__0212.png",
+      "3d93142a2872d7b7c37977ec91cd7e64e839d1041ad53b840cf925aad8dc8316"
+    ],
+    [
+      "pair4__0185.png",
+      "c8ca3461e96e58c3e151034ae5fe27a51a2986f7971c3c03358fe363f5a729f3"
+    ],
+    [
+      "pair21__0237.png",
+      "98e1e9243199d17d8f30ef68eeea69be3b82801f2db74a6195c5e7b20693bdb2"
+    ],
+    [
+      "pair4__0174.png",
+      "f9abf3c0f127bbf5e346ad491c7bef71d23c056d5f99bc03942c5d749fb15ad5"
+    ],
+    [
+      "pair19__0164.png",
+      "e3dc6403037006bade755e7b62bcbd928c13608394174808046540558663b75c"
+    ],
+    [
+      "pair9__0195.png",
+      "6e8d8b9386df5646d27da7224cf2e7b5d1ed7eacbc44d1699b49f3709fdd2b34"
+    ],
+    [
+      "pair4__0192.png",
+      "3458c6b0bb70942b8a56eb4863faa82307d36aa770e19cf5ea74b2523599d947"
+    ],
+    [
+      "pair1__0208.png",
+      "9f4157cbcad439180f628f5d8df288a04ff0df2af9ccab6ff49b7e4c7ad76382"
+    ],
+    [
+      "pair19__0168.png",
+      "db8c8149d7d8380e4ef42c32c607819f98a972d185ec7975e8520f41b726fa38"
+    ],
+    [
+      "pair21__0222.png",
+      "8859fc40c47527c943082748a27abb82c0e26583fcac26bc07b1fddb564f01c6"
+    ],
+    [
+      "pair4__0182.png",
+      "73375b3ebace19c6283859444baa28f8d858d961837d9f20a9cb3030c74a493c"
+    ],
+    [
+      "pair9__0212.png",
+      "18608ae497d1ddb2e80cf120dac2a7b4c528be3eef7d3405e5e3e53d15f142d7"
+    ],
+    [
+      "pair19__0169.png",
+      "4626481a7e4dee617a2eac541887b04bfb39eaf0fa357cd3934e33044eb50e67"
+    ],
+    [
+      "pair11__0178.png",
+      "db97f3c39047bcc79167f2859d4cbef2eb9c600f20d9a2ae6e923c2a2c1ffb68"
+    ],
+    [
+      "pair4__0177.png",
+      "3d2a697810f66714e8bae156b118d35c31dc3d93307246267612c6b909c57d94"
+    ],
+    [
+      "pair1__0194.png",
+      "90b23d41c008cb7d31ac9b2476fa9bf1f295489a6c3a0e01b77ace77a52d0392"
+    ],
+    [
+      "pair1__0186.png",
+      "ba02d871ab934579d6ec99cb9567e6a66844007328e4ed3fb261222ed12d455e"
+    ],
+    [
+      "pair21__0234.png",
+      "5a4e2b9ee3bc31c50758cf3bacbeebdd2c27c6cca65f9e9ba9f3e10421cc0971"
+    ],
+    [
+      "pair21__0224.png",
+      "d741ca3f57a291242fcd36529f51b66564968fc33f5a178c4bd700c6724a563f"
+    ],
+    [
+      "pair1__0197.png",
+      "b195a349b5d779c2f99296546be4ed0b6684ffd11315a31f052d02b988d5ecde"
+    ],
+    [
+      "pair1__0205.png",
+      "abd0851f42ccb88a10854e73fe2684e5f35ff696356c749cf174bbd5c740e9e5"
+    ],
+    [
+      "pair4__0194.png",
+      "185a0a9baa8af007e64c1b8cdf2f7bc5445b7794571d6048488dbfe12cf0a3e6"
+    ],
+    [
+      "pair11__0191.png",
+      "3546d927f155889c1393469f861a849d383482445fb35b73f51b01e2b8433477"
+    ],
+    [
+      "pair9__0203.png",
+      "d950bb44df909f89dbac36641e93279f951a3991854b826e41c69551708203e3"
+    ],
+    [
+      "pair19__0162.png",
+      "4510a5750f940baeeea3bd3c4d074e8c370fcc5eadc0731ca2a096695f81b4b1"
+    ],
+    [
+      "pair21__0217.png",
+      "40563858a7aedfeb7c5018ed2bfdcb602dc0b4d68d6dd8778684c7bd1a869b65"
+    ],
+    [
+      "pair19__0172.png",
+      "654bef9e566f656f3499ee0cd8e78d999052175e77d8d2bd699f168e17b2bcb3"
+    ],
+    [
+      "pair9__0197.png",
+      "f2451f7deaf8fd4d48f85603d6bf77080faab038659411ae53bca468bdfd3c00"
+    ],
+    [
+      "pair19__0171.png",
+      "c6cd9b563ef60dfd73cf0aa0102702fa8faffc572acbfba50c87b343689d819d"
+    ],
+    [
+      "pair1__0189.png",
+      "e7c792ee2f7901e89bac1fbd1edf1c1a02fb64a1258695086d2a9214b4ed6900"
+    ],
+    [
+      "pair19__0167.png",
+      "8163330b9f351dd789bf0fdecf1d8196d8751103058a9001e05ed14b2ff8da71"
+    ],
+    [
+      "pair19__0156.png",
+      "93ec910215e1a2232bc664c1e0cdd09edcd220c63564abb28ba33abdc28a69a3"
+    ],
+    [
+      "pair4__0187.png",
+      "de07a123b4db028fa0fae47be025cbc5cb51c721b5aac34143db1e66910ce283"
+    ],
+    [
+      "pair11__0205.png",
+      "0ee494491d161414ec4d2e1fd6c796daaa70e962f88656c76b5c929769935b76"
+    ],
+    [
+      "pair9__0193.png",
+      "983e1b4579d661aa62881053032cc273f4e238c782707c7b9ff1d5295bf335f4"
+    ],
+    [
+      "pair19__0177.png",
+      "3279d5b1a4143beea7ed800359a0ae966c373fb258d2818714a321e51c2be248"
+    ],
+    [
+      "pair11__0179.png",
+      "945c85d67d6022b91f68a19b34b5995fc6a997f93a495f3ee173783fe1494a13"
+    ],
+    [
+      "pair9__0209.png",
+      "fc5b9a87fd2346f1af7b270f0aeccbeef3e745ba75108c0fe904cb067414c678"
+    ],
+    [
+      "pair21__0230.png",
+      "1f179e77a044aa111adb4cc6c7ca6ea2fa8a9046f8923208e1658386979b14d5"
+    ],
+    [
+      "pair19__0165.png",
+      "e89c142815040bfccf1ae2db3f3f959636fa85498192abe42d53e601ca3ae5a9"
+    ],
+    [
+      "pair9__0217.png",
+      "a8284f4d224ce62eb7dc08bf9f84b461374669400e9d961537f1bd152a429281"
+    ],
+    [
+      "pair11__0190.png",
+      "647d6685c945390fa43cb2fe6e889edabbcdbc37bf38eb6e745d593e99eff9d4"
+    ],
+    [
+      "pair11__0193.png",
+      "8a53507b2bf2ffbba39178663c275b75b95ecbee2eeac0e3f44e1dfcc0d4d71f"
+    ],
+    [
+      "pair21__0227.png",
+      "55ca4545dccf1b10d2fffec4d6cee0fb563fa2d21a1a4386ccc781b8f660667f"
+    ],
+    [
+      "pair4__0175.png",
+      "123173b22b92c70b90ec07867d0c716847a5a568b80a15b1cc5bef187c635efc"
+    ],
+    [
+      "pair11__0177.png",
+      "ecb6cd490a08815e0a76c658a80cd5f3d7d6628557c551b0ab156e365b239a58"
+    ],
+    [
+      "pair1__0215.png",
+      "e9fece5876cf9863501c3ce3072744fee175656af6254560a52fc1a935be634a"
+    ],
+    [
+      "pair11__0199.png",
+      "5948cd32dfd4d9f006c1bab10e593d7338e36f4c3e0f8b054e86cad4fb8ac638"
+    ],
+    [
+      "pair19__0179.png",
+      "e3846177bc1bf9873694ad7c49651fb3fb800b70326c393e43ea41456f5795a8"
+    ],
+    [
+      "pair1__0193.png",
+      "1bb8cf80e320fd37c9c4b0b616d34f17d33448119f7855d6eafeb90d3bbee454"
+    ],
+    [
+      "pair9__0220.png",
+      "1ce0d2681f48a942a5b8ff78a8252d2db0301d2e29bef6aeff2579ff0793c38b"
+    ],
+    [
+      "pair19__0176.png",
+      "4e657d50e486c0d875fa72db0978a3545553a0dc3bf503985336241296baca7a"
+    ],
+    [
+      "pair9__0199.png",
+      "693557ce21b957912356b48bc09a25b9027a43dba0ae734fc5a539634111b845"
+    ],
+    [
+      "pair21__0225.png",
+      "158eae05b1492481451a29fe40147b6f1bbd769f79b30cf41dc30b20c79b32db"
+    ],
+    [
+      "pair9__0208.png",
+      "62a376d9e5c85f654fa4db104ecd05e5ea8ed7dd7b9440f81c6a7ebf15ed9d21"
+    ],
+    [
+      "pair9__0202.png",
+      "56d9627a3eea6c5fbeff0177913784b710d1b377adb67b94be83abb2db123848"
+    ],
+    [
+      "pair21__0218.png",
+      "76c20a34f3aa90e6fb2245d2453f498cf81b81f91d5bb7a558cce09e7c9b7cf3"
+    ],
+    [
+      "pair11__0180.png",
+      "660cd9cd0728d282cc53c2d66af20211c6288333b4d4b8a1a16327690467b887"
+    ],
+    [
+      "pair1__0195.png",
+      "10687009ad996a535ccf69c81f001d9552f0d28778b68634490b3d38cbb43700"
+    ],
+    [
+      "pair11__0197.png",
+      "25461750c8312272cd43da49d157a1377feacfc7a150e5c4deb1ed2f01741fe1"
+    ],
+    [
+      "pair1__0214.png",
+      "3f25c657d56d9154aad687d8a530146e81b46ff987795548d06adac89b5e5378"
+    ],
+    [
+      "pair4__0193.png",
+      "e7b874b8671590cb50ebefc67218ed7198b36930c2f06ec7dd3af6c1cdd443ab"
+    ],
+    [
+      "pair19__0178.png",
+      "5e545546191d7c06617b16337307a178e2ca5ada690a46797d32c9e8d3f8e0cb"
+    ],
+    [
+      "pair9__0196.png",
+      "24e80a468abcbacd222cb2c3ddcafbd9bb36c6c32e20aba4f60db23d3de421e6"
+    ],
+    [
+      "pair4__0188.png",
+      "394e501f48bafc59fbfbcd80eece81a6d7c02de0aa4b0ac5c581902425665293"
+    ],
+    [
+      "pair19__0161.png",
+      "728e0c1cdbb86b7f17eb4634af5e8febb9827dbb24bfcdf69b788ea928d5121c"
+    ],
+    [
+      "pair21__0210.png",
+      "4ad852a7899831a0e66d1b14882371a60c5cece1b23ef106292c288283e1408d"
+    ],
+    [
+      "pair19__0170.png",
+      "6d66af2269fef5d4ca370d1171ceb8d8d07262319e0d1c3bcf630d2d74ab5f83"
+    ],
+    [
+      "pair4__0189.png",
+      "c86e9f7cfc979304873cccb354e4cd9d1a5ba91bb4f45528038a44c424014ba0"
+    ],
+    [
+      "pair9__0200.png",
+      "44a95e6a72eab185ff994911805bed6afdd9ce4247a86a69a72fbba0ff848785"
+    ],
+    [
+      "pair11__0182.png",
+      "ab356e5cd49ff8366b40e3af42fff05d237f00e244aa674bac8bc2e215f08918"
+    ],
+    [
+      "pair9__0216.png",
+      "9ac94bc7935f3cdd56395da5d0d169567583b3aa08e08a268ba2fca66b6a9fc4"
+    ],
+    [
+      "pair4__0196.png",
+      "1df604582e7877b01b8b03dbabcedd1c45347f44562c1c9ca1cf23074966a78c"
+    ],
+    [
+      "pair1__0200.png",
+      "5ec2c099fb525f3b97f0502f7f194d7e59695586cb912ec1d4ebb3e6f2a62dc9"
+    ],
+    [
+      "pair9__0191.png",
+      "8fe12e5301e3e3bbc7329ee1a8bb3c8312610b7063c77a53999f45f8626ce678"
+    ],
+    [
+      "pair11__0195.png",
+      "305d8a2143fe0f71b8c6ab61eaef98ff155d30a8feba1ad90c884a6930cc5d9e"
+    ],
+    [
+      "pair9__0194.png",
+      "6a9d07c8f0572e7afe8c1d97b355b69cfcff18ad8fdae25fc16ba1de04909d64"
+    ],
+    [
+      "pair21__0232.png",
+      "45779cafbb87e5432d09bcc87665c1fbc7df989e9cf9b8ba78e7786b048ec49e"
+    ],
+    [
+      "pair1__0196.png",
+      "4fc00dcbd9eefe9ff05038c9f0f4a46344f2a5b3900c49fb5777fb21068ae545"
+    ],
+    [
+      "pair21__0238.png",
+      "1d9b3b28e1bd7064a0e2939baa21c35a619a80f9a470e7d37150362f860a188e"
+    ],
+    [
+      "pair21__0211.png",
+      "958bceb14c407eb2fd85e58f8d8ffd3a34c85eacb692809a4b9b67dd1e93dd03"
+    ],
+    [
+      "pair9__0211.png",
+      "f6290b91740ca4e89b86f4ecc5406c61a667490469690dbb1983d8e2c1fa4868"
+    ],
+    [
+      "pair4__0198.png",
+      "a71712458a74ffda4c78a09f56cb67c83ac6f613ae5680b63578a6f4e54d8119"
+    ],
+    [
+      "pair21__0214.png",
+      "f5181a96a0e3978b306384230d67646dd9a0a1ac2bcc54c06121b90310ebe432"
+    ],
+    [
+      "pair21__0233.png",
+      "573b71ef45ff98fd2918e2ca793b2959484e62047a759d9241050807cb5714a1"
+    ],
+    [
+      "pair11__0184.png",
+      "8ededf161218cbed682ef14cf0aa625ec780aeaecedf31cf76af68ef32d8d965"
+    ],
+    [
+      "pair9__0215.png",
+      "8be8b4f8a70ed8bc7358a46aeaf2e768356ba77dfcd0f17dc1dd500761167cde"
+    ],
+    [
+      "pair9__0192.png",
+      "8df18f373f9469dcd0595e57e0bb6a3784bccaf1b9ff0d49b5b50b17d9ecc60c"
+    ],
+    [
+      "pair4__0201.png",
+      "981ad77abead17aac1d38bf8eb6f242ecc49d738df6334691f0bf25f0269a3b4"
+    ],
+    [
+      "pair1__0187.png",
+      "49900c4fddb1b04349ddb90cff4dfedb865e9fa98ec107ac71c22a24af88fc59"
+    ],
+    [
+      "pair19__0160.png",
+      "66aa6ccb07ae9a697ea10d887d08c8acdcaf89a178053a92538bc63c87e511fa"
+    ],
+    [
+      "pair19__0158.png",
+      "43166239420c2002f32f63a4f7f769e587d672f7100394315696bf32128047ef"
+    ],
+    [
+      "pair4__0197.png",
+      "425e718ef57829a78f2c6c40712a40dd6a2dcc22f1e1c27d7c0f60c0af647a62"
+    ],
+    [
+      "pair1__0206.png",
+      "d0b4b4ac421db367e76bf3d02e24607cf34e46b7f0101e4e4b0e454357c42021"
+    ],
+    [
+      "pair19__0166.png",
+      "b3613e9a01692f704fe808744f0c8a18061aa0360ff926375a59ab8634ffb5e0"
+    ],
+    [
+      "pair4__0178.png",
+      "12011f0b409bedb7a45dc3cbe1f26e51a27fb1abdad3bb3945ed7350c8150aa0"
+    ],
+    [
+      "pair9__0198.png",
+      "21cca43fa26ee2e3ae945dfd17ec372f5de25f1fca9e37264af8b246ddad727d"
+    ],
+    [
+      "pair1__0201.png",
+      "cf54df9c315ca0ef0776493926049c4738b3204467776f48afd6f1b222bf0f66"
+    ]
+  ],
+  "adaptation_order": [
+    [
+      "pair11__0201.png",
+      "20fb38b5cb928a41fe8e69022acb3b660c040cd063e584f915af8fe02af4a037"
+    ],
+    [
+      "pair1__0214.png",
+      "3fc1e3f23a32514e038c76a2cf3e829df7b0664fe32ed0e4dacaf6e2fd5f48a5"
+    ],
+    [
+      "pair4__0192.png",
+      "064af1ae568f61ad49bba7fbc27742fbff0e0ea4f521157757e433117c050572"
+    ],
+    [
+      "pair4__0173.png",
+      "516ad9bb3fdb731bd6702d69126fe65f11feb7ee8b3cc156a7a0368f7b8f19d8"
+    ],
+    [
+      "pair4__0200.png",
+      "d87d719d795c49d9c261bc68842ba96026c1a2c2e086cdc3540b829a20d790f4"
+    ],
+    [
+      "pair19__0167.png",
+      "b47c7e85af44960747de52495e3758fc4026c440d01653a42da05807cb065824"
+    ],
+    [
+      "pair21__0223.png",
+      "cd7e822095cd134f67b2c45c099a80ba5e5b7100b81928b24569b412cbc73b68"
+    ],
+    [
+      "pair4__0180.png",
+      "eefc82ccca48047c579dfa20069270c5cfe7d33b7536ccd547f85760013a60a1"
+    ],
+    [
+      "pair1__0201.png",
+      "3fbbdf5c9903f7da1420cef1ae19b53aa1550ff26ec16b72799405a1ba7eaed8"
+    ],
+    [
+      "pair19__0183.png",
+      "68ea353a0da94ac785386c013c3b2eb52c33524f18f1bbd0132eb9d4a50713b1"
+    ],
+    [
+      "pair9__0220.png",
+      "dd9443a723bbd48638a0b83965f34ecc06c5eef282ff6ce8abc73c718fdeb395"
+    ],
+    [
+      "pair11__0200.png",
+      "825806c04248ebd9e9faa56974455ff6c975316ba19b9d3111c93b4005c70de8"
+    ],
+    [
+      "pair21__0237.png",
+      "207468e475dfd47b3048207e21f9cc36f52361a221ac5c41f59d9cb78c67baed"
+    ],
+    [
+      "pair9__0191.png",
+      "4274bfe7e38d3299da6136ee8a4d45e9db3f2f4949392eeae9457590ee6b405d"
+    ],
+    [
+      "pair19__0165.png",
+      "993ed361a5a458f8ff490be9b6dbbc73e68a837d60d4c8bd1313b3711ee8f18f"
+    ],
+    [
+      "pair1__0193.png",
+      "0e2a544cd45913618b638cba2e16a38e308bf902cc67616d63787a260c6e07a3"
+    ],
+    [
+      "pair9__0210.png",
+      "340f671f26e1132cd4fe5d1b96a2e86c2fdf65517169a99ef724ccfbaecab2b8"
+    ],
+    [
+      "pair11__0182.png",
+      "32a800e2cb1e214837b8fc0da3cc4a4c62c7ad1909830abddfa979b430d403a9"
+    ],
+    [
+      "pair21__0210.png",
+      "211671971179d2cd4dd6ffe0ff5ced638abc5c1e3043e3f54158502684f43b01"
+    ],
+    [
+      "pair11__0177.png",
+      "3a1f7c52e86a76d43ed8e8c4931ef7108e628aa31f8796d58c6860556328ac8c"
+    ],
+    [
+      "pair9__0208.png",
+      "fdd16d464268275cee4399788cfeabb75162d7a563b9173f95a847c113a7a281"
+    ],
+    [
+      "pair4__0187.png",
+      "7ec5583759140f512a711dff5d885819eca622ea2c17005f5e8b43700f013150"
+    ],
+    [
+      "pair9__0211.png",
+      "41c6baf225e41dc6711342051871ce282d93a10ba5a055f1c5571862c34fc875"
+    ],
+    [
+      "pair1__0211.png",
+      "dcd1b459b20fd55ba7eddfdb219ea4debb295f307c0592368d4ad8f8d6352c34"
+    ],
+    [
+      "pair1__0198.png",
+      "d6cfc2f6af8f7825b890a871e48c6321ff0569ba58a3cd0339eaac7e4948ad92"
+    ],
+    [
+      "pair21__0221.png",
+      "020717906759e6c10e641fc080d4aec4121b6e011e0c2bfd1829103478a20be3"
+    ],
+    [
+      "pair19__0177.png",
+      "2e47cf32784e7257e59ade3bd6591705bcd4c947e52858579efdfc38a058e01c"
+    ],
+    [
+      "pair1__0210.png",
+      "373d81789efe7181136082aca9819d8958f36b11f1b916044c4fa39addc449ae"
+    ],
+    [
+      "pair21__0220.png",
+      "c10f6f88acfbd9cfd7a1a52d30a2ee93fa47b895af7f3342940555b57c997998"
+    ],
+    [
+      "pair1__0209.png",
+      "9dd0b1786b655dfeb1317a6308a4dd5b509fe3af15f86161506f41310a60939d"
+    ],
+    [
+      "pair19__0172.png",
+      "b674f98d15df4ce885b8861ae8fe7bfa052fbd37cd35860e23b706cc9c6655b4"
+    ],
+    [
+      "pair21__0235.png",
+      "ab8c9b518bfc677e8772916579a2aa61c53eec64768757f8f5be268ad3a1165a"
+    ],
+    [
+      "pair21__0222.png",
+      "524a05762929cb9a54184e193ee2f1c6e5cedfba020d6a1f833d02505d3e13c5"
+    ],
+    [
+      "pair1__0192.png",
+      "6ee08c64b8e06c676d0a408aaade90e75363f87389a7ed11cd926861051660b8"
+    ],
+    [
+      "pair11__0178.png",
+      "3179b7ecf22fdecf270ebafba419fb448aec1482244d357956af418ebadb2d08"
+    ],
+    [
+      "pair21__0231.png",
+      "bba0456939b37b458d2e1452197781dad3ea119664d6ab668b75ac8f5de4d654"
+    ],
+    [
+      "pair1__0203.png",
+      "d694a82c9a74f8501f2ba877779a9d1f4c8aab5e1dc625a389bb15841286af0e"
+    ],
+    [
+      "pair4__0185.png",
+      "3b1943faf43381bb7c876fbcd4f2bc6528030be50e54265604802309a88a6fe8"
+    ],
+    [
+      "pair1__0187.png",
+      "6352e712e5f1192207d39b4deed599893c97ccc1ee629007036c1b7dd3898b70"
+    ],
+    [
+      "pair21__0238.png",
+      "0c90f441fb01c60bd7e7f676576302e00108489bf9e82643d16d43ec257ba8b6"
+    ],
+    [
+      "pair19__0157.png",
+      "39882d2ff3b3f07fb273902334992e3379fd92cdb1781d30728d4500526ab3f7"
+    ],
+    [
+      "pair4__0191.png",
+      "5a25487354a82c508d36e6ea91f48759dabb4cdf7757d8b5d019eb454a062289"
+    ],
+    [
+      "pair19__0179.png",
+      "2ea647954253a756b9a775028d168fad23c0346acfe698d9bb7bfde9ab2a2f4c"
+    ],
+    [
+      "pair9__0206.png",
+      "cd070fdf862855d73345e81efa1dd67617561c4f6cc86ebea32ad5ad1c8ebb7f"
+    ],
+    [
+      "pair4__0181.png",
+      "a38bd396b8866ee5bd003ca12bd8e122537d888cd0051b2b21fba45c2bf6deee"
+    ],
+    [
+      "pair11__0197.png",
+      "8100196faad325e3e8825340aa36c208155490325ac1d304cc2bad7acf53cbe1"
+    ],
+    [
+      "pair9__0207.png",
+      "f52fbaeeb48478dd33ebf0dea1d6e4b930fc6133984004af8b61f62cfc7cc787"
+    ],
+    [
+      "pair21__0234.png",
+      "59e70811f4de9ca7fd27edfc3bb7e4dc18b373b5420db9b59d06efc91c880808"
+    ],
+    [
+      "pair19__0164.png",
+      "b9e14ef8d0d5b606efc17df2f784a40bb78939040d4f5d90279c563f71dbc18a"
+    ],
+    [
+      "pair21__0230.png",
+      "28908ea9ee2ed87b51218f928bdd03a5fc8a807198632fdcc6dc76e38c2b03f6"
+    ],
+    [
+      "pair1__0188.png",
+      "0db6c10c6e4df7a6778429ddd0bd19febd4f946fc005a13ddb633b41e7b39942"
+    ],
+    [
+      "pair11__0204.png",
+      "2bdc1d7c7b1621f8d6bda1302cc1331248d45cf73695cecf577cb018e6db1f49"
+    ],
+    [
+      "pair19__0176.png",
+      "f48b28bce25301bffa795862dee07a4c83648d8b7a657868b641ad9d02c1dcc1"
+    ],
+    [
+      "pair1__0215.png",
+      "81d5222c5e201a111140fca013b12ad3f7a125fae002b19cc2ac073839972fe1"
+    ],
+    [
+      "pair11__0196.png",
+      "6a07037eeeea3924029565696ab5cc2678e46dbf53ae5b6b39a2f84f74fe0820"
+    ],
+    [
+      "pair19__0181.png",
+      "9008a04020e92548420d2a855f1d6ba053dcc2d009e8a653efa6b65735b60fe9"
+    ],
+    [
+      "pair9__0200.png",
+      "e725b3000b94e9f22d8887c1f0bd9a8dfa3008fb113f79db1d359aeacaeead5f"
+    ],
+    [
+      "pair9__0193.png",
+      "aba1d807f363154fd660df1cbe715b444c235e16faa92559612dcb9eb6812917"
+    ],
+    [
+      "pair21__0217.png",
+      "628528b30b7d2256d9f6f40968a3bab07aa29963eb1a12c03a8d221f15f7084a"
+    ],
+    [
+      "pair21__0228.png",
+      "7fcbcbae6058f060a4b0e7da54d2f237592454885ac972d396b9a8de07c613d4"
+    ],
+    [
+      "pair9__0218.png",
+      "1203b9cc1961e6a5cce6e2a9ee01d5a33589c4d6d9899fee5a247d1830425d5d"
+    ],
+    [
+      "pair4__0197.png",
+      "87c42d5c48fedff52aea2ead94b7ca97cef9ddc89665905ff16eca98d61d8dbd"
+    ],
+    [
+      "pair11__0193.png",
+      "691fad23f59c0c48f438592c0f6e6bbf5b98a73afc0e77389cad154a5004a1b7"
+    ],
+    [
+      "pair21__0239.png",
+      "8fd9520dcfbe5931b7b09ae9a3b5a72791c44950011b220c2231f62cfad46ec8"
+    ],
+    [
+      "pair9__0192.png",
+      "25e9f890b5b5572b022fdec42469fc027ec6399497df2eac1c7ec92ebd6e98d6"
+    ],
+    [
+      "pair4__0193.png",
+      "0df559eb37176c42b32d115b9f9160f3cbd72b0dbcc60248bbe12f5209a85ad1"
+    ],
+    [
+      "pair19__0171.png",
+      "158551e647f817e0d3d804952247eb99a866c62642f08b537e0607739cbbd7b9"
+    ],
+    [
+      "pair11__0198.png",
+      "ca07bba5b1a618021e2f1dfaa7c778af1371803e6ab250053b29d86070f98510"
+    ],
+    [
+      "pair11__0179.png",
+      "3675ab1fdf42b9481b7df9856ce16addba05ec4ed2f1d6757988fbc9a1a29509"
+    ],
+    [
+      "pair21__0229.png",
+      "970f5493b8c56151bdbd90910e0d79b95971155746e2007b871a4f0014c41339"
+    ],
+    [
+      "pair11__0194.png",
+      "66272e336fa635388e3192a3f32e2bd43665b263ad19105877dc10a79358a20c"
+    ],
+    [
+      "pair9__0205.png",
+      "d2328aff36ada07c21257be0e2f0e34a057942e12435812c5bb29d4376da5360"
+    ],
+    [
+      "pair4__0201.png",
+      "ead270efe432dc63d421ddc4b8a601c3a836c4bc0e01f8d4c7eac8ca52ec2be2"
+    ],
+    [
+      "pair19__0174.png",
+      "c809705829867557a030f5ca1bf701127729536db40496a74a13ce8d5fc0c7e0"
+    ],
+    [
+      "pair4__0198.png",
+      "1e3c5e5475b973215b7a509549bbe083e68847dfe4d9f20a28a962cb52759ddb"
+    ],
+    [
+      "pair9__0194.png",
+      "b741ef9ad8be7ad9554b00a179e286bbed584e3aa8ad27b3e2b63615d8189be5"
+    ],
+    [
+      "pair19__0169.png",
+      "00162ec7a0dbb99fe3a3933f1510a905b9469c60405a21d9e48759692689f6e8"
+    ],
+    [
+      "pair11__0186.png",
+      "02c1ba704f9255ea3858d180f4b60f744e61ad0c635912e84dd6d83b5ba6f256"
+    ],
+    [
+      "pair4__0184.png",
+      "d4f5de4ed0e923edf4d97f651e35e4df9ad05f21bbbdf29ab4ac0eb6a31e7e73"
+    ],
+    [
+      "pair19__0178.png",
+      "612473e04ea99be2b85efaa61d2716191de53ab5d0ca07caa9f46d951e52a1a7"
+    ],
+    [
+      "pair11__0189.png",
+      "fffdafbd462a141f49b5ff84476b24afa9ae867a9d4b644f43941ddda01a8b89"
+    ],
+    [
+      "pair19__0184.png",
+      "7b7ef91aa6c80070347be5561aea1fb83d64c4f51ba9f0dceba4a063a99ad766"
+    ],
+    [
+      "pair1__0194.png",
+      "ecb23585f362e2067e263013524a16fec0cb919f9b88a7f73d06a9e0e2c07b2b"
+    ],
+    [
+      "pair11__0206.png",
+      "5e8da53adec370b3fb995756373d7da6b54330c005498e97ed53eb1a7e062081"
+    ],
+    [
+      "pair1__0212.png",
+      "c1a4658a6740f11f5e259112f014e02877eee7260b8202c4c0fa054782c22d08"
+    ],
+    [
+      "pair4__0174.png",
+      "b6be37643c6dbfcc308f5fc16c55253f52a7a6648a1f124354957f1c7d128701"
+    ],
+    [
+      "pair19__0173.png",
+      "b96a646d4569392b4092c843750f33111f1d6569654349828795b5f130237ed1"
+    ],
+    [
+      "pair9__0197.png",
+      "34a1cd25bb5bcc02d93a59bd60f9b86f2e5bdc77c1fb5e0235eb4772134fd621"
+    ],
+    [
+      "pair19__0166.png",
+      "cbeeee07a3d5eb67824f2d26224f95bfa8475f69d6eb6561f7341c1cd6e9fa43"
+    ],
+    [
+      "pair19__0170.png",
+      "9db77a1aa39a3a902681496604fe0964fc268f397fb7da86913efe483dfd6cdf"
+    ],
+    [
+      "pair1__0200.png",
+      "d73fea7f72fb04ba36fefe3475e938f2da6e0f071a2e8deb613a4dbea958e267"
+    ],
+    [
+      "pair9__0216.png",
+      "b91f501d7528cbe0ae7a8e407ffefa51213cd5834f66703c55c9671eccf77e35"
+    ],
+    [
+      "pair4__0176.png",
+      "7889fa1594075cf0825b9651cedc5be66b10010ce200f1c95c13506f21667891"
+    ],
+    [
+      "pair21__0215.png",
+      "6da497ea3f41d896f7603e2d8dabb90ff9e951230a887d52ff0a403cf58f186a"
+    ],
+    [
+      "pair21__0236.png",
+      "8c68d316bf2d8b8bf2121dcd1df2aedd3ce7311b58327e7678ad62afce9184c9"
+    ],
+    [
+      "pair4__0199.png",
+      "b3cb7fdd7b658587e2b8c562a8ed6adb207a44fa0fd4a5cbf6a38104ce4e18be"
+    ],
+    [
+      "pair11__0181.png",
+      "9ecb3e2d2b0453982b98056f3f0d9e71487dcf6f84ccf89c2bbe4deff3749565"
+    ],
+    [
+      "pair21__0233.png",
+      "ad3ddf0f853d4a937fb398ceb18cf8981428bd5d1cc473dedf98b4f925a7f069"
+    ],
+    [
+      "pair11__0202.png",
+      "e65dc8971d992e0b61e4323e7fd29b9ad6021a3f297e19e57b7a58f72deadc84"
+    ],
+    [
+      "pair21__0214.png",
+      "95106e5edebe00aeece39f056bf954981416e02d426fdaa18ba5e15fd8da40b9"
+    ],
+    [
+      "pair11__0203.png",
+      "cbe8ef6b33e70b31e8fc884b5858e7d5b00c19ec23f95f7c21ba503671a59bf5"
+    ],
+    [
+      "pair1__0206.png",
+      "bd7751e7a1d1897a329c812655974856498ee417c5ef368266e424b5ba69d65a"
+    ],
+    [
+      "pair9__0213.png",
+      "1c1b42bcc6544fba32a63d7485063b8ed665003f0d23994924d4606217c2152d"
+    ],
+    [
+      "pair4__0183.png",
+      "e03e3c4289396787225c43f94d41a7ac3d16abbd0a46549c56802f34a861c26b"
+    ],
+    [
+      "pair21__0227.png",
+      "6426d73d22e44c9348b1258b4a2e77d7da5c810468fa393eb0c1dbd41673f3b3"
+    ],
+    [
+      "pair1__0208.png",
+      "84fdc6b1f539ad788a449d174e3951ab8fd35a9517eae9dcd221da404740e102"
+    ],
+    [
+      "pair4__0178.png",
+      "07444ec19b34b34314777e9d31ead3fe472464ced1e9643049262ca0837163e8"
+    ],
+    [
+      "pair11__0199.png",
+      "2fb7d3965cefa29440e10d5ae575866f253c06c25b84b6407134da431c849912"
+    ],
+    [
+      "pair21__0212.png",
+      "e2f108b6c276c2e8debf503003f1619020bcb4da44a830e53a67e3385a01fb39"
+    ],
+    [
+      "pair1__0190.png",
+      "1f14f88355399f4a945ed83727888676a06d3c4cfcf84a568e798c6de47ec681"
+    ],
+    [
+      "pair19__0160.png",
+      "7b8c3a951247e5daabdd84ce1ac85b87b58ea705b1d20b509cfcabb222b4003a"
+    ],
+    [
+      "pair11__0184.png",
+      "ec897a6164d86e0ea11c54af133baf41f3edb3595fc7a5ffc09287d91707cd16"
+    ],
+    [
+      "pair9__0201.png",
+      "52ab1b55c53064f877a0616d65deb0262e21f7bb45ac8ac932aedd574df83d7f"
+    ],
+    [
+      "pair19__0168.png",
+      "630ae58df94704d8bd75c3b39d082fa2dcbcff8aca752fae0a752c201fde5061"
+    ],
+    [
+      "pair4__0175.png",
+      "39c36b62b0556ed71117710c9ca06bc240e6cb6b81e10d62d96b86dc955ef3c3"
+    ],
+    [
+      "pair9__0209.png",
+      "5e40564e6b6d9188d2c1dd729f8f2eae59b2681be0a96567c2b9ebeed28e81ca"
+    ],
+    [
+      "pair19__0162.png",
+      "886020f328623376b50d8b8ad4a6e4f9ebd5d406dbc2d30f4ee3a653013b7189"
+    ],
+    [
+      "pair21__0219.png",
+      "69a51829de40ad2c25c6179e55f3e1dcdc179b8a35ffe7b06a6f08050183da7a"
+    ],
+    [
+      "pair11__0180.png",
+      "38c546d68eb61da4e298b219b67909b2abd331fda7ad4864f11b4f8c430b4a16"
+    ],
+    [
+      "pair19__0158.png",
+      "774196050df25c1f21a4558faa19661b93f7254a479edafd07bdb9dd321f7bdc"
+    ],
+    [
+      "pair1__0205.png",
+      "12f2568d9743506d10b9b46d664005bb0a448f982e7d5d5d8f1b81b700d9606d"
+    ],
+    [
+      "pair21__0218.png",
+      "676be91fa73111c9a54e3e1c8d3cf48eb78b8aba2f2e91e70e2ef8ab14229f2b"
+    ],
+    [
+      "pair19__0163.png",
+      "29bfc4cbdf69f97e755dbfa0ae2fe6d63a5159c43da53449786fc2b26a8618c5"
+    ],
+    [
+      "pair9__0199.png",
+      "568219b9d091c4be2e4ea4ef0405371e19ae27ccd47e6503f67365f1258206ff"
+    ],
+    [
+      "pair4__0189.png",
+      "11be7246396bae4294c833d7b1c402ed82bcd5bd16734d5d9771017dbd855d9f"
+    ],
+    [
+      "pair9__0196.png",
+      "8f0ba1e4d767c2f07bf0ed5f81b02a52b8d247aafe2886deee11c7cb6c75621c"
+    ],
+    [
+      "pair4__0194.png",
+      "31f599c97c220f1caf4e93cc92ebecf485951b0c90f8487ab9fd66d05fad889b"
+    ],
+    [
+      "pair21__0225.png",
+      "ad561b5292d59e15883e8098745efe94c42011322c0ac7b9dffff6a2e47d1570"
+    ],
+    [
+      "pair4__0177.png",
+      "db77a28ea5b45000ddc4da316075950f30c0e56b3c4f8afe7da3dba2546480ce"
+    ],
+    [
+      "pair1__0204.png",
+      "365e88f72b33f53ab3add181363baf0938e5124c93d730f1988f8b1fb2bced2a"
+    ],
+    [
+      "pair9__0214.png",
+      "e8bab657d8befc406879682210d543e9e5b302b4649bd9bd29cdff7de6e8172d"
+    ],
+    [
+      "pair19__0185.png",
+      "8b525d71fae1e94445bdb3adba793280854303523bab30fc709e61cde0973420"
+    ],
+    [
+      "pair4__0182.png",
+      "4e4137e0ae8cb5a356be5202c267d14d84f6e9b4dfeb3df511775463e76d9e56"
+    ],
+    [
+      "pair4__0179.png",
+      "4b245afa870c47f966066c248d5c716389276c04a2aadc7830f68cfcedd7ee63"
+    ],
+    [
+      "pair1__0189.png",
+      "20da346d8d2a6ff247de6719415ad245a02fd013d6e1544fcd807ba30ff4ae74"
+    ],
+    [
+      "pair11__0183.png",
+      "8c79c2161e08717a74f276009d09280cd64184b616a1aef762f11569465fd94b"
+    ],
+    [
+      "pair19__0159.png",
+      "2a24c78d1656ea283dc15450d209920c76b425fdef74615a495e55fb85dc387e"
+    ],
+    [
+      "pair9__0198.png",
+      "17e74982b91734d40a23a8450a4bb3a2d319a64e87547942b69b3b95f450b68f"
+    ],
+    [
+      "pair21__0232.png",
+      "c60a0083cec283e6ad2485c9870679e2e903db80c34646316c8e3dce4b9a5b14"
+    ],
+    [
+      "pair11__0185.png",
+      "aa8ec02c719b52bdeaed855b1a6df8bd9cdba4f376ab19d6493bcf21987b5b30"
+    ],
+    [
+      "pair1__0195.png",
+      "377d3c6cb0dcf3cdefe1109b7e9e3b3c5e719933aac60c3126a14f3bb55699a7"
+    ],
+    [
+      "pair4__0196.png",
+      "b7fd569ee1ef8f6d4900443bf8233f82094a996833ead21d911dbfa357afb7ba"
+    ],
+    [
+      "pair21__0213.png",
+      "1cbc38f848ca0f7cab82848d0711fa9840a5e358ba3521f6a0cfe1e985f2c00b"
+    ],
+    [
+      "pair9__0195.png",
+      "e6b2eb5fe7f9f2f15401abebba1a16a32c5d393e94472b6963b92b2fbd1e5fec"
+    ],
+    [
+      "pair9__0203.png",
+      "1feaf974cccd594ce32b1a5ee8b0239a21eed657e024576886cb0895605e28f5"
+    ],
+    [
+      "pair11__0188.png",
+      "e67f04eb0a52767d1c04e0c1fd433d43c4dfd6622241f5b80b0d7bf82a6ed208"
+    ],
+    [
+      "pair21__0224.png",
+      "b65c83f4d962b23d1a313ad9034242e6b5ab6e548fb6c518f039e912b1bf3920"
+    ],
+    [
+      "pair19__0156.png",
+      "affd82e582e73a0cfe0f3c9d7490a127d1cc6cd5f313f6c6f24729ebafe9a6f2"
+    ],
+    [
+      "pair9__0204.png",
+      "806d367293afcde8b9858244b3f13cc18e1f1f18323a5483c49b38605e486ca9"
+    ],
+    [
+      "pair4__0202.png",
+      "4a9ffc98ea8d98caa5fab7ef77e6677fcb9e9fd39386f8b49a3ddfda2d959e3b"
+    ],
+    [
+      "pair9__0219.png",
+      "2f2eddc915d1077d3f29b8699c9fad08919ebf371f67cba937b2486b6895eabc"
+    ],
+    [
+      "pair19__0180.png",
+      "d368d7ca0b42e1153989ba61839a4de0ba6900d9591561879026faf6504c972a"
+    ],
+    [
+      "pair19__0161.png",
+      "b68f097e8a17e2ac7c5e9a412ae4f2b3a7c14caade95e9af2b2ac60036de1684"
+    ],
+    [
+      "pair11__0190.png",
+      "c7638a9cc2796f048690b93a5c79ee5a63d47a1a4130fe1df8379b54a8ade8b7"
+    ],
+    [
+      "pair1__0186.png",
+      "ebffe0ca026281005ce031663a117dfc938bbb938eed65b95364cc2a3d08e6af"
+    ],
+    [
+      "pair4__0186.png",
+      "fe579068ccb1e2fcda4a022a6b7c3b7bcae6d841b56afa43a2ab07b800db673c"
+    ],
+    [
+      "pair21__0216.png",
+      "5e75f84be0d2f10e072542429ec46a81dd8a9ce5d81ec30a223cdc42dfc8f0a2"
+    ],
+    [
+      "pair21__0211.png",
+      "57fdc17290f7df4795a4063c00fc2b10c7e8cae56935e9aa8ecc27a850e399fa"
+    ],
+    [
+      "pair11__0187.png",
+      "099eab61488b451e2d990e19426703187c89f2ae20bce9d482d34f348f219d80"
+    ],
+    [
+      "pair11__0195.png",
+      "2c249743521365aa870233eaf3160a87d7759269808fe5190f9dece0d6dc8f27"
+    ],
+    [
+      "pair9__0217.png",
+      "ffd522d8a48f9724262c6b392c26496d667bcd2b118fd85053ff3424b54cabc4"
+    ],
+    [
+      "pair4__0190.png",
+      "a87173b75762160056742412d4ae716dc1b4d72a1574dc265565eb5d1bce31ae"
+    ],
+    [
+      "pair1__0202.png",
+      "f7078086625997c03945639b8e285ae1bbaa4086c1ec2f23916a08469da97376"
+    ],
+    [
+      "pair11__0192.png",
+      "d3485d37b22095c517146f85a68722ebe85b31af989617f212507d8d20075dc6"
+    ],
+    [
+      "pair1__0213.png",
+      "cdb735be78e994e51cb2e565351b59606ef81ff37dcc4f6578bd4d866866e5b1"
+    ],
+    [
+      "pair19__0182.png",
+      "52b0b023f56402cd51d7d53c392feb49c660f93a6f2daa75025b3247a3567bf0"
+    ],
+    [
+      "pair1__0207.png",
+      "c0d886d881f61d676a8066f8877dee9dc5ebeaf1ab23a8d9110f73ad7ed008f5"
+    ],
+    [
+      "pair21__0226.png",
+      "5651b880d15cf56837807a8083d0003fac7ec45ac592344b915983b924b232d1"
+    ],
+    [
+      "pair9__0215.png",
+      "ee010376100459915589fd19ee579ba33c4b52b8a95af987c556db5ac6a2e454"
+    ],
+    [
+      "pair1__0197.png",
+      "2b17e870f0b28b47696c9404c4355f069a59481d6775d4831dabb5723c5f3352"
+    ],
+    [
+      "pair9__0212.png",
+      "458f359ed74521d20062246b56b1fb077a8f07b90b2a01b7431973a9e8bc1792"
+    ],
+    [
+      "pair1__0191.png",
+      "bdd64e80aadd163d65f050f5bd4cefb5eeb784b6bd793cdd29f39ef56f7f3b9b"
+    ],
+    [
+      "pair11__0205.png",
+      "87bbe7eb08551728367cf12086d466199d33542cf390aad6f0d1b24ee958ee41"
+    ],
+    [
+      "pair19__0175.png",
+      "131f54ed36d5f9bc4bd776229b771c7c41c879baa6198cd316d9a31ae5ee9ecd"
+    ],
+    [
+      "pair1__0199.png",
+      "c373181a0f227645cd847757bee53070caecfc4336752fe756db1715e757549d"
+    ],
+    [
+      "pair4__0195.png",
+      "e03fb3792d439ba635eda976e71d8808894333b25a51e14d492e2e235e96dc16"
+    ],
+    [
+      "pair1__0196.png",
+      "7e7c24a3e013363501eb3e29961ba53e5605db8bab77841fad808f2e362a833c"
+    ],
+    [
+      "pair9__0202.png",
+      "7ff2c0757df57be02a18703e87e7df767a35439b69dae91aacd55f69e953bbb5"
+    ],
+    [
+      "pair4__0188.png",
+      "6b07836e9a62af4801c0c67d4ab7cb918dc77cb40aba3c474fd5478f728434bf"
+    ],
+    [
+      "pair11__0191.png",
+      "b67ec972e473310c43d4dfb21f6d93a9474c99b343d4e8684b761b95aa8f7e2e"
+    ]
+  ],
+  "adaptation_seconds": 1475.8015377270058,
+  "adaptation_peak_gpu_memory_bytes": 23381147648,
+  "post_cleanup_allocated_bytes": 17563648,
+  "post_cleanup_reserved_bytes": 79691776,
+  "inference_seconds": 113.65115050104214,
+  "inference_peak_gpu_memory_bytes": 5844762624,
+  "whole_run_seconds": 1593.9903249589843,
+  "gpu_name": "NVIDIA GeForce RTX 4090",
+  "source_state_sha256": "ea6042ead91902d7e75ad08c70d29b0d1a550e7c1c056a848e7794af911014c6",
+  "adapted_state_sha256": "30ab58c39f15d0a91866507d8d5d6f4b989ea9d151178561a270275353b864af",
+  "adapted_state_file_sha256": "37f07e0f58307ab9c395a67894aec876e9f1db72b21de8479478b2d9975cb605",
+  "parameter_updates": {
+    "trainable_tensor_count": 329,
+    "trainable_elements": 8596503,
+    "trainable_bytes": 34386012,
+    "changed_tensor_count": 329,
+    "changed_elements": 3438704,
+    "changed_bytes": 13754816,
+    "changed_outside_trainable": [],
+    "changed_tensor_names": [
+      "prompt1.linear_layer.weight",
+      "prompt1.linear_layer.bias",
+      "prompt1.conv3x3.weight",
+      "prompt2.linear_layer.weight",
+      "prompt2.linear_layer.bias",
+      "prompt2.conv3x3.weight",
+      "prompt3.linear_layer.weight",
+      "prompt3.linear_layer.bias",
+      "prompt3.conv3x3.weight",
+      "encoder_level1.0.norm1.body.weight",
+      "encoder_level1.0.norm1.body.bias",
+      "encoder_level1.0.attn.qkv.weight",
+      "encoder_level1.0.attn.qkv_dwconv.weight",
+      "encoder_level1.0.attn.project_out.weight",
+      "encoder_level1.0.norm2.body.weight",
+      "encoder_level1.0.norm2.body.bias",
+      "encoder_level1.0.ffn.project_in.weight",
+      "encoder_level1.0.ffn.dwconv.weight",
+      "encoder_level1.0.ffn.project_out.weight",
+      "encoder_level1.1.norm1.body.weight",
+      "encoder_level1.1.norm1.body.bias",
+      "encoder_level1.1.attn.qkv.weight",
+      "encoder_level1.1.attn.qkv_dwconv.weight",
+      "encoder_level1.1.attn.project_out.weight",
+      "encoder_level1.1.norm2.body.weight",
+      "encoder_level1.1.norm2.body.bias",
+      "encoder_level1.1.ffn.project_in.weight",
+      "encoder_level1.1.ffn.dwconv.weight",
+      "encoder_level1.1.ffn.project_out.weight",
+      "encoder_level1.2.norm1.body.weight",
+      "encoder_level1.2.norm1.body.bias",
+      "encoder_level1.2.attn.qkv.weight",
+      "encoder_level1.2.attn.qkv_dwconv.weight",
+      "encoder_level1.2.attn.project_out.weight",
+      "encoder_level1.2.norm2.body.weight",
+      "encoder_level1.2.norm2.body.bias",
+      "encoder_level1.2.ffn.project_in.weight",
+      "encoder_level1.2.ffn.dwconv.weight",
+      "encoder_level1.2.ffn.project_out.weight",
+      "encoder_level1.3.norm1.body.weight",
+      "encoder_level1.3.norm1.body.bias",
+      "encoder_level1.3.attn.qkv.weight",
+      "encoder_level1.3.attn.qkv_dwconv.weight",
+      "encoder_level1.3.attn.project_out.weight",
+      "encoder_level1.3.norm2.body.weight",
+      "encoder_level1.3.norm2.body.bias",
+      "encoder_level1.3.ffn.project_in.weight",
+      "encoder_level1.3.ffn.dwconv.weight",
+      "encoder_level1.3.ffn.project_out.weight",
+      "encoder_level2.0.norm1.body.weight",
+      "encoder_level2.0.norm1.body.bias",
+      "encoder_level2.0.attn.qkv.weight",
+      "encoder_level2.0.attn.qkv_dwconv.weight",
+      "encoder_level2.0.attn.project_out.weight",
+      "encoder_level2.0.norm2.body.weight",
+      "encoder_level2.0.norm2.body.bias",
+      "encoder_level2.0.ffn.project_in.weight",
+      "encoder_level2.0.ffn.dwconv.weight",
+      "encoder_level2.0.ffn.project_out.weight",
+      "encoder_level2.1.norm1.body.weight",
+      "encoder_level2.1.norm1.body.bias",
+      "encoder_level2.1.attn.qkv.weight",
+      "encoder_level2.1.attn.qkv_dwconv.weight",
+      "encoder_level2.1.attn.project_out.weight",
+      "encoder_level2.1.norm2.body.weight",
+      "encoder_level2.1.norm2.body.bias",
+      "encoder_level2.1.ffn.project_in.weight",
+      "encoder_level2.1.ffn.dwconv.weight",
+      "encoder_level2.1.ffn.project_out.weight",
+      "encoder_level2.2.norm1.body.weight",
+      "encoder_level2.2.norm1.body.bias",
+      "encoder_level2.2.attn.qkv.weight",
+      "encoder_level2.2.attn.qkv_dwconv.weight",
+      "encoder_level2.2.attn.project_out.weight",
+      "encoder_level2.2.norm2.body.weight",
+      "encoder_level2.2.norm2.body.bias",
+      "encoder_level2.2.ffn.project_in.weight",
+      "encoder_level2.2.ffn.dwconv.weight",
+      "encoder_level2.2.ffn.project_out.weight",
+      "encoder_level2.3.norm1.body.weight",
+      "encoder_level2.3.norm1.body.bias",
+      "encoder_level2.3.attn.qkv.weight",
+      "encoder_level2.3.attn.qkv_dwconv.weight",
+      "encoder_level2.3.attn.project_out.weight",
+      "encoder_level2.3.norm2.body.weight",
+      "encoder_level2.3.norm2.body.bias",
+      "encoder_level2.3.ffn.project_in.weight",
+      "encoder_level2.3.ffn.dwconv.weight",
+      "encoder_level2.3.ffn.project_out.weight",
+      "encoder_level2.4.norm1.body.weight",
+      "encoder_level2.4.norm1.body.bias",
+      "encoder_level2.4.attn.qkv.weight",
+      "encoder_level2.4.attn.qkv_dwconv.weight",
+      "encoder_level2.4.attn.project_out.weight",
+      "encoder_level2.4.norm2.body.weight",
+      "encoder_level2.4.norm2.body.bias",
+      "encoder_level2.4.ffn.project_in.weight",
+      "encoder_level2.4.ffn.dwconv.weight",
+      "encoder_level2.4.ffn.project_out.weight",
+      "encoder_level2.5.norm1.body.weight",
+      "encoder_level2.5.norm1.body.bias",
+      "encoder_level2.5.attn.qkv.weight",
+      "encoder_level2.5.attn.qkv_dwconv.weight",
+      "encoder_level2.5.attn.project_out.weight",
+      "encoder_level2.5.norm2.body.weight",
+      "encoder_level2.5.norm2.body.bias",
+      "encoder_level2.5.ffn.project_in.weight",
+      "encoder_level2.5.ffn.dwconv.weight",
+      "encoder_level2.5.ffn.project_out.weight",
+      "encoder_level3.0.norm1.body.weight",
+      "encoder_level3.0.norm1.body.bias",
+      "encoder_level3.0.attn.qkv.weight",
+      "encoder_level3.0.attn.qkv_dwconv.weight",
+      "encoder_level3.0.attn.project_out.weight",
+      "encoder_level3.0.norm2.body.weight",
+      "encoder_level3.0.norm2.body.bias",
+      "encoder_level3.0.ffn.project_in.weight",
+      "encoder_level3.0.ffn.dwconv.weight",
+      "encoder_level3.0.ffn.project_out.weight",
+      "encoder_level3.1.norm1.body.weight",
+      "encoder_level3.1.norm1.body.bias",
+      "encoder_level3.1.attn.qkv.weight",
+      "encoder_level3.1.attn.qkv_dwconv.weight",
+      "encoder_level3.1.attn.project_out.weight",
+      "encoder_level3.1.norm2.body.weight",
+      "encoder_level3.1.norm2.body.bias",
+      "encoder_level3.1.ffn.project_in.weight",
+      "encoder_level3.1.ffn.dwconv.weight",
+      "encoder_level3.1.ffn.project_out.weight",
+      "encoder_level3.2.norm1.body.weight",
+      "encoder_level3.2.norm1.body.bias",
+      "encoder_level3.2.attn.qkv.weight",
+      "encoder_level3.2.attn.qkv_dwconv.weight",
+      "encoder_level3.2.attn.project_out.weight",
+      "encoder_level3.2.norm2.body.weight",
+      "encoder_level3.2.norm2.body.bias",
+      "encoder_level3.2.ffn.project_in.weight",
+      "encoder_level3.2.ffn.dwconv.weight",
+      "encoder_level3.2.ffn.project_out.weight",
+      "encoder_level3.3.norm1.body.weight",
+      "encoder_level3.3.norm1.body.bias",
+      "encoder_level3.3.attn.qkv.weight",
+      "encoder_level3.3.attn.qkv_dwconv.weight",
+      "encoder_level3.3.attn.project_out.weight",
+      "encoder_level3.3.norm2.body.weight",
+      "encoder_level3.3.norm2.body.bias",
+      "encoder_level3.3.ffn.project_in.weight",
+      "encoder_level3.3.ffn.dwconv.weight",
+      "encoder_level3.3.ffn.project_out.weight",
+      "encoder_level3.4.norm1.body.weight",
+      "encoder_level3.4.norm1.body.bias",
+      "encoder_level3.4.attn.qkv.weight",
+      "encoder_level3.4.attn.qkv_dwconv.weight",
+      "encoder_level3.4.attn.project_out.weight",
+      "encoder_level3.4.norm2.body.weight",
+      "encoder_level3.4.norm2.body.bias",
+      "encoder_level3.4.ffn.project_in.weight",
+      "encoder_level3.4.ffn.dwconv.weight",
+      "encoder_level3.4.ffn.project_out.weight",
+      "encoder_level3.5.norm1.body.weight",
+      "encoder_level3.5.norm1.body.bias",
+      "encoder_level3.5.attn.qkv.weight",
+      "encoder_level3.5.attn.qkv_dwconv.weight",
+      "encoder_level3.5.attn.project_out.weight",
+      "encoder_level3.5.norm2.body.weight",
+      "encoder_level3.5.norm2.body.bias",
+      "encoder_level3.5.ffn.project_in.weight",
+      "encoder_level3.5.ffn.dwconv.weight",
+      "encoder_level3.5.ffn.project_out.weight",
+      "decoder_level3.0.norm1.body.weight",
+      "decoder_level3.0.norm1.body.bias",
+      "decoder_level3.0.attn.qkv.weight",
+      "decoder_level3.0.attn.qkv_dwconv.weight",
+      "decoder_level3.0.attn.project_out.weight",
+      "decoder_level3.0.norm2.body.weight",
+      "decoder_level3.0.norm2.body.bias",
+      "decoder_level3.0.ffn.project_in.weight",
+      "decoder_level3.0.ffn.dwconv.weight",
+      "decoder_level3.0.ffn.project_out.weight",
+      "decoder_level3.1.norm1.body.weight",
+      "decoder_level3.1.norm1.body.bias",
+      "decoder_level3.1.attn.qkv.weight",
+      "decoder_level3.1.attn.qkv_dwconv.weight",
+      "decoder_level3.1.attn.project_out.weight",
+      "decoder_level3.1.norm2.body.weight",
+      "decoder_level3.1.norm2.body.bias",
+      "decoder_level3.1.ffn.project_in.weight",
+      "decoder_level3.1.ffn.dwconv.weight",
+      "decoder_level3.1.ffn.project_out.weight",
+      "decoder_level3.2.norm1.body.weight",
+      "decoder_level3.2.norm1.body.bias",
+      "decoder_level3.2.attn.qkv.weight",
+      "decoder_level3.2.attn.qkv_dwconv.weight",
+      "decoder_level3.2.attn.project_out.weight",
+      "decoder_level3.2.norm2.body.weight",
+      "decoder_level3.2.norm2.body.bias",
+      "decoder_level3.2.ffn.project_in.weight",
+      "decoder_level3.2.ffn.dwconv.weight",
+      "decoder_level3.2.ffn.project_out.weight",
+      "decoder_level3.3.norm1.body.weight",
+      "decoder_level3.3.norm1.body.bias",
+      "decoder_level3.3.attn.qkv.weight",
+      "decoder_level3.3.attn.qkv_dwconv.weight",
+      "decoder_level3.3.attn.project_out.weight",
+      "decoder_level3.3.norm2.body.weight",
+      "decoder_level3.3.norm2.body.bias",
+      "decoder_level3.3.ffn.project_in.weight",
+      "decoder_level3.3.ffn.dwconv.weight",
+      "decoder_level3.3.ffn.project_out.weight",
+      "decoder_level3.4.norm1.body.weight",
+      "decoder_level3.4.norm1.body.bias",
+      "decoder_level3.4.attn.qkv.weight",
+      "decoder_level3.4.attn.qkv_dwconv.weight",
+      "decoder_level3.4.attn.project_out.weight",
+      "decoder_level3.4.norm2.body.weight",
+      "decoder_level3.4.norm2.body.bias",
+      "decoder_level3.4.ffn.project_in.weight",
+      "decoder_level3.4.ffn.dwconv.weight",
+      "decoder_level3.4.ffn.project_out.weight",
+      "decoder_level3.5.norm1.body.weight",
+      "decoder_level3.5.norm1.body.bias",
+      "decoder_level3.5.attn.qkv.weight",
+      "decoder_level3.5.attn.qkv_dwconv.weight",
+      "decoder_level3.5.attn.project_out.weight",
+      "decoder_level3.5.norm2.body.weight",
+      "decoder_level3.5.norm2.body.bias",
+      "decoder_level3.5.ffn.project_in.weight",
+      "decoder_level3.5.ffn.dwconv.weight",
+      "decoder_level3.5.ffn.project_out.weight",
+      "decoder_level2.0.norm1.body.weight",
+      "decoder_level2.0.norm1.body.bias",
+      "decoder_level2.0.attn.qkv.weight",
+      "decoder_level2.0.attn.qkv_dwconv.weight",
+      "decoder_level2.0.attn.project_out.weight",
+      "decoder_level2.0.norm2.body.weight",
+      "decoder_level2.0.norm2.body.bias",
+      "decoder_level2.0.ffn.project_in.weight",
+      "decoder_level2.0.ffn.dwconv.weight",
+      "decoder_level2.0.ffn.project_out.weight",
+      "decoder_level2.1.norm1.body.weight",
+      "decoder_level2.1.norm1.body.bias",
+      "decoder_level2.1.attn.qkv.weight",
+      "decoder_level2.1.attn.qkv_dwconv.weight",
+      "decoder_level2.1.attn.project_out.weight",
+      "decoder_level2.1.norm2.body.weight",
+      "decoder_level2.1.norm2.body.bias",
+      "decoder_level2.1.ffn.project_in.weight",
+      "decoder_level2.1.ffn.dwconv.weight",
+      "decoder_level2.1.ffn.project_out.weight",
+      "decoder_level2.2.norm1.body.weight",
+      "decoder_level2.2.norm1.body.bias",
+      "decoder_level2.2.attn.qkv.weight",
+      "decoder_level2.2.attn.qkv_dwconv.weight",
+      "decoder_level2.2.attn.project_out.weight",
+      "decoder_level2.2.norm2.body.weight",
+      "decoder_level2.2.norm2.body.bias",
+      "decoder_level2.2.ffn.project_in.weight",
+      "decoder_level2.2.ffn.dwconv.weight",
+      "decoder_level2.2.ffn.project_out.weight",
+      "decoder_level2.3.norm1.body.weight",
+      "decoder_level2.3.norm1.body.bias",
+      "decoder_level2.3.attn.qkv.weight",
+      "decoder_level2.3.attn.qkv_dwconv.weight",
+      "decoder_level2.3.attn.project_out.weight",
+      "decoder_level2.3.norm2.body.weight",
+      "decoder_level2.3.norm2.body.bias",
+      "decoder_level2.3.ffn.project_in.weight",
+      "decoder_level2.3.ffn.dwconv.weight",
+      "decoder_level2.3.ffn.project_out.weight",
+      "decoder_level2.4.norm1.body.weight",
+      "decoder_level2.4.norm1.body.bias",
+      "decoder_level2.4.attn.qkv.weight",
+      "decoder_level2.4.attn.qkv_dwconv.weight",
+      "decoder_level2.4.attn.project_out.weight",
+      "decoder_level2.4.norm2.body.weight",
+      "decoder_level2.4.norm2.body.bias",
+      "decoder_level2.4.ffn.project_in.weight",
+      "decoder_level2.4.ffn.dwconv.weight",
+      "decoder_level2.4.ffn.project_out.weight",
+      "decoder_level2.5.norm1.body.weight",
+      "decoder_level2.5.norm1.body.bias",
+      "decoder_level2.5.attn.qkv.weight",
+      "decoder_level2.5.attn.qkv_dwconv.weight",
+      "decoder_level2.5.attn.project_out.weight",
+      "decoder_level2.5.norm2.body.weight",
+      "decoder_level2.5.norm2.body.bias",
+      "decoder_level2.5.ffn.project_in.weight",
+      "decoder_level2.5.ffn.dwconv.weight",
+      "decoder_level2.5.ffn.project_out.weight",
+      "decoder_level1.0.norm1.body.weight",
+      "decoder_level1.0.norm1.body.bias",
+      "decoder_level1.0.attn.qkv.weight",
+      "decoder_level1.0.attn.qkv_dwconv.weight",
+      "decoder_level1.0.attn.project_out.weight",
+      "decoder_level1.0.norm2.body.weight",
+      "decoder_level1.0.norm2.body.bias",
+      "decoder_level1.0.ffn.project_in.weight",
+      "decoder_level1.0.ffn.dwconv.weight",
+      "decoder_level1.0.ffn.project_out.weight",
+      "decoder_level1.1.norm1.body.weight",
+      "decoder_level1.1.norm1.body.bias",
+      "decoder_level1.1.attn.qkv.weight",
+      "decoder_level1.1.attn.qkv_dwconv.weight",
+      "decoder_level1.1.attn.project_out.weight",
+      "decoder_level1.1.norm2.body.weight",
+      "decoder_level1.1.norm2.body.bias",
+      "decoder_level1.1.ffn.project_in.weight",
+      "decoder_level1.1.ffn.dwconv.weight",
+      "decoder_level1.1.ffn.project_out.weight",
+      "decoder_level1.2.norm1.body.weight",
+      "decoder_level1.2.norm1.body.bias",
+      "decoder_level1.2.attn.qkv.weight",
+      "decoder_level1.2.attn.qkv_dwconv.weight",
+      "decoder_level1.2.attn.project_out.weight",
+      "decoder_level1.2.norm2.body.weight",
+      "decoder_level1.2.norm2.body.bias",
+      "decoder_level1.2.ffn.project_in.weight",
+      "decoder_level1.2.ffn.dwconv.weight",
+      "decoder_level1.2.ffn.project_out.weight",
+      "decoder_level1.3.norm1.body.weight",
+      "decoder_level1.3.norm1.body.bias",
+      "decoder_level1.3.attn.qkv.weight",
+      "decoder_level1.3.attn.qkv_dwconv.weight",
+      "decoder_level1.3.attn.project_out.weight",
+      "decoder_level1.3.norm2.body.weight",
+      "decoder_level1.3.norm2.body.bias",
+      "decoder_level1.3.ffn.project_in.weight",
+      "decoder_level1.3.ffn.dwconv.weight",
+      "decoder_level1.3.ffn.project_out.weight"
+    ]
+  },
+  "scheduled_depthwise_count": 0,
+  "scheduled_feedforward_count": 0,
+  "model_state_unchanged": true,
+  "state_key_count": 548,
+  "reference_reads": 0,
+  "metrics": 0,
+  "rows": [
+    {
+      "low_name": "pair11__0177.png",
+      "low_sha256": "809474d34b6ade9673cec077469107053ea6a68ef2ef7bc74cc3333a69a31922",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "964b76f9c0afa51591f06027170faef9ce24164e2f5ba2306289f01a3e4c5853",
+      "output_file_sha256": "ea08ac98933447a5c860fbb625c086ae19d58fc57f303ca5c2f4596f5b7cec70",
+      "whole_run_seconds": 0.6455212970031425,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0178.png",
+      "low_sha256": "fdaa9f324afb81cb3316cd2e7eb9b57d642f6dcff24ea6b771cb070726ea5a1a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5d229766e88d500b94196cb7208a44938029659b1835f6511beae2e980369de6",
+      "output_file_sha256": "04b63558b0557cb4ae043fb3c1bc06de5ce9a79d14808257edb2430ee43d7da7",
+      "whole_run_seconds": 0.6269971199799329,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0179.png",
+      "low_sha256": "5e9fed7cb760821edb91a6156fd054df2ed04c2e547e388f955bec1693c742e7",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4336afbf322059c3fa1738be5efc70fe321155c9c0ab5b87fb3a01c6cc8e6ea8",
+      "output_file_sha256": "0bf4de0f8443526dfe033283be4831dfc521201d6a563cf4b596746239d9d63b",
+      "whole_run_seconds": 0.6264155590324663,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0180.png",
+      "low_sha256": "5c71c90f1bb9ae8f821365616cac772579b333e13a08c7ecf1328261f5250911",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1640f5872334ac051502748cc2cd15b3eafba7f4c1f8ddd132476b08bace2632",
+      "output_file_sha256": "858443cfb595cc07c28d711aee2aa051f3d48439c7425df24f3e974db3428e82",
+      "whole_run_seconds": 0.6269481049966998,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0181.png",
+      "low_sha256": "05ce13d76f62ae2e0c6a18e9cc5d98d9597c4346032a9a3658309ca2dd7aec57",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9b3308200f0182a2a74e17e65d6787ffcf2bfd5c34e6413e7651840ee9eb500e",
+      "output_file_sha256": "66317332d97d0657c7911e71d11611df33358f2928d41f2fcfb90a9a3d3f825b",
+      "whole_run_seconds": 0.6275416979915462,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0182.png",
+      "low_sha256": "7de8a02dd588f390983fd5001f1e7b1668dc2f9546d397b9f7bb162503aa00fc",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e3650c02279266cd56bca5315fb5f7e6de1bbed4bf7704d004887e5111cc1884",
+      "output_file_sha256": "12d0cc1ce3aac042de938c6d35697807ad6d5490275a7472bf13d698d921a2ea",
+      "whole_run_seconds": 0.6269763199961744,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0183.png",
+      "low_sha256": "183229be8678d176ce3b5ce6c1cb9d3f29e1ee31ff15b46a7bacf058a90af3f9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ef26aff477deddb7bc250249727dfd6bdf4dcf4d859500e4742952f6c1935c55",
+      "output_file_sha256": "d30f2235d3318a550225b0c3215d6508ca8d63d9d6bc5e02b482a44301e42883",
+      "whole_run_seconds": 0.6249116869876161,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0184.png",
+      "low_sha256": "c216f007ccd8128787e1418e1470f21e6690e06c65071cad0d49b532e32152b3",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "24b9327d8a2f60e2cb0312f6451a1106660a739f0900982452abdc8e0b689bf6",
+      "output_file_sha256": "3a29c5b4b9f51a66be2c6f7dc8192631b7dadd79b4e831fb4f9830743b45f663",
+      "whole_run_seconds": 0.6261742130154744,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0185.png",
+      "low_sha256": "572c1f153c8d04714780731deff0dbce7ddb4182b8969c118b860161a0c0a82a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ab631385f5fc3d879a92760949f84efd1b78f951658d0697ed1a2701c0bed32f",
+      "output_file_sha256": "e6ae0ae6148dcc845ec3eae23c7283172ec7094ca70f4236ab74f217939ab8b4",
+      "whole_run_seconds": 0.6272111019934528,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0186.png",
+      "low_sha256": "5cf5f006902ab707da2a423258f2efb61146ec50e58d76654b2299f0109ffb8a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4029fa464faab9752b1ec0bbc8c859f790ae7cc43d61e2de74479bbab6f3ce68",
+      "output_file_sha256": "12428e91110eb6ea44091d94103986dca9b11051fd2dbca27a051921a0c30de6",
+      "whole_run_seconds": 0.6262914389953949,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0187.png",
+      "low_sha256": "cdd6463756d4ba974fe3d86e30f727d1c7dd126604603d719db631960f3fc8ea",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "088005e974c0e237fc7252f99869b3f672f5ae7fbfc2d2d25e521175c8403002",
+      "output_file_sha256": "d76bfcf8b7561cd5d1d15581043a2c61e7744d615ed0a3c48499103e53dc1768",
+      "whole_run_seconds": 0.6276527410373092,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0188.png",
+      "low_sha256": "281a09e7a91598cb1b5020eb2fc51d461dca372e96040019ce27bb5045938fcc",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d0b4abb65ea694478878c199f5d74ee3347556cc9df11ac4b49375da189afb6f",
+      "output_file_sha256": "4e4de3c480eaa768bcc81b3abbc2447f225145b7d0cd4c3ed34952cfebba8ace",
+      "whole_run_seconds": 0.6277129389927723,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0189.png",
+      "low_sha256": "5a97095bcfff790fbf5d4246004b177e469a17c024b679c06ba311d71bd46ed6",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3653085ec6445d5dc26de3094864940e34a0e2a1dce582c3f04961b885256729",
+      "output_file_sha256": "7cb7d43641c095df22d7b43cd2989cba01b58d57ba6ea90c611258c7b3959340",
+      "whole_run_seconds": 0.6265788390301168,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0190.png",
+      "low_sha256": "c8232f6ec976b569da6033d368a2a63a462f07e79f0eb86c4293bf29c2a6a130",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2c082e71639721049629f4852d8d29ecaf8014768d9bcf79c07136cb126c64d7",
+      "output_file_sha256": "cc9c26401b8f64f7c267674f2de657cd19bc9da568d18fe396358783d05a5170",
+      "whole_run_seconds": 0.6283708310220391,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0191.png",
+      "low_sha256": "fd8389c46fcd01d8e598c3dc4b709303d595be2c0eaf02778511820601bfac18",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ccb2f8a4fd1860376cc82433baaec883c57766dbf72ae88149000d20f430fa68",
+      "output_file_sha256": "5b4bd4155fc363649676913f339d6c037beea46b94cc066bf816087f8c21b6af",
+      "whole_run_seconds": 0.627933630021289,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0192.png",
+      "low_sha256": "293abf2f9c6729a007fe341006efd1e8a999cd3776e6c4892015fa7ad73a10d2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "be702bfdc95dcc243edb0038836d98d74ff48a5ca22052529bad904baf0dd802",
+      "output_file_sha256": "cf7defee074ad206f3f2a90953d9ca0ca9ea116f4465fc96dcb91f459c75f24b",
+      "whole_run_seconds": 0.6268064940231852,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0193.png",
+      "low_sha256": "7f0a407ed70213a692312c37e21d363174daa1706aaf8f54ce910681c75142da",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e4cbbe158360355225f9ca7bce4248ce5d8bbffe00eba2f22f1802a473a43631",
+      "output_file_sha256": "777f3cbca2d011275ed9afc6542020b440b89ef95c0ed2de59a196647f11eadf",
+      "whole_run_seconds": 0.6264363650116138,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0194.png",
+      "low_sha256": "58f231cf302d141498fcf4fdc9fd44f61cdccf44c77ddcc48403952b83601f79",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e2ecfe6291d6e32dec8532993c8b5c1c76a5157b16f9bf8810d1910ebf3ae74b",
+      "output_file_sha256": "76685d4e269c112fea2f76d08526e807ecfdbfed71abb21b5e16da81a32b38f5",
+      "whole_run_seconds": 0.6252226469805464,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0195.png",
+      "low_sha256": "140b48442f0f36b37ab8cb6f3e2e23b9ddf35eb0da6b5777ec4669d2f4f2645b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "819116d9558f5dd62644e009a870552aa9c0803fba208359b982d65dd8cfa6d8",
+      "output_file_sha256": "51428f5cf8dd9cabd04a19d432c41fbadf684a913deef527837e5ae6247784bc",
+      "whole_run_seconds": 0.6236831050482579,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0196.png",
+      "low_sha256": "6768b2ff8ccf75ffb4655e4dca590c9424e34c1e7b5480747e0972e5f8b2d013",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "af5a1954eff444738ddd72b0c02e75f5ba9357221fc384241df776dfd9b0c255",
+      "output_file_sha256": "4b65492c01b77f20b348038f47026517867820b81c7bf51bfcbb4aa1fa85c5b9",
+      "whole_run_seconds": 0.6278763760346919,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0197.png",
+      "low_sha256": "d52052adcac80e9968cd41246c00fa72c6daf23819280566d3535d6ac5ef1ea3",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0c1084688b9bc8642e419865fc007599d38eb1e985f1cee4cdaf3e4dda83392f",
+      "output_file_sha256": "7322bb7aae5c3d3083966ac9e9d81ec280021d41a4a7f4783282b9bb93c95c8c",
+      "whole_run_seconds": 0.6269040490151383,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0198.png",
+      "low_sha256": "d3faa1ff7353f8064cc468a115ba098f3db989581b21b7993e2d6e33ecc4b899",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f27d0f1618221f6e7bde7d6fad0f89d544daf283e4437487e689f776e1abf62c",
+      "output_file_sha256": "458288695dfbb0f994da85d2a1f337e32618ddc3420713c80b82536e13d0e837",
+      "whole_run_seconds": 0.6266080220229924,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0199.png",
+      "low_sha256": "6f2bdf8d43fb9008818643cb468fbedf3c41cabd2a4f39c4467323c727525d4d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a25e10bca86786c4f9f06c12b52b67187713854cf925804db47e9c47ce5ccada",
+      "output_file_sha256": "0a3ec3edbd4775ecb93d6ebbf3e48b9554c857a68a46bc5ad002fb019c38a120",
+      "whole_run_seconds": 0.6251091149752028,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0200.png",
+      "low_sha256": "88ccce852a1fcfa5231a38f79bb2717378671fa36e82f63283a967533ef7411f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5d36e054f4f23a0ec43aa93a8c1437dd6e63056c706967abf68562937411d359",
+      "output_file_sha256": "7bfc57149dc1ce9732f0036b7327d707d5ccbbbac9f641f9981932cecacfd8bd",
+      "whole_run_seconds": 0.6252519330009818,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0201.png",
+      "low_sha256": "22383a125a0dbeca4a46c492ad0ad14f4600cc73818794503c12aba68e3218f8",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d923d12a0032c3fd5fee9e4fe2084f55784b57762f71ec4c559f3927b26397c7",
+      "output_file_sha256": "82ae36f6cef1f4e27bf30a5fe030c84a5d42f8e40deaa2e1cab3125174958819",
+      "whole_run_seconds": 0.6274326759739779,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0202.png",
+      "low_sha256": "5642acd0f0d1e5fc7c98579aa235d579b1b3dd5e49fb728ba24c3fac4e0e2b2a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e0f8d8b42b191a4abf883b84c2f178c546497f86746343a52fc7df3355524c49",
+      "output_file_sha256": "4c64f17ad3e6577c8c2a21a2d1d766682655d251cedcad4e5135cdd32d160779",
+      "whole_run_seconds": 0.6261168419732712,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0203.png",
+      "low_sha256": "10bae4f72fece93fa75c540277f3d7f3f4d5c41678eeb3f37961b55e18457501",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d65a6a7ef71bef02866df2e4bcb79e95dbe00a8206e25b4e7f6ecca1cc5fb13d",
+      "output_file_sha256": "cb087b06b85efe00fe539a7af60e4f828e5bc2315016a0b4006c3ae3e68f0667",
+      "whole_run_seconds": 0.6264762339997105,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0204.png",
+      "low_sha256": "9b7839c54c0e3c3eaf7a1bb1b54f5ee7af779911cbda45da3504fa8b53c06a6c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "236a6ea736ef189e33ed053f106498a2f353e66edf3340daed326bf5acd9efb2",
+      "output_file_sha256": "f5123d504a731ca383959dec6c2ba9114b3a7b11616aca4ece882a878b912bd4",
+      "whole_run_seconds": 0.6313522569835186,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0205.png",
+      "low_sha256": "5357cea9a5d8daa4c5db34561e21c7894ef1136ffdfebd23b792375a20c35909",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "12c27a20e8647afc40b5138660e1d23574642837ab8131b7ab228a4f1323fb40",
+      "output_file_sha256": "d9f287b9293f7a761b432766800a315c729b00a75ba20900cde5ebf2f3923839",
+      "whole_run_seconds": 0.625769789039623,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair11__0206.png",
+      "low_sha256": "ec521b3b83eddb37e95fc169cf72f32bda699de638f21627791d87be4f18fa05",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "28e471b56c233661bda9d8077f8422dfe8cebf2590321a6369a71c583de97f73",
+      "output_file_sha256": "e401ee48d30937a095e084fbd7b3d7e9e53bc958c6ccc9d7c9b36b66230187e3",
+      "whole_run_seconds": 0.6241700219688937,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0156.png",
+      "low_sha256": "d9d5ff20e234a39b335fb89f30568f376b604e6080354f84df1d85bb7b983519",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "93050efe726b8b763791645d0543e3cc03dd91da16103ddbf506fd807e0708d6",
+      "output_file_sha256": "12088a5ef562f53cd138a4f44cd619b725b533796982e9abf34039e3689d8e8c",
+      "whole_run_seconds": 0.6301294619916007,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0157.png",
+      "low_sha256": "4c8e9f2a5ff52b2bcf2fbaa45fad8faefd57cecc24e020c01346cbe61dd8cd5e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "32a0b24125d008309a5a2efb8c2135afa674d6ef5cfdce4ed12e03aae5c2344b",
+      "output_file_sha256": "4b4fcdebb6b8354c426d7c0819cca365f28900fd46d58500060dddce9079dcb6",
+      "whole_run_seconds": 0.6322421709774062,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0158.png",
+      "low_sha256": "44027a23909e6e08826be036cfc63d181acda4a0869cc502facf1fec311a55c1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8bec44d0077e75dbde1dc90fcd1feae69d740f3006ab5fed4d60f2741d70187e",
+      "output_file_sha256": "1b55efda40dfb7ec3529f211399aeb3e0b294290dc5e55f2d84d0e9d66465c30",
+      "whole_run_seconds": 0.6306930590071715,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0159.png",
+      "low_sha256": "f2d3e8f3b7d09c4ffc0d6646c490d410f6cf0941b3ea8d073dab17d4cc3a4b63",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a0c3d2f83a32a4c7ba33ce23691a069de300e1c6a2cb6f5148aba1a0a95c0efc",
+      "output_file_sha256": "ffb64b6fdacadd35be7b811a8d8fc3b321d0fbc5f1dcb70cd16810d2ed6373e8",
+      "whole_run_seconds": 0.6287328300531954,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0160.png",
+      "low_sha256": "5b4d6f766a374d7cd5c2728c7092c6dba0db01aa512f9594d8934607ed3674a3",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "316abd02f524bd91aa3f6b692a4ba4caacc25f55a33856cc896416f96f301fad",
+      "output_file_sha256": "25b9c51f904d96bf9e2d670c54e99b7bc445fe9d17c580bdf758ad71f2bcc9bd",
+      "whole_run_seconds": 0.6296719929669052,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0161.png",
+      "low_sha256": "7cf7e1cf2fb2c81eb4b863c65ed23be2a2e5db3d8543d4b41e5cf39403375f71",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7b2b44407023d9ecc9d9399f6876f3173d14a5092532e5b0cc8228a84c3198fb",
+      "output_file_sha256": "513ab52bf7cc1a5d8dc9a35dc19753651f2f7479081ffa20565beb6db5e7879e",
+      "whole_run_seconds": 0.6313432269962505,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0162.png",
+      "low_sha256": "95aa9f1bf6a8cf2bb62757da7b4ac7cb1a0d13596928f971f3f80e7e11792c4c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "90e863d520bcce9172aa613e430feb5a7d7fe3301a9395a32753e43eedab254f",
+      "output_file_sha256": "d79c53015474c48575e83b6c97f63d2a10d6a1b60e814af762064ba1440e4a4a",
+      "whole_run_seconds": 0.6291464699897915,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0163.png",
+      "low_sha256": "2a6a0387097f383ebb24e8f74c347bcfe2f6250c70fe629cc1d172b51ddae5f2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "eed56865350f6e110c95679baae9525d34272cfd67e644aa7596a8e4c4ed2db0",
+      "output_file_sha256": "2eef82ba8136efad0bec3a12656b764199ab9189134d40a214c888bad0fb0d0b",
+      "whole_run_seconds": 0.6308656310429797,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0164.png",
+      "low_sha256": "e11580f75c1df2642e7d44f8ffd86413d0fddac634525a0eb87beda83cd835d2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d5eee033fd243aaf9568ff1be5558cc9b6cd572c6fbdf19dd556cf2defd729d4",
+      "output_file_sha256": "64d64ae99faad48fff0cd486af66720c6f2a78da743ebb84439d9dd035bdff3a",
+      "whole_run_seconds": 0.629562369955238,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0165.png",
+      "low_sha256": "534692ce7fbfcb3a0a072357fd6971529fc0cd5d5c6a697ba54a50ee2d662f5a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b6bcc0a3884b3436e33915c1d9adb74c4aa93f3b56b0029584ad7fb6920395ee",
+      "output_file_sha256": "0ce657dc0f14b7925a6914fe10300555b435d79c37e87829aec4360dadecddc3",
+      "whole_run_seconds": 0.629633596050553,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0166.png",
+      "low_sha256": "87240d20f8d18e4702c7bc2b9cfaf30048cda0be864201ae71ef1a7062c4d1df",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "caf588551572d69762d811ac9a656ab9a845c24b754948027618d9dbe524fe97",
+      "output_file_sha256": "3e01d0e8cb6b0155f6e6b76599e20c9160693250ff48f279c66ad4c55e2b3c0f",
+      "whole_run_seconds": 0.630229590984527,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0167.png",
+      "low_sha256": "98ccbc607e8b8faa142acf11437851a902b07c63c10d216c5377f4a4909ceab9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cbd1bf31b60a9d4070d071bd18518219fc5d03a4857dacc6943106212fa2a837",
+      "output_file_sha256": "c0a337f19fe9e099215c1af6caa613343779823b6a75b074194b585dba3181bc",
+      "whole_run_seconds": 0.6290591899887659,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0168.png",
+      "low_sha256": "1170ee0d418cb4101b2b31a4fee0b8703969a7f926ba1dba2b91438cd4274c04",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d7cb7303579e01e5f877116ee799b75c1ac95e8c8442313c3a54b75cef921f6e",
+      "output_file_sha256": "c9031e0ae727d2b2bacf94a617d606fd90cf7e05cf4b2f34672d249c5a8c2ea0",
+      "whole_run_seconds": 0.630058137991,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0169.png",
+      "low_sha256": "937e7ce406034e2b3899258b75462e8fc82a3f9614a77b428db1ce558c47315e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0ae83132fd9c8c78e2a1bef41814a6fd764aed44bad8a75c329a13b876888aa1",
+      "output_file_sha256": "68e6bc0ec61998adca64a7c810a148ffd46019a6adc42e045fe362777d85f759",
+      "whole_run_seconds": 0.6291211739880964,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0170.png",
+      "low_sha256": "3cc81eeed333b102a1e58dd74a42bdb2483b6c53384e550e6d3ddc6c7d9e10ec",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5eb376ac31b72f74ce539633090cbd5be68d0e3bd33073ad41476b471e931eed",
+      "output_file_sha256": "0614b1e7c1079509f079ba68a746368432110c0f5f2ef2723f1e427a4171c509",
+      "whole_run_seconds": 0.6299077139701694,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0171.png",
+      "low_sha256": "d0f9915253a1e09beebe68168f131a76253b985e01abda917f224c5ce6026401",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2914b4b04706edcd4b226000b8264b1b9682d8725b5babd46ae9cded175ce3e4",
+      "output_file_sha256": "d6db2705876f3dde92d4b280048131f6766d94b06fac9596a7c0530b750b7e13",
+      "whole_run_seconds": 0.6298351510195062,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0172.png",
+      "low_sha256": "606c1661ec3ec1ef6f6e6deebdbf58b56eb8a7c6ec3ad38c7303a90172536c7f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "947bb7a1c61303db55d975d883146a61fb91f64551dda739c6e7c513b3f1b3c7",
+      "output_file_sha256": "7b6d57b4d0c344497a1502af884ea2bcc66ea817b7d6a3a8be77727d54654186",
+      "whole_run_seconds": 0.6296608950360678,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0173.png",
+      "low_sha256": "86501be8456d1c6cb078f8c39cb54fe8111e60206f2e1aeda4be0d6c034b1ceb",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "652a58ec694b7c81a72db8bd57a3ddf5374238294bbe8477e3e9e4d507f9cc45",
+      "output_file_sha256": "a573a020d5ee557a87ec442581dbde9380c91851acc404f7849b6153354ffa1e",
+      "whole_run_seconds": 0.630909718980547,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0174.png",
+      "low_sha256": "fa49170fb8410b43da36cf7da9d5b680214e96ff688f89b59950a2234fcf3611",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0de06540fa2ef9aa716fed6ff9394fc073be3517dc5d4fbd935f0d21a4177ae6",
+      "output_file_sha256": "1c239ffa40e635133ff63c1d7a78909bbf1976b08408f829e8150590837d2191",
+      "whole_run_seconds": 0.631522051000502,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0175.png",
+      "low_sha256": "b8d7b62e1252745512435eb89153acefd5330c1be0c95463571546b7449ebca0",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3557ec718c4686c822c120908fb526fd1f37a4c1f8cb81408d3c0d3a0cdd3bb1",
+      "output_file_sha256": "8570dcd83fbf2cc2063627ea21f98a3ce6b82000eb397536a25c06a9a80e2707",
+      "whole_run_seconds": 0.6297117869835347,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0176.png",
+      "low_sha256": "c2d736273ffeaed333506514118d154c3993ce8e10809e9d71224cd4df4f7f9d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8ef1f2e99ca4e48a8d33cf3ca4513e605e56d96b473656ab47cbe47742923d65",
+      "output_file_sha256": "9c728c1bbab6de8516c4deef3786bfe17bf660d95c976a064b92bc4fb7c37ccf",
+      "whole_run_seconds": 0.6294420549529605,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0177.png",
+      "low_sha256": "263223851d327d7d75325d40569d10a95adb3eee0fc342f5b0a21f00fb31d619",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ecfa1acc5efbead2f5129e07a4d012ca96362da4bd36d18dbf501ede4360273f",
+      "output_file_sha256": "8bd3d09622c4ebbc00e12ad175ac2991c52a1a557c3a3998de659c0a79cd3b08",
+      "whole_run_seconds": 0.6308347820304334,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0178.png",
+      "low_sha256": "a3ed35cf2626d5b43a9b96539dafca4add02562547520f41b3ca5a49065a3f25",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d5506173d72f8c46a31b90e75edd7b869a1cacd6f086a05cfc9b65ce6745ebd2",
+      "output_file_sha256": "f00257900d703f11c74a1f9e7b34c0c9c0450bfb88d4b31dc281f261f9c40c52",
+      "whole_run_seconds": 0.629271432000678,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0179.png",
+      "low_sha256": "93b69b5e0edfa80f4cc8f2bae56b27c74ec79857371d2eba203d1ce857bfbad4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e911f0a0c4f7abd499ffcfed315717f1116bfbc92c26afbe87c643e72f03f407",
+      "output_file_sha256": "8730b432670ccefe36312c5259057e8a9469584210cf3931a81cee4832ce062e",
+      "whole_run_seconds": 0.6293823099695146,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0180.png",
+      "low_sha256": "e255ebf4ea108129c9931bdddb5931544f47fc0f7e963e006d8dcea7fcf8462c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "86940463456edf4c227dd8c855758217b6c7c73b5cd26b16230104e5d23c91f2",
+      "output_file_sha256": "1b1670fb4c1e60a5989a7ed30bfe43448bcb6754f36e3ed3f389e8c40a6d6359",
+      "whole_run_seconds": 0.6301924309809692,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0181.png",
+      "low_sha256": "8ebd113b61a7b19fc140112b5e3571129379a62df1a36199dd14c084d43494c8",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "11599db3257bed99d5fff2db7da887b6be918dbec691ab9fe19c762d6dc6e9b9",
+      "output_file_sha256": "d3d9a4aac44735498d019d82c20c560e3847c40ab305137fb4d27e6ec927a44f",
+      "whole_run_seconds": 0.6289452969795093,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0182.png",
+      "low_sha256": "e9fe41a686aef07904ff5b4d2057e971974da7a02da2e04e42bdf71de77db2ba",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "689e3db053b29f0cdb34c3cf05b6acf037221ad47873fbdc6b1b4ce9a28d4b68",
+      "output_file_sha256": "d7df872f000ef53933a061201f93acd5889b3069918f223cb004637f31cc84ec",
+      "whole_run_seconds": 0.629838133987505,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0183.png",
+      "low_sha256": "d5ab78c3a6689b9e421f480b6f6ab89e27326e6b041cd5d0e7bfcf020d3cb02d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9c40aaa8f7dd3408fc602dd105a84d922ab642d4949d4e997f165cca64b3d5e2",
+      "output_file_sha256": "bbdba5554bb8e4c67f563c1323ae2152fa7c5c98d8b4b69dff0fe5d272b74d7a",
+      "whole_run_seconds": 0.6308901230222546,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0184.png",
+      "low_sha256": "b27e6c6c4718b21587dce5cc5679a77efdb4579135bfdec459df1570bbcdc98a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b2da63300b76e521deca12bdb1750812b5d06bcf46bf6c3344a332d572ac6a8e",
+      "output_file_sha256": "fa17dfb3e917c048284b4f28f1768a549e9ac217c9f0a209ae7983618448fb0c",
+      "whole_run_seconds": 0.6307740280171856,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair19__0185.png",
+      "low_sha256": "3aca2b06a9cc5c9af3b2ce3dbeaf886d02a31d0c7b8826db1ee055945f3efeeb",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a01840a6c3581bb511b5edc48b50aabaacf9a002ab1456e3fe18ae4f38a45e1e",
+      "output_file_sha256": "a87e730f0f0305a1cd33a9f50b37b922d6e3b66ed39a7f2dddd73c31b78d0e38",
+      "whole_run_seconds": 0.6312274859519675,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0186.png",
+      "low_sha256": "aaba988d2f9d88fac0e755e95d0c6c5f7d518d620ee872b015d867e60aab6dc7",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f0125aa3cbbcad9fe10e30d89ad4ccdd4234a4c97fc97f9b6e628cb23a67f746",
+      "output_file_sha256": "8599fa733c8f60942a8c3c5107de94f4a9200eefd3854549f2cf240d9bc12f5b",
+      "whole_run_seconds": 0.6254306089831516,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0187.png",
+      "low_sha256": "fa19361e70b04a426d07c927892a4a26dfcfac9e5c68d9ddb64cd3956eb3399e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a7502e76956e70d36c5887c5ea2fc4d1e076b765c0f9d45b7677369ba2a96c15",
+      "output_file_sha256": "397aba6b380bc4b727ba6d4742a5f2001ebd2270b8c2b0fe05e8608f2203c4f9",
+      "whole_run_seconds": 0.6265729430015199,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0188.png",
+      "low_sha256": "a6563eb93c1156117ab63ca0f5b18f08c80ea445477c8e9c477ba1d8a6a5f509",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2afb7d686a54d4131baa6484cae728fef77f0ec85fbe71211976a0cfe436e174",
+      "output_file_sha256": "bb8e3497fef8b72d966c4a488cea52178c3a0220511b4884a06fedd8bd2b436e",
+      "whole_run_seconds": 0.6259652479784563,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0189.png",
+      "low_sha256": "78b41001a31287c6d2d3a92c78500712594d82ac1c2019620cd5c78edcd21ac4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "11f6f8d9967981bef975d25416081e05755ed05adb4a4be0cde3ea1c3352238c",
+      "output_file_sha256": "9aa5a7ad0bcb411f8af970e343ff01a0d0c2b386ff2d61f10999441dea389746",
+      "whole_run_seconds": 0.6265112530090846,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0190.png",
+      "low_sha256": "17872c63d357eedb8b18613b8be6e3c5a11b74cd45e59c72dbb4fe09ce65aa9d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "dc3f14fd34e922a57eb983abb924468f4af37425adf56d21fe15a07955634190",
+      "output_file_sha256": "027151ccf3c457b9e38afb02f1803d8357e443c0bf6d7f4f40246c3a6d42350d",
+      "whole_run_seconds": 0.6261345420498401,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0191.png",
+      "low_sha256": "089dd732d7844d0699229db39f38eafef2400e256315d02662e444d9f10916a6",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1393540fb227736f04fbe1407238ce54055b61eac90546f74d6a9c366588481e",
+      "output_file_sha256": "ce6412c7d407dcd1238ff4fc2e130b65d8dff28915b231e46414e4f8a0480c95",
+      "whole_run_seconds": 0.6269975530449301,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0192.png",
+      "low_sha256": "aa16a3a70673c30d517b1895254ab2f7f8b73bba7d38d048d11d5581a8e32483",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "048095f44a6dc28c4c91dce222331f916ded5d97798323867c84e64854635ea1",
+      "output_file_sha256": "4a000acaaa5a4dd69e61b27f3b430e4f637f5c566f47557a10435d2eba85e214",
+      "whole_run_seconds": 0.6249800020013936,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0193.png",
+      "low_sha256": "1f0f2234891fda6ede06b5d7cd219adcbcd45bc037b72a45630c162b8bd7f478",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2db33c76dc920c0eea3aa3a04cc3fcaf0ababebb36ac33cbfc773f4f4da018f2",
+      "output_file_sha256": "2b3e4e9dc9ea4d2f2e7fec03d24432878349a57e1dad040f46de5406a121ca71",
+      "whole_run_seconds": 0.6285479940124787,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0194.png",
+      "low_sha256": "9361b4e10856d73045c75943533a951dc33dbb011acc2e14e400f5a8da73ffb7",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "16fcbad34958196d492f32cc7414d65ef44e2cf64c2fc4c3db26aa7bb34ad908",
+      "output_file_sha256": "4c82dab5ac50b9c82900620f05f65879dbe45df236b401005f98e787b10a15e3",
+      "whole_run_seconds": 0.62470114097232,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0195.png",
+      "low_sha256": "39ce093ba11feaa789131df68682f60fc6243f0fa0b91de6d918e508df86a9d6",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "dccad1c9069e8c444e6351b0a628662247086530897d387cf786883435dafc42",
+      "output_file_sha256": "fc72480171da16f90d52b510d8dee82450bbc07e60946451f477963de99a17c7",
+      "whole_run_seconds": 0.6251575509668328,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0196.png",
+      "low_sha256": "b0c365c05ad0ba581209f35b5b4bddbb1a424980851fab5a1bd211d952364579",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e5f1781e424ecc3df1e0d96abb7da0b5aea7e913ef207af41f76f75631039633",
+      "output_file_sha256": "4d3ed921a5b5c9290d410f82eae0d1165d51f4173556079117dbcedf8482e67b",
+      "whole_run_seconds": 0.6251626379671507,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0197.png",
+      "low_sha256": "bc9216564b05d18f6f6b1431e104aef08ce2fd8fb149000e90bbdd4f4a6fa924",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c90a4558ed7df19a70996ef7c50f2d947af15f1503f95434637f448b098add1c",
+      "output_file_sha256": "8b6ec198c7c3ce2dd3af351aa5dffb70bc287d58e06b88a45c6b5623da93b9e1",
+      "whole_run_seconds": 0.6253049750230275,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0198.png",
+      "low_sha256": "9c88595df54d0889927216a79c576e4b6597101f4853a04032843098f01689a4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1aa327b4ad1fc92c286cfcaa4610cadee95b8c11bab63055a12004df0da1c1be",
+      "output_file_sha256": "7256eb1c904454d1821cc94dec028d304aaa1217ae59d481607eaabf2db3379c",
+      "whole_run_seconds": 0.6249414900084957,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0199.png",
+      "low_sha256": "ae41baf4449961b0bdfebf097d3e89a930715b4e0c7f5cc1f74978a043a72ea5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0b3cc2515797598552046707017b5a52cc4081e611bb016f337920b743aaf147",
+      "output_file_sha256": "2c0a834f5b5abf9e967b50b94a5f358a183490f4746c86e1f2e862cdbe7ded4a",
+      "whole_run_seconds": 0.6253282550023869,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0200.png",
+      "low_sha256": "7b09f4571fe512661c2d0e260c10f7d1b7a7cfe959c4b75e6b37aaaee1493817",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4dd30e64a551a2d017a68b48cc91f4072708fa921076b7577199e218e011b4e2",
+      "output_file_sha256": "3ae93beafe19feeb27a105c8eb44ff62597ef519f11cc8a27ab0b181a00ef2aa",
+      "whole_run_seconds": 0.626077004999388,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0201.png",
+      "low_sha256": "5582b6d36e6979968ab9b90bb32c7dcdb4c40cdff80021d870f5e25c2d504350",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c6ce6333bc4ea6613c191ab7f8e2f62c93abe882d27ca5440dab2b92ff8c8153",
+      "output_file_sha256": "ed4aa125964d50366f092fe8db69d1d3a7b135c35792f75b9b19752599d93e2c",
+      "whole_run_seconds": 0.6256374139920808,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0202.png",
+      "low_sha256": "462cbb51ea2d197c648c9301c8affa719015441c2b3f17ba5290869e3f282069",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5c1d270f91036c396bb7a9bbce96af7fbc31be286099976f1c1abe829dfc1cbd",
+      "output_file_sha256": "78c305eaabed60ef217278cb6b97e4651ee83926413ce7ffbea3145149bb898a",
+      "whole_run_seconds": 0.6247754959622398,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0203.png",
+      "low_sha256": "a9e2f786814e945f6c9a6333da2c7dcbfb8b56404a3fc20ce0f3aaa0f3cc5142",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4af7e2de6295f56abe117c5b7822132adc23927cd10f504c119948bfbb6f44e7",
+      "output_file_sha256": "e22732d90d15a1800c3533173924a47efb9832428986b01d2daa4ea9898988c4",
+      "whole_run_seconds": 0.6245414830045775,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0204.png",
+      "low_sha256": "cb199947473e53e7e59fa1442e025f3aa83b9cd44a8be948c741a55f6805870f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fd7f15aaa89100dec769d5a1abaf9c79b5c397b0a35a21a418b860d4e47c3403",
+      "output_file_sha256": "0f071db5e6b8e12e828d24f7ec1b358e4f6a7cdecc57eae254713e6370d9ac19",
+      "whole_run_seconds": 0.6257751200464554,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0205.png",
+      "low_sha256": "bd81b983f79f9afd92e68d513ee517c3203fc3e5bf48caa1b721a816d4ef857b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f26825cb5b14219d6041e860f8e9c0f858dbc63373232bf655f07d9b98e07498",
+      "output_file_sha256": "cfc2dfbed7206b3cd7428e76a5f6de4a1d3c9a39a8fa0c445d3cb34079fc3c99",
+      "whole_run_seconds": 0.6263352519599721,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0206.png",
+      "low_sha256": "7203e5cd4515cee792d8a356aed8e4bd05401c3a19b247ebe315148648880553",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "715cd92b84eca7116fdafc38c3198b8aa76ef707c757954c3f7f6012e1a85170",
+      "output_file_sha256": "8ae0ece5ea4de30ec227afbed9a9ceb10011b66b17972bd2d8db393dc4a165f0",
+      "whole_run_seconds": 0.6274961990420707,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0207.png",
+      "low_sha256": "a1f7605b4aaf2f61d6388fd9c0def318ce8f1763422e1ab8226e4d631bc564d6",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b812618d4990693649757ea97453aa1859217f9b992f329aca4099365b6b5c7d",
+      "output_file_sha256": "a053cdc839bb242ebe48b07c1ecdfbb887d81ebf253060dbe9b27847f36f0bc6",
+      "whole_run_seconds": 0.6297759329900146,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0208.png",
+      "low_sha256": "9c3eb342b099bc86f06fe1138f424b7a4f2f3fc205855858a6e8861500874cff",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6838bcecc586a7ecf8e5e0e9274cfa5909e07a86306e193cd1bc89d35d2bd510",
+      "output_file_sha256": "cc66f411818c26d4831210174a640d87eca5b792b28908d5978ff41e5566c070",
+      "whole_run_seconds": 0.6266862830379978,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0209.png",
+      "low_sha256": "1e6949694dc39d1b05b5136de61fa0a96da2c0272ba80473927ce1050b91639a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9e6b73e89723c6d8dbf060ce9602375526a47f995298df5e83ce64bdacc3acff",
+      "output_file_sha256": "4ad988a617d12d6a4cea3ca87c6bf4368b1e39c251fcc463810b4a4afab6e40e",
+      "whole_run_seconds": 0.6261008600122295,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0210.png",
+      "low_sha256": "292a23332762a171b5db20975431b911910d503eb1f4ce1fb732b24bb3196265",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a4a98a14ca7346bafdc686eec6e9e6d24e7f9e22ccbacd8078972102a150cec4",
+      "output_file_sha256": "5aa9e3af2de4eb954cfb4a1c11443092a5b1dc67f1c8a428bca0262e5d051da1",
+      "whole_run_seconds": 0.6258578480337746,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0211.png",
+      "low_sha256": "5079ba242836ba5c53e7f792e375089cb1300a843deeccc584352fb8510502e4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "dd07c0aa6fca63a99d2ecc0bf59ef1c567996f7d386dad8749e02f4ff248400b",
+      "output_file_sha256": "2503b37b80758cf1e67721e016beef73f62c7ec61ac434c809b83b3f8bfbe55a",
+      "whole_run_seconds": 0.6262265510158613,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0212.png",
+      "low_sha256": "10d0e9c7c6e49bbddafca4066ae983f87568748c869ea7852f026e779d4b833e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4a58944ded1f4beb6cb925fbed26dd21ae54f1c5d4f35024583246691419109e",
+      "output_file_sha256": "9d6e4200dcb838dbfdc711dd390aab17c8ece99913d5335fd05fe21ef66ee373",
+      "whole_run_seconds": 0.6259145730291493,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0213.png",
+      "low_sha256": "a6a3953c8687543efe9a6923e59d8d8d90ddf2391a9dbed1e70a1a0cde4e3849",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b1ced78ca806626617621abc968b5a6f2ea2ad967606cb0b9e64295ad3e20dd8",
+      "output_file_sha256": "e00cbe523d27fc9053ee76b3718c287d750df3d86fff0cb46f1ce0f4eec11eb9",
+      "whole_run_seconds": 0.6262745829881169,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0214.png",
+      "low_sha256": "9902f3176810584f0aed8b76ca23622ed16bd4528d53c97e2c25cda5fdca1e48",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "feb684ed58ee53961f99da22cb502efc3f8253761cce6929f1f192574fb0b13f",
+      "output_file_sha256": "d97cfa487be4f30e2752e8160cf2c229942a34ade7195efde1e35ee0d41b810e",
+      "whole_run_seconds": 0.6248782739858143,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair1__0215.png",
+      "low_sha256": "fcd69f1737f62d94c52666ab5c87c8cdc58d85037ca16740bec3ee0b95dcf37e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4f9c8248920f77c0b1dfcb31133c6b804ea35c3485c080282f8f29364b63cfdc",
+      "output_file_sha256": "c8e375c637214b7cfbef9307d7bf05854518db4c499ce4d8ff46b64eb7c294d1",
+      "whole_run_seconds": 0.6251243219594471,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0210.png",
+      "low_sha256": "f4b5988320886ac9f9334c9c0cbbdd142873c30233effc8d0b13bb5c2d36e848",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "37976fe5989e49499ae4a7f7ed907cc4fd03b38b57b05100a229ca996f8a0060",
+      "output_file_sha256": "e9d00dd8e62b2076fc6c9318bb3b884bf345c242a96de49c714ca87c6393a5bb",
+      "whole_run_seconds": 0.6303031229763292,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0211.png",
+      "low_sha256": "97ffcbbc651bc389e3757de89dcea8b8c91cf6efc9c75e4fe1ef70527279919c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8b6674d114306bc97dfda77783b48712b5e4437b9fe0ac9b821fd6e12f7db4ec",
+      "output_file_sha256": "2733a1b7ab02a22dfbf7998ecc790fb8c1f144335f737419551680ee85c23b4e",
+      "whole_run_seconds": 0.6295300229685381,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0212.png",
+      "low_sha256": "0b1eda7dcbc44a4161a2844bb7a9cf33950b6befd4b4b973c7af08a32fd03efa",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cb4d7c19f4165ee2e948297586d92502371f9719bfd3f4e049a3ffbcf79f4745",
+      "output_file_sha256": "4c0fd7981e5ffbd107409084348608d27e3e93d716538762773c489ba8ccd66c",
+      "whole_run_seconds": 0.6348960329778492,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0213.png",
+      "low_sha256": "0b9c7347444015ce62e59c34df1017fb598ae3212e84063d9c66755dc351cb5c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "547ed1ce91b6d4b170a6c2061f91624bebe74324d1a401f755841ebd90906108",
+      "output_file_sha256": "672aa39b004ad5a20e5260bf23eba5fd83cae1a03ffe59b88200430d1de87f31",
+      "whole_run_seconds": 0.6311866450123489,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0214.png",
+      "low_sha256": "daee30934f60054d90e90bd5d560867e789e2d45a66f0c2c37cdb3391bbcf0e0",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d5b0c89c6f3ba374db1d80e8b5316f78f390599b5f7ca4cfc1f66f837be0b9b9",
+      "output_file_sha256": "aca313a7dc869f55e3fba126af7492426d09d8ff7ea81aae81293ecc72fa7af6",
+      "whole_run_seconds": 0.631267115008086,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0215.png",
+      "low_sha256": "f7168da26b8161ed31965841908f5d771b5dc41f0a7af14e448fde3c81496f8b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b8b1b643765570e74289ce7a1b7c60ec7d965aeb76ff8c473a98b718d8d44e65",
+      "output_file_sha256": "3e0467a5336a1c5b679c48edf2221b7ed2f0c3245156ee6b6db4392d0cee7728",
+      "whole_run_seconds": 0.6299762679846026,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0216.png",
+      "low_sha256": "1276d4c6b41c0dcb9765ea12981792d753e3a904843f6d95e6d7532ceaa0a137",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3f817e3e4550fad67ade8e7b05d5f500e483502d2de02cb687556d9597bfd9c2",
+      "output_file_sha256": "b90838765389c0ca94f9b407f8e8efaa87a9d4afab2154f53a5449b761957a51",
+      "whole_run_seconds": 0.6298629090306349,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0217.png",
+      "low_sha256": "c39bd5d40539204962ee97aed738098d75e51fbd2d9b78c86cecd284490d9af8",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ee9703d8a3d5076a4864f698829a9e76f86c982e068effb97ac6947d8b0ba83c",
+      "output_file_sha256": "153666222910d3a5d82ad02ba499d038192c4a484e76671e95770feaa9e444f5",
+      "whole_run_seconds": 0.630404727999121,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0218.png",
+      "low_sha256": "52733e61d550a82ce0989cb05f755858d117befaeb0e815aa6fbd797d2d25bb2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e4ee96334a78e7fc61a7b7f156199ebf74d9d2c5fd34d12ac1963d6f1cfd275d",
+      "output_file_sha256": "e1d9387257ce24ec6e597fa867436472ded349d57af41b6c7ac69506a3949ede",
+      "whole_run_seconds": 0.6296307070297189,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0219.png",
+      "low_sha256": "98ce0f74d6e58c66953f1b4f23febb1dc2c49662f34b61a3402c952fee760819",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1a93e22e95432c991a02fe2b19fd09caa75fa50e389da65cb09cda566f06878f",
+      "output_file_sha256": "a611015e22547496eafe3dccae4a2e52fd98e483f911c2354c787414ac3d4bc9",
+      "whole_run_seconds": 0.6294595960061997,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0220.png",
+      "low_sha256": "48ce1e9d306576fe51b493be3b7fbda234232894b25fe62126625fafe54868db",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1e79d15794eb731af41d1ea8ce3189d17e402319a20fd402f326d0ec0cd75035",
+      "output_file_sha256": "285219b8010107aa3b8b403ef1ed10f1b347e780f520f798ed7b4bc404ce5a1c",
+      "whole_run_seconds": 0.6299920169985853,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0221.png",
+      "low_sha256": "b9dfb219458f5dece5791090352c3202528c024079be3921ecfa61b4822b85ef",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f52c09d23573b9feef3be7f431d4e839b088d1e22b6481cb2f0a7c8a6472afed",
+      "output_file_sha256": "d50bc10dcecd116ba0a3fdb1de591b7044431dd53ff8c9147123d5d26dc07d1e",
+      "whole_run_seconds": 0.6297123560216278,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0222.png",
+      "low_sha256": "343076081d42e05974255786a0b5f78fc07d9267645a1d770b359a24ad909a65",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9ecbd15bb10da4cfd92d7a2dfb0bc53811f94fc2f87d596010705c158a4c0aca",
+      "output_file_sha256": "975a2abd45a26c07e68f223fc5a7d3b2c8ef601d4d8556ffb32926ab7ebec6b7",
+      "whole_run_seconds": 0.6316197529667988,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0223.png",
+      "low_sha256": "23363162efe80ee8d73c829d895427ec11e345f774ba477f1cb0a58ee140a039",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "33e8b2611cf4f0328078de50fa8d8cb8dfb3c53da1cecbd3563c10025c0d74bd",
+      "output_file_sha256": "4f2cc7717745bb606c5ae0812f501a7928a3de45366ce17f6693ff24a675018a",
+      "whole_run_seconds": 0.6303720540017821,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0224.png",
+      "low_sha256": "de19240a5c205694e80ba6134af87ef6af2f970f0dae5aab3e7b1268b7fcfef2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "dd88abe3795773e9a0851e8c19cea9a754583b60064849f320485b728e3065f3",
+      "output_file_sha256": "6ffd9d75a0c883c78f658dace4bb30fda385cd16e976e062d7e6bb4055fb4f9a",
+      "whole_run_seconds": 0.6302324020070955,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0225.png",
+      "low_sha256": "ba1a2fd4c34c82822a80e2fee200913d77b78b3d684484619c7a528f1eea0846",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fc3e8ef675d2298f5f7bad5709ae27cfccf90428ce8b047ab3d965248e0888fa",
+      "output_file_sha256": "9e40f01140daad3ee9cbbb6414ccdc2c55c0e28a25364ab68f7b13baaf68cebd",
+      "whole_run_seconds": 0.6304651969694532,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0226.png",
+      "low_sha256": "3cfb50956ead0cda775fe71342e7840d01b4faf9377989527cce56412c25bf5b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "682186b8dc7708b0b62974268bf00f289ba413f5fb597141a8d1a86a7e1c9a84",
+      "output_file_sha256": "7856e1b179f4d2ba7770d2015227a746c0234141bf7f12ac8c17285b60e1c158",
+      "whole_run_seconds": 0.6303762930328958,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0227.png",
+      "low_sha256": "20b8113093d1159e4464c90f64238c2b6ed273e7f09c6e72e1e25f80083c31eb",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6087c1de47bee8b6fde05fb02b23de79140132e3f3876d97d22f3f58f235913b",
+      "output_file_sha256": "6fe7453971039d99f451828a66b62eba43b122c9ba2f64fd891c1e3d4726c2a4",
+      "whole_run_seconds": 0.6309666179586202,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0228.png",
+      "low_sha256": "fb5e430def402be8b61fe9e6ac3ac303a97f0f7e72751c78ef70d4899f86903a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "df14cde1600d00ae98db66e32337f1c3a0121795d296462b0f80aad29fe2040f",
+      "output_file_sha256": "eddc704f7806fb6f89aea579db9aaf6a28299b306b835035af897c901598e401",
+      "whole_run_seconds": 0.6305386800086126,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0229.png",
+      "low_sha256": "dd284381869b5856644b1c85146591b02575d930c7fe0995b760d210372a0389",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "76dc0af3591931480e7bd40f0bc28ce4e15d62140f83e12db2da1325aafeeb13",
+      "output_file_sha256": "1825400010d48747db91cb0c823d50d693cdedfd32f43e34c247fcb8a757da48",
+      "whole_run_seconds": 0.6313067770097405,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0230.png",
+      "low_sha256": "bdb3a0eace4dc1dc2611d3c8ea39a25729a829a4132ef977ce0d678584446481",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f49fce7e3aa9bdf859331137e24a58e04ed08da3b0e17026f53ee06048b3391a",
+      "output_file_sha256": "d0f0260ff2ba644ea8b508aa5f40c1daab6d06f6a0fdbb0cb0cd7e287228c679",
+      "whole_run_seconds": 0.6299609509878792,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0231.png",
+      "low_sha256": "f86ff8d37a2cb6e590609fb7d3b9bd191c7a3b30829bbd21c1de6a1f8f750d8f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "da29301a01b83e82d80e3f813b981ab043ace05b93a54c5a02ec10ca8d488dbf",
+      "output_file_sha256": "a10de3502fcd134686b8ab4886552841b23bc6d1a67d10069667b802037d32f2",
+      "whole_run_seconds": 0.6289726999821141,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0232.png",
+      "low_sha256": "396a01a5d63de2ae733d8124bb9f980c00b3933b1e52bbd717237e3508ba556a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "08ac35203c6838e2b76c00dd1afcf293fb3f733ba8270ffe4ea8bef97b6608fa",
+      "output_file_sha256": "0f9701190431bc9e3295cd47f4f2161f4a9aedf935c3ddf41177c3e89181f825",
+      "whole_run_seconds": 0.631134330003988,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0233.png",
+      "low_sha256": "8804c3be4abee954ef8bdacd769b669c375ccbca3d56369731c97b094926039c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "31401217cdaea9c0202edb8a1cbc61880e1d65858eb900a42cb6c9396f33772d",
+      "output_file_sha256": "3e85668dfe729b411dd37e493c76bf850819b7e12137b8876d4cff2cdf621b53",
+      "whole_run_seconds": 0.6316732169943862,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0234.png",
+      "low_sha256": "acacebc45901b74d8567845717ba4427838f1fc218e0c495e1b64952403834d0",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bddcc1d704a24fe439bf0330e97d67cb9a10f39ab4d1e326b05532f793a49fbb",
+      "output_file_sha256": "0005d3004943fb1963caf6977927e2d3f985fd4f2d5249d2e80ebef5dde6e3ab",
+      "whole_run_seconds": 0.6297123560216278,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0235.png",
+      "low_sha256": "6327047cd31c70053a831107943ff247efd306fe9f3fe1d1f1aace84695d9f87",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "98de01fd1e27af1c676200e4df437c70794597b997ee91f31494d92d481f9a1f",
+      "output_file_sha256": "18725feb59031a3de71bf48e07c427e83da1ecea23aea5560bd975a4575510f6",
+      "whole_run_seconds": 0.6315522649674676,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0236.png",
+      "low_sha256": "126487222cf73f8f95104d576e0731aca657396d6f2142794b427744f7fc0fb2",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9a0ccda5cd267c22e33f3f2cf071b18fc17075c9be24400155a96995f8334b2c",
+      "output_file_sha256": "4bb882939af3f3437ff785fd6545fef11ac56b02dd8b54947d7c44b91c616971",
+      "whole_run_seconds": 0.6315434849821031,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0237.png",
+      "low_sha256": "baeee3252c4b017a72ef27ff6a42958facba434c34d895d01cef8c2f19d1fbe1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a896d4515070642275f32780f1a052041a0340eaf1c16f54b61415a26e6f32a1",
+      "output_file_sha256": "b39e292ab66018a7b52d6ff572f0e5ceaddc87ea706348f746e379e83612b902",
+      "whole_run_seconds": 0.6315049599506892,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0238.png",
+      "low_sha256": "de46c42276914307fadd57aab9dc1cb19a2f0d16e24504cd5f9e45e8f4f57af9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b98707618e85c24928e29b89c13d65c5c05d882006d13a2ee146fd814803ee34",
+      "output_file_sha256": "b5fe85c84988ba7c97bf0c1b915ad19668560cfa0a85ea483fdcaf744ed7a514",
+      "whole_run_seconds": 0.631624394969549,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair21__0239.png",
+      "low_sha256": "9eabf238545b6de1768f3fa86acd2d0bc4ac68e3a0a0ebd569b9536885d0a3ed",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4c10811c983214fca746eb4656fef4d0c0e4d1f48c88b0ba6052cdaaf56fc5c1",
+      "output_file_sha256": "511c55a155138b603bd3a17d618349d9779f88ccd5cbfbfd420afbb90b8ac730",
+      "whole_run_seconds": 0.6300976169877686,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0173.png",
+      "low_sha256": "306bca1df82ac46a879174b109a14853d18886a35563df06060c25fcde356fd1",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8a13d50bcf9ef2f5c7efda5375a5cadc295ccbb540385c17a027b8d90a585678",
+      "output_file_sha256": "fb0fcaabc247a19be5e15199784c33d38b558f5e22a4a7c9723c6322c34ca738",
+      "whole_run_seconds": 0.6283738780184649,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0174.png",
+      "low_sha256": "e30503bb528779c1b41c17421e8d17348d2bd243614ae1dd557b37d6bb1f961f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7cb4a7800b51255882a981fab86c54ddad414eeeeb0c4e13ce6713c7e5bdd9d9",
+      "output_file_sha256": "72222b71a1d2a50822180e49fde53199911558e2e257cd87777b6dd8fb89a521",
+      "whole_run_seconds": 0.6297708870260976,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0175.png",
+      "low_sha256": "f8d6d08fe36289a97498d474a3cd1584a9f2d365803d3f66b4f9baff9ce31fd0",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2e14b39df4c6c6ce3b5f2f7079798d5190332685434371556d9256f528e53cf1",
+      "output_file_sha256": "c72c4cdeffcf12ff52d933e1bf1b890647128a72b758745d0f337799423f1b59",
+      "whole_run_seconds": 0.6294457030016929,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0176.png",
+      "low_sha256": "897be41d1d39271549b8d0bc76458a0e4a22f884751f45861616f2841523ad21",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "577640caf42d188b9b94535ba65ea97069871bf57571490052cc38fdd39b4768",
+      "output_file_sha256": "232ea00f4efaf9629ac98ec012396d552939d5790bd2019e9f465f4591bde6fd",
+      "whole_run_seconds": 0.6301962659927085,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0177.png",
+      "low_sha256": "9decccdfa27c2776454f7f5aa229e7681702246ba47dce4850d5a08aff5147e3",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a3382ccb76f3f416eb183630400ed5d88d4852e7aae7eb372b1b62c21a47f56b",
+      "output_file_sha256": "fb40a7c0d9c5241e2ca97721926a41c880643e08aaeb417ed6c0e78efc254234",
+      "whole_run_seconds": 0.630115179985296,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0178.png",
+      "low_sha256": "3dcca951ab182ba1240b398fb8a561a55c32ede185fda2feb70c504f7a237f1f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "695e282a407450c6ec3804d27f5c07c956221e4dd18b2d6276dfd1b263c2fb88",
+      "output_file_sha256": "1400835d79af059317806dac0fb48a2d40e3c12dbddcb326a94731d0f8feec05",
+      "whole_run_seconds": 0.6302475119591691,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0179.png",
+      "low_sha256": "606bbf2524aeb70a4e151e1d6313793a173a79c1aab1d2d95ae1d42b609ef23a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7d947ac2d75def50454446c2559a573e8c5d3c433338b581ded4e0b87b726738",
+      "output_file_sha256": "06c7f946775aec04e3235f00879f0cedd22113fe7e360ddfeb1719fe3467a2cc",
+      "whole_run_seconds": 0.6300160469836555,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0180.png",
+      "low_sha256": "6462e40ac76a949929b48e6a05fb6b5d53be513991f1ce8baee36d98d9b7e552",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0547a0e6d8655e8c7e3844883e607e8e78853aea794ed743ff65e1fc65dcef7a",
+      "output_file_sha256": "de0bec7f0a4ddadd72baa7b3ee4a11c6df8a5ad4c0eeab19c8119c15c13a6113",
+      "whole_run_seconds": 0.6290930859977379,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0181.png",
+      "low_sha256": "110ed90e63e8cb7eeeed88472fa6d2a509cec0d58f61b46de62032070d9c94e5",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a5f4bb81e84528117a1066f11953683adbd0d2bb435e99413558709ebfe9e2b3",
+      "output_file_sha256": "13be9428e08b22813a616af4e7816ba6690a97e99a3d9bb2a3aa357f94d462ae",
+      "whole_run_seconds": 0.6285697519779205,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0182.png",
+      "low_sha256": "0a1e0ea3b65aa704f24558869f74c90510857fbe1719b4266242066db4aa133e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fa71adbe14fa67bad3dce4532f02d27c571efe37256e28a5afd7b56dcc30d004",
+      "output_file_sha256": "8317ef1ccb254adf5cc70cf8a2bd85736ea788a0a592096b5bc80f4b0e3d1aa1",
+      "whole_run_seconds": 0.6300379150197841,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0183.png",
+      "low_sha256": "56ba6e5ee0489fe838a62e7eec6f6d52d603fef45742e94f4236013c227e9d45",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8ac6a961de41a934c42a7b73f2c97a62a3a9c0da535efb0c4d2ec60502ae2b48",
+      "output_file_sha256": "5c701fbec3bcc4564fe1270f6fe0511966314efcffecd3f92e51f53477e05e45",
+      "whole_run_seconds": 0.6291263540042564,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0184.png",
+      "low_sha256": "748e7a3bd50a24b108bf54d2eb7398a97deffaf74cd92f0746e805afa3335ed3",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "21aaa9a5ec3c2167f805dfdccba0146b6d8e75f74bd68d36785b2da04b70d973",
+      "output_file_sha256": "385d74e218e68c333d40f3fd6ef753f2393eb6a82e11b7ccd086a0a1dec32666",
+      "whole_run_seconds": 0.6303310309886001,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0185.png",
+      "low_sha256": "8508a386fbeabac0eb46a8c51de57383d660f9a911c3f758d41f97bbb9024065",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e4a4f15495de954b210834be176e9f00af23b1d33a50e2a0a024e78811de4afb",
+      "output_file_sha256": "0f5ba5f5812a16e3f0379f58c491941b980a60684b2b006f1a2cdffd5fa7445f",
+      "whole_run_seconds": 0.6295820559607819,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0186.png",
+      "low_sha256": "53718de9ba8d9c1abf78f881072bd51bea889c5520902a8ef0ff5c4c51b3d46b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9cd34eb6062baad68dc294dfe41aacbf6c4b67e812a70ccb8e439e58e9863806",
+      "output_file_sha256": "4ab854a302df8dc18802b697e3495526ac1ed31f02807c13dc6bf5e0921dda69",
+      "whole_run_seconds": 0.6293063090415671,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0187.png",
+      "low_sha256": "bfb3e7fcaf5faa95ca3c28164c3afae10dc556f2d0728142f456ce43e35390ad",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ad2bf8fb8fcb15861b7574bfd61090e27067c835e03ff948de20057e86c05c72",
+      "output_file_sha256": "bcca46e8664d49cf933a408ca20f783b0890a82b1d17ad6150950f2eac978f52",
+      "whole_run_seconds": 0.6309192110202275,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0188.png",
+      "low_sha256": "23fc96bc37c5cd32a2eb94649c21c6b6065dcaa3275e116aedf346e27cb27053",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1edf444179fea9fffa1d1f2008f2b74f12987771de551d7f8387a2e1bc0050d9",
+      "output_file_sha256": "d4219df0fabf42a1cb176e2ddf67a356f0038d737d3f44c8cf2ed742278cfd59",
+      "whole_run_seconds": 0.6310642280150205,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0189.png",
+      "low_sha256": "6eabea2f50f101183e800bc27d8d45ace68b3cc0b7a6b45d180be1227e7ea353",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9513aff749bffc16d29751c30d4b78cb11963aadfd8aa0a00d38dea4f5b8890e",
+      "output_file_sha256": "3d16e21a9aea972a609924aecde2d356ee91b8d1cfc06646b7cf1526caf0aa90",
+      "whole_run_seconds": 0.6296317630331032,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0190.png",
+      "low_sha256": "bc2c94b8545569abafc422c50eea193f3108569bd1e34506547c5a4fb1e517ea",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cd7da0a36782b9247ab8445a064dfcff0fef00bfb922a46dda63355f720084f5",
+      "output_file_sha256": "a605a6ac86b73524b44a2f8ad9ff9b3cc32eae61f1915d0df958d66215cff7ff",
+      "whole_run_seconds": 0.6279868559795432,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0191.png",
+      "low_sha256": "507b876b05bd144dacf1ed056555dc7bcecc26d185dc9603cbada386660bf81b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8c2ffdbf4d5573f8383c51c207fac5306a5c6437d3edd082fcd8d666f023efd0",
+      "output_file_sha256": "c667e18d6607c544b8a7ff574efefc7b1bb903a8264218044dbd5b2b0004f7e4",
+      "whole_run_seconds": 0.6303831069963053,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0192.png",
+      "low_sha256": "1215e4557f943ed26996c72df629c642aa5a9dca455b150b9a929187bf0457da",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c999b89c81389df545f074d8b733451be6609255b72c57e1a6006880ddd0021b",
+      "output_file_sha256": "5fe76fcdc1a3b8ef73259e46f1e2570038e58a3d26b30e8f69e6773415309065",
+      "whole_run_seconds": 0.630080567963887,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0193.png",
+      "low_sha256": "5c08a187b89633f88079ebad71eac6e245488e4b70628b3eef36b64f29543263",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8e1b6235c8bc5936f3027ffcb5390124d07cc1478602dda1976722a10b87c9fd",
+      "output_file_sha256": "3d66d86079763186a9c5d88d569a6f926b557b14cbc502d8e0f88c1b16305587",
+      "whole_run_seconds": 0.6308373310021125,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0194.png",
+      "low_sha256": "a0731b58a746f4029dd4bb71008f04bb1afcca314d9bae75f967b0a3cebe0675",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4f0f22ab2b6c89a26be63a4e0d0177eee2f2d2dded7b43b53976d05c8e0d0d05",
+      "output_file_sha256": "198aef40893d262d891e7d17b57220265e0ae4fb8f0bc061a254e96d95c3903a",
+      "whole_run_seconds": 0.6301300170016475,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0195.png",
+      "low_sha256": "772fedbdfa11c3dcf7c5584139c99bd3f5f9fc1a62c34336b7b4ac53bb2969dd",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "552ba2c5f34cbdf606749e9be5f3fece899da9a3cac66a09d7fe7eed12e92203",
+      "output_file_sha256": "438344c02cc23cd6436811c5633ce8748d42055c96e5694374b4e82a9cf15b0d",
+      "whole_run_seconds": 0.6299330820329487,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0196.png",
+      "low_sha256": "c1a55bc5160bfe6f2ad32b2400503219f4756c8cac8ece1149de304badbffd2f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e17b2f1454a4b12be08a8bc0e4caaa3df6e31c9ca9a371de7bf7b5a948a2bf9c",
+      "output_file_sha256": "fd0fbfa0df103fc4a452089f413078f5fd14e2147fae25ab4fd8ef6363be6aa9",
+      "whole_run_seconds": 0.6302130629774183,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0197.png",
+      "low_sha256": "f849738ed0bd65a280632a3f0d92ac754d72ab12341a9ba71d035b617a9c4d39",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "010fea11296f678de48176ca580b43df05a90298f0fb1b75ff6edcd51b6790d7",
+      "output_file_sha256": "37064b0268da82b8555a82d765768ef0a95283a3d313056f6cf1dca351abf209",
+      "whole_run_seconds": 0.6287451310199685,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0198.png",
+      "low_sha256": "5cd92df5c33ed5ee6aef6b0e2fd92a9a26455c8b24db70f84be7149b13fd1906",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "439a7ad88f0d6db7a35bb84772fbdade945daebcc9685a56f6d325ae38ab59c8",
+      "output_file_sha256": "3e84a872e0f39409ab5cdb5bb15ad6f07348633e5059f5ebb2d34c74c6959073",
+      "whole_run_seconds": 0.6293532039853744,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0199.png",
+      "low_sha256": "45eaad970b603ec8554a56650765c763775b1cbe9b61d846bc3feef77735bb1d",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a2f2efc7ecedde9c71fce1d3806264b087f07d9979a294710fdb9e497fc1997d",
+      "output_file_sha256": "1b4a4a45a3a4c83baec54f78924ebf144cab54ab39b2a0ee3b2c0facb175c7c4",
+      "whole_run_seconds": 0.6297917710035108,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0200.png",
+      "low_sha256": "be7ba88de0aeafdf47bc681085abd415ffff0462d1f6949e236ac07337beb37b",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ab555c1c652f79f600d07e7971f3d0bf24c09cf1d9dbeb261f16e198374574ab",
+      "output_file_sha256": "e7c0f2fe28b484cbde7d6cd6892c3b52b1d9b001f85b6608315538c028de2ca5",
+      "whole_run_seconds": 0.6306162779801525,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0201.png",
+      "low_sha256": "ec40639d573eb7d31fd0a17c2def82dcfbef2e3b49346b4b8f813883806c8dab",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f47040836d3c34bc58b5db20c8f8b6e541d42ac606528fe648ad5b553ffc7b19",
+      "output_file_sha256": "5019826d1374a201095192734b998f29d0d12d3167015428a3419e286f2430a9",
+      "whole_run_seconds": 0.6303628790192306,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair4__0202.png",
+      "low_sha256": "7d69512b52626ea4ae5697017f7284bbb95755dd43b9a1d70a331f2a2c0e321a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3a64b02c541a93a00e4ec25fd321044cabb2e4ac4d471b37a635cbce7b8ec23a",
+      "output_file_sha256": "53a1cf18f3ff4c009cfaa51ba286d18c5bd77cc868b6f0948d722e95f0c9c95b",
+      "whole_run_seconds": 0.6312309780041687,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0191.png",
+      "low_sha256": "5ce0aa0b472d2a93f3bdc1c900a24937d90e318a69eeae964eefe40eff675b84",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "aab716bdbc33f36f9664cd71bc7b64c2938978ef2c705f9ebe7d67e10d2d36c0",
+      "output_file_sha256": "87e1f897e3176f2c54053da8178c7804f33dea87dda7e834d87bbd82c1215f7c",
+      "whole_run_seconds": 0.6260693920194171,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0192.png",
+      "low_sha256": "9b271a9d1e66ca443e7a0b674d74a2bd63a5d975b984c9a60095cf268e99ff94",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0f8d9e4f6170539cfb0be49a07435a5f35b207afce41e4026b92e08c556de1e7",
+      "output_file_sha256": "ecce2f497731890d196e54931b448479a3d02628ce8d82a8451d36463435a538",
+      "whole_run_seconds": 0.6257222739513963,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0193.png",
+      "low_sha256": "374790c3227ff38b773e73e0a7f2c6f54d5e0607761edcbbba565c6abb612f79",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "01a42450855cdaa935157d9aa389b453bb7fa053645210b323ad00d4d7e469ce",
+      "output_file_sha256": "152acb241ad4b8fe0228abb1e6034e874aeefa8db22aea49b8dc25fe42f2d551",
+      "whole_run_seconds": 0.6252559939748608,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0194.png",
+      "low_sha256": "fb4bb449de063c4fce05ea874248fb58324d3d1be480d11c809308a87b9df433",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "96486d2599805efa91e7fb57642a311239e112b21c4608c433176ee55a6cce30",
+      "output_file_sha256": "574a78da792a1b4f788219a71c8724e2a03c221eb45c9dce39d114657efa90af",
+      "whole_run_seconds": 0.6258133929804899,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0195.png",
+      "low_sha256": "72157c979187c5c81005df7104c510b54f636d49c1303221940d0a713a7d9f36",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a0d875001d6c6d71b8624a4e9aede08e47206bba2d4cbe19d4b3f848333bf7cf",
+      "output_file_sha256": "5bb49d9782907c1c7f90f0e3bb05b9f31013d01a20ed96632586c4cb10409705",
+      "whole_run_seconds": 0.6243680089828558,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0196.png",
+      "low_sha256": "39f771ad90bb9d4e102e483b9f30c9acfc710b0d3905eae520d31756cb1b4952",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "30438443e64967340c9ad5af9c1c3e115236f69593fc60ec59c9448820c660f5",
+      "output_file_sha256": "d18f3bf14055703e743fd9e5ca2c5d32fe26c6dcd93915ea710328cf94aead60",
+      "whole_run_seconds": 0.6283216240117326,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0197.png",
+      "low_sha256": "d1182167198a150c77ac27f68d705c442447e884b8f6ff1f7ea7cee51d03d1a4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "84fc71d2c5a23be69d2f68b5c88c854f31257bd32c591f8299272a5be66c46c2",
+      "output_file_sha256": "df8ef6c0c59487579b85fefb1c4b982779754772cb1e236dc2a56b736acdcd8b",
+      "whole_run_seconds": 0.6278623300022446,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0198.png",
+      "low_sha256": "fee0894997d829a6185f75198c6d88fe6e22d1a82587d161966e5939db919f4e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "65c724724bac4b6892ae579e30fce74b0a9d60a9ef3113c8308038b9386c3f6a",
+      "output_file_sha256": "fd1baacb8b9bad870e99852f845cb0a1f222f9f4305fecc3401f155010b4a88d",
+      "whole_run_seconds": 0.6252923370338976,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0199.png",
+      "low_sha256": "b997397b58bf74fc5e96aea06407191a8b44580c982447b74e1bdacbe3e71f82",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "55d15949a19195a6db92c93b382637c4bacb48859e9ec02aee0f27008abceced",
+      "output_file_sha256": "30111c59cef87654c9d13d81514ec81636f7fde37bbfff98b02b5a55d6e36339",
+      "whole_run_seconds": 0.6262763779959641,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0200.png",
+      "low_sha256": "a4b5383f6d269acaf912826635da555df40b45d4d5b0309aaa864d5a13ba8e7c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d814347c42463acfee04e1ffdb589ad56d446995fe8a2af0b4c1e9d5330e892c",
+      "output_file_sha256": "959864f426d20ceeb4556f94d46649825e2b8322b837fe1fb6baf1072d557423",
+      "whole_run_seconds": 0.6248722820309922,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0201.png",
+      "low_sha256": "83799c4ce00af70a1a360970e4a34ec50eab328e3f273580942587359e3a6415",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "dd32d8238d417c998ea7e47b4701224cd7218e71ac330cddb564797137be9575",
+      "output_file_sha256": "31d5a924b007f34fd5c01f962e1e40d0b57ce8d44800bae7236bc78145c60bf2",
+      "whole_run_seconds": 0.6262041190057062,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0202.png",
+      "low_sha256": "5d6bad9b971ee4b4162068f69551daac0840862802f0777bd0c37aa9969f744e",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b41af623dbe202607ef7d36db4c01e89012ebd2171dad2be1d9366db03c366ed",
+      "output_file_sha256": "0c628567f10682d2e275dab2f28aab9ba818c8e484d8f59a72975ea7c442ec85",
+      "whole_run_seconds": 0.6259154980070889,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0203.png",
+      "low_sha256": "921b90156e73a85981ff410d4056df45bb449241a730dcb0e50c213f196bc271",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "795827c963de99a8346de1074ddb100bdf6e0c815f531729e44e760298d4c72c",
+      "output_file_sha256": "5dbffc0ecde9c14de770ed5c36b17b2cf6ef66c9dee3a3cf1608be4ed942df3e",
+      "whole_run_seconds": 0.6257618559757248,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0204.png",
+      "low_sha256": "885c9ef95d9b19ffc92aa3138fee7b3186b42a8c77d69513621263832700f17c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "723c9fab413a51642d98ff42105042431ed75da1f04e3fd674aee4bab5b47363",
+      "output_file_sha256": "b64638a12babd19bdbf74ee36a6c61b4abd538e22dca8b38015f2005ddb7c13c",
+      "whole_run_seconds": 0.6263729199999943,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0205.png",
+      "low_sha256": "a720592c7ae3edf13d99d733433fb364f488952b301d621d8a108673516dd04c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d2f3cf74a35461dbaac316ef98fef8c4d2f0adea90b11dd88064ce6b6ab9c00f",
+      "output_file_sha256": "4a760954c16d7b0f6fd5a0b5a62290c80de3bd31e8c58e06e61cdfad31678f31",
+      "whole_run_seconds": 0.6255573320086114,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0206.png",
+      "low_sha256": "8d34dec5a143f6d39b6b7d11abf622926ca70fe8e332882c91862ad534f45fd4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "91af0550e1d548992039fedbb6b21a5da028d345b4bd48178dd0e8daab700008",
+      "output_file_sha256": "426a533a74d9450e7051841c8cdfdf70f4a68b96dbaeeccfbfe6bea350d57d22",
+      "whole_run_seconds": 0.6248789199744351,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0207.png",
+      "low_sha256": "3edfd9ac22aace4aa1778452756767c915162f5cc0597ec4b250abca44a7902f",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "99f6f782ead2c83978c07127752a441a510cbd961ae1952812101d54a8b9dcc7",
+      "output_file_sha256": "2fcb9a8147ea57aeba3b646ec1b5aa8cb654cc5c247773ca62a532bd14b0e057",
+      "whole_run_seconds": 0.6257831829716451,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0208.png",
+      "low_sha256": "083fc257b769b62c750c9475045ef2a648e4198efc603898604efed312fb4741",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "10bb3c857a24504828a65e9fb00accab5d290f371aa734affdbd9f48a6c82a51",
+      "output_file_sha256": "9190d2e4da98a2e76505b43b6789d155b91e0c47488578364ce4db0ef1704bd6",
+      "whole_run_seconds": 0.6250001110020094,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0209.png",
+      "low_sha256": "39c3fc6e008ad9825277e78956bc183e1574a32522cfbf6c10de4aedfa5a400c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9096c3d053c5c779926168912e8ff5fcc404d7d636df509d36ac2d5718af8942",
+      "output_file_sha256": "f323249852f2cd10fcd07c0a519e650d6f674031a27451388cc5670e8a6dc135",
+      "whole_run_seconds": 0.625704001984559,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0210.png",
+      "low_sha256": "18cb3c76c85163c9d413b653739791197d06d8ee1e0f82eb7e0d539887fe1c7c",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "39fda653d59764408f5a1a871ebd93d35a1e14d1b7966c6dea09ab8428187538",
+      "output_file_sha256": "9f782b912a32269aa50eea65cb7067d366331e3b5a39466c70b31bc79d4e818c",
+      "whole_run_seconds": 0.6262960390304215,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0211.png",
+      "low_sha256": "be9ecb61382cf97db7ea2f5ce7dd517cfa6998d32ae093ef106c0b314444fac4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "30b30a818fab2307474aa49af47e3676449bf694725f9266dcda762b9c86550e",
+      "output_file_sha256": "65bd20b164c3def63377eea36600e986bc79f1078e7df21652e47af1c4beed90",
+      "whole_run_seconds": 0.6263649470056407,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0212.png",
+      "low_sha256": "d281d47b0dd8133f2209cc3950844dc2b15a8729bef8cfee387e6f9870356668",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1c8d1fab00f08f7b22d362c980db894cdc40258280e354d61aa995723b85c6cd",
+      "output_file_sha256": "5023f3d7eede691e777ad1d65da50535e56539fb17498d7857cedf2e09d176ab",
+      "whole_run_seconds": 0.6259263550164178,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0213.png",
+      "low_sha256": "9fba3bb6b3773306138a855a4a296a735999a1fc968046e546d912d66ec671c9",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6a17e36c15866712b3a72a75464ed6e34378599b1fa6b5813f0716aee56c1b4a",
+      "output_file_sha256": "7cfb90fc4986736c4736fcff9335e697eeccf06a5c7bf4bb260075078d353776",
+      "whole_run_seconds": 0.6265364690334536,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0214.png",
+      "low_sha256": "49dda961a7d32a903acb4e776bc0e45e547d3773b3914c620ffdf40e70b2bf77",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a6298fa44cdffb8f4e1b29df29e8d2f06b8d8f5932e801f23a64d1105efde9d1",
+      "output_file_sha256": "43b82536a14683e6d7f94dff59a29ba3bf1734a02c2cdbadcf072d04acfadd86",
+      "whole_run_seconds": 0.6263382589677349,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0215.png",
+      "low_sha256": "ab22ac3632079eeb37719277f6f6797beebb1dd162da33dff4718f6199b35006",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4f123c8816a58b693a0fa1734f7fbbea0fd7df5b2809e620d4f1f26c9d63518d",
+      "output_file_sha256": "6e7261578151b5ce698bc33ff877c00ad5e7d78b37775c2c5681f644b6624fe0",
+      "whole_run_seconds": 0.6262619029730558,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0216.png",
+      "low_sha256": "339d53bb71635ca24c6935293c24500d74c99367f4f69e70ada63f8d8bfbb49a",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "50d4f62f0f08c3964293d8dacdc64f5df401e04d1f9ddfca6440f6d3643c9e16",
+      "output_file_sha256": "02f6bf7ea7cf100684a4087b9ddf2850543c0aa621c0f0f54e17fe5c9179f94f",
+      "whole_run_seconds": 0.6262582080089487,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0217.png",
+      "low_sha256": "d88fd890a68d48a1c9fef73a6dbd946a0bd281173e0799d3a684f56ec1b133a4",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b3dddbf853eb13ff3671f0b7addd1afe5bb1c129032e05d845c0e82eb3c49c61",
+      "output_file_sha256": "0a9f0090af0cdcd6f608fc55c8bbfff0385ae4f570d816348a7dad065db77ae0",
+      "whole_run_seconds": 0.6265462950104848,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0218.png",
+      "low_sha256": "b5b3f199047d845ea955288db9db39c19dd8a1be26491738dfcbe550c111e118",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c016c1b7ce6ef308cc84974c5298f0633ffa09efccbb3071f8d9c436e3876f20",
+      "output_file_sha256": "4f65e0aff3f77b1272e3915520d3b7f4952ae9d89b10927a36b2d3846e9996c9",
+      "whole_run_seconds": 0.62643104797462,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0219.png",
+      "low_sha256": "3216e91d30f43b25f6f207bc72f818e068ca84a3eeb79c2e5d9e5b5b6d9b74a7",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ac1b8a767ddbf7536c7875a19be9b047c5339e673a55d0be1148d63a15e095c9",
+      "output_file_sha256": "b825ae8e5fb05d9631b93a753218cfcd98d5490e11d5b52cf9ec5ef8233a2d84",
+      "whole_run_seconds": 0.6275560559588484,
+      "peak_gpu_memory_bytes": 5844762624
+    },
+    {
+      "low_name": "pair9__0220.png",
+      "low_sha256": "3923d378e782d62300237468e52b6af84663a856b84d92ee01f9d3045abb3c22",
+      "shape": [
+        1,
+        3,
+        512,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ffdc3cf0a7ae95963e0b6117fd520b58b3f0afabc07226defaf6fc79aae0edd8",
+      "output_file_sha256": "649f629a396943bc4d88ebaa1af81ddb5929869a9489e7fffbce0fc0345cba8b",
+      "whole_run_seconds": 0.6276095630018972,
+      "peak_gpu_memory_bytes": 5844762624
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "input": "torch.manual_seed(23) synthetic 352x352 float32; gate.active forced all false",
+  "modified_probe_only": "removed gate.active.any assertion from in-memory trajectory copy",
+  "all_images_equal_step0": true,
+  "all_states_equal_step0": true,
+  "selector": {
+    "status": "frozen selector asserted on zero improvement"
+  },
+  "reference_reads": 0,
+  "target_model_runs": 0,
+  "metrics": 0
+}

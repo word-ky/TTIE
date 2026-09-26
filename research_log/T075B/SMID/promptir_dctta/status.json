@@ -1,0 +1,21 @@
+{
+  "task": "T075-B",
+  "method_id": "promptir_dctta",
+  "target": "SMID",
+  "classification": "BLOCKED_PREFLIGHT",
+  "recorded_at": "2026-09-26",
+  "smoke": {"status": "passed (non-promotable)", "dir": "/root/autodl-tmp/TTIE/T075B/runs/SMID/dctta_smoke"},
+  "sealed_adaptation_order": {
+    "path": "/root/autodl-tmp/TTIE/T075B/runs/SMID/dctta_order/adaptation_order.json",
+    "sha256": "a8ed33b41d154278c4b38ec9d83871b04a19141e50ce7df9a549d78ed9c219cf"
+  },
+  "full_run": {
+    "exit": "AssertionError at run_dctta_generic.py:190 (disk preflight), before any adaptation or model forward",
+    "cause": "preflight requires free >= OUTPUT_BYTES_PER_IMAGE (96 MiB, inherited 4K constant) x 1470 + 1 GiB ~= 139 GiB; ~43 GB free; real need ~8.5 GB (projected from smoke)",
+    "adaptation_performed": false,
+    "runner_sha256": "b431be2a010477063d749f4fe32cfc1287cc25642991fda082b121a69090c48a"
+  },
+  "pending": "execution-only runner change (geometry-derived preflight bound in make_generic.py / run_dctta_generic.py); the edit was denied by the permission classifier and awaits the user's decision; then full run with --expected-order (sealed a8ed33b4...), verifier, freeze",
+  "target_reference_reads": 0,
+  "target_metrics": 0
+}

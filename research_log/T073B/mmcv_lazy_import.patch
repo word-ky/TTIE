@@ -1,0 +1,21 @@
+diff --git a/net/model.py b/net/model.py
+--- a/net/model.py
++++ b/net/model.py
+@@ -850,9 +850,6 @@ class DGRN(nn.Module):
+ 
+ from torch.nn.modules.utils import _pair
+ 
+-from mmcv.ops import modulated_deform_conv2d
+-
+-
+ class DCN_layer(nn.Module):
+     def __init__(self, in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1,
+                  groups=1, deformable_groups=1, bias=True, extra_offset_mask=True):
+@@ -907,6 +904,7 @@ class DCN_layer(nn.Module):
+         offset = torch.cat((o1, o2), dim=1)
+         mask = torch.sigmoid(mask)
+ 
++        from mmcv.ops import modulated_deform_conv2d
+         return modulated_deform_conv2d(input_feat.contiguous(), offset, mask, self.weight, self.bias, self.stride,
+                                        self.padding, self.dilation, self.groups, self.deformable_groups)
+ 

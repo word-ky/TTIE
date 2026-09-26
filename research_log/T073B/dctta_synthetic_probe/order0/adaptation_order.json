@@ -1,0 +1,53 @@
+{
+  "checkpoint_sha256": "206baf0dd10f636f025b33b5ee7eb63a353fcbf4d50858b62f9480a6d4be9d4a",
+  "low_receipt_sha256": "2aacd18a3836dfabeda475933e44bc64800a723546edffd62c3944f80e7f264a",
+  "wavelet_sha256": "8b153d20d0d677f93721b7ee81f2ba9736dabf86bf125e62612ae47e2e87e5ac",
+  "options": {
+    "lr": 0.0002,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "batch_size": 1,
+    "num_workers": 0,
+    "patch_size": 320,
+    "iterations": 1,
+    "compute_fisher": 1,
+    "fisher_ratio": 0.6,
+    "teacher_weight": 5
+  },
+  "seeds": {
+    "official_set_seed": 23,
+    "train_dataset_reseed": 42
+  },
+  "adaptation_scope": "all_target_low_domain_level",
+  "torch_version": "2.3.0+cu121",
+  "fisher": [
+    [
+      "syn1.png",
+      "83e742db0c89d978ee4235a33adb176ee575cbc49645ef99db4d4c4973fd69cc"
+    ],
+    [
+      "syn0.png",
+      "5e084b326f3b42f6931732baab8606059930f1da146e59354f6988f9a539bece"
+    ],
+    [
+      "syn2.png",
+      "73208d1cc25cc8e1183720ef1f4cbdd48af676962015eec120d75f02c0700f88"
+    ]
+  ],
+  "adaptation": [
+    [
+      "syn0.png",
+      "4720e766ab8d8a80ee886773da982a9d2063e29c047df23c363fca0367a7a000"
+    ],
+    [
+      "syn1.png",
+      "b99df68dbcf9659812547a51a2e71b34424a5eb0ebd33c208646ca15b62664db"
+    ],
+    [
+      "syn2.png",
+      "e4d7ffade1b73a5fe6f104f9f4309cfe28a90047f2939e3fa08d33899c2bbfd6"
+    ]
+  ]
+}

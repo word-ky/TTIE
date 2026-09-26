@@ -1,0 +1,85 @@
+{
+  "task": "T074-C",
+  "classification": "T074C_REFERENCE_GATE_OPEN",
+  "target": "SDSD_indoor",
+  "display_name": "SDSD-indoor",
+  "gate_code_sha256": "0337576c8f406f5f5ae2ba75966b434ddc87189fe7a8dbdb58bbb70f146db301",
+  "low_receipt_sha256": "19138a9c1fef4e1d3a6ffcf6f0bf9dcb3b5b64453682f7424a3ea5f749512978",
+  "reference_opaque_manifest_sha256": "dd7415dd7a8f212eeed8d7adf23e2948c0687937c63a5384f634ead655d722a2",
+  "stage_script_sha256": "7f6ff8bc901eee6cbce987535f9197a6342442788883e6dbe1c7ae9e23c9b902",
+  "count": 180,
+  "cluster_count": 6,
+  "required_rows": [
+    "retinexformer",
+    "snr_aware",
+    "promptir",
+    "promptir_dctta",
+    "mr_illuminate",
+    "quadprior",
+    "ours_step0",
+    "ours_ttt"
+  ],
+  "rows": {
+    "retinexformer": {
+      "freeze_receipt_sha256": "dce2328eedb2d3b9a05e6f897b39efb50c619d56be86c54609db279fd7357071",
+      "output_manifest_sha256": "51637ecd9e35695ac49ac61507dbb18188634548cc18ccb5a9b0f7ca62a9556e",
+      "verification_sha256": "b127f5c6673434aba0ea73227d1c8900af2b277d503b6809712a8218934efddd",
+      "verification_classification": "T074B_RETINEXFORMER_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/retinexformer"
+    },
+    "snr_aware": {
+      "freeze_receipt_sha256": "246d84e61e25cf16f7fca9582f7b61fe7b9462a21e38fba77fd61d5e1cf09b18",
+      "output_manifest_sha256": "cf2575736b350a571944272d080309678940af1901936d10dc9982cc80b7ed04",
+      "verification_sha256": "2aa0641888d038888e036cae1ddd87c581508721599669b3f4ed9202a05e4fa4",
+      "verification_classification": "T074B_SNR_AWARE_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/snr_aware"
+    },
+    "promptir": {
+      "freeze_receipt_sha256": "005180c6a788964aa5677b401dc7734145f1dab7d40a78e23f57dbcf3c416003",
+      "output_manifest_sha256": "0f7ba93f7fcb8f4d74b40a7353e48515190c2dd00b4a83239896b2538e4deacd",
+      "verification_sha256": "4a67b855f741fbb2be925cde731f5e8d3e9e2968ec196b57557299a0186c0e57",
+      "verification_classification": "T074B_PROMPTIR_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/promptir"
+    },
+    "promptir_dctta": {
+      "freeze_receipt_sha256": "146ed556b549dd6a31fa48b2cf2563b5b22bf80cc19d070b78757d79e0fa4881",
+      "output_manifest_sha256": "21eddec22b410dbb53e9728f91c3f6eab8077bbb8f0a365212d9ec48130bed6b",
+      "verification_sha256": "a10fe6536045ea158e98ed9518247dbffc28c2121cb07fdbdcbd5639c2c04b66",
+      "verification_classification": "T074B_PROMPTIR_DCTTA_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/dctta"
+    },
+    "mr_illuminate": {
+      "freeze_receipt_sha256": "aeb8f78e26a504055db2018a43e4f8d69b4d3a0ec2eb7875392b4307f800f4b3",
+      "output_manifest_sha256": "1a19abcf0f7dafdd445011eb3c7effb9a4ba97c638670dd196a716a61f9e5cae",
+      "verification_sha256": "686003a9812410967b93d93f9b05905d74395346d5d1ca08016a1796a00f4359",
+      "verification_classification": "MR_ILLUMINATE_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/mri"
+    },
+    "quadprior": {
+      "freeze_receipt_sha256": "c396d8c53446f6452987fda21aa6dcec976cf36f02d608faa136e525be459c5a",
+      "output_manifest_sha256": "3833aa4b2d1385d31c68eabcc6c204639f22249211ad9266d61aa69114d3c96d",
+      "verification_sha256": "f22048c5b0c78732fb28b16c07687fed89842159fb95f5bea76da9ef07644924",
+      "verification_classification": "QUADPRIOR_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/quadprior"
+    },
+    "ours_step0": {
+      "freeze_receipt_sha256": "a653e53e7d6ef9c52924dc732d2d086e87d685aebd438f871288ae9c8f8c4256",
+      "output_manifest_sha256": "8a603c50e60e951c3a2724d514ed072d364e670fb6d0958265e73cf46703db61",
+      "verification_sha256": "49f457f610fcb692499acaa9013797f7614ad60627aff2bc60de72653c506463",
+      "verification_classification": "T074B_OURS_STEP0_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/ours_step0"
+    },
+    "ours_ttt": {
+      "freeze_receipt_sha256": "3748081d982c8dfc113de0612a1699b3153b9caed8ccb587e79b7f91f9ea69d6",
+      "output_manifest_sha256": "a85a8e49ca40f482da3d3f23db84cd83760d5b3b9049694ccf7a5d3b05d7655a",
+      "verification_sha256": "ab239daaefc0431a86f180f6238a38f06ef9b3998bd9453dc5fea1c0f23f3a23",
+      "verification_classification": "T074B_OURS_TTT_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T074C/runs/ours_ttt"
+    }
+  },
+  "ours_ttt_no_active_abstentions": 0,
+  "target_reference_reads_before_gate": 0,
+  "target_metrics_before_gate": 0,
+  "created_utc": "2026-09-25T20:38:03.759222+00:00",
+  "output_files_rehashed": true
+}
