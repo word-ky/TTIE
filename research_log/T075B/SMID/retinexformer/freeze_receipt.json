@@ -1,0 +1,61 @@
+{
+  "task": "T075-B",
+  "method_id": "retinexformer",
+  "target": "SMID",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 1470,
+  "preregistration": "research_log/T074C/prereg.md + research_log/T075A/plan_and_amendments.md",
+  "canonical_low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+  "runner": "research_log/T074B/run_retinex_snr_generic.py",
+  "runner_sha256": "901096cfb38cbb1ea47bca4e7f93afdba188d5c1420b50236be706c71ed3b98e",
+  "smoke_manifest_sha256": "971cce248f06c656078fcfb3783e2649840e724879b8185f5a6e9ee63fac33e2",
+  "smoke_promotable": false,
+  "manifest_scalars": {
+    "method": "retinexformer-lolv2real-generic",
+    "promotable": true,
+    "count": 1470,
+    "bindings_sha256": "36cd7cdf3a2e8b885948b2ee420ffae459ef3c6a457477021653052cd01da012",
+    "checkpoint_sha256": "539bd16c4da6179e45616329f249c4672951b1045193428e1d042c50d4b65a0b",
+    "config_sha256": "5260d0c65878f6a39712f70948be1936d8583531491d832cb59362fffba894ac",
+    "accepted_binding_sha256": "a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00",
+    "low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+    "query_row_schedule": false,
+    "parameter_hash_before": null,
+    "parameter_hash_after": null,
+    "whole_run_seconds": 417.32086929603247,
+    "gpu_name": "NVIDIA GeForce RTX 4090",
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock",
+  "process_env": "CUBLAS_WORKSPACE_CONFIG=:4096:8, OMP/MKL/OPENBLAS_NUM_THREADS=1 (as T072-AZ)",
+  "verifier": "research_log/T074B/verify_generic_outputs.py",
+  "verifier_sha256": "de2b3c51db7e5c2bf2ac9111720dbcad6f0fc6f6e76e9662781989fa339196e5",
+  "output_manifest_path": "research_log/T075B/SMID/retinexformer/output_manifest.json",
+  "output_manifest_sha256": "591ff5d00a2eb7082549f8bd9dfc0c66d491a60175a4eb1c4302d31e569ec00a",
+  "independent_verification_path": "research_log/T075B/SMID/retinexformer/verification.json",
+  "independent_verification_sha256": "728149cbe813adb0ba01d99d6d04a64f226d1c16c29138209a5f05833d0b8778",
+  "verification_classification": "T074B_RETINEXFORMER_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 0.2834827264887281,
+  "per_image_seconds_sum": 416.610024904483,
+  "max_per_image_peak_reserved_gpu_bytes": 1981808640,
+  "compressed_output_bytes": 7481490667,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SMID/retinexformer",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false,
+  "host_load_context": {
+    "full_run_window_utc": [
+      "2026-09-26T06:41:36Z",
+      "2026-09-26T06:48:34Z"
+    ],
+    "loadavg_1min_samples": 9,
+    "loadavg_1min_min_max": [
+      3.93,
+      12.85
+    ],
+    "monitor": "logs/load_monitor.log (60 s samples; started 2026-09-26T05:21:58Z)",
+    "gpu_exclusive": "flock /root/autodl-tmp/TTIE/gpu.lock (GPU jobs serialized); CPU shared with other agents' jobs"
+  }
+}
