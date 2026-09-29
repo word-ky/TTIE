@@ -1,3 +1,9 @@
+## 2026-09-29 18:15 +08 — SID complete 18-row main comparison; ceiling pending
+
+SID's full 598-image/50-cluster/18-row post-gate metric job exited 0. `reference_reads=598`; source/local per-image JSON SHA256 `b66dcbb538ad1bfedb42b84bca12486ec0e402a5223600534bf892453bf1dee0`, table `24224f5f1f941775835175478f9d8dd3424c7df100066ab0d0ffcf6aea09e6ee`. Committed outputs live at `research_log/T075B/SID/metrics/`. Ours-v2 default 15.1166 dB / 0.4264; SDSD knobs 15.5591 / 0.4382. Best PSNR baseline is QuadPrior 15.8107 dB, best SSIM baseline QuadPrior+D 0.5162. SID target-test-GT ceiling is **not run yet**; SMID round 1 still holds physical GPU0. The poor PromptIR+DCTTA SID row (3.0333 dB) is an observed failure, not a justification for an overall Ours-leading claim. See `research_log/migration_20260929_A6000.md` for gate/run/hashes. UHD-LL references remain sealed.
+
+---
+
 ## 2026-09-29 18:00 +08 — SID reference gate passed; metrics in progress
 
 All six previously stripped SID +D controls were restored 598/598 with their original compressed-file/tensor hashes, and MR. Illuminate+D was independently verified and newly frozen. The 598-image, 18-row SID reference gate passed **before** any SID metric read; receipt SHA256 `d00932e03bb5c8d7596696cd8529206647550b1d19422097f36c2b6a24b950fd` is committed in `research_log/T075B/SID/reference_gate_receipt.json`. SID 18-row metrics now run as `20260929-174736-ttie-sid-gate-metrics-cpu`; no SID score is claimed yet. Exact executed v2 source was imported into Git; A6000 Linux synthetic suite passed 18/18, log in `research_log/migration_20260929_A6000/v2_source_tests_a6000.log`. SMID ceiling round 1 remains the only GPU0 job. Physical GPU1 has stayed idle. The large historical SMID output archive is still being copied from the paid host and must not be treated as migrated until destination SHA256 matches. Full recovery details are in `research_log/migration_20260929_A6000.md`.
