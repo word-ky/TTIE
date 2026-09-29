@@ -454,7 +454,9 @@ def main():
     p.add_argument("--gate-receipt", type=Path, required=True)
     p.add_argument("--rows-dir", type=Path)
     p.add_argument("--stage-target", type=Path)
-    p.add_argument("--manifest", type=Path, required=True, help="frozen T070-A execution manifest")
+    p.add_argument("--manifest", type=Path, required=True, help="T070-A execution manifest for this machine")
+    p.add_argument("--frozen-manifest", type=Path,
+                   help="original execution manifest when only the machine environment differs")
     mode = p.add_mutually_exclusive_group(required=True)
     mode.add_argument("--grid", type=Path, help="round 1: declared grid (tuning_grid_round1.json)")
     mode.add_argument("--round2", action="store_true", help="round 2: grid built from the round-1 log")
@@ -492,7 +494,13 @@ def main():
             "DEFAULTS differ from the frozen gate asset")
     frozen_ttt, frozen_sha = load_json(ctx.rows_dir / "ours_ttt" / "output_manifest.json")
     require(frozen_sha == ctx.receipt["rows"]["ours_ttt"]["output_manifest_sha256"], "frozen ours_ttt manifest changed")
-    require(frozen_ttt["execution_manifest_sha256"] == model.manifest_sha256, "frozen ours_ttt used another execution manifest")
+    if frozen_ttt["execution_manifest_sha256"] != model.manifest_sha256:
+        require(a.frozen_manifest is not None, "frozen ours_ttt used another execution manifest")
+        original, original_sha = load_json(a.frozen_manifest)
+        require(original_sha == frozen_ttt["execution_manifest_sha256"], "original frozen manifest SHA mismatch")
+        without_environment = lambda manifest: {k: v for k, v in manifest.items() if k != "environment"}
+        require(without_environment(original) == without_environment(model.manifest),
+                "execution manifests differ beyond the machine environment")
     lows = []
     for item in ctx.files:
         path = a.low_dir / item["name"]
