@@ -1,3 +1,9 @@
+## 2026-09-29 19:00 +08 — UHD-LL frozen outputs still need A6000 preservation
+
+Correction to earlier shutdown advice: the paid host remains reachable, but only SMID/LSRW/SID migration was verified; several accepted UHD-LL outputs remain on its instance-local root overlay. A non-destructive persistent archive of PromptIR static, PromptIR+DCTTA, Ours-Step0, Ours-TTT-abstention and DCTTA adapted state is **in progress** as paid run `20260929-185614-ttie-uhdll-ephemeral-preserve` (`/autodl-fs/data/TTIE/migration-20260929-UHDLL-ephemeral.tar`). It is not accepted until exit 0, hashes, A6000 transfer/extraction and counts pass. RetinexFormer/SNR-Aware 150+150 `.npy` outputs are already on paid persistent storage but also need A6000 transfer. The existing SSH-key `scp -3` relay path passed a small-file SHA test. **Keep paid host open until the complete transfer is verified.** No UHD-LL reference access or new GPU inference. Details in `research_log/migration_20260929_A6000.md`. A6000 SMID ceiling round 1 and its finite continuation remain separate, GPU0-only.
+
+---
+
 ## 2026-09-29 18:36 +08 — finite GPU0 ceiling continuation queued
 
 The A6000 run `20260929-183549-ttie-remaining-ceilings-gpu0` now waits for SMID round 1's exact success marker, then executes the already verified SMID finish, SID round 1, and SID finish runners **sequentially on physical GPU0 only**. Its source is `research_log/migration_20260929_A6000/run_remaining_ceilings.sh`, SHA256 `34ba54f46b773906b1599a35f03e32928de82335059d5b6e0babfce13f4700be` (local=A6000, `bash -n` passed). It was still only waiting at launch; SMID round 1 was 817/1470. Do not launch overlapping ceiling jobs. Inspect both task-owned logs and result artifacts before claiming completion; then import metrics, update the table, and push. No hourly automation was re-enabled. See the project migration log for full recovery state.
