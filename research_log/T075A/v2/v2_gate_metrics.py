@@ -98,6 +98,48 @@ def gate(argv):
     return receipt
 
 
+def _score_image(task):
+    """One image, every row: frozen output load (hash-checked) + frozen T071-A metric (metrics.score)."""
+    import torch
+
+    torch.set_num_threads(1)
+    index, reference, jobs = task
+    core = M.import_frozen_metric()
+    out = {}
+    for row_id, path, row, item in jobs:
+        out[row_id] = {"name": item["name"], "cluster": item["cluster"], **M.score(M.load_output(path, row, item), reference, core)}
+    return index, out
+
+
+def score_all(ctx, sources, workers=1):
+    """{row: [per-image metrics]} in image order. GT is decoded only here, in the main process (ctx.reference logs
+    every read); worker processes receive the decoded array. workers=1 runs in-process (identical numbers)."""
+    from multiprocessing import get_context
+
+    def tasks():
+        for index, item in enumerate(ctx.files):
+            jobs = [(row_id, root / Path(item["name"]).stem / "output.pt.gz", manifest["rows"][index], item)
+                    for row_id, (manifest, _, root, _) in sources.items()]
+            yield index, ctx.reference(index), jobs
+
+    tables = {r: [None] * len(ctx.files) for r in sources}
+    if workers <= 1:
+        results = map(_score_image, tasks())
+        pool = None
+    else:
+        pool = get_context("spawn").Pool(min(workers, 6))
+        results = pool.imap(_score_image, tasks(), chunksize=1)
+    try:
+        for index, out in results:
+            for row_id, record in out.items():
+                tables[row_id][index] = record
+    finally:
+        if pool is not None:
+            pool.close()
+            pool.join()
+    return tables
+
+
 def comparisons(rows):
     pairs = []
     for v in V2_ROWS:
@@ -119,6 +161,7 @@ def metrics(argv):
     p.add_argument("--stage-target", type=Path)
     p.add_argument("--dev-rows-dir", type=Path, help="SDSD_indoor only: directory holding the v2 development rows")
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--workers", type=int, default=1, help="scoring processes (results identical to 1)")
     a = p.parse_args(argv)
     development = a.target == "SDSD_indoor"
     if development:
@@ -143,12 +186,7 @@ def metrics(argv):
     check_derivations(rows_dir, entries, extra_dirs)
     rg.require(set(sources) == set(PREREG + EXTRA_ROWS), f"row set {sorted(sources)}")
     a.out.mkdir(parents=True, exist_ok=False)
-    tables = {r: [] for r in sources}
-    for index, item in enumerate(ctx.files):
-        reference = ctx.reference(index)
-        for row_id, (manifest, _, root, _) in sources.items():
-            output = M.load_output(root / Path(item["name"]).stem / "output.pt.gz", manifest["rows"][index], item)
-            tables[row_id].append({"name": item["name"], "cluster": item["cluster"], **M.score(output, reference, ctx.core)})
+    tables = score_all(ctx, sources, a.workers)
     order, position, sizes = M.cluster_layout(ctx.names, ctx.clusters)
     indices = M.bootstrap_indices(len(order))
     result = {

@@ -13,7 +13,7 @@ import shutil
 import statistics
 from pathlib import Path
 
-DISPLAY = {"LSRW": "LSRW", "SMID": "SMID", "SDSD_indoor": "SDSD-indoor"}
+DISPLAY = {"LSRW": "LSRW", "SMID": "SMID", "SID": "SID", "SDSD_indoor": "SDSD-indoor"}
 KINDS = {"ours_ttt_sdsd_knobs": "knobs"}
 RUNNER = {"knobs": "research_log/T075A/v2/run_ours_knobs.py", "plus_d": "research_log/T075A/v2/denoise_d.py"}
 

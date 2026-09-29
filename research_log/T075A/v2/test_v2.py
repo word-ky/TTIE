@@ -247,6 +247,9 @@ def test_gate_binds_all_v2_rows_and_metrics_run(v2_target, tmp_path):
         gm.main(["gate"] + common(t))
     result = gm.main(["metrics"] + common(t) + ["--gate-receipt", str(t.receipt), "--stage-target", str(tt.STAGE_PATH),
                                                 "--out", str(tmp_path / "m")])
+    parallel = gm.main(["metrics"] + common(t) + ["--gate-receipt", str(t.receipt), "--stage-target", str(tt.STAGE_PATH),
+                                                  "--out", str(tmp_path / "m2"), "--workers", "2"])
+    assert parallel["per_image"] == result["per_image"] and parallel["comparisons"] == result["comparisons"]
     assert set(result["rows"]) == set(gm.PREREG + gm.EXTRA_ROWS) and result["development_after_gt"] is False
     dirs = {c["direction"] for c in result["comparisons"]}
     for v in gm.V2_ROWS:
@@ -351,3 +354,131 @@ def test_knobs_rejection_fallback_is_bitwise_frozen_output(target, tmp_path):
     (tmp_path / "x").mkdir()
     with pytest.raises(RuntimeError, match="frozen ours_ttt file changed"):
         rk.fallback_copy(frozen_rows[1], frozen_dir, t.files[1], tmp_path / "x")
+
+
+# ---------------------------------------------------------------- ceiling row (tuned on test GT)
+
+
+def test_ceiling_d_equals_frozen_d_at_kappa6_and_selection_rule():
+    import ceiling as ce
+
+    x = noisy(7)
+    frozen, facts = dd.apply_d(x)
+    chw, sigma, h = ce.d_numpy(ce.to_hwc_clipped(x), 6.0)
+    assert np.array_equal(chw, frozen[0].numpy()) and sigma == facts["sigma_hat"] and h == facts["h"]
+    other, _, _ = ce.d_numpy(ce.to_hwc_clipped(x), 4.0)
+    assert not np.array_equal(other, chw)
+    s = lambda p, q: {"mean_psnr": p, "mean_rgb_ssim": q}  # noqa: E731
+    assert ce.select_kappa({"4.0": s(20.0, 0.5), "6.0": s(19.995, 0.6), "8.0": s(19.0, 0.9)})[0] == "6.0"
+    assert ce.select_kappa({"5.0": s(20.0, 0.5), "7.0": s(20.0, 0.5)})[0] in ("5.0", "7.0")
+    assert ce.select_kappa({"4.0": s(20.0, 0.5), "7.0": s(20.0, 0.5)})[0] == "7.0"
+    assert ce.select_kappa({"4.0": s(21.0, 0.1), "6.0": s(20.0, 0.9)})[0] == "4.0"
+
+
+def test_ceiling_kappa_row_and_metrics_end_to_end(v2_target, tmp_path):
+    import ceiling as ce
+
+    t = v2_target
+    if not t.receipt.exists():
+        gm.main(["gate"] + common(t))
+    receipt_sha = sha(t.receipt)
+    # a tuned row as ours_tuning.materialize writes it (outputs: copies of ours_ttt tensors)
+    tuned = tmp_path / "ours_ttt_target_tuned"
+    ttt = json.loads((t.runs / "ours_ttt" / "output_manifest.json").read_bytes())
+    rows = []
+    for item, row in zip(t.files, ttt["rows"]):
+        stem = Path(item["name"]).stem
+        (tuned / stem).mkdir(parents=True)
+        shutil.copyfile(t.runs / "ours_ttt" / stem / "output.pt.gz", tuned / stem / "output.pt.gz")
+        rows.append({"low_name": item["name"], "low_sha256": item["sha256"], "output_tensor_sha256": row["output_tensor_sha256"],
+                     "output_file_sha256": row["output_file_sha256"], "shape": row["shape"], "dtype": row["dtype"]})
+    (tuned / "output_manifest.json").write_text(json.dumps(
+        {"method_id": mt.TUNED, "count": len(rows), "low_receipt_sha256": sha(t.low_receipt), "gate_receipt_sha256": receipt_sha,
+         "knobs": {"q_joint": 0.35}, "setting_id": "s" * 64, "no_active_abstentions": 0,
+         "selection": {"tuning_log_sha256": "l" * 64}, "rows": rows}))
+    args = common(t) + ["--gate-receipt", str(t.receipt), "--stage-target", str(tt.STAGE_PATH), "--tuned-row", str(tuned)]
+    out = tmp_path / "ceiling"
+    ce.main(["kappa"] + args + ["--out", str(out), "--workers", "2"])
+    sel = json.loads((out / "kappa_selection.json").read_bytes())
+    assert set(sel["summary"]) == {str(k) for k in ce.KAPPAS} and sel["tuned_on_test_gt"] is True
+    assert sel["selected_kappa"] == float(ce.select_kappa(sel["summary"])[0])
+    freeze = json.loads((out / "freeze_receipt.json").read_bytes())
+    assert freeze["tuned_on_test_gt"] is True and freeze["verification_classification"] == "T075A_CEILING_OUTPUTS_VERIFIED"
+    result = ce.main(["metrics"] + args + ["--ceiling", str(out), "--out", str(tmp_path / "m")])
+    gated = gm.main(["metrics"] + common(t) + ["--gate-receipt", str(t.receipt), "--stage-target", str(tt.STAGE_PATH),
+                                               "--out", str(tmp_path / "g")])
+    reused = ce.main(["metrics"] + args + ["--ceiling", str(out), "--out", str(tmp_path / "m2"),
+                                           "--reuse-scores", str(tmp_path / "g" / "metrics_v2_result.json")])
+    assert reused["per_image"] == result["per_image"] and reused["comparisons"] == result["comparisons"]
+    assert gated["gate_receipt_sha256"] == reused["gate_receipt_sha256"]
+    assert ce.ROW in result["rows"] and mt.TUNED in result["rows"]
+    assert len(result["comparisons"]) == len(result["rows"]) - 1
+    # the per-kappa score of the selected kappa equals the ceiling row's metric
+    k = str(sel["selected_kappa"])
+    assert np.isclose(sel["summary"][k]["mean_psnr"], result["rows"][ce.ROW]["mean_psnr"], rtol=0, atol=1e-9)
+
+
+# ---------------------------------------------------------------- regenerate-at-metric-time control rows
+
+
+def test_strip_and_restore_is_bit_exact(target, tmp_path):
+    import regen_rows as rr
+
+    t = target
+    out = tmp_path / "promptir_plus_D"
+    dd.produce(t.runs / "promptir", t.low_receipt, len(t.files), "promptir_plus_D", "promptir", out, workers=2)
+    before = {p.relative_to(out): sha(p) for p in out.rglob("output.pt.gz")}
+    assert rr.strip(out) == len(t.files) and not list(out.rglob("output.pt.gz"))
+    assert rr.restore(out, t.runs / "promptir") == len(t.files)
+    assert {p.relative_to(out): sha(p) for p in out.rglob("output.pt.gz")} == before
+    ok = vv.verify("plus_d", "promptir_plus_D", t.low_receipt, out, len(t.files), t.runs / "promptir", "promptir")
+    assert ok["recomputed_images"] == len(t.files)
+    # a restore against a changed source fails closed
+    rr.strip(out)
+    src = tmp_path / "src"
+    shutil.copytree(t.runs / "promptir", src)
+    stem = Path(t.files[0]["name"]).stem
+    tensor, _ = dd.load_tensor(src / stem / "output.pt.gz")
+    dd.save_tensor(src / stem / "output.pt.gz", tensor * 0.9)
+    with pytest.raises(RuntimeError):
+        rr.restore(out, src)
+
+
+def test_sid_registry_pins_and_refuses_other_targets():
+    import targets_sid as ts
+
+    assert ts.SID_SPEC["required_rows"] == gm.PREREG and ts.SID_SPEC["expected_count"] == 598
+    assert ts.SID_SPEC["stage_script_sha256"] == tt.STAGE_SHA
+    with pytest.raises(rg.GateError, match="--target SID only"):
+        ts.main(["gm", "gate", "--target", "LSRW"])
+
+
+def test_regenerate_plus_d_old_style_gzip_is_byte_exact(target, tmp_path):
+    import time as _time
+    import regenerate_plus_D as rp
+
+    t = target
+    out = tmp_path / "snr_aware_plus_D"
+    dd.produce(t.runs / "snr_aware", t.low_receipt, len(t.files), "snr_aware_plus_D", "snr_aware", out, workers=2)
+    man = json.loads((out / "output_manifest.json").read_bytes())
+    for i, row in enumerate(man["rows"]):  # rewrite as the pre-2026-09-27 writer did: gzip.open (MTIME = now, FNAME)
+        path = out / Path(row["low_name"]).stem / "output.pt.gz"
+        tensor, _ = dd.load_tensor(path)
+        with gzip.open(path, "wb", compresslevel=1) as stream:
+            torch.save(tensor, stream)
+        row["output_file_sha256"] = sha(path)
+        (path.parent / "decision.json").write_text(json.dumps(row, indent=2))
+        _time.sleep(0.01 if i else 1.1)
+    (out / "output_manifest.json").write_text(json.dumps(man, indent=2))
+    before = {p.relative_to(out): sha(p) for p in out.rglob("output.pt.gz")}
+    res = rp.strip(out, t.runs / "snr_aware", workers=2)
+    assert res["files"] == len(t.files) and not list(out.rglob("output.pt.gz")) and (out / "REGENERATE.md").is_file()
+    assert rp.restore(out, t.runs / "snr_aware", workers=2)["restored"] == len(t.files)
+    assert {p.relative_to(out): sha(p) for p in out.rglob("output.pt.gz")} == before
+    # tampered record -> restore fails closed
+    rec = json.loads((out / "regen_record.json").read_bytes())
+    rec["images"][0]["gzip"]["mtime"] += 1
+    (out / "regen_record.json").write_text(json.dumps(rec))
+    (out / Path(t.files[0]["name"]).stem / "output.pt.gz").unlink()
+    with pytest.raises(Exception):
+        rp.restore(out, t.runs / "snr_aware", workers=1)

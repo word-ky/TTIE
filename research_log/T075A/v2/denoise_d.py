@@ -102,7 +102,9 @@ def load_tensor(path):
 def save_tensor(path, tensor):
     import torch
 
-    with gzip.open(path, "wb", compresslevel=1) as stream:
+    # Deterministic gzip (header mtime 0, no file name): identical tensors give identical file bytes, so a row can be
+    # regenerated bit-exactly from its frozen source (regen_rows.py). Rows before this change used gzip.open (mtime set).
+    with open(path, "wb") as raw, gzip.GzipFile(filename="", mode="wb", fileobj=raw, compresslevel=1, mtime=0) as stream:
         torch.save(tensor, stream)
 
 
@@ -179,7 +181,7 @@ def produce(source_dir, low_receipt, expected_count, method_id, source_row_id, o
                 "source_freeze_receipt_sha256": freeze_sha, "d_spec": SPEC,
                 "producer": "research_log/T075A/v2/denoise_d.py", "producer_sha256": sha256_file(__file__),
                 "environment": {"python": sys.version.split()[0], "numpy": np.__version__, "cv2": cv2.__version__},
-                "workers": workers, "promotable": not smoke_count, "reference_reads": 0, "metrics": 0, "rows": rows}
+                "workers": workers, "deterministic_gzip": True, "promotable": not smoke_count, "reference_reads": 0, "metrics": 0, "rows": rows}
     with open(partial / "output_manifest.json", "x") as stream:
         json.dump(manifest, stream, indent=2)
     os.replace(partial, out)
