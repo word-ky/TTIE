@@ -1,3 +1,9 @@
+## 2026-09-29 18:29 +08 — four-dataset table pushed; paid SMID archive migrated
+
+The ordinary 18-row × four-dataset comparison is consolidated at `research_log/comparison_main_table_20260929.md`; all 72 displayed pairs were checked against the committed result JSONs. It separates test-GT ceiling cells (SMID and SID still pending) from held-out/ordinary rows. GitHub branch `codex/T073A-analysis-spec` includes this table. A6000 now has the historical SMID output archive with matching paid/A6000 SHA256 `ee27b4032936c3b7ef8ae5c262658e84b3f151f183d86bc89a7fa0b02176f65e`; extraction exited 0, restoring 11,760 base and 4,410 retained v2 compressed outputs. SMID target-GT ceiling round 1 remains the only GPU0 job; launch its finish script only after round 1 exits 0, then SID ceiling after GPU0 is free. The LSRW completed ceiling remains below MR. Illuminate+D; no leading claim is supported. UHD-LL references remain sealed. Full recovery notes and paths are in `research_log/migration_20260929_A6000.md`.
+
+---
+
 ## 2026-09-29 18:15 +08 — SID complete 18-row main comparison; ceiling pending
 
 SID's full 598-image/50-cluster/18-row post-gate metric job exited 0. `reference_reads=598`; source/local per-image JSON SHA256 `b66dcbb538ad1bfedb42b84bca12486ec0e402a5223600534bf892453bf1dee0`, table `24224f5f1f941775835175478f9d8dd3424c7df100066ab0d0ffcf6aea09e6ee`. Committed outputs live at `research_log/T075B/SID/metrics/`. Ours-v2 default 15.1166 dB / 0.4264; SDSD knobs 15.5591 / 0.4382. Best PSNR baseline is QuadPrior 15.8107 dB, best SSIM baseline QuadPrior+D 0.5162. SID target-test-GT ceiling is **not run yet**; SMID round 1 still holds physical GPU0. The poor PromptIR+DCTTA SID row (3.0333 dB) is an observed failure, not a justification for an overall Ours-leading claim. See `research_log/migration_20260929_A6000.md` for gate/run/hashes. UHD-LL references remain sealed.
