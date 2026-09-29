@@ -1,4 +1,8 @@
+## 2026-09-29 A6000 handoff — comparison main table in progress
 
+The user's latest direct objective is to finish the comparison main table and seek the highest `Ours-v2 ceiling` result, with that row explicitly disclosed as **tuned on the dataset's test GT, not held-out**. A higher score is an ambition, never a reported fact without verified outputs. No UHD-LL reference has been opened. The older task states below are historical; do not reassign completed LSRW/SMID rows based on them.
+
+On physical A6000 GPU0, SMID ceiling round 1 is running (`20260929-162005-ttie-smid-ceiling-r1-gpu0`); its 18-row metrics already exist and match paid-host SHA256. SID has 598 low images, all eight base output directories migrated; the previously missing MR. Illuminate base freeze was generated from existing independently verified outputs (receipt `a8e28020f703c68e2058421d4fc2f727fedcd33d53c80e86ae8745680824e1df`). SID `retinexformer_plus_D` was regenerated **598/598, exact old hashes**, and five other stripped +D controls are restoring on CPU. `mr_illuminate_plus_D` has produced 598/598 and its independent verifier is still running; SID references remain unopened pending all 18 frozen rows and gate. SMID and LSRW source/result bundles have been transferred to A6000 with source/destination matching SHA256; the large historical SMID output-tensor archive remains in progress on the paid host. See `research_log/migration_20260929_A6000.md` for run IDs, file hashes, paths and recovery state. GitHub branch is `codex/T073A-analysis-spec` / PR #221; each material step is pushed and checked against the remote hash.
 
 ---
 
