@@ -1,3 +1,9 @@
+## 2026-09-29 18:00 +08 — SID reference gate passed; metrics in progress
+
+All six previously stripped SID +D controls were restored 598/598 with their original compressed-file/tensor hashes, and MR. Illuminate+D was independently verified and newly frozen. The 598-image, 18-row SID reference gate passed **before** any SID metric read; receipt SHA256 `d00932e03bb5c8d7596696cd8529206647550b1d19422097f36c2b6a24b950fd` is committed in `research_log/T075B/SID/reference_gate_receipt.json`. SID 18-row metrics now run as `20260929-174736-ttie-sid-gate-metrics-cpu`; no SID score is claimed yet. Exact executed v2 source was imported into Git; A6000 Linux synthetic suite passed 18/18, log in `research_log/migration_20260929_A6000/v2_source_tests_a6000.log`. SMID ceiling round 1 remains the only GPU0 job. Physical GPU1 has stayed idle. The large historical SMID output archive is still being copied from the paid host and must not be treated as migrated until destination SHA256 matches. Full recovery details are in `research_log/migration_20260929_A6000.md`.
+
+---
+
 ## 2026-09-29 A6000 handoff — comparison main table in progress
 
 The user's latest direct objective is to finish the comparison main table and seek the highest `Ours-v2 ceiling` result, with that row explicitly disclosed as **tuned on the dataset's test GT, not held-out**. A higher score is an ambition, never a reported fact without verified outputs. No UHD-LL reference has been opened. The older task states below are historical; do not reassign completed LSRW/SMID rows based on them.
