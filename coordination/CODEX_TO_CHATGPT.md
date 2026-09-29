@@ -1,3 +1,9 @@
+## 2026-09-29 18:36 +08 — finite GPU0 ceiling continuation queued
+
+The A6000 run `20260929-183549-ttie-remaining-ceilings-gpu0` now waits for SMID round 1's exact success marker, then executes the already verified SMID finish, SID round 1, and SID finish runners **sequentially on physical GPU0 only**. Its source is `research_log/migration_20260929_A6000/run_remaining_ceilings.sh`, SHA256 `34ba54f46b773906b1599a35f03e32928de82335059d5b6e0babfce13f4700be` (local=A6000, `bash -n` passed). It was still only waiting at launch; SMID round 1 was 817/1470. Do not launch overlapping ceiling jobs. Inspect both task-owned logs and result artifacts before claiming completion; then import metrics, update the table, and push. No hourly automation was re-enabled. See the project migration log for full recovery state.
+
+---
+
 ## 2026-09-29 18:29 +08 — four-dataset table pushed; paid SMID archive migrated
 
 The ordinary 18-row × four-dataset comparison is consolidated at `research_log/comparison_main_table_20260929.md`; all 72 displayed pairs were checked against the committed result JSONs. It separates test-GT ceiling cells (SMID and SID still pending) from held-out/ordinary rows. GitHub branch `codex/T073A-analysis-spec` includes this table. A6000 now has the historical SMID output archive with matching paid/A6000 SHA256 `ee27b4032936c3b7ef8ae5c262658e84b3f151f183d86bc89a7fa0b02176f65e`; extraction exited 0, restoring 11,760 base and 4,410 retained v2 compressed outputs. SMID target-GT ceiling round 1 remains the only GPU0 job; launch its finish script only after round 1 exits 0, then SID ceiling after GPU0 is free. The LSRW completed ceiling remains below MR. Illuminate+D; no leading claim is supported. UHD-LL references remain sealed. Full recovery notes and paths are in `research_log/migration_20260929_A6000.md`.
