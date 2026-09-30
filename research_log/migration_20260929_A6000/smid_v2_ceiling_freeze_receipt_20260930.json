@@ -1,0 +1,69 @@
+{
+  "task": "T075-A-ceiling",
+  "method_id": "ours_v2_ceiling",
+  "target": "SMID",
+  "classification": "FROZEN_OUTPUTS",
+  "tuned_on_test_gt": true,
+  "note": "ceiling reference: Ours knobs and kappa selected on this target's test GT (not held-out)",
+  "output_count": 1470,
+  "decision": "research_log/T075A/ceiling_decision.md",
+  "canonical_low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+  "gate_receipt_sha256": "f37cec12e02ba7b0a69868265f72ba7385089ba06203514aab82df9d64eb2a9e",
+  "source_row": "ours_ttt_target_tuned",
+  "source_output_manifest_sha256": "4d6bd7699a7ce2f849eae0f4dd39bb96f62e4b96c8b8ddfcf780acb34dc35a0d",
+  "tuned_knobs": {
+    "exposure_target": 0.6,
+    "lambda_value": 0.875,
+    "loss_weights": [
+      1.0,
+      10.0,
+      5.0
+    ],
+    "lr": 0.015,
+    "probability_threshold": 0.5,
+    "q_joint": 1.053775168916056,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "updates": 27
+  },
+  "selected_kappa": 4.0,
+  "kappa_summary": {
+    "4.0": {
+      "mean_psnr": 18.125304673820594,
+      "median_psnr": 18.90116169051332,
+      "mean_rgb_ssim": 0.6478642304059793
+    },
+    "5.0": {
+      "mean_psnr": 18.11582907510612,
+      "median_psnr": 18.903796003839336,
+      "mean_rgb_ssim": 0.6403487607638864
+    },
+    "6.0": {
+      "mean_psnr": 18.10287403604892,
+      "median_psnr": 18.903318260385227,
+      "mean_rgb_ssim": 0.6332567965196558
+    },
+    "7.0": {
+      "mean_psnr": 18.087083741238455,
+      "median_psnr": 18.891899305263546,
+      "mean_rgb_ssim": 0.6266208475712621
+    },
+    "8.0": {
+      "mean_psnr": 18.069067999096166,
+      "median_psnr": 18.880496702659297,
+      "mean_rgb_ssim": 0.6204347987163059
+    }
+  },
+  "kappa_selection_sha256": "5d01e5a5d832aac3e659821a8a91be4ce4fb63179d632d6e9abacbb65d36524e",
+  "runner": "research_log/T075A/v2/ceiling.py",
+  "runner_sha256": "bd5cb6cc98b60b6307c8dc3fd88b4ae184b1e4019bcb400f638be5566299a331",
+  "output_manifest_sha256": "efbccade065a087444e45738ad09908b7413445a1f67a11cbb06e9878d5be2ba",
+  "independent_verification_sha256": "d6301df67a287e473d166d8ab48a2f3ae38b54108139cef689fdf41ad2fde0bf",
+  "verification_classification": "T075A_CEILING_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 1.2215518324519508,
+  "per_image_seconds_sum": 1829.8671348780626,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075A/ceiling/SMID/row_a6000/ours_v2_ceiling",
+  "preregistration_changed": false
+}
