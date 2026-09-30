@@ -1,0 +1,14 @@
+{
+  "name": "LSRW post-hoc low-q round-3 test-GT exploration",
+  "round": 3,
+  "status": "launched_after_workdir_repair",
+  "grid_sha256": "AF9D552069042187CAE5E93FDF43DA9F0601A344767FDE415084794AAAD89820",
+  "first_launch": "failed_before_experiment: missing research_log.T070A from wrong cwd",
+  "retry_work": "/root/wjq/TTT-ImageEnhancement/checkpoints/LSRW/tuning_g4_round3_lowq_v2",
+  "protocol_note": "Separate exploratory search; not held-out and not a main-table row.",
+  "product": {
+    "q_joint": [0.0, 0.05, 0.1, 0.2],
+    "lambda_value": [0.75, 0.875, 1.0],
+    "loss_weights": [[1.0, 20.0, 5.0], [1.0, 30.0, 5.0]]
+  }
+}
