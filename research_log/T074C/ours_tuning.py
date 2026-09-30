@@ -377,6 +377,10 @@ def materialize(work, chosen, window, ctx, records, settings, execution_manifest
         },
         "rows": rows,
     }
+    if chosen.get("context", {}).get("execution_mode"):
+        manifest["execution_mode"] = chosen["context"]["execution_mode"]
+        manifest["default_frozen_hash_mismatches"] = next(
+            r["default_frozen_hash_mismatches"] for r in records if r["is_default"])
     with open(row_dir / "output_manifest.json", "x") as stream:
         json.dump(manifest, stream, indent=2, allow_nan=False)
     return manifest
@@ -415,6 +419,14 @@ def check_default_reproduction(model, lows, frozen_rows, binding, device="cuda:0
         image, _ = run_group(model.scorer, model.gate, model.model, low, [variant], device)["default"]
         require(image is not None and sha256_bytes(image.contiguous().numpy().tobytes()) == row["output_tensor_sha256"],
                 f"default setting does not reproduce the frozen Ours-TTT row at {row['low_name']}; stopping")
+
+
+def default_hash_mismatches(items, rows, hashes, exploratory=False):
+    mismatches = [item["name"] for item, row, digest in zip(items, rows, hashes)
+                  if digest != row["output_tensor_sha256"]]
+    if not exploratory:
+        require(not mismatches, f"default setting does not reproduce the frozen Ours-TTT row at {mismatches[0] if mismatches else ''}; stopping")
+    return mismatches
 
 
 def static_context(ctx):
@@ -457,6 +469,8 @@ def main():
     p.add_argument("--manifest", type=Path, required=True, help="T070-A execution manifest for this machine")
     p.add_argument("--frozen-manifest", type=Path,
                    help="original execution manifest when only the machine environment differs")
+    p.add_argument("--cross-environment-exploration", action="store_true",
+                   help="separate exploratory run after observed cross-device hash drift; record default mismatches")
     mode = p.add_mutually_exclusive_group(required=True)
     mode.add_argument("--grid", type=Path, help="round 1: declared grid (tuning_grid_round1.json)")
     mode.add_argument("--round2", action="store_true", help="round 2: grid built from the round-1 log")
@@ -509,9 +523,14 @@ def main():
     binding = model.manifest["source_binding"]
     context = dict(static_context(ctx), execution_manifest_sha256=model.manifest_sha256,
                    derivation_sha256=derive(DEFAULTS, binding)[1])
+    if a.cross_environment_exploration:
+        context["execution_mode"] = "cross_environment_exploration_not_frozen_reproduction"
     for r in records:
         require(r["context"] == context, "tuning log written under a different context; use a new --work directory")
-    check_default_reproduction(model, lows, frozen_ttt["rows"], binding)
+    if not a.cross_environment_exploration:
+        check_default_reproduction(model, lows, frozen_ttt["rows"], binding)
+    else:
+        print("CROSS_ENVIRONMENT_EXPLORATION: default hashes will be compared and disclosed, not required to match", flush=True)
 
     candidates = a.work / "candidates"
     candidates.mkdir(exist_ok=True)
@@ -540,9 +559,8 @@ def main():
             hashes = [None if image is None else sha256_bytes(image.contiguous().numpy().tobytes())
                       for image, _ in results[v["id"]]]
             if body["is_default"]:
-                for item, row, digest in zip(ctx.files, frozen_ttt["rows"], hashes):
-                    require(digest == row["output_tensor_sha256"],
-                            f"default setting does not reproduce the frozen Ours-TTT row at {item['name']}; stopping")
+                body["default_frozen_hash_mismatches"] = default_hash_mismatches(
+                    ctx.files, frozen_ttt["rows"], hashes, a.cross_environment_exploration)
             rejected = [dict(rec, name=item["name"]) for item, (image, rec) in zip(ctx.files, results[v["id"]]) if image is None]
             if rejected:
                 append_log(log_path, records, dict(body, status="FAILED", rejected=rejected, per_image=[], summary=None))
