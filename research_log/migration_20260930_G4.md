@@ -49,3 +49,12 @@ completion/verification followed by the remaining declared LSRW
 development/verification work. G4 resource boundary remains physical GPUs 0
 and 2 only; GPUs 1, 3, 5, and 7 are unrelated and must not be touched. Full
 durable record: `research_log/goal_20261001_dev_sota.md`.
+
+## 2026-10-01 — read-only G4 GPU status check
+
+The authorized G4 host was checked without changing processes. Physical GPUs
+1, 3, 5, and 7 are occupied by unrelated `llama-server` processes (about
+16.4/19.9 GiB each). Physical GPUs 0, 2, 4, and 6 report about 1 MiB used and
+0% utilization. The SID pipeline shell remains alive, but its current
+`ceiling kappa` workers are CPU-side and do not currently occupy GPU memory.
+No process was stopped or started.
