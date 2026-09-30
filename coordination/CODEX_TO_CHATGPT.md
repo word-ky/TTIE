@@ -295,4 +295,18 @@ LSRW exploratory-v2 then completed round 1 (`23` records) and round 2 (`8` recor
 
 Latest progress check: SID round-2 is active on GPU0 at 386/598 images in its current two-setting group, with 26 tuning-log records. No final SID ceiling metric is declared yet.
 
+## 2026-10-01 — renewed development-SOTA success condition
+
+The project owner set the development-version success condition: continue until
+the Ours-v2 development version achieves a real, independently verifiable SOTA
+result on the declared comparison datasets/main table, and do not stop at an
+intermediate report. This is an execution objective, not a claim that SOTA has
+already been achieved. Preserve the existing low-light scope, sealed-reference
+boundary, test-GT ceiling disclosure, and real-run-only evidence rules. On G4,
+only physical GPUs 0 and 2 are authorized; unrelated GPU 1/3/5/7 jobs remain
+untouched. The single current sequence is to finish SID, then pursue the
+remaining declared LSRW development/verification work, recording every
+material step, artifact hash, and independently verified result in
+`research_log/` and GitHub.
+
 SID ceiling tuning remains active on G4 physical GPU0 (PID `75725`) under the strict frozen runner; 11 complete settings are recorded and no final SID ceiling number is claimed yet. A first LSRW round-3 launch failed before any experiment because it used the wrong remote working directory; no records or reference reads were produced. It was relaunched on physical GPU2 (PID `86147`) from the frozen T073C source root with a separate namespace `checkpoints/LSRW/tuning_g4_round3_lowq_v2`. The declared exploratory grid SHA256 is `af9d552069042187cae5e93fdf43da9f0601a344767fde415084794aaad89820`, covering q_joint `{0,0.05,0.1,0.2}`, lambda `{0.75,0.875,1.0}`, and loss weights `{[1,20,5],[1,30,5]}`. It is test-GT-informed, non-held-out evidence and will not overwrite the ordinary main table or the prior LSRW ceiling.

@@ -36,3 +36,16 @@
 - SID round-1 exited after 23 tuning records; the strict frozen source was restored at SHA256 `a5dc8e00afbe2125470cdbefe6a875eb81002e5ce22b153f3828133d47f8086f`, and SID round-2 was launched on GPU0 with 8 settings. Its final materialization, κ selection, independent verification, and metrics remain pending.
 - User renewed the long-horizon objective on 2026-10-01: continue until the current SID completion and LSRW tuning/verification work is finished; do not stop at an intermediate report. At this checkpoint SID round-2 is active on GPU0 at 225/598 images in its current two-setting group; LSRW round-3 receipts are complete and pushed.
 - Progress check: SID round-2 is still active on GPU0 and has reached 386/598 images in its current two-setting group; the tuning log now contains 26 records. No final SID ceiling metric is declared yet.
+
+## 2026-10-01 — renewed development-SOTA objective
+
+The project owner renewed the long-horizon success condition: continue the
+Ours-v2 development work until a real, independently verifiable SOTA result is
+achieved on the declared comparison datasets/main table, and stop only after
+all required tasks are complete. This does not authorize changing the metric,
+opening sealed references early, presenting a test-GT ceiling as held-out
+generalization, or fabricating a result. The active sequence remains SID
+completion/verification followed by the remaining declared LSRW
+development/verification work. G4 resource boundary remains physical GPUs 0
+and 2 only; GPUs 1, 3, 5, and 7 are unrelated and must not be touched. Full
+durable record: `research_log/goal_20261001_dev_sota.md`.
