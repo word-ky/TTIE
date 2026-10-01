@@ -1,0 +1,52 @@
+{
+  "gpus": [
+    {
+      "index": 0,
+      "uuid": "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe",
+      "name": "NVIDIA RTX A6000",
+      "free_mib": 2804
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-9c468c54-b125-4903-1476-77c4d63270be",
+      "name": "NVIDIA RTX A6000",
+      "free_mib": 3497
+    }
+  ],
+  "processes": [
+    {
+      "uuid": "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe",
+      "pid": 1337099,
+      "name": "VLLM::Worker_TP0",
+      "memory_mib": 44974
+    },
+    {
+      "uuid": "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe",
+      "pid": 2777734,
+      "name": "/home/wenchang/asdasdsad/wjq/TTFL/.venv/bin/python",
+      "memory_mib": 686
+    },
+    {
+      "uuid": "GPU-9c468c54-b125-4903-1476-77c4d63270be",
+      "pid": 1337100,
+      "name": "VLLM::Worker_TP1",
+      "memory_mib": 44974
+    }
+  ],
+  "commands": [
+    [
+      "nvidia-smi",
+      "--query-gpu=index,uuid,name,memory.free",
+      "--format=csv,noheader,nounits"
+    ],
+    [
+      "nvidia-smi",
+      "--query-compute-apps=gpu_uuid,pid,process_name,used_memory",
+      "--format=csv,noheader,nounits"
+    ]
+  ],
+  "raw": [
+    "0, GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, NVIDIA RTX A6000, 2804\n1, GPU-9c468c54-b125-4903-1476-77c4d63270be, NVIDIA RTX A6000, 3497\n",
+    "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, 1337099, VLLM::Worker_TP0, 44974\nGPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, 2777734, /home/wenchang/asdasdsad/wjq/TTFL/.venv/bin/python, 686\nGPU-9c468c54-b125-4903-1476-77c4d63270be, 1337100, VLLM::Worker_TP1, 44974\n"
+  ]
+}
