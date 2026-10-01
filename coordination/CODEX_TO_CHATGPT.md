@@ -309,4 +309,18 @@ remaining declared LSRW development/verification work, recording every
 material step, artifact hash, and independently verified result in
 `research_log/` and GitHub.
 
+## 2026-10-01 — SID result status
+
+SID tuning completed 29/29 settings with 0 failures. The selected test-GT
+ceiling configuration used `q_joint=0.35266535990213066`, `lambda=0.75`,
+`exposure_target=0.7`, `lr=0.03`, `updates=27`, loss weights `[1,10,5]`, and
+`kappa=4`; its ceiling-only point estimate is `15.2691619324 dB /
+0.4326403672 RGB-SSIM` on 598 images. All 598 ceiling outputs were materially
+verified. The final 18-row SID metrics command then failed because the remote
+mirror lacks the RetinexFormer `output.pt.gz`; no final SID main-table cell is
+promoted and no output was fabricated. LSRW round-3 remains independently
+verified at `16.8301551594 dB / 0.5227115713 RGB-SSIM`, below the frozen
+MR. Illuminate+D PSNR and QuadPrior+D SSIM maxima. Next action is the minimal
+score-recovery step for the missing frozen baseline tensor.
+
 SID ceiling tuning remains active on G4 physical GPU0 (PID `75725`) under the strict frozen runner; 11 complete settings are recorded and no final SID ceiling number is claimed yet. A first LSRW round-3 launch failed before any experiment because it used the wrong remote working directory; no records or reference reads were produced. It was relaunched on physical GPU2 (PID `86147`) from the frozen T073C source root with a separate namespace `checkpoints/LSRW/tuning_g4_round3_lowq_v2`. The declared exploratory grid SHA256 is `af9d552069042187cae5e93fdf43da9f0601a344767fde415084794aaad89820`, covering q_joint `{0,0.05,0.1,0.2}`, lambda `{0.75,0.875,1.0}`, and loss weights `{[1,20,5],[1,30,5]}`. It is test-GT-informed, non-held-out evidence and will not overwrite the ordinary main table or the prior LSRW ceiling.

@@ -58,3 +58,25 @@ The authorized G4 host was checked without changing processes. Physical GPUs
 0% utilization. The SID pipeline shell remains alive, but its current
 `ceiling kappa` workers are CPU-side and do not currently occupy GPU memory.
 No process was stopped or started.
+
+## 2026-10-01 — SID ceiling output verified; final table scoring blocked
+
+The G4 SID process has exited. The declared SID tuning completed all 29/29
+settings with 0 failures; the selected test-GT-tuned knobs are
+`q_joint=0.35266535990213066`, `lambda=0.75`, `exposure_target=0.7`,
+`lr=0.03`, `updates=27`, and loss weights `[1,10,5]`. κ selection chose `4.0`,
+with the ceiling-only point estimate `15.2691619324 dB / 0.4326403672
+RGB-SSIM` over 598 images. The 598/598 ceiling output materialization and
+independent output verification passed (`reference_reads=0`, `metrics=0` in
+the output verifier).
+
+The subsequent full 18-row SID metrics command failed before producing a final
+table because the remote mirror lacks the RetinexFormer baseline tensor at
+`/root/autodl-tmp/TTIE/T075B/runs/SID/retinexformer/10003__10003_00_0.04s/output.pt.gz`.
+Therefore the SID ceiling point estimate above is not promoted as a complete
+main-table result. No missing baseline output was fabricated or inferred.
+
+For comparison, the independently verified G4 LSRW round-3 ceiling is
+`16.8301551594 dB / 0.5227115713 RGB-SSIM`, still below the frozen MR.
+Illuminate+D PSNR and QuadPrior+D RGB-SSIM maxima. The exact failure and
+results are retained for the next minimal score-recovery step.
