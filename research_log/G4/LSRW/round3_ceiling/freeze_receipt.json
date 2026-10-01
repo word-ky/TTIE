@@ -1,0 +1,69 @@
+{
+  "task": "T075-A-ceiling",
+  "method_id": "ours_v2_ceiling",
+  "target": "LSRW",
+  "classification": "FROZEN_OUTPUTS",
+  "tuned_on_test_gt": true,
+  "note": "ceiling reference: Ours knobs and kappa selected on this target's test GT (not held-out)",
+  "output_count": 50,
+  "decision": "research_log/T075A/ceiling_decision.md",
+  "canonical_low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+  "gate_receipt_sha256": "fe44f42d5d415d42245b8765992150c3c4247663de7378bb58f726c37ffc70ab",
+  "source_row": "ours_ttt_target_tuned",
+  "source_output_manifest_sha256": "52905fc293081b2d9d33d63bfc8ebbbb5d2cfa427d09e7b91ce299a1dd8927fb",
+  "tuned_knobs": {
+    "exposure_target": 0.6,
+    "lambda_value": 0.875,
+    "loss_weights": [
+      1.0,
+      20.0,
+      5.0
+    ],
+    "lr": 0.03,
+    "probability_threshold": 0.5,
+    "q_joint": 0.0,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "updates": 27
+  },
+  "selected_kappa": 8.0,
+  "kappa_summary": {
+    "4.0": {
+      "mean_psnr": 16.749996674705258,
+      "median_psnr": 16.581411292236577,
+      "mean_rgb_ssim": 0.5182263666105373
+    },
+    "5.0": {
+      "mean_psnr": 16.776910530532067,
+      "median_psnr": 16.66157095003851,
+      "mean_rgb_ssim": 0.5203610006465638
+    },
+    "6.0": {
+      "mean_psnr": 16.79973150460844,
+      "median_psnr": 16.75344302934912,
+      "mean_rgb_ssim": 0.5216429379179949
+    },
+    "7.0": {
+      "mean_psnr": 16.81726720426272,
+      "median_psnr": 16.850481292304888,
+      "mean_rgb_ssim": 0.5223380834170559
+    },
+    "8.0": {
+      "mean_psnr": 16.830155159361283,
+      "median_psnr": 16.949772083112975,
+      "mean_rgb_ssim": 0.5227115712692044
+    }
+  },
+  "kappa_selection_sha256": "3ceb33a2b541f14dab42f593518ee8759ee28f35fe0c5dbf0031c6cc9b35a10c",
+  "runner": "research_log/T075A/v2/ceiling.py",
+  "runner_sha256": "bd5cb6cc98b60b6307c8dc3fd88b4ae184b1e4019bcb400f638be5566299a331",
+  "output_manifest_sha256": "ded8cec921d64b303e10d64cf66a58a6c84056d0a67246f51e5e0196d6924be9",
+  "independent_verification_sha256": "9a616aca45ff92913e55ee9d02e6cc9e7cbfb5ce07c2efa4812af0a6278f34a6",
+  "verification_classification": "T075A_CEILING_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 2.1336991665157257,
+  "per_image_seconds_sum": 102.93423368007643,
+  "remote_output_root": "/root/wjq/TTT-ImageEnhancement/checkpoints/LSRW/ceiling_g4_round3_lowq/row/ours_v2_ceiling",
+  "preregistration_changed": false
+}

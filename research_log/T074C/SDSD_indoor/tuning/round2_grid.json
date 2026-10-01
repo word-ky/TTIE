@@ -1,0 +1,182 @@
+{
+  "round": 2,
+  "source_sha256": "9dafacd820a86de56b992df76187ae8268061695cc1ae8c5dd550239c327799a",
+  "setting_ids": [
+    "0a6a1f753dfeaa2c6c32f65efc644205991ed0353d93db95a64170578eddd7b0",
+    "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+    "8206878cde0135e483134b934e14cb2cb1687692f8fbd8e1feb839215a84fa32",
+    "3c3c57d226cf901fbc49f3c84a986829df7b83c556555048f28164cf54b2b2f4",
+    "c83b90f7f65eca15524a1c20921bc53b3e780da4635ffcea80824bf0a375b2da",
+    "5087c5db46a6cbf4c521c4009dcb7241ae245f060bb88dd2823b500d5033513a",
+    "77e29b0dea6ae3c1c8ffc09aa1fa54086f5052a6ecc29b8f7a2da24f683b5836",
+    "dd60faa8cfa7308284e569734c68e1538aa12652cd524a643e4359591ca4e84a"
+  ],
+  "settings": [
+    {
+      "q_joint": 0.35266535990213066,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.7,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        5.0
+      ],
+      "exposure_target": 0.7
+    },
+    {
+      "q_joint": 0.35266535990213066,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        5.0
+      ],
+      "exposure_target": 0.7
+    },
+    {
+      "q_joint": 0.35266535990213066,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.7,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        5.0
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 0.35266535990213066,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        5.0
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 0.9747123807094724,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.7,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        5.0
+      ],
+      "exposure_target": 0.7
+    },
+    {
+      "q_joint": 0.9747123807094724,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        5.0
+      ],
+      "exposure_target": 0.7
+    },
+    {
+      "q_joint": 0.9747123807094724,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.7,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        5.0
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 0.9747123807094724,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        5.0
+      ],
+      "exposure_target": 0.6
+    }
+  ],
+  "explanation": {
+    "gains": {
+      "probability_threshold": 0.06743174821128406,
+      "lambda_value": 0.0,
+      "q_joint": 0.5570936182048989,
+      "updates": 0.0,
+      "lr": 0.0,
+      "exposure_target": 0.23050429444191067,
+      "loss_weights": 0.0094596872494499
+    },
+    "selected_knobs": [
+      "q_joint",
+      "exposure_target",
+      "probability_threshold"
+    ],
+    "values": {
+      "q_joint": [
+        0.35266535990213066,
+        0.9747123807094724
+      ],
+      "exposure_target": [
+        0.7,
+        0.6
+      ],
+      "probability_threshold": [
+        0.7,
+        0.5
+      ]
+    }
+  }
+}

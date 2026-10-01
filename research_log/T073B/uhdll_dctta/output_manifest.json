@@ -1,0 +1,3849 @@
+{
+  "checkpoint_sha256": "206baf0dd10f636f025b33b5ee7eb63a353fcbf4d50858b62f9480a6d4be9d4a",
+  "low_receipt_sha256": "bb846b1b61b0f2454e14dac51ef684772da4774053b14c9db9b0d7c940a11a41",
+  "wavelet_sha256": "8b153d20d0d677f93721b7ee81f2ba9736dabf86bf125e62612ae47e2e87e5ac",
+  "options": {
+    "lr": 0.0002,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "batch_size": 1,
+    "num_workers": 16,
+    "patch_size": 320,
+    "iterations": 1,
+    "compute_fisher": 1,
+    "fisher_ratio": 0.6,
+    "teacher_weight": 5
+  },
+  "seeds": {
+    "official_set_seed": 23,
+    "train_dataset_reseed": 42
+  },
+  "adaptation_scope": "all_target_low_domain_level",
+  "torch_version": "2.3.0+cu121",
+  "accelerate_env": {},
+  "inference_numerics": {
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false
+  },
+  "method": "PromptIR+DCTTA-five-task-domain-level-native-schedule",
+  "promotable": true,
+  "count": 150,
+  "expected_order_sha256": "40c2e937ebf97c0a4c67ce6b40cfc632699956e502fb79b87250112181623ee1",
+  "fisher_order": [
+    [
+      "1388_UHD_LL.JPG",
+      "10b85121a58aa0d249fa295500d4a86aa7dd4202f4d2601180b918056769b63b"
+    ],
+    [
+      "727_UHD_LL.JPG",
+      "ab9903b7696cd77025cdc3bde8befe2d1e8405dad8c51b00c4d00b934d018325"
+    ],
+    [
+      "869_UHD_LL.JPG",
+      "55838155791e307705d9369a7bf09dbb21b2133f36e4ed92ca934d58e7005e47"
+    ],
+    [
+      "345_UHD_LL.JPG",
+      "01ae3ce45b1b812f64d00eeb6996bc207467774b6dcaaa3c46cedb124aef915c"
+    ],
+    [
+      "1378_UHD_LL.JPG",
+      "af1cefc37a23ecda6120c306a7bad32aa47417f87a38587d9f982fd94358b4b7"
+    ],
+    [
+      "1464_UHD_LL.JPG",
+      "fe104a4ed3708e9fca0e0f3239f5471ce984d0195e64c46af5aef9173d250276"
+    ],
+    [
+      "2068_UHD_LL.JPG",
+      "34fe7645058777628a092c42cbe018df832c99c8e9179f13a1bfcbd367e0dfee"
+    ],
+    [
+      "60_UHD_LL.JPG",
+      "e09fe1ac8bc9350ff6c4f8f852712f6879e53ff594d1d25659dbdd9bd0545961"
+    ],
+    [
+      "649_UHD_LL.JPG",
+      "3e758f7d57e4e883ec44881ffa28f8cfcab91232bdbe83db06ef1b222075e9fa"
+    ],
+    [
+      "164_UHD_LL.JPG",
+      "0e9ed85d87a418d88af9d04fcf36d81fd118f1da8e8c6f5042bb0570fca3f872"
+    ],
+    [
+      "1191_UHD_LL.JPG",
+      "b9ac644df781c3248cdd1bdd7ca6a3704cbcd20f0d7df5798fb215eeff7756ca"
+    ],
+    [
+      "1357_UHD_LL.JPG",
+      "88b14421ebce92c7f14ac137fc76055f7e3cc8a4ed1a0230dc145e550cbbe4be"
+    ],
+    [
+      "172_UHD_LL.JPG",
+      "3c7544a2ab6a3b2a1a12dfadcc9bdd801a6507b387d18ced880d06fbf29ebc16"
+    ],
+    [
+      "2142_UHD_LL.JPG",
+      "ed40096b150125a49d52d017764f6d3d6655dedbd290ff47244735e2b033e02e"
+    ],
+    [
+      "54_UHD_LL.JPG",
+      "ed895cd26d73a1425f6be85c4b2370e3a0cb67dcb7c10e0687a23098ba4b2da4"
+    ],
+    [
+      "1142_UHD_LL.JPG",
+      "2a3444c4fcd867a48eefe60dd334f4383bf818c306133aff9e0675301613c858"
+    ],
+    [
+      "1662_UHD_LL.JPG",
+      "6903ae2d90fa62c54d62aa4423c032fc728d9409e384f9ab5623fdc0ca88554c"
+    ],
+    [
+      "1354_UHD_LL.JPG",
+      "48f33ea5ea8614c4f03d1c68ba0cd7907e96c45ba8d416b0c2059c0c0739ca7f"
+    ],
+    [
+      "200_UHD_LL.JPG",
+      "f68bf07c5ac56a2dac3ea4ec0fb912e87ec0f8284c0e05508d69ca870ba95a63"
+    ],
+    [
+      "685_UHD_LL.JPG",
+      "15970898d6ab045eba2b74b3c236daab719c52d4caa4ef8bf3e3761d684bb420"
+    ],
+    [
+      "1583_UHD_LL.JPG",
+      "025b5d85b457c45c781a896b71b3729e1d7b0de222d8a195aab381db5010ef1e"
+    ],
+    [
+      "7_UHD_LL.JPG",
+      "13f09723dbbf3e3de4b70ba4c284ded08d29b709f9470b43821f6964de16cb7d"
+    ],
+    [
+      "1694_UHD_LL.JPG",
+      "c1bb1a133d7ba01e528eae6a593d96d62c5cb79d58e96e002f3946924a251bd1"
+    ],
+    [
+      "1637_UHD_LL.JPG",
+      "d5202011458071ab5a29ff00608f79cebaf7a33a6adcad5f5628d714232655b0"
+    ],
+    [
+      "677_UHD_LL.JPG",
+      "84729cba238ece4043e8c4d855d68cf1c93c30c9e99ce5af36e2e6de3ddc5c01"
+    ],
+    [
+      "1312_UHD_LL.JPG",
+      "e1bfc11c36a0689dcd21b1d81a1a23c915982cbcdd429b78652c7b56a4f2eb36"
+    ],
+    [
+      "584_UHD_LL.JPG",
+      "4f40276098c9130bcf3e1e8f99c1bc43d7916e60332bad34f294b2c136d4b9fb"
+    ],
+    [
+      "692_UHD_LL.JPG",
+      "c34341fc83653769117c5dea2cd9df3575ce13d7fcf628c07fe671b84cc0d10a"
+    ],
+    [
+      "425_UHD_LL.JPG",
+      "127819de49e151837b10a80f0e13b1db90e2b8cce60dc2033c5128f36bcb32d6"
+    ],
+    [
+      "810_UHD_LL.JPG",
+      "68c883ec49e74519bd7aeab7699d5a58e7ea1ab2294c048400d9cbfb477e2cb8"
+    ],
+    [
+      "170_UHD_LL.JPG",
+      "56dae49e4b376c724f5ccb6d8117a94e56b1280e2329f30e91b2ba5b5f6c2ef5"
+    ],
+    [
+      "1649_UHD_LL.JPG",
+      "4b823f49b62ee2373c1d9298fedf923e4c556a3366c15c0a645e0337ff9db626"
+    ],
+    [
+      "967_UHD_LL.JPG",
+      "fdf4eb7f59d8dfa48dbc011d407d99b76e948fc9edfa6df6676f6fc43df8ee32"
+    ],
+    [
+      "375_UHD_LL.JPG",
+      "c926a8d4b1b28605fb06f51377fab1e4eefdbfdc35b7d113b120fd4fb66e2302"
+    ],
+    [
+      "874_UHD_LL.JPG",
+      "11ef6030a00157a1abc29dc58a098011420378a210a109eeab6ffadb62d222aa"
+    ],
+    [
+      "771_UHD_LL.JPG",
+      "e00c1886a567357c35a1edd7899ffccbbf3ff82b0451d444f4b830c1aaa3a17c"
+    ],
+    [
+      "399_UHD_LL.JPG",
+      "1b10a1f9ffef8d4cd28f7850a58fda58a17f69204b3aafe61080c73f1fcb190d"
+    ],
+    [
+      "895_UHD_LL.JPG",
+      "e55a2813cfc3780a534e9f83e3d2ecd938c9439979fc33bf1323bb78c899f0ea"
+    ],
+    [
+      "230_UHD_LL.JPG",
+      "cf1dcdd18ebed42e1194cd50adda4d379a83ac28392819a6c677bb2cbc28333a"
+    ],
+    [
+      "788_UHD_LL.JPG",
+      "aabb2498702919bb1c524974b59370b89064927197a6974a81ba519a9e87ce07"
+    ],
+    [
+      "945_UHD_LL.JPG",
+      "956face00fc99f7b45af1d655ebb4aff1bc304872191bf795275e8aba9baaee2"
+    ],
+    [
+      "1686_UHD_LL.JPG",
+      "6d47aa3217b0700662a830989b6878dd739f73067457698f7b5f953595ed5c38"
+    ],
+    [
+      "394_UHD_LL.JPG",
+      "9d4091ed19d0a31f5b3db2bbc0dcff90bf24b8891c393e03dc703c9c083a7468"
+    ],
+    [
+      "1606_UHD_LL.JPG",
+      "77203e5c93050219c30b17d3540c30528bf7df620d1ff3a89913d7dcb6f85cb4"
+    ],
+    [
+      "1594_UHD_LL.JPG",
+      "5d334f8f0cb42058f7ac4615930015bd3864a0ca8d358655e8476b0a9e4195e7"
+    ],
+    [
+      "690_UHD_LL.JPG",
+      "e4c4b10ba4a799c316b2e8eb92ff6379727033cd26a3573bf376d840190a2097"
+    ],
+    [
+      "1003_UHD_LL.JPG",
+      "94093a8ff1d523f7719c3f37eb193bacf994224c850928908d147891a4e52f2f"
+    ],
+    [
+      "1009_UHD_LL.JPG",
+      "722707a627721b4cbeb275a8c4595f1b7255ea47ee281722de72d6ec53f90452"
+    ],
+    [
+      "247_UHD_LL.JPG",
+      "7ca11a0c1130f167d1044c2951ab5a9d9655f91d3a4d1d5e884307227e4f2151"
+    ],
+    [
+      "1539_UHD_LL.JPG",
+      "4b515e41848f748f7ef840be0341cd4dc03f9fbeac6ef0f974602d08605344ff"
+    ],
+    [
+      "1165_UHD_LL.JPG",
+      "17299ddfd10664af900c98c6040e63d96095e4211308be6f8c0c79970dff8d2a"
+    ],
+    [
+      "278_UHD_LL.JPG",
+      "08f78531dbf9591ed2bb4cbee01829b8bee1296359ac628f422aad3bf5d2ccc4"
+    ],
+    [
+      "1102_UHD_LL.JPG",
+      "a24001c38eb4588f46508b700934c9dea1483f4cc26a6b9a1ac02f729482bb42"
+    ],
+    [
+      "1725_UHD_LL.JPG",
+      "3895e1a215310e2bae0ddf6cdd0fa638e46efa5da4d737bed05d982f1a1fd3ac"
+    ],
+    [
+      "94_UHD_LL.JPG",
+      "b6e38d39787e910f431da5e77741ca9fc0c39d7cbf493b3ac2d726c9ad338fda"
+    ],
+    [
+      "2025_UHD_LL.JPG",
+      "a56b563a59dc5fda025f103050be547f34226f414d98fa7740c9da528103b7bc"
+    ],
+    [
+      "453_UHD_LL.JPG",
+      "383614dea16c0fe5f3e8086510a12f4dad7d12e59828825bc3124b159d887676"
+    ],
+    [
+      "1085_UHD_LL.JPG",
+      "b5eb828f5f36c254a2dae01167771b85edfeecb61a10096477920caad6e632ae"
+    ],
+    [
+      "231_UHD_LL.JPG",
+      "0232c4fab52fedc3c262ca4d23d7cc5f25e51021bfd0df3d06a725787b0a3bdc"
+    ],
+    [
+      "8_UHD_LL.JPG",
+      "9c087febfa1364a7fad6e025fa65b7fc5318ae1af7349dee1e9aebaf438d48ad"
+    ],
+    [
+      "1400_UHD_LL.JPG",
+      "144f54829358f040adaa9c03f032a23b2b1970b4e079dd4a5836f73fdc2081b2"
+    ],
+    [
+      "29_UHD_LL.JPG",
+      "10a32ce7a143f55263d831d5d7f84d3a6d79cff1f7343f9d1123821bf312c20c"
+    ],
+    [
+      "1256_UHD_LL.JPG",
+      "3b1645768e86cf01e26c0fffb25b2b209e315ce24066a10448e75c9b5d79e6b7"
+    ],
+    [
+      "1453_UHD_LL.JPG",
+      "a91ceee5eb66933f13ae983c17590322a480dd4c5c27ba9f49243e859e72305c"
+    ],
+    [
+      "1124_UHD_LL.JPG",
+      "8b439c5c631a916fad94cac694000d360f727d70c9a4f640bdd80a8b208dba5f"
+    ],
+    [
+      "175_UHD_LL.JPG",
+      "78be5970f771e916fbac88da2579a8fd4b15d43df8a76b08e3bf3b73127348f6"
+    ],
+    [
+      "1338_UHD_LL.JPG",
+      "3d7e3f7328315eb47295752e2f2a1127bc903008ef7469dd00c0cd463417fd58"
+    ],
+    [
+      "1513_UHD_LL.JPG",
+      "ee2edca2a9d4e4f3b2c0286f30ab64abac9c8790c7be84744aa8b993aca8dc5b"
+    ],
+    [
+      "999_UHD_LL.JPG",
+      "2b27104ff7138a05c5dff763f5ba465df4fe8f528206a4359dd41f41d830df00"
+    ],
+    [
+      "389_UHD_LL.JPG",
+      "ff41289cf3f039324bacd9ec89098e431c2af530b379d6f402d0940a5201a3e0"
+    ],
+    [
+      "914_UHD_LL.JPG",
+      "c74553433dbf729f80385a76e5feb5fdd8319c10e93f754efe71e52715eb0e27"
+    ],
+    [
+      "697_UHD_LL.JPG",
+      "566a153bd49e0fc951a6fa58f6df9af82ede360ae985f4d6ebc022edb35d286b"
+    ],
+    [
+      "627_UHD_LL.JPG",
+      "c9a448fc9fe905ab3494a99421c45c8173f0b3a17062bd1ec1cf6be3f25f774a"
+    ],
+    [
+      "1043_UHD_LL.JPG",
+      "412f34c0f7866970b9bb278b9103bd06c192a098de4949dd6aa9d93c2e656400"
+    ],
+    [
+      "1778_UHD_LL.JPG",
+      "40cd58d1fa9a70aff89cc4597abd2a736fa7d149a467984508db1a50b1c134ef"
+    ],
+    [
+      "1701_UHD_LL.JPG",
+      "e37403e4cf52276a771b25deb2ba05e115fd7c5656b7ff8a8b48cd526c3f0ca2"
+    ],
+    [
+      "2017_UHD_LL.JPG",
+      "a6c256c35385fa4f3714ae22aa62d31e4b7e4f7b55f07c029880bb897230802e"
+    ],
+    [
+      "2045_UHD_LL.JPG",
+      "587544935d3f14faa8d8123c731201f060fe3b67541926ec1db3b3023b9dd160"
+    ],
+    [
+      "1628_UHD_LL.JPG",
+      "4ed1bc80ce2e08fa1a28737b4d2c91bfe8a276cde6c2b97e219140c29e9bd5ac"
+    ],
+    [
+      "752_UHD_LL.JPG",
+      "69a57c0e99cdde5a3209c597ac0ad174992a81a928ad6ed25612a327f8ea9c89"
+    ],
+    [
+      "306_UHD_LL.JPG",
+      "a081d3ce5942ac9ad5bb5bb34d4c8f5fe33b741283164088c99bccd23386c44a"
+    ],
+    [
+      "1223_UHD_LL.JPG",
+      "13cd2e00f2db2a29e5533b95bb79914293eef4cd6fa15bd2715d3326a9f4cdbd"
+    ],
+    [
+      "507_UHD_LL.JPG",
+      "005e07b06eb5641fe3a14bf927943bbc7cb0e6ee09e1792547ee2a161657e75d"
+    ],
+    [
+      "1024_UHD_LL.JPG",
+      "74c8fd836000e097ddf982bdcd87d324e48b28ca7f6d7aa9ddd59f6f08372d5b"
+    ],
+    [
+      "720_UHD_LL.JPG",
+      "95147e0e0f847ca165575149316b3b4754625581c19527382b79d7ee5506656a"
+    ],
+    [
+      "371_UHD_LL.JPG",
+      "e14556c3680cb572014195a670bc242825d125c35e6466b387109effd9f38ceb"
+    ],
+    [
+      "1808_UHD_LL.JPG",
+      "f52c513c44f04b4b62d2a73b2631fd5337347d9a9d962cf86e1214b01916dec9"
+    ],
+    [
+      "272_UHD_LL.JPG",
+      "a46615795a1f6dd788bb4e8cc7a27b7d76d33eac91e562c8a2b96fc68fc10524"
+    ],
+    [
+      "545_UHD_LL.JPG",
+      "b1c9c452d020e8d34a739f0fe1d205653e0b6b9ae980bb6775948d6b4988b66a"
+    ],
+    [
+      "292_UHD_LL.JPG",
+      "096104e2cf6fb4b97b44a85bb0256fae4ff84dba907d8faba89fbb1ca362cc2c"
+    ],
+    [
+      "1184_UHD_LL.JPG",
+      "d1259079c2b55e5c8328d154cd268d487ad7e16afed775df38de69199159a1f1"
+    ],
+    [
+      "1756_UHD_LL.JPG",
+      "04a13585e71a6ab833e24186c367f04d8097c70edb83b183476dd299937d2f9f"
+    ],
+    [
+      "462_UHD_LL.JPG",
+      "38b9ca2ab183eef053eeea5f4eb940faffb6dd81c7108d4491867693e8c58d0e"
+    ],
+    [
+      "441_UHD_LL.JPG",
+      "0763df5efb524a196b76e44e91a986f7e744bc3ea239c6b749dacd4fc9e3fae5"
+    ],
+    [
+      "240_UHD_LL.JPG",
+      "f51ef2b8e472fa7064fd9d60ba13776afe0ce3ca5bab929a08e2212e0f10d7ca"
+    ],
+    [
+      "1294_UHD_LL.JPG",
+      "3907c6038b40abc5f5753daacce330c67eb21b4207dc6f89dbf3984b09708b5d"
+    ],
+    [
+      "1417_UHD_LL.JPG",
+      "f4889891224aa71769dd673653f6cc4a850fc4382a4a1e54a148fc8ed21df259"
+    ],
+    [
+      "1718_UHD_LL.JPG",
+      "60ddd7bf869f353410dfeca600ff8f17056ae0505bed99e393613d88cd84dd3a"
+    ],
+    [
+      "499_UHD_LL.JPG",
+      "e45b96a0702b62271c9d6324641c11962276c3e2360e13b2e37abf40784b749b"
+    ],
+    [
+      "457_UHD_LL.JPG",
+      "01d34691b6cfe76e15eef07f866412455bf11e22affb9cea5470ec080db00e90"
+    ],
+    [
+      "434_UHD_LL.JPG",
+      "6ec7030283f2871f4b942147ed3b7fdb8e38ef04fb5eb2b413e4e20b436eb5c6"
+    ],
+    [
+      "1838_UHD_LL.JPG",
+      "2ad63371f3e1495143cdd989a3268da1dcbef07ea437bbae17f40d1bd166f3b1"
+    ],
+    [
+      "204_UHD_LL.JPG",
+      "cadd576afefc4b53fb98665469137230799500b2c3433fc62cd454d8452918ed"
+    ],
+    [
+      "1446_UHD_LL.JPG",
+      "fdbf5a1727515f6c8a2312d5b47554f98e4f9811f798e86bcab5abd4729d07fa"
+    ],
+    [
+      "1768_UHD_LL.JPG",
+      "b42669f01528af6060f9fd7d9cb0feb8141eb3c3afc006b8cd84328fbd86c4c1"
+    ],
+    [
+      "1246_UHD_LL.JPG",
+      "f451f4b56f5fd7a8668bda5e2a94d3088a0cacd925722961969a05bd4ad5d89d"
+    ],
+    [
+      "890_UHD_LL.JPG",
+      "de5f9a5c45ee6afcf87a61d1367266263dd20e338c9cf7a0b8df7d9d5caf3a5d"
+    ],
+    [
+      "708_UHD_LL.JPG",
+      "8f0925bc45d00bb157dce71b0e42b3d77d5e1d2d39f9e1f9ee912c8d8adfb734"
+    ],
+    [
+      "1663_UHD_LL.JPG",
+      "95ccb9ddf8c083e38b3c15670d6691c1dc72e106d8ecee311f94016e74219d95"
+    ],
+    [
+      "2145_UHD_LL.JPG",
+      "e7e1a7427c4521e843d6701aefb0a993f4e14013c57c52403ac45c89acfe3df7"
+    ],
+    [
+      "385_UHD_LL.JPG",
+      "cb5aa348afbbab4bdad4ac0a5f7e687243fd1bad9cecaf9a4606132cfbb0e01a"
+    ],
+    [
+      "2034_UHD_LL.JPG",
+      "12c8904a79e40448d6647ed2e1082d18c9094c55a36918671817699bbf8ca4af"
+    ],
+    [
+      "1188_UHD_LL.JPG",
+      "4b4d94ff87abef7495894b7a84eba451ff2a613f6ac25a3700eef4a49d3ca97e"
+    ],
+    [
+      "741_UHD_LL.JPG",
+      "f26c8d50af5c89443b484c23503a8c2d0f4a0cb9499930a98c27e23091761900"
+    ],
+    [
+      "879_UHD_LL.JPG",
+      "251ec8572746a7cefe5b2a7610f46a0ef601e1626596f007efb781db57a2f37b"
+    ],
+    [
+      "199_UHD_LL.JPG",
+      "eb45f41b01e36f36fef0f1328988ec21977bd1d3ae17ebf78687d5af5fe93a86"
+    ],
+    [
+      "1678_UHD_LL.JPG",
+      "bbfd8630a273dcc7dd3795ca05dcdcadef124ec5d24fa944299c2881f986024d"
+    ],
+    [
+      "288_UHD_LL.JPG",
+      "534f6f7c857b5cb5d9fe21a6f1e674161dce559d7b00ca078ae0feab32c2e09e"
+    ],
+    [
+      "1917_UHD_LL.JPG",
+      "49a950aedd2fa2a54dd88fc9cabc0937579f2a52813291e5c58557b957780639"
+    ],
+    [
+      "40_UHD_LL.JPG",
+      "08c2290d0a031fee77ef4c14e5ead27fe99cb7c8a1938f7777a73bdb6045a94f"
+    ],
+    [
+      "442_UHD_LL.JPG",
+      "821fa919860ac960d2d5ecc8bfb31609bc05c4c2357f42c75be8af195692aa69"
+    ],
+    [
+      "769_UHD_LL.JPG",
+      "4c178d2695002855aff8b30c006bfc1f989ecdd7a2adba0154cae3eef71d4283"
+    ],
+    [
+      "1801_UHD_LL.JPG",
+      "831f265ef8af1ac82b5deedfb9066293c1c625d596f0a5be3e65b6b4bdc3f24f"
+    ],
+    [
+      "920_UHD_LL.JPG",
+      "f69e3a7cbe98de14616dbec590d9099503376c6e94246a500b59340b65c0ac25"
+    ],
+    [
+      "1671_UHD_LL.JPG",
+      "416ea1116dc8e03bbc215ad868fea7f9b8e5d0be07dbc950423504243b8dddec"
+    ],
+    [
+      "142_UHD_LL.JPG",
+      "920ae1d8921369438a0adf88296922623314a70ca20ead79f2a2b848837e77e4"
+    ],
+    [
+      "1791_UHD_LL.JPG",
+      "b94ebbc8ce5c7e97ee3d3cc732b22104c2ddec373a39f342580cc16939da4885"
+    ],
+    [
+      "17_UHD_LL.JPG",
+      "42e33161d0ebcccc184b7c32e6ff54706cba8a0aa882d626bda3d82bd98bb047"
+    ],
+    [
+      "286_UHD_LL.JPG",
+      "18213b8090538ab621a72e52ff79005c0823f4511688dc952e276cce31ba6d86"
+    ],
+    [
+      "47_UHD_LL.JPG",
+      "7c27652e00782498bf0a88ee097f84ae8f8443d586bcba24e08538f709412bc6"
+    ],
+    [
+      "1785_UHD_LL.JPG",
+      "87fb11101b90e76a7b277a5e4eb4a1f9f91f3ee4404a9a485af518356daf54b8"
+    ],
+    [
+      "1335_UHD_LL.JPG",
+      "b135e9639d6fb315e5cae937263d50c38925c20100083156337654d22dc877a4"
+    ],
+    [
+      "1315_UHD_LL.JPG",
+      "481631a006adc20eb9978f694560c8b5bd365554621949b31aa4d94db0f98f71"
+    ],
+    [
+      "2042_UHD_LL.JPG",
+      "d63dffbca923f3ccfb4ee3a7ee9b41c15ceb9d49c8b9f9009fb6122d46d0e452"
+    ],
+    [
+      "1682_UHD_LL.JPG",
+      "073ea51bc359003d172271f47e5c6b06aa967b5c46d2eaddca4dd06342531a6c"
+    ],
+    [
+      "1558_UHD_LL.JPG",
+      "e5977a4ce7605e57fef085558f3f91dc6fa0f6774073d446701ef3027a2c3c2b"
+    ],
+    [
+      "674_UHD_LL.JPG",
+      "47ce2fa251f76e1a9363ba81e87a57c38702d3dd29b36cf18f040ffe50002b2f"
+    ],
+    [
+      "28_UHD_LL.JPG",
+      "4de81a41f9ace9b3a8beed7b3628c626523fe842bbf49c36dc33e514eb02ec7b"
+    ],
+    [
+      "1792_UHD_LL.JPG",
+      "f193a7711db339aa9a3313d662a2d3f8eb81a272ce501353eb9358023e45ba34"
+    ],
+    [
+      "223_UHD_LL.JPG",
+      "f1ffcfaa9d6ab78f5a62e7f96eec4ee0beaacfd4e9bdb270ba1829c33a0fb7e5"
+    ],
+    [
+      "1475_UHD_LL.JPG",
+      "d1938242953cdbecfdb99b10227facec88470ec95351105e1fe09b946c5208cf"
+    ],
+    [
+      "152_UHD_LL.JPG",
+      "d3876bfad43419075549a320652a47886da811413ebdc1175d8b3950a93cd495"
+    ],
+    [
+      "1365_UHD_LL.JPG",
+      "cae29e97b07e1a3947f95d72c175445704d0f781f62d6b0a7940b8e348ee442f"
+    ],
+    [
+      "161_UHD_LL.JPG",
+      "2563c8a3569a15546d6525a1ac5a9c70e57d603d8a59de16e6eddf608b16800b"
+    ],
+    [
+      "63_UHD_LL.JPG",
+      "ee3c6b5b38957525425362c000d8534bb437c3d42765d600e21fbd9fe08f72eb"
+    ],
+    [
+      "353_UHD_LL.JPG",
+      "db66f60dc76c8afc874ef4d4747421df937bcfc21ba211eefc5ee433f2b2542d"
+    ],
+    [
+      "1277_UHD_LL.JPG",
+      "1cb7a066bb3b21c94af6d58ee53a42f72459434bdee55c076419468a102b9580"
+    ],
+    [
+      "704_UHD_LL.JPG",
+      "05487370aa316fcdf21e45cbfab9d2a93c22e2d4409831970a254b8e9caea107"
+    ],
+    [
+      "1_UHD_LL.JPG",
+      "053533ccaf53322e78dd206636dcc48d5d54d0af4dccb1396cfb29f4fb18d147"
+    ],
+    [
+      "70_UHD_LL.JPG",
+      "eeea3d9745a7305906eea8758054c871cf5078b88188201a41d19fd871f05438"
+    ]
+  ],
+  "adaptation_order": [
+    [
+      "1378_UHD_LL.JPG",
+      "1f449c226543a45b3fe61dbbabbe7242cf0050c4c7156a9854fb835a804d4382"
+    ],
+    [
+      "394_UHD_LL.JPG",
+      "812d63fdf312e56ebe5f461d74b6c1cd7ed2b7fec00c3cbb9002211953044e0f"
+    ],
+    [
+      "399_UHD_LL.JPG",
+      "7d99291c4480fa083c0b67a0d13c236a11a1c1ddb06aaefeb6e2648fc6a9c99b"
+    ],
+    [
+      "306_UHD_LL.JPG",
+      "47131cc583b7a8e59f7e92cdfc9fe640c689a0bc90ac31f589d8d2f1905d5246"
+    ],
+    [
+      "708_UHD_LL.JPG",
+      "7b99de846ffa619a58091555c63f0d17e581a2064b09a6cab3ebccee5c8a5c03"
+    ],
+    [
+      "1464_UHD_LL.JPG",
+      "1a382abf6c4cb0caa48f801466c1f6478625b309336407bdc72480bdc0d0cc5b"
+    ],
+    [
+      "462_UHD_LL.JPG",
+      "0bad67f33ce1a78a4a11d03f44c473dc7fec4ad5eb981be94531dac06e230dec"
+    ],
+    [
+      "28_UHD_LL.JPG",
+      "2cbfdf8e829c63a0afc88a8e49cfb0aef17888daa9fe5f0b2093a3d733e620b7"
+    ],
+    [
+      "1312_UHD_LL.JPG",
+      "5a3bd5aa6aaa0ea1968769e52eb2ba0327c5c5b5097502f45efdcada139b93c8"
+    ],
+    [
+      "1662_UHD_LL.JPG",
+      "5562421df75ff3b4767cd01dc8fb73c52205c2bd9d1daf313964b2371e504cd1"
+    ],
+    [
+      "1335_UHD_LL.JPG",
+      "39d1a037011d8fcc372f23bc364aaf03af33ddeaeaa7f768c7039ef71646bfcc"
+    ],
+    [
+      "385_UHD_LL.JPG",
+      "14cadb67fd1fb7d78847ecbd9feb47f7dadbc3ab7148a379de7f4c235f494740"
+    ],
+    [
+      "1354_UHD_LL.JPG",
+      "40b3f75b0a3e79b5d1c9605cc63e1f2e8a30bc3c3db5040f3f9278ee234ee2bf"
+    ],
+    [
+      "507_UHD_LL.JPG",
+      "c101621e09057b7e6e32a9e670510bf89033e1143f8387179c48536b6c265b24"
+    ],
+    [
+      "1024_UHD_LL.JPG",
+      "ef3530da3220f99ef1227e023e777cdf0c4c15eab26140f1db5f252af3b7ddb0"
+    ],
+    [
+      "1701_UHD_LL.JPG",
+      "6cb57e00a45835f263c999af2b37ba29a6b9cb5f21e5c834ae1222b58bcdc60a"
+    ],
+    [
+      "2042_UHD_LL.JPG",
+      "ede1f2742f1e425c438a5d3113c3a81368356db9e66f324ff756a644e75ce812"
+    ],
+    [
+      "1400_UHD_LL.JPG",
+      "bc64c323102d2e8f870c405e3e818690c0085c38f536998a03d9e9a71936ed96"
+    ],
+    [
+      "2017_UHD_LL.JPG",
+      "5e1eeb7335f7fe6c7b9ec7e509ccf21d7f7966bc6853c23fbe67272f20a9d433"
+    ],
+    [
+      "371_UHD_LL.JPG",
+      "efbc9bd5e1c915fcfa3cbf405b5568fa740ac6be0375ae87921221dbd023c03c"
+    ],
+    [
+      "1417_UHD_LL.JPG",
+      "bf5fc68b77880cde1d65c32461b8d893a85ff9e085e0925540a49a8c3b934f72"
+    ],
+    [
+      "434_UHD_LL.JPG",
+      "34a84bd7a468300304336e11f5b615e540f8eceb8bfd2dbfb3297ac6a1621897"
+    ],
+    [
+      "895_UHD_LL.JPG",
+      "cdfb679ae142d7838afa9a42f7a5c84dbf2edc16deb43b6d736af8a357c28825"
+    ],
+    [
+      "752_UHD_LL.JPG",
+      "7c533dea75dfb6611ccbc4303b4f4456e5981368f7f6bfdce6f28d09795d593b"
+    ],
+    [
+      "240_UHD_LL.JPG",
+      "8983a805529c1deb66b0e1ca686462a93c503b1d89e9a1482bf2f536f8eb4c24"
+    ],
+    [
+      "272_UHD_LL.JPG",
+      "d310d7d05030846e2dd0204af03783e097fb77de673edaa8564da0b021252a41"
+    ],
+    [
+      "292_UHD_LL.JPG",
+      "7dee822c43150d70538318bfcdd01576a4a206dae6594a4752430cf0cfcbc513"
+    ],
+    [
+      "1718_UHD_LL.JPG",
+      "cdf04ef1dce408089838c71805824f6cccdaf55e5cef91c7a9c5593f709906c4"
+    ],
+    [
+      "692_UHD_LL.JPG",
+      "4d7c50cfa1164fd8389fa8eda0dc8163cba438a974da96f0d6ad4a08ceae65c7"
+    ],
+    [
+      "1917_UHD_LL.JPG",
+      "24f9d8e3093f2a468a96635953e16ab35fc1a4d1d4f82dc02df6814410597487"
+    ],
+    [
+      "7_UHD_LL.JPG",
+      "7a59f9e2fa920ac8f646ddf864f5ded4299dbf467552e64f536e84faffff2538"
+    ],
+    [
+      "161_UHD_LL.JPG",
+      "c8012abae83ea4f0b1c9a4030ceea32415449aa250f2b32a26cbc5dfa3efcc82"
+    ],
+    [
+      "70_UHD_LL.JPG",
+      "7db3fb915eb256077043aca78a9e8060658af6e6edcce4f621c0fc1771805bde"
+    ],
+    [
+      "627_UHD_LL.JPG",
+      "37d314470a6ceecf8f9572edc99ae0ef450dd0b646fb82f7f538e03e5d35da49"
+    ],
+    [
+      "1594_UHD_LL.JPG",
+      "0e45bb253c941107231b82614ea6d0143fd68171872e56eacbaf3b06f68ecd9e"
+    ],
+    [
+      "1388_UHD_LL.JPG",
+      "c94933774f3e6d675be69e96d04753b872ce5d8be36dba8ca72dba0d2a392306"
+    ],
+    [
+      "741_UHD_LL.JPG",
+      "2a5a11d07af29c53b0f891eeddf7138f76ea76a902a98429f8bceae72604bbbd"
+    ],
+    [
+      "94_UHD_LL.JPG",
+      "48506107d27758127264616852059ab923f85735426759e084bb224dfdce5e7d"
+    ],
+    [
+      "1165_UHD_LL.JPG",
+      "32e5dd8e7a462420f44c0f19e4297585736f0a4d12ac99de03570e8fc3bfceda"
+    ],
+    [
+      "677_UHD_LL.JPG",
+      "63a55e3f1cf4a20ad33d5eaaee06f28e1f1dae338f61eff80e36e5531067bec0"
+    ],
+    [
+      "247_UHD_LL.JPG",
+      "b2929585fd2e01ed1ac8c88e6dec8b80b1153ccade6bcdfd1f9ff241e97639a3"
+    ],
+    [
+      "63_UHD_LL.JPG",
+      "03a0eac3cbe15866a7c8792773b9f6bd021801698e0477e18a055e61628e9698"
+    ],
+    [
+      "170_UHD_LL.JPG",
+      "d416b9ab1d3b1f5f8d2f87a451442f40f55c69baf554cf485d99f0c2cd31ea2a"
+    ],
+    [
+      "1778_UHD_LL.JPG",
+      "5e6eb3faf74eb2fb4f06f65a9ea02bf5f0047e92e63e7464c07c32c2cb1b428a"
+    ],
+    [
+      "1649_UHD_LL.JPG",
+      "4b99d0e7610379f27db063acee481bf2e8cb6c9f2f57c487dc9cc27f9bb77037"
+    ],
+    [
+      "1791_UHD_LL.JPG",
+      "8600e14323f1e978a662df88341c4f3398ad54a0b4037bd70d2b738fc3626117"
+    ],
+    [
+      "1475_UHD_LL.JPG",
+      "b47babafab6c0e22121fbcaba32695e5aafce518fe454003b1979e91384c6a84"
+    ],
+    [
+      "1043_UHD_LL.JPG",
+      "064d1933ab6f220aede61ce7718f54f65d5abfa94acf23a6eb25a0aa3a345944"
+    ],
+    [
+      "1124_UHD_LL.JPG",
+      "4bc270b5b72cf4d49a90672913f1b8a4f273b49b873be749db3522597fde6605"
+    ],
+    [
+      "1606_UHD_LL.JPG",
+      "3656a7af45edc887fcc9ea02a52a87797044ee763ba16a18d7f0e8b794425eeb"
+    ],
+    [
+      "1277_UHD_LL.JPG",
+      "eb1bc350cf29dda98cafb7c547a5c4e5bcf20637f334b2a639eb809197e0e17a"
+    ],
+    [
+      "40_UHD_LL.JPG",
+      "dcc2253c05cf38f13c3f8b03694a8645bd81f3da4470319d72df4ffcb5e4878a"
+    ],
+    [
+      "967_UHD_LL.JPG",
+      "05ef8d4b58e978e81e04aa6a33618025c98bc166e90f500ff0676ae45c6a1142"
+    ],
+    [
+      "230_UHD_LL.JPG",
+      "704ff1d2db60d4a6737b5353498ded64d65602ad96e87cc186889d8be6a859c7"
+    ],
+    [
+      "1188_UHD_LL.JPG",
+      "5ead067d205faf1822c6283c45561966b23ec5a7255036be838063c144b3ddb9"
+    ],
+    [
+      "1_UHD_LL.JPG",
+      "e96de0219804500f3f37f3ba8f40fb0372b59209ec6f347b32109d615b50a601"
+    ],
+    [
+      "690_UHD_LL.JPG",
+      "3df8fdbd94206b31e3acb3566c78100833ef265352fa264c1d0461fa23790d52"
+    ],
+    [
+      "771_UHD_LL.JPG",
+      "23660bfccf2c8af8ecef98c98eeff3ca6b93d6fffc9041c66d3930149b233deb"
+    ],
+    [
+      "453_UHD_LL.JPG",
+      "1ee4a9ced172d50d9bac787f78b50b71e6211db6c93b2a27278d0619595f2626"
+    ],
+    [
+      "1102_UHD_LL.JPG",
+      "47f5d7783d07fdc4554503e1bc719120c260501e30a33fccb8407b286f4bea65"
+    ],
+    [
+      "278_UHD_LL.JPG",
+      "b2429bd7f0a3602b251e6dcc3ede028b4d5eb01d68baf1ac0447a9cfe92b39ca"
+    ],
+    [
+      "2142_UHD_LL.JPG",
+      "45e81b2ae9674c7debaa09e379982056a9c1ba6aeb40b9c0e7eb16d15afd7541"
+    ],
+    [
+      "1085_UHD_LL.JPG",
+      "a9fc2945da9e5eb88a5905118cd86540a03f6a46bb26a9417d4e0ed2ce4ef2f2"
+    ],
+    [
+      "1256_UHD_LL.JPG",
+      "44f8d76f629094faef47e2bcc0f030dfcb0300ef766789c6f3d9800e1c5bd89f"
+    ],
+    [
+      "1671_UHD_LL.JPG",
+      "4b9c11b6736193bd11e3099cff4584564356378b17d2e13f493587fadae1c45d"
+    ],
+    [
+      "441_UHD_LL.JPG",
+      "2d891105bcf3a1fab06c44c157d4c2087a294caf44b99ea3aab4b04acb26cc38"
+    ],
+    [
+      "288_UHD_LL.JPG",
+      "30256d71f638ee32d35a114b4e925c489bb4dfe1e01df8abd3338c8c63c01fda"
+    ],
+    [
+      "788_UHD_LL.JPG",
+      "4aa7ad5d14de3c038053f8c9c2ac75e55f691195082aef1ad2e230ff8eb26810"
+    ],
+    [
+      "17_UHD_LL.JPG",
+      "d8bdc79f914cc40553b11260ecd063ae35a9d4a046c0999f67fba427584bca98"
+    ],
+    [
+      "1009_UHD_LL.JPG",
+      "87bd1421eb8cdb6dd376acadb3b52fbd38bbc8bd818f9d64982d12e996814511"
+    ],
+    [
+      "1628_UHD_LL.JPG",
+      "31d78e32c044ddd96e5fa9cac4c5063ae88e28a1206aac2207b72fc26e13bda0"
+    ],
+    [
+      "231_UHD_LL.JPG",
+      "d1d846cdfdde0b3425a0456b0789c2aadaf2b8195d50a42b47f119bd10be0f7b"
+    ],
+    [
+      "1637_UHD_LL.JPG",
+      "1b27ef110473b1768309351a266a9889251a7cdf3f2a115b2423eb70c607562b"
+    ],
+    [
+      "1558_UHD_LL.JPG",
+      "ee3922ced21b35f34cf342412739ca3b61847050149a7a8f9b03065316eb865a"
+    ],
+    [
+      "1184_UHD_LL.JPG",
+      "d8961871c413a79bacdfc8083b40a70d7230e7ffbf1bded8bd971302d93c296f"
+    ],
+    [
+      "869_UHD_LL.JPG",
+      "3e50afaee3bb2c68d9111abd6648a22a52321352b85696d6014b8e69cb0152f7"
+    ],
+    [
+      "200_UHD_LL.JPG",
+      "61083af69dbe2448f85d3750e1a4dfe5f7b5cda5fb639b2a9de58e93c8c80b35"
+    ],
+    [
+      "1694_UHD_LL.JPG",
+      "77161e37cf80ba1d7ba806c198affcd14256802956f974eedc09ee184cb7a1de"
+    ],
+    [
+      "1792_UHD_LL.JPG",
+      "9831afdb404f4dfc1423ab9d4e16ff1000aeb65e973b2f8767fa85b81ef9e49b"
+    ],
+    [
+      "914_UHD_LL.JPG",
+      "3b37d34d9da9828f8dfa30788944f40e4992a74974968eb6ebbe1ddc223dbffe"
+    ],
+    [
+      "164_UHD_LL.JPG",
+      "840502364ea54c900dbfa76012f90a0a5629535d415e96be7055703422e4c2ff"
+    ],
+    [
+      "345_UHD_LL.JPG",
+      "59f2de7861e9212499a800b888e7a90d900482b3bf7bb21b7f429cca32fdec83"
+    ],
+    [
+      "499_UHD_LL.JPG",
+      "2511ec25aa03e2ce4c3058785b0c1945b018baf6538c163eaab097352236101b"
+    ],
+    [
+      "175_UHD_LL.JPG",
+      "ec7915eafe0dd2eef9b4abc6b38dfb8f5a57adfa182c6cd581c2f4ecd9a0acda"
+    ],
+    [
+      "685_UHD_LL.JPG",
+      "c214c79f53a269e3cc2b746bb33a86108a7724114a71476ec57bc754a33412f5"
+    ],
+    [
+      "2025_UHD_LL.JPG",
+      "8ff44a1debed876e93cd346d4f3ea0bd05f54a3f20923df8e8add46896c55b33"
+    ],
+    [
+      "29_UHD_LL.JPG",
+      "f30c4ed2b966d0c9348d22902b760d00a851ee3f845f6d921b1511c9ecd42389"
+    ],
+    [
+      "1785_UHD_LL.JPG",
+      "4d5167ed1d687dd3e43b9a7636218311f2e33393845dbd9d18b41f890e5ed5d0"
+    ],
+    [
+      "389_UHD_LL.JPG",
+      "1532040d1677246a65d4a2439db1527398987dc43cd99c0079d0f154772e87c7"
+    ],
+    [
+      "1357_UHD_LL.JPG",
+      "51693f87db98d529dea36ebd71a76f375ff108bbd853a3f78e4156fdb4283eb4"
+    ],
+    [
+      "584_UHD_LL.JPG",
+      "153aaeeaa4ddbb27dc3449b74bf08593c9fe0cd702b79e4f29c3109d580bf0a0"
+    ],
+    [
+      "999_UHD_LL.JPG",
+      "5f956b83d190ef6270ea18fd03b6bb28ff494a2d89585af86f19e47bf14cd912"
+    ],
+    [
+      "545_UHD_LL.JPG",
+      "ad7f4eeb1227fd232aa305e66c17f2065a3350eff5503f22895279dc607e8498"
+    ],
+    [
+      "945_UHD_LL.JPG",
+      "2eab06778a59b15b743c49bb42b68564a9599aa68e08d7dbbf408cd848abd694"
+    ],
+    [
+      "727_UHD_LL.JPG",
+      "7e3d1044155464228b0038853934b3242abf9ef8203a57da295e0b33745f6956"
+    ],
+    [
+      "1682_UHD_LL.JPG",
+      "1c3c97d76847525abb84764aef4f6601770866276651a7683dc40ab444e42b5c"
+    ],
+    [
+      "172_UHD_LL.JPG",
+      "7a05d389bec9fa9f2df462f2c547f13a67559f171a2f854cde6d68f8815b7e9e"
+    ],
+    [
+      "199_UHD_LL.JPG",
+      "9d0fa141aff292c2fd679cd276ed80c9ffa64526b83173ff6803a6e6035ecd34"
+    ],
+    [
+      "1678_UHD_LL.JPG",
+      "c372e265bc318d2683102574b3b14da54941796a621c9e516de22440cdc51c64"
+    ],
+    [
+      "1663_UHD_LL.JPG",
+      "7c344b548c69583b5d7424d6996bf21408c7e77500038895c70e5d110181cc9d"
+    ],
+    [
+      "54_UHD_LL.JPG",
+      "952a891b02ad50ec1c3cb8b03896d5badaa341aa5e952873dbfff390d4599ad7"
+    ],
+    [
+      "1294_UHD_LL.JPG",
+      "0bed3c33be32f7f7b9c00496b96d2a8ee2146b1d55495544509191ae05c11e2f"
+    ],
+    [
+      "1808_UHD_LL.JPG",
+      "9cadd0be5f06f7224b5d2627a7a8d0842231e6f87530c53581581685de1a1b72"
+    ],
+    [
+      "2145_UHD_LL.JPG",
+      "5ecb6c37fc391dc2ff318dc6582bf5ddad088edce75f460cab4863393645eb38"
+    ],
+    [
+      "697_UHD_LL.JPG",
+      "bb9e7e3ba913f9e20e760064b619cf9ffb40e8187b045c67d2557230b77d3852"
+    ],
+    [
+      "1191_UHD_LL.JPG",
+      "bfe4b431ebc2bbcd6ec61d2379ea690761fb3083985bfd85db918504aa2e6c05"
+    ],
+    [
+      "2034_UHD_LL.JPG",
+      "6731927db2a525b00d8e71463953bd14636bd342817a7de6be363ceac9bf9121"
+    ],
+    [
+      "1838_UHD_LL.JPG",
+      "812d88ff065ee0ad37d01be4eb64ad45b652e4dcac340d82f9c6926ec395de38"
+    ],
+    [
+      "720_UHD_LL.JPG",
+      "662cb810de1c7d2c2c52c65f77dce6c570827fe6921830c42cb4d8228c9559c0"
+    ],
+    [
+      "8_UHD_LL.JPG",
+      "7d1fb3973ec6d1bb514f843f6ec2890cd23686ad18bb7de68784891b5e625694"
+    ],
+    [
+      "1223_UHD_LL.JPG",
+      "d86cd046e3799f65e3872258a12b73577204ab67e2e4e4b8b33873c813fdb96c"
+    ],
+    [
+      "769_UHD_LL.JPG",
+      "e0ed65000947d1ab9b86fd92cf5962004996d9c06c93d3709a2832d3974050dd"
+    ],
+    [
+      "1756_UHD_LL.JPG",
+      "ac8a1b572307e300a0af4d303ca8eaee654f6c00536b555271cec3fdb07e3470"
+    ],
+    [
+      "2068_UHD_LL.JPG",
+      "7259ded3e5003618efd9ac041b8c3947f8296580a43684fc013327ae1f6e3fb1"
+    ],
+    [
+      "1246_UHD_LL.JPG",
+      "c0a6b2e1fb7059852c9f8093e6a5de5acc859e927707befa85b587a6bbee1735"
+    ],
+    [
+      "1725_UHD_LL.JPG",
+      "7159a9b422e568acfb4bd119a41380ebb634c42ce053a33517ff6aa336fc7e0c"
+    ],
+    [
+      "1365_UHD_LL.JPG",
+      "7482a389e589098bc0293b55bbf91d24d08132fe31a9fd5a1963703ecab187be"
+    ],
+    [
+      "1446_UHD_LL.JPG",
+      "bb436cc416c431cada305cc1ba398df2f7fdfce4c3a0d47243dfbd3ae5f3315a"
+    ],
+    [
+      "1686_UHD_LL.JPG",
+      "1ff2b512c1a3b77351e52c16171441513b3236996f3db5646119412fe08dd740"
+    ],
+    [
+      "1142_UHD_LL.JPG",
+      "9a50e2a6a64c96a014f784c82e2199c755a3ce177782b31ca39de3c30c451e5a"
+    ],
+    [
+      "874_UHD_LL.JPG",
+      "7efefbe09719ba334079828358f057d1f9c5d009a5375c79b68d95e66c404422"
+    ],
+    [
+      "425_UHD_LL.JPG",
+      "3dda5f166b54b83d6dc6f05141eb69e3044200040016d5debea9669f8c50d370"
+    ],
+    [
+      "60_UHD_LL.JPG",
+      "fb81e6f0664270773bb24ac31b6824bf3adb2c421103dc3a3e34f597e9f2ebc6"
+    ],
+    [
+      "152_UHD_LL.JPG",
+      "3e5dbeb1aa202185b55e7c4ed8441d43f9225b58163eb9060e64f1c705e1e49a"
+    ],
+    [
+      "375_UHD_LL.JPG",
+      "8e2d4a508b6e5f939f6d60b69836c409f5c8c0abfa71923e3a9531bca119ca3d"
+    ],
+    [
+      "2045_UHD_LL.JPG",
+      "08671afe6bcbbdf8a64a361e21d66de72b375446024836a91a1ef8f5c30cb74a"
+    ],
+    [
+      "890_UHD_LL.JPG",
+      "c94da3c3a6824810cad29dd6d6c1a496774e11667f256c1630269e76d54643e3"
+    ],
+    [
+      "204_UHD_LL.JPG",
+      "85d8e0e174aedcde979d7152f581698d0ec4bef1cd21bccc65c85ccb77ede03b"
+    ],
+    [
+      "142_UHD_LL.JPG",
+      "3aa36e06934dc2da79934d1fcd1703a59cebdab3d3419f1c109d8eb87ced4dd1"
+    ],
+    [
+      "810_UHD_LL.JPG",
+      "80409211607a0552951798cd2cdaf9899135e4c37263730cf89f3273e1e9ebf1"
+    ],
+    [
+      "1315_UHD_LL.JPG",
+      "be7bf665797a4b54d8118acfec722f92b184fc40d5e93500b170ba948cc06107"
+    ],
+    [
+      "1539_UHD_LL.JPG",
+      "889adc0fe2e62c99e9f200f68fc904045a27d4d7eb0ace72bef70be75048c02c"
+    ],
+    [
+      "286_UHD_LL.JPG",
+      "3a0c3db0db5d9d16408f2526bd3fbf0cf7d4c23da58974d90630fe6ca9c9ab4e"
+    ],
+    [
+      "457_UHD_LL.JPG",
+      "3594d36ee5d6bbb60e2ebae63028bc31b73eb4789a440250a82d22b21729bf50"
+    ],
+    [
+      "649_UHD_LL.JPG",
+      "3d00c128fd0518bc10808df7b6e7142e8af7739c084f5b9d7131b5beeea62e81"
+    ],
+    [
+      "1801_UHD_LL.JPG",
+      "90c05381ec079de3c77b3c4bf90c6a0ba1ea0a689fc7073534415c4c3888a7de"
+    ],
+    [
+      "1338_UHD_LL.JPG",
+      "ce21b7d614a72782e5b5f54ae89c3f077cb348a24fd83abc16e863a3f944ef11"
+    ],
+    [
+      "223_UHD_LL.JPG",
+      "122d98bab95d22f061b68fab7f8cffc09a5f85de44d2ef8de30bfaa94bc19c64"
+    ],
+    [
+      "1003_UHD_LL.JPG",
+      "5fad8e4414ddc02f120e1c6f45e4cd0da6795281acb9e8948f44463df1102bb4"
+    ],
+    [
+      "674_UHD_LL.JPG",
+      "5cd6017c642800395e5f5038a3dc53669b3ff0358900db668386c0b9f2f5dbd6"
+    ],
+    [
+      "704_UHD_LL.JPG",
+      "c2551bc9fc96dde740d4621df4449d5f4abcd3f7211041bb4224e747f83bde75"
+    ],
+    [
+      "1453_UHD_LL.JPG",
+      "6c57a7fa14c1f0838dff25f14441bf97093f3913cdf400f95ebd7491cc84bf0a"
+    ],
+    [
+      "1768_UHD_LL.JPG",
+      "2dc5d6829efc06ce93dab20c912a53b37de9b85346af694dc9df3288da0eb007"
+    ],
+    [
+      "1583_UHD_LL.JPG",
+      "526573c980a52321122ae0ce9004b4ba00c003c172a799ca7b7ea77bd50f841a"
+    ],
+    [
+      "353_UHD_LL.JPG",
+      "5be9cbc5e7f3f30b6d82c00119288e06130a3c38c22e60961d3853ae1dd5f26f"
+    ],
+    [
+      "47_UHD_LL.JPG",
+      "f4c41786acebacb923c2352069bc8098b0c124d1e371f6b7cac5b2ddc602d403"
+    ],
+    [
+      "442_UHD_LL.JPG",
+      "080f3cdf83b3e67dc9dc7940f99e25c10a93a7141e2368c85f312a248d1f7a15"
+    ],
+    [
+      "1513_UHD_LL.JPG",
+      "3c15bc086fda9aa7c772144f66630e0702d146cceb2466c5fcdc0f0f4ab90242"
+    ],
+    [
+      "879_UHD_LL.JPG",
+      "b02e375918bcf2e7c8ae5bd7cf820f688c2521ebd2e65bb371bb457441358b5f"
+    ],
+    [
+      "920_UHD_LL.JPG",
+      "a8b0aab95087e2e653eeea6c966630187e29235249c4a711dda88ce16b6a0950"
+    ]
+  ],
+  "adaptation_seconds": 1228.195786212047,
+  "adaptation_peak_gpu_memory_bytes": 23381147648,
+  "post_cleanup_allocated_bytes": 17563648,
+  "post_cleanup_reserved_bytes": 79691776,
+  "inference_seconds": 2115.134524293011,
+  "inference_peak_gpu_memory_bytes": 49165631488,
+  "whole_run_seconds": 3347.6119180680253,
+  "gpu_name": "NVIDIA GeForce RTX 4090",
+  "source_state_sha256": "ea6042ead91902d7e75ad08c70d29b0d1a550e7c1c056a848e7794af911014c6",
+  "adapted_state_sha256": "be44c17394b950d3a2d067d0efee2400b6b4278069f24ee30758771ffcc124d5",
+  "adapted_state_file_sha256": "5c85ce17f2763d0a6b520149a1815bdf43440738f77c2224ac1ed1f1bf8e612a",
+  "parameter_updates": {
+    "trainable_tensor_count": 329,
+    "trainable_elements": 8596503,
+    "trainable_bytes": 34386012,
+    "changed_tensor_count": 329,
+    "changed_elements": 3438687,
+    "changed_bytes": 13754748,
+    "changed_outside_trainable": [],
+    "changed_tensor_names": [
+      "prompt1.linear_layer.weight",
+      "prompt1.linear_layer.bias",
+      "prompt1.conv3x3.weight",
+      "prompt2.linear_layer.weight",
+      "prompt2.linear_layer.bias",
+      "prompt2.conv3x3.weight",
+      "prompt3.linear_layer.weight",
+      "prompt3.linear_layer.bias",
+      "prompt3.conv3x3.weight",
+      "encoder_level1.0.norm1.body.weight",
+      "encoder_level1.0.norm1.body.bias",
+      "encoder_level1.0.attn.qkv.weight",
+      "encoder_level1.0.attn.qkv_dwconv.weight",
+      "encoder_level1.0.attn.project_out.weight",
+      "encoder_level1.0.norm2.body.weight",
+      "encoder_level1.0.norm2.body.bias",
+      "encoder_level1.0.ffn.project_in.weight",
+      "encoder_level1.0.ffn.dwconv.weight",
+      "encoder_level1.0.ffn.project_out.weight",
+      "encoder_level1.1.norm1.body.weight",
+      "encoder_level1.1.norm1.body.bias",
+      "encoder_level1.1.attn.qkv.weight",
+      "encoder_level1.1.attn.qkv_dwconv.weight",
+      "encoder_level1.1.attn.project_out.weight",
+      "encoder_level1.1.norm2.body.weight",
+      "encoder_level1.1.norm2.body.bias",
+      "encoder_level1.1.ffn.project_in.weight",
+      "encoder_level1.1.ffn.dwconv.weight",
+      "encoder_level1.1.ffn.project_out.weight",
+      "encoder_level1.2.norm1.body.weight",
+      "encoder_level1.2.norm1.body.bias",
+      "encoder_level1.2.attn.qkv.weight",
+      "encoder_level1.2.attn.qkv_dwconv.weight",
+      "encoder_level1.2.attn.project_out.weight",
+      "encoder_level1.2.norm2.body.weight",
+      "encoder_level1.2.norm2.body.bias",
+      "encoder_level1.2.ffn.project_in.weight",
+      "encoder_level1.2.ffn.dwconv.weight",
+      "encoder_level1.2.ffn.project_out.weight",
+      "encoder_level1.3.norm1.body.weight",
+      "encoder_level1.3.norm1.body.bias",
+      "encoder_level1.3.attn.qkv.weight",
+      "encoder_level1.3.attn.qkv_dwconv.weight",
+      "encoder_level1.3.attn.project_out.weight",
+      "encoder_level1.3.norm2.body.weight",
+      "encoder_level1.3.norm2.body.bias",
+      "encoder_level1.3.ffn.project_in.weight",
+      "encoder_level1.3.ffn.dwconv.weight",
+      "encoder_level1.3.ffn.project_out.weight",
+      "encoder_level2.0.norm1.body.weight",
+      "encoder_level2.0.norm1.body.bias",
+      "encoder_level2.0.attn.qkv.weight",
+      "encoder_level2.0.attn.qkv_dwconv.weight",
+      "encoder_level2.0.attn.project_out.weight",
+      "encoder_level2.0.norm2.body.weight",
+      "encoder_level2.0.norm2.body.bias",
+      "encoder_level2.0.ffn.project_in.weight",
+      "encoder_level2.0.ffn.dwconv.weight",
+      "encoder_level2.0.ffn.project_out.weight",
+      "encoder_level2.1.norm1.body.weight",
+      "encoder_level2.1.norm1.body.bias",
+      "encoder_level2.1.attn.qkv.weight",
+      "encoder_level2.1.attn.qkv_dwconv.weight",
+      "encoder_level2.1.attn.project_out.weight",
+      "encoder_level2.1.norm2.body.weight",
+      "encoder_level2.1.norm2.body.bias",
+      "encoder_level2.1.ffn.project_in.weight",
+      "encoder_level2.1.ffn.dwconv.weight",
+      "encoder_level2.1.ffn.project_out.weight",
+      "encoder_level2.2.norm1.body.weight",
+      "encoder_level2.2.norm1.body.bias",
+      "encoder_level2.2.attn.qkv.weight",
+      "encoder_level2.2.attn.qkv_dwconv.weight",
+      "encoder_level2.2.attn.project_out.weight",
+      "encoder_level2.2.norm2.body.weight",
+      "encoder_level2.2.norm2.body.bias",
+      "encoder_level2.2.ffn.project_in.weight",
+      "encoder_level2.2.ffn.dwconv.weight",
+      "encoder_level2.2.ffn.project_out.weight",
+      "encoder_level2.3.norm1.body.weight",
+      "encoder_level2.3.norm1.body.bias",
+      "encoder_level2.3.attn.qkv.weight",
+      "encoder_level2.3.attn.qkv_dwconv.weight",
+      "encoder_level2.3.attn.project_out.weight",
+      "encoder_level2.3.norm2.body.weight",
+      "encoder_level2.3.norm2.body.bias",
+      "encoder_level2.3.ffn.project_in.weight",
+      "encoder_level2.3.ffn.dwconv.weight",
+      "encoder_level2.3.ffn.project_out.weight",
+      "encoder_level2.4.norm1.body.weight",
+      "encoder_level2.4.norm1.body.bias",
+      "encoder_level2.4.attn.qkv.weight",
+      "encoder_level2.4.attn.qkv_dwconv.weight",
+      "encoder_level2.4.attn.project_out.weight",
+      "encoder_level2.4.norm2.body.weight",
+      "encoder_level2.4.norm2.body.bias",
+      "encoder_level2.4.ffn.project_in.weight",
+      "encoder_level2.4.ffn.dwconv.weight",
+      "encoder_level2.4.ffn.project_out.weight",
+      "encoder_level2.5.norm1.body.weight",
+      "encoder_level2.5.norm1.body.bias",
+      "encoder_level2.5.attn.qkv.weight",
+      "encoder_level2.5.attn.qkv_dwconv.weight",
+      "encoder_level2.5.attn.project_out.weight",
+      "encoder_level2.5.norm2.body.weight",
+      "encoder_level2.5.norm2.body.bias",
+      "encoder_level2.5.ffn.project_in.weight",
+      "encoder_level2.5.ffn.dwconv.weight",
+      "encoder_level2.5.ffn.project_out.weight",
+      "encoder_level3.0.norm1.body.weight",
+      "encoder_level3.0.norm1.body.bias",
+      "encoder_level3.0.attn.qkv.weight",
+      "encoder_level3.0.attn.qkv_dwconv.weight",
+      "encoder_level3.0.attn.project_out.weight",
+      "encoder_level3.0.norm2.body.weight",
+      "encoder_level3.0.norm2.body.bias",
+      "encoder_level3.0.ffn.project_in.weight",
+      "encoder_level3.0.ffn.dwconv.weight",
+      "encoder_level3.0.ffn.project_out.weight",
+      "encoder_level3.1.norm1.body.weight",
+      "encoder_level3.1.norm1.body.bias",
+      "encoder_level3.1.attn.qkv.weight",
+      "encoder_level3.1.attn.qkv_dwconv.weight",
+      "encoder_level3.1.attn.project_out.weight",
+      "encoder_level3.1.norm2.body.weight",
+      "encoder_level3.1.norm2.body.bias",
+      "encoder_level3.1.ffn.project_in.weight",
+      "encoder_level3.1.ffn.dwconv.weight",
+      "encoder_level3.1.ffn.project_out.weight",
+      "encoder_level3.2.norm1.body.weight",
+      "encoder_level3.2.norm1.body.bias",
+      "encoder_level3.2.attn.qkv.weight",
+      "encoder_level3.2.attn.qkv_dwconv.weight",
+      "encoder_level3.2.attn.project_out.weight",
+      "encoder_level3.2.norm2.body.weight",
+      "encoder_level3.2.norm2.body.bias",
+      "encoder_level3.2.ffn.project_in.weight",
+      "encoder_level3.2.ffn.dwconv.weight",
+      "encoder_level3.2.ffn.project_out.weight",
+      "encoder_level3.3.norm1.body.weight",
+      "encoder_level3.3.norm1.body.bias",
+      "encoder_level3.3.attn.qkv.weight",
+      "encoder_level3.3.attn.qkv_dwconv.weight",
+      "encoder_level3.3.attn.project_out.weight",
+      "encoder_level3.3.norm2.body.weight",
+      "encoder_level3.3.norm2.body.bias",
+      "encoder_level3.3.ffn.project_in.weight",
+      "encoder_level3.3.ffn.dwconv.weight",
+      "encoder_level3.3.ffn.project_out.weight",
+      "encoder_level3.4.norm1.body.weight",
+      "encoder_level3.4.norm1.body.bias",
+      "encoder_level3.4.attn.qkv.weight",
+      "encoder_level3.4.attn.qkv_dwconv.weight",
+      "encoder_level3.4.attn.project_out.weight",
+      "encoder_level3.4.norm2.body.weight",
+      "encoder_level3.4.norm2.body.bias",
+      "encoder_level3.4.ffn.project_in.weight",
+      "encoder_level3.4.ffn.dwconv.weight",
+      "encoder_level3.4.ffn.project_out.weight",
+      "encoder_level3.5.norm1.body.weight",
+      "encoder_level3.5.norm1.body.bias",
+      "encoder_level3.5.attn.qkv.weight",
+      "encoder_level3.5.attn.qkv_dwconv.weight",
+      "encoder_level3.5.attn.project_out.weight",
+      "encoder_level3.5.norm2.body.weight",
+      "encoder_level3.5.norm2.body.bias",
+      "encoder_level3.5.ffn.project_in.weight",
+      "encoder_level3.5.ffn.dwconv.weight",
+      "encoder_level3.5.ffn.project_out.weight",
+      "decoder_level3.0.norm1.body.weight",
+      "decoder_level3.0.norm1.body.bias",
+      "decoder_level3.0.attn.qkv.weight",
+      "decoder_level3.0.attn.qkv_dwconv.weight",
+      "decoder_level3.0.attn.project_out.weight",
+      "decoder_level3.0.norm2.body.weight",
+      "decoder_level3.0.norm2.body.bias",
+      "decoder_level3.0.ffn.project_in.weight",
+      "decoder_level3.0.ffn.dwconv.weight",
+      "decoder_level3.0.ffn.project_out.weight",
+      "decoder_level3.1.norm1.body.weight",
+      "decoder_level3.1.norm1.body.bias",
+      "decoder_level3.1.attn.qkv.weight",
+      "decoder_level3.1.attn.qkv_dwconv.weight",
+      "decoder_level3.1.attn.project_out.weight",
+      "decoder_level3.1.norm2.body.weight",
+      "decoder_level3.1.norm2.body.bias",
+      "decoder_level3.1.ffn.project_in.weight",
+      "decoder_level3.1.ffn.dwconv.weight",
+      "decoder_level3.1.ffn.project_out.weight",
+      "decoder_level3.2.norm1.body.weight",
+      "decoder_level3.2.norm1.body.bias",
+      "decoder_level3.2.attn.qkv.weight",
+      "decoder_level3.2.attn.qkv_dwconv.weight",
+      "decoder_level3.2.attn.project_out.weight",
+      "decoder_level3.2.norm2.body.weight",
+      "decoder_level3.2.norm2.body.bias",
+      "decoder_level3.2.ffn.project_in.weight",
+      "decoder_level3.2.ffn.dwconv.weight",
+      "decoder_level3.2.ffn.project_out.weight",
+      "decoder_level3.3.norm1.body.weight",
+      "decoder_level3.3.norm1.body.bias",
+      "decoder_level3.3.attn.qkv.weight",
+      "decoder_level3.3.attn.qkv_dwconv.weight",
+      "decoder_level3.3.attn.project_out.weight",
+      "decoder_level3.3.norm2.body.weight",
+      "decoder_level3.3.norm2.body.bias",
+      "decoder_level3.3.ffn.project_in.weight",
+      "decoder_level3.3.ffn.dwconv.weight",
+      "decoder_level3.3.ffn.project_out.weight",
+      "decoder_level3.4.norm1.body.weight",
+      "decoder_level3.4.norm1.body.bias",
+      "decoder_level3.4.attn.qkv.weight",
+      "decoder_level3.4.attn.qkv_dwconv.weight",
+      "decoder_level3.4.attn.project_out.weight",
+      "decoder_level3.4.norm2.body.weight",
+      "decoder_level3.4.norm2.body.bias",
+      "decoder_level3.4.ffn.project_in.weight",
+      "decoder_level3.4.ffn.dwconv.weight",
+      "decoder_level3.4.ffn.project_out.weight",
+      "decoder_level3.5.norm1.body.weight",
+      "decoder_level3.5.norm1.body.bias",
+      "decoder_level3.5.attn.qkv.weight",
+      "decoder_level3.5.attn.qkv_dwconv.weight",
+      "decoder_level3.5.attn.project_out.weight",
+      "decoder_level3.5.norm2.body.weight",
+      "decoder_level3.5.norm2.body.bias",
+      "decoder_level3.5.ffn.project_in.weight",
+      "decoder_level3.5.ffn.dwconv.weight",
+      "decoder_level3.5.ffn.project_out.weight",
+      "decoder_level2.0.norm1.body.weight",
+      "decoder_level2.0.norm1.body.bias",
+      "decoder_level2.0.attn.qkv.weight",
+      "decoder_level2.0.attn.qkv_dwconv.weight",
+      "decoder_level2.0.attn.project_out.weight",
+      "decoder_level2.0.norm2.body.weight",
+      "decoder_level2.0.norm2.body.bias",
+      "decoder_level2.0.ffn.project_in.weight",
+      "decoder_level2.0.ffn.dwconv.weight",
+      "decoder_level2.0.ffn.project_out.weight",
+      "decoder_level2.1.norm1.body.weight",
+      "decoder_level2.1.norm1.body.bias",
+      "decoder_level2.1.attn.qkv.weight",
+      "decoder_level2.1.attn.qkv_dwconv.weight",
+      "decoder_level2.1.attn.project_out.weight",
+      "decoder_level2.1.norm2.body.weight",
+      "decoder_level2.1.norm2.body.bias",
+      "decoder_level2.1.ffn.project_in.weight",
+      "decoder_level2.1.ffn.dwconv.weight",
+      "decoder_level2.1.ffn.project_out.weight",
+      "decoder_level2.2.norm1.body.weight",
+      "decoder_level2.2.norm1.body.bias",
+      "decoder_level2.2.attn.qkv.weight",
+      "decoder_level2.2.attn.qkv_dwconv.weight",
+      "decoder_level2.2.attn.project_out.weight",
+      "decoder_level2.2.norm2.body.weight",
+      "decoder_level2.2.norm2.body.bias",
+      "decoder_level2.2.ffn.project_in.weight",
+      "decoder_level2.2.ffn.dwconv.weight",
+      "decoder_level2.2.ffn.project_out.weight",
+      "decoder_level2.3.norm1.body.weight",
+      "decoder_level2.3.norm1.body.bias",
+      "decoder_level2.3.attn.qkv.weight",
+      "decoder_level2.3.attn.qkv_dwconv.weight",
+      "decoder_level2.3.attn.project_out.weight",
+      "decoder_level2.3.norm2.body.weight",
+      "decoder_level2.3.norm2.body.bias",
+      "decoder_level2.3.ffn.project_in.weight",
+      "decoder_level2.3.ffn.dwconv.weight",
+      "decoder_level2.3.ffn.project_out.weight",
+      "decoder_level2.4.norm1.body.weight",
+      "decoder_level2.4.norm1.body.bias",
+      "decoder_level2.4.attn.qkv.weight",
+      "decoder_level2.4.attn.qkv_dwconv.weight",
+      "decoder_level2.4.attn.project_out.weight",
+      "decoder_level2.4.norm2.body.weight",
+      "decoder_level2.4.norm2.body.bias",
+      "decoder_level2.4.ffn.project_in.weight",
+      "decoder_level2.4.ffn.dwconv.weight",
+      "decoder_level2.4.ffn.project_out.weight",
+      "decoder_level2.5.norm1.body.weight",
+      "decoder_level2.5.norm1.body.bias",
+      "decoder_level2.5.attn.qkv.weight",
+      "decoder_level2.5.attn.qkv_dwconv.weight",
+      "decoder_level2.5.attn.project_out.weight",
+      "decoder_level2.5.norm2.body.weight",
+      "decoder_level2.5.norm2.body.bias",
+      "decoder_level2.5.ffn.project_in.weight",
+      "decoder_level2.5.ffn.dwconv.weight",
+      "decoder_level2.5.ffn.project_out.weight",
+      "decoder_level1.0.norm1.body.weight",
+      "decoder_level1.0.norm1.body.bias",
+      "decoder_level1.0.attn.qkv.weight",
+      "decoder_level1.0.attn.qkv_dwconv.weight",
+      "decoder_level1.0.attn.project_out.weight",
+      "decoder_level1.0.norm2.body.weight",
+      "decoder_level1.0.norm2.body.bias",
+      "decoder_level1.0.ffn.project_in.weight",
+      "decoder_level1.0.ffn.dwconv.weight",
+      "decoder_level1.0.ffn.project_out.weight",
+      "decoder_level1.1.norm1.body.weight",
+      "decoder_level1.1.norm1.body.bias",
+      "decoder_level1.1.attn.qkv.weight",
+      "decoder_level1.1.attn.qkv_dwconv.weight",
+      "decoder_level1.1.attn.project_out.weight",
+      "decoder_level1.1.norm2.body.weight",
+      "decoder_level1.1.norm2.body.bias",
+      "decoder_level1.1.ffn.project_in.weight",
+      "decoder_level1.1.ffn.dwconv.weight",
+      "decoder_level1.1.ffn.project_out.weight",
+      "decoder_level1.2.norm1.body.weight",
+      "decoder_level1.2.norm1.body.bias",
+      "decoder_level1.2.attn.qkv.weight",
+      "decoder_level1.2.attn.qkv_dwconv.weight",
+      "decoder_level1.2.attn.project_out.weight",
+      "decoder_level1.2.norm2.body.weight",
+      "decoder_level1.2.norm2.body.bias",
+      "decoder_level1.2.ffn.project_in.weight",
+      "decoder_level1.2.ffn.dwconv.weight",
+      "decoder_level1.2.ffn.project_out.weight",
+      "decoder_level1.3.norm1.body.weight",
+      "decoder_level1.3.norm1.body.bias",
+      "decoder_level1.3.attn.qkv.weight",
+      "decoder_level1.3.attn.qkv_dwconv.weight",
+      "decoder_level1.3.attn.project_out.weight",
+      "decoder_level1.3.norm2.body.weight",
+      "decoder_level1.3.norm2.body.bias",
+      "decoder_level1.3.ffn.project_in.weight",
+      "decoder_level1.3.ffn.dwconv.weight",
+      "decoder_level1.3.ffn.project_out.weight"
+    ]
+  },
+  "scheduled_depthwise_count": 94,
+  "scheduled_feedforward_count": 47,
+  "model_state_unchanged": true,
+  "state_key_count": 548,
+  "reference_reads": 0,
+  "metrics": 0,
+  "rows": [
+    {
+      "low_name": "1003_UHD_LL.JPG",
+      "low_sha256": "cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "720ab9c421719a519892d087c52f10ec570b1a241defe163c634a73e77fbe2b8",
+      "output_file_sha256": "98c6463fd47b2c68457dd24e104da209172e656646b29ba2e5317c8cc8d1336a",
+      "whole_run_seconds": 14.311986298998818,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1009_UHD_LL.JPG",
+      "low_sha256": "7503bd0865610d12cea2f236b6a6eebfbe1722972f83c3a8c34fb10b14f3cffc",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4961e3cd96f35cc02b3252428dfced80594c04bf14430e7a6788212515838d6c",
+      "output_file_sha256": "cc4bb79ae68abff082a2972036fe7511802cf8602baf0729b55c59f3061dd841",
+      "whole_run_seconds": 14.037624458956998,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1024_UHD_LL.JPG",
+      "low_sha256": "93ceaa29aea9e211ff1fc89fa1b12760d0bf1525be7cfb419c76bd484a8dd293",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "20dafca99b4eb421731626bea052df35646dc365fbe63d2c55b94cf15c91260f",
+      "output_file_sha256": "487858346a6aa1bcf312f92d3b2a6a5a8020daab373946d0118472a769af8c0d",
+      "whole_run_seconds": 14.152687415014952,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1043_UHD_LL.JPG",
+      "low_sha256": "4e7adeff44e6d89f869e2192816fd7301778bc0964d6266f99d4f3815f1ba7eb",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1e1c8909ab591cf0538762fa8c79a716dbb7e6ae4cc44bfec2a2e6e7d661ae17",
+      "output_file_sha256": "9e842ccbf76629b6bf3b305e9b91730efd1e34dd5fd28b84e10c9d0e2ae65f18",
+      "whole_run_seconds": 14.100547102978453,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1085_UHD_LL.JPG",
+      "low_sha256": "f61d0224d4f382ee1b5f0adc857de959d17c1729d86584e8006f1b97e17be203",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ecc4b04dca8e3b4ac87a79712caf3ff001632896a8017d381b3a2c922b5e70f4",
+      "output_file_sha256": "696a4d13af23761bf61c66d3ac4915a53809cb5770ddb467845eb3738daf639e",
+      "whole_run_seconds": 14.22565585304983,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1102_UHD_LL.JPG",
+      "low_sha256": "e38e52e51248b016a0e514fad7a62ff5d0aa5960ad4d10058b6672f1c3d401af",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "29aa7fd6197329738a120b22ea2ca2a73c3d49f79dcb22a768f59755db68b2f4",
+      "output_file_sha256": "1f88e27af711ff13e1fd88008458806b37fe88251738580bb2b483c735cdc5b5",
+      "whole_run_seconds": 14.043032547051553,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1124_UHD_LL.JPG",
+      "low_sha256": "2085b18c178e54188cbb7575f4ef968d57c84bf347c258d53b7668aa88d6d8a4",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "16211ffd4094265da68ff02f7ec3e5b2eed46b9e3130c7b7a9bb640017b4fd66",
+      "output_file_sha256": "c85162eb7586036d26dc56cd9518f2b231db708140c2c0d68919a3f9fae66871",
+      "whole_run_seconds": 14.00834607804427,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1142_UHD_LL.JPG",
+      "low_sha256": "7ede2aef1e3667c6f19941ff249fe970dc7fee8e8864760a0051083094315e14",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "703f2a82b1a2194c3168b9b288f381bd74b8cb9a35430a2f40a5db4955a502c9",
+      "output_file_sha256": "eae4c4920b81a873a91098bc2ba02209a6079526abe5b7012ba2d2020d0b7269",
+      "whole_run_seconds": 14.020458685001358,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1165_UHD_LL.JPG",
+      "low_sha256": "38a4ad6c5fbceff80a96d92c6f274319c23d1475772e270f12dd9693e640d7d7",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "83f42d0058d09ac6a0da18262bd33bcd69fa6a7d7bf1eec3f97ce7d480914ec7",
+      "output_file_sha256": "b96300ac11e82847c63571e148aa59bf3c06012edcb18c48a48e26353c80c068",
+      "whole_run_seconds": 14.15877682599239,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1184_UHD_LL.JPG",
+      "low_sha256": "bfb1c6a5763bb7cb472ff7af824d4e22386b6d37e77645cff884571eb4533392",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4b86ef27f7d41973a75284f2cb09650d448fa7fbcb223f688527f2838701218d",
+      "output_file_sha256": "571fb9b0e9b23c67de14e0766d5995d66774275eb66668765842165dd5ac413b",
+      "whole_run_seconds": 14.094104000017978,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1188_UHD_LL.JPG",
+      "low_sha256": "11f34aaebc961a825f128ce7b6cef04a89c47bb4ea1e5e6d3fa361d84a08ad91",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6d182c52e619d5e3d143cc37dbb7bf76867d2445dbc80ed2a245e2b937116895",
+      "output_file_sha256": "e0cc14376ff1a340f3fbd47157f6d0edac39618400e4295099eb89ce066ef555",
+      "whole_run_seconds": 14.085285187000409,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1191_UHD_LL.JPG",
+      "low_sha256": "18ac5d3546d2d3a6c5ce431e13ce2b98b1bd54d62ae7f7f482dfb147d05b2043",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d9daaa003ac41b8b9f5c4a36d81abf8853c607adbced3b4ae89805eae869cdc7",
+      "output_file_sha256": "c0ef1e37effdc4e3b16322e650fab63bc83a2ed694370d3ad705d93f33563ad6",
+      "whole_run_seconds": 14.104313141026068,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1223_UHD_LL.JPG",
+      "low_sha256": "ba838d4052716806bf4a9c7c53bf530168a7227f9b00bb8d770475286fc86524",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "729b7e9daaf236575218259829f244291f0c9a19854e5ab43b73f5fd9a209c6c",
+      "output_file_sha256": "08265513d59ccdec4104100aa4b09057f950c81788a91d4d5cca2d0e359128a8",
+      "whole_run_seconds": 14.103521817014553,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1246_UHD_LL.JPG",
+      "low_sha256": "0a902cf317e2263cb3fb22255abd745f84ff859561094ef138e5a31516465a51",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d3630735b6a1d853fc06d156c2d5ad31a8b0f6cfb5a8a327102c3e5eba01819a",
+      "output_file_sha256": "3f2d3f515d42ad35e8850eecfc7ca394b10bb465dfebbb706a07638fdd91ff8a",
+      "whole_run_seconds": 14.098060985037591,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1256_UHD_LL.JPG",
+      "low_sha256": "e0b88e35b9fd0487390d546e42d71567c68b5acb43fcae28ad4b88ac9f3e37c6",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a920d8edcf0227d8635a79dc00e06ac1ac4e611ceeb4030faf1ecf06be1b3371",
+      "output_file_sha256": "80c5c0d66aabcd2a44b28b5910732b3fb37562b4835bd1c190076fe01e4d899d",
+      "whole_run_seconds": 14.030832515039947,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1277_UHD_LL.JPG",
+      "low_sha256": "7510d9d85bac9696379f73d3cf425dbacb5cd19bf4c4839b948b89f35baea211",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "52280d598a597e50acda0d5fc29150f2d5de7494bd6dfe9ae9ac9d3b71c15417",
+      "output_file_sha256": "aca2766bd56f42ae9bbf88eb8bbb65f8506b0ad7e895a1f84e974e88943be260",
+      "whole_run_seconds": 14.010218337003607,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1294_UHD_LL.JPG",
+      "low_sha256": "4fff2429c573c9a7cf8eaecf53d830afe703da557b55e1ab2b4c3c8ca976eb12",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "280bd928b0a095a24693dc77dec8c8260ceff3e660ff4e4e221252b7e7fc34ae",
+      "output_file_sha256": "90f776ffa027b8e9b260204fba1b9ec88283e450af2abc7deb2ba450bcea7220",
+      "whole_run_seconds": 14.100423282012343,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1312_UHD_LL.JPG",
+      "low_sha256": "53a1aac7a8add03b72753ad76f4d607c5ee67400eeba5f77701eb056c259be00",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7509c40a9d040db1c743dd4b1865bb626d382543639eaedad474eb62eec66dfd",
+      "output_file_sha256": "1169b79742718ee39e64a81f6e300841b3b8973fc9cc2ef7ebeb1022f6b35944",
+      "whole_run_seconds": 14.14775462198304,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1315_UHD_LL.JPG",
+      "low_sha256": "a69a45938318bf79e71fa69120df7ed8dce9a7eb54a1f1dbf7f338cefd4f8409",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2e8db245632d63bdcb9ae22c2649a922f420036b82d623212283cfcb704aafe2",
+      "output_file_sha256": "6718ef45b1914e0a144bb70be5ecf9ca4ffd140cbc97cda9c306f8a5a88f27c6",
+      "whole_run_seconds": 14.106019470025785,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1335_UHD_LL.JPG",
+      "low_sha256": "609d22d4de4283299d5589515c8fc42743352db7c1e962e16342c9caa79dd7f0",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a70962dd7c3ae98fc772fc942ec1e0b2f723ba9fd015cf781892046b5548632b",
+      "output_file_sha256": "316c2c41d2da16a8429be72dd5d7bb7af06074712640fd9eb517a1ce430f9858",
+      "whole_run_seconds": 14.100799201987684,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1338_UHD_LL.JPG",
+      "low_sha256": "f3e94a3242456d95f5de0064dc615f1c3be94f6aa0de79703d6223971daa6db2",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "427ba0ca6d8461085e26a85fe6eb58499171782e15c0e1b796dbce0d942029c7",
+      "output_file_sha256": "897aaef1ec7f343dccb7288a8b56629682b294f940e7f29257a585e4769ab14a",
+      "whole_run_seconds": 14.095087538997177,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1354_UHD_LL.JPG",
+      "low_sha256": "8b30456ed400f33f777047b08a24a438c3d01b322fce275d5e07ada56d1936af",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "20c2706c8d087bfd01dd637fbccbb5ae0bba516140c8ea7aa200219797170f0c",
+      "output_file_sha256": "4e5d67898abb3ec05dbfb289e15bc315c4ecc3b2ccfaf9f9cb8f3d1a5fdb07f9",
+      "whole_run_seconds": 14.19660801399732,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1357_UHD_LL.JPG",
+      "low_sha256": "1fea6ea5a6e9a78bd1c8b0c49377b237368f6dc28a9ba9243ead11f5d2b398c2",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "76aa909edbd8ddfeef8857e3c9fc9d147a93ab02de8fd31a392b2c82edbc93b7",
+      "output_file_sha256": "1407a4ba91ec84d39f959c5aa4c00327108458dff5ab571b0dc47490ff642732",
+      "whole_run_seconds": 13.980052583036013,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1365_UHD_LL.JPG",
+      "low_sha256": "442323e05e2b69d53c0dc4fcfe4cab25b98b975077e23575bc7eb6512f8ecd4d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0d54214b243352fb4f3d4ba80682a60e7e4219cdbfb8b8e8f4627d7b0035b53a",
+      "output_file_sha256": "173fb2fad978bd55b27abe5eb7f50e2781748644590187d744c5e5aaf9f7b29a",
+      "whole_run_seconds": 14.155747674987651,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1378_UHD_LL.JPG",
+      "low_sha256": "233c1b2c66db050a730c5ac6d8c818d8e60bcb54246b5ea0a40c5d4c11d0bbd8",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f406e02d56725f93076a824400f41426b9f48c46b0c1781550de36d2b87d147c",
+      "output_file_sha256": "ef0c1ee993bfa4678198e531397d404b56c8e90452b818ac5889b5418cb01f1f",
+      "whole_run_seconds": 14.032425081008114,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1388_UHD_LL.JPG",
+      "low_sha256": "53a11a1945dd9c9ba5b26448756ca4d91cb671f4684897e0cdbfe6c991326382",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f38d67a761eaaabf8b61f912cd6012d585e53624e3fb5969568ce3044ec2168b",
+      "output_file_sha256": "6b7a86d5d65d44dbd2336c97224c12f044f6acbbbe970606bfaf119fe00a6d55",
+      "whole_run_seconds": 14.187937701994088,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1400_UHD_LL.JPG",
+      "low_sha256": "be3fe0f39ab7e7ec2945f0647b55c06bb15186fee3d4319b058092def18b338e",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bd84c327146dfdc40f11f9577b314cfb84a1e2b26902661341799a74c4123896",
+      "output_file_sha256": "3e2b0ec29317edf2d8d076c5330f9ed092ef3be12dd64cb1f3be9593fc104457",
+      "whole_run_seconds": 14.108098748023622,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1417_UHD_LL.JPG",
+      "low_sha256": "c2004a03873fad37da1909a8a7a2e3fdb5a44f1e5a849b98c1ecdc968ac08808",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c0b90fb0e31e8ea5f93517892ddc7bebad5ce436a7ecfcef8382ee4c52216a0d",
+      "output_file_sha256": "635239fc0550684f2ebb9da3f12dbd54e65755adc212225399f2702c4866f2e7",
+      "whole_run_seconds": 14.188652013021056,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "142_UHD_LL.JPG",
+      "low_sha256": "f24c46462eadd6b377ab3d12ee59f448a01cf936ce170337af86c7f13da6e1bb",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "460be6d2db7fb515f910e48a5f5f2dbdcfd419eca26ed7693dededfd3f240c13",
+      "output_file_sha256": "dd5bb37660e2bdebcb547d21edc4714160df5073ef8cfeff1002d027c2fdf6a4",
+      "whole_run_seconds": 14.155135220033117,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1446_UHD_LL.JPG",
+      "low_sha256": "ad5f7657d524ffbd9d1f15d4096ccc4cc7ae83f4354deb2cdbdec506b4900159",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d240b17bf29d047be3e995a0ef055580b6e856f5836c5be770065a6bbf5f3cf6",
+      "output_file_sha256": "dc85c26aadaf1446c0758259a9b3aa5a073e0859b3aaad94e07574fcd7ccaf63",
+      "whole_run_seconds": 14.190601520997006,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1453_UHD_LL.JPG",
+      "low_sha256": "6dfc3fa6cd1c543886a4693c80951cfad7bff8e28285c1ef02addd52976072a8",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e9dabfb7839ce2c0751b33c69b1a6f6b05de14bd01ee892520ed023dad32c006",
+      "output_file_sha256": "fdb876192306698df692f2cd04ecf09514916e3d4cca9d354a7b9fa4a143affd",
+      "whole_run_seconds": 14.13043783698231,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1464_UHD_LL.JPG",
+      "low_sha256": "379f691e3fe54ed83f3cca8dceeb2e45ab22f23a0b96a40970ea93b2651226b9",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1eeac296e423c64fd9569d5732cfa31c999c6912524190fe8518e5d0047ba117",
+      "output_file_sha256": "04f017279fe5350ac6917c323ace2d68685e51ced641b7cd073b09ab67040ecd",
+      "whole_run_seconds": 14.067811312968843,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1475_UHD_LL.JPG",
+      "low_sha256": "6347133d12bde39635afb6ba812ee75edc5e58681c37bf6629620acd4b3e72fd",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b2829f27d4de3b91f9b59e0d56c0a62963b7751352db90868a2f6ba75b1c6c1e",
+      "output_file_sha256": "4191d508929d4c8338872d12b7b9dc04c5128a8f23a2a76d9b4f98416f2bcf13",
+      "whole_run_seconds": 14.092613962013274,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1513_UHD_LL.JPG",
+      "low_sha256": "bd9b8c311fae76cae6ed7a85669f241c86cb53968ba6f0bd6d27475bd5d62da0",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c4615421c4cc30792f590809a7ae732a72fcc6b5debde9e22d52b28db27e204f",
+      "output_file_sha256": "af4df1d6762f87895689d1f423334e7d35e63c57e9740eda8e1966c55590607c",
+      "whole_run_seconds": 14.189408786012791,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "152_UHD_LL.JPG",
+      "low_sha256": "b4198bd44a2303073aff5512ebc858183e72b50f158ebb3f1b2b32ad65574ae6",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fc40c7a973d3901681d30ccd770b6094787d64e81a8c4d7da5a6283f3d4a8e16",
+      "output_file_sha256": "a9f3028904e333e87145c88f3687190fe2d4f0b2db9f966d705ca27eeda89e83",
+      "whole_run_seconds": 14.096983686031308,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1539_UHD_LL.JPG",
+      "low_sha256": "5055f7bdb510339bdc6fb9b33ea9a41f887c24f943f85c00edce8635966cdf37",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "28c2a5d225e160d04c53ba950d8cb599cac3697cb2961521d77ddb273fdfc02c",
+      "output_file_sha256": "2875585686d34083c97e48a91078281833d951ea87babfc0398e170f5a28cfeb",
+      "whole_run_seconds": 14.185287551023066,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1558_UHD_LL.JPG",
+      "low_sha256": "36aa8d71c44650a2dd7d362ac2b2f0ce42797d0aea9836bb4a70c7fac8178732",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d53a7709b3226adf72b6861b60743d50c45e7957262639fd94a784c496b1a52a",
+      "output_file_sha256": "624861323d8ac238b764adfa8fd561dcc084faa2c63b53b9f40dcce8286a8141",
+      "whole_run_seconds": 14.192804756981786,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1583_UHD_LL.JPG",
+      "low_sha256": "0a62c70f8203a2810722194499514dd17819cf13a982ec8523b346387abc136b",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "43132bc6d1c0c996c10ba452a174d447c2bb3183a01be8949a76081880dc2488",
+      "output_file_sha256": "1e7b29851abc0aa014f284f214bcfdd91eb16a030f796b7447e19fe6383a0556",
+      "whole_run_seconds": 14.181261227990035,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1594_UHD_LL.JPG",
+      "low_sha256": "3e8fa0908918c163e26bf173b48cbbad3de92c5e63de9d30a03520166654c8b4",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b577a941e7436bbd63adae6dec558d29a8b487c81f7ce8c8dee7e2d74462c9af",
+      "output_file_sha256": "ba432bc3ade7e3c4a505b3ca4749da72960946a9b396073f408c92749238ca86",
+      "whole_run_seconds": 14.047705933975521,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1606_UHD_LL.JPG",
+      "low_sha256": "65b89631c90f37ac109d2e5104f1a6978dff550c773a80478b7ca748ff20c5fa",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e53f4f9aee414c854edcc0bd49f86f7aff8833a09fcf925ccd946fd1e3279938",
+      "output_file_sha256": "f0a0f4e2d420ca258922ba9434f57cd2739358cda99a92d4137440e44284caa8",
+      "whole_run_seconds": 14.175590489001479,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "161_UHD_LL.JPG",
+      "low_sha256": "986493c634dc04dcb558c6b1e7794d6980f85bb0dd3cca999e7cbced199e2a2c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "63d1a9063fbb606b0c7ccca7c988386280a330b3a5943efb01a37c63aaf0a816",
+      "output_file_sha256": "2476e0999fb9918843f1272766ddc0bd90d080807ae676f2a1a5f2cd7e2efa12",
+      "whole_run_seconds": 14.130013612972107,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1628_UHD_LL.JPG",
+      "low_sha256": "22a244ecfa36bba4d569d36c934db5bdefc8316b534efbc8577411f99ea9388c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c2c730d711e247a2a5325e02c6b463322533604e5d4327efae6aa991769eefff",
+      "output_file_sha256": "58b63bde9d3dfb7bae3b611f2150f2343b9130db594cc12a702a1b1a74cfe64b",
+      "whole_run_seconds": 14.079520041006617,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1637_UHD_LL.JPG",
+      "low_sha256": "8b8878a9c24c57a7508f9f4be3e923624e310637c92c5a9fdbf2719b95954342",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d1ee79ea88d6137ab65585efaf1ea831ad783cb37a18f3c9626cfa4f989ca52e",
+      "output_file_sha256": "efd96181e27619e4db4c00dbf2158e4e04e180c30967f78fc0e99cfd7e4a9686",
+      "whole_run_seconds": 14.091758133959956,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1649_UHD_LL.JPG",
+      "low_sha256": "4f81c1556cbfd9e66464b0aee244cb4faa27c6e89d9286f9a6b1b895496c41b7",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "23f6343af57317868fef34721171b18689588652d8c21d2b1f4a72875ccbb783",
+      "output_file_sha256": "3f88fc483303314e2a5639309121000a6797889b24b57df15a8a257542b2c269",
+      "whole_run_seconds": 14.093818582012318,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "164_UHD_LL.JPG",
+      "low_sha256": "5a9a48a7eaa94688dabf84deac0a517f74a142266a01ed93585ab5b677bd1e63",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9f110981405faf61a92c77138600e5902d6ce2651e23cc5d7e803553ab4a5810",
+      "output_file_sha256": "c6900426d39f1be202d623f7ff7636b8b7c450d030bf46b2f9cb6a2e45b4d162",
+      "whole_run_seconds": 14.083821931038983,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1662_UHD_LL.JPG",
+      "low_sha256": "9f5b6757ff202a4168836229dd3b2e0a5e4843578fd0298570b678e16c7dca2c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e84c0ca12de493a36c1b0007632481abdd3c2937fb3e9ae50c1f532489c35726",
+      "output_file_sha256": "02a1e49350dd498c5632fded89598009d97b6507b7428615b430a9691214facc",
+      "whole_run_seconds": 13.971510149014648,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1663_UHD_LL.JPG",
+      "low_sha256": "ccd4da2c2ec45e040d7e2502f30875a53b92e72c682a0bfae4f115399a783ac0",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9949cd8f3af68881402665e82aef665d4b9cfd5cbb9eae9f39fe060464990ae1",
+      "output_file_sha256": "ade92eee9ee92bd422f111cca4ad3f8018dfed71ac4bb289d95615da6617603c",
+      "whole_run_seconds": 14.063542634947225,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1671_UHD_LL.JPG",
+      "low_sha256": "528b7e7ade0f80eddbd003bac25ee823176bdedb42562d4a93facea72746aca9",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3ca9fcb8388b7be89b66f4fd041bc6a7ef2f1f195a0c0cba65e805734b66d273",
+      "output_file_sha256": "3c187b6b0d9c3730a034d3e5d57898733fbf9d93c153cefcca6f46fe9c1e3ab1",
+      "whole_run_seconds": 14.168831508955918,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1678_UHD_LL.JPG",
+      "low_sha256": "d7c6bfc5646eea925129f6bd6c92ef4a830214c992a490c1e25a281db660ea01",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c67a3b2ce00d1a31080a7387ec2c86c45f79e67afcbee5310fcf2a6103e6f799",
+      "output_file_sha256": "e79fad97f0dce6df2cda21462bc0f7d3c62e84341bb374c593eea6e0991ba620",
+      "whole_run_seconds": 14.1768981940113,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1682_UHD_LL.JPG",
+      "low_sha256": "6cde77fc8413ca03cc72a879910b35857728fbad38f482d38004c16645591024",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4176686bb45889944e05f66e1b940d125dbc412cb8ed3eb4905249a68d2ff72b",
+      "output_file_sha256": "7b6885051eae5b79b6699e22f694bc582cb52332e52e83c42f1e0b566ef226e8",
+      "whole_run_seconds": 14.039482649008278,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1686_UHD_LL.JPG",
+      "low_sha256": "eef98ba18987ccc87e19f48b6e77e0a01e268aae9ddcec479c06197c4cca61f3",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b9aa9a76455becaa92a2d165aba483f197a3472d95a8ad457d5768c9fb783981",
+      "output_file_sha256": "691088b2d65108c24378664a2da416e2e845991e23e52f09343505af7541e78f",
+      "whole_run_seconds": 14.097511527012102,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1694_UHD_LL.JPG",
+      "low_sha256": "ea2fcef7eb70b150ac830c2b62f54191bc8e54f520cd8e44678431c879a8bea4",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b34b693cea87f1de35c9d5dfb7273fac5a56abfe94557538ef188908b2458e23",
+      "output_file_sha256": "02ee6b99f723882582447076dbd22f750eba40bf03e2772a12f754f2856c2cb5",
+      "whole_run_seconds": 14.193906717002392,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1701_UHD_LL.JPG",
+      "low_sha256": "b25b2aafa5a339a527959d3832e36e11f919db45cf2fd4c9cf62731b5fc72adb",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3a70872515f4361b6dafd92cfd452a8c2adc8aa5b80d072bc2f7423357bd7d66",
+      "output_file_sha256": "2bc938a76b1cfb20a5eb7d2ff451d13ec75467dabac0ffe781f1fd204cbca0fe",
+      "whole_run_seconds": 14.181943240051623,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "170_UHD_LL.JPG",
+      "low_sha256": "04b1f1336e677ce9bdeaf526fdc73e8260929442d4f99c6fa7c311b06ac936cc",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ed77cb18d256d6696c6a5d19653b0596a3bab4768254b4d1e80f9a1916be93a3",
+      "output_file_sha256": "6e31eb2078fa7576db2ba7cbcb5e633bc40cbffbcf46b8ee2a646575a960dc90",
+      "whole_run_seconds": 14.116498615010642,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1718_UHD_LL.JPG",
+      "low_sha256": "2d0c05be10e5e5e561aaf5913cb39ed5b3d9899280c03eef9d6bdde0c1666ded",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "589d9f434331e42869e07c8f4d51cc1cea5d9cbf20e76e538542e7bfc166fbbe",
+      "output_file_sha256": "d2eb8f9cc62511548d882cab78df9927ee0fe687c10186bb9c234b1fa63b5c73",
+      "whole_run_seconds": 14.10067507403437,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1725_UHD_LL.JPG",
+      "low_sha256": "2f2c58ba37bef19c02ca4062c3cb13c192d7f6e480d073383992bd38826c7c12",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "df9c3f689b1f10e222be29b696d657df7ccce5d6daddcc6da97b04d144ba97ff",
+      "output_file_sha256": "56c94e5d4922c7798dabdf937dcfa0399172bebcc73c0035ae4f15e4477902e9",
+      "whole_run_seconds": 14.133101145038381,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "172_UHD_LL.JPG",
+      "low_sha256": "1d9a117cfd8548cf17841f4be61d75c71f77c19bc5dbd7bd2d4525ea03a4e96c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cdf1a6859f191dcba0615b8b39cb7cfcef284b1ac20bd5c33fb817f5125e8e4c",
+      "output_file_sha256": "fc8554c72a809e43cd4348fcbf273df03cd832ab6bf5133211badcfc8cd8f28e",
+      "whole_run_seconds": 14.115833693009336,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1756_UHD_LL.JPG",
+      "low_sha256": "ce175628c86a62eb93bbba498a630eeb55d9400e26070df8a542b3c00bc71c31",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cebedc2893ddbec4b47642bd6d7c3c82b3cc32481b29b763fee3e8ffb30a1e35",
+      "output_file_sha256": "fa70596539d61f34475ec03949752d3ef57ddc3a1280bd9027de0a0df65a8aa5",
+      "whole_run_seconds": 14.123401476012077,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "175_UHD_LL.JPG",
+      "low_sha256": "6e526b45565dec44713609f16619609e495e9806e3f5a51ad737c30c1649c5dd",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4f007cd1b4c2cca999c20a7e7ed9349a11a054266700c55fbfa15a32bf0c4600",
+      "output_file_sha256": "2107ffa4d9e41652c95468e97d0d338d5609a0d3c2fda59ec2b9ca5f9d201f4d",
+      "whole_run_seconds": 14.0886941300123,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1768_UHD_LL.JPG",
+      "low_sha256": "3df801dbe837e5828c03f1e23fc952efaa62c9a20182b6855247f62d9f74d9aa",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c08cbed85287bfb14a9c6bed3db7df5ab72008ccfa8780963b5affeafa16fe71",
+      "output_file_sha256": "313345250b17abe3010f889fa9074c5567a1bf9e96273b9213c4155e706568b1",
+      "whole_run_seconds": 14.068458068009932,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1778_UHD_LL.JPG",
+      "low_sha256": "63986a6bbdae9832d6183b8bb8b86c17f3f01399555c5062db90159de3d8ceab",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8f0b4276944e353b31174790bf4328532abb8c3b313760f15a454c7a6bfdf687",
+      "output_file_sha256": "fabbf9edb69f219676f220b550c432c6330d7a67ba299a5db9c7d524ff6abf1a",
+      "whole_run_seconds": 14.123016221972648,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1785_UHD_LL.JPG",
+      "low_sha256": "e85a2bf4c0d6abc0cc2b7847476edf96f4d1bd55bc00b400576571837469762f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1ef3fc346337a3cc49a3289d7d58af3d9a5601084ee3fbc161c4ee5e8bd265d6",
+      "output_file_sha256": "4eab9e2b1a52b138846010c9d6099a451330fab5d2323deaa4728b272823b03a",
+      "whole_run_seconds": 14.13346098299371,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1791_UHD_LL.JPG",
+      "low_sha256": "1f91c1d17f70931cbc06737176c1a94a3cea9f77c6dd0194e37b384e8677bfdd",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "691d8c20fcdbc0b94dc390d6cbcdf30f7b449d8d335ad6b504cd5a954e34903b",
+      "output_file_sha256": "3ff9e38c7b482a80ee4bec4f53a18e2819747cab732057666698fb185bba9b9a",
+      "whole_run_seconds": 14.10551265696995,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1792_UHD_LL.JPG",
+      "low_sha256": "02eea64d76e76cf44386ad55874cd8c8033dbdbd9481f5a5c8cdcf0aac729dfb",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5905ee01b97705520e480c06d6c3680deb2241995bb3514fc2fcc869832ea3b1",
+      "output_file_sha256": "d34cd0c3176d955028220ee3be21421c1fccdbf419aa3c8c027ad887e48f6b8e",
+      "whole_run_seconds": 14.227946539991535,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "17_UHD_LL.JPG",
+      "low_sha256": "fda69b078b68c52e67c31a69ebc7c664738938ac1aa5e5ccf0d741702dcf17bf",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "07ed85d55c47a0780a8402b8fd252e5e8e8a1b4a0e5128d3cc0ad6d2d247c158",
+      "output_file_sha256": "7c49562d6edd1a40f85c208c722834af2669ec01d36fa86de6b06b4fcd51b03b",
+      "whole_run_seconds": 14.129761310003232,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1801_UHD_LL.JPG",
+      "low_sha256": "651b0c34a0715a5ca7c682841d780564c047c8ac4cd1e48bd6ae767ff8b427e3",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "93993142d1a28695bc594e9e18b6a67f9ef2852bed6d8469b316c4ee557c0cac",
+      "output_file_sha256": "25e0de3dff7538747ccd79fb175b1300e20fcd39ec20dcc023aa6832cf76d685",
+      "whole_run_seconds": 14.121069265005644,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1808_UHD_LL.JPG",
+      "low_sha256": "7048ef54502db4a140b6f0d8979546f5f19d60193826e199d4895746986f7aa9",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2147c0eead809944bcfadeb283f71f38ffa36fdd1fc886132f1ddd301cd513f4",
+      "output_file_sha256": "ab9cdc7fce4338269e3cf76a8b506548b5455586632ed44012ca29f207b19db4",
+      "whole_run_seconds": 14.075308307015803,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1838_UHD_LL.JPG",
+      "low_sha256": "2462e4e9e213462ce98e5b7c844ed5d2c809ca8fe12f7c0b22aa063ad86fa46d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c1f4b6705d016a7b18fd0549ff57ab8e57737fb933bc81a7d10f016ced3920b3",
+      "output_file_sha256": "3769828a1762750ddb30e001bff7321471e04f80486c5f279bfe7df333e888ad",
+      "whole_run_seconds": 14.14956439199159,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1917_UHD_LL.JPG",
+      "low_sha256": "6d60da35150fc8fe5ce930b874a2843fa9eacce1b0825e7f521962f01635a0dc",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "297ac89881338272cec60fbf27477a99b464d2de6984108954d82b7427ac9485",
+      "output_file_sha256": "bde1a34eaefcb61a5fe69d36e41102855b6cd3ff47f4d546201dc20aeb4237c9",
+      "whole_run_seconds": 14.031796879018657,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "199_UHD_LL.JPG",
+      "low_sha256": "1ca6fb0346ad2f503c2ef7f2502d26e79e5d0e168a6a74f4a32a0d6cd692fc46",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5c8c66c8981d535dc4630e7f90825cd7509d4da5b8341e8a61411b238321b417",
+      "output_file_sha256": "763086dfdb58e28dd909199a79484c5da1f06746b753053f0a3e38045ea6c3f2",
+      "whole_run_seconds": 14.130427500989754,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "1_UHD_LL.JPG",
+      "low_sha256": "2e37d78e5543a92f759570f9dad901e2032f24dfd569f44f1ce0a79dfa141438",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d04adab98ae3622b8d634b084f0ec9f8d1209844636ee22d182346a96ecc6f51",
+      "output_file_sha256": "1ab64b1a86d2ab6a5aa4062d93a7b420fb6646d07529842cb82eef70f13fb5a3",
+      "whole_run_seconds": 14.087451343017165,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "200_UHD_LL.JPG",
+      "low_sha256": "362b59e4ab609432952aecac54b325f097fbc78f8a94b2b659a7abe089b440e0",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d0306ddfb4aab579728a7ded6d1b141a57e7eacca04ca1167afe46696e31e6b5",
+      "output_file_sha256": "ea1aab9a31e919c1a955d003d400fc01326718c6ae7dd3ac71eeb5afad48e73e",
+      "whole_run_seconds": 14.09457386599388,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "2017_UHD_LL.JPG",
+      "low_sha256": "2128a33fd0570fa5c8ee1fba9139d9d21b2bda9ae1574798eeb16bee9d0a8105",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3bdb23a469c4b354795ccf05cb1319553fd29d1065023550dbcf7b9fca0f7fdf",
+      "output_file_sha256": "0e35c67dd5eb34cc4d9fe5d102a595b9b4a08969a42e28aa9f90256248de44ec",
+      "whole_run_seconds": 13.929645559983328,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "2025_UHD_LL.JPG",
+      "low_sha256": "cba674ea04c7d3adaa1f634c338b7927337d37ef076e2de92fe1787978b57196",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "60b16128fac72b34db085fb34754d880204651ba938ea2d4d73df351f82ebf7e",
+      "output_file_sha256": "d59f1d6173356bc4eeab74b5df1761c2e7bcbb0a67ead700997696622b653636",
+      "whole_run_seconds": 13.92270567000378,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "2034_UHD_LL.JPG",
+      "low_sha256": "554b1059b11b77466b69c00bb4fd34a2445cd94dd63f62b8a169ba6994440afc",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "846b120cd6f8b79ea4fff921fe48019167e99076a26b5a07c3fec7ba2f66c1e3",
+      "output_file_sha256": "27fe799cd6c6a421690ef1aeb0a6997aa865852f3308268663968e6891a979a0",
+      "whole_run_seconds": 14.176070250978228,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "2042_UHD_LL.JPG",
+      "low_sha256": "fe0162048cd00103ca66899eff7e636cb8662644cbbf3d44fff0b4cd60f573f1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8d498f736eabf150b86bcabcba85209752bee93025fa51d35768e62ad2e7b0a7",
+      "output_file_sha256": "8941454514c0af4d28f531608bdb3266041c9c7fa058343c4efbe40d58ad2a38",
+      "whole_run_seconds": 14.078153256035876,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "2045_UHD_LL.JPG",
+      "low_sha256": "5d12c3381e1cdcc9886b9006c279b9e8910efff1ac8042130ed5468d227297f7",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5bb621634676b03259d6ded3f5c1a13825acd494210870367e9d533abfad3791",
+      "output_file_sha256": "033eb488fa57de2c3651fdf1701b464330e06b518a36f929b649581330cd300a",
+      "whole_run_seconds": 13.99392879701918,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "204_UHD_LL.JPG",
+      "low_sha256": "47531edb3039f44959f2528797278a8f991e154367ca471e1aa69cd400f69a7b",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9963e339964e102a57460fd9aa02b039be4f61609a3eee8cc04cb168a5b4b9c3",
+      "output_file_sha256": "04e17301ed03dd391b46cc0a3806ea2ae68b1cf3f6d14f786e205ac16048bacc",
+      "whole_run_seconds": 13.895072885032278,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "2068_UHD_LL.JPG",
+      "low_sha256": "8493d04bd88bea475dfa0c11772f88c5014861de0f08a9dbe410cc6884df4729",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "936b273def8a5c6f31b575c4f3afc4bd46b82a50112fda1f560f36fcfadea5c9",
+      "output_file_sha256": "aa3e50f2e6966732f6b88980f41301ca5b86c79d5a942d5576f5ac976841f5d0",
+      "whole_run_seconds": 14.133694268995896,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "2142_UHD_LL.JPG",
+      "low_sha256": "70fcc9ed714446d6352a0696938fc292f2a55a0fbfebcdaa0816527a5391e9c8",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "08a6857c17857d784fbf38250a23fe83d240b76607a59658ecf92e6614823320",
+      "output_file_sha256": "48d4b86d98c9218659864721c126c49e0aaeb22175b7fe84cec4773eba7ad65d",
+      "whole_run_seconds": 14.041889957035892,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "2145_UHD_LL.JPG",
+      "low_sha256": "aaf77846ffd05bfd80a8d101bf21433385a3b039350607007e6ff3a07da453fa",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "adc48736bd184e31b4cb1dc86d773fa3e8ea0e62d48edd8603c02071d4b622e3",
+      "output_file_sha256": "02e50a3a31975db36147d54e57c5a10dca0224cdf5d09cef0d23a14e502edfc8",
+      "whole_run_seconds": 14.106031614006497,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "223_UHD_LL.JPG",
+      "low_sha256": "5117b6eb7ee04740bb50583b8fe4b0376a1f92478994a42c97070534a2a0a93b",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1ee2de6ecde67c96f57f67d4a0f8b1724e920d91a31fe8200ae2b0c99b5a6b55",
+      "output_file_sha256": "473d9532ec9dc39b8e5a5bcf7b9076d89ec11cfe122dc2b7a1821cc69bbeb56d",
+      "whole_run_seconds": 14.111123887996655,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "230_UHD_LL.JPG",
+      "low_sha256": "1d055a62304e4fbe6be039df6c2cfe40e6dce54156f111c7f6582c95f1665005",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e31f05e136b45d9e988021a67bfca0b6bf6c37cb4de82c99ca427fe21a38cfae",
+      "output_file_sha256": "102879cf61ce85dde88c33b73f513c612161760cf826a8d19ca2b1859945f975",
+      "whole_run_seconds": 14.210946381033864,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "231_UHD_LL.JPG",
+      "low_sha256": "77e90da7fc7e3972c1fd7f7808d4fa823220342c2500be36dbf89f8a8a8a05cf",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a2a23bf58137b7f56d2287fd7d76ebcf11ee555236bdf8bbac65701d8c5924b3",
+      "output_file_sha256": "dc335ba4e777705a9927035cbdd57e821890cb1fd63c5f954bb1de8ad7b1b170",
+      "whole_run_seconds": 14.072847918025218,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "240_UHD_LL.JPG",
+      "low_sha256": "8ae49960b6babfcf343916873530066f3f5efb357f7b680c2022fe2db94b9ff5",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0b6d6af8a3e1a9dc8fb0ca884e3aba845c7e57e2001fa91ac052cd2cbb70509d",
+      "output_file_sha256": "a996f2690003ff6bced97b7cf73431458023e32fab23d348c2c7a16ead3b0155",
+      "whole_run_seconds": 14.119598213990685,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "247_UHD_LL.JPG",
+      "low_sha256": "807dae223f95fc59d3e8c1d2253271d322c94384cf6ce437b676fbc4bd4ad9e3",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "16bebf8d67ac850b7377445b939c7b886680d65efd63dfe592fc007d95a5823b",
+      "output_file_sha256": "12551f1c740747f80d169a5b7a3e8865ab1cd3e82ef3fc5196b25a2d59b0e563",
+      "whole_run_seconds": 14.109459594008513,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "272_UHD_LL.JPG",
+      "low_sha256": "2adfa11010d64386003c7729c5d3b3170e1efe8d7a83b3156fec89dc88fd1f1e",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "124fa931995ff6ad8684fd8723459fa1eb36e2ded8ff4d6dcd66d2cbc418eb3b",
+      "output_file_sha256": "bf91f5f510b60254dbc51d5749832ff1456982506049f15cc0518f4f92151eb3",
+      "whole_run_seconds": 13.877555245009717,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "278_UHD_LL.JPG",
+      "low_sha256": "db96c6900a09a94741591e627ee75a03e35c9445c9d1de0dff2776b0ae68de03",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4068f894c6a37446df5c0281c1eb171341c79e75ccae93ac82f5a268deb3eccf",
+      "output_file_sha256": "c0c83a200aa50eba6a9859dfdb4cfd3bd29ab9b259954f6edb487f783d8aa7d9",
+      "whole_run_seconds": 13.999007193022408,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "286_UHD_LL.JPG",
+      "low_sha256": "474d6ea69b93b0a42b2008bfc8ebf7c86f0cd0dd38e713ffa595c0edc3312170",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "03588db9910538f170c58734b98c381e5af61f5ea2453030ce3f3e1d31656c12",
+      "output_file_sha256": "10951a8271a7efcb3a0a51e00b108281e110dc9f929ddfb5c8ad1960a8c66e39",
+      "whole_run_seconds": 14.097392927971669,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "288_UHD_LL.JPG",
+      "low_sha256": "aa0ee571bfaa8aa1cbb929c1d4288bcbd6656c80a962d577b47396734b3b6e14",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c8e64088f4acb9312f9912fdce8fd6a96277b21e78019eaff814f404a932dcf7",
+      "output_file_sha256": "4b18d7a2219ea20181fbe6ac022471b16b12a770a5dd026cda404ff43081d433",
+      "whole_run_seconds": 14.096056156035047,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "28_UHD_LL.JPG",
+      "low_sha256": "e79f9822eac7973aabf09d5fa9070bb451b6ad8849a1758369050d59ccf4768a",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "22c29a3a35c121d7cfbbf2060714b55a90fecf1d80185eb8126f18f787a36f49",
+      "output_file_sha256": "79b0d1073cec5598cc578dee33a3accec3b80c42dc0ec9b564b1323ca18b8964",
+      "whole_run_seconds": 14.119542582018767,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "292_UHD_LL.JPG",
+      "low_sha256": "a1118864da97c76ea09a47a07b0ed74f6e71837c2977ec96f7f7a586b62640e2",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c67b1aeb0672c3cedb48585683b15d2bbedd7eebf378479f1375dd0fa43a6428",
+      "output_file_sha256": "587f9f279e15ba19fd4a74ac82d874ebfba39f7f13eb8261c27df6ab985a640d",
+      "whole_run_seconds": 14.017414156987797,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "29_UHD_LL.JPG",
+      "low_sha256": "7c6eb308290dc728f43c8095fdd114e2d3745cc661140aa91cf6c233c631fa72",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "93d988f8cb7db801d7b314e1bc7e9cbb58782766fc87b17c60d2771cd46692cf",
+      "output_file_sha256": "2152f790dca1381d0bddeba4efd563635e974f7dc66228db688a1d0dd4ba7126",
+      "whole_run_seconds": 14.101676524034701,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "306_UHD_LL.JPG",
+      "low_sha256": "5beb97b266899f3e08843389d3581999dd7fb64c6f4f48e6224dec35bfecc719",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "458b40d144883c9f58295b3f8a059a15ab553f4b1f9afed941fbd6ed63622e7e",
+      "output_file_sha256": "6b12417ad691a289c6de5dabed04da7f30daa3a73c7c0433f13401d516e14698",
+      "whole_run_seconds": 14.127217326022219,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "345_UHD_LL.JPG",
+      "low_sha256": "6bfb66e3d80c3c8b8c07dfbb15c4a99574052a7e94228e16c4c115533fc8b5ff",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cb4cd5df4a57d156213a773d4f7e7ec313052c91a8971fe812bf4f8fb4a736c4",
+      "output_file_sha256": "54cfa8454e5aa5450499ec57fc66d2199ac5fe777758554a84c88f029e98cd39",
+      "whole_run_seconds": 14.172107381047681,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "353_UHD_LL.JPG",
+      "low_sha256": "0689b2fcae4b76a0825458331e2b607375ad00c505537cf747e0af5e046fd427",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4321578f5bab1b53993649e690948d1450f75dd7f4e3d8e1230d195741a962e5",
+      "output_file_sha256": "eb901b1f0404f9a254ce65cc30a50e17cde21da073976912a78df991bfc59c80",
+      "whole_run_seconds": 14.009253798983991,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "371_UHD_LL.JPG",
+      "low_sha256": "104f92986ef65070c560a81e89ee6fdc8b1d6bf1858a32e14c096fccde3a98c2",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0cba62bb32b8e81bab3326d8998498c43aebdf375dbb8e6b99dcb6e843d61a76",
+      "output_file_sha256": "be8e38bdcd75820f63ab26071ce08f3f57d2fe8e40f7f1e65b3305d4ed733b61",
+      "whole_run_seconds": 14.042414860974532,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "375_UHD_LL.JPG",
+      "low_sha256": "f27a2fb5d682f02937fb2b3ebbb2973e4d9d112d434507ab5402346bd32c8923",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cd8edc811bc65ceddbcee38b76b9c62ebcc933277c391b8fb23faf1b5499a3b3",
+      "output_file_sha256": "a34c81c9298b44db824c2597c0be94e7f37277b6e67e1f78554a0bfc07a55a31",
+      "whole_run_seconds": 14.068044880987145,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "385_UHD_LL.JPG",
+      "low_sha256": "0115072a9135d9a0b5c0494c88d1b951e23fbbcdcb6e4f755b24a2da8285b76d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "976f9645d7e0f802380c787a6c4816f915952c1f46d0ae544b42084237561b78",
+      "output_file_sha256": "6b106cb062c36cda07e45b39c6e794922b12252f34ba5b226de0240b43822701",
+      "whole_run_seconds": 13.99958850099938,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "389_UHD_LL.JPG",
+      "low_sha256": "bdab794771dd865205f4c37f690d392c95b763006a23923fb2f15f6d999f190f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "160acb4e525ca238513c1114159c854888951752d916c09520db675bdb747758",
+      "output_file_sha256": "ca455185025491f0aeab11f4fe63fa5be890abde9a9c573da8130500dfdcc226",
+      "whole_run_seconds": 13.985804088006262,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "394_UHD_LL.JPG",
+      "low_sha256": "03b9efd4f617dcd348ff4f33960e9049c523ea8965a61047b41de975ef017db5",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7ea113e33ee5778a909cf364a7a05b6ca2bc3c838ecac074d3a268478ac93b6f",
+      "output_file_sha256": "852946accb77facf022688d4185bd50476d0d32aa25140ee1b14320a96da9af6",
+      "whole_run_seconds": 14.016987259034067,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "399_UHD_LL.JPG",
+      "low_sha256": "685ddb456b79243fc4f8a9f201e2c251346a939fb91033ec074520cf3fc1090c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4f8bc79cea8458bd5e61e912cee37055a33886d91ccb3bd2338dcd04fb143855",
+      "output_file_sha256": "e95726cdf9d6e918136ded88df8ae47f8ecb9900716648bffd850107a1f81f9b",
+      "whole_run_seconds": 14.17606892902404,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "40_UHD_LL.JPG",
+      "low_sha256": "b427c8c33dc2ffd7004e65f0dd1ebd4aa85f5f6095a242de6f3b9132aac037e3",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f42369257d82a715a0b73cef85af5ee7bf6f993610eba1b6016734b415aaa90a",
+      "output_file_sha256": "b5b9e8d7e7fbcb8820331c5e1ca949241dd041c97df2760e21694669f23a0e09",
+      "whole_run_seconds": 14.097311360994354,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "425_UHD_LL.JPG",
+      "low_sha256": "177f63825bd9db8601ddb1f6448261c5dde885bed66810df9f95b402d0db6d8a",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4d87ece190024999a1ee53c745d39c22c9211afa8c8b95d5070416203befe255",
+      "output_file_sha256": "f97c8e48281a516ef2742df9fb45fa7d1f891186e4c2425bc90b20454ca006ac",
+      "whole_run_seconds": 14.13224715803517,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "434_UHD_LL.JPG",
+      "low_sha256": "cb88e8c354d2930d1c57a8f7398e3411231a136039bc504572aa13ddbe6f5b44",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ddaa1001ea937edf3339f49c05cf776783dfab34760eff6b1d7766b231d5f1d6",
+      "output_file_sha256": "43d5f2290cf7c68a83bbf414f9385edf62f74fd93c359b2af5fa0ae7e8ee8403",
+      "whole_run_seconds": 14.139806285034865,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "441_UHD_LL.JPG",
+      "low_sha256": "dc37f54ebdc4751cab590ec95d83d7db9be77358ebf09d3f801ad1dd481a87d1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ac0b7808942f9e41f55c4525831467c097bb75017931caee106e19a312decf55",
+      "output_file_sha256": "3fadef9dab1d8e0a62c7faa9471e7dcde10396ae41dce2614a34853724396fd5",
+      "whole_run_seconds": 14.089532841986511,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "442_UHD_LL.JPG",
+      "low_sha256": "c0fc25b5dbdb53bd44aadc0bce2c497721382b9b3f876e980bc5c2f177b0aae3",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5f8e61d31330c2f279f5aa84bd35a574b298b31cd8cd246b1e38bfdb85c3af94",
+      "output_file_sha256": "9ad92b49cf8cc8e88fc06cbdc2d75ec42625414f02d6ae54c1501b1770d69fac",
+      "whole_run_seconds": 14.011743158043828,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "453_UHD_LL.JPG",
+      "low_sha256": "5c4d233169fe9284ea92d4e61a78d43f7c8ecfe5ae6b727941c53c97c96f518c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1e15a8394890e0286250c355742fe93b6057b52925abc44479840e3549894b29",
+      "output_file_sha256": "cb436e16c3b373d926933f3cfbf3bc4795e1feda88f04f45560bde3d54b8d3ca",
+      "whole_run_seconds": 14.121732471045107,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "457_UHD_LL.JPG",
+      "low_sha256": "bb78bc58f016c840658b2d1f32c8330d20f3ad381bc72d52439ce13470b388a0",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "36b5a3fce905d9eb9f09020a06ab6d916391e6c55521e813439ca3cd7d5c35ee",
+      "output_file_sha256": "bce171ac9da9255413b821947e5045ea564efcc3aa89997105e7af9fa9160c6c",
+      "whole_run_seconds": 14.083232395991217,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "462_UHD_LL.JPG",
+      "low_sha256": "d049ed9e84c99107cd56c8861787c5c8aeb921384d4b367886b8c64caaaa76c4",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "97f67205f0ead4a1c268c7214f3223e25ba87d186856df18d2cc24b23e360619",
+      "output_file_sha256": "cc4721e246e2020286a767566cd0c934b42044406a7d6f665aaf954fbd393452",
+      "whole_run_seconds": 14.1474071550183,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "47_UHD_LL.JPG",
+      "low_sha256": "4eb8ea3b2a700b4815a976ef70be57955e2b48aac77fee102db79e6822c878da",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1db1c3ceea0fcbb317c7dbb45d2e242c76ad11c8cfc0f8ba53b1952409d2ec92",
+      "output_file_sha256": "a3e630a71061a3945a17347f54b50b37de1058d9d4969795ac5f97d56468fb02",
+      "whole_run_seconds": 14.168349282990675,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "499_UHD_LL.JPG",
+      "low_sha256": "2d9158907b4120aaa94f99cc2d51cc86d9441d005d5b20e5749bbee53ba18398",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5abfe773e60550eb779a8bca7d73fa59163253c91cba2d4d436bc7676ba77bac",
+      "output_file_sha256": "5f54a39a100b418f93c2eacf3a64f531e315d7279f2aaecef8ad1708ee5becd4",
+      "whole_run_seconds": 14.052764674997889,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "507_UHD_LL.JPG",
+      "low_sha256": "72cefabee481736f7614cd3e7212f153093ed5c00cbee9ecd01499832b228561",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "82c898d6e4e3efc65f4765fb5b45420e4bd8f727e627ffd0b03ae4639595d6d4",
+      "output_file_sha256": "4154cb062960a65eff6db923bde275b088998dc9db4574aae6c22995f8fd860c",
+      "whole_run_seconds": 14.112032706965692,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "545_UHD_LL.JPG",
+      "low_sha256": "6cad50725e74eb0b3808c0cdc1c4dbaba89770e07f866460e100e4efe4f93368",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9ba18655c4bf18a11bae5e6206415546bf4b85e7bdcd6e6674dc0f394fa85e42",
+      "output_file_sha256": "a2f474bbe059c8da08992213d9345be343496a6278a22ffdf63321adf99d8628",
+      "whole_run_seconds": 14.117449932033196,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "54_UHD_LL.JPG",
+      "low_sha256": "813afaab1d567a33e14b2e80e6d57f2e7238b73305fbec784a60b526e47884ae",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "72807eb0d8f25320e2916430d92d0cdc68de899dcbafc30e48a5be416bd5e49b",
+      "output_file_sha256": "f9f3e1a3881e13b5bf74b6fccd0f2ca2d6e50bc2049c1fa101ce80c8e37b50ad",
+      "whole_run_seconds": 14.189492969948333,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "584_UHD_LL.JPG",
+      "low_sha256": "8f7f209a10416c4af920f0c52fc1c43339e9fcc5ed7afce5e6abed78422bb282",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4b035333368c961a5d72c258f8d804e655aad42de1f6ee7dc7bfd8fb320c2ffe",
+      "output_file_sha256": "b73460d8a359b61d8a40d2259593acb7ac09caa3d7cd6c336f50607daa6f165d",
+      "whole_run_seconds": 14.117395639012102,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "60_UHD_LL.JPG",
+      "low_sha256": "cbb76a1737d5e854c25344ef70f387094a01aec7f196cb4cf80a894b11328bc8",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9b8312684f47a81799aece8aba744a2fa3f7d357f4f79e8be21adc0169591dbc",
+      "output_file_sha256": "087bfb2aefc0d14e727c9b50b2a44c9606ccb29dae7986f6a0f431c338511c73",
+      "whole_run_seconds": 14.073390208010096,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "627_UHD_LL.JPG",
+      "low_sha256": "ed8daede6c733b1c184c0dac16b4c5a7a9f26543bf126fb5b83005d1079f72ed",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "899dd379325281a61809e9e591f1ea3cfd6d78c7e8517df6a7ecf34461597985",
+      "output_file_sha256": "f30a0fea966783a8ccd8978e2f5457431120efb583179016691fff8cf26b11f7",
+      "whole_run_seconds": 14.041894119000062,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "63_UHD_LL.JPG",
+      "low_sha256": "f5d26a9fc2f1a54c8180a71d04d374eb59a87821b5dfc17d400085cac6d095b3",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "177d931ac47d16b0f11010078429435d065a6f2c25abc7e147f8ba63e2dd161b",
+      "output_file_sha256": "c154d3627fb934138becc6fd7295906ecb257c42f798c5e97483226c0e625ab1",
+      "whole_run_seconds": 14.121003829990514,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "649_UHD_LL.JPG",
+      "low_sha256": "a391c249f0eab00fdadd90e2d4373713057015f3b89566a6430904c4156f56e7",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e1832d22af65417b3f66f36a03ce7bd82e0e6f67babde0ab659141e492923a5d",
+      "output_file_sha256": "9c76cd3275c588c896011d1e4424be4a486e6ce040e65c41b7de2503ab89f156",
+      "whole_run_seconds": 14.169537492038216,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "674_UHD_LL.JPG",
+      "low_sha256": "3307b703dcdc830fefdced48bcac6b6a9825950bafb18dd9ed0e6c941ae70d07",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a25411f9666340ec2730cd8e9b693d2ad38ec1daf899021adc08cea4fb48bfeb",
+      "output_file_sha256": "b10f9f78b8ab6c2e0a81ed11d3a59df02d1092a653d441a7a1839708ebca1600",
+      "whole_run_seconds": 14.082388051028829,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "677_UHD_LL.JPG",
+      "low_sha256": "68823148016487a9fb5ef6960a3b0ff5a8da52d7578cf00683dd563553944a9f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8a1cf1769e52014e9803e22ca2e78f6b6aef30169fe1296c421e0cf016a603b2",
+      "output_file_sha256": "92dfe37e8304eb193003744cfc7971e776553fdb52ae47d3288699d031501c48",
+      "whole_run_seconds": 14.167901153035928,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "685_UHD_LL.JPG",
+      "low_sha256": "350e2071f55138b5b9c66cf14a8cddd3ab77769ef21bed15fc0b057a21495933",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "53dbb25f2a94ae3921c991653218cd505f2b32453513688f3d23a0785d6a6e28",
+      "output_file_sha256": "5cd69b49d3aa6cc31c439da857fbaa99a3e8d1bc1713c0c321c0ba688bcca18f",
+      "whole_run_seconds": 14.031644200964365,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "690_UHD_LL.JPG",
+      "low_sha256": "9e3e4ab908caea3fe6626ab40dcd1a6c0208bcb46ad44b455304127c2927b4e5",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f43eb2adb93b6e7f430a9831ced3b52754bfe4a6dfa143abc7921887c769c6b2",
+      "output_file_sha256": "d5ca08e86151d84f1d5f80ea93cd97c66a1b20d59272812b9831b9f55a7229bd",
+      "whole_run_seconds": 14.088232217996847,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "692_UHD_LL.JPG",
+      "low_sha256": "fff28c24cc31ae340b8e694fc05e0929cea7c8e618afcd4a6c1dbf69d546e9ec",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "baddfab0c63724e02dfa549aa98d191f49e882576df153f99390cdce490d8d1e",
+      "output_file_sha256": "784fbb39433acf4ce8f5948cc5f90fbd8b126031f3e43801b57aaf6295cc5fe9",
+      "whole_run_seconds": 14.185635741974693,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "697_UHD_LL.JPG",
+      "low_sha256": "7bfe5f9238551f92dc42f577a22d94c8b2b549ac452e77322eee37fb68ce5bd2",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a6e44b5ad65dd403b0d9cdfcab5b66741bdd2b3a4e835e834d21d067042712aa",
+      "output_file_sha256": "d8c1ee2ac96b03b2dc54f482341064465002890fc9ed963e5a6483c6597331de",
+      "whole_run_seconds": 14.145392627979163,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "704_UHD_LL.JPG",
+      "low_sha256": "a3ee2a1d13563ba90756b99aa1ab767b246df9c3fd3b00a2dff882f0f50596a9",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "aea666c7eb380c550f8e3bc05259484c8d7f87dc65063d9f7da5a74e4982244d",
+      "output_file_sha256": "7705df7a940d8fcd3efd17029c7c7154eeb5e316c49e1f8a6e9a49a24a4b514b",
+      "whole_run_seconds": 14.065816168033052,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "708_UHD_LL.JPG",
+      "low_sha256": "4293e33afe9630416aadcf87d8610ca84aeba927cb1c783763b0ccf61946a301",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1f9e47028df7d65ef69f76bdb0f26a7d8eadf305a860f7b5a0ed12350ccbab81",
+      "output_file_sha256": "cff47a52c56e5eb91ed982cb6278ba7a6f60bb55a0d4110024e931693ac621d9",
+      "whole_run_seconds": 14.197509935009293,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "70_UHD_LL.JPG",
+      "low_sha256": "d315ee9cbeebce89e392421085e80aa9508cefbec8bc887b16732db277738e48",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9f02fdfc217ae317ee36a001d939b211aa50a72e070dc8f621636c2dc241085c",
+      "output_file_sha256": "301b14c752bf4c28d709908a9d4e7b91b3f9f835e40b2325cd8b978d19342de4",
+      "whole_run_seconds": 14.13301136996597,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "720_UHD_LL.JPG",
+      "low_sha256": "cd58769885c245221d791f95287bbab395a8cd09bca0e25cdf660dbff0fa9c5a",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9a9c106d2d7ab5b29952e64d4e67b59fc1d1b4219f733b5e65b83e2566dd8c0e",
+      "output_file_sha256": "f87963f04bfd8c0a4209a57981cd56c2d45609640bb2aeb166a3bd75ec66bab4",
+      "whole_run_seconds": 14.06002862402238,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "727_UHD_LL.JPG",
+      "low_sha256": "2830ed29f7753dcd68ebc4b49ba2a51ca5fdcd6eeb41f06eed8ad7176e2a9741",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "dec7b926e80102889d8cf14979d9dda3928d6a3ad34828ec70cd2feb8e075cce",
+      "output_file_sha256": "ba136b94834a8d3a24c72c1d224fd8b8e4ff8afc5858f1aca6170b7f810dd95f",
+      "whole_run_seconds": 14.154500451986678,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "741_UHD_LL.JPG",
+      "low_sha256": "2f0a1d34a95b28f44e073447886d6dd723d06348080eb61c2be3ebbd1b016701",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d52b33b3cd7c0c75edb9f1cc73a5ff5faf0eb44935ed629d592ecf3f9a7475e4",
+      "output_file_sha256": "8229f10485679a2ae1df1f95146b51cc5e50cc5239b6c814c7f66f2662fb33dc",
+      "whole_run_seconds": 14.14307121100137,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "752_UHD_LL.JPG",
+      "low_sha256": "bfac720cd7038446ce0744de18fbf2edcacb8b31321e1a0c0e1462fb0613ee3f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d8e021458e2a5fd03741c1e77d2870297e53d015cf2f0f15605c5516b5469baa",
+      "output_file_sha256": "d9611de29cc58029d69bd3fa413e146cf1f6ec42acef1b96c6f206b25249b1d0",
+      "whole_run_seconds": 14.058268602006137,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "769_UHD_LL.JPG",
+      "low_sha256": "ccb50a0d6596c9ba52f30e97de50ae8ca7a177cfc88fe9a4ed5a8b3142702ec8",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "21249b1210a69a2b5e36116563d7d9ee0f55c7940213235b0986dd8ca1ca6d47",
+      "output_file_sha256": "1fe3d36b566c98e35590008ae7ce0ddab52f15cb89e1578f2cecf0837e26aae7",
+      "whole_run_seconds": 14.085390625987202,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "771_UHD_LL.JPG",
+      "low_sha256": "1ca49dacd0ac8dccd4758e1834a4962d0d3a4219d2cd76be79c25d5b4fe157a6",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3b676e8add606b39c04de144f48875765071fea91ba9aab201fe60a983716d7e",
+      "output_file_sha256": "0f5ecc8e6f4dc5c6f0f4835b728e656a1120777788bcec87bbadefaacb63af05",
+      "whole_run_seconds": 13.953506817982998,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "788_UHD_LL.JPG",
+      "low_sha256": "5a1a68e5e26c52a0d2e086aaf4e1fc70e6a7aee7ea38417e001abc3b519a2964",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cda6c82b8b676a949e2b2049fd0b764a5f2f08dd1c09a24f48c0b119765da168",
+      "output_file_sha256": "14a6a2021a8cf1ab88d97e7727bcdf4dc46cc8f02354a7b19f5fc701109e8707",
+      "whole_run_seconds": 13.943620695034042,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "7_UHD_LL.JPG",
+      "low_sha256": "e60c46c5b05c0a0ee8774a8a603e5a45a721827b81cb610493977430bad52a20",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fd079524ab4970bd8328c0e6942a80d7d92f457622e3fce05b1c3d65e9ebe2e0",
+      "output_file_sha256": "b746b30ef5567bdbd7ffa19e7b6ceff7894aefd6ab2402970fd17f15b4fe2930",
+      "whole_run_seconds": 14.053696157003287,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "810_UHD_LL.JPG",
+      "low_sha256": "723e9efb9df9d0fd5c6baf5507abba6194ba27a346c4bff31f1783b3d16a212f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b6a226b17d8422c525bd3d133a326d4348632c889c38f2a8846a360aed734062",
+      "output_file_sha256": "828f5dedefcb5ce6fb59f5a3b32e50b1c8d867d906254468a0e7389a27e6486d",
+      "whole_run_seconds": 14.084860906994436,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "869_UHD_LL.JPG",
+      "low_sha256": "75956884c8d22835022507b7a37488667827022d1cd8eda5b644c9ab898f3f41",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2b9c9077b2d6137aa507ab375c2782c8525434b01dd20efafcc00a1368500f27",
+      "output_file_sha256": "857a81901e0d5042c82d882a33c945f9aaa0d425452d3e4ca7b213e213b031e7",
+      "whole_run_seconds": 14.069834093970712,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "874_UHD_LL.JPG",
+      "low_sha256": "f3b9f19fbade295c4a1df88042427fcde2850982a8e23778cbe0cb5d524ce270",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "da51cbbeb653938ff80999edf9a32d681b659542973edf539da56e6c8fb08d0c",
+      "output_file_sha256": "07f0795ea89bf60f460cbba40325e4e32f9372a779f343233e1548bd04ef58a5",
+      "whole_run_seconds": 14.093622139946092,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "879_UHD_LL.JPG",
+      "low_sha256": "bd344ed347a3d9766a57dc5b2f66cc3f3cd169c19d6d232115235706e3916eae",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d14afdc4daf2229f5be4af793db635463265cf8b2a58963226a6c3ddf1090e76",
+      "output_file_sha256": "5be28a2cad0f1ef82a7c9d2647a381990b99f6d30c7bc40af4df848def192181",
+      "whole_run_seconds": 13.949405464052688,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "890_UHD_LL.JPG",
+      "low_sha256": "b1def3eabeaf72d3793446c078d4690dab99e50f3336b9daf1e9b4722bd58b97",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "39a1adad4b8d57993d50dbd5dbfc22bc73b3199569568ba9f947188c8da409cf",
+      "output_file_sha256": "3d9fb377c1e642c97d7f8d74462e4d447a0bd753064f078402277ef0e6c87f2f",
+      "whole_run_seconds": 14.090437720995396,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "895_UHD_LL.JPG",
+      "low_sha256": "7dcc4db16256353fd5d79ba5fcc342c778e66b7b6ab00e21b5d276d612587b27",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a9e9c020144e95e446ba6f5017ccdb094f4af6bd1ab836b5c611bc9b157b8664",
+      "output_file_sha256": "cbdce5f8ef0711627ee59c694b8d69ee3419399bfbfc09690339f77d6be5e6f2",
+      "whole_run_seconds": 14.160252176981885,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "8_UHD_LL.JPG",
+      "low_sha256": "0a48c212e0c79838231b24ad91538317e18cbbc5eab462f4c7879ff9d1b59fa8",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c9697ff944d4fb9e3ded360c7e8a8b1caf90af56d3853c192581c07fb1c40924",
+      "output_file_sha256": "f65aa5c62114172d7d438790719eb9fe65f02d58441cf792b20f08b47f901145",
+      "whole_run_seconds": 14.086206270032562,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "914_UHD_LL.JPG",
+      "low_sha256": "9e8ca40b59878e1ae895202073509b1dbd188dd6192aec25763d07a8404c6bd9",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9d6d5e5f2be17bb879ff1c9a0a17610243d54a8ca01afc046eda5a2e742f72da",
+      "output_file_sha256": "7472c3e993b586f6fecfdf524a17324f93dee6401f438106a19dac9ac6a4ecaf",
+      "whole_run_seconds": 14.13504850899335,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "920_UHD_LL.JPG",
+      "low_sha256": "f520c45abed297197c277d9507033069daea3a5fbdce63c00cd1810204f0657d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e6bf7b12edddf0f4d76080ac50f9ec147dd90076c10a341271e44bc37c724aa7",
+      "output_file_sha256": "c155301579c385cdcb194300ce46b4d28578575d9ee195e697e1e01adc6b837d",
+      "whole_run_seconds": 14.19366757600801,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "945_UHD_LL.JPG",
+      "low_sha256": "8ce365810e3d9a83f103633802c58a2c4f91e81f5e71b2dae151850701f199d3",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a2b7c8ecaaecc40590d065c48145ad29f72fbfa0129f60d91b261fcdbab6f8d0",
+      "output_file_sha256": "3baa2019f0fd99f74d940c99362ab8c48e03a709106b9be1ea261dd77cf1453d",
+      "whole_run_seconds": 14.11046317499131,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "94_UHD_LL.JPG",
+      "low_sha256": "a104bc366ed90de713f623155848237d5ac3da57e4e69cd64e274b1a1a67e463",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ab8425b363c38b38166f770d5ed6009b3dc46fec3065d3a19789629062bba9d4",
+      "output_file_sha256": "0dba5120475686808a50eb3b2a8acc7626dccda301f55da7332dd043d44b2f2c",
+      "whole_run_seconds": 14.145169652998447,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "967_UHD_LL.JPG",
+      "low_sha256": "f7f9d016956f9d41d84298f3fb3a8d514a021cd9204c275d20d9eb3429cb98ba",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e8ff7215407681abb3bc2b3ef37a67f1ec2e25ba8d7222fea1d0730fbe9eadef",
+      "output_file_sha256": "89d9a7c652a1db121d4ea7b0bf7392fd492fe51ac99b6be789e3cc4e7909a9cb",
+      "whole_run_seconds": 14.121798114967532,
+      "peak_gpu_memory_bytes": 49165631488
+    },
+    {
+      "low_name": "999_UHD_LL.JPG",
+      "low_sha256": "27299740ae7b83740ddeba8a7f5c9fbd7b001faa6ade0af11170bfaea33dfb96",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8370da396b4a083f5f455e770086ed1e515058b143e82d90d135e831e499029b",
+      "output_file_sha256": "01b2f713a2247eacb5ddf1cc7cc837968d7005ebc4af9c07d4fa965c7664d680",
+      "whole_run_seconds": 13.941788460011594,
+      "peak_gpu_memory_bytes": 49165631488
+    }
+  ]
+}

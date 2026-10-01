@@ -1,0 +1,100 @@
+{
+  "task": "T075-B",
+  "method_id": "quadprior",
+  "target": "SMID",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 1470,
+  "preregistration": "research_log/T074C/prereg.md + research_log/T075A/plan_and_amendments.md",
+  "canonical_low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+  "runner": "research_log/T073E/run_quadprior_batch.py",
+  "runner_sha256": "3e361db1893807a77cfa5b9b46786ed4e6f598f1d4660699616166f969eaae42",
+  "smoke_manifest_sha256": "ca54e92b41789e9a5e5958b0f36fd378f68c3595ec273f817471c2b650981933",
+  "smoke_promotable": false,
+  "manifest_scalars": {
+    "method": "QuadPrior-official-test-py",
+    "promotable": true,
+    "smoke_one": false,
+    "synthetic": false,
+    "declared_count": 1470,
+    "count": 1470,
+    "started_utc": "2026-09-26T07:48:20Z",
+    "finished_utc": "2026-09-26T10:07:40Z",
+    "runner_sha256_lf": "3e361db1893807a77cfa5b9b46786ed4e6f598f1d4660699616166f969eaae42",
+    "low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+    "first_stage_encoder_module": "my_vae.models",
+    "model_load_seconds": 17.36991437501274,
+    "weights_loaded_peak_reserved_bytes": 5456789504,
+    "model_state_unchanged": true,
+    "model_state_check": "state_dict(keep_vars=True) references captured at sampler construction, re-hashed after the run; parameters()/buffers() identity sets unchanged",
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock",
+  "weights": {
+    "coco_final": {
+      "path": "/root/autodl-tmp/TTIE/weights/COCO-final.ckpt",
+      "sha256": "de8d5d17d49b60dd01e48dcbd8cd64ffad818de68d2a3969f774575b47a1c9ab",
+      "bytes": 1612631413
+    },
+    "vae_main_epoch00_step7000": {
+      "path": "/root/autodl-tmp/TTIE/weights/main-epoch=00-step=7000.ckpt",
+      "sha256": "43a1143cbf83e4823db6303bf914fca5b7a8f8d25c43ab12554d5ad6d44ade70",
+      "bytes": 1167194311
+    },
+    "control_sd15_ini": {
+      "path": "/root/autodl-tmp/TTIE/weights/control_sd15_ini.ckpt",
+      "sha256": "3104871007e81e7b0d599c93392d124081b91da57889fcdda8a3dde70a1c78d9",
+      "bytes": 5218423330
+    }
+  },
+  "model_state_sha256": {
+    "total": "7eeaa7537be918b2e8b49ae06e57e67550c7c02ae7475f4fa49f15753a808633",
+    "alphas_cumprod": "d880a4b3c8aceaaef8ebba39caa764bf54edf80b0c406e6523cf6808c2477e47",
+    "alphas_cumprod_prev": "31288e72582172b632f4ba94edb4610f57f067cd82cbcc890525b7c3d004081f",
+    "betas": "cad7054ef3b4ee914df8041d3533c85a679726a31ecc891f81012187dfd46b24",
+    "control_model": "d40aae1051935fbb1d07b337cd9f52f81e4f9c883cdd3dfd13292e2c86d167ee",
+    "first_stage_model": "edbfe070403d848d01dc7ae94254b86b12699ef84856d9dbb1e32e422453ef28",
+    "log_one_minus_alphas_cumprod": "1924301450c4ec7a48ff1fd9fc9ff149ad5b5b21b092b18607b173e8e57a43b2",
+    "logvar": "d5a968383d0ad13f5a4af85574ac6bd2d3a74182fbeb54329fd93fc938846f73",
+    "model": "da6d06992cd7c695f702cd8093aaa2c46a63d47a23356d9515bfa2bb6bafd1db",
+    "posterior_log_variance_clipped": "52275482c3720554dda9d8030f31381f92358aed9bf7615924822392fa511ae4",
+    "posterior_mean_coef1": "63e1d5edec7b9bc938e34621334a88ff5c6b2f8d25262c519a9a1c82cc2fa30b",
+    "posterior_mean_coef2": "0c060d5f4328646696b8190a8e0ac3889bb12e867a7be02fe6eaa606bb67611d",
+    "posterior_variance": "e9354d1efe7111f284f530fe2a2b3f9b4e699863e9c18577c1ed29964639e37c",
+    "sqrt_alphas_cumprod": "a53b3c3f8dcedc04a87bb42ddf2e52cec2011afafd4657fa67f6af72c146013b",
+    "sqrt_one_minus_alphas_cumprod": "57eb8741472ded82da835c44ef372bbe988e1604fc6b4c743927cd1e9e870776",
+    "sqrt_recip_alphas_cumprod": "1cb290bb55d4672668b99a2b35353ec19c73abdc551bccf6f5ef46d507476c8d",
+    "sqrt_recipm1_alphas_cumprod": "d95ea44df9eb23e1280cb0368fc5cb7d85389a96bae2fcb15b069cdfdd64ccec"
+  },
+  "first_row_frozen_smoke_verified": true,
+  "verifier_pass_count": 1470,
+  "verifier": "research_log/T073E/verify_quadprior_full.py",
+  "verifier_sha256": "07a99fcdaf74a45b6ade5ab99e6f8b6b2f47f54a0e9b0e7e2d65a0e026584195",
+  "output_manifest_path": "research_log/T075B/SMID/quadprior/output_manifest.json",
+  "output_manifest_sha256": "7b9adebcdcb42d23a33f8466c4e49d431ed611244d14ca648afee6caeed39ba4",
+  "independent_verification_path": "research_log/T075B/SMID/quadprior/verification.json",
+  "independent_verification_sha256": "79247a4dc268dab015e296dab275d96b657680262c0489f279b1e2ed6be56bf5",
+  "verification_classification": "QUADPRIOR_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 5.372767550492426,
+  "per_image_seconds_sum": 7939.914567987376,
+  "max_per_image_peak_reserved_gpu_bytes": 15284043776,
+  "compressed_output_bytes": null,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SMID/quadprior",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false,
+  "host_load_context": {
+    "full_run_window_utc": [
+      "2026-09-26T07:48:10Z",
+      "2026-09-26T10:07:40Z"
+    ],
+    "loadavg_1min_samples": 141,
+    "loadavg_1min_min_max": [
+      1.52,
+      19.39
+    ],
+    "monitor": "logs/load_monitor.log (60 s samples; started 2026-09-26T05:21:58Z)",
+    "gpu_exclusive": "flock /root/autodl-tmp/TTIE/gpu.lock (GPU jobs serialized); CPU shared with other agents' jobs"
+  }
+}

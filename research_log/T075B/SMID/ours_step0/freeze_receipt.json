@@ -1,0 +1,54 @@
+{
+  "task": "T075-B",
+  "method_id": "ours_step0",
+  "target": "SMID",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 1470,
+  "preregistration": "research_log/T074C/prereg.md + research_log/T075A/plan_and_amendments.md",
+  "canonical_low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+  "runner": "research_log/T074B/run_ours_step0_generic.py",
+  "runner_sha256": "5dad90e8e348179f2840a00622316a08f4936e29268003e43fd9f51df7e5876e",
+  "smoke_manifest_sha256": "53fc5fc8d2fab8a2301edf8898b344809fd21277fc413d796ad46c03fa32a968",
+  "smoke_promotable": false,
+  "manifest_scalars": {
+    "method": "Ours-Step0",
+    "count": 1470,
+    "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+    "low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock",
+  "process_env": "CUBLAS_WORKSPACE_CONFIG, OMP/MKL/OPENBLAS_NUM_THREADS, MKL_THREADING_LAYER unset (as frozen UHD-LL runs)",
+  "gate_active_images": 1470,
+  "gate_inactive_images": 0,
+  "verifier": "research_log/T074B/verify_generic_outputs.py",
+  "verifier_sha256": "de2b3c51db7e5c2bf2ac9111720dbcad6f0fc6f6e76e9662781989fa339196e5",
+  "output_manifest_path": "research_log/T075B/SMID/ours_step0/output_manifest.json",
+  "output_manifest_sha256": "9c4fd533bde5e5237c34a88f57e8c626205b8f283dedc03356b67fe362f156ee",
+  "independent_verification_path": "research_log/T075B/SMID/ours_step0/verification.json",
+  "independent_verification_sha256": "aea937af0b7b1f5781ce9b0b709f114d15b3f8778a5b83ff230124aabbff898a",
+  "verification_classification": "T074B_OURS_STEP0_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 0.07220352749573067,
+  "per_image_seconds_sum": 104.85594143520575,
+  "max_per_image_peak_reserved_gpu_bytes": 723517440,
+  "compressed_output_bytes": 1880115440,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SMID/ours_step0",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false,
+  "host_load_context": {
+    "full_run_window_utc": [
+      "2026-09-26T06:12:26Z",
+      "2026-09-26T06:14:16Z"
+    ],
+    "loadavg_1min_samples": 4,
+    "loadavg_1min_min_max": [
+      1.92,
+      5.39
+    ],
+    "monitor": "logs/load_monitor.log (60 s samples; started 2026-09-26T05:21:58Z)",
+    "gpu_exclusive": "flock /root/autodl-tmp/TTIE/gpu.lock (GPU jobs serialized); CPU shared with other agents' jobs"
+  }
+}

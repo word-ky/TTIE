@@ -1,0 +1,14 @@
+{
+  "name": "T074-C Ours-TTT target tuning, round 1: one-factor-at-a-time around the frozen T070-A defaults",
+  "source": "research_log/T074C/phase34_decisions.md",
+  "round": 1,
+  "one_factor": {
+    "q_joint": [0.35266535990213066, 0.9747123807094724, 1.053775168916056],
+    "probability_threshold": [0.3, 0.5, 0.7],
+    "lambda_value": [0.0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1.0],
+    "updates": [9, 18, 27],
+    "lr": [0.015, 0.03, 0.06],
+    "exposure_target": [0.5, 0.6, 0.7],
+    "loss_weights": [[1, 10, 5], [1, 5, 5], [1, 20, 5], [1, 10, 2.5], [1, 10, 10]]
+  }
+}

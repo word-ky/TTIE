@@ -1,0 +1,61 @@
+{
+  "task": "T075-B",
+  "method_id": "snr_aware",
+  "target": "LSRW",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 50,
+  "preregistration": "research_log/T074C/prereg.md + research_log/T075A/plan_and_amendments.md",
+  "canonical_low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+  "runner": "research_log/T074B/run_retinex_snr_generic.py",
+  "runner_sha256": "901096cfb38cbb1ea47bca4e7f93afdba188d5c1420b50236be706c71ed3b98e",
+  "smoke_manifest_sha256": "de8fb31342faf6d5013bae58ecb743330162699199d66fa648913f78a9973f86",
+  "smoke_promotable": false,
+  "manifest_scalars": {
+    "method": "snr_aware-lolv2real-generic",
+    "promotable": true,
+    "count": 50,
+    "bindings_sha256": "36cd7cdf3a2e8b885948b2ee420ffae459ef3c6a457477021653052cd01da012",
+    "checkpoint_sha256": "432d29d370e9f674f1b6763d371b4c24569a86d21f0fd45a5797226274d85781",
+    "config_sha256": "fcb29f50538cfd09ec425c83d7f2072477b24f7c2ab4f23507c3e1b37016b3fb",
+    "accepted_binding_sha256": "03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875",
+    "low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+    "query_row_schedule": false,
+    "parameter_hash_before": "11d3d667821719bd51e6e608c7876774b001643a28ed85193054bb45428190d4",
+    "parameter_hash_after": "11d3d667821719bd51e6e608c7876774b001643a28ed85193054bb45428190d4",
+    "whole_run_seconds": 38.60086583800148,
+    "gpu_name": "NVIDIA GeForce RTX 4090",
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock",
+  "process_env": "CUBLAS_WORKSPACE_CONFIG=:4096:8, OMP/MKL/OPENBLAS_NUM_THREADS=1 (as T072-AZ)",
+  "verifier": "research_log/T074B/verify_generic_outputs.py",
+  "verifier_sha256": "de2b3c51db7e5c2bf2ac9111720dbcad6f0fc6f6e76e9662781989fa339196e5",
+  "output_manifest_path": "research_log/T075B/LSRW/snr_aware/output_manifest.json",
+  "output_manifest_sha256": "75e65204f5103ef5b15323d5a09fad4f9439564c6db0dcd357aff75ef6ca1156",
+  "independent_verification_path": "research_log/T075B/LSRW/snr_aware/verification.json",
+  "independent_verification_sha256": "81a50653d3efe9db0a15393ce536b0c3b350f25d15fd311b5bc2de7a529da7ee",
+  "verification_classification": "T074B_SNR_AWARE_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 0.33566174196312204,
+  "per_image_seconds_sum": 34.08557103690691,
+  "max_per_image_peak_reserved_gpu_bytes": 1967128576,
+  "compressed_output_bytes": 342826591,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/LSRW/snr_aware",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false,
+  "host_load_context": {
+    "full_run_window_utc": [
+      "2026-09-26T05:26:23Z",
+      "2026-09-26T05:27:15Z"
+    ],
+    "loadavg_1min_samples": 3,
+    "loadavg_1min_min_max": [
+      6.56,
+      15.85
+    ],
+    "monitor": "logs/load_monitor.log (60 s samples; started 2026-09-26T05:21:58Z)",
+    "gpu_exclusive": "flock /root/autodl-tmp/TTIE/gpu.lock (GPU jobs serialized); CPU shared with other agents' jobs"
+  }
+}

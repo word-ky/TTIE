@@ -1,0 +1,98 @@
+{
+  "task": "T075-B",
+  "method_id": "mr_illuminate",
+  "target": "LSRW",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 50,
+  "preregistration": "research_log/T074C/prereg.md + research_log/T075A/plan_and_amendments.md",
+  "canonical_low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+  "runner": "research_log/T073D/run_mri_native_batch.py",
+  "runner_sha256": "83e0d9d958ddc50851a83ad565cfd76c2f3acca767ab4f412e963b1dfac862fd",
+  "smoke_manifest_sha256": "8e9c8b3fe3172ac16e32b2487e310ff834abaea27d233ee76f2a0e154129cb70",
+  "smoke_promotable": false,
+  "manifest_scalars": {
+    "method": "MR-Illuminate-official-native",
+    "promotable": true,
+    "smoke_one": false,
+    "synthetic": false,
+    "declared_count": 50,
+    "count": 50,
+    "started_utc": "2026-09-26T06:04:04Z",
+    "finished_utc": "2026-09-26T06:11:34Z",
+    "runner_sha256_lf": "83e0d9d958ddc50851a83ad565cfd76c2f3acca767ab4f412e963b1dfac862fd",
+    "low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+    "checkpoint_sha256": "43a1143cbf83e4823db6303bf914fca5b7a8f8d25c43ab12554d5ad6d44ade70",
+    "weight_dtype": "torch.float16",
+    "adain_generator_seed": 145,
+    "model_load_seconds": 2.798793486028444,
+    "model_state_unchanged": true,
+    "model_state_check": "pre-run state_dict(keep_vars=True) references re-hashed after the run; identity sets of DiffusionPriorEnhancer.parameters()/buffers() unchanged",
+    "live_parameter_count": 1140,
+    "live_buffer_count": 1,
+    "global_rng_unchanged_all_images": true,
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock",
+  "weights": {
+    "path": "/root/autodl-tmp/TTIE/weights/main-epoch=00-step=7000.ckpt",
+    "sha256": "43a1143cbf83e4823db6303bf914fca5b7a8f8d25c43ab12554d5ad6d44ade70",
+    "bytes": 1167194311
+  },
+  "model_state_sha256": {
+    "unet": "3de2907950968d0e2d4f5b3799f7d23a0c997a623d534d4d9cb931b6a00bb1a5",
+    "text_encoder": "cab0594eac4b98790427b79c8f72d0a41384ab6fe72d3136e0247a13468da554",
+    "custom_vae": "50713a2e495394bbbfccd5f9d851368473e58159f86a5ea35fd4b19a08fe3e32"
+  },
+  "first_row_frozen_smoke_verified": true,
+  "verifier_pass_count": 50,
+  "sd15_revision": "451f4fe16113bff5a5d2269ed5ad43b0592e9a14",
+  "environment_version_check": {
+    "required": {
+      "torch": "startswith 2.0.1",
+      "xformers": "0.0.20",
+      "diffusers": "0.17.1"
+    },
+    "actual": {
+      "torch": "2.0.1+cu117",
+      "xformers": "0.0.20",
+      "diffusers": "0.17.1"
+    },
+    "matched": {
+      "torch": true,
+      "xformers": true,
+      "diffusers": true
+    },
+    "drift": false,
+    "accept_env_drift": false
+  },
+  "verifier": "research_log/T073D/verify_mri_full.py",
+  "verifier_sha256": "8006e9416e29783ff2a081189112083f9d7bada1b591a84285037fbeca94938d",
+  "output_manifest_path": "research_log/T075B/LSRW/mr_illuminate/output_manifest.json",
+  "output_manifest_sha256": "ffee409cc4d40a3a6c2ed3bf09d33e9cc7c3e6fa3f5b0069089c3b6d3712a985",
+  "independent_verification_path": "research_log/T075B/LSRW/mr_illuminate/verification.json",
+  "independent_verification_sha256": "ac75f47532f0294a1a8861538ab5ee714368a0f234975bfa8441dff1292f4834",
+  "verification_classification": "MR_ILLUMINATE_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 8.638621233520098,
+  "per_image_seconds_sum": 409.86171569139697,
+  "max_per_image_peak_reserved_gpu_bytes": 11014242304,
+  "compressed_output_bytes": null,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/LSRW/mri",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false,
+  "host_load_context": {
+    "full_run_window_utc": [
+      "2026-09-26T06:04:03Z",
+      "2026-09-26T06:11:34Z"
+    ],
+    "loadavg_1min_samples": 9,
+    "loadavg_1min_min_max": [
+      1.49,
+      6.35
+    ],
+    "monitor": "logs/load_monitor.log (60 s samples; started 2026-09-26T05:21:58Z)",
+    "gpu_exclusive": "flock /root/autodl-tmp/TTIE/gpu.lock (GPU jobs serialized); CPU shared with other agents' jobs"
+  }
+}

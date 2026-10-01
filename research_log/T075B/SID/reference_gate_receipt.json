@@ -1,0 +1,171 @@
+{
+  "task": "T074-C",
+  "classification": "T074C_REFERENCE_GATE_OPEN",
+  "target": "SID",
+  "display_name": "SID",
+  "gate_code_sha256": "0337576c8f406f5f5ae2ba75966b434ddc87189fe7a8dbdb58bbb70f146db301",
+  "low_receipt_sha256": "676e733421e1546a7300eef1fbbed6b0174451fe8e030b28d27ffaf3f9924787",
+  "reference_opaque_manifest_sha256": "287c0b18190b2f873e698f88355488d6ca8cdb2d83b8fa1de883cc2e3de8de82",
+  "stage_script_sha256": "7f6ff8bc901eee6cbce987535f9197a6342442788883e6dbe1c7ae9e23c9b902",
+  "count": 598,
+  "cluster_count": 50,
+  "required_rows": [
+    "retinexformer",
+    "snr_aware",
+    "promptir",
+    "promptir_dctta",
+    "mr_illuminate",
+    "quadprior",
+    "ours_step0",
+    "ours_ttt",
+    "ours_ttt_sdsd_knobs",
+    "ours_v2",
+    "ours_v2_sdsd_knobs",
+    "retinexformer_plus_D",
+    "snr_aware_plus_D",
+    "promptir_plus_D",
+    "promptir_dctta_plus_D",
+    "mr_illuminate_plus_D",
+    "quadprior_plus_D",
+    "ours_step0_plus_D"
+  ],
+  "rows": {
+    "retinexformer": {
+      "freeze_receipt_sha256": "826269362d5214c6df6d3edeabf6b41b3efdf5c7420646a2007c61f9b74f5270",
+      "output_manifest_sha256": "f8bf9cc4c1bb1c897b0d5524fa6a05791ffc83390ff7e29f81b5a43280d2be7a",
+      "verification_sha256": "2ff06bd4c143f1a913cb809067f5386198802935bf5b60a689a895da35bacf8a",
+      "verification_classification": "T074B_RETINEXFORMER_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SID/retinexformer"
+    },
+    "snr_aware": {
+      "freeze_receipt_sha256": "865c6d9d8b2bd6a878040b5508c39d6f2880657ce1999ff11b59307babf0f016",
+      "output_manifest_sha256": "153907feb7d27216518e3051d381747aee7628c9ad396c15aefab1b196b11712",
+      "verification_sha256": "a452daba83d13778b20a97dda77ebd5e4f33520b754b6816b31bf112db6e48ab",
+      "verification_classification": "T074B_SNR_AWARE_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SID/snr_aware"
+    },
+    "promptir": {
+      "freeze_receipt_sha256": "0cdb00e184c580896d190380f185ef0429b57ff992bd8e391f1fbdb97499c128",
+      "output_manifest_sha256": "98fc78cfe1a29b4f262b29e48c04895c5eaba37e6fe67d621d6a655cbadcc2cb",
+      "verification_sha256": "c2b994ebc1f928b22a1d83c5f1b22f7fb4fe257865119f905662bc9a098772b4",
+      "verification_classification": "T074B_PROMPTIR_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SID/promptir"
+    },
+    "promptir_dctta": {
+      "freeze_receipt_sha256": "e4f733e3690ce3d88f70fac84aa849f8dca3c41b43debd44bec5c378cb318539",
+      "output_manifest_sha256": "e8d4e576084676c465b9507da40fc4174679924a0ff54fb15aa9e9f6e424adce",
+      "verification_sha256": "1d772c64c4192291cf8f9651305f23b6c8e74662ace78124e0c4ae26ff61161e",
+      "verification_classification": "T074B_PROMPTIR_DCTTA_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SID/dctta"
+    },
+    "mr_illuminate": {
+      "freeze_receipt_sha256": "a8e28020f703c68e2058421d4fc2f727fedcd33d53c80e86ae8745680824e1df",
+      "output_manifest_sha256": "82f2ae5fa79c01c288fba054f1edf0d75516f67116ab474fd1654558edde5b84",
+      "verification_sha256": "32f740c4a70b7ada96b665f12f1c3d85e5acfe398063717f12c2938b478091b2",
+      "verification_classification": "MR_ILLUMINATE_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SID/mri"
+    },
+    "quadprior": {
+      "freeze_receipt_sha256": "aae7a682d7eea491aa015fdbc564f3b508f1382ee66d8d4105d405e24bb2a8e5",
+      "output_manifest_sha256": "ed4e5952007bbe7d9272ca188849cb3701959539ee82aca4ada33c48bc7a563b",
+      "verification_sha256": "20fcef84df5b813de73f6cd2dcc791eb697f6002e7b0d10d019fd77bb2dafd5d",
+      "verification_classification": "QUADPRIOR_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SID/quadprior"
+    },
+    "ours_step0": {
+      "freeze_receipt_sha256": "82acec85c51e4b2710128cb088a2d1526dc32bd7b11dfb170a65849c1915cb13",
+      "output_manifest_sha256": "579baa78f9f7f7fd2e3e9b97ece41f77fd4681a5d990359d98d07b66b3f6c613",
+      "verification_sha256": "17df1a0f439df15c244b214827b59e7dc12fdbd7647ffa63dcbf4306210cf5bf",
+      "verification_classification": "T074B_OURS_STEP0_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SID/ours_step0"
+    },
+    "ours_ttt": {
+      "freeze_receipt_sha256": "53b4e734127f59430f41be1a1daaf2b811c6eb44736e63923e2aca993029a94f",
+      "output_manifest_sha256": "a68a11558f8ce12f521b1d2ee1e7edb480d6d0bcb7347d97e972da232a10e369",
+      "verification_sha256": "990d7b81ea5c0d94dbdd2388c275dc4adf70739e735e90c6f183f8f505b21eed",
+      "verification_classification": "T074B_OURS_TTT_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SID/ours_ttt"
+    },
+    "ours_ttt_sdsd_knobs": {
+      "freeze_receipt_sha256": "fb1f47cb99b4ae961703612e6af80ea62ba643388f78a64359df5350a03f5a41",
+      "output_manifest_sha256": "258ade839cd504d5f2ff0b9ebeaebc5b4be8bd0f8018c41ead596daa01b02cb4",
+      "verification_sha256": "2d6a7febb40ad0913a6755573591df5bab68f4efdbc22fdca8b6c65bbaba25de",
+      "verification_classification": "T075A_KNOBS_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/ours_ttt_sdsd_knobs"
+    },
+    "ours_v2": {
+      "freeze_receipt_sha256": "6f6050632dcb614172a59b249231c0e038d0e53f9b5d2405e7f318989996f52c",
+      "output_manifest_sha256": "c0a4da19adb849bf27247eac776caa27f9751794eb0465c5dd1555490832e39a",
+      "verification_sha256": "423a13bd44c1f9621c936dc2362742d8475355213c53d7c6250d0449fecf54d0",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/ours_v2"
+    },
+    "ours_v2_sdsd_knobs": {
+      "freeze_receipt_sha256": "9ed6ac004f09704a0ff69529bd96fc63e99e56fca851828dc39d1c330100a56e",
+      "output_manifest_sha256": "3cadca6732f3a3440c9360ad5d35fcf0050258f9173bb7efd623bd1a9c0f8de2",
+      "verification_sha256": "ef5f508f56591f1de4da667ee8b8d5b53ab6226ec652e0753b52ab6815b4a0de",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/ours_v2_sdsd_knobs"
+    },
+    "retinexformer_plus_D": {
+      "freeze_receipt_sha256": "89fa4d3ea989ad602c8564f6efddd44fe28d6a5feefb3db911ae5cc4dc5e8cf1",
+      "output_manifest_sha256": "69d5d86734853d4043ba122ac4cd95a1612dbfb9f10a793f9b8a051eba433ae8",
+      "verification_sha256": "89842324d5c896d2cb265170617268d96023d67dcc774a63379d15eed9ff612a",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/retinexformer_plus_D"
+    },
+    "snr_aware_plus_D": {
+      "freeze_receipt_sha256": "d51b9de88dee5ec13e008c9db1d3fca78145449320ed56f72b74b192d8100d36",
+      "output_manifest_sha256": "c5210edaa55df8c4de671b4cd9dc6c37730f0d8391b676a5d3cfae7ce9a5357f",
+      "verification_sha256": "26dfa012498a420bd9780c43ceea707208162e33d7ef7930f7b549d50a969be3",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/snr_aware_plus_D"
+    },
+    "promptir_plus_D": {
+      "freeze_receipt_sha256": "7fc6bc71234e2e3d3457c8a01bccf279a551b770f2c174d7ef9e8050b798ffef",
+      "output_manifest_sha256": "11146d3f3d0fea28188df091f437ad81d4775b3c49fa53d3ba5f7a5bdbbb20f1",
+      "verification_sha256": "a4d3d5fa1e9f078a9daf3c62fb43ea570bfbc62fd55ede6917562cc2fb43a867",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/promptir_plus_D"
+    },
+    "promptir_dctta_plus_D": {
+      "freeze_receipt_sha256": "60b9447aa19fec7aca1fa2d709f1d0a8d9bb2f6ecd8a70c309cd51a21871dc90",
+      "output_manifest_sha256": "883e8d8895997ad0ffaa95c1b13f75a1902bb2701167dcf84a41483a8e66afdd",
+      "verification_sha256": "39e3a1810b91a4c0b104bcaa4a6fa36983ba810b6f7fd42d4b22b9d9374fa7ea",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/promptir_dctta_plus_D"
+    },
+    "mr_illuminate_plus_D": {
+      "freeze_receipt_sha256": "b7d00b5a3b623ffbe234509a17765002843aa2542d0cdb538f55bf06e9bb5751",
+      "output_manifest_sha256": "ec047ddf74ea13c75fa96a87594617c751f87b1420736196e12c11e77b8f5ea7",
+      "verification_sha256": "6f41749133da0a22b5649d1c9a5d1833421d510f6085811af5c8c66e28787bdd",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/mr_illuminate_plus_D"
+    },
+    "quadprior_plus_D": {
+      "freeze_receipt_sha256": "501d3a7e586bbe4cdbf62587a548bfefabf93bc589a579d0d5eedff8b45064d8",
+      "output_manifest_sha256": "fd0bfed7125d040212f484216c5859eb469ed4aba3cf14a35bcbffb0af86f9e1",
+      "verification_sha256": "796d20eb5a1b255cdf2438678eaf5f1707ff502973283154302a9311291c3326",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/quadprior_plus_D"
+    },
+    "ours_step0_plus_D": {
+      "freeze_receipt_sha256": "770704b7173c80048df691fec5f60cf10dbfdc0cb0f89c9bc164ad67f879e882",
+      "output_manifest_sha256": "11001402ba6fd08de35ec6d4425099b8b29d39d11c165841a28e205e8eb95b33",
+      "verification_sha256": "ef9bccc6cf86887366c7fe3d44d1d97e0a79a42506f74aa21b5c0893c9223c73",
+      "verification_classification": "T075A_PLUS_D_OUTPUTS_VERIFIED",
+      "remote_output_root": "/root/autodl-tmp/TTIE/T075A/rows/SID/ours_step0_plus_D"
+    }
+  },
+  "ours_ttt_no_active_abstentions": 5,
+  "target_reference_reads_before_gate": 0,
+  "target_metrics_before_gate": 0,
+  "target_registry": {
+    "module": "research_log/T074C/targets_t075.py",
+    "sha256": "39dba541949e8bd82597f6d080cf47ab4aa6e57b7fbeb9f0d7146224e317a076",
+    "v2_module": "research_log/T075A/v2/v2_gate_metrics.py",
+    "v2_sha256": "aeebef20a19ac89140b942825e368f3b6422298488e1e430b086823269217ec7"
+  },
+  "created_utc": "2026-09-29T09:48:18.825023+00:00",
+  "output_files_rehashed": true
+}

@@ -1,0 +1,1741 @@
+{
+  "method": "Ours-TTT (SDSD-selected knobs)",
+  "method_id": "ours_ttt_sdsd_knobs",
+  "count": 50,
+  "low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+  "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+  "knobs": {
+    "q_joint": 0.35266535990213066,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "probability_threshold": 0.5,
+    "lambda_value": 0.875,
+    "lr": 0.03,
+    "updates": 27,
+    "loss_weights": [
+      1.0,
+      10.0,
+      5.0
+    ],
+    "exposure_target": 0.7
+  },
+  "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+  "knob_overrides": {
+    "q_joint": 0.35266535990213066,
+    "exposure_target": 0.7
+  },
+  "frozen_ours_ttt_manifest_sha256": "6ade1106233edbccb461bfd5e828eee0fd0900065aa3ee6d96bcaa3722ed4648",
+  "default_reproduction_images": 49,
+  "expected_manifest_sha256": null,
+  "no_active_abstentions": 0,
+  "producer": "research_log/T075A/v2/run_ours_knobs.py",
+  "producer_sha256": "01b3308b415309a1d614e2fc30425174f84d8761c740e8cdb62423511324ced4",
+  "ours_tuning_sha256": "6ed1008bb93d54b761430c308fda11b4c2ef1beaea3f68306510a554fc370b39",
+  "promotable": true,
+  "reference_reads": 0,
+  "metrics": 0,
+  "rows": [
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2037.png",
+      "low_sha256": "8d37655a947dce0754d20555be5f9220c8fba24107c3cee48249567a1b9f0b9a",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.11492677141865293,
+        "r_target": 0.8768945258018895,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "da6fbcf030607a2ee9bccb8597560052eaf40eac5c7c9c9d1257b8b01926c093",
+      "output_file_sha256": "58b484b1780e69c57fba8eb6d3a9afc32ec4f38ed1283c63ca34aaf633dc77de",
+      "whole_run_seconds": 1.3150415169657208,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2038.png",
+      "low_sha256": "b249ec9ceaed0adfbe2980262a09acf16df4686dafc575861446b7f68b5be652",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fe4ac10bf3388bd1abbf8e3a15ae0a79f1ccf6dccc115a1060a01d51482bdee4",
+      "output_file_sha256": "89cc0dd4733565ab0af899b743154517ef9edd9196d54e1ea7588fc8b9f0df71",
+      "whole_run_seconds": 1.5378825559746474,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2039.png",
+      "low_sha256": "e4b69e0bf0f6fac2d77d442429d58cebaaeaacaedc9c7e8f95b90d1075d6d320",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ef158ff2ba993efdc638bea36ea9f1ec347a8c196b4efd8477bfbcbb20705968",
+      "output_file_sha256": "560eb9fc65b16d63f3d9791f21c563848b7a04149eb658ccbff32ed1c92a7031",
+      "whole_run_seconds": 1.5463043070049025,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2040.png",
+      "low_sha256": "7ba85cd2f67f5d6e12959bd25bd4c63fe87a4c40b121cb4b3f0cd252600bf38e",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 9,
+        "k_rho": 26,
+        "r_FS": 0.4602036567741712,
+        "r_target": 0.9200541364713293,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ec45b75d471fffddbef7eead89f5f8d11cfc5e46dcc6f32de4148789ea75e9db",
+      "output_file_sha256": "82359a85f26fe4e081edd7a56b392122c04987e15aa32af7d44fb0a30649ada6",
+      "whole_run_seconds": 1.603348636010196,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2041.png",
+      "low_sha256": "69d6c06dc8710b2634e187f34d6649dff12e4023ac5ce461b0795d6596493119",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d5d6f5b0481dc4e511a228a5002b2bcf16999f3d2247f3ea47bc42b94557e30c",
+      "output_file_sha256": "5e8ef83d985ef8abbcbe5d7cc039b2d54ecda85ccb434c3efeefa1c7f93ce926",
+      "whole_run_seconds": 1.493542121956125,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2042.png",
+      "low_sha256": "5e5204dfe383b7f617be6a12dbba1db6fcf1515b69c07231dc745f38c62ab78e",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a76b86313951071889ce6c9bfe98ba7b82ca656a944c230185410473ba821e76",
+      "output_file_sha256": "035a0667b13832a5ae95e6b8b447af3fffa8a558f4f45263a24ea3928e342da7",
+      "whole_run_seconds": 1.42219287896296,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2043.png",
+      "low_sha256": "7c974cfac36376753bc8d4b157e3d35c41ab392606a83e9e15b306aad04edfc9",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b73e219e3b64243487cf88978b70da54888ef11e454624660a0d478ecc87f0ff",
+      "output_file_sha256": "a2472cf6b99e0b65e03802bea529b8f5af77bdf1d5ce9fa741a75e05a4a5398b",
+      "whole_run_seconds": 1.393800468009431,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2044.png",
+      "low_sha256": "ab1139650e069418a7c53b7ba1f5a36d43e66f9443de1865f8934092ab888d5d",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ab151a9fc6f0311a591ca28a4a8cd05f3646fc2da4ad5cff37a8d6612dcf4990",
+      "output_file_sha256": "a7abaa630a9f3b3c0b69fe001c3950d867bc0c6e1197612f7876e6a90826a203",
+      "whole_run_seconds": 1.5410950900404714,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2045.png",
+      "low_sha256": "1dbaf73ed9be824afcc19e31f8225df6bfdb3507499b8790dce6e187e0fccab2",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3cdd84080513c613d6d511c00fcabdbacefd6ba2a1fead28e6f4c3f1ceaa21e2",
+      "output_file_sha256": "dc7580ead24d3c8e777640e1be4342361e70ffb960510c25e7dce3fb0f9f5e8d",
+      "whole_run_seconds": 1.391373938007746,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2046.png",
+      "low_sha256": "f54530d34f29f1cccf0c4ab747af5e017feafa8aefa0762e0412b2c590abb130",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0f1fb944e9069507ceeb695eabee176d0c08f0a12c3e56ae5c2c63b4979cc36f",
+      "output_file_sha256": "12e2e06ed010715bbe42629058b912695b4a4c97d6c55ea3de2df5006062ec06",
+      "whole_run_seconds": 1.2474845969700254,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2047.png",
+      "low_sha256": "6c7a4bb6ea09da543a7373df8826d01414743d60a6a1b0fa4b188a90bcc3a641",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ce18cbc6f08cf8351386616472cefe1c895150d52dc96b48cb4f4bca2ffff97b",
+      "output_file_sha256": "32d63af3ff378d53b1a02abe53d39527c451004db3ceba9d665c2fa62d5a60f4",
+      "whole_run_seconds": 1.5216322289779782,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2048.png",
+      "low_sha256": "7aa251d264677bb574833395136bf0d18a91de542bb61ba86ce9d7e0351f5fa7",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.022839232676801994,
+        "r_target": 0.8653835834591581,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ae0201ea03ce6cf229de8d1546c20af154e00bb9b9db57379c2803f9380fb21c",
+      "output_file_sha256": "411f027ec5b9dec802a75365ea1319f0f3679955c4523cc36c2c09f9dc01c19e",
+      "whole_run_seconds": 1.419247082027141,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2049.png",
+      "low_sha256": "5b4d4f7e9d12061ab7c4da13e212f43054c89b50ec9013a6f65903affce0ddc4",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "eb85501af5ea27d4a452d2f12225f601bca9e618fdeced1b2dd8c52181774fc2",
+      "output_file_sha256": "685ecb36a2c92014a7af9a6e91b11945efa3198d5fe01fa0b31e0dd0d0dd0544",
+      "whole_run_seconds": 1.4234041360323317,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2050.png",
+      "low_sha256": "eee2f6ae44c072d2740f61fa56e6cf3ef5424f64d745b4fe238a5a54bf6c5207",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 27,
+        "r_FS": 0.41884309899902855,
+        "r_target": 0.9148840667494365,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b1d749953eceeab54e8680a143f7854aa4e8fa161590e0e7327ab6fe78bfe93e",
+      "output_file_sha256": "4029ab46b48b2e0a3f435f16064795a0c767b67b94cf23e37d824bd12ffb54da",
+      "whole_run_seconds": 1.4105324859847315,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2051.png",
+      "low_sha256": "3729659f78827798400a44176e2f5c23031980cd3d4092ad17558f33203adcf2",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.5347417299037369,
+        "r_target": 0.929371395612525,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0b576cff0c67adf73ee5f8e9f19440c49b52ed8dd0c8d3e2dea0ae785fcc0109",
+      "output_file_sha256": "5047339a8e37bf1756747e8c6af86c315f5893c4069d9de92ef978213e060e43",
+      "whole_run_seconds": 1.43126055697212,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2052.png",
+      "low_sha256": "547ab7c9267fc2548e39780270c17f8d7c00dd3140f7ffa7aa46271d60ed83e6",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 5,
+        "k_rho": 27,
+        "r_FS": 0.13676981947052036,
+        "r_target": 0.8796249068083729,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6382d4303bc7f1404b7a0fd50420cf910fdb7701a9259527d712fac619e7dbda",
+      "output_file_sha256": "fb4f5dd9b50db68babcfa7cddba5a67b1c0fcf1ba77321dfec875713fe08d1d2",
+      "whole_run_seconds": 1.422344370977953,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2053.png",
+      "low_sha256": "01fdb67c783aeda094f606c58eebc370a3dedbe63e4cb3586bc7220ba13ed2e0",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.02210215751102312,
+        "r_target": 0.8652914490634358,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b5b64bc062e8176b1e6741a2e3405f8fca0ade2cbd4d65db768c0c1c9844e606",
+      "output_file_sha256": "c14e3530f154f8883a09c0cd2d2104610b320cee56fe6893bc9a4edc32d968c9",
+      "whole_run_seconds": 1.328912072989624,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2054.png",
+      "low_sha256": "b72c0f32f1d008575e44efdc98ca2513fa5cd0f5f31c2b56bb4769152d31ba07",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 8,
+        "k_rho": 27,
+        "r_FS": 0.28097954893724186,
+        "r_target": 0.8976511229917131,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c9963a47d56d5b34fbfbe34ad3325c8ba3aa12ac6121ba7ab46ab7e606c4d5d4",
+      "output_file_sha256": "c8b54666c07c4537778fc3c78024b44c0d3e7952c5f8651ac60d9e71dd80d7c3",
+      "whole_run_seconds": 1.439145917946007,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2055.png",
+      "low_sha256": "6b04dd81721b298ad47ce41e748d62e67c563bd229622cf4862496f92e7c3511",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 6,
+        "k_rho": 27,
+        "r_FS": 0.20412658546367943,
+        "r_target": 0.8880445025575178,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2283082ffdc7d34f4a106ead3793d7b3f0003e5f3abfd36346e68d318fcffc09",
+      "output_file_sha256": "40853b6a84e18b6a4e926b6e4c10795e5223e0b1ca756e61401f4f9de90c2a5f",
+      "whole_run_seconds": 1.4092755920137279,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2056.png",
+      "low_sha256": "1ffdde79da975e72d855c61ee98a2ec5b864b47da3a6a3036e85c7e2cec35a5d",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8dc808fe31a49a43558bb99f77eec051c28bb72231844789ccc2bca98b1a4a04",
+      "output_file_sha256": "16c33b320bc7ebcf78f4f954e03db9b462acaec5af328576bce92ad34ccbf89d",
+      "whole_run_seconds": 1.3582066940143704,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2057.png",
+      "low_sha256": "4cde9691f70f68cbade2da98a8a8214cb83b0b8f27bc7d3ae8599b516c50bc69",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.09627027297296586,
+        "r_target": 0.8745624634961786,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f057e3a3fd5186e038234882a1419f1143247602551ad5467a42da70b0adaf5b",
+      "output_file_sha256": "3e8692bd7e1cc1d8bfeb8063ae9b289eecd4b58ee9e61cc9ef6950082d6c9efa",
+      "whole_run_seconds": 1.5438327440060675,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2058.png",
+      "low_sha256": "853a8a0623530b86b4ca9f5f08a3670f13cd366b30cecb63205d63b92b917377",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.08922114501483698,
+        "r_target": 0.8736813225014125,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5f4344d8380e897fdecbf2b73ee1e833cd9b572f10e5e650893b1ba933c4a650",
+      "output_file_sha256": "94955467f4f207e21aafa292130e3014edbfea090cc7684d4ba7ff87da6973b3",
+      "whole_run_seconds": 1.340811558009591,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2059.png",
+      "low_sha256": "520b022391e31e2ef872d0f8088d3b66ac23d1c5972e8fc38d6ef21bbedbfcb7",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 7,
+        "k_rho": 27,
+        "r_FS": 0.2355121660872931,
+        "r_target": 0.8919677001354696,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5270a991b0fb51d54fa256885639682062fffe3bb2583573aa0981d110d23a73",
+      "output_file_sha256": "29d052c6b290ab006fdf49f05601b7ee46826a0e2e890d1969cb759df06994b5",
+      "whole_run_seconds": 1.5675797120202333,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2060.png",
+      "low_sha256": "af6ed62fa46ee22441ac921e0e1c74f2d949397248e82fb77b49c49a917686df",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.457573629840982,
+        "r_target": 0.9197253831046805,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4f3340c12fb40a3d8db8740927c60a896d5e53874927e6dd868860fa7d77591f",
+      "output_file_sha256": "fd5682f2daacc69c352e4f1a56131ae60cffd917dba7a75db57d85ec24151731",
+      "whole_run_seconds": 1.5592615760397166,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2061.png",
+      "low_sha256": "8cbd19f24914734a11f4669f38c02044c6e8effca801c050fc57088f0c2034a8",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "816cf705f59d5892e712ba32fa76778099584d89ecfd27d3b723dab372f3d5d0",
+      "output_file_sha256": "57ebe9152ba82c5dc18d70b1dce68b2b7683b11d1eecda0eaac67f072d363c70",
+      "whole_run_seconds": 1.4498290169867687,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2062.png",
+      "low_sha256": "9c213ac3b593c0cdd96df0c97bfd214a2c47012cc8a70b23a927ca8f0ce8dd0c",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 16,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 4,
+        "k_rho": 21,
+        "r_FS": 0.29507141257429426,
+        "r_target": 0.8994126059463446,
+        "selected_step": 16
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6e11700e01fb2064cb13120a2f0312885641d5293e4c2aad1f854d94cd524d70",
+      "output_file_sha256": "90be40251300de0fc5336ee58d3365e778bbef8a592e25cbbd2405108ae21570",
+      "whole_run_seconds": 1.512771094974596,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2063.png",
+      "low_sha256": "0c329c0e1377e754f46648cf93deb8570be3ad1143475cdbbb866e41262f4e08",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 6,
+        "k_rho": 27,
+        "r_FS": 0.1858424212132496,
+        "r_target": 0.8857589820262141,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e2774578bd19a21e211abb375f9f5e05fda21bdccd4f49bcfb7ef704bc020f60",
+      "output_file_sha256": "340af01fe5cb698eea1ad9cb7e2db3f41520bea77190eaf582c2ce819d93adc3",
+      "whole_run_seconds": 1.607143212982919,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2064.png",
+      "low_sha256": "9416aa71188e4fa74cca785968b4da2e904a9628b4b4d303b07e11014b55c3a6",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 7,
+        "k_rho": 27,
+        "r_FS": 0.26807352833303727,
+        "r_target": 0.8960378704161875,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3975630e5e5a8b7ad2784a4f35ee8e2b57799685f1b22bdd66c27549dee57ade",
+      "output_file_sha256": "c178ca36a558b4cb45209f1d72d2fd3ec0dc05cfd53d823d948a9c309544cae4",
+      "whole_run_seconds": 1.4463638499728404,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2065.png",
+      "low_sha256": "bec4d631f0504c2f9f8d9599f227b1e7f28e4437ee26ea66072cd6529107c995",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 6,
+        "k_rho": 26,
+        "r_FS": 0.2737703727249314,
+        "r_target": 0.8967499759651743,
+        "selected_step": 21
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9fe1111bc7f56fdafea57121786bc62d7e3e44d6eefafa188f6cc253db44ebb8",
+      "output_file_sha256": "8a7974b0b52e9547880ff7376409d249b1c7c7a8d365a32ad0eeb8bcb34aadf5",
+      "whole_run_seconds": 1.363792255986482,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Huawei__2066.png",
+      "low_sha256": "6f9879eb22bf7e29b6bfd28a3aaefcec4b66b74e92039fd732e4b3c480a03913",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.4818669010524923,
+        "r_target": 0.9227620420061194,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d711e0e746044c9fdef62ae26b39c864abc9a424e2b418d259615b0e75ae7c09",
+      "output_file_sha256": "02fd239d03d4fdbe1ab7d60b3dde1675f04c2fc0e9c792c75caf1580bd3f3693",
+      "whole_run_seconds": 1.2791046309866942,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3001.png",
+      "low_sha256": "5b925c47e452d6b275061631ae774116b750e966511422f7f7702d77cd192897",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.024705714373426533,
+        "r_target": 0.8656168936712362,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "dedf3c83ffd628f8ab263be46dbe30799314277ee55ed652a9076a900d8e8525",
+      "output_file_sha256": "78f833621ffc4ee157f302061340d642b93a95daeec62a851a391bfca2c8b998",
+      "whole_run_seconds": 1.0863703599898145,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3002.png",
+      "low_sha256": "b5313bda24706769f4dc27daf35f4f6f3b5be4436ba3324dbfbf3037c96b4f89",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 19,
+      "active": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.06117201827366564,
+        "r_target": 0.870175181658766,
+        "selected_step": 19
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f74d8fafcc73c68fed4dd8c904b10fc7ae4f5d67b23535243aab40831860c9ce",
+      "output_file_sha256": "a3eb982356584e87822af371412de262b2e0d91d13ea62b36300a1cb4356a067",
+      "whole_run_seconds": 1.2489750860258937,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3003.png",
+      "low_sha256": "7918122f2dfb1b88f072fedcf18db7cd85bfed0a2b9f76dfaf179c43304143b7",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 5,
+        "k_rho": 27,
+        "r_FS": 0.13099359285421167,
+        "r_target": 0.8789028784813343,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d915e0c1e4964200858764812cacc239b06f6a093fbdfd11984acc20790c1be2",
+      "output_file_sha256": "eda751636b47e72b8e2c7b55428465d7689e39623c70c88df148416f0c3d1628",
+      "whole_run_seconds": 1.2520165530149825,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3004.png",
+      "low_sha256": "ce0f34bde6bc15a18efd0ea558672ddc9ac452be8b2e7cf03e7b4d88ec69060f",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 27,
+        "r_FS": 0.05079860356675425,
+        "r_target": 0.8688785048204022,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "40433b8e9ac185448eec8709556d2899202f3e3a5d62f5cf19257cad5b81d81a",
+      "output_file_sha256": "a6169fe52d5bf903e08dead5c45b4f8b1f4bd0c283ec97aadf752bba89c6ba20",
+      "whole_run_seconds": 1.354787646967452,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3005.png",
+      "low_sha256": "544558ae0f06094d188e1371d3aa1dd1ec06559720d744ae50904c18b2b42c52",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 26,
+        "r_FS": 0.07191733118796327,
+        "r_target": 0.8715183457730533,
+        "selected_step": 21
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4508bc457563539802478221c05373167aea1245a108c6e9e51893566aad003b",
+      "output_file_sha256": "bac0fb7132438617b2ee374d77e79de03d679acc5d6bd18eabccec0971c4718a",
+      "whole_run_seconds": 1.4424969949759543,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3006.png",
+      "low_sha256": "2c8439ba18532578c1fcf71fb04fd2e322673e53a4e8e74e3ed6487d9d0684f5",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 20,
+      "active": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 26,
+        "r_FS": 0.07612370495409633,
+        "r_target": 0.8720441424938199,
+        "selected_step": 20
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6a413be57186e5d3d46e4039aab369ad8522b41ca9e0b1ba36d69e1eb26e79d0",
+      "output_file_sha256": "9fbeceb98d0fa363e0cf7b302012ae0949d508ceeebc95baa3789b7e8963a5c4",
+      "whole_run_seconds": 1.3115963650052436,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3007.png",
+      "low_sha256": "25814cc0d1282ab915f3808d5ce46e880d4cb3740e0ba92d4f3379f377086028",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 14,
+      "active": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 19,
+        "r_FS": 0.06631519177218789,
+        "r_target": 0.8708180783460814,
+        "selected_step": 14
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "facb6b109c943d47b634714fa44acc0be4236611774ccd207b48e601cae6740c",
+      "output_file_sha256": "8748cf2da6cd7865ced1ed3dffad27e8d637fe2d81c7ed8c23fc6811023b0cb6",
+      "whole_run_seconds": 1.1073500999482349,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3008.png",
+      "low_sha256": "d685e5cf5448c7e107cf8a383e33e0f259720867fd711b48ba5335843ac38c93",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 15,
+      "active": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 24,
+        "r_FS": 0.06977923970892926,
+        "r_target": 0.871251084338174,
+        "selected_step": 15
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "36ca56a07957b64d41f5bf860922105842305dfd25463b3eef096528b5a8b620",
+      "output_file_sha256": "5cf029b3a17feacecac82dd964bb4dfacd4fe0d5028d7cf413f203fd84978b8a",
+      "whole_run_seconds": 1.2508318729815073,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3009.png",
+      "low_sha256": "0ca1136107045289cb442359711e83c5b7f2058be58cfae792d03510c41b3bb3",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 14,
+      "active": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 24,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 14
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c78202c2fae58f3e52e836a90c1c559f3462d5db3a45d64760aeec6bc8d1d06c",
+      "output_file_sha256": "32ccdcb321491f4e82cf8aa9252cbac71eb891be4adcd3e99d1dd22bcd8b126d",
+      "whole_run_seconds": 1.2087610809830949,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3010.png",
+      "low_sha256": "ab1706bcb801107be2185335413302dfb13082bb904a7c87ca2a21775dfbe803",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.0857254145440699,
+        "r_target": 0.8732443561925666,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b86bddb73cd7b206f0a5904b5b2dbfc5abce68e01a8b021bdefe2dce160733c9",
+      "output_file_sha256": "9ed1d58c74226b4f9ff19952ab070def992b0c9858bd788946580b3ffa60b559",
+      "whole_run_seconds": 1.4971797949983738,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3011.png",
+      "low_sha256": "a877a8c5bf9fc5625203575339b536faf59e8de8482982627095177c08183280",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 27,
+        "r_FS": 0.06563399223739054,
+        "r_target": 0.8707329284042317,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1f4b6e26f50de35388533293c4e57bf4198152f60b98952e5762a3b2acaa5191",
+      "output_file_sha256": "28d9c8012d26f6c71ad35a37e0188277dbd752613c8bbf8f1361811277085464",
+      "whole_run_seconds": 1.4449361719889566,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3012.png",
+      "low_sha256": "78f9c0e2cd8224806b93c29fb20951d06772b06246ad2a110f05a462732e2f5b",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 20,
+      "active": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.12309499287888716,
+        "r_target": 0.8779155534844187,
+        "selected_step": 20
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7fdead5d908d179dbcc56fb755e39faa14fcc581092bf9cba2204d049780766c",
+      "output_file_sha256": "ec345411b5cfb57c318a3afcdd7d3e9c662b6e431cd7f1800dc433fd07bbdda6",
+      "whole_run_seconds": 1.4664021430071443,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3013.png",
+      "low_sha256": "0b97ee46503d6e584017dbefc68565521b37c2bf0aaf886e9dec2bc2b53b9782",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 4,
+        "k_rho": 27,
+        "r_FS": 0.09824163254746339,
+        "r_target": 0.8748088834429908,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "632957df1ede89265b3103157fb5c99f4719c05b6165bfcdd53974f214168a07",
+      "output_file_sha256": "f0722ba906ff47c6bcbec9a8adda5c0a87470df44414dfa6457c2ea1026d6f4b",
+      "whole_run_seconds": 1.3974362589651719,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3014.png",
+      "low_sha256": "a3029d7263cae5634f87d4dd992c487fdac9d597d45f6b576460a795a1a9700d",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0c676a4f07ca228c053e4b2abac435f865aec8fe0e0799b681bb8dd695470426",
+      "output_file_sha256": "fe92b10947d25cdc0ca231c27b3d6b15118ad919e70341dddf5a1801afcf17f9",
+      "whole_run_seconds": 1.2942302169976756,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3015.png",
+      "low_sha256": "e5e0a4a9806bdc35767cb3b50e145075a580b09b39918dc51edf58ce7539b6bd",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 15,
+      "active": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 22,
+        "r_FS": 0.06815164752552239,
+        "r_target": 0.8710476353152482,
+        "selected_step": 15
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f608f53d26b9b7103425023cbe85b150fbbd707c65315643a45a505f3ce94e40",
+      "output_file_sha256": "77d01b79ef2d5fd13708952d31b1c3f5cd331f2006f00db3c8301b153109086f",
+      "whole_run_seconds": 1.261168024968356,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3016.png",
+      "low_sha256": "25906cffb1ce06b2732638e4825c818406284ff9b4c353bce3e1841479553425",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 15,
+      "active": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 21,
+        "r_FS": 0.15663440183742292,
+        "r_target": 0.8821079796042357,
+        "selected_step": 15
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a863d3108d645cdb08f94619a71164be3faecf6ad13a7e2da17e97acccc8d786",
+      "output_file_sha256": "57b83b62a8611aabfd65acd79473691f16804b718cd8cb0cea13857b4bfdb819",
+      "whole_run_seconds": 1.2975452410173602,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3017.png",
+      "low_sha256": "66b0cbfbd4779302faa11f2cc186e69e32771833a443e76b561bf6226e6d753a",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 5,
+        "k_rho": 27,
+        "r_FS": 0.18178401425224888,
+        "r_target": 0.885251681156089,
+        "selected_step": 22
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "633f5e5b322ff7986597a7fb119ecd0e53eef3e93a6643589b1612084905c678",
+      "output_file_sha256": "68de1d2abb108ddbcdb8a59d1a0290b6b63dd8fe173194cffaab4d831ea52a7c",
+      "whole_run_seconds": 1.4574217069894075,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3018.png",
+      "low_sha256": "353b86d7f992a7cc53b6a6809771106eee7fefe270405cd6593c27184f17712d",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 26,
+        "r_FS": 0.6917845744733427,
+        "r_target": 0.9490017511837257,
+        "selected_step": 23
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1c48661ceecb28529aea197899cc904fcf9038ea617fd5e339bd78a0ebd79a97",
+      "output_file_sha256": "54b1e45f1c552f71275846116c83ff47568eecc09065a217877c92966221767f",
+      "whole_run_seconds": 1.4289081720053218,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3019.png",
+      "low_sha256": "e4f3997cdde3d58dc387f39753c7a14066f5b264682b19bf904f46b49370773a",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 20,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.13239076243798462,
+        "r_target": 0.879077524679306,
+        "selected_step": 20
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d7e0d641b36adba717a55445b50740693cd4ae71e5133ae9f907c4105d3b065f",
+      "output_file_sha256": "97a086bea9a273da180ee24a897d0667b76b49be7726c0b8e31281fbd6e9a301",
+      "whole_run_seconds": 1.4512610120000318,
+      "peak_gpu_memory_bytes": 811597824
+    },
+    {
+      "method": "Ours-TTT (SDSD-selected knobs)",
+      "low_name": "Nikon__3020.png",
+      "low_sha256": "b39e45530942cb938fb2d2dee6828c9473a9f06480c3e52516694518624e4b00",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "setting_id": "75f046d9d6ab422f0c17d38ba091e66c4dab643b2884bfc038a3e282bbb77efd",
+      "decision_status": "TTT_EXECUTED",
+      "selected_step": 20,
+      "active": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.037933781415239926,
+        "r_target": 0.8672704020514629,
+        "selected_step": 20
+      },
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4ea1423d9dd0e57c7d90ac4a0dd488487a26b68d3811c59759e1f7fb2db8b858",
+      "output_file_sha256": "11d601ba67b9967839f56bccea8d0bc539c08dddde950ddde535723d2d070bc9",
+      "whole_run_seconds": 1.508132013026625,
+      "peak_gpu_memory_bytes": 811597824
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "round": 2,
+  "source_sha256": "9dafacd820a86de56b992df76187ae8268061695cc1ae8c5dd550239c327799a",
+  "setting_ids": [
+    "312fd2028113cfec9ab6d03d73149111e42b9fcb4c5661cb846db897e1197974",
+    "b178e43521a47366c2cd3b35a6d12c44637d668ab7baea92f76fa0d4cf24b165",
+    "d3ebf1135fa5f275bc43fc8a3cbb2ecfdba2d905ed8b005dcbbe682f0cb6324e",
+    "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+    "1d1b2dd5fc081318b3a5b3665f7f77e8059a99df2bd1b76d3adf9b273cca794a",
+    "466effb0c2a950b8a49284e5fa00172e1e912903d6db2c579a19f0ad05724029",
+    "e6a694c24b69b94cbdb4d94459ae2fccc00bc32a14cb2433d24d0e5ac267fc7d",
+    "8923140e42299df061c28ec82a8f18d6c1051cc11cb6f9bca8b38507f3908d33"
+  ],
+  "settings": [
+    {
+      "q_joint": 0.35266535990213066,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 1.0,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        20.0,
+        5.0
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 0.35266535990213066,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        20.0,
+        5.0
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 0.35266535990213066,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 1.0,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        2.5
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 0.35266535990213066,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        2.5
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 1.053775168916056,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 1.0,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        20.0,
+        5.0
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 1.053775168916056,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        20.0,
+        5.0
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 1.053775168916056,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 1.0,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        2.5
+      ],
+      "exposure_target": 0.6
+    },
+    {
+      "q_joint": 1.053775168916056,
+      "tau": [
+        0.027419920079410076,
+        0.001673370413482167
+      ],
+      "probability_threshold": 0.5,
+      "lambda_value": 0.875,
+      "lr": 0.03,
+      "updates": 27,
+      "loss_weights": [
+        1.0,
+        10.0,
+        2.5
+      ],
+      "exposure_target": 0.6
+    }
+  ],
+  "explanation": {
+    "gains": {
+      "probability_threshold": 0.0,
+      "lambda_value": 0.029294304863629606,
+      "q_joint": 0.7497476914948784,
+      "updates": 0.0,
+      "lr": 0.0,
+      "exposure_target": 0.028063054385709663,
+      "loss_weights": 0.05721091447828108
+    },
+    "selected_knobs": [
+      "q_joint",
+      "loss_weights",
+      "lambda_value"
+    ],
+    "values": {
+      "q_joint": [
+        0.35266535990213066,
+        1.053775168916056
+      ],
+      "loss_weights": [
+        [
+          1.0,
+          20.0,
+          5.0
+        ],
+        [
+          1.0,
+          10.0,
+          2.5
+        ]
+      ],
+      "lambda_value": [
+        1.0,
+        0.875
+      ]
+    }
+  }
+}

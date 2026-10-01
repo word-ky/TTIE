@@ -1,0 +1,56 @@
+{
+  "task": "T075-B",
+  "method_id": "ours_ttt",
+  "target": "SMID",
+  "classification": "FROZEN_OUTPUTS",
+  "output_count": 1470,
+  "preregistration": "research_log/T074C/prereg.md + research_log/T075A/plan_and_amendments.md",
+  "canonical_low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+  "runner": "research_log/T074B/run_ours_ttt_abstain_generic.py",
+  "runner_sha256": "1975943d93caa954dcc0cbf7002977f656df325700e2737fff21d117fa1f91ed",
+  "smoke_manifest_sha256": "e47a9ee729b7bc5c542d384c7b3bc65f9012aefb9c2da24ad9ebb3b71a7cd8c0",
+  "smoke_promotable": false,
+  "manifest_scalars": {
+    "method": "Ours-TTT-with-no-active-abstention",
+    "count": 1470,
+    "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+    "low_receipt_sha256": "bb727e446c5a79219461838033815db01d1a7d44b998a6510e1a2f285d982656",
+    "step0_output_manifest_sha256": "9c4fd533bde5e5237c34a88f57e8c626205b8f283dedc03356b67fe362f156ee",
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "gpu_serialization": "flock /root/autodl-tmp/TTIE/gpu.lock",
+  "process_env": "CUBLAS_WORKSPACE_CONFIG, OMP/MKL/OPENBLAS_NUM_THREADS, MKL_THREADING_LAYER unset (as frozen UHD-LL runs)",
+  "expected_step0_manifest_sha256": "9c4fd533bde5e5237c34a88f57e8c626205b8f283dedc03356b67fe362f156ee",
+  "ttt_abstain_no_active_gate_count": 0,
+  "ttt_executed_count": 1470,
+  "verifier": "research_log/T074B/verify_generic_outputs.py",
+  "verifier_sha256": "de2b3c51db7e5c2bf2ac9111720dbcad6f0fc6f6e76e9662781989fa339196e5",
+  "output_manifest_path": "research_log/T075B/SMID/ours_ttt/output_manifest.json",
+  "output_manifest_sha256": "f49c6be455f1d62500dbad848f0f65b53547f82ecd4c4df6a537425552f00ae8",
+  "independent_verification_path": "research_log/T075B/SMID/ours_ttt/verification.json",
+  "independent_verification_sha256": "63f8935504e63f8644659a41b9ad1740b2db918e4f5706e832e87c470965d992",
+  "verification_classification": "T074B_OURS_TTT_OUTPUTS_VERIFIED",
+  "per_image_seconds_median": 0.7239797849906608,
+  "per_image_seconds_sum": 1068.989136450342,
+  "max_per_image_peak_reserved_gpu_bytes": 790626304,
+  "compressed_output_bytes": 1577276136,
+  "remote_output_root": "/root/autodl-tmp/TTIE/T075B/runs/SMID/ours_ttt",
+  "target_reference_reads": 0,
+  "target_metrics": 0,
+  "quality_inspection_of_outputs": false,
+  "preregistration_changed": false,
+  "host_load_context": {
+    "full_run_window_utc": [
+      "2026-09-26T06:19:09Z",
+      "2026-09-26T06:37:10Z"
+    ],
+    "loadavg_1min_samples": 20,
+    "loadavg_1min_min_max": [
+      2.88,
+      11.56
+    ],
+    "monitor": "logs/load_monitor.log (60 s samples; started 2026-09-26T05:21:58Z)",
+    "gpu_exclusive": "flock /root/autodl-tmp/TTIE/gpu.lock (GPU jobs serialized); CPU shared with other agents' jobs"
+  }
+}

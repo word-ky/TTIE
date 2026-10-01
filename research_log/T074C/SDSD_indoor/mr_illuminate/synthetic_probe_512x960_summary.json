@@ -1,0 +1,74 @@
+{
+  "sizes": [
+    "512x960"
+  ],
+  "fake_vae_memory_only": false,
+  "exit_codes": [
+    0,
+    0
+  ],
+  "images": [
+    {
+      "name": "synthetic_00_512x960.png",
+      "peak_reserved_bytes": [
+        8575254528,
+        8503951360
+      ],
+      "peak_allocated_bytes": [
+        6242835456,
+        6254844928
+      ],
+      "process_seconds": [
+        6.2799287880188785,
+        6.290438935044222
+      ],
+      "official_resize_back": false,
+      "prequant_dtype": "torch.float32",
+      "bitwise_repeatable": true
+    }
+  ],
+  "attention_processors": [
+    "XFormersAttnProcessor"
+  ],
+  "vae_key_report": {
+    "state_dict_key_count": 467,
+    "my_vae_key_count": 258,
+    "model_key_count": 258,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "loaded_value_mismatches": [],
+    "model_dtype": "torch.float16"
+  },
+  "environment": {
+    "python": "3.9.25",
+    "platform": "Linux-5.15.0-153-generic-x86_64-with-glibc2.35",
+    "torch": "2.0.1+cu117",
+    "cuda": "11.7",
+    "cudnn": 8500,
+    "numpy": "1.25.0",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "env": {
+      "CUDA_VISIBLE_DEVICES": null,
+      "PYTORCH_CUDA_ALLOC_CONF": null,
+      "HF_HOME": "/root/autodl-tmp/cache/hf",
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "DIFFUSERS_OFFLINE": "1",
+      "XFORMERS_DISABLED": null
+    },
+    "diffusers": "0.17.1",
+    "transformers": "4.30.2",
+    "xformers": "0.0.20",
+    "accelerate": "0.20.3",
+    "PIL": "11.3.0",
+    "cv2": "4.9.0",
+    "einops": "0.8.2",
+    "huggingface_hub": "0.23.3",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_total_bytes": 50866487296
+  },
+  "first_image_warnings": []
+}

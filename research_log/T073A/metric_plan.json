@@ -1,0 +1,20 @@
+{
+  "task": "T073-A",
+  "dataset": "UHD-LL",
+  "cohort": {"size": 150, "geometry_wh": [3840, 2160], "channels": "RGB", "dispatch_root_sha256": "a624d66cbb735bf1483720b1256b63e01d53b55da9f05eb0634d975214f4bd3e", "order": "T072-I canonical dispatch order"},
+  "historical_spec": {"commit": "63b8f465e15b164eb5262f80d37a64ab1ce50056", "path": "research_log/T072L/analysis_spec.json", "sha256": "df9c5e4a6c2c5ee8cf812c4535938ecb80d5f6b34fbc659d2fc8302923f93391", "immutable": true},
+  "metric_source": {"commit": "579c3691a80f5b7cadfd706a2fe6750876c53aa0", "entrypoint": "research_log.T071A.core.metrics", "ssim_entrypoint": "ttie.ssim_transfer.rgb_ssim", "source_sha256": {"research_log/T071B/evaluate.py": "39ae608a0253f506dcd6412b8f4a83b3f966cdb12154c3c6409007865cebc9e7", "research_log/T071A/core.py": "45d6b92dee5fb3163da1ea1e9d331a2be36f8991a142bf221167c6d426871858", "ttie/ssim_transfer.py": "01d227a8b4caaf8f5705d9c18a5ef685367b6ccf80588d212be92830a04f8556"}, "reference_conversion": "uint8 / 255 in float64, then float32, then float64", "output_conversion": "float32 to float64", "crop": 0, "resize": false, "quantization": false, "brightness_matching": false},
+  "per_method_endpoints": ["mean_psnr", "median_psnr", "mean_rgb_ssim"],
+  "paired_endpoints": ["mean_delta_psnr", "median_delta_psnr", "psnr_win_fraction", "mean_delta_rgb_ssim", "median_delta_rgb_ssim", "rgb_ssim_win_fraction"],
+  "headline_direction": "ours_ttt minus comparator per image",
+  "adaptation_gain_direction": "adapted minus base per image",
+  "adaptation_pairs": [["promptir_dctta", "promptir"], ["ours_ttt", "ours_step0"]],
+  "win_rule": "delta > 0; ties are not wins; denominator=150",
+  "bootstrap": {"seed": 20260922, "resamples": 10000, "sample_size": 150, "replacement": true, "rng": "numpy.random.Generator(numpy.random.PCG64(seed))", "indices": "integers(0,150,size=(10000,150),dtype=int64); C order", "shared_stream": true, "indices_sha256": "f3348c731c348b52eed32160d6b4b2b904101e59a542e1c5dc22850e812da904", "interval": "95% percentile", "quantiles": [0.025, 0.975], "quantile_method": "linear", "unit": "paired image"},
+  "sample_policy": {"all_canonical_pairs_required": true, "exclusions": [], "on_missing_duplicate_nonfinite_output_geometry_binding_or_reference_mapping_error": "fail whole evaluation", "on_nonfinite_metric": "fail whole evaluation; never omit or impute"},
+  "reference_gate": "Open references only after all eight Tier-1 rows declared for final UHD-LL main table have complete target-low outputs frozen, hashed, and independently verified; ZERO-IG preferred-additional and GM-MoE secondary inclusion locked before opening, without delaying Tier-1 for their unavailability.",
+  "dctta_execution_gate": {"status": "LOW_ONLY_DCTTA_REQUIRED", "target_reference_access": "NONE", "allowed_inputs": "canonical UHD-LL low images only", "paired_loader": "replace with task-owned low-only wrapper if it resolves or reads target GT/reference", "before_model_execution": "seal and independently verify wrapper and degraded-input adaptation-computation equivalence"},
+  "prohibitions": ["target GT/outcomes cannot select source checkpoints, hyperparameters, stopping, retries, sample inclusion, execution rescue, or method inclusion", "Tier-1 rows cannot be dropped for poor outcomes", "UNRUN/BLOCKED must remain transparent if prospectively declared protocol fails"],
+  "claims": {"significance_thresholds": [], "interpretation": "Report effect sizes and confidence intervals; no post-outcome threshold or method selection."},
+  "accounting": {"reference_reads": 0, "metrics": 0, "inference_runs_this_task": 0}
+}

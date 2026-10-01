@@ -1,0 +1,4257 @@
+{
+  "method": "Ours-TTT-with-no-active-abstention",
+  "count": 150,
+  "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+  "low_receipt_sha256": "bb846b1b61b0f2454e14dac51ef684772da4774053b14c9db9b0d7c940a11a41",
+  "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+  "reference_reads": 0,
+  "metrics": 0,
+  "rows": [
+    {
+      "method": "Ours-TTT",
+      "low_name": "1003_UHD_LL.JPG",
+      "low_sha256": "cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "7d5e3484959edb6771541030fa02f407234d2a4d5e1c39298bed7836e70b732e",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6932c94af73d1f4e8b6d4b4e37eee6521fef82a921e03b9cc202146dbadac580",
+      "output_file_sha256": "238027f12cd3185bf0235e23dd66ea5f0a5f07c83cfe840e2a3c3cc58c71f0b2",
+      "whole_run_seconds": 18.4930893839919,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1009_UHD_LL.JPG",
+      "low_sha256": "7503bd0865610d12cea2f236b6a6eebfbe1722972f83c3a8c34fb10b14f3cffc",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5c6db8450e812ef66de3969a332e5c5f023bdc5416269ffebb4720553d8030e1",
+      "output_file_sha256": "8e186a902dd4ad837018995cf68d27ee00f42f7c44ef56c735592618b1ab8441",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.516361937043257,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1024_UHD_LL.JPG",
+      "low_sha256": "93ceaa29aea9e211ff1fc89fa1b12760d0bf1525be7cfb419c76bd484a8dd293",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 19,
+        "r_FS": 0.0606884612876388,
+        "r_target": 0.8701147370355127,
+        "selected_step": 15
+      },
+      "selected_state_sha256": "aad89b89383a149de76273841a3086c651ff91362a017f6581200dc5efa03205",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "14d1ea950b662d0861461d00ba8121ef20469b15b5c0d3f5e20f7ff731bdf73a",
+      "output_file_sha256": "5aafec4b3ef9b562bd0cb7f13682b32a08d0072ab6980747867583c44560303b",
+      "whole_run_seconds": 18.178612132032868,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1043_UHD_LL.JPG",
+      "low_sha256": "4e7adeff44e6d89f869e2192816fd7301778bc0964d6266f99d4f3815f1ba7eb",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.03530388386570851,
+        "r_target": 0.8669416648577715,
+        "selected_step": 20
+      },
+      "selected_state_sha256": "9fcc2e8fa1db8abd1959112f6240bf67fb2b943ed030e250830dab112a6f701b",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "eeba63c5e65c92f17faf101f5826a82c2b16dc7109a244ad4fe6ac4ba9ff83b2",
+      "output_file_sha256": "4d9ee21a547e824ed912679670d621d1ef9df1aa52c3df67b341741a3a651d08",
+      "whole_run_seconds": 18.238682367024012,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1085_UHD_LL.JPG",
+      "low_sha256": "f61d0224d4f382ee1b5f0adc857de959d17c1729d86584e8006f1b97e17be203",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.032122353821929454,
+        "r_target": 0.8665439736022991,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "8bca2474dfdc381eb3ce4de8d1f42165a5e80743c6c014db84a1be5027cd7ee8",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bf836676baefbb5158b9f40913d1b9a35e74027a50ee0d37635f9ac7eeee86a4",
+      "output_file_sha256": "9720be96ac243c5cf2283ee65a0a9afbde766fb5d0ea359b131bc392d2955ceb",
+      "whole_run_seconds": 18.28771665703971,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1102_UHD_LL.JPG",
+      "low_sha256": "e38e52e51248b016a0e514fad7a62ff5d0aa5960ad4d10058b6672f1c3d401af",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "05203c57884dc442d73f1aa4f8b7ca8a25659b4dd516a1d086a29bc9eaa3278b",
+      "output_file_sha256": "ac731d23cfe4ae3d6c47d9de98808f10c94b25c5551b152d9fa444fd3d841280",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.582127998000942,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1124_UHD_LL.JPG",
+      "low_sha256": "2085b18c178e54188cbb7575f4ef968d57c84bf347c258d53b7668aa88d6d8a4",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b028386b50a9f30c179a76382e57c07c94657ff0ed00dae8a31516276556010a",
+      "output_file_sha256": "fc62868b2ab81470bf9c8288a79d92999dc74902da36da4d7591007092b90ef1",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.5647621889947914,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1142_UHD_LL.JPG",
+      "low_sha256": "7ede2aef1e3667c6f19941ff249fe970dc7fee8e8864760a0051083094315e14",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fa20b628158c4036d6e797f7d98a25cba344c09289138f4c3f8f6cc7fddb03cf",
+      "output_file_sha256": "4be97d86397f2ef4e00abd489fc407db62089ede6b468c510880c6ed9e68863f",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.5614151500049047,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1165_UHD_LL.JPG",
+      "low_sha256": "38a4ad6c5fbceff80a96d92c6f274319c23d1475772e270f12dd9693e640d7d7",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.069287613451069,
+        "r_target": 0.8711896310559415,
+        "selected_step": 16
+      },
+      "selected_state_sha256": "bcd617f4a0cbd4bffbfd2bc333566ad6ad2bf175f8f10c70e031be5aa39ff213",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6b4d82e74f2a65945ee37838da20b7680450675717c4f6948cb99af1830447c0",
+      "output_file_sha256": "58a64d32ab38768cf528f161dbb245ca7d7542fc437b59e0e49eec092c5a2f6e",
+      "whole_run_seconds": 18.041515045973938,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1184_UHD_LL.JPG",
+      "low_sha256": "bfb1c6a5763bb7cb472ff7af824d4e22386b6d37e77645cff884571eb4533392",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 9,
+        "k_rho": 24,
+        "r_FS": 0.5308266300661457,
+        "r_target": 0.9288820081328261,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "271a9f7e35c66b7d942d8f488b98ad6f21c2ce701d25fc16fb66f4244298abfd",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "94ea3ed1f3817947d6919d9b77c40469bc4febc980ad38efee4a35c4168f8812",
+      "output_file_sha256": "94e75571d59bfbf21533c1f08c6ab4f1a8eeaa887719ae355ab7e182ad385ab6",
+      "whole_run_seconds": 17.918159862980247,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1188_UHD_LL.JPG",
+      "low_sha256": "11f34aaebc961a825f128ce7b6cef04a89c47bb4ea1e5e6d3fa361d84a08ad91",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.10352778871279858,
+        "r_target": 0.8754696529636576,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "657160131817862306636c13d851f4f977092f0f6f6feeff24de09424df584a4",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bbddb460ce829abe3c3bb735298b3130986e7dfe5e414c33bf3f3dc7b66eeba2",
+      "output_file_sha256": "e5afbed96b708cf632bbbfe034a20812041e4aeb7a47e1f1cd70233d4a5459c6",
+      "whole_run_seconds": 18.015233989979606,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1191_UHD_LL.JPG",
+      "low_sha256": "18ac5d3546d2d3a6c5ce431e13ce2b98b1bd54d62ae7f7f482dfb147d05b2043",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "selected_state_sha256": "526fcb3101f1db715f478c6aa7038d52c09327e8c68fef3fbe114ba045f8d8e9",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a55b63f796765d0f226a367884ac72d58061b3712706802dcc6a270931692cc0",
+      "output_file_sha256": "7f0b1a06889b564163a4d6bad5127920691e132be90d6e03c3bd9efa8bd0b37a",
+      "whole_run_seconds": 18.058313484012615,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1223_UHD_LL.JPG",
+      "low_sha256": "ba838d4052716806bf4a9c7c53bf530168a7227f9b00bb8d770475286fc86524",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.028854448694319943,
+        "r_target": 0.8661354854613479,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "d551abdfad0c480d9e429953cc3c07480622d9e3c6834d61353b1bde4950debc",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9c2ff94ce74007a0dc39a8ce7d50499501279c740d80e79ae11b129b8c9b997f",
+      "output_file_sha256": "a8dc50ea830a1a54e27d55ba97698800e83b8bb9e5032aa3aa35ab1ab4820531",
+      "whole_run_seconds": 18.062372463056818,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1246_UHD_LL.JPG",
+      "low_sha256": "0a902cf317e2263cb3fb22255abd745f84ff859561094ef138e5a31516465a51",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.029589503622040093,
+        "r_target": 0.8662273673273129,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "ae6c20851f8456f25a250d48fe54a9c485af2d76e3fb8bdef1ae3527b7f05afd",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7f036c7c1a333867556f8b816aca65bacc5b6b978e729fee98dc53d488b282cc",
+      "output_file_sha256": "a487c08be4ed1e23fac7cd9d245308c4fd4e22a35e8559a7918457313d0286f8",
+      "whole_run_seconds": 18.169797456008382,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1256_UHD_LL.JPG",
+      "low_sha256": "e0b88e35b9fd0487390d546e42d71567c68b5acb43fcae28ad4b88ac9f3e37c6",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "33abebd0dc8dbb90120c5004e445a09119584bbcad84e4b3bfe9365b962498d6",
+      "output_file_sha256": "0b5bfc3020bbb3778e5dbd1fe98ee6ede42e76757ebb70c970310f2a6acecd13",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.685271971975453,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1277_UHD_LL.JPG",
+      "low_sha256": "7510d9d85bac9696379f73d3cf425dbacb5cd19bf4c4839b948b89f35baea211",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 25,
+        "r_FS": 0.4778364102735227,
+        "r_target": 0.9222582306587483,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "cfd43520cc9ae3bbabacd3e1eb62e9634137b90f54561552e9ecc023615dcbe1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "211e7db456ad99abf8074527ec7c6afe78734c49073a089aa287341af16a760b",
+      "output_file_sha256": "469df2008251213fd433cb0d8122a65ccd92ed8b513a2564cbae0c257fe7f65a",
+      "whole_run_seconds": 17.99798077403102,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1294_UHD_LL.JPG",
+      "low_sha256": "4fff2429c573c9a7cf8eaecf53d830afe703da557b55e1ab2b4c3c8ca976eb12",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8efa6b90245374485ea79297411f508786038efe2a86861f501e3825e60728d0",
+      "output_file_sha256": "b381bea5b6b4406aebdf47cc83d07af83c2d8ea39c7e28b9a1aa3e88d074f691",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.7801183489500545,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1312_UHD_LL.JPG",
+      "low_sha256": "53a1aac7a8add03b72753ad76f4d607c5ee67400eeba5f77701eb056c259be00",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "18370cf4c6e4f62be94086a66a93656e30d358444b1fac10cbb09cde9dea2cdc",
+      "output_file_sha256": "b58650957c5c5b3ed2a2502f9fc3b165734038b1450feced617ef0fc3713519b",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.6859846190200187,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1315_UHD_LL.JPG",
+      "low_sha256": "a69a45938318bf79e71fa69120df7ed8dce9a7eb54a1f1dbf7f338cefd4f8409",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "81c449cd648ac8a9bd414eb1167e4e6f6168096bad998cf0f94b5cd9677b47db",
+      "output_file_sha256": "0a011d13a27ba285bd1108600b724f7e5b084ebf643b4da2aa644ad25522deef",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.703690509952139,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1335_UHD_LL.JPG",
+      "low_sha256": "609d22d4de4283299d5589515c8fc42743352db7c1e962e16342c9caa79dd7f0",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "74510f6a1be2c13aeef121736398f466c4c5768aa660a3caea20d3388a5a63a3",
+      "output_file_sha256": "0f7344b9d8058154af468c227c637e28c3aa1694a022bfdfecc3d6e420d567d1",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.657447993988171,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1338_UHD_LL.JPG",
+      "low_sha256": "f3e94a3242456d95f5de0064dc615f1c3be94f6aa0de79703d6223971daa6db2",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.02949607267499762,
+        "r_target": 0.8662156884589326,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "1ca0f1d84ac839a36c4a8fd2889bcade70adc83fc01c1b536164b5c11203eabb",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "66d59d9908ebe9e6a1e350091bca049f0332a6f012f3d78e2fc2362558914673",
+      "output_file_sha256": "50e973775b5d5f5b050f2afd0f1647ffdade3d372529e6cd8348b89b0420973b",
+      "whole_run_seconds": 18.07259499200154,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1354_UHD_LL.JPG",
+      "low_sha256": "8b30456ed400f33f777047b08a24a438c3d01b322fce275d5e07ada56d1936af",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 20,
+        "r_FS": 0.8140852848870264,
+        "r_target": 0.9642893399854362,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "e7e33c3fa37cdda54ab7592699afe42ba320354bbc75b85dfc2fdd76818fc107",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6a63492992556c3b36cd4638909fb64c90017f3c715fe88ca9f684f8b3444d6e",
+      "output_file_sha256": "a1593e6edf423e3ee3672003d8021e4fdd1dde5fbb3b2fd1490f5967c50123b4",
+      "whole_run_seconds": 18.11580425000284,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1357_UHD_LL.JPG",
+      "low_sha256": "1fea6ea5a6e9a78bd1c8b0c49377b237368f6dc28a9ba9243ead11f5d2b398c2",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b9f25842a3bdaa85535220c8a2b13d585c16178be9b51519e719f20967113fd3",
+      "output_file_sha256": "b944ddd3e6e1871f9fb59364c5e8a310ac3469dc47fd664cd016fbb9010e967d",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.5963696670369245,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1365_UHD_LL.JPG",
+      "low_sha256": "442323e05e2b69d53c0dc4fcfe4cab25b98b975077e23575bc7eb6512f8ecd4d",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 23,
+        "r_FS": 0.05022448194641619,
+        "r_target": 0.8688067396178599,
+        "selected_step": 17
+      },
+      "selected_state_sha256": "a80ea44500fa290160b51de4b4cb7bd4ba95684ebcbd9d8acea06d5f4942d575",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5391d8fa3e59a6da99a487611cf8bcfde9a96a39ae80147b239f21ec25449131",
+      "output_file_sha256": "8e418d3dde48fdb535655a8d0871f4694fefb4b71855f84b8c1a0555b69fa343",
+      "whole_run_seconds": 18.087950585992076,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1378_UHD_LL.JPG",
+      "low_sha256": "233c1b2c66db050a730c5ac6d8c818d8e60bcb54246b5ea0a40c5d4c11d0bbd8",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3ae0adf2ad7916b63e6b8ad88c28548843d70b1de7c89896575cb3594df5f15d",
+      "output_file_sha256": "3b2ed343ea559c1e14c0ccf1d4d3ac6d5263bc5d11fcde9aa3c138127e219ba6",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.743221241980791,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1388_UHD_LL.JPG",
+      "low_sha256": "53a11a1945dd9c9ba5b26448756ca4d91cb671f4684897e0cdbfe6c991326382",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 25,
+        "r_FS": 0.042548703865005574,
+        "r_target": 0.8678472673576836,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "c84bf9a744ebe8290c9c5a25b79abfeed95caddf9fa516dc84158926984ea47a",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "74b899488b21d6902d318ba7029317985f4bee04583d8ff77f988480c03d3c18",
+      "output_file_sha256": "eb7145638cb2becf96d7a4ba230bde478f3e486469ee1539c4728b1023383c22",
+      "whole_run_seconds": 18.063021849025972,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1400_UHD_LL.JPG",
+      "low_sha256": "be3fe0f39ab7e7ec2945f0647b55c06bb15186fee3d4319b058092def18b338e",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 25,
+        "r_FS": 0.24069613850714208,
+        "r_target": 0.8926156966879506,
+        "selected_step": 10
+      },
+      "selected_state_sha256": "d33e34876a9816479895d72bda74e4a7c0929ebf839494af49c6c7e677fada03",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "06dcf1758c228fe9236b08adb7a560dc456b5c4d322df973b5a2c50a2383f595",
+      "output_file_sha256": "39fa90b8a28b2eba52c8a94fe9b686c05ee2e07e9a4f67b5ffa4607c03bd54f9",
+      "whole_run_seconds": 18.11825175100239,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1417_UHD_LL.JPG",
+      "low_sha256": "c2004a03873fad37da1909a8a7a2e3fdb5a44f1e5a849b98c1ecdc968ac08808",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 21,
+        "r_FS": 0.7053427208160236,
+        "r_target": 0.9506965194765609,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "b1bbc8e023ec6f577586b58d6897d42cb825dae30bfa771086f04973bd85a7f6",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "96ced74a8694742057e57f5e5fc76eb83272a5e69f899e1917ad3c80b33b2b42",
+      "output_file_sha256": "291ead84f78578c9a58a0e7223e08d27a53d9c43c9dd311441290d8ff539701b",
+      "whole_run_seconds": 18.180427522980608,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "142_UHD_LL.JPG",
+      "low_sha256": "f24c46462eadd6b377ab3d12ee59f448a01cf936ce170337af86c7f13da6e1bb",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 23,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 7
+      },
+      "selected_state_sha256": "cc410b1983986f9c5c03f2a0f1c91c31db97b77b0d99202166b697be9dcf8f61",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "11fe594ca63e7c79ecc1deff2ed2a272df10a28ea60e99fde27377067972c6f2",
+      "output_file_sha256": "f7a31bc7180f65f0199819c6ebff43cb5e92552eafdb0033f6dc24de8deecb81",
+      "whole_run_seconds": 18.126457948994357,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1446_UHD_LL.JPG",
+      "low_sha256": "ad5f7657d524ffbd9d1f15d4096ccc4cc7ae83f4354deb2cdbdec506b4900159",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 8,
+        "k_rho": 26,
+        "r_FS": 0.3333382662736063,
+        "r_target": 0.9041959626587587,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "ffe2dd5b100b5fc089a700b54848838062c9d5dcbe752c4eaea97cea973700c4",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "790aa764c4c21b3c5fefb0ef2603c28d26503b99bb04699042132b9e89d7fc7a",
+      "output_file_sha256": "bb76fd67aa73d7749e4c358d5c8c55bb97667c48ac7db30a6acdd7bf71cdf152",
+      "whole_run_seconds": 18.123418670031242,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1453_UHD_LL.JPG",
+      "low_sha256": "6dfc3fa6cd1c543886a4693c80951cfad7bff8e28285c1ef02addd52976072a8",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "26d0cac97a4eb7604c6c0e6506c3b27b17cf47e387d76168874eb901bec2deab",
+      "output_file_sha256": "6614f58239bb0d283a9333e50d9151aa69aa05e78a8b7316f8c8b1b48669bb02",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.6945952539681457,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1464_UHD_LL.JPG",
+      "low_sha256": "379f691e3fe54ed83f3cca8dceeb2e45ab22f23a0b96a40970ea93b2651226b9",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.11378663026134504,
+        "r_target": 0.876752008157226,
+        "selected_step": 20
+      },
+      "selected_state_sha256": "a0bf2173923690eb0042230337d9aa04c3380d08241746f62812c3e04326e133",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bf16cb81d5ab45c4cae6a360aad2f0913c0588fafac1cc072d2ee2ba6ef2a61f",
+      "output_file_sha256": "3a357344cbe6db703b3c6da6e84740a6ac523e84e7e2e57221bf26540f453aba",
+      "whole_run_seconds": 17.891781024984084,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1475_UHD_LL.JPG",
+      "low_sha256": "6347133d12bde39635afb6ba812ee75edc5e58681c37bf6629620acd4b3e72fd",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 26,
+        "r_FS": 0.12741574757487756,
+        "r_target": 0.8784556478214176,
+        "selected_step": 16
+      },
+      "selected_state_sha256": "6bca97d16b97acaa53934ab04b5d79574f147e9138858512460195cd5257e69f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a76dce3a8e24de4bdb5b445e431d95b65a0cefcb6b7143cddac0830dbdf0d145",
+      "output_file_sha256": "67679ea94d7132ea2e5e686f5f646954cdeead77ef1b957e6f97fe60b7b662e2",
+      "whole_run_seconds": 18.131626788992435,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1513_UHD_LL.JPG",
+      "low_sha256": "bd9b8c311fae76cae6ed7a85669f241c86cb53968ba6f0bd6d27475bd5d62da0",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.11562847510763258,
+        "r_target": 0.876982238763012,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "52eb2ca54e75146aa5103bf0da2475860a160f4f3a3c2c162721e8ade5d995a1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "92cc7cacd9b9fda06b3651d80810009cef3f7f1912fabde2815f925607ed358b",
+      "output_file_sha256": "665ca0be708f086475d7a11aaecf9686f9ec1e50501720a0909d2a92494efa7c",
+      "whole_run_seconds": 17.99563412903808,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "152_UHD_LL.JPG",
+      "low_sha256": "b4198bd44a2303073aff5512ebc858183e72b50f158ebb3f1b2b32ad65574ae6",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 13,
+        "r_FS": 0.20188022122814595,
+        "r_target": 0.8877637070280762,
+        "selected_step": 11
+      },
+      "selected_state_sha256": "5cb4e9807fa4e86b3e883348c0c2447771aebcccdffe6c33701d6b2d244428cc",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "49f8662a03e08d70ec19e362d9f31f3c0b06deea9fe0cc359048824251e8ba7f",
+      "output_file_sha256": "1178cafe4b9629e407e68b7611007191968e623e5e9e4d46d43a31c0fc92c11f",
+      "whole_run_seconds": 18.138761917012744,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1539_UHD_LL.JPG",
+      "low_sha256": "5055f7bdb510339bdc6fb9b33ea9a41f887c24f943f85c00edce8635966cdf37",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7a479e1e5116ebc4bda8b6ddaf3e7cf0722908cbb57950066b8690f641429232",
+      "output_file_sha256": "85da4f9d9aa4a0d5c1f1066d769cc60d3a4d3068d869e822a66365bd2ec8483f",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.972133066970855,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1558_UHD_LL.JPG",
+      "low_sha256": "36aa8d71c44650a2dd7d362ac2b2f0ce42797d0aea9836bb4a70c7fac8178732",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "82aa72f6ac7291b4038358f2cadaff639e7b67dadc111ee2eda09ba2751691c9",
+      "output_file_sha256": "86ab8c3b6d66d2b5e3c84d4b441f2396b0d78629e767b8aeef2d253056cafff7",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 3.0230374629609287,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1583_UHD_LL.JPG",
+      "low_sha256": "0a62c70f8203a2810722194499514dd17819cf13a982ec8523b346387abc136b",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bb569fdcc698203bef39ca771520d445886a1470a1eef2083c9db7faf0bd7a14",
+      "output_file_sha256": "c6627541e48bfaa1dd768921d19d169167d6835b6263f32bbeb69d8216b78b2d",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.9459463809616864,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1594_UHD_LL.JPG",
+      "low_sha256": "3e8fa0908918c163e26bf173b48cbbad3de92c5e63de9d30a03520166654c8b4",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 24,
+        "r_FS": 0.5712503737127324,
+        "r_target": 0.9339349760886494,
+        "selected_step": 20
+      },
+      "selected_state_sha256": "9557450b6166a8cd56ab2de07b175a137ff152322841133cf4b00527919e104d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2d05223fd566bf6044e1dda3222c97152d558af33ec90c0917bb012c566ccecb",
+      "output_file_sha256": "440dbdd10f72dd5d09bea3c7f5b098553c87bef1269c3e4db7b8f9a154a23a80",
+      "whole_run_seconds": 17.90647775598336,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1606_UHD_LL.JPG",
+      "low_sha256": "65b89631c90f37ac109d2e5104f1a6978dff550c773a80478b7ca748ff20c5fa",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "32de847ac6dded59dd12279a4618271c31d311b60533f0ff970df4d4ec837eaa",
+      "output_file_sha256": "37d34c70019c1702489d110566146ff062141a3638796bc155374022057a69bd",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.8758388310088776,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "161_UHD_LL.JPG",
+      "low_sha256": "986493c634dc04dcb558c6b1e7794d6980f85bb0dd3cca999e7cbced199e2a2c",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 16,
+        "r_FS": 0.1873007780466179,
+        "r_target": 0.8859412766303851,
+        "selected_step": 11
+      },
+      "selected_state_sha256": "26c5fb68046b3570997292ef4d7fbc0475b12b659d77bf193de396556055ea72",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "812590ddc88d26d7551fe987184cc9775b1b61515331d48e240e1119e66bd0ce",
+      "output_file_sha256": "fdcc1b67208b702a885b4954d66b63ead96f10ad11e0115b857669a2a3706f70",
+      "whole_run_seconds": 18.0795485250419,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1628_UHD_LL.JPG",
+      "low_sha256": "22a244ecfa36bba4d569d36c934db5bdefc8316b534efbc8577411f99ea9388c",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a23c653d3eac825c5dbef7345063f75e13259685992a5942976789ebf5f31ea8",
+      "output_file_sha256": "d37322c45775c64d15c94da6b0d9dbeddaf029bb0c5f95f266970efb84918762",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.600451534963213,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1637_UHD_LL.JPG",
+      "low_sha256": "8b8878a9c24c57a7508f9f4be3e923624e310637c92c5a9fdbf2719b95954342",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 18,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 14
+      },
+      "selected_state_sha256": "180f045cd6919aa7ba4b2b656a1a73574836e755caf4cc96274ee50e3f564383",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5ffdf21960de248b952e4955afbe226c8dd0547dbf1a9370ab2d6a9b7b9f6adb",
+      "output_file_sha256": "dbcd288c4a7d8d484fdf2e31c7265e812319850d1720caffd918ffce5130f850",
+      "whole_run_seconds": 17.831125400029123,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1649_UHD_LL.JPG",
+      "low_sha256": "4f81c1556cbfd9e66464b0aee244cb4faa27c6e89d9286f9a6b1b895496c41b7",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b2b255718cebdbc88342150975f09d05f441c68f8a354d8bfdb6745eb24e43b2",
+      "output_file_sha256": "a2c8bb5ebf65662fdb39255b6f60d9a84228b5832e82dc4f17eb357e8f3e1a73",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.515835332975257,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "164_UHD_LL.JPG",
+      "low_sha256": "5a9a48a7eaa94688dabf84deac0a517f74a142266a01ed93585ab5b677bd1e63",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fada231eafbc53045381067f5e867fbd3ce369d0159857225bc075d38d8c7464",
+      "output_file_sha256": "83d173c82ce418034ac55a9143631a9a8ce3491cb90e3764d1ce0bf287977462",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.401568009983748,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1662_UHD_LL.JPG",
+      "low_sha256": "9f5b6757ff202a4168836229dd3b2e0a5e4843578fd0298570b678e16c7dca2c",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 16,
+        "r_FS": 0.9282503642246585,
+        "r_target": 0.9785599749026401,
+        "selected_step": 15
+      },
+      "selected_state_sha256": "3575066f25932d4313f0cf3a45c5683ab5ac36ff92ca268d528f94ba3474da7d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f7acac61919f016c41b5ba112a10c23ee9d98f10f53b894893aad383897cbc44",
+      "output_file_sha256": "65d355fba0f9275d18147a50187aa471e42b71a2d6bec3f6d7ec7822face564f",
+      "whole_run_seconds": 17.683474427030887,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1663_UHD_LL.JPG",
+      "low_sha256": "ccd4da2c2ec45e040d7e2502f30875a53b92e72c682a0bfae4f115399a783ac0",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 15,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 11
+      },
+      "selected_state_sha256": "02f08f75eba0ebcacda0b4181d476022df902abc466b0bc04a9072aeededf2b8",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e7541c347cf817a76df808c62d33fc3f734aac9ef7733085005459c536450eb7",
+      "output_file_sha256": "aea4439893cd3e7e958c094bc3b64aa023d8a032bb3551c9d60868f4e488dd56",
+      "whole_run_seconds": 17.91520364099415,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1671_UHD_LL.JPG",
+      "low_sha256": "528b7e7ade0f80eddbd003bac25ee823176bdedb42562d4a93facea72746aca9",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 20,
+        "r_FS": 0.6237577841605173,
+        "r_target": 0.9404984023946226,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "1fefba1d868af5e3db5a3939b97700c739063f6b4bfface55408baccfd825378",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "84b429d8fd2b9198e79be89f2a6375f2ec41d95bb4e6d75e9fadc5cc5cc4602e",
+      "output_file_sha256": "d9c057b6628cc561ab124a1530a1c7a74e029fc4a4172a91727785d20e1aa72a",
+      "whole_run_seconds": 17.929461025982164,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1678_UHD_LL.JPG",
+      "low_sha256": "d7c6bfc5646eea925129f6bd6c92ef4a830214c992a490c1e25a281db660ea01",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.05519944551172354,
+        "r_target": 0.8694286100635233,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "cc80763ec170517bf2e4c6ae57db773070b4a003fc9d84fff7766eb15745591d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e110d8bb4f922353b7e38952d76b305c4efd647b6a1ea5b3c8ef425a5677eff5",
+      "output_file_sha256": "43ee419affa8e69833e3e9085b7e208e8ecbcc5d927596dd810f7d9d16ca3547",
+      "whole_run_seconds": 18.1954021800193,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1682_UHD_LL.JPG",
+      "low_sha256": "6cde77fc8413ca03cc72a879910b35857728fbad38f482d38004c16645591024",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 24,
+        "r_FS": 0.0895950344920643,
+        "r_target": 0.873728058686066,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "1de68ff24523f41de0034ca8a2f79f4f6832cea9a7d4212d96b8f4d8375e9396",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fe395f42c9cf4e649a2305c408b44b2cbf51cb2305cd020c467f51349524f6cb",
+      "output_file_sha256": "b1937801880ea72f38aabeaf1a7d516fdb43ac5d2942499a8e96e4706a4bd023",
+      "whole_run_seconds": 17.806549358996563,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1686_UHD_LL.JPG",
+      "low_sha256": "eef98ba18987ccc87e19f48b6e77e0a01e268aae9ddcec479c06197c4cca61f3",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 18,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 13
+      },
+      "selected_state_sha256": "d66c563d793258e520f8a13a042f5d8b4b44bc2f66d83f6aa9b19b295847aecd",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "adc1a01bdb25aca7b2b60c36b68760b5e70e329fc17f16e434192f19139222ab",
+      "output_file_sha256": "d807b639066b7c63268d2584600cf6bf061ed3ab02bf836a933db8fef971b3ef",
+      "whole_run_seconds": 18.01480405003531,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1694_UHD_LL.JPG",
+      "low_sha256": "ea2fcef7eb70b150ac830c2b62f54191bc8e54f520cd8e44678431c879a8bea4",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 7,
+        "k_rho": 24,
+        "r_FS": 0.3602600741241167,
+        "r_target": 0.9075611886400725,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "f5f2d0af711340673e51becf732283f0b8222be2ad53c833d1a0cc226556ff25",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f55ac10b7fd806cc4f63e644bd0af7d1598ef926ebcfe8c2fa0e90edeba859fb",
+      "output_file_sha256": "135b0e03d13325cc442854494c70fbc6f4e19328aeb1fb22316a402ff174daba",
+      "whole_run_seconds": 18.31943182804389,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1701_UHD_LL.JPG",
+      "low_sha256": "b25b2aafa5a339a527959d3832e36e11f919db45cf2fd4c9cf62731b5fc72adb",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 26,
+        "r_FS": 0.30725080449935865,
+        "r_target": 0.9009350299369776,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "59973823110af9cd584a2057bb1c00d2bd11d563cac7c1e690df827b308e8ed5",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b0049318b7829e68068e8479d4c38eb10002c1ff5255c5ed81b5e11e927d4680",
+      "output_file_sha256": "d026cfb5d440cfa31fbcac68bfd95ee725034cf90c11b7a6de9e40c3896eba76",
+      "whole_run_seconds": 18.035717235004995,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "170_UHD_LL.JPG",
+      "low_sha256": "04b1f1336e677ce9bdeaf526fdc73e8260929442d4f99c6fa7c311b06ac936cc",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.03976196023310246,
+        "r_target": 0.8674989244036957,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "7f0f298d755057dfe3b2dc4560909ce1fcfd38ae8bb4692db6404ff919f19d5d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "94cc5a066f25e7aa2e02e6f8734f8fe8bd193147c62b8123a4d57b5cbc67204e",
+      "output_file_sha256": "f94420c9deb9612bd80a9c3d791a1e02e50bc830649a1ae7ef77211c14be9b3d",
+      "whole_run_seconds": 18.041063643002417,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1718_UHD_LL.JPG",
+      "low_sha256": "2d0c05be10e5e5e561aaf5913cb39ed5b3d9899280c03eef9d6bdde0c1666ded",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3af3ad0b34b6d536c9a4e4572ac3549a1aa3d2776279611ca67d1f6509896439",
+      "output_file_sha256": "d352565095e81723121cffd060f0714bc829079bc40a9ac25b4461940abcf364",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.413382081023883,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1725_UHD_LL.JPG",
+      "low_sha256": "2f2c58ba37bef19c02ca4062c3cb13c192d7f6e480d073383992bd38826c7c12",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 19,
+        "r_FS": 0.7868372370827941,
+        "r_target": 0.9608833340099071,
+        "selected_step": 17
+      },
+      "selected_state_sha256": "dcc5fc37e5ae14c25cebaa3871854eab29c7ae5e4f05063fb91f60f4dcba094d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4f982ba20d1be36decc859c9ad0258ae220d13a8c246d6ff0d70d9a50e6a0b02",
+      "output_file_sha256": "ec404371a6f906c402e0f7e86e58d8d25351054c18f02b794e0920fe0c4924f7",
+      "whole_run_seconds": 17.788353522017132,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "172_UHD_LL.JPG",
+      "low_sha256": "1d9a117cfd8548cf17841f4be61d75c71f77c19bc5dbd7bd2d4525ea03a4e96c",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 15,
+        "r_FS": 0.2629392921076599,
+        "r_target": 0.8953960908880154,
+        "selected_step": 12
+      },
+      "selected_state_sha256": "f4a81ebf2ee3bed051701e008b3c9c8ade2bb0e84bc891e21f5e85187f6a40ed",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3c463ba466952c05d1bdb731e5463946cce9eb07eb84c09a1826d05a6f4c7b9b",
+      "output_file_sha256": "08bd61168104f2f0345f6640b74634e5bfd05e70b143e1f6d1fa9122f6779be4",
+      "whole_run_seconds": 17.945557325030677,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1756_UHD_LL.JPG",
+      "low_sha256": "ce175628c86a62eb93bbba498a630eeb55d9400e26070df8a542b3c00bc71c31",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e59354d202325398520cb1fcbb7a199aea6b4f5936f989eff7ae05d9835ee187",
+      "output_file_sha256": "5fbbc36bcd3a7771ad54d34c028691340d813c302c8d53d440baa338155e96a8",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.6729066779953428,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "175_UHD_LL.JPG",
+      "low_sha256": "6e526b45565dec44713609f16619609e495e9806e3f5a51ad737c30c1649c5dd",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c7eeb0c1f87f4fd9360353fa84cda577d1e3249b109fc8ee0a42fc17b2761cd3",
+      "output_file_sha256": "8dcf4ae66073beec0499a53f8fa9509b12afd4a982d24799403422ff0bae5080",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.3829651789856143,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1768_UHD_LL.JPG",
+      "low_sha256": "3df801dbe837e5828c03f1e23fc952efaa62c9a20182b6855247f62d9f74d9aa",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 26,
+        "r_FS": 0.2421502253413161,
+        "r_target": 0.8927974575422224,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "b368767ea47c13639a7de0ef40a4a3fcd6a4a5e07e58dcc3167386a5fd9267a4",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fe552c64342f5a673d1224f94de92cff5afcb753b8295e47e226569cac535afa",
+      "output_file_sha256": "d624777dd639828c0f45db2285493746ef57f9b433af7f727eba6a12c7c1891b",
+      "whole_run_seconds": 17.926447862002533,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1778_UHD_LL.JPG",
+      "low_sha256": "63986a6bbdae9832d6183b8bb8b86c17f3f01399555c5062db90159de3d8ceab",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 24,
+        "r_FS": 0.1117109339984622,
+        "r_target": 0.8764925461243657,
+        "selected_step": 17
+      },
+      "selected_state_sha256": "0fc3810bd7b371ab441276c16d40b27c75fab78aa5e461b3018b8b04b2a225dd",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "537b0fc2b5983d5ba84bff1c641e3b27eb49151689819e88ed3b985803c6088d",
+      "output_file_sha256": "d574fba50532cb644c404c885db2170e08c7feb0be38d9f2bd11bb478a2105db",
+      "whole_run_seconds": 17.858705882972572,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1785_UHD_LL.JPG",
+      "low_sha256": "e85a2bf4c0d6abc0cc2b7847476edf96f4d1bd55bc00b400576571837469762f",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 9,
+        "k_rho": 23,
+        "r_FS": 0.5154603333617312,
+        "r_target": 0.9269612210447743,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "5aee89a9e29e0eb1f49d028455cc925c0f3b69a4daaab3ba3f8b4435e194a073",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e6ca6a8f14a13e8e66bd9917cbf781f2644901b9be5bbae10806b5b44ee05aff",
+      "output_file_sha256": "e0f9455e45980a8b7e7c3a8df307470b529dff8dda622a72716d70a01cec99e2",
+      "whole_run_seconds": 17.860701718949713,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1791_UHD_LL.JPG",
+      "low_sha256": "1f91c1d17f70931cbc06737176c1a94a3cea9f77c6dd0194e37b384e8677bfdd",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.03516136280149647,
+        "r_target": 0.8669238497247449,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "60d3432089a0d626f6677ce092f1ee2e25d64cd2623ac39837ae26c256297d12",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e1f63bd8e81a6c044c820bcb0a9960ea468c1458012a42e15c73664b6913d355",
+      "output_file_sha256": "03320d9a86dff4d83ee713b1f7311a6f6f2230dfc61dc12c063dc62b8ab63d77",
+      "whole_run_seconds": 17.838236043055076,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1792_UHD_LL.JPG",
+      "low_sha256": "02eea64d76e76cf44386ad55874cd8c8033dbdbd9481f5a5c8cdcf0aac729dfb",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 20,
+        "r_FS": 0.2029680198767443,
+        "r_target": 0.8878996818591509,
+        "selected_step": 15
+      },
+      "selected_state_sha256": "92e77c3fac923677f175c55877601fc2ac4943c23df30e9e862ebc4563d5ca10",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c7a92658d1a26d4f2cac4b0730a8a117289ad06479aa2548ae7d799d40b90375",
+      "output_file_sha256": "9aa3fafffad25f804c9c3c549b2f72b73d926356c40dd0dc890fb0e8df2c4789",
+      "whole_run_seconds": 17.992356595990714,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "17_UHD_LL.JPG",
+      "low_sha256": "fda69b078b68c52e67c31a69ebc7c664738938ac1aa5e5ccf0d741702dcf17bf",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.2583712401391683,
+        "r_target": 0.8948250843919539,
+        "selected_step": 15
+      },
+      "selected_state_sha256": "4e4a3fc87f57934b956b5a955b181f12afba43d88a901912339585821693c002",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "62233f31aa71c04c94112f11e66e7006e9e11e1c30c4b02de202ab5edfd1cac8",
+      "output_file_sha256": "2cd68d174ba08bf96a870d20c55ce56aea604dea1e215a2a59f5ee41cd96d223",
+      "whole_run_seconds": 17.783850228006486,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1801_UHD_LL.JPG",
+      "low_sha256": "651b0c34a0715a5ca7c682841d780564c047c8ac4cd1e48bd6ae767ff8b427e3",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 25,
+        "r_FS": 0.08876540461061973,
+        "r_target": 0.8736243549508853,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "e27e155885a9e07ea376f524b05f8f7dcbbd4e1c2c4af1596a78a26201b66b6f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c3467c7e0249b60c4ae17f499668e405ba52d819299819403b300fe7342c2fb2",
+      "output_file_sha256": "6796e3bdec9921b8f0234b7e514a165e8dcc39ee0b965d63596b491c9e197fa6",
+      "whole_run_seconds": 17.84481047297595,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1808_UHD_LL.JPG",
+      "low_sha256": "7048ef54502db4a140b6f0d8979546f5f19d60193826e199d4895746986f7aa9",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 9,
+        "k_rho": 23,
+        "r_FS": 0.5134137857442339,
+        "r_target": 0.9267054025925872,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "1f19290f7bc932603098e65208a8e3a190ee7ed03042e86584a36e01cd2f717e",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "406ff3cbd48e8a85e7ee4bdfda548e6ad8284fa5a1c740d1de3b6c053404b3d8",
+      "output_file_sha256": "a2d2c73b0d1ae7e36e32c4268d8d2771faa6ac375bc7c0024a7ffba7265290c9",
+      "whole_run_seconds": 17.84788768098224,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1838_UHD_LL.JPG",
+      "low_sha256": "2462e4e9e213462ce98e5b7c844ed5d2c809ca8fe12f7c0b22aa063ad86fa46d",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.0217921931427595,
+        "r_target": 0.8652527035174028,
+        "selected_step": 23
+      },
+      "selected_state_sha256": "c8542a0308ff44ccea51e88cad5d3ea5e760cd332a871ae508e30844661ecf18",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fdc281cbc83c5ffcca6049f5237fa6955827d5ee5ecbc4c43f6f56d8667d67b4",
+      "output_file_sha256": "3e477070855e8077ee4d353e3a53b9e0a2166431696fde8b1ddaaa0fde947011",
+      "whole_run_seconds": 18.01707931002602,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1917_UHD_LL.JPG",
+      "low_sha256": "6d60da35150fc8fe5ce930b874a2843fa9eacce1b0825e7f521962f01635a0dc",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 26,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 4
+      },
+      "selected_state_sha256": "964f9aea1e64e900a3db6f5c6e1b2ab3d0990b8308999f53815d64b92ea2e149",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4e308e1030f87afe6f66af1d7bed7344d0db03015d7f5bd081ac0e31a70da933",
+      "output_file_sha256": "1826f2cf601b2037c88908f25c1669fe6ddaa88af099ea93229a8dc91b9ee9ec",
+      "whole_run_seconds": 17.784404181002174,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "199_UHD_LL.JPG",
+      "low_sha256": "1ca6fb0346ad2f503c2ef7f2502d26e79e5d0e168a6a74f4a32a0d6cd692fc46",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7d46bfa89e2b73883d8f794a48a5f7d29cecde0c3f6198796095384ddd352d60",
+      "output_file_sha256": "faf483976706c7e006d50e4ff248a5639d185edcca500cf9c22613ccb6c8fee6",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.946191313036252,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "1_UHD_LL.JPG",
+      "low_sha256": "2e37d78e5543a92f759570f9dad901e2032f24dfd569f44f1ce0a79dfa141438",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.0680709704108387,
+        "r_target": 0.8710375506759127,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "8bae7d326985818338c5e216dcd9a83a18bdecdc44b8a63d0de7b05337586a32",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c5ebb1791603bc035c17692cacb3f41a7b06e6c49bb7afbe78b9f76f852ddc1d",
+      "output_file_sha256": "d45bd7f4622126828fd52428bf883d3b6d8b4786edfadf52b45c5d76bfffad1f",
+      "whole_run_seconds": 17.820042734965682,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "200_UHD_LL.JPG",
+      "low_sha256": "362b59e4ab609432952aecac54b325f097fbc78f8a94b2b659a7abe089b440e0",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 15,
+        "r_FS": 0.08774609809543939,
+        "r_target": 0.8734969416364878,
+        "selected_step": 11
+      },
+      "selected_state_sha256": "51e126097801ca6ee7de7b3d2810738315483bd31ab7c542f8b368269a4d5cff",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "970636c27647fef5343d30fb3296914f60d8d10f8b1850038a13d78222550ef8",
+      "output_file_sha256": "532c0cfbce0109dc5e0c17b0585717915aa95cc0acf1197b4ee45584e6192712",
+      "whole_run_seconds": 17.904012880986556,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "2017_UHD_LL.JPG",
+      "low_sha256": "2128a33fd0570fa5c8ee1fba9139d9d21b2bda9ae1574798eeb16bee9d0a8105",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.0942518562627583,
+        "r_target": 0.8743101614074027,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "6d36ae1c1de2e5cd0dc12db4e1c8e5cb7f289aa24a7a9a1d5c4b8bdaec521b6d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7657f39f294f56da6b771f2ba3c62ef263dac3511960954f28f8608259fe63c2",
+      "output_file_sha256": "6c06e7f99a8abc61a7bdac3b277e24188c7dafe4a2b2185418d7e76b8a55aeca",
+      "whole_run_seconds": 17.972666007000953,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "2025_UHD_LL.JPG",
+      "low_sha256": "cba674ea04c7d3adaa1f634c338b7927337d37ef076e2de92fe1787978b57196",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "23f7c1e4fb20534a71c86449aee08c0e90533833597098904ef4b89836aef5b9",
+      "output_file_sha256": "686080dddb037bb871f18cff1c3d56e920b43db10e990039ed544eb8896a4189",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.253908961021807,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "2034_UHD_LL.JPG",
+      "low_sha256": "554b1059b11b77466b69c00bb4fd34a2445cd94dd63f62b8a169ba6994440afc",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.3377764314112937,
+        "r_target": 0.9047507333009697,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "56a0a5c41114f53c930b5e63f43d1e77033e8596760a74624ef667eeea73de3d",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6487049487d7418e953865890e4ebb2e88cda196162e8296b210489ec7ffb3ef",
+      "output_file_sha256": "624342d7efa760ae2739eba361d39d1875ba48a4c1be309c446fa92e252f1a12",
+      "whole_run_seconds": 17.947737837966997,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "2042_UHD_LL.JPG",
+      "low_sha256": "fe0162048cd00103ca66899eff7e636cb8662644cbbf3d44fff0b4cd60f573f1",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.070964427284714,
+        "r_target": 0.8713992327851471,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "7ba501b38626a989e1afef762c5e6cf1385330fa405e2c110d710d8afa13f48a",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "897ae2932d1f3bc1525fee625ab061c759a1d9c6987191df0631da640d528623",
+      "output_file_sha256": "bb0ed13dcdfb0020682cabc74038bed205dbce7a154ce4261bca0ed502af5f65",
+      "whole_run_seconds": 17.763911208021455,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "2045_UHD_LL.JPG",
+      "low_sha256": "5d12c3381e1cdcc9886b9006c279b9e8910efff1ac8042130ed5468d227297f7",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 10,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 7
+      },
+      "selected_state_sha256": "f8d66897963503e8aa1772467b58d7a0bd52bfcf90f889d85aebf91a111b4dca",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d1e3189216a3892e82f7334b0df63847bb80675627396f9ab2ae876775456963",
+      "output_file_sha256": "9feb0ae41dc62e197e47831a641325abf38cac09a859245d45dc21aa87c4e366",
+      "whole_run_seconds": 17.934459635987878,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "204_UHD_LL.JPG",
+      "low_sha256": "47531edb3039f44959f2528797278a8f991e154367ca471e1aa69cd400f69a7b",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "91e89d14a6eb4ca18f84dc06b3e08f5530d8186c6f40a08c74c7e9f5a7edf2b6",
+      "output_file_sha256": "ca8d565fc6ab9787944d1721925ed9b99587c229b3feee544f6d5fa1919b5cf4",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.2480923800030723,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "2068_UHD_LL.JPG",
+      "low_sha256": "8493d04bd88bea475dfa0c11772f88c5014861de0f08a9dbe410cc6884df4729",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.12043640483006605,
+        "r_target": 0.8775832299783162,
+        "selected_step": 20
+      },
+      "selected_state_sha256": "59ebd409b9dedf51c4400543845bc643f4071c3e9fce9620ea6cbe074ee24ead",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "171208686eae9b621b752bcd612ed58489df6190d124531cd3996f975b0ea2b5",
+      "output_file_sha256": "041bbb1e4a8828696cbf0916a6d7dae0b6f9436474addefc9005879be2e8ae01",
+      "whole_run_seconds": 17.89675218699267,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "2142_UHD_LL.JPG",
+      "low_sha256": "70fcc9ed714446d6352a0696938fc292f2a55a0fbfebcdaa0816527a5391e9c8",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.07140823837050099,
+        "r_target": 0.8714547091708705,
+        "selected_step": 20
+      },
+      "selected_state_sha256": "56d82775469ab6726c323ad55e992063917fd5bdee8a643a2734b618c8e9ccf7",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f16451b8277918fe38261d8bc0a566550384ad120adc4cd5b0d6772f8bd1d9e7",
+      "output_file_sha256": "dbbbc8f66aa3bb1e6012d22a9545b0979011e7d2dcdac002d0ee8a4b222d9d37",
+      "whole_run_seconds": 18.076468268991448,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "2145_UHD_LL.JPG",
+      "low_sha256": "aaf77846ffd05bfd80a8d101bf21433385a3b039350607007e6ff3a07da453fa",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 19,
+        "r_FS": 0.8277437184075825,
+        "r_target": 0.9659966441755057,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "f3f42c48dde5d06d3a5677b5fdca547b090e4967afe5aa2ec7eb0abc9fba0302",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ecda441d3bbd3da6b44e2c870bede06b4eca37ddd5eeb81cc212f926da06cf00",
+      "output_file_sha256": "d9f9f69013840d0dd61028e831162d4986b95728a1ab8e46ef493b38a71aa02c",
+      "whole_run_seconds": 20.09982634795597,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "223_UHD_LL.JPG",
+      "low_sha256": "5117b6eb7ee04740bb50583b8fe4b0376a1f92478994a42c97070534a2a0a93b",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9321eac42789488a842d111c94cea79842041f87e4213eb5939d45b3f7eaaf08",
+      "output_file_sha256": "c784d9ad6d540136ba0fa544ed46ff30d2c1542e511932e9894be95ca320b62d",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 4.398583058035001,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "230_UHD_LL.JPG",
+      "low_sha256": "1d055a62304e4fbe6be039df6c2cfe40e6dce54156f111c7f6582c95f1665005",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7b5ad2fcbccd7492e5019c46e7341495d567c2314c41bce64ce2680b8e6592a2",
+      "output_file_sha256": "40ea4dece9d9dd272606e99e19f3fd9c90238942582c8fb97a920a5be79fb3c1",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.8355995870078914,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "231_UHD_LL.JPG",
+      "low_sha256": "77e90da7fc7e3972c1fd7f7808d4fa823220342c2500be36dbf89f8a8a8a05cf",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4ea1247d3531dbdfef3e3c2fc467f524bfbe34b5e3bb241d66856cde598e72f1",
+      "output_file_sha256": "98a3ffa1062ab10c22dbe9d011ace667da3213c7d8f808a8fea99295d6dd26a0",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.917557835986372,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "240_UHD_LL.JPG",
+      "low_sha256": "8ae49960b6babfcf343916873530066f3f5efb357f7b680c2022fe2db94b9ff5",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9e7c4e5c29a03cdfce9da854e672589a39e3facb8c9e2d1049f7aeda30422607",
+      "output_file_sha256": "047648eb0f82b419f845b302d88697282f71d6b0c5f74f8a6627607fc2132dd2",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.924809504998848,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "247_UHD_LL.JPG",
+      "low_sha256": "807dae223f95fc59d3e8c1d2253271d322c94384cf6ce437b676fbc4bd4ad9e3",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d10f72053c3d8758a49ea5f24ff89bb32224555546d600bc25f4d3830a23ed72",
+      "output_file_sha256": "d953270237530c89f8c1907bf4f78e9b146d4a78b41d80a8591e5bb8c854ed5b",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.9597571400227025,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "272_UHD_LL.JPG",
+      "low_sha256": "2adfa11010d64386003c7729c5d3b3170e1efe8d7a83b3156fec89dc88fd1f1e",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 22,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 3
+      },
+      "selected_state_sha256": "2987e550951c5e63b5a49684781d1549e16383c0067d26b2b0e93f9238dd38f0",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2f12a4beece0610cc03f982dcefe1af3d9e286d592b3a5172a30c9edb59e5b78",
+      "output_file_sha256": "a2952ce9f946f0145b4927b0ffaabb2ec835e4fd15eb67622877eae2fb4791d8",
+      "whole_run_seconds": 17.94794067402836,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "278_UHD_LL.JPG",
+      "low_sha256": "db96c6900a09a94741591e627ee75a03e35c9445c9d1de0dff2776b0ae68de03",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 26,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 9
+      },
+      "selected_state_sha256": "6a9537a717ddc8845247f77d4473a8381a637727d3f6c0cc8495c21596e5c29f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "14764da61a64fe209a1313d905226c84b767faef0c6e7dd980e551b867890fd8",
+      "output_file_sha256": "8c60e97ad600f2fa7509bf2cdbc076eccfd9a45364377e940cfdb6846c9165d9",
+      "whole_run_seconds": 17.998160551011097,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "286_UHD_LL.JPG",
+      "low_sha256": "474d6ea69b93b0a42b2008bfc8ebf7c86f0cd0dd38e713ffa595c0edc3312170",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 16,
+        "r_FS": 0.08286132377979318,
+        "r_target": 0.872886344847032,
+        "selected_step": 12
+      },
+      "selected_state_sha256": "760050cfde6a2763e5bd43acab53bfc29a8e00b5b9c796b61b450ac0bf933194",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6ee27e221672ae038fa05ac35e009cabd0e580927921b91b00ba222002b4a97b",
+      "output_file_sha256": "da70d8aac447b5a7d73c51b4e37972fa4bac83f9dd3ed717873f433ae9c38821",
+      "whole_run_seconds": 17.95944431895623,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "288_UHD_LL.JPG",
+      "low_sha256": "aa0ee571bfaa8aa1cbb929c1d4288bcbd6656c80a962d577b47396734b3b6e14",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 17,
+        "r_FS": 0.07517618846719767,
+        "r_target": 0.8719257029329576,
+        "selected_step": 13
+      },
+      "selected_state_sha256": "57b02a59d79f09277b62374685b1a5af53cce30739c789ac0750ba1bd9ffa799",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1a76eafdde6bff66360d008dc5d4d62a840e672118bce23831cde16bfdbee034",
+      "output_file_sha256": "18cdf24188ea31a9114017f109a15aa2907b0016412be42ee9dfe5628679d878",
+      "whole_run_seconds": 17.957693802949507,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "28_UHD_LL.JPG",
+      "low_sha256": "e79f9822eac7973aabf09d5fa9070bb451b6ad8849a1758369050d59ccf4768a",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "0cba942b9102b758bebed01fda2c589c5865a390ff7508755c4542d0a2635c23",
+      "output_file_sha256": "fcd121483737dadc7e80daf31176d07b00d264ce5615a7d9e5567d8f7b96da8b",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.5359031700063497,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "292_UHD_LL.JPG",
+      "low_sha256": "a1118864da97c76ea09a47a07b0ed74f6e71837c2977ec96f7f7a586b62640e2",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.07115054950541738,
+        "r_target": 0.871422498062735,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "0ad099b74a3c8e5baeb3806d653f9a966dec74fcc950e8d284b93362f5552f36",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "680b526c7f5da9515f4316955e957d97661d2617c60edf478189cdf1ff36e57e",
+      "output_file_sha256": "c1eeb57f84b59cd359d2f83971a0c5ea9b5a6135d419bab9be3d68f8194f1d46",
+      "whole_run_seconds": 17.717180876992643,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "29_UHD_LL.JPG",
+      "low_sha256": "7c6eb308290dc728f43c8095fdd114e2d3745cc661140aa91cf6c233c631fa72",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 26,
+        "r_FS": 0.14612182774034851,
+        "r_target": 0.8807939078421014,
+        "selected_step": 14
+      },
+      "selected_state_sha256": "26bcb7db341db3900047e1f99eca157d96cd236c2ae0b0b2431c48b8b1e709da",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9354c9b8913a381458b79a2e186fe75690be40cbf0e5ea6513829238503d704c",
+      "output_file_sha256": "42c29c94e2f6124bdb094c36c9edf9e83498c0a4e90b8a0786e4e56be7904bd1",
+      "whole_run_seconds": 17.87400519399671,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "306_UHD_LL.JPG",
+      "low_sha256": "5beb97b266899f3e08843389d3581999dd7fb64c6f4f48e6224dec35bfecc719",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 22,
+        "r_FS": 0.04785493861426883,
+        "r_target": 0.8685105467013414,
+        "selected_step": 17
+      },
+      "selected_state_sha256": "82e6cdbc20668625530b8565ba2ce592a130d1f3eddd896abd0574d47b0550e3",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d304195e2f2278a2587c8436edf717ea150397ae4e7406d2e06f249ec8d8b1b2",
+      "output_file_sha256": "52ff0494c90cf86f56ec05cbc9afc7d5ee4ffd3a99fb6d0b24e5f9830734253b",
+      "whole_run_seconds": 17.829468920012005,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "345_UHD_LL.JPG",
+      "low_sha256": "6bfb66e3d80c3c8b8c07dfbb15c4a99574052a7e94228e16c4c115533fc8b5ff",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "1f1fa83acf9fc20fd3b6f83405e7f36593662371127f15ccca844b13172a4c28",
+      "output_file_sha256": "88502249561a2886faf0513f0f244d1503248dd6f7e49e46672ffeed046baec7",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.424879433994647,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "353_UHD_LL.JPG",
+      "low_sha256": "0689b2fcae4b76a0825458331e2b607375ad00c505537cf747e0af5e046fd427",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 22,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 7
+      },
+      "selected_state_sha256": "814f26ecd6cf9a7bfcf1933bcf80ab873f9c6f63ece2cb862cd8d6bec04e31ed",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "797b3eb0cbddb30e678c0f566d7906e464d2481e1f407d053e9d8c74085c0d22",
+      "output_file_sha256": "86f94281c93660a08550a7cd534463b49acbeab7d7decc010181fbad60e582ab",
+      "whole_run_seconds": 17.850670899963006,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "371_UHD_LL.JPG",
+      "low_sha256": "104f92986ef65070c560a81e89ee6fdc8b1d6bf1858a32e14c096fccde3a98c2",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 26,
+        "r_FS": 0.1573835858184262,
+        "r_target": 0.8822016276018612,
+        "selected_step": 15
+      },
+      "selected_state_sha256": "912729e895e28c651b65123f61d6b04ee16f659108a4b964bfee837115a5dd3f",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ae32751fa991273f733eeda34529237fd62772dc8a408736d6506cdabe7d5598",
+      "output_file_sha256": "da3ef5355abb114951d02dc77108134c24066da1138e20de272f21f164d0e5e2",
+      "whole_run_seconds": 17.91542804200435,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "375_UHD_LL.JPG",
+      "low_sha256": "f27a2fb5d682f02937fb2b3ebbb2973e4d9d112d434507ab5402346bd32c8923",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 27,
+        "r_FS": 0.13586756775001688,
+        "r_target": 0.87951212534331,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "b9359cd7e6389c735220474150f7c7daa4c43899a254a2ebe846f709b734d3b7",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a8eafa6ceecb3707d40b269d85797115e0a6f91b3cb8de57c1a490e63bef8420",
+      "output_file_sha256": "d12d4c612a66ed8ca96d903379d7dd121fb145219c307f4f52793863aaca5b71",
+      "whole_run_seconds": 17.762471814989112,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "385_UHD_LL.JPG",
+      "low_sha256": "0115072a9135d9a0b5c0494c88d1b951e23fbbcdcb6e4f755b24a2da8285b76d",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ee3a39cdbe2ddc684bf9aae71c3ba497844b6e19679dfc86030e965885f0dc4f",
+      "output_file_sha256": "cd3def0278f63fbecf61dc25e416957d3ce070fda730e9c5e08cb9a2ad404a08",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.4729334210278466,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "389_UHD_LL.JPG",
+      "low_sha256": "bdab794771dd865205f4c37f690d392c95b763006a23923fb2f15f6d999f190f",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "49189026aada9a13e4adb7a81244fed0c54b08db03cae817539c3a8b175f8fe8",
+      "output_file_sha256": "f2559fa95d0d97d8ca5580b8e9e07ea6fa9637b976db98ab6c1e92cf4e2c4b83",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.62459228298394,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "394_UHD_LL.JPG",
+      "low_sha256": "03b9efd4f617dcd348ff4f33960e9049c523ea8965a61047b41de975ef017db5",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "01a58eb41414ca201e6c6b782ecbf3054c429ef1ea6bfb952a9905fa8f3cd84a",
+      "output_file_sha256": "6ac5be4bd44e30482f7e080021a1ec463cc2da9f993f44b90e6ae24be778b6ca",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.5581578930141404,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "399_UHD_LL.JPG",
+      "low_sha256": "685ddb456b79243fc4f8a9f201e2c251346a939fb91033ec074520cf3fc1090c",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 20,
+        "r_FS": 0.05482401237067855,
+        "r_target": 0.8693816809208927,
+        "selected_step": 16
+      },
+      "selected_state_sha256": "272fba44062ca1334a78b08042e048062092a80c044a08f170934de8adde9991",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "14832477f567257fc2c0b8b74087918e7dc4655f4166123ba028cb68d6eb96cd",
+      "output_file_sha256": "e2613c9c24d50172ff63662e660d65489cf9433d62f09ae579a65286fb6ecca5",
+      "whole_run_seconds": 17.799055263982154,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "40_UHD_LL.JPG",
+      "low_sha256": "b427c8c33dc2ffd7004e65f0dd1ebd4aa85f5f6095a242de6f3b9132aac037e3",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 22,
+        "r_FS": 0.05827559970475141,
+        "r_target": 0.8698131293376518,
+        "selected_step": 15
+      },
+      "selected_state_sha256": "43d0d9f855e7c17c55489468f8b5f31a76fd052d5e9c9a4f6c28d67f64c364c2",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cf7dd202a87c6cfd6d67e8055b1e833716b9d969fe2e6f5e7e9b4b490e8b021d",
+      "output_file_sha256": "3351e3a1836afcb21cd0417a50304bb819eedec038735d865435c65e33df6387",
+      "whole_run_seconds": 17.680089738976676,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "425_UHD_LL.JPG",
+      "low_sha256": "177f63825bd9db8601ddb1f6448261c5dde885bed66810df9f95b402d0db6d8a",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "146d1dc960e80a67f88b7c166d71f6fa4faf1f058da2105bbe60bbfb609c48ce",
+      "output_file_sha256": "3b94ac3a2d0a228dab1f74ef465868a0d4968ca4596a1ef7fd0c5bf108d64cac",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.7891895080101676,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "434_UHD_LL.JPG",
+      "low_sha256": "cb88e8c354d2930d1c57a8f7398e3411231a136039bc504572aa13ddbe6f5b44",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "fff817237217be0764d90c11e347c080985f470af1ac2a9185ca346b494d7356",
+      "output_file_sha256": "5277389c70820efbfd17583dd13fff979b639b92977180773b422dbe1080c39b",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.6396878040395677,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "441_UHD_LL.JPG",
+      "low_sha256": "dc37f54ebdc4751cab590ec95d83d7db9be77358ebf09d3f801ad1dd481a87d1",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 27,
+        "r_FS": 0.11971819759611194,
+        "r_target": 0.8774934540740719,
+        "selected_step": 23
+      },
+      "selected_state_sha256": "c57679a7a2dd8493b75a9feccf62bb5cff77ddd116a70e210470bf225aa6b149",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a18d7f71a5f4dd810be7d2ab7feb37fcb47eaab373cdaa1b7660024fcb2cf02d",
+      "output_file_sha256": "b4420d9b4a6ea74b3c024133781fccc354d4c8497d876d65397ac75a03548319",
+      "whole_run_seconds": 17.52815941500012,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "442_UHD_LL.JPG",
+      "low_sha256": "c0fc25b5dbdb53bd44aadc0bce2c497721382b9b3f876e980bc5c2f177b0aae3",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "19508839e75dfbc02fbc8237feb87fb06e70e97243b7ecb41fd1fdee4188bc24",
+      "output_file_sha256": "5a7cc5a56586fc1386f5f9a806475b833785cc588785eb5305966b0389124678",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.4094887929968536,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "453_UHD_LL.JPG",
+      "low_sha256": "5c4d233169fe9284ea92d4e61a78d43f7c8ecfe5ae6b727941c53c97c96f518c",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "393baf6b2f416884f9564c8f6062401c1632cbaa278fdfd1d70a554d5f32a704",
+      "output_file_sha256": "b62309b2fb858ae30d04cbd7afce0ab395218e1c69b7bbe64074b88ef0da1d67",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.8069903739960864,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "457_UHD_LL.JPG",
+      "low_sha256": "bb78bc58f016c840658b2d1f32c8330d20f3ad381bc72d52439ce13470b388a0",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 18,
+        "r_FS": 0.07451350865405242,
+        "r_target": 0.8718428679563144,
+        "selected_step": 13
+      },
+      "selected_state_sha256": "86ab9cf602b36a9872f9ea941070ab9cefea18d3941e8542ee21df521bc73284",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "115f53ef750868612a2ecf2f6f8c6ae77b46c8381de73d6220b942d574e9536e",
+      "output_file_sha256": "6de8ce8e2902445023f39a7a16e2268e8064c36d740eafddca78ee9e97232eb4",
+      "whole_run_seconds": 17.987957368954085,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "462_UHD_LL.JPG",
+      "low_sha256": "d049ed9e84c99107cd56c8861787c5c8aeb921384d4b367886b8c64caaaa76c4",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 25,
+        "r_FS": 0.045349247112804636,
+        "r_target": 0.8681973352636585,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "85a48fb9f90a1ffb22ada434b51884778c486220fc54b5788257198daa402ea1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "67c02ae112a337bee1c7dbe7c876377f020c38a4efab84d524e451ed59945db5",
+      "output_file_sha256": "e7f9383fa37cd42f82befc983c7aa4be149805e3001ad6ed645f223152079c1c",
+      "whole_run_seconds": 17.86784851102857,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "47_UHD_LL.JPG",
+      "low_sha256": "4eb8ea3b2a700b4815a976ef70be57955e2b48aac77fee102db79e6822c878da",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 21,
+        "r_FS": 0.7259604400458506,
+        "r_target": 0.9532737343802892,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "a182101bb9074668f74b414b402e3a86d87fd97cdb6922aa90b2547816d9f4ba",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5c662ce0baf01e9420c7ff6e97f434b1ae8c1a594f2383d5c35518aae751bf9a",
+      "output_file_sha256": "e72a9cc368663d14f4be066e19ead64c43ef312f1eee3dfd40c9d66aac19a96f",
+      "whole_run_seconds": 17.755733690981288,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "499_UHD_LL.JPG",
+      "low_sha256": "2d9158907b4120aaa94f99cc2d51cc86d9441d005d5b20e5749bbee53ba18398",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 14,
+        "r_FS": 0.09398312638120704,
+        "r_target": 0.8742765701722088,
+        "selected_step": 11
+      },
+      "selected_state_sha256": "51a3e1d79ec5c00e746c8d3a413fea212b15e6e179d2c151c1927b4aaddc88ad",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "f0e2c34160fc5f4aab24ea7e12ec786ff3d23dd9d08435542b9c9cd1bab2656e",
+      "output_file_sha256": "43325ee6c2e420e69ab1d974c480775b8a1f41ffac1bde490476cd1d7c44f429",
+      "whole_run_seconds": 17.787693677993957,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "507_UHD_LL.JPG",
+      "low_sha256": "72cefabee481736f7614cd3e7212f153093ed5c00cbee9ecd01499832b228561",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "selected_state_sha256": "15557f8808ac285d4ac24f616f67da64a9783937ef39766c10d5efcf048f3d0b",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "218627f8b88d3f517d1b931f6ba44092ce6f09da860d55f31e1e921da3ac4b79",
+      "output_file_sha256": "687554f4d4edc4e48be3952225f16a1facfe96f0ca83f7f52c7fafcbdf352e06",
+      "whole_run_seconds": 17.316724486998282,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "545_UHD_LL.JPG",
+      "low_sha256": "6cad50725e74eb0b3808c0cdc1c4dbaba89770e07f866460e100e4efe4f93368",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 21,
+        "r_FS": 0.7065684377816528,
+        "r_target": 0.9508497340972645,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "c7f8ddcf5e975f31b56b149b9d0ea969ce4127ccaccce2a6a9c2aecf7d2f6e51",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9ec3c5db142eebadb108b41e2792773f481ad5b2b2637bd43c491dec06207817",
+      "output_file_sha256": "7f310375581df7a1da7a7d59c05e57851bf7c12566ae7b1aa363135bf365339c",
+      "whole_run_seconds": 17.943841649976093,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "54_UHD_LL.JPG",
+      "low_sha256": "813afaab1d567a33e14b2e80e6d57f2e7238b73305fbec784a60b526e47884ae",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 21,
+        "r_FS": 0.7705948467332449,
+        "r_target": 0.9588530352162135,
+        "selected_step": 18
+      },
+      "selected_state_sha256": "5a55e01baebef0c65e7f097f49cd0b6f787489aa58faf968f37935c0c4ad5175",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "e35a2c8c75fab644b225b22efb95d8be435d4444ad93ba1ba2141cf70cf666db",
+      "output_file_sha256": "adaf7d60499d6b21c755d1b7d0ae435d668482beb705b99c1aad3acc5b623601",
+      "whole_run_seconds": 17.864970259019174,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "584_UHD_LL.JPG",
+      "low_sha256": "8f7f209a10416c4af920f0c52fc1c43339e9fcc5ed7afce5e6abed78422bb282",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 9,
+        "k_rho": 25,
+        "r_FS": 0.4237021873812681,
+        "r_target": 0.9154914527972164,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "54b02039faf4f799745cb8d6c72f04d006ec48e9fc110a38423166889c8d6481",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "dadea02f5dc1f5c41831fba3c48ca3123c7f126f9946c22efba709a23a8de76d",
+      "output_file_sha256": "b3cd5db35a15aa76923dc338c13134f9241f9ecb93645c51eebdb436bc48c7da",
+      "whole_run_seconds": 17.826097498007584,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "60_UHD_LL.JPG",
+      "low_sha256": "cbb76a1737d5e854c25344ef70f387094a01aec7f196cb4cf80a894b11328bc8",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "5305b81d244930e74a2fc31677ffe945bc81f5189bc4be6aae666e01a5e48fdf",
+      "output_file_sha256": "0566e43ecfe347862b70df50e7b270854b097acab3013a8a4616f851f1d5fe90",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.5156176180462353,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "627_UHD_LL.JPG",
+      "low_sha256": "ed8daede6c733b1c184c0dac16b4c5a7a9f26543bf126fb5b83005d1079f72ed",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 27,
+        "r_FS": 0.18473907484914343,
+        "r_target": 0.8856210637307008,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "2e7145df88102877b8d2a68509f8d139f2192792cfcbcfaeda6582617a7a522c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ff16c6a173cb117b15d009de0e20a0053120e1bc787fdffcd6faf468549f73eb",
+      "output_file_sha256": "13d06deeca721cd1ba449df6b7e3669169701022df53eb962807a647133ed4e2",
+      "whole_run_seconds": 17.54868541000178,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "63_UHD_LL.JPG",
+      "low_sha256": "f5d26a9fc2f1a54c8180a71d04d374eb59a87821b5dfc17d400085cac6d095b3",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 20,
+        "r_FS": 0.12411808816779749,
+        "r_target": 0.8780434403955326,
+        "selected_step": 15
+      },
+      "selected_state_sha256": "02dc6791e7cd3dbb3606c326080f4de71d3a28c021df25f8f2251a2289cf1548",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "4107c2b96b7f990dff204fbc10a876dc23013a65185eaa6f8a1752f51ed63fa4",
+      "output_file_sha256": "e6799d11573625747acb80f116bb26ed51df04c934e9e45c1c30c90a87d0d910",
+      "whole_run_seconds": 17.937823380052578,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "649_UHD_LL.JPG",
+      "low_sha256": "a391c249f0eab00fdadd90e2d4373713057015f3b89566a6430904c4156f56e7",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d213ee51ed064621a04d731737633083b93df9ffc58d6aebb63128db7bb213f5",
+      "output_file_sha256": "39178b9be3fbc360760d87b767a2460ce90c2d691e2909a2a5bda88386a763fe",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.7139099310152233,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "674_UHD_LL.JPG",
+      "low_sha256": "3307b703dcdc830fefdced48bcac6b6a9825950bafb18dd9ed0e6c941ae70d07",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "74d14ee955178571d68ee7ca6f5c01f630269085d13406092fc82940e0733b87",
+      "output_file_sha256": "e760e491d33694a1a6eea656287058c29157eef94dfb80b99748595d58d0a090",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.671036564046517,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "677_UHD_LL.JPG",
+      "low_sha256": "68823148016487a9fb5ef6960a3b0ff5a8da52d7578cf00683dd563553944a9f",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d00db476f44b958e5cac2b7a65d4d26f373081080807e3b09c859ffd7670e841",
+      "output_file_sha256": "e187b0e373a77cc2ca378ed53b6034be251938094f4793db8f9504923422158a",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.5316904049832374,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "685_UHD_LL.JPG",
+      "low_sha256": "350e2071f55138b5b9c66cf14a8cddd3ab77769ef21bed15fc0b057a21495933",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "cc1e38fc62e7754b87eb6f19e9d8e5d2748f75d87892b8c470eb7048cadc73da",
+      "output_file_sha256": "03361e5926b3cdb331bb6b2ebec61a52e06f7754deefc0a3ddf0d443fc7e62c9",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.229916354001034,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "690_UHD_LL.JPG",
+      "low_sha256": "9e3e4ab908caea3fe6626ab40dcd1a6c0208bcb46ad44b455304127c2927b4e5",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 23,
+        "r_FS": 0.060367667824026604,
+        "r_target": 0.8700746378525612,
+        "selected_step": 16
+      },
+      "selected_state_sha256": "401f73f699789aa6c2197ae0acb926ccc45bfd7d1e81b7b13e1c9c46be2ead9c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "02ea2c8fd515652ad6a35f1d47d671d6736965913a22865916c368a267c14cc9",
+      "output_file_sha256": "af74c5f337bd74fa7ef19b25809c2afd39e287a323e75feae3323e7b1df2c246",
+      "whole_run_seconds": 17.84809973096708,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "692_UHD_LL.JPG",
+      "low_sha256": "fff28c24cc31ae340b8e694fc05e0929cea7c8e618afcd4a6c1dbf69d546e9ec",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.0375560614082313,
+        "r_target": 0.8672231870505868,
+        "selected_step": 20
+      },
+      "selected_state_sha256": "13df0050963ce9ec5d1c0fbbf80ac0221b38e01a46521d42bef0c0496aca72b4",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "a7ab9b6cf6b82cf0e3c05c1a1cff12b3f597d0a35392c7ca588c3c46c6a8a2eb",
+      "output_file_sha256": "286fe4caa8476144abf7a8f1ad2e75b5a03b496be47ae1138b2f87d69a0f904b",
+      "whole_run_seconds": 17.634634400019422,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "697_UHD_LL.JPG",
+      "low_sha256": "7bfe5f9238551f92dc42f577a22d94c8b2b549ac452e77322eee37fb68ce5bd2",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.035140324738296126,
+        "r_target": 0.8669212199668449,
+        "selected_step": 23
+      },
+      "selected_state_sha256": "d31716ca55809989355a4a16afa9e5b105bea916d3073f4cdd45e3f801afaf5b",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "8bfb2ed2d6663222dfd4b2c8435d11eced478855145bb7fbefab5479e361a54b",
+      "output_file_sha256": "9d6d864a5a700af08369fbbe621eb8b2038e3278c96ebb472aaf8d66fa57f116",
+      "whole_run_seconds": 17.846738149004523,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "704_UHD_LL.JPG",
+      "low_sha256": "a3ee2a1d13563ba90756b99aa1ab767b246df9c3fd3b00a2dff882f0f50596a9",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 24,
+        "r_FS": 0.15798842540788383,
+        "r_target": 0.8822772325505434,
+        "selected_step": 8
+      },
+      "selected_state_sha256": "ab8460afd70e5cfa6e1fadd541d4f11c21d71af0640481b03efdc1e0f2cc304c",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "c555c7c203647ad7fa6fbf305dd1b20c3728397c8778e0a0be5d289ea2fcea92",
+      "output_file_sha256": "cc1a3861d8323e59d5a14842ed2b8f04045d6a5a66efcc9176d2df3ea15aaa40",
+      "whole_run_seconds": 17.914342337986454,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "708_UHD_LL.JPG",
+      "low_sha256": "4293e33afe9630416aadcf87d8610ca84aeba927cb1c783763b0ccf61946a301",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.03201463784418962,
+        "r_target": 0.8665305091050814,
+        "selected_step": 22
+      },
+      "selected_state_sha256": "597551d938ad782dc024d7ef6a9e108157d6f1242e9081284bee06559938a474",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "bdad7b82097dd45b4796ef9788fe6113913c5a17299432deb5b66bb8d10ea729",
+      "output_file_sha256": "48be8387bd9d7a327e85137ec0e8d7a348011f68d265b0d115a5df1512d6ae1d",
+      "whole_run_seconds": 17.824945328000467,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "70_UHD_LL.JPG",
+      "low_sha256": "d315ee9cbeebce89e392421085e80aa9508cefbec8bc887b16732db277738e48",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 23,
+        "r_FS": 0.05778008457948126,
+        "r_target": 0.8697511899469931,
+        "selected_step": 16
+      },
+      "selected_state_sha256": "9975660b3d32046920f78e950f1f750377c1b5a41be467d5b9b44a0d4c03ae59",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "30a147202c666306d8edcebb36d3e0855136dea3cdce54ae7a5cfdebe7ed7816",
+      "output_file_sha256": "029d308b6451de985bd8149703d2b34343fd7ac7d2e33c2b52c73fa65661a052",
+      "whole_run_seconds": 17.862921110994648,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "720_UHD_LL.JPG",
+      "low_sha256": "cd58769885c245221d791f95287bbab395a8cd09bca0e25cdf660dbff0fa9c5a",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 23,
+        "r_FS": 0.8490824408429649,
+        "r_target": 0.9686639844799285,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "4f9b800b38c499280a35cdea52e327f19280a2340c19693b1fda465ee92d9149",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b5213047461e59bbd271b739e8207aea1f5942780d77f6a4fce215dc7a874755",
+      "output_file_sha256": "323772ddabc4babd0cadfb602e9f2ad6cc552846fe06e176a941a09e49feab9a",
+      "whole_run_seconds": 17.820939513039775,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "727_UHD_LL.JPG",
+      "low_sha256": "2830ed29f7753dcd68ebc4b49ba2a51ca5fdcd6eeb41f06eed8ad7176e2a9741",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 4,
+        "k_rho": 17,
+        "r_FS": 0.34042596236293376,
+        "r_target": 0.9050819246699247,
+        "selected_step": 14
+      },
+      "selected_state_sha256": "add9a28064c62c15cedbbd00296e3bed3ff2f43abfa738ec438c43ce7d878221",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "05b30cfae3be0c8d2905ddf4792120a686595d24e77b65b9379635c8ec196d36",
+      "output_file_sha256": "6f2ed0882ff4b6a0750edd1d5e8caa0bb0e974dea97e7bbeb070db4c48cccdc9",
+      "whole_run_seconds": 17.90136551501928,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "741_UHD_LL.JPG",
+      "low_sha256": "2f0a1d34a95b28f44e073447886d6dd723d06348080eb61c2be3ebbd1b016701",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 8,
+        "k_rho": 26,
+        "r_FS": 0.3635974363379184,
+        "r_target": 0.9079783589167977,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "291c5554148bd541bc078dda89b4adfc4d1a8184308cef507ea4a6cacce423c9",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "156d213f918acada520d3969c043a0eb92bf3e0b746088b9d0c71f467e63c75d",
+      "output_file_sha256": "82b4ebf986ebec697a03a9571ee6a63663e044c4e63d9581412151c8c9ad92c8",
+      "whole_run_seconds": 17.851011923979968,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "752_UHD_LL.JPG",
+      "low_sha256": "bfac720cd7038446ce0744de18fbf2edcacb8b31321e1a0c0e1462fb0613ee3f",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "b798be82f71c3bf23f1b9e33026041d9128a3306b6aa64efec3b17eaaf2dea76",
+      "output_file_sha256": "df607ca144017ad8f569ee4b051494e805fe8f8b7fab1eb1d2a2ad7c138c5eb8",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.7254243989591487,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "769_UHD_LL.JPG",
+      "low_sha256": "ccb50a0d6596c9ba52f30e97de50ae8ca7a177cfc88fe9a4ed5a8b3142702ec8",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ab91a91e044c23ccb3d9e3ff6638ebf56a2bc85eab742454faa76abeb3c6d54c",
+      "output_file_sha256": "4cdb74cd5a53332cbbb0e7f46dfc0bd1e9e07e56cb808ac958a2b6a18dff2fa7",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.5352390879997984,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "771_UHD_LL.JPG",
+      "low_sha256": "1ca49dacd0ac8dccd4758e1834a4962d0d3a4219d2cd76be79c25d5b4fe157a6",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 22,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 6
+      },
+      "selected_state_sha256": "34f3827dc37af88dbf084a379f1fa33c14e2bdff7430e1f15b92c24d513e1955",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9179db507556c45262cd8af7b23c36c1eeae5adbec70dd5b11824759d049dc93",
+      "output_file_sha256": "f82f26e7282e81b3379c289065c1933bd49636669b14da631a5fbe5cd85a23c8",
+      "whole_run_seconds": 17.71834497601958,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "788_UHD_LL.JPG",
+      "low_sha256": "5a1a68e5e26c52a0d2e086aaf4e1fc70e6a7aee7ea38417e001abc3b519a2964",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "148f69ded9682b6a11a26201b9bc9db36711473db2c8c733ef62f1d2b16270a3",
+      "output_file_sha256": "c65839071dfbdf32f31c2701d419fb45286e85ca6a19b28356a23eefd3353630",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.2772658340400085,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "7_UHD_LL.JPG",
+      "low_sha256": "e60c46c5b05c0a0ee8774a8a603e5a45a721827b81cb610493977430bad52a20",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 26,
+        "r_FS": 0.05885613686572945,
+        "r_target": 0.869885696482774,
+        "selected_step": 19
+      },
+      "selected_state_sha256": "d20ddb8f4b6ab459f89ab907b596dd4016c811551b0850dd119fa366d79370df",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "6e39db03db740841be3e21e898d40148a82b2ffb7fc9837f08a87cf88f634f7e",
+      "output_file_sha256": "e5d3c8621a10ef398841ce15bda979f68789daeba794950ed8001382c1229a8f",
+      "whole_run_seconds": 17.751051621045917,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "810_UHD_LL.JPG",
+      "low_sha256": "723e9efb9df9d0fd5c6baf5507abba6194ba27a346c4bff31f1783b3d16a212f",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "ec84e674373558ca2fe6809aa851d5e0a774f158c1f58c25bac44e563f7b9f97",
+      "output_file_sha256": "29550bef18b55a284b1cb9a67a9bc98cbc55c95ab7dd34da009e5707ade0ba69",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.629195226007141,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "869_UHD_LL.JPG",
+      "low_sha256": "75956884c8d22835022507b7a37488667827022d1cd8eda5b644c9ab898f3f41",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 26,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 14
+      },
+      "selected_state_sha256": "a15c00ee8c2e3a86ce254f02abfacb28e507a29aac4ac810f5815918925e3740",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "9df9fe5ef7c953852c8f710792d3cdc28050251a9c43bd188a5a851987734b67",
+      "output_file_sha256": "d63be95a7d1e36a0bfaa970ee13962761378ee2a9c138492af86b87052a5bbd9",
+      "whole_run_seconds": 17.818501211993862,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "874_UHD_LL.JPG",
+      "low_sha256": "f3b9f19fbade295c4a1df88042427fcde2850982a8e23778cbe0cb5d524ce270",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 25,
+        "r_FS": 0.08656721258001043,
+        "r_target": 0.8733495809470592,
+        "selected_step": 12
+      },
+      "selected_state_sha256": "0d3b61167a24c92d0279748415d5c46a7889e8262163d1b7c0a6cc9ecb38efa5",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "49b1781167b19b5476c0a9d33458c5463051daab3e1f809241ed6a94aead19b0",
+      "output_file_sha256": "1b735f4d17ee3c7ab9e6e184d217e10103ce3930d52f2064f9fc78f29d3b6758",
+      "whole_run_seconds": 17.794829700957052,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "879_UHD_LL.JPG",
+      "low_sha256": "bd344ed347a3d9766a57dc5b2f66cc3f3cd169c19d6d232115235706e3916eae",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 25,
+        "r_FS": 0.3419251539569251,
+        "r_target": 0.9052693236191736,
+        "selected_step": 21
+      },
+      "selected_state_sha256": "0a8ca383be3a3b59f693e4bc1937cbab77ba5bb3657b551f46ebafe24faa839e",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "2cc9b64abd254bef504696ca2a44a0d0ebb8927a60e6d1c7777b3b94a2298595",
+      "output_file_sha256": "a45e0452ee704644c82c4476ab9c5f1e3048a337142b8d6d36c1ae53831dc72f",
+      "whole_run_seconds": 17.77907544898335,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "890_UHD_LL.JPG",
+      "low_sha256": "b1def3eabeaf72d3793446c078d4690dab99e50f3336b9daf1e9b4722bd58b97",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 24,
+        "r_FS": 0.15292453418020197,
+        "r_target": 0.8816442461470833,
+        "selected_step": 8
+      },
+      "selected_state_sha256": "e7260b881f09085a31c92d3c878e5b56597c249d85f385db19b6c41cac44eafc",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "613066293e38e9a22a7640b354ca02d787f6a98257029b017fe0b0d9982c2932",
+      "output_file_sha256": "8cf64c2aeaf14db4a886bc10f4dfe0e79e54c9613d1848a7f3311bd5c08f385e",
+      "whole_run_seconds": 17.854574248951394,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "895_UHD_LL.JPG",
+      "low_sha256": "7dcc4db16256353fd5d79ba5fcc342c778e66b7b6ab00e21b5d276d612587b27",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 17,
+        "r_FS": 0.0806472224996483,
+        "r_target": 0.8726095821870139,
+        "selected_step": 12
+      },
+      "selected_state_sha256": "fcd4a8290457813fd78d3270ce8f292a1d8dfb89b10d1944902f6837198e59cf",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "78a1bb6817bb1db283e687941ddabde4e76f2b7b74340e669f4300e120fae020",
+      "output_file_sha256": "c8ee96986968b7a7dc7e1145e67d177c38e7b70189b9fbc5ff925dc06cf0d6af",
+      "whole_run_seconds": 17.82226439099759,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "8_UHD_LL.JPG",
+      "low_sha256": "0a48c212e0c79838231b24ad91538317e18cbbc5eab462f4c7879ff9d1b59fa8",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 16,
+        "r_FS": 0.07646313622937312,
+        "r_target": 0.8720865714032295,
+        "selected_step": 13
+      },
+      "selected_state_sha256": "5ffe070109f9c3fdfc53616f665ee4847ada6a2e2377dcf34b45a9d9137d4f66",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "3aa20fb72e23ccb86c303fc22f088411f4680cccf245a771d63e267b857b136d",
+      "output_file_sha256": "bd5546dc7524ea4fac943475a0a27a92ae4ecf2a6c191a43929147d34ae5a425",
+      "whole_run_seconds": 17.99769698799355,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "914_UHD_LL.JPG",
+      "low_sha256": "9e8ca40b59878e1ae895202073509b1dbd188dd6192aec25763d07a8404c6bd9",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 9,
+        "k_rho": 15,
+        "r_FS": 0.7890504649786098,
+        "r_target": 0.9611599874968841,
+        "selected_step": 13
+      },
+      "selected_state_sha256": "73f26a79f287241f4098f70da01c04aa0bb6f97d7fe59ad6afe2177132f15d32",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "413bc1ac7028ce9e6f2f36410d3580ab72ddb9bdd9a6bd6a7115f840df261a4e",
+      "output_file_sha256": "e409a2cf211d851e9d0188071bedf45169668de306bffe3265b92ab658e84910",
+      "whole_run_seconds": 17.75241191702662,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "920_UHD_LL.JPG",
+      "low_sha256": "f520c45abed297197c277d9507033069daea3a5fbdce63c00cd1810204f0657d",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 23,
+        "r_FS": 0.04841412134732002,
+        "r_target": 0.8685804445429729,
+        "selected_step": 17
+      },
+      "selected_state_sha256": "3c6e861fae1ec54ad85226dbd315f4799fce912cd96310cbbc060bd34385b0a7",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "04c9c37c9ef420cc76548348d4927303e26d91926cddd1c712801efdbd115682",
+      "output_file_sha256": "ea6330b57b82abbb9c6d9c2602bf279f147f0d574f1ededa432214de7fc8f524",
+      "whole_run_seconds": 17.846074675035197,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "945_UHD_LL.JPG",
+      "low_sha256": "8ce365810e3d9a83f103633802c58a2c4f91e81f5e71b2dae151850701f199d3",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "selected_state_sha256": "34f2a03e4ba6e5aef135ad90948d54989eb99a16a3fd98105a4b09cac9c4b607",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "073bbba1f36a9e42a84103214430abb0dd98d3e5368c81631da00cc3643a8954",
+      "output_file_sha256": "80809d8693356ca588471f7893f4f54713dadaa96c73b16f9cdb76d67aec51ee",
+      "whole_run_seconds": 17.6576267349883,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "94_UHD_LL.JPG",
+      "low_sha256": "a104bc366ed90de713f623155848237d5ac3da57e4e69cd64e274b1a1a67e463",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 22,
+        "r_FS": 0.1613288751350164,
+        "r_target": 0.8826947887664349,
+        "selected_step": 17
+      },
+      "selected_state_sha256": "60132a54ec038b2726b31e8c1ef6c8b6c763c2dcba4d5efbf4e20c239ce2fbd6",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "d5f5f431df38fb2b75594df3b031ff1f396abb4d09cf4222113a5dfc4d94b916",
+      "output_file_sha256": "8bf8f6a2127fe337ddfc27824d8ab836a5b0812b142df826c8bf884945dbe2a0",
+      "whole_run_seconds": 17.711585351033136,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "967_UHD_LL.JPG",
+      "low_sha256": "f7f9d016956f9d41d84298f3fb3a8d514a021cd9204c275d20d9eb3429cb98ba",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision_status": "TTT_ABSTAIN_NO_ACTIVE_GATE",
+      "decision": {
+        "selected_step": 0,
+        "status": "TTT_ABSTAIN_NO_ACTIVE_GATE"
+      },
+      "active": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimizer_updates": 0,
+      "selected_state_sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "22347e8458cd6f1434ac1e48513522995ca726d56a6c33fad8354c1b6bc1a486",
+      "output_file_sha256": "530f6e23d5cb4f1f5577d4f5646b54ccc182b3a785c7ab6555ec9fd9d89ec247",
+      "step0_output_manifest_sha256": "76a1ee7b12f41991499802024811321dcce3b0af0bae2c06ab41dba719180cce",
+      "whole_run_seconds": 2.3795252250274643,
+      "peak_gpu_memory_bytes": 3206545408
+    },
+    {
+      "method": "Ours-TTT",
+      "low_name": "999_UHD_LL.JPG",
+      "low_sha256": "27299740ae7b83740ddeba8a7f5c9fbd7b001faa6ade0af11170bfaea33dfb96",
+      "execution_manifest_sha256": "e435c8b8d3b4d814943f9324e48d6e149b75dcb6ad1983b9dd174fc0c72144a2",
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 11,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 8
+      },
+      "selected_state_sha256": "e621620411d03b677fa81ab666c9d68539abd73437f6fd55219008ca71ef50c5",
+      "shape": [
+        1,
+        3,
+        2160,
+        3840
+      ],
+      "dtype": "torch.float32",
+      "output_tensor_sha256": "7f449493fdb2f1ed5e3f090833bc267afaabe3036fa30d5c268df2e16c043efb",
+      "output_file_sha256": "db64940bd551fe17d64828d3ecd27e6011d41699198ea90f3b6fd5fe12c7c644",
+      "whole_run_seconds": 17.778737946995534,
+      "peak_gpu_memory_bytes": 3206545408,
+      "decision_status": "TTT_EXECUTED"
+    }
+  ]
+}

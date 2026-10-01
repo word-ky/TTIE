@@ -1,0 +1,1896 @@
+{
+  "method_id": "ours_ttt_target_tuned",
+  "method": "Ours-TTT (target-tuned): frozen T070-A code, knobs selected on target GT",
+  "target_gt_used_for_selection": true,
+  "count": 50,
+  "low_receipt_sha256": "6ec25b8a13146e0759b3c9b88f1d0e1dc0de19020a8094b487ef69ff62e0a907",
+  "gate_receipt_sha256": "fe44f42d5d415d42245b8765992150c3c4247663de7378bb58f726c37ffc70ab",
+  "execution_manifest_sha256": "784b202062663922daa4c2b0b26cdbea1d342e5b576f167fa147789aaa7e1a11",
+  "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+  "knobs": {
+    "exposure_target": 0.6,
+    "lambda_value": 0.875,
+    "loss_weights": [
+      1.0,
+      10.0,
+      2.5
+    ],
+    "lr": 0.03,
+    "probability_threshold": 0.5,
+    "q_joint": 0.35266535990213066,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "updates": 27
+  },
+  "defaults": {
+    "q_joint": 1.053775168916056,
+    "tau": [
+      0.027419920079410076,
+      0.001673370413482167
+    ],
+    "probability_threshold": 0.5,
+    "lambda_value": 0.875,
+    "lr": 0.03,
+    "updates": 27,
+    "loss_weights": [
+      1.0,
+      10.0,
+      5.0
+    ],
+    "exposure_target": 0.6
+  },
+  "knob_locations": {
+    "q_joint": "gate asset T022A_gate.json q_joint (FinalOurs.gate) -> ttie/joint_gate.py both_gates: active iff evidence > q_joint",
+    "tau": "gate asset T022A_gate.json calibration.tau -> ttie/clip_signal.py decisions, ttie/joint_gate.py winning_evidence",
+    "probability_threshold": "research_log/T067B/core.py choices: first step with probabilities[k]>=.5 (k_FS)",
+    "lambda_value": "research_log/T070A/infer.py select_trajectory: c['lambda_value']==.875 (T067B GRID values only)",
+    "lr": "research_log/T062CR2/core.py trajectory: Adam lr=.03",
+    "updates": "research_log/T062CR2/core.py trajectory: range(28), step==27, selected=27",
+    "loss_weights": "research_log/T062CR2/core.py trajectory: parts @ [1.,10.,5.] (spatial, exposure, colour)",
+    "exposure_target": "research_log/T062A/core.py losses: (avg_pool16 mean - .60)^2"
+  },
+  "no_active_abstentions": 0,
+  "selection": {
+    "rule": "max image-mean PSNR; within PSNR_TIE_DB: max mean RGB-SSIM, then min normalised L1 knob distance, then setting id",
+    "scope": "union of all rounds' COMPLETE records; L1 ranges over the union of declared settings",
+    "psnr_tie_db": 0.01,
+    "settings_declared": 29,
+    "settings_complete": 28,
+    "settings_failed": 1,
+    "tie_window": [
+      "b178e43521a47366c2cd3b35a6d12c44637d668ab7baea92f76fa0d4cf24b165",
+      "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890"
+    ],
+    "selected_record_sha256": "19033b47ac85a4356659eaafaa2b5394854be98f4f43d760486b6fb1ff61a92f",
+    "tuning_log_sha256": "bb67dbf0d93c7d4d0ab4faa870bfd15e3e7a6b5151fa391f765720ea6a332c54"
+  },
+  "rows": [
+    {
+      "low_name": "Huawei__2037.png",
+      "low_sha256": "8d37655a947dce0754d20555be5f9220c8fba24107c3cee48249567a1b9f0b9a",
+      "name": "Huawei__2037.png",
+      "cluster": "Huawei__2037",
+      "output_tensor_sha256": "5470e3c454887e3fa99941104946646a022f0b308d89c3ad7ac2016b1f0569d4",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.12929095227353546,
+        "r_target": 0.8786900484087499,
+        "selected_step": 21
+      },
+      "psnr": 20.156131736944047,
+      "rgb_ssim": 0.44198580294628503,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "91eb044188ea0419f0581ed04cadcd049303257177540eaf1ca485631e7b6c8c"
+    },
+    {
+      "low_name": "Huawei__2038.png",
+      "low_sha256": "b249ec9ceaed0adfbe2980262a09acf16df4686dafc575861446b7f68b5be652",
+      "name": "Huawei__2038.png",
+      "cluster": "Huawei__2038",
+      "output_tensor_sha256": "353debcb19fba5a44b0e93f0cca439ecce14c332fd73ef0eb47c70d7b6285f9c",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "psnr": 19.622318629770668,
+      "rgb_ssim": 0.3603109793076227,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "aa039a578195e540454bb5b9b7822470538c18bab38ff0df7aaa975975bb48dc"
+    },
+    {
+      "low_name": "Huawei__2039.png",
+      "low_sha256": "e4b69e0bf0f6fac2d77d442429d58cebaaeaacaedc9c7e8f95b90d1075d6d320",
+      "name": "Huawei__2039.png",
+      "cluster": "Huawei__2039",
+      "output_tensor_sha256": "4f798959addc89518465d803f2fc06db355571aa46945b44f5aebc6437ac73d1",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 26,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 18.910064064473445,
+      "rgb_ssim": 0.34236801257435895,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "76bfb9ad6c5e6359aadebb99f7643e23f6f07a2e7bd212398071d60d0ca60858"
+    },
+    {
+      "low_name": "Huawei__2040.png",
+      "low_sha256": "7ba85cd2f67f5d6e12959bd25bd4c63fe87a4c40b121cb4b3f0cd252600bf38e",
+      "name": "Huawei__2040.png",
+      "cluster": "Huawei__2040",
+      "output_tensor_sha256": "165c8936b27516ea15c9ab81adb86dbd57e37fa4a7a533f2a5580f0e1a910ba1",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 10,
+        "k_rho": 26,
+        "r_FS": 0.553208890266688,
+        "r_target": 0.9316797906578939,
+        "selected_step": 23
+      },
+      "psnr": 18.493453700077637,
+      "rgb_ssim": 0.7382774323714232,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "bca54ee86c4a52ea488a95b0d0571e796fea614eaa4f4be57f74b1eff562e660"
+    },
+    {
+      "low_name": "Huawei__2041.png",
+      "low_sha256": "69d6c06dc8710b2634e187f34d6649dff12e4023ac5ce461b0795d6596493119",
+      "name": "Huawei__2041.png",
+      "cluster": "Huawei__2041",
+      "output_tensor_sha256": "6477cede8b0feac2e2d6b983da4867cc96e8bd6a229b993881114659a95696d2",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "psnr": 20.86414295408414,
+      "rgb_ssim": 0.5804515007454151,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "73640e44b87bf5228369646e578347539b79cd8e0e022b4e642e9a0cda5be258"
+    },
+    {
+      "low_name": "Huawei__2042.png",
+      "low_sha256": "5e5204dfe383b7f617be6a12dbba1db6fcf1515b69c07231dc745f38c62ab78e",
+      "name": "Huawei__2042.png",
+      "cluster": "Huawei__2042",
+      "output_tensor_sha256": "22fda2d023243d34d453bba7fe44b199b20b5613ca3a994decfb034e842b4edf",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "psnr": 21.284521324761858,
+      "rgb_ssim": 0.5150737813885542,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "05ac087fd202a69a6c1c52d991f7a9c9aae0a2c473fd03873fab938c06da5267"
+    },
+    {
+      "low_name": "Huawei__2043.png",
+      "low_sha256": "7c974cfac36376753bc8d4b157e3d35c41ab392606a83e9e15b306aad04edfc9",
+      "name": "Huawei__2043.png",
+      "cluster": "Huawei__2043",
+      "output_tensor_sha256": "7593940e551effae061ac7ab18562eb7f805810d515c1a5e1dba173393755210",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "psnr": 16.947431742494842,
+      "rgb_ssim": 0.3769726182334436,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "7e310f7cadd9148679c900fadd0ea8b580d4e691e18823225ca22230ebea2652"
+    },
+    {
+      "low_name": "Huawei__2044.png",
+      "low_sha256": "ab1139650e069418a7c53b7ba1f5a36d43e66f9443de1865f8934092ab888d5d",
+      "name": "Huawei__2044.png",
+      "cluster": "Huawei__2044",
+      "output_tensor_sha256": "2c93ec386dd9f7571c5f0c65f8d927e65fdd1b4cdedd9c9acb5f4e2c670f273e",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "psnr": 13.30978996108441,
+      "rgb_ssim": 0.2967078198672432,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "168e52022f569f61d136a584ac7c77a8e789ae89166f03aee668bd42cef6dcb1"
+    },
+    {
+      "low_name": "Huawei__2045.png",
+      "low_sha256": "1dbaf73ed9be824afcc19e31f8225df6bfdb3507499b8790dce6e187e0fccab2",
+      "name": "Huawei__2045.png",
+      "cluster": "Huawei__2045",
+      "output_tensor_sha256": "d6332940006f205c4c4c6a26cbcd68c88e0b8b4a679d8ba7b67add9351e44a0a",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "psnr": 18.484228146271874,
+      "rgb_ssim": 0.36071477047129075,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "a40124f4dde054585b125c42b441634cd85abb92d26d4a8f56c96571bdccfcf2"
+    },
+    {
+      "low_name": "Huawei__2046.png",
+      "low_sha256": "f54530d34f29f1cccf0c4ab747af5e017feafa8aefa0762e0412b2c590abb130",
+      "name": "Huawei__2046.png",
+      "cluster": "Huawei__2046",
+      "output_tensor_sha256": "ee7d1cdce8ae542000285c76a694028c41b3e230b4c7b73ec7ce5078f6a9e491",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 24
+      },
+      "psnr": 14.074299035634233,
+      "rgb_ssim": 0.28823342724787326,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "0ee99b4bb0c6a130337db489775cfda7f73b48021d1b0d17469c743283882c1f"
+    },
+    {
+      "low_name": "Huawei__2047.png",
+      "low_sha256": "6c7a4bb6ea09da543a7373df8826d01414743d60a6a1b0fa4b188a90bcc3a641",
+      "name": "Huawei__2047.png",
+      "cluster": "Huawei__2047",
+      "output_tensor_sha256": "e219fa27dd9a3dd5fef39f27cb3952004dc9557813e3e792429d0fc1a7416b7b",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 16.309853768728317,
+      "rgb_ssim": 0.36038683679918493,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "3f5df1ae275a61cc47a3ecd0ea0c0e64f44b6c89005270a7756962fb4ddaeca6"
+    },
+    {
+      "low_name": "Huawei__2048.png",
+      "low_sha256": "7aa251d264677bb574833395136bf0d18a91de542bb61ba86ce9d7e0351f5fa7",
+      "name": "Huawei__2048.png",
+      "cluster": "Huawei__2048",
+      "output_tensor_sha256": "996504e96ee42fd7ac41e1c5001421f22d886efb0fdd551dadfd416776a169a8",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.024008542356708074,
+        "r_target": 0.8655297471691463,
+        "selected_step": 23
+      },
+      "psnr": 10.507594416251907,
+      "rgb_ssim": 0.29692908595884127,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "2b288163d3b3cb7d67f4780fdd53bc3dd598837ec9cd64112d8dacfa18070db2"
+    },
+    {
+      "low_name": "Huawei__2049.png",
+      "low_sha256": "5b4d4f7e9d12061ab7c4da13e212f43054c89b50ec9013a6f65903affce0ddc4",
+      "name": "Huawei__2049.png",
+      "cluster": "Huawei__2049",
+      "output_tensor_sha256": "5f2f6ba15cfcd69856457ba380515f25eb40a9b89c5ca4b91bf2ef7c711a6f0a",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "psnr": 14.116507028313839,
+      "rgb_ssim": 0.457546858279724,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1fc2d786fc263ff3e1a11807ad6fb35bf97631b64affdf725294d692a2da3860"
+    },
+    {
+      "low_name": "Huawei__2050.png",
+      "low_sha256": "eee2f6ae44c072d2740f61fa56e6cf3ef5424f64d745b4fe238a5a54bf6c5207",
+      "name": "Huawei__2050.png",
+      "cluster": "Huawei__2050",
+      "output_tensor_sha256": "54c9ec2ff439b0d80ac991aefe0524dc47da91db5eda34ca2fb550557999c388",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 6,
+        "k_rho": 26,
+        "r_FS": 0.26216781123643285,
+        "r_target": 0.895299655779112,
+        "selected_step": 21
+      },
+      "psnr": 18.774883557381003,
+      "rgb_ssim": 0.29912146926549693,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c569f5f99758c13da321bae8c0c60d4b4998e9c7ad1a5b4d72892c2efe45ea61"
+    },
+    {
+      "low_name": "Huawei__2051.png",
+      "low_sha256": "3729659f78827798400a44176e2f5c23031980cd3d4092ad17558f33203adcf2",
+      "name": "Huawei__2051.png",
+      "cluster": "Huawei__2051",
+      "output_tensor_sha256": "ee114c5eac40c6338a7b26d0d1533eaab5362cef5bf38c457322bf9d5015c8c7",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 11,
+        "k_rho": 26,
+        "r_FS": 0.5809073804383312,
+        "r_target": 0.9351421019293493,
+        "selected_step": 23
+      },
+      "psnr": 18.938431376011973,
+      "rgb_ssim": 0.569512816597402,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f6fcc0fb376ff94e1e884a9a549a4dca3aa74663ad918e7f555ed8cd08d7ba1b"
+    },
+    {
+      "low_name": "Huawei__2052.png",
+      "low_sha256": "547ab7c9267fc2548e39780270c17f8d7c00dd3140f7ffa7aa46271d60ed83e6",
+      "name": "Huawei__2052.png",
+      "cluster": "Huawei__2052",
+      "output_tensor_sha256": "6f4a437d39bbdec370732e33818c4409b9c4d9881f01daad00e8ba0701604eac",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.08027524961892313,
+        "r_target": 0.8725630855769233,
+        "selected_step": 23
+      },
+      "psnr": 15.466921070164974,
+      "rgb_ssim": 0.622346449303995,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f7aa2fdcbd13a629f898ed504c3f21e5e31b85dc101caae90de044cab03bbecb"
+    },
+    {
+      "low_name": "Huawei__2053.png",
+      "low_sha256": "01fdb67c783aeda094f606c58eebc370a3dedbe63e4cb3586bc7220ba13ed2e0",
+      "name": "Huawei__2053.png",
+      "cluster": "Huawei__2053",
+      "output_tensor_sha256": "33e8b2c05002584b995a8c16e04ace8297d04df059a6e41f85b7a2c3276d3c51",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.023595016977405996,
+        "r_target": 0.8654780564967336,
+        "selected_step": 23
+      },
+      "psnr": 26.108184866157504,
+      "rgb_ssim": 0.7361685314680446,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "c4102be65157abdf96b2d291cc4bd0b595c734af0e5c6538897d7fe1b3227c83"
+    },
+    {
+      "low_name": "Huawei__2054.png",
+      "low_sha256": "b72c0f32f1d008575e44efdc98ca2513fa5cd0f5f31c2b56bb4769152d31ba07",
+      "name": "Huawei__2054.png",
+      "cluster": "Huawei__2054",
+      "output_tensor_sha256": "fcdbb58f9d70e61504cbb6d0b35380c78ce19ef47d9d78191c52e422c46e9984",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 7,
+        "k_rho": 27,
+        "r_FS": 0.2598694837790704,
+        "r_target": 0.8950123648469417,
+        "selected_step": 22
+      },
+      "psnr": 18.127879577148786,
+      "rgb_ssim": 0.547236604308198,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "28ef8e558b3c390067d013c67233c49015a01493fa5756c9e4bd3c96b5c73d22"
+    },
+    {
+      "low_name": "Huawei__2055.png",
+      "low_sha256": "6b04dd81721b298ad47ce41e748d62e67c563bd229622cf4862496f92e7c3511",
+      "name": "Huawei__2055.png",
+      "cluster": "Huawei__2055",
+      "output_tensor_sha256": "b87fe27e4c677b6d760a61c17e1c2bda92f37dc84c46acc93bc84a66e57685d8",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.10165668955618225,
+        "r_target": 0.8752357655690807,
+        "selected_step": 22
+      },
+      "psnr": 21.223230819957042,
+      "rgb_ssim": 0.6298578820227991,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6f3957571c6ef0350ec4af0076980f95e6a2b0a862f88db79a14d349b42ba957"
+    },
+    {
+      "low_name": "Huawei__2056.png",
+      "low_sha256": "1ffdde79da975e72d855c61ee98a2ec5b864b47da3a6a3036e85c7e2cec35a5d",
+      "name": "Huawei__2056.png",
+      "cluster": "Huawei__2056",
+      "output_tensor_sha256": "de2e006de3d32e79a91b0e47f3e65518dde718cc413244f339d5758e2aeeea88",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "psnr": 14.698920840138696,
+      "rgb_ssim": 0.4029061500155184,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "87b28210044b0e67f5ca972e2122382d4d29f36a9e4e0b795dd4caba5e8b723c"
+    },
+    {
+      "low_name": "Huawei__2057.png",
+      "low_sha256": "4cde9691f70f68cbade2da98a8a8214cb83b0b8f27bc7d3ae8599b516c50bc69",
+      "name": "Huawei__2057.png",
+      "cluster": "Huawei__2057",
+      "output_tensor_sha256": "767851ea8f0ba24588642d25c745c385a398319f75fe5c84b44a5c4cb076e2dd",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.09719972957569871,
+        "r_target": 0.8746786455715202,
+        "selected_step": 22
+      },
+      "psnr": 15.690803086401374,
+      "rgb_ssim": 0.6082429215898683,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "48b6d52c27fe35a1dcfd1fd6acf07a28a43a3dea2e33ed85a46acb4ecf91cded"
+    },
+    {
+      "low_name": "Huawei__2058.png",
+      "low_sha256": "853a8a0623530b86b4ca9f5f08a3670f13cd366b30cecb63205d63b92b917377",
+      "name": "Huawei__2058.png",
+      "cluster": "Huawei__2058",
+      "output_tensor_sha256": "645ac01118c53fb749726b7427f0988e86e34c42b6a94392fb995cdabad80682",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.09150830122311787,
+        "r_target": 0.8739672170274475,
+        "selected_step": 22
+      },
+      "psnr": 21.846818732484444,
+      "rgb_ssim": 0.6200660897345617,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "553ac70bf743e75b9b20db20a1581af28dff46c1d5d548c5f5fd77b95435401f"
+    },
+    {
+      "low_name": "Huawei__2059.png",
+      "low_sha256": "520b022391e31e2ef872d0f8088d3b66ac23d1c5972e8fc38d6ef21bbedbfcb7",
+      "name": "Huawei__2059.png",
+      "cluster": "Huawei__2059",
+      "output_tensor_sha256": "da061638444ca62e71d57cff1bf297aa8c6881d3ebd7e729d2e742255382cefe",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 6,
+        "k_rho": 26,
+        "r_FS": 0.2163466663953813,
+        "r_target": 0.8895720126739806,
+        "selected_step": 22
+      },
+      "psnr": 23.9513019971823,
+      "rgb_ssim": 0.6097873388843112,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "d055d767ef10cf526230bfacba5abd18913561c0d8a0d1ac0e9d6b04fb16ac98"
+    },
+    {
+      "low_name": "Huawei__2060.png",
+      "low_sha256": "af6ed62fa46ee22441ac921e0e1c74f2d949397248e82fb77b49c49a917686df",
+      "name": "Huawei__2060.png",
+      "cluster": "Huawei__2060",
+      "output_tensor_sha256": "5ab78536f6ffceb928d55f45a4ef02698fd913f1ed7ab3e53ffe4d9bf8a75a49",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 9,
+        "k_rho": 26,
+        "r_FS": 0.4066327926012475,
+        "r_target": 0.9133577784497138,
+        "selected_step": 21
+      },
+      "psnr": 21.144785193932275,
+      "rgb_ssim": 0.554366999127476,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f80cb6f8ff201cf7ce746e542ec88c00ac90c9eb4a6c8858038cebf7e3fceab1"
+    },
+    {
+      "low_name": "Huawei__2061.png",
+      "low_sha256": "8cbd19f24914734a11f4669f38c02044c6e8effca801c050fc57088f0c2034a8",
+      "name": "Huawei__2061.png",
+      "cluster": "Huawei__2061",
+      "output_tensor_sha256": "4c23ca31739f271f81fa9d96f7a90fb5b8ec949b5ff32c53b29c56839b770c82",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 26,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 21
+      },
+      "psnr": 18.358867477120242,
+      "rgb_ssim": 0.4622004617796899,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6e4289b513e47d9b676b1c16848ba89a49ba4fa51f18c7212d3a44b63c9e7487"
+    },
+    {
+      "low_name": "Huawei__2062.png",
+      "low_sha256": "9c213ac3b593c0cdd96df0c97bfd214a2c47012cc8a70b23a927ca8f0ce8dd0c",
+      "name": "Huawei__2062.png",
+      "cluster": "Huawei__2062",
+      "output_tensor_sha256": "00f44ff8db5076cfb98f93ca2fbafc68ddc67bbcbb4f509d6ba488ea78a7d05a",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 15,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 4,
+        "k_rho": 18,
+        "r_FS": 0.3536014985552538,
+        "r_target": 0.9067288666939646,
+        "selected_step": 15
+      },
+      "psnr": 19.738394712609363,
+      "rgb_ssim": 0.6363293100554326,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "1f7108a39c4d44fd5741e1cd766d2d2bbeb10968f1614c265df1a28d5f4167a6"
+    },
+    {
+      "low_name": "Huawei__2063.png",
+      "low_sha256": "0c329c0e1377e754f46648cf93deb8570be3ad1143475cdbbb866e41262f4e08",
+      "name": "Huawei__2063.png",
+      "cluster": "Huawei__2063",
+      "output_tensor_sha256": "13c56197fbda6b4855dcff47b6df8b3142ac3e4f6c24481406552c4842d16800",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 5,
+        "k_rho": 27,
+        "r_FS": 0.16081377269800007,
+        "r_target": 0.8826304009618078,
+        "selected_step": 22
+      },
+      "psnr": 26.088148552216083,
+      "rgb_ssim": 0.6422476637244143,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "bfdb569a86ac9c99482ada0a3c8d1a87adeda92ce377688bd49cfc24b49db2f8"
+    },
+    {
+      "low_name": "Huawei__2064.png",
+      "low_sha256": "9416aa71188e4fa74cca785968b4da2e904a9628b4b4d303b07e11014b55c3a6",
+      "name": "Huawei__2064.png",
+      "cluster": "Huawei__2064",
+      "output_tensor_sha256": "eb1034d3dd526a4cd2cb0ea39a87e205e18f3b5ea3622133dbd0a9f6f6a9cafe",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 8,
+        "k_rho": 26,
+        "r_FS": 0.33821310012093153,
+        "r_target": 0.9048053168896744,
+        "selected_step": 22
+      },
+      "psnr": 16.688733599552993,
+      "rgb_ssim": 0.41127146822327887,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "e5772ba10ce30001c50dbdf8f86d055b07dadb5828c3ebb5e6269344266f4ba3"
+    },
+    {
+      "low_name": "Huawei__2065.png",
+      "low_sha256": "bec4d631f0504c2f9f8d9599f227b1e7f28e4437ee26ea66072cd6529107c995",
+      "name": "Huawei__2065.png",
+      "cluster": "Huawei__2065",
+      "output_tensor_sha256": "95a378fa03c6365c26c8d12e5bedf4007ac6bc3e66e1677c65d8369a1f55bfc9",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 19,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 6,
+        "k_rho": 24,
+        "r_FS": 0.3083460071409448,
+        "r_target": 0.9010719302671759,
+        "selected_step": 19
+      },
+      "psnr": 18.695642595303244,
+      "rgb_ssim": 0.5778061642635661,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "aab21fefcd96f7c0c22179fb9bfb7028b53ec4a6a2acd6c4e3e5d4ba68bb46d6"
+    },
+    {
+      "low_name": "Huawei__2066.png",
+      "low_sha256": "6f9879eb22bf7e29b6bfd28a3aaefcec4b66b74e92039fd732e4b3c480a03913",
+      "name": "Huawei__2066.png",
+      "cluster": "Huawei__2066",
+      "output_tensor_sha256": "f543d051979849019d8b3d93664dd1f35dea915952d7191a2009ca603d745fd2",
+      "shape": [
+        1,
+        3,
+        720,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 12,
+        "k_rho": 27,
+        "r_FS": 0.5135872407974599,
+        "r_target": 0.9267270844742403,
+        "selected_step": 24
+      },
+      "psnr": 17.920358108189912,
+      "rgb_ssim": 0.4048073487028004,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4bc10a17af2bb559404f5dde0209d11721c8309b8b599bf547103f67a1da2776"
+    },
+    {
+      "low_name": "Nikon__3001.png",
+      "low_sha256": "5b925c47e452d6b275061631ae774116b750e966511422f7f7702d77cd192897",
+      "name": "Nikon__3001.png",
+      "cluster": "Nikon__3001",
+      "output_tensor_sha256": "e8c056bdf1abe1cf3bb14a5629cf6795a94d2a65bd845fd0ff3283a4003d6f07",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 26,
+      "active": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 27,
+        "r_FS": 0.025934132042606566,
+        "r_target": 0.8657704458798837,
+        "selected_step": 26
+      },
+      "psnr": 14.34123904010888,
+      "rgb_ssim": 0.6902537653071317,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "ed9479f350de39c9170584898b9c4ba2ea6364ff6f22f70210d1d0699abc036a"
+    },
+    {
+      "low_name": "Nikon__3002.png",
+      "low_sha256": "b5313bda24706769f4dc27daf35f4f6f3b5be4436ba3324dbfbf3037c96b4f89",
+      "name": "Nikon__3002.png",
+      "cluster": "Nikon__3002",
+      "output_tensor_sha256": "f46943be682b938d9358008f836c16d7cb621613b50053c6e79ac8810a7d1a2e",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 18,
+      "active": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 24,
+        "r_FS": 0.08004746114874481,
+        "r_target": 0.872534612018151,
+        "selected_step": 18
+      },
+      "psnr": 10.714016121484647,
+      "rgb_ssim": 0.42924504515479794,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8f3487954be8b927971f20b1340cc431873a7a7ac9271529b5dc957e83429f17"
+    },
+    {
+      "low_name": "Nikon__3003.png",
+      "low_sha256": "7918122f2dfb1b88f072fedcf18db7cd85bfed0a2b9f76dfaf179c43304143b7",
+      "name": "Nikon__3003.png",
+      "cluster": "Nikon__3003",
+      "output_tensor_sha256": "ab2ce9ddd84e5fdeb9f9391444099442d317cb360c06f748bec3a87f951db1f2",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 5,
+        "k_rho": 27,
+        "r_FS": 0.13256305917079236,
+        "r_target": 0.8790990617709069,
+        "selected_step": 24
+      },
+      "psnr": 11.307702027461943,
+      "rgb_ssim": 0.22423588369267686,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "564762bbcccb6ce53090d844a27434a69d3e760636a3f1e8a193efa1b2da3852"
+    },
+    {
+      "low_name": "Nikon__3004.png",
+      "low_sha256": "ce0f34bde6bc15a18efd0ea558672ddc9ac452be8b2e7cf03e7b4d88ec69060f",
+      "name": "Nikon__3004.png",
+      "cluster": "Nikon__3004",
+      "output_tensor_sha256": "9b11e86d3c39c198eb10e501951dc5c6485aead0165da5678726499ef8f8c7bb",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 27,
+        "r_FS": 0.0550092953636996,
+        "r_target": 0.8694048412950204,
+        "selected_step": 23
+      },
+      "psnr": 11.93790104723391,
+      "rgb_ssim": 0.3678355328292088,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "4bd09871e668847740b2c916d45be5d0e0e1aca43e1de6bd14ba2b072a052a44"
+    },
+    {
+      "low_name": "Nikon__3005.png",
+      "low_sha256": "544558ae0f06094d188e1371d3aa1dd1ec06559720d744ae50904c18b2b42c52",
+      "name": "Nikon__3005.png",
+      "cluster": "Nikon__3005",
+      "output_tensor_sha256": "db78cc13fa5dd43e0639d26653af1c3a7ab2a2a1040fb1c351b2688873c66a10",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 19,
+      "active": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 25,
+        "r_FS": 0.08341884547885403,
+        "r_target": 0.8729560350594147,
+        "selected_step": 19
+      },
+      "psnr": 15.1841603303693,
+      "rgb_ssim": 0.34564286041563796,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8eeff6a21e9917eba546de82589fdee3ec6a38e50606de7819e0288b581117ec"
+    },
+    {
+      "low_name": "Nikon__3006.png",
+      "low_sha256": "2c8439ba18532578c1fcf71fb04fd2e322673e53a4e8e74e3ed6487d9d0684f5",
+      "name": "Nikon__3006.png",
+      "cluster": "Nikon__3006",
+      "output_tensor_sha256": "27566243b94286fcbee59a9cf958108d9a1bfb41660dda68d426e2e1a3e4463f",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 18,
+      "active": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 24,
+        "r_FS": 0.08532331648887283,
+        "r_target": 0.8731940939356669,
+        "selected_step": 18
+      },
+      "psnr": 15.210931761915166,
+      "rgb_ssim": 0.5678495211250181,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "ef3ffbdc177a6adc35943604aa49af82c8d73f3f6d1ebc8f775a7a518f54c17f"
+    },
+    {
+      "low_name": "Nikon__3007.png",
+      "low_sha256": "25814cc0d1282ab915f3808d5ce46e880d4cb3740e0ba92d4f3379f377086028",
+      "name": "Nikon__3007.png",
+      "cluster": "Nikon__3007",
+      "output_tensor_sha256": "ccc3bff008a8a6aeb400ec9f9598960f1a2edc487a5fc91e7b695cff07628f99",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 12,
+      "active": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 16,
+        "r_FS": 0.08316736982578295,
+        "r_target": 0.8729246006027808,
+        "selected_step": 12
+      },
+      "psnr": 9.476116196370041,
+      "rgb_ssim": 0.190549557189006,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "461ea443e6ac888c1af86aa68b7810d364ca2186886f721ef22e37a1a5c828a7"
+    },
+    {
+      "low_name": "Nikon__3008.png",
+      "low_sha256": "d685e5cf5448c7e107cf8a383e33e0f259720867fd711b48ba5335843ac38c93",
+      "name": "Nikon__3008.png",
+      "cluster": "Nikon__3008",
+      "output_tensor_sha256": "024db350439f0f549ed8236340098891d5d7c3d729a19e5561ae0900a3ae2e6e",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 11,
+      "active": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 16,
+        "r_FS": 0.09099861778542767,
+        "r_target": 0.8739035065977363,
+        "selected_step": 11
+      },
+      "psnr": 10.468464956244956,
+      "rgb_ssim": 0.19921160363732646,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "5df34f29a746eb972cc7664253b5c4dca5ece11db038b53fdeb6f3018455ba57"
+    },
+    {
+      "low_name": "Nikon__3009.png",
+      "low_sha256": "0ca1136107045289cb442359711e83c5b7f2058be58cfae792d03510c41b3bb3",
+      "name": "Nikon__3009.png",
+      "cluster": "Nikon__3009",
+      "output_tensor_sha256": "53043f7b741dd69677b9aacf345993eeaaab7cac26651df58f7ba55602f5446a",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 10,
+      "active": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 14,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 10
+      },
+      "psnr": 9.39339411714868,
+      "rgb_ssim": 0.2707780311722729,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6a7884481c71e45e105c5b942ddaeaa56c32f13854381363d38d61b200433f16"
+    },
+    {
+      "low_name": "Nikon__3010.png",
+      "low_sha256": "ab1706bcb801107be2185335413302dfb13082bb904a7c87ca2a21775dfbe803",
+      "name": "Nikon__3010.png",
+      "cluster": "Nikon__3010",
+      "output_tensor_sha256": "3431d3435bb156183e85629807f8cd6b47e8e5fac06c1314c181706a8b242f19",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.09357070438758282,
+        "r_target": 0.8742250174230057,
+        "selected_step": 22
+      },
+      "psnr": 8.802258796459236,
+      "rgb_ssim": 0.2344977167842543,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "59001d25ca3f3ad37422d1ca5175113c7b73b7db702bac38638ca56a24a2ad38"
+    },
+    {
+      "low_name": "Nikon__3011.png",
+      "low_sha256": "a877a8c5bf9fc5625203575339b536faf59e8de8482982627095177c08183280",
+      "name": "Nikon__3011.png",
+      "cluster": "Nikon__3011",
+      "output_tensor_sha256": "acfb32ab675ada4214d98ce5c42a4b5437a06c35120fe8b795c3c5977c09ee2f",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 27,
+        "r_FS": 0.08167322624690329,
+        "r_target": 0.8727378326554208,
+        "selected_step": 22
+      },
+      "psnr": 13.97774024072655,
+      "rgb_ssim": 0.4942153962034869,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8c31f922f262e8f19ce1cf459d2c0e99fdf4d6a709bc5f1a90efad4e8cbf71b1"
+    },
+    {
+      "low_name": "Nikon__3012.png",
+      "low_sha256": "78f9c0e2cd8224806b93c29fb20951d06772b06246ad2a110f05a462732e2f5b",
+      "name": "Nikon__3012.png",
+      "cluster": "Nikon__3012",
+      "output_tensor_sha256": "382b38c9883dd0a752544c59cabfca02e57b51411fbd82f29340bd6e3a246de5",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 18,
+      "active": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 23,
+        "r_FS": 0.1450389563998187,
+        "r_target": 0.8806585489245352,
+        "selected_step": 18
+      },
+      "psnr": 12.868322147637855,
+      "rgb_ssim": 0.3450409778563972,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "f858b5939de5c5104022a8ff736a8b9c2ef999c6e159fb99fc0a4de93ceb7239"
+    },
+    {
+      "low_name": "Nikon__3013.png",
+      "low_sha256": "0b97ee46503d6e584017dbefc68565521b37c2bf0aaf886e9dec2bc2b53b9782",
+      "name": "Nikon__3013.png",
+      "cluster": "Nikon__3013",
+      "output_tensor_sha256": "5215360d7c6efee6d843fc9e5553ab76bff3af4ad4be8507e1322ae48a139f4d",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 24,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 27,
+        "r_FS": 0.07862293627051395,
+        "r_target": 0.8723565464083721,
+        "selected_step": 24
+      },
+      "psnr": 16.47964262241802,
+      "rgb_ssim": 0.38910490173676154,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "5b1d0a20a6306f0db00cb56f919707c54fcd64c540140b7168754f9dc50d427d"
+    },
+    {
+      "low_name": "Nikon__3014.png",
+      "low_sha256": "a3029d7263cae5634f87d4dd992c487fdac9d597d45f6b576460a795a1a9700d",
+      "name": "Nikon__3014.png",
+      "cluster": "Nikon__3014",
+      "output_tensor_sha256": "6376fc60c625807be340960bbdd41ffeaa4fd69f28fa8b26ba41c9512cd53a5b",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 23,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 0,
+        "k_rho": 27,
+        "r_FS": 0.0,
+        "r_target": 0.8625286793745579,
+        "selected_step": 23
+      },
+      "psnr": 14.666393561885398,
+      "rgb_ssim": 0.36972928255434906,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "aa25a9190b1da5f8a57e97e7aae6a7787c47631f80e00b8cbd8cf2f12cd94a53"
+    },
+    {
+      "low_name": "Nikon__3015.png",
+      "low_sha256": "e5e0a4a9806bdc35767cb3b50e145075a580b09b39918dc51edf58ce7539b6bd",
+      "name": "Nikon__3015.png",
+      "cluster": "Nikon__3015",
+      "output_tensor_sha256": "71aec4060d2039d692b8a5990b23114a17c53f7b51f4269e4c25efa02a7a2892",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 12,
+      "active": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 17,
+        "r_FS": 0.1769643807691735,
+        "r_target": 0.8846492269707046,
+        "selected_step": 12
+      },
+      "psnr": 10.829015692664614,
+      "rgb_ssim": 0.21798533647032675,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8c2bb2c4abb855dcac520cf22bc4f576bbddd8589f276b86bbbd2fed8d1b5c65"
+    },
+    {
+      "low_name": "Nikon__3016.png",
+      "low_sha256": "25906cffb1ce06b2732638e4825c818406284ff9b4c353bce3e1841479553425",
+      "name": "Nikon__3016.png",
+      "cluster": "Nikon__3016",
+      "output_tensor_sha256": "6aa63f11b7c599fbda30315f7ebb6801e37a9e1954eb0b85e4e59081d50a4e6d",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 11,
+      "active": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 2,
+        "k_rho": 15,
+        "r_FS": 0.208734258109359,
+        "r_target": 0.8886204616382277,
+        "selected_step": 11
+      },
+      "psnr": 11.974187494583258,
+      "rgb_ssim": 0.35642514351152665,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "aa8e9266d6a89cf74f0863f30b8b461751b65294ee3a086d318f5a30468eabbf"
+    },
+    {
+      "low_name": "Nikon__3017.png",
+      "low_sha256": "66b0cbfbd4779302faa11f2cc186e69e32771833a443e76b561bf6226e6d753a",
+      "name": "Nikon__3017.png",
+      "cluster": "Nikon__3017",
+      "output_tensor_sha256": "505b8c4d1e07a6af390590428fb70006724ffe8f6ab3e9f22f4d076fedc9c16f",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 21,
+      "active": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 5,
+        "k_rho": 26,
+        "r_FS": 0.203601334673816,
+        "r_target": 0.8879788462087849,
+        "selected_step": 21
+      },
+      "psnr": 11.97548823606321,
+      "rgb_ssim": 0.4651012128104996,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "6fd7b5ed9c253d24f7e4906f1dd9e6485a3b67719f1211c890740ad6273dd6f2"
+    },
+    {
+      "low_name": "Nikon__3018.png",
+      "low_sha256": "353b86d7f992a7cc53b6a6809771106eee7fefe270405cd6593c27184f17712d",
+      "name": "Nikon__3018.png",
+      "cluster": "Nikon__3018",
+      "output_tensor_sha256": "5241c3f7f1496982042e96364591b3c744fb23db0c8e719db4d93d9936545695",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 22,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 13,
+        "k_rho": 25,
+        "r_FS": 0.7547617708581512,
+        "r_target": 0.9568739007318268,
+        "selected_step": 22
+      },
+      "psnr": 20.30029349200314,
+      "rgb_ssim": 0.583922664892016,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "8ee008a25aef182d39e4395b5b7dc0abaa756d5646b95fb9443195be726ffaf5"
+    },
+    {
+      "low_name": "Nikon__3019.png",
+      "low_sha256": "e4f3997cdde3d58dc387f39753c7a14066f5b264682b19bf904f46b49370773a",
+      "name": "Nikon__3019.png",
+      "cluster": "Nikon__3019",
+      "output_tensor_sha256": "6e7dfa6bc27adb5162832a9c752f9400ec40aeccb90686f4967d6c21a146dfa8",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 19,
+      "active": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 3,
+        "k_rho": 26,
+        "r_FS": 0.15750325670220866,
+        "r_target": 0.8822165864623339,
+        "selected_step": 19
+      },
+      "psnr": 15.551689143509961,
+      "rgb_ssim": 0.4851378859239182,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "3b85eef7a863c94f359baad112340cade51bb6cab663a62a154d2286e0474ad4"
+    },
+    {
+      "low_name": "Nikon__3020.png",
+      "low_sha256": "b39e45530942cb938fb2d2dee6828c9473a9f06480c3e52516694518624e4b00",
+      "name": "Nikon__3020.png",
+      "cluster": "Nikon__3020",
+      "output_tensor_sha256": "61d19240c9188b1df8ec534b2b709ae09653de289be5c23a86469f9926bbb538",
+      "shape": [
+        1,
+        3,
+        640,
+        960
+      ],
+      "dtype": "torch.float32",
+      "setting_id": "0ef8354d809744170950fec50b9ec18b5d25fa63aa4270eb80a7197f206a3890",
+      "status": "TTT_EXECUTED",
+      "selected_step": 18,
+      "active": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "decision": {
+        "lambda_value": 0.875,
+        "k_FS": 1,
+        "k_rho": 24,
+        "r_FS": 0.04435568293980184,
+        "r_target": 0.8680731397420332,
+        "selected_step": 18
+      },
+      "psnr": 13.032724882908028,
+      "rgb_ssim": 0.44504861683024616,
+      "clipped_below": 0.0,
+      "clipped_above": 0.0,
+      "output_file_sha256": "fa6eadc422f8afe6d85767e486cae78908c5f1ef20e5fd2fd74b6d76f54dde8c"
+    }
+  ],
+  "execution_mode": "cross_environment_exploration_not_frozen_reproduction",
+  "default_frozen_hash_mismatches": [
+    "Huawei__2037.png",
+    "Huawei__2040.png",
+    "Huawei__2042.png",
+    "Huawei__2046.png",
+    "Huawei__2047.png",
+    "Huawei__2050.png",
+    "Huawei__2057.png",
+    "Huawei__2058.png",
+    "Huawei__2059.png",
+    "Huawei__2060.png",
+    "Huawei__2064.png",
+    "Huawei__2065.png",
+    "Huawei__2066.png",
+    "Nikon__3001.png",
+    "Nikon__3003.png",
+    "Nikon__3005.png",
+    "Nikon__3008.png",
+    "Nikon__3013.png",
+    "Nikon__3017.png",
+    "Nikon__3018.png",
+    "Nikon__3019.png",
+    "Nikon__3020.png"
+  ]
+}
