@@ -1,0 +1,15 @@
+[autodl] run_id=20260918-183141-ttie-t059q-consensus
+[autodl] started_at=2026-09-18T18:31:47+08:00
+DECISIONS_FROZEN 2026-09-18T10:31:48.850550+00:00 {'non_singleton_banks': 63, 'agreed_non_singleton': 41, 'singleton_banks': 17, 'fraction': 0.6507936507936508}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-ttie-t059q-consensus/research_log/T059Q/run.py", line 41, in <module>
+    p=argparse.ArgumentParser();p.add_argument('stage',choices=['decide','evaluate']);p.add_argument('--out',type=pathlib.Path,required=True);a=p.parse_args();dict(decide=decide,evaluate=evaluate)[a.stage](a.out)
+                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wenchang/asdasdsad/wjq/TTIE/releases/20260918-ttie-t059q-consensus/research_log/T059Q/run.py", line 37, in evaluate
+    assert b['policies']['E']['regret']==prior[b['bank']]['argmin_regret']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+[autodl] finished_at=2026-09-18T18:31:50+08:00
+[autodl] exit_code=1

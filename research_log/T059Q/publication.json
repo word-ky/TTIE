@@ -1,0 +1,62 @@
+{
+  "task": "T059-Q",
+  "status": "DONE",
+  "source": "4be3ca6ed25c0c8db6b8e61765e6d2178209920c",
+  "decision_source": "8473e9a55e0c6ec271775731ad1127ca5ff1c860",
+  "run": "20260918-183520-ttie-t059q-report-recovery",
+  "initial_run": "20260918-183141-ttie-t059q-consensus",
+  "classification": "exact dual-head agreement is not a sufficient target-free safety gate; stop",
+  "coverage": {
+    "non_singleton_banks": 63,
+    "agreed_non_singleton": 41,
+    "singleton_banks": 17,
+    "fraction": 0.6507936507936508
+  },
+  "statistics": {
+    "E": {
+      "banks": 80,
+      "exact_oracle_hit_count": 58,
+      "exact_oracle_hit_rate": 0.725,
+      "mean_regret": 0.24020987916737796,
+      "median_regret": 0.0,
+      "p90_regret": 0.08642201870679866,
+      "max_regret": 6.364080429077148,
+      "harm_count": 3,
+      "harm_fraction": 0.0375
+    },
+    "M": {
+      "banks": 80,
+      "exact_oracle_hit_count": 52,
+      "exact_oracle_hit_rate": 0.65,
+      "mean_regret": 0.2690812815912068,
+      "median_regret": 0.0,
+      "p90_regret": 0.1460764527320867,
+      "max_regret": 7.348230361938477,
+      "harm_count": 3,
+      "harm_fraction": 0.0375
+    },
+    "Q": {
+      "banks": 80,
+      "exact_oracle_hit_count": 52,
+      "exact_oracle_hit_rate": 0.65,
+      "mean_regret": 0.21365644820034504,
+      "median_regret": 0.0,
+      "p90_regret": 0.5538098931312562,
+      "max_regret": 6.364080429077148,
+      "harm_count": 1,
+      "harm_fraction": 0.0125
+    }
+  },
+  "raw_sha256": "a80f2d988bfbc6eb86e2379daa4a7569e85675032774bb47b93e0bd500f44e7f",
+  "evidence_commit": "c23db2d43dcb97eaf38f17f6d51019f5ce46e540",
+  "pr": "https://github.com/word-ky/TTIE/pull/116",
+  "branch": "codex/T059Q-consensus",
+  "release": "20260918-ttie-t059q-report-repair",
+  "published_utc": "2026-09-18T10:39:21.316852+00:00",
+  "reported": true,
+  "main_mailbox_commit": "2a8543cd07ca74b3c16abd35f521419ff9702ae4",
+  "completion_entries": 1,
+  "next_step": "Wait for research-lead review; no new gate or repeated audit",
+  "local_disk_full": true,
+  "updated_utc": "2026-09-18T10:40:59.526656+00:00"
+}
