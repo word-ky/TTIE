@@ -1,0 +1,19 @@
+[autodl] run_id=20260918-170231-ttie-t059p-clip
+[autodl] started_at=2026-09-18T17:02:37+08:00
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+PROVENANCE_BOUND 2026-09-18T09:02:50.528956+00:00
+/home/wenchang/anaconda3/envs/python3.12-tk2-2.3/lib/python3.12/site-packages/torch/cuda/__init__.py:654: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/home/wenchang/asdasdsad/wjq/TTIE/.venv/lib/python3.12/site-packages/open_clip/factory.py:129: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=map_location)
+FEATURES fit torch.Size([3604, 5, 512]) 2026-09-18T09:03:20.288155+00:00
+FEATURES selector torch.Size([753, 5, 512]) 2026-09-18T09:03:26.490710+00:00
+MAPS_FROZEN 2026-09-18T09:03:32.505379+00:00
+PREDICTIONS_FROZEN 2026-09-18T09:03:34.939473+00:00
+{"classification": "frozen CLIP-latent locality fails the source control; stop", "metrics": {"fit": {"huber": 0.11241389811038971, "margin": -0.03590540029108524, "queries_with_ties": 7, "maximum_ties": 3}, "selector": {"huber": 0.19629433751106262, "margin": -0.11978583969175816, "queries_with_ties": 0, "maximum_ties": 1}}}
+REPLAY fit 0.11241389811038971
+REPLAY selector 0.19629433751106262
+{"verification": "PASS", "all4357_vectors_distances_ties_neighbors_predictions_losses_verified": true, "embedding_forwards_repeated": false, "representation_replayed_from_persisted_embeddings": true, "per_image_and_bank_metrics_verified": true, "huber": {"fit": 0.11241389811038971, "selector": 0.19629433751106262}, "max_distance_error": {"fit": 1.7763568394002505e-15, "selector": 1.7763568394002505e-15}, "classification": "frozen CLIP-latent locality fails the source control; stop", "result_sha256": "413fa8a6ea3f2ea34b12385db670e63c1777fff203f08352befb83d536acae3e"}
+[autodl] finished_at=2026-09-18T17:10:50+08:00
+[autodl] exit_code=0
