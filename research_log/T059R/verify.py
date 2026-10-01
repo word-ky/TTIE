@@ -1,0 +1,24 @@
+import pathlib,sys,json,hashlib,math,numpy as np
+from research_log.T059R.storage import tensor_only
+out=pathlib.Path(sys.argv[1]);sha=lambda p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest();r=json.loads((out/'result.json').read_text());m=r['marker'];d=json.loads((out/'descriptors.json').read_text());rows=json.loads((out/'prediction_rows.json').read_text());ev=json.loads((out/'evaluation_table.json').read_text());tr=json.loads((out/'target_rows.json').read_text());assert sha(out/'descriptors.json')==m['descriptors_sha256'] and sha(out/'prediction_rows.json')==m['prediction_rows_sha256'];assert sha(out/'target_rows.json')==r['target_rows_sha256'] and sha(out/'evaluation_table.json')==r['evaluation_table_sha256'];assert r['inputs_before']==r['inputs_after'] and all(sha(p)==h for p,h in r['inputs_before'].items());assert all(sha(p)==h for p,h in m['source_binding'].items());assert m['persisted_utc']<tr['opened_utc']==r['target_opened_utc'];assert all(v['key'] in ['p','anchor_indices','anchors'] for v in m['prediction_storage_reads'])
+def rank(v):return np.array([1+sum(y<x for y in v)+.5*(sum(y==x for y in v)-1) for x in v],dtype=float)
+def rho(a,b):
+ x=rank(a);y=rank(b);x-=sum(x)/len(x);y-=sum(y)/len(y);return float(sum(x*y)/math.sqrt(sum(x*x)*sum(y*y)))
+for h,suffix in [('E','/T059E/heldout_row_values.pt'),('M','/T059M/heldout_rows.pt')]:
+ path=next(p for p in m['inputs'] if p.endswith(suffix));v,_=tensor_only(path,'p');assert v.tolist()==rows[h]
+epath=next(p for p in m['inputs'] if p.endswith('/T059E/heldout_row_values.pt'));target,_=tensor_only(epath,'delta_t');assert target.tolist()==tr['delta_t'] and tr['global_indices']==rows['global'];t=target.numpy();replayed=[]
+for b,e in zip(d,ev):
+ ids=sorted([i for i,x in enumerate(rows['bank']) if x==b['bank']],key=lambda i:(rows['state'][i],rows['global'][i]));assert len(ids)>1 and ids==b['row_indices'];assert b['global_ids']==[rows['global'][i] for i in ids];a=[rows['E'][i] for i in ids];c=[rows['M'][i] for i in ids];v=rho(a,c);assert abs(v-b['rho_EM'])<1e-14 and abs((1-v)-b['u'])<1e-14;assert a==b['p_E'] and c==b['p_M'];anchor=next(i for i in ids if rows['state'][i]==0);assert anchor==b['anchor']
+ for h in ['E','M']:
+  selected=min(ids,key=lambda i:(rows[h][i],rows['state'][i],rows['global'][i]));assert selected==b['a_'+h]
+ harm=float(t[b['a_E']]-t[anchor]);assert harm==e['harm_vs_anchor'] and e['unsafe_E']==(harm>0);replayed.append(dict(bank=b['bank'],u=1-v,harm=harm))
+order=sorted(replayed,key=lambda b:(-b['u'],b['bank']));assert len(d)==63
+for i,b in enumerate(order,1):
+ z=next(v for v in d if v['bank']==b['bank']);assert z['uncertainty_rank']==i and z['uncertainty_percentile']==100*(i-1)/62
+u=[b['u'] for b in ev];labels=np.array([b['harm_vs_anchor']>0 for b in ev]);n1=int(labels.sum());n0=len(ev)-n1;auc=float((rank(u)[labels].sum()-n1*(n1+1)/2)/(n1*n0));assert auc==r['auroc'] and n1==r['unsafe_count'];corr=rho(u,[max(b['harm_vs_anchor'],0) for b in ev]);assert abs(corr-r['spearman_u_positive_harm'])<1e-14
+for name,flag in [('unsafe',True),('safe',False)]:
+ vals=[b['u'] for b in ev if b['unsafe_E']==flag];q=np.quantile(vals,[.25,.5,.75]);assert r['groups'][name]==dict(count=len(vals),median=float(q[1]),q25=float(q[0]),q75=float(q[2]),iqr=float(q[2]-q[0]))
+unsafe=[b for b in ev if b['unsafe_E']];worst=max(ev,key=lambda b:(b['harm_vs_anchor'],-b['bank']));conditions=dict(auroc_at_least_090=auc>=.9,all_unsafe_top_quartile=all(b['uncertainty_percentile']<=25 for b in unsafe),maximum_harm_top_decile=worst['uncertainty_percentile']<=10);label='T059-R inconclusive; too few unsafe banks for this diagnostic' if n1<2 else 'full-curve cross-head disagreement is supported as a source-only uncertainty mechanism candidate' if all(conditions.values()) else 'full-curve cross-head disagreement is not a convincing tail-uncertainty mechanism; stop the dual-head disagreement line';assert label==r['classification'] and conditions==r['conditions'];assert r['unsafe_banks']==[{k:b[k] for k in ['bank','image','u','rho_EM','uncertainty_rank','uncertainty_percentile','harm_vs_anchor']} for b in unsafe];assert r['maximum_harm_bank']=={k:worst[k] for k in ['bank','u','uncertainty_rank','uncertainty_percentile','harm_vs_anchor']}
+qpath=next(p for p in r['inputs_before'] if p.endswith('/T059Q/evaluation_table.json'));qt=json.loads(pathlib.Path(qpath).read_text())
+for b in qt:assert float(t[b['a_E']]-t[b['anchor']])==b['policies']['E']['harm_vs_anchor']
+assert all(v==0 for v in r['counters'].values());v=dict(verification='PASS',all63_descriptors_average_ranks_argmins_uncertainty_ranks_and_metrics_verified=True,all80_Q_E_harms_exact=True,classification=label,auroc=auc,result_sha256=sha(out/'result.json'));(out/'verification.json').write_text(json.dumps(v,indent=2));print(json.dumps(v))
