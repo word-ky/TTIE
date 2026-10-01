@@ -1,0 +1,20 @@
+{
+  "task": "T072-M",
+  "classification": "BLOCKED_GPU_GATE",
+  "authorization": "cce84a1a",
+  "checked_utc": "2026-09-22T17:22:55Z",
+  "gate_checks": 1,
+  "gate": {"device": "NVIDIA RTX A6000", "minimum_free_mib": 40960, "maximum_unrelated_process_mib": 1024, "qualifying_devices": []},
+  "smoke": {"name": "1003_UHD_LL.JPG", "sha256": "cb89bcd019ac26a34665f07189483a0138e76e9b00714337c5e2919bae9062ca", "geometry_wh": [3840,2160], "mode": "RGB", "identity_source": "accepted T072-I declaration; payload unopened"},
+  "bindings": {"retinexformer": "a9a61665602618adf20c5fb6b05af22da5906c293876fe27342c05a5da833d00", "snr_aware": "03ce8bb7f608051ec5c5fd92b7a3e3baea315a2d3978f4c62cc114d226cee875"},
+  "run_counts": {"retinexformer": 0, "snr_aware": 0, "ours": 0},
+  "statuses": {"retinexformer": "UNRUN", "snr_aware": "UNRUN", "ours": "NOT_RUN"},
+  "inference_runs": 0,
+  "reference_reads": 0,
+  "metrics": 0,
+  "input_payload_reads": 0,
+  "input_decodes": 0,
+  "process_interventions": 0,
+  "outputs": [],
+  "next_step": "Stop T072-M; no polling or retry under this task. Await research-lead review."
+}
