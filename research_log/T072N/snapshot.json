@@ -1,0 +1,327 @@
+{
+  "task": "T072-N",
+  "utc": "2026-09-22T18:08:39.064578+00:00",
+  "gpu_query": {
+    "argv": [
+      "nvidia-smi",
+      "--query-gpu=index,uuid,name,memory.total,memory.used,memory.free,utilization.gpu",
+      "--format=csv,noheader,nounits"
+    ],
+    "returncode": 0,
+    "stdout": "0, GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, NVIDIA RTX A6000, 49140, 45045, 3495, 0\n1, GPU-9c468c54-b125-4903-1476-77c4d63270be, NVIDIA RTX A6000, 49140, 45043, 3497, 0\n",
+    "stderr": ""
+  },
+  "process_query": {
+    "argv": [
+      "nvidia-smi",
+      "--query-compute-apps=gpu_uuid,pid,process_name,used_memory",
+      "--format=csv,noheader,nounits"
+    ],
+    "returncode": 0,
+    "stdout": "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, 1337099, VLLM::Worker_TP0, 44974\nGPU-9c468c54-b125-4903-1476-77c4d63270be, 1337100, VLLM::Worker_TP1, 44974\n",
+    "stderr": ""
+  },
+  "blockers": [
+    {
+      "pid": 1337099,
+      "metadata": {
+        "argv": [
+          "ps",
+          "-p",
+          "1337099",
+          "-o",
+          "user:32=,pid=,ppid=,comm:40=,lstart=,etimes="
+        ],
+        "returncode": 0,
+        "stdout": "root                             1337099 1336825 VLLM::Worker_TP                          Sun Sep 20 02:05:33 2026  259385\n",
+        "stderr": ""
+      },
+      "parent_chain": [
+        {
+          "level": 1,
+          "argv": [
+            "ps",
+            "-p",
+            "1336825",
+            "-o",
+            "pid=,ppid=,comm="
+          ],
+          "returncode": 0,
+          "stdout": "1336825 1335709 VLLM::EngineCor\n",
+          "stderr": ""
+        },
+        {
+          "level": 2,
+          "argv": [
+            "ps",
+            "-p",
+            "1335709",
+            "-o",
+            "pid=,ppid=,comm="
+          ],
+          "returncode": 0,
+          "stdout": "1335709 1335687 vllm\n",
+          "stderr": ""
+        },
+        {
+          "level": 3,
+          "argv": [
+            "ps",
+            "-p",
+            "1335687",
+            "-o",
+            "pid=,ppid=,comm="
+          ],
+          "returncode": 0,
+          "stdout": "1335687       1 containerd-shim\n",
+          "stderr": ""
+        },
+        {
+          "level": 4,
+          "argv": [
+            "ps",
+            "-p",
+            "1",
+            "-o",
+            "pid=,ppid=,comm="
+          ],
+          "returncode": 0,
+          "stdout": "      1       0 systemd\n",
+          "stderr": ""
+        }
+      ],
+      "status": "RUNNING",
+      "cwd": {
+        "status": "UNAVAILABLE",
+        "error_type": "PermissionError",
+        "errno": 13,
+        "message": "[Errno 13] Permission denied: '/proc/1337099/cwd'"
+      }
+    },
+    {
+      "pid": 1337100,
+      "metadata": {
+        "argv": [
+          "ps",
+          "-p",
+          "1337100",
+          "-o",
+          "user:32=,pid=,ppid=,comm:40=,lstart=,etimes="
+        ],
+        "returncode": 0,
+        "stdout": "root                             1337100 1336825 VLLM::Worker_TP                          Sun Sep 20 02:05:33 2026  259385\n",
+        "stderr": ""
+      },
+      "parent_chain": [
+        {
+          "level": 1,
+          "argv": [
+            "ps",
+            "-p",
+            "1336825",
+            "-o",
+            "pid=,ppid=,comm="
+          ],
+          "returncode": 0,
+          "stdout": "1336825 1335709 VLLM::EngineCor\n",
+          "stderr": ""
+        },
+        {
+          "level": 2,
+          "argv": [
+            "ps",
+            "-p",
+            "1335709",
+            "-o",
+            "pid=,ppid=,comm="
+          ],
+          "returncode": 0,
+          "stdout": "1335709 1335687 vllm\n",
+          "stderr": ""
+        },
+        {
+          "level": 3,
+          "argv": [
+            "ps",
+            "-p",
+            "1335687",
+            "-o",
+            "pid=,ppid=,comm="
+          ],
+          "returncode": 0,
+          "stdout": "1335687       1 containerd-shim\n",
+          "stderr": ""
+        },
+        {
+          "level": 4,
+          "argv": [
+            "ps",
+            "-p",
+            "1",
+            "-o",
+            "pid=,ppid=,comm="
+          ],
+          "returncode": 0,
+          "stdout": "      1       0 systemd\n",
+          "stderr": ""
+        }
+      ],
+      "status": "RUNNING",
+      "cwd": {
+        "status": "UNAVAILABLE",
+        "error_type": "PermissionError",
+        "errno": 13,
+        "message": "[Errno 13] Permission denied: '/proc/1337100/cwd'"
+      }
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=index,uuid,name,memory.total,memory.used,memory.free,utilization.gpu",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "stdout": "0, GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, NVIDIA RTX A6000, 49140, 45045, 3495, 0\n1, GPU-9c468c54-b125-4903-1476-77c4d63270be, NVIDIA RTX A6000, 49140, 45043, 3497, 0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "nvidia-smi",
+        "--query-compute-apps=gpu_uuid,pid,process_name,used_memory",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "stdout": "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe, 1337099, VLLM::Worker_TP0, 44974\nGPU-9c468c54-b125-4903-1476-77c4d63270be, 1337100, VLLM::Worker_TP1, 44974\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1337099",
+        "-o",
+        "user:32=,pid=,ppid=,comm:40=,lstart=,etimes="
+      ],
+      "returncode": 0,
+      "stdout": "root                             1337099 1336825 VLLM::Worker_TP                          Sun Sep 20 02:05:33 2026  259385\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1336825",
+        "-o",
+        "pid=,ppid=,comm="
+      ],
+      "returncode": 0,
+      "stdout": "1336825 1335709 VLLM::EngineCor\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1335709",
+        "-o",
+        "pid=,ppid=,comm="
+      ],
+      "returncode": 0,
+      "stdout": "1335709 1335687 vllm\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1335687",
+        "-o",
+        "pid=,ppid=,comm="
+      ],
+      "returncode": 0,
+      "stdout": "1335687       1 containerd-shim\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1",
+        "-o",
+        "pid=,ppid=,comm="
+      ],
+      "returncode": 0,
+      "stdout": "      1       0 systemd\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1337100",
+        "-o",
+        "user:32=,pid=,ppid=,comm:40=,lstart=,etimes="
+      ],
+      "returncode": 0,
+      "stdout": "root                             1337100 1336825 VLLM::Worker_TP                          Sun Sep 20 02:05:33 2026  259385\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1336825",
+        "-o",
+        "pid=,ppid=,comm="
+      ],
+      "returncode": 0,
+      "stdout": "1336825 1335709 VLLM::EngineCor\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1335709",
+        "-o",
+        "pid=,ppid=,comm="
+      ],
+      "returncode": 0,
+      "stdout": "1335709 1335687 vllm\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1335687",
+        "-o",
+        "pid=,ppid=,comm="
+      ],
+      "returncode": 0,
+      "stdout": "1335687       1 containerd-shim\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ps",
+        "-p",
+        "1",
+        "-o",
+        "pid=,ppid=,comm="
+      ],
+      "returncode": 0,
+      "stdout": "      1       0 systemd\n",
+      "stderr": ""
+    }
+  ],
+  "accounting": {
+    "process_interventions": 0,
+    "inference_runs": 0,
+    "input_payload_reads": 0,
+    "reference_reads": 0,
+    "metrics": 0
+  }
+}

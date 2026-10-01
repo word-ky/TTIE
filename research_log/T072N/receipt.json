@@ -1,0 +1,125 @@
+{
+  "task": "T072-N",
+  "classification": "GPU_BLOCKER_PROVENANCE_CHARACTERIZED",
+  "snapshot_utc": "2026-09-22T18:08:39.064578+00:00",
+  "snapshot_count": 1,
+  "inventory": [
+    {
+      "index": 0,
+      "uuid": "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe",
+      "name": "NVIDIA RTX A6000",
+      "free_mib": 3495,
+      "qualifies": false,
+      "processes": [
+        [
+          "GPU-9de4332b-3b09-a3b4-5589-30229f0c14fe",
+          "1337099",
+          "VLLM::Worker_TP0",
+          "44974"
+        ]
+      ]
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-9c468c54-b125-4903-1476-77c4d63270be",
+      "name": "NVIDIA RTX A6000",
+      "free_mib": 3497,
+      "qualifies": false,
+      "processes": [
+        [
+          "GPU-9c468c54-b125-4903-1476-77c4d63270be",
+          "1337100",
+          "VLLM::Worker_TP1",
+          "44974"
+        ]
+      ]
+    }
+  ],
+  "additional_a6000": [],
+  "blockers": [
+    {
+      "user": "root",
+      "pid": 1337099,
+      "ppid": 1336825,
+      "comm": "VLLM::Worker_TP",
+      "start_host_local": "Sun Sep 20 02:05:33 2026",
+      "elapsed_seconds": 259385,
+      "parents": [
+        {
+          "pid": 1336825,
+          "ppid": 1335709,
+          "comm": "VLLM::EngineCor"
+        },
+        {
+          "pid": 1335709,
+          "ppid": 1335687,
+          "comm": "vllm"
+        },
+        {
+          "pid": 1335687,
+          "ppid": 1,
+          "comm": "containerd-shim"
+        },
+        {
+          "pid": 1,
+          "ppid": 0,
+          "comm": "systemd"
+        }
+      ],
+      "cwd": {
+        "status": "UNAVAILABLE",
+        "error_type": "PermissionError",
+        "errno": 13,
+        "message": "[Errno 13] Permission denied: '/proc/1337099/cwd'"
+      }
+    },
+    {
+      "user": "root",
+      "pid": 1337100,
+      "ppid": 1336825,
+      "comm": "VLLM::Worker_TP",
+      "start_host_local": "Sun Sep 20 02:05:33 2026",
+      "elapsed_seconds": 259385,
+      "parents": [
+        {
+          "pid": 1336825,
+          "ppid": 1335709,
+          "comm": "VLLM::EngineCor"
+        },
+        {
+          "pid": 1335709,
+          "ppid": 1335687,
+          "comm": "vllm"
+        },
+        {
+          "pid": 1335687,
+          "ppid": 1,
+          "comm": "containerd-shim"
+        },
+        {
+          "pid": 1,
+          "ppid": 0,
+          "comm": "systemd"
+        }
+      ],
+      "cwd": {
+        "status": "UNAVAILABLE",
+        "error_type": "PermissionError",
+        "errno": 13,
+        "message": "[Errno 13] Permission denied: '/proc/1337100/cwd'"
+      }
+    }
+  ],
+  "gate": {
+    "minimum_free_mib": 40960,
+    "maximum_unrelated_process_mib": 1024
+  },
+  "accounting": {
+    "process_interventions": 0,
+    "inference_runs": 0,
+    "input_payload_reads": 0,
+    "reference_reads": 0,
+    "metrics": 0
+  },
+  "verification": "PASS"
+}
